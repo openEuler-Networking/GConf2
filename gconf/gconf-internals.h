@@ -205,9 +205,11 @@ gboolean gconf_schema_validate (GConfSchema *sc,
 gboolean gconf_value_validate  (GConfValue *value,
                                 GError    **err);
 
-gboolean g_utf8_validate (const gchar  *str,
-                          gssize        max_len,    
-                          const gchar **end);
+#define g_utf8_validate gconf_g_utf8_validate
+
+gboolean gconf_g_utf8_validate (const gchar  *str,
+                                gssize        max_len,    
+                                const gchar **end);
 
 #ifdef ENABLE_NLS
 #    include <libintl.h>

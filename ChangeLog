@@ -1,5 +1,13 @@
 2001-10-29  Havoc Pennington  <hp@redhat.com>
 
+        Un-fubar this.
+	
+	* gconf/gconf-internals.c (g_utf8_skip, g_utf8_validate):
+	rename, don't just make them static. g_utf8_validate is used 
+	in other files. The idiocy continues.
+
+2001-10-29  Havoc Pennington  <hp@redhat.com>
+
 	* gconf/gconf-internals.c (g_utf8_validate): make this function
 	static, I'm a dumbass, hopefully fixes a problem people were
 	seeing with GAL

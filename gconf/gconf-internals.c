@@ -38,6 +38,8 @@
 #include <time.h>
 #include <math.h>
 
+#define g_utf8_skip gconf_g_utf8_skip
+
 typedef void (* GSpawnChildSetupFunc) (gpointer user_data);
 
 typedef enum
@@ -4287,14 +4289,14 @@ static const gchar utf8_skip_data[256] = {
   3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,6,6,0,0
 };
 
-const gchar * const static g_utf8_skip = utf8_skip_data;
+static const gchar * const gconf_g_utf8_skip = utf8_skip_data;
 
 typedef guint32 gunichar;
 
-static gboolean
-g_utf8_validate (const gchar  *str,
-                 gssize        max_len,    
-                 const gchar **end)
+gboolean
+gconf_g_utf8_validate (const gchar  *str,
+                       gssize        max_len,    
+                       const gchar **end)
 {
 
   const gchar *p;
