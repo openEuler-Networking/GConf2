@@ -27,7 +27,7 @@ EFENCE=
 
 lib_LTLIBRARIES = libgconf-1.la
 
-bin_PROGRAMS = gconfd-1 gconftool-1
+bin_PROGRAMS = gconfd-1 gconftool-1 gconf-sanity-check-1
 
 CORBA_SOURCES = GConf-common.c GConf-skels.c GConf-stubs.c GConf.h
 
@@ -67,6 +67,12 @@ gconftool_1_SOURCES = \
 	gconftool.c
 
 gconftool_1_LDADD = $(EFENCE) $(INTLLIBS) $(OAF_LIBS) $(GLIB_LIBS) $(ORBIT_LIBS) $(POPT_LIBS) $(XML_LIBS) libgconf-$(MAJOR_VERSION).la
+
+
+gconf_sanity_check_1_SOURCES = \
+	gconf-sanity-check.c
+
+gconf_sanity_check_1_LDADD = $(EFENCE) $(INTLLIBS) $(OAF_LIBS) $(GLIB_LIBS) $(ORBIT_LIBS) $(POPT_LIBS) $(XML_LIBS) libgconf-$(MAJOR_VERSION).la
 
 $(CORBA_SOURCES): $(srcdir)/GConf.idl
 	orbit-idl $(srcdir)/GConf.idl

@@ -1,3 +1,8 @@
+2002-03-14  Havoc Pennington  <hp@redhat.com>
+
+	* gconf/gconf-sanity-check.c: add sanity checker from HEAD (minus
+	the GUI parts)
+	
 2002-03-10  Havoc Pennington  <hp@pobox.com>
 
 	* gconf/gconf-sources.c (gconf_sources_query_metainfo): fix from
