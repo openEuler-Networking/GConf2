@@ -334,7 +334,7 @@ msgstr ""
 #: gconf/gconf-database.c:873
 #, c-format
 msgid "Listener ID %lu doesn't exist"
-msgstr "Слухача з ╕дентиф╕катором %lu не ╕сну╓"
+msgstr "Прослуховувача з ╕дентиф╕катором %lu не ╕сну╓"
 
 #: gconf/gconf-database.c:882
 #, c-format
