@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf cvs\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-02-18 04:49+0100\n"
 "PO-Revision-Date: 2003-01-03 01:05+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -61,7 +61,7 @@ msgstr "Kan niet lezen of schrijven naar de XML root-map op het adres \"%s\""
 #: backends/xml-backend.c:424
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
-msgstr "Map/bestands-permissies voor XML-bron bij root %s zijn: %o/%o"
+msgstr "Map/bestandsrechten voor XML-bron bij root %s zijn: %o/%o"
 
 #: backends/xml-backend.c:590
 #, c-format
@@ -137,7 +137,7 @@ msgstr "Fout bij instellen modus op `%s': %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "Fout bij het schrijven van XML gegevens naar  `%s': %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Fout bij sluiten bestand `%s': %s"
@@ -158,44 +158,44 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Fout bij het verwijderen van oud bestand `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Fout bij vergaren status van `%s': %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Dubbele \"entry\" `%s' in `%s', wordt genegeerd"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "\"Entry\" zonder naam in XML bestand `%s', word genegeerd"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Hoogste knooppunt in XML bestand `%s' is <%s> in plaats van <entry>, wordt "
 "genegeerd"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Kon map \"%s\" niet aanmaken: %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Fout bij maken bestand `%s': %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Niet gelukt om XML bestand te verwerken: \"%s\""
