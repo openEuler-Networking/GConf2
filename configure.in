@@ -168,11 +168,12 @@ BDB_LIBS=
 BDB_CFLAGS=
 
 
-AC_CHECK_LIB(db-3.1, db_env_create, BDB_LIBS=-ldb-3.1)
-
-if test "x$BDB_LIBS" = x; then
-  AC_CHECK_LIB(db-3, db_env_create, BDB_LIBS=-ldb-3)
-fi
+for dblib in db-3.3 db-3.2 db-3.1 db-3; do
+  AC_CHECK_LIB($dblib, db_env_create, BDB_LIBS=-l$dblib)
+  if test "x$BDB_LIBS" != x; then
+    break
+  fi
+done
 
 if test "x$BDB_LIBS" = x; then
   AC_MSG_WARN(No db3 library found. Not building bdb backend.)
