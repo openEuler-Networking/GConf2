@@ -3038,8 +3038,8 @@ gconf_activate_server (gboolean  start_if_not_found,
           goto out;
         }
 
-      if (gconf_file_exists (GCONF_BINDIR"/gconfd-2"))
-        argv[0] = g_strconcat (GCONF_BINDIR, "/gconfd-2", NULL);
+      if (gconf_file_exists (GCONF_LIBEXECDIR"/gconfd-2"))
+        argv[0] = g_strconcat (GCONF_LIBEXECDIR, "/gconfd-2", NULL);
       else
         argv[0] = g_strconcat (GCONF_BINDIR, "/" GCONFD, NULL);
 

@@ -16,6 +16,7 @@ INCLUDES=\
 	-DGCONF_ETCDIR=\""$(sysconfdir)/gconf"\"			\
 	-DGCONF_BUILDDIR=\""$(top_builddir)"\"				\
 	-DGCONF_BINDIR=\""$(bindir)"\"					\
+	-DGCONF_LIBEXECDIR=\""$(libexecdir)"\"                          \
 	-DGCONF_BACKEND_DIR=\""$(pkglibdir)/$(MAJOR_VERSION)"\"		\
 	-DVERSION=\""$(VERSION)"\"					\
 	-DIID=\""OAFIID:gconfd:19991118"\"				\

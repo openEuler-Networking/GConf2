@@ -1,3 +1,8 @@
+2002-07-29  Dave Camp  <dave@ximian.com>
+
+	* gconf/gconf-internals.c: (gconf_activate_server): Use libexecdir
+	instead of bindir when looking for gconfd-2.
+
 2002-04-19  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in: Added "zh_TW" to ALL_LINGUAS.
