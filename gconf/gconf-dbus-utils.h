@@ -30,6 +30,8 @@
 #define GCONF_DBUS_SERVER_INTERFACE "org.gnome.GConf.Server"
 #define GCONF_DBUS_DATABASE_INTERFACE "org.gnome.GConf.Database"
 
+#define GCONF_DBUS_SERVER_OBJECT "/org/gnome/GConf/Server"
+
 #define GCONF_DBUS_SERVER_GET_DEFAULT_DB "GetDefaultDatabase"
 #define GCONF_DBUS_SERVER_GET_DB "GetDatabase"
 #define GCONF_DBUS_SERVER_SHUTDOWN "Shutdown"

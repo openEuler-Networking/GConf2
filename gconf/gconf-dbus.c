@@ -36,6 +36,8 @@
 #include <unistd.h>
 #include <dbus/dbus.h>
 
+#define d(x)
+
 /* Maximum number of times to try re-spawning the server if it's down. */
 #define MAX_RETRIES 1
 
@@ -202,6 +204,8 @@ gconf_handle_dbus_exception (DBusMessage *message, GError** err)
 
   name = dbus_message_get_member (message);
 
+  d(g_print ("*** got error: %s\n", name));
+  
   dbus_message_get_args (message, NULL,
 			 DBUS_TYPE_STRING, &error_string,
 			 0);
@@ -695,6 +699,7 @@ gconf_engine_get_fuller (GConfEngine *conf,
   gchar *schema_name = NULL;
   DBusMessage *message, *reply;
   DBusError error;
+  gboolean success;
   
   g_return_val_if_fail(conf != NULL, NULL);
   g_return_val_if_fail(key != NULL, NULL);
@@ -764,9 +769,15 @@ gconf_engine_get_fuller (GConfEngine *conf,
 			    DBUS_TYPE_BOOLEAN, use_schema_default,
 			    DBUS_TYPE_INVALID);
 
+  d(g_print ("* send get\n"));
+
   dbus_error_init (&error);
   reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
   dbus_message_unref (message);
+
+  d(g_print ("* got reply, %p\n", reply));
+  if (dbus_error_is_set (&error))
+    d(g_print ("* got error, %s\n", error.message));
   
   if (gconf_server_broken (reply))
     if (tries < MAX_RETRIES)
@@ -791,17 +802,21 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       dbus_message_iter_init (reply, &iter);
 
-      val = gconf_dbus_create_gconf_value_from_message_iter (&iter);
-      dbus_message_iter_next (&iter);
+      d(g_print ("* try to get value\n"));
 
-      schema_name = dbus_message_iter_get_string (&iter);
-      dbus_message_iter_next (&iter);
+      success = gconf_dbus_get_entry_values_from_message_iter (&iter,
+							       NULL, //key,
+							       &val,
+							       &is_default,
+							       &is_writable,
+							       &schema_name);
+      d(g_print ("* after try to get value\n"));
 
-      is_default = dbus_message_iter_get_boolean (&iter);
-      dbus_message_iter_next (&iter);
+      if (!success)
+	{
 
-      is_writable = dbus_message_iter_get_boolean (&iter);
-      
+	}
+
       if (is_default_p)
 	*is_default_p = !!is_default;
 
@@ -1847,10 +1862,17 @@ gconf_activate_service (gboolean  start_if_not_found,
   DBusMessage *message, *reply;
 
   dbus_error_init (&error);
+
+  d(g_print ("* activate_service\n"));
   
   if (dbus_bus_service_exists (connection, GCONF_DBUS_SERVICE, &error))
-    return TRUE;
+    {
+      g_print ("* activate_service, already active\n");
+      return TRUE;
+    }
   
+  d(g_print ("* activate_service, activating\n"));
+
   if (dbus_error_is_set (&error))
     {
       g_set_error (err, GCONF_ERROR,
@@ -1909,70 +1931,22 @@ gconf_activate_service (gboolean  start_if_not_found,
 static const gchar *
 gconf_get_config_server (gboolean start_if_not_found, GError** err)
 {
-  int tries = 0;
-  DBusMessage *message, *reply;
-  DBusError error;
-  gchar *cs = NULL;
-
   g_return_val_if_fail(err == NULL || *err == NULL, server);
+
+  /* FIXME: check if we're connected and reconnect if not */
+
+  d(g_print ("* get_config_server\n"));
   
   if (server != NULL)
     return server;
 
   if (!gconf_activate_service (start_if_not_found, err))
     return NULL;
-  
- RETRY:
-      
-  message = dbus_message_new_method_call (GCONF_DBUS_SERVICE,
-					  "/org/gnome.GConf", /* FIXME: right? */
-					  "some-interface", /* FIXME */
-					  "GetServer"); /* FIXME */
 
-  dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
-  
-  dbus_message_unref (message);
-  
-  if (gconf_server_broken (reply))
-    {
-      if (tries < MAX_RETRIES)
-        {
-          ++tries;
-          gconf_detach_config_server ();
-          goto RETRY;
-        }
-    }
-  
-  if (gconf_handle_dbus_exception (reply, err))
-    {
-      if (reply)
-	dbus_message_unref (reply);
-      return FALSE;
-    }
+  server = GCONF_DBUS_SERVER_OBJECT;
 
-  dbus_message_get_args (reply,
-			 NULL,
-			 DBUS_TYPE_STRING, &cs,
-			 DBUS_TYPE_INVALID);
-  
-  if (cs == NULL)
-    {
-      if (err)
-        *err = gconf_error_new(GCONF_ERROR_BAD_ADDRESS,
-                               _("Couldn't get server"));
-      
-      return FALSE;
-    }
-
-  server = g_strdup (cs);
-
-  dbus_free (cs);
-  
   return server; /* return what we have, NULL or not */
 }
-
-const gchar *listener = NULL;
 
 static void
 gconf_detach_config_server(void)
