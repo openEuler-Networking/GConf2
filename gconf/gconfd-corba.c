@@ -1529,35 +1529,6 @@ gconfd_corba_check_in_shutdown (CORBA_Environment *ev)
     return FALSE;
 }
 
-gboolean
-gconf_CORBA_Object_equal (gconstpointer a, gconstpointer b)
-{
-  CORBA_Environment ev;
-  CORBA_Object _obj_a = (gpointer)a;
-  CORBA_Object _obj_b = (gpointer)b;
-  gboolean retval;
-
-  CORBA_exception_init (&ev);
-  retval = CORBA_Object_is_equivalent(_obj_a, _obj_b, &ev);
-  CORBA_exception_free (&ev);
-
-  return retval;
-}
-
-guint
-gconf_CORBA_Object_hash (gconstpointer key)
-{
-  CORBA_Environment ev;
-  CORBA_Object _obj = (gpointer)key;
-  CORBA_unsigned_long retval;
-
-  CORBA_exception_init (&ev);
-  retval = CORBA_Object_hash(_obj, G_MAXUINT, &ev);
-  CORBA_exception_free (&ev);
-
-  return retval;
-}
-
 GConfValue* 
 gconf_value_from_corba_value(const ConfigValue* value)
 {
@@ -1844,34 +1815,6 @@ gconf_invalid_corba_value ()
   cv->_d = InvalidVal;
 
   return cv;
-}
-
-gchar*
-gconf_object_to_string (CORBA_Object obj,
-                        GError **err)
-{
-  CORBA_Environment ev;
-  gchar *ior;
-  gchar *retval;
-  
-  CORBA_exception_init (&ev);
-
-  ior = CORBA_ORB_object_to_string (gconf_orb_get (), obj, &ev);
-
-  if (ior == NULL)
-    {
-      gconf_set_error (err,
-                       GCONF_ERROR_FAILED,
-                       _("Failed to convert object to IOR"));
-
-      return NULL;
-    }
-
-  retval = g_strdup (ior);
-
-  CORBA_free (ior);
-
-  return retval;
 }
 
 static ConfigValueType

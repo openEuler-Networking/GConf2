@@ -31,6 +31,9 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+/* FIXME: get this working again */
+#define CHECK_OWNER_USE(engine)
+
 
 gboolean
 gconf_key_check (const gchar* key, GError** err)
@@ -806,4 +809,70 @@ gconf_engine_set_pair    (GConfEngine* conf, const gchar* key,
     }  
   
   return error_checked_set(conf, key, pair, err);
+}
+
+gboolean
+gconf_engine_key_is_writable  (GConfEngine *conf,
+                               const gchar *key,
+                               GError     **err)
+{
+  gboolean is_writable = TRUE;
+  GConfValue *val;
+
+  CHECK_OWNER_USE (conf);
+  
+  /* FIXME implement IDL to allow getting only writability
+   * (not that urgent since GConfClient caches this crap
+   * anyway)
+   */
+  
+  val = gconf_engine_get_full(conf, key, NULL, TRUE,
+                              NULL, &is_writable, err);
+
+  gconf_value_free (val);
+  
+  return is_writable;
+}
+
+
+/*
+ * Enumeration conversions
+ */
+
+gboolean
+gconf_string_to_enum (GConfEnumStringPair lookup_table[],
+                      const gchar* str,
+                      gint* enum_value_retloc)
+{
+  int i = 0;
+  
+  while (lookup_table[i].str != NULL)
+    {
+      if (g_ascii_strcasecmp (lookup_table[i].str, str) == 0)
+        {
+          *enum_value_retloc = lookup_table[i].enum_value;
+          return TRUE;
+        }
+
+      ++i;
+    }
+
+  return FALSE;
+}
+
+const gchar*
+gconf_enum_to_string (GConfEnumStringPair lookup_table[],
+                      gint enum_value)
+{
+  int i = 0;
+  
+  while (lookup_table[i].str != NULL)
+    {
+      if (lookup_table[i].enum_value == enum_value)
+        return lookup_table[i].str;
+
+      ++i;
+    }
+
+  return NULL;
 }

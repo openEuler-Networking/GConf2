@@ -31,7 +31,9 @@ ConfigValue* gconf_invalid_corba_value               (void);
 
 void gconf_daemon_blow_away_locks (void);
 
-CORBA_ORB gconf_orb_get          (void);
+CORBA_ORB gconf_orb_get           (void);
+
+int gconf_orb_release             (void);
 
 GConfLock* gconf_get_lock_or_current_holder (const gchar  *lock_directory,
                                              ConfigServer *current_server,

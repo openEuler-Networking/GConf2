@@ -39,6 +39,7 @@
 #ifdef HAVE_ORBIT
 #include "gconfd-corba.h"
 #include "gconf-database-corba.h"
+#include "gconf-corba-utils.h"
 #endif
 
 #ifdef HAVE_DBUS
