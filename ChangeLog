@@ -1,3 +1,13 @@
+2003-03-04  Mark McLoughlin  <mark@skynet.ie>
+
+	Fixes weird bug where a directory appears to not exist when
+	you create subdirectories of it.
+
+	* backends/xml-cache.c:
+	(cache_lookup): use unset_nonexistent.
+	(cache_unset_nonexistent): unset the existent flag not
+	only on this directory but all parent directories.
+
 2003-02-22  Roozbeh Pournader  <roozbeh@sharif.edu>
 
 	* configure.in: Added "fa" to ALL_LINGUAS.
