@@ -43,7 +43,8 @@ static const char *config_database_messages[] = {
   GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA,
   GCONF_DBUS_CONFIG_DATABASE_SYNC,
   GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC,
-  GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE
+  GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE,
+  GCONF_DBUS_CONFIG_DATABASE_REMOVE_LISTENER
 };
 
 static const char *lifecycle_messages[] = {
@@ -395,13 +396,20 @@ gconfd_config_database_lookup (DBusConnection *connection,
 				    &is_default,
 				    &is_writable,
 				    &error);
-
+  dbus_free (key);
+  dbus_free (locale);
+  
   gconf_log (GCL_DEBUG, "In lookup_with_schema_name returning schema name '%s' error '%s'",
              s, error ? error->message : "none");
   
   if (gconf_dbus_set_exception (connection, message, error))
-    return;  
-
+    {
+      if (val)
+	gconf_value_free (val);
+      
+      return;  
+    }
+  
   reply = dbus_message_new_reply (message);
   gconf_dbus_fill_message_from_gconf_value (reply, val);
   if (val)
@@ -563,6 +571,40 @@ gconfd_config_database_add_listener (DBusConnection *connection,
   dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
   dbus_dict_unref (dict);  
+}
+
+static void
+gconfd_config_database_remove_listener (DBusConnection *connection,
+					DBusMessage    *message)
+{
+  GConfDatabase *db;
+  DBusMessage *reply;
+  DBusDict *dict;
+  char *dir;
+  int id;
+  int cnxn;
+  const char *name = NULL;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_UINT32, &cnxn,
+				    0))
+    return;
+  
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (dir);
+      return;
+    }
+
+  gconf_database_corba_remove_listener (db, cnxn);
+  
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send (connection, reply, NULL);
+  dbus_message_unref (reply);
 }
 
 static void
@@ -979,6 +1021,12 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
     {
       add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_add_listener (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_REMOVE_LISTENER))
+    {
+      add_client (connection, dbus_message_get_sender (message));      
+      gconfd_config_database_remove_listener (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET))

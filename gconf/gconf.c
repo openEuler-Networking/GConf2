@@ -687,49 +687,50 @@ gconf_engine_notify_remove(GConfEngine* conf,
                            guint client_id)
 {
   GConfCnxn* gcnxn;
-  CORBA_Environment ev;
-  ConfigDatabase db;
+  int db;
+  DBusMessage *message, *reply;
   gint tries = 0;
-
+  
   CHECK_OWNER_USE (conf);
   
   if (gconf_engine_is_local(conf))
     return;
-  
-  CORBA_exception_init(&ev);
 
  RETRY:
-  
+
   db = gconf_engine_get_database (conf, TRUE, NULL);
 
-  if (db == CORBA_OBJECT_NIL)
+  if (db == -1)
     return;
 
   gcnxn = ctable_lookup_by_client_id(conf->ctable, client_id);
-
   g_return_if_fail(gcnxn != NULL);
 
-  ConfigDatabase_remove_listener(db,
-                                 gcnxn->server_id,
-                                 &ev);
-
-  if (gconf_server_broken(&ev))
-    {
-      if (tries < MAX_RETRIES)
-        {
-          ++tries;
-          CORBA_exception_free(&ev);
-          gconf_engine_detach (conf);
-          goto RETRY;
-        }
-    }
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER);
   
-  if (gconf_handle_corba_exception(&ev, NULL))
-    {
-      ; /* do nothing */
-    }
-  
+  dbus_message_append_args (message,
+			    DBUS_TYPE_UINT32, db,
+			    DBUS_TYPE_UINT32, gcnxn->server_id,
+			    0);
 
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
+  dbus_message_unref (message);
+  
+  if (gconf_server_broken (reply))
+    if (tries < MAX_RETRIES)
+      {
+	++tries;
+	dbus_message_unref (reply);
+	gconf_engine_detach (conf);
+	goto RETRY;
+      }
+
+  if (gconf_handle_dbus_exception(reply, NULL))
+    ; /* Do nothing */
+
+
+  dbus_message_unref (reply);  
+  
   /* We want to do this even if the CORBA fails, so if we restart gconfd and 
      reinstall listeners we don't reinstall this one. */
   ctable_remove(conf->ctable, gcnxn);
