@@ -25,8 +25,8 @@
 #define DATABASE_OBJECT_PATH "/org/gnome/GConf/Database"
 
 static GHashTable *databases = NULL;
-static gint object_nr = 0;
 static GConfDatabaseDBus *default_db = NULL;
+static gint object_nr = 0;
 
 struct _GConfDatabaseDBus {
 	GConfDatabase  *db;
@@ -249,12 +249,8 @@ database_handle_set (DBusConnection *conn,
 
   dbus_message_iter_init (message, &iter);
 
-  /* FIXME: Error handling */
   key = dbus_message_iter_get_string (&iter);
-  if (!dbus_message_iter_next (&iter)) 
-    {
-      /* FIXME: Do something */
-    }
+  dbus_message_iter_next (&iter);
   value = gconf_dbus_create_gconf_value_from_message_iter (&iter);
   
   gconf_database_set (db->db, key, value, &gerror);
@@ -484,8 +480,8 @@ static void
 ensure_initialized (void)
 {
   if (!databases)
-    databases = g_hash_table_new_full (g_str_hash,
-				       g_str_equal,
+    databases = g_hash_table_new_full (g_int_hash,
+				       g_int_equal,
 				       NULL,
 				       (GDestroyNotify) database_removed);
 }
@@ -501,38 +497,43 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   ensure_initialized ();
 
   db = gconfd_lookup_database (address);
-
-  if (db)
-    {
-      dbus_db = g_hash_table_lookup (databases, 
-				     gconf_database_get_persistent_name (db));
-  
-      if (dbus_db)
-	return dbus_db;
-      else
-	goto register_db;
-    }
-  else 
+  if (!db)
     {
       db = gconfd_obtain_database (address, gerror);
       if (!db)
 	{
-	  gconf_log (GCL_WARNING, _("Database doesn't exist: %s"), address);
+	  gconf_log (GCL_WARNING, _("Database not found: %s"), address);
 	  return NULL;
 	}
-      goto register_db;
     }
 
-register_db:
+  if (!address)
+    dbus_db = default_db;
+  else
+    dbus_db = g_hash_table_lookup (databases, &db); 
+  
+  if (dbus_db) 
+    return dbus_db;
+
   dbus_db = g_new0 (GConfDatabaseDBus, 1);
   dbus_db->db = db;
   dbus_db->conn = conn;
-  dbus_db->address = g_strdup (gconf_database_get_persistent_name (db));
-  g_hash_table_insert (databases, dbus_db->address, dbus_db);
+
+  if (!address)
+    {
+      dbus_db->address = NULL;
+      default_db = dbus_db;
+    }
+  else 
+    {
+      dbus_db->address = g_strdup (address);
+      g_hash_table_insert (databases, &db, dbus_db);
+    }
+
   dbus_db->object_path = g_strdup_printf ("%s/%d", 
 					  DATABASE_OBJECT_PATH, 
 					  object_nr++);
- 
+
   path = g_strsplit (dbus_db->object_path + 1, "/", -1);
   dbus_connection_register_object_path (conn, (const gchar**) path, 
 					&database_vtable, dbus_db);
@@ -562,9 +563,6 @@ gconf_database_dbus_unregister_all (void)
   ensure_initialized ();
   g_hash_table_foreach_remove (databases, 
 			       (GHRFunc) database_foreach_unregister, NULL);
-
-  database_foreach_unregister (NULL, default_db, NULL);
-  default_db = NULL;
 }
 
 const char *
@@ -583,9 +581,10 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
   DBusMessage *signal;
   GConfDatabaseDBus *dbus_db = NULL;
   
-  dbus_db = gconf_database_dbus_get (gconfd_dbus_get_connection (),
-				     gconf_database_get_persistent_name (db),
-				     NULL);
+  if (db == default_db->db)
+    dbus_db = default_db;
+  else
+    dbus_db = g_hash_table_lookup (databases, &db);
 
   if (!dbus_db)
     return;
