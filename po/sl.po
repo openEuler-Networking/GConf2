@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-07-23 23:23-0400\n"
+"POT-Creation-Date: 2001-07-27 22:27+0200\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -669,6 +669,14 @@ msgid ""
 "back in may help. As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
+"Nisem mogel shraniti vrednosti pri kljuèu '%s', saj stre¾nik nastavitev "
+"nima nobene pisljive zbirke podatkov. Ta problem ima dva pogosta vzroka: "
+"1) va¹a pot nastavitev ne vsebuje nobene zbirke podatkov ali ni bila najdena "
+"ali 2) OAF je pomotoma ustvaril dva procesa gconfd. Èe imate dva procesa "
+"gconfd (ali ste imeli dva, ko se je pognal drugi), potem je hro¹è v OAF-u in"
+" ne v GConf. Èe se odjavite, ubijete oafd in gconfd in ponovno prijavite, "
+"lahko problem izgine. Kot vedno, preverite user.* sistemski dnevnik za "
+"podrobnosti o problemu na katerega je naletel gconfd."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -921,43 +929,39 @@ msgid "Failed to get object reference for ConfigServer"
 msgstr "Nisem uspel dobiti sklica predmeta za ConfigDatabase"
 
 #: gconf/gconfd.c:573
-#, fuzzy, c-format
 msgid "Failed to create %s: %s"
-msgstr "Nisem uspel ustvariti datoteke  `%s': %s"
+msgstr "Nisem uspel ustvariti datoteke `%s': %s"
 
 #. Bad hack alert - register the current lockholder with oafd,
 #. * since oafd seems to have forgotten about us.
 #.
 #: gconf/gconfd.c:588
-#, fuzzy, c-format
 msgid "Failed to get lock for daemon: %s"
-msgstr "Nisem uspel dobiti IOR za odjemalca: %s"
+msgstr "Nisem uspel dobiti kljuèavnice za daemona: %s"
 
 #: gconf/gconfd.c:594
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
 msgstr ""
+"Registriram obstojeè stre¾nik pri oafd-ju, ker izgleda, da ga je OAF izgubil"
 
 #: gconf/gconfd.c:603
-#, fuzzy
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register existing server."
 msgstr ""
-"OAF ne ve za na¹ IID; kar ka¾e na po¹kodovano namestitev; ne mroem se "
-"registrirati; konèujem\n"
+"OAF ne ve za na¹ IID; to ka¾e na po¹kodovano namestitev; ne mroem "
+"registrirati obstojeèega stre¾nika."
 
 #: gconf/gconfd.c:607
-#, fuzzy
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "Drug gconfd je ¾e registrian pri OAF-u; konèujem\n"
+msgstr "Drug gconfd je ¾e registrian pri OAF-u, zato obstojeèega stre¾nika ne moremo registrirati"
 
 #: gconf/gconfd.c:612
-#, fuzzy
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr "Neznana napaka ob registriranju gconfd-ja pri OAF-u; konèujem\n"
+msgstr "Neznana napaka ob registriranju obstojeèega gconfd-ja pri OAF-u; konèujem\n"
 
 #: gconf/gconfd.c:639
 msgid ""
@@ -976,9 +980,8 @@ msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr "Neznana napaka ob registriranju gconfd-ja pri OAF-u; konèujem\n"
 
 #: gconf/gconfd.c:692
-#, fuzzy, c-format
 msgid "Failed to release lockfile: %s"
-msgstr "Nisem uspel sprostiti kljuèavniènega imenika `%s': %s"
+msgstr "Nisem uspel sprostiti kljuèavniène datoteke: %s"
 
 #: gconf/gconfd.c:700
 msgid "Exiting"
@@ -1275,19 +1278,19 @@ msgstr ""
 
 #: gconf/gconftool.c:293
 msgid "Get the short doc string for a key"
-msgstr ""
+msgstr "Dobi kratek niz dokumentacije za kljuè"
 
 #: gconf/gconftool.c:302
 msgid "Get the long doc string for a key"
-msgstr ""
+msgstr "Dobi dolg niz dokumentacije za kljuè"
 
 #: gconf/gconftool.c:311
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Dobi ime sheme, ki je uveljavljena na tem kljuèu"
 
 #: gconf/gconftool.c:320
 msgid "Specify the schema name followed by the key to apply the schema name to"
-msgstr ""
+msgstr "Navedite ime sheme, ki ji sledi ime kljuèa na katerem naj se shema uveljavi"
 
 #: gconf/gconftool.c:371
 #, c-format
@@ -1409,9 +1412,8 @@ msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Naveden mora biti en ali veè imenikov za rekurziven izpis.\n"
 
 #: gconf/gconftool.c:854
-#, fuzzy, c-format
 msgid "Failure listing entries in `%s': %s\n"
-msgstr "Napaka ob izpisu pravo v `%s': %s"
+msgstr "Napaka ob izpisu vnosov v `%s': %s\n"
 
 #: gconf/gconftool.c:872
 msgid "(no value set)"
@@ -1514,54 +1516,46 @@ msgid "Error: %s\n"
 msgstr "Napaka %s\n"
 
 #: gconf/gconftool.c:1168
-#, fuzzy, c-format
 msgid "Error setting value: %s\n"
-msgstr "Napaka ob nastavljanju vrednosti: %s"
+msgstr "Napaka ob nastavljanju vrednosti: %s\n"
 
 #: gconf/gconftool.c:1186
-#, fuzzy, c-format
 msgid "Error syncing: %s\n"
-msgstr "Napaka ob usklajevanju: %s"
+msgstr "Napaka ob usklajevanju: %s\n"
 
 #: gconf/gconftool.c:1209
-#, fuzzy
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Navedenii morajo biti kljuè ali kljuèi, ki naj se prebrejo\n"
+msgstr "Kljuè ali kljuèi morajo biti navedeni v ukazni vrstici\n"
 
 #: gconf/gconftool.c:1229
-#, fuzzy, c-format
 msgid "No schema known for `%s'\n"
-msgstr "Datoteka ne obstaja `%s'\n"
+msgstr "Shema za `%s' ni znana\n"
 
 #: gconf/gconftool.c:1262
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
-msgstr ""
+msgstr "Niz dokumentacije ni shranjen za shemo pri '%s'\n"
 
 #: gconf/gconftool.c:1267
-#, fuzzy, c-format
 msgid "Error getting schema at '%s': %s\n"
-msgstr "Napaka ob nastavljanju sheme za %s': %s"
+msgstr "Napaka ob dobivanju sheme pri '%s': %s\n"
 
 #: gconf/gconftool.c:1274
-#, fuzzy, c-format
 msgid "No schema stored at '%s'\n"
-msgstr "Datoteka ne obstaja `%s'\n"
+msgstr "Shema pri `%s' ni shranjena\n"
 
 #: gconf/gconftool.c:1277
 #, c-format
 msgid "Value at '%s' is not a schema\n"
-msgstr ""
+msgstr "Vrednost pri '%s' ni shema\n"
 
 #: gconf/gconftool.c:1333
-#, fuzzy
 msgid "Must specify a schema name followed by the key name to apply it to\n"
-msgstr "Navesti morate kljuè (ime shema) kot edini argument\n"
+msgstr "Navesti morate ime sheme, ki mu sledi ime kljuèa na katerem naj se shema uveljavi\n"
 
 #: gconf/gconftool.c:1340
-#, fuzzy, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr "OPOZORILO: nisem uspel povezati sheme  `%s' s kljuèem `%s': %s\n"
+msgstr "Napaka pri povezovanju sheme '%s' s kljuèem  '%s': %s\n"
 
 #: gconf/gconftool.c:1360
 msgid "Must specify key (schema name) as the only argument\n"
