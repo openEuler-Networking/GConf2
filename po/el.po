@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2002-12-02 12:28+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -104,11 +104,11 @@ msgstr "Αρχικοποιείται η μονάδα υποστήριξης XML"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Αδύνατη η παράδοση κλειδώματος στον κατάλογο XML \"%s\": %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "Αποτυχία συγχρονισμού περιεχομένων XML cache στο δίσκο"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -117,7 +117,7 @@ msgstr ""
 "Αδυναμία διαγραφήα καταλόγου `%s'  από την  XML backend cache, επειδή δεν "
 "είχει επιτυχώς συγχρονιστεί στον δίσκο"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -162,7 +162,7 @@ msgid "Failed to write XML data to `%s': %s"
 msgstr "Αδύνατη η εγγραφή δεδομένων XML στο `%s': %s"
 
 # gconf/gconf-internals.c:2416
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Αδύνατο το κλείσιμο του αρχείου `%s': %s"
@@ -187,28 +187,28 @@ msgstr "Αδύνατη διαγραφή του παλαιού αρχείου `%s
 
 # gconf/gconftool.c:1639
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Αποτυχία προσπέλασης του `%s': %s"
 
 # gconf/gconf-internals.c:2120
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Διπλή καταχώρηση `%s' σε %s', αγνόηση"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Καταχώρηση χωρίς όνομα στο αρχείο XML `%s', αγνόηση"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
@@ -216,19 +216,19 @@ msgstr ""
 "αγνόηση"
 
 # backends/xml-backend.c:315
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Δημιουργία καταλόγου αδύνατη \"%s\": %s"
 
 # gconf/gconf-internals.c:2416
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Αδύνατη η δημιουργία του αρχείου `%s': %s"
 
 # gconf/gconf-internals.c:2491
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Αποτυχία ανάλυσης αρχείου XML \"%s\""

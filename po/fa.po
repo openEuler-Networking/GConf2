@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-02-22 12:01+0100\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-03-17 14:40+0330\n"
 "Last-Translator: Roozbeh Pournader <roozbeh@sharif.edu>\n"
 "Language-Team: Persian <farsi@lists.sharif.edu>\n"
@@ -52,7 +52,8 @@ msgstr "نمی‌توان شاخه‌ی ریشه را در نشانی \"%s\" ی�
 
 #: backends/xml-backend.c:414
 #, c-format
-msgid "Can't read from or write to the XML root directory in the address \"%s\""
+msgid ""
+"Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
 
 #: backends/xml-backend.c:424
@@ -80,18 +81,18 @@ msgstr ""
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr ""
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr ""
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr ""
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -759,7 +760,8 @@ msgid "Schema contains invalid UTF-8"
 msgstr ""
 
 #: gconf/gconf-schema.c:254
-msgid "Schema specifies type list but doesn't specify the type of the list elements"
+msgid ""
+"Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
 
 #: gconf/gconf-schema.c:264
@@ -785,7 +787,8 @@ msgstr ""
 
 #: gconf/gconf-sources.c:359
 #, c-format
-msgid "Resolved address \"%s\" to a partially writable config source at position %d"
+msgid ""
+"Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 
 #: gconf/gconf-sources.c:368
@@ -1003,7 +1006,8 @@ msgstr ""
 
 #: gconf/gconfd.c:296
 #, c-format
-msgid "No configuration files found, trying to use the default config source `%s'"
+msgid ""
+"No configuration files found, trying to use the default config source `%s'"
 msgstr ""
 
 #. We want to stay alive but do nothing, because otherwise every
@@ -1043,7 +1047,8 @@ msgstr ""
 
 #: gconf/gconfd.c:390
 #, c-format
-msgid "Received signal %d, shutting down abnormally. Please file a GConf bug report."
+msgid ""
+"Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr ""
 
 #: gconf/gconfd.c:407
@@ -1099,7 +1104,8 @@ msgstr ""
 
 #: gconf/gconfd.c:1204
 #, c-format
-msgid "Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgid ""
+"Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
 
 #: gconf/gconfd.c:1273
@@ -1129,12 +1135,14 @@ msgstr ""
 
 #: gconf/gconfd.c:1329
 #, c-format
-msgid "Failed to restore original saved state file that had been moved to '%s': %s"
+msgid ""
+"Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr ""
 
 #: gconf/gconfd.c:1800
 #, c-format
-msgid "Unable to restore a listener on address '%s', couldn't resolve the database"
+msgid ""
+"Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
 
 #: gconf/gconfd.c:1846
@@ -1182,7 +1190,8 @@ msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
 
 #: gconf/gconfd.c:2181
-msgid "Some client removed itself from the GConf server when it hadn't been added."
+msgid ""
+"Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
 
 #: gconf/gconftool.c:82
@@ -1421,7 +1430,8 @@ msgid "--break-directory must be used by itself.\n"
 msgstr ""
 
 #: gconf/gconftool.c:567
-msgid "You must specify a config source with --config-source when using --direct\n"
+msgid ""
+"You must specify a config source with --config-source when using --direct\n"
 msgstr ""
 
 #: gconf/gconftool.c:573
@@ -1551,7 +1561,8 @@ msgid "When setting a list you must specify a primitive list-type\n"
 msgstr ""
 
 #: gconf/gconftool.c:1235
-msgid "When setting a pair you must specify a primitive car-type and cdr-type\n"
+msgid ""
+"When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr ""
 
 #: gconf/gconftool.c:1250
@@ -1705,7 +1716,8 @@ msgstr ""
 
 #: gconf/gconftool.c:1923
 #, c-format
-msgid "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
+msgid ""
+"WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 
 #: gconf/gconftool.c:1944
@@ -1749,7 +1761,8 @@ msgstr ""
 
 #: gconf/gconftool.c:2064
 #, c-format
-msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
+msgid ""
+"WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 
 #: gconf/gconftool.c:2145
@@ -1856,4 +1869,3 @@ msgid ""
 "directory:\n"
 "  %s\n"
 msgstr ""
-

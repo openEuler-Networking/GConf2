@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.1.0\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2002-11-19 19:52+01:00\n"
 "Last-Translator: Lapo Calamandrei <l_calamandrei@neri-group.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -90,11 +90,11 @@ msgstr "Inizializzazione del modulo backend XML"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Errore durante il rilascio del lock sulla directory XML \"%s\": %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "Sincronizzazione del contenuto della cache XML su disco fallita"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -103,7 +103,7 @@ msgstr ""
 "Impossibile rimuovere la directory `%s' dalla cache del backend XML,perchè "
 "non è stata sincronizzata su disco correttamente"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -142,7 +142,7 @@ msgstr "Errore nell'impostare i permessi su `%s': %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "Errore nella scrittura dei dati XML su `%s': %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Errore nella chiusura del file `%s': %s"
@@ -163,42 +163,42 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Errore nella cancella zione del vecchio file `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Errore nell'analisi di `%s': %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "La voce duplicata `%s' in `%s' è stata ignorata"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "La voce senza nome le file XML `%s' è stata ignorata"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr "Un nodo primario nel file XML `%s' è <%s> invece di <entry>, ignorato"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Impossibile creare la directory \"%s\": %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Errore nella creazione del file `%s': %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Errore durante l'analisi del file XML \"%s\""

@@ -1,3 +1,14 @@
+2.2.1
+===
+
+  Thanks to Mark McLoughlin for contributions to this release.
+
+  - provide schema name in some cases where we weren't
+  - fix some wrong assertions
+  - fixed bug where directories would vanish if 
+    they contained subdirs but no keys
+  - lots of translation updates
+
 2.2.0
 ===
 

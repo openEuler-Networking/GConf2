@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-01-29 22:44+0800\n"
 "Last-Translator: Sun G11n <gnome_int_l10n@ireland.sun.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -83,18 +83,18 @@ msgstr "正在初始化 XML 后端模块"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "无法放弃 XML 目录“%s”上的锁定：%s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "无法同步 XML 缓存内容到磁盘"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr "无法从 XML 后代缓存中删除目录“%s”，因为它还没有成功地同步到磁盘"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -131,7 +131,7 @@ msgstr "无法设置“%s”的模式：%s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "无法将 XML 数据写入“%s”：%s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "无法关闭文件“%s”：%s"
@@ -152,44 +152,44 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "无法删除旧文件“%s”：%s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "无法查看“%s”：%s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "重复的项“%s”在“%s”中，忽略"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "在 XML 文件“%s”中的项目没有名字，忽略"
 
 # SUN NEW TRANSLATION
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr "XML 文件“%s”的顶层节点是 <%s> 而不是 <entry>，忽略"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "无法创建目录“%s”：%s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "无法创建文件“%s”：%s"
 
 # SUN CHANGED MESSAGE
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "无法分析 XML 文件“%s”"

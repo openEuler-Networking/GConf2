@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-04-01 17:54+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -87,11 +87,11 @@ msgstr "Initierar XML-backendmodulen"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Misslyckades med att ge upp lås på XML-katalogen \"%s\": %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "Misslyckades med att synkronisera innehållet i XML-cache till disk"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -100,7 +100,7 @@ msgstr ""
 "Kunde inte ta bort katalogen \"%s\" från XML-backenden eftersom den inte har "
 "synkroniserats korrekt till disk"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -139,7 +139,7 @@ msgstr "Misslyckades med att sätta rättigheter på \"%s\": %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "Misslyckades med att skriva XML-data till \"%s\": %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Misslyckades med att stänga filen \"%s\": %s"
@@ -160,43 +160,43 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Misslyckades med att ta bort den gamla filen \"%s\": %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Misslyckades med att ta status på \"%s\": %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Dubbla \"%s\"-poster i \"%s\", ignorerar"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Post utan namn i XML-filen \"%s\", ignorerar"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Översta noden i XML-filen \"%s\" är <%s> istället för <entry>, ignorerar"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Kunde inte skapa katalogen \"%s\": %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Misslyckades med att skapa filen \"%s\": %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Misslyckades med att tolka XML-filen \"%s\""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1.11\n"
-"POT-Creation-Date: 2003-01-25 01:07-0200\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-01-25 01:11-0200\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: GNOME-BR <gnome-l10n-br@listas.cipsga.org.br>\n"
@@ -55,7 +55,8 @@ msgstr "Não foi possível encontrar o diretório raiz no endereço \"%s\""
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
-msgstr "Não é possível ler ou escrever no diretório raiz XML no endereço \"%s\""
+msgstr ""
+"Não é possível ler ou escrever no diretório raiz XML no endereço \"%s\""
 
 #: backends/xml-backend.c:424
 #, c-format
@@ -85,11 +86,11 @@ msgstr "Iniciando módulo backend XML"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Falha ao liberar bloqueio no diretório XML \"%s\": %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "Falha ao sincronizar o conteúdo do cache XML com o disco"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -98,7 +99,7 @@ msgstr ""
 "Não é possível remover diretório `%s' do cache do módulo backend XML, pois "
 "ele não foi sincronizado com o disco corretamente"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -137,7 +138,7 @@ msgstr "Falha ao atribuir modo a `%s': %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "Falha ao gravar dados XML para `%s': %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Falha ao fechar arquivo `%s': %s"
@@ -158,43 +159,43 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Falha ao excluir arquivo antigo `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Falha ao obter status `%s': %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Entrada duplicada `%s' em `%s', ignorando"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Entrada sem nome no arquivo XML `%s', ignorando"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Um nó de nível principal no arquivo XML `%s' é <%s> e não <entry>, ignorando"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Não foi possível criar diretório \"%s\": %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Falha ao criar arquivo `%s': %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Falha ao analisar arquivo XML \"%s\""
@@ -821,13 +822,16 @@ msgstr "O Schema contém UTF-8 inválido"
 #: gconf/gconf-schema.c:254
 msgid ""
 "Schema specifies type list but doesn't specify the type of the list elements"
-msgstr "O schema especifica tipo lista mas não especifica o tipo dos elementos da lista"
+msgstr ""
+"O schema especifica tipo lista mas não especifica o tipo dos elementos da "
+"lista"
 
 #: gconf/gconf-schema.c:264
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
-msgstr "O schema especifica tipo par, mas não especifica o tipo dos elementos car/cdr"
+msgstr ""
+"O schema especifica tipo par, mas não especifica o tipo dos elementos car/cdr"
 
 #: gconf/gconf-sources.c:319
 #, c-format

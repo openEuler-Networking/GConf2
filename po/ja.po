@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.2.0\n"
-"POT-Creation-Date: 2003-01-26 12:16+0900\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-01-26 12:15+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -86,11 +86,11 @@ msgstr "XML バックエンドモジュールの初期化中です。"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "XML 上のディレクトリ \"%s\" のロックに失敗しました: %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "XML キャッシュとディスクとの同期に失敗しました。"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -99,7 +99,7 @@ msgstr ""
 "ディスクとの同期に失敗したため、XML バックエンドのキャッシュからディレクトリ "
 "'%s' を削除できません。"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -138,7 +138,7 @@ msgstr "'%s' のモード設定が失敗しました: %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "XML データの `%s' への書き込みに失敗しました: %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "ファイル '%s' を閉じるのに失敗しました: %s"
@@ -159,45 +159,45 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "古いファイル '%s' の削除に失敗しました: %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "'%s' の状態が取得できませんでした: %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "'%s' が '%s' の中で重複しています。無視します。"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr ""
 "XML ファイル '%s' の中に名前の無いエントリが含まれています。無視します。"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "XML ファイル '%s' の中のトップレベルノードが <entry> ではなく <%s> です。無視"
 "します。"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "ディレクトリ \"%s\" を作成できませんでした: %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "ファイル '%s' の作成に失敗しました: %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "XML ファイル \"%s\" の解析に失敗しました"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.1.0\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2002-12-01 19:32+0100\n"
 "Last-Translator: Gisela Carbonell <gcarbonell@arrakis.es>\n"
 "Language-Team: Catalan <gnome@softcatala.net>\n"
@@ -91,13 +91,13 @@ msgstr "S'està inicialitzant el mòdul de rerefons de l'XML"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "No s'ha pogut abandonar el blocatge en el directori de l'XML «%s»: %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr ""
 "No s'ha pogut sincronitzar el contingut de la memòria cau de l'XML amb el "
 "disc"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -106,7 +106,7 @@ msgstr ""
 "No es pot suprimir el directori '%s' de la memòria cau de rerefons de l'XML, "
 "perquè no ha estat sincronitzat amb èxit amb el disc"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -145,7 +145,7 @@ msgstr "És impossible de fixar el mode a '%s': %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "És impossible d'escriure dades XML a '%s': %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "És impossible de tancar el fitxer '%s': %s"
@@ -166,44 +166,44 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "És impossible de suprimir el fitxer vell '%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "És impossible de fer stat sobre '%s': %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Hi ha una entrada duplicada '%s' a '%s', s'ha ignorat"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Hi ha una entrada sense nom al fitxer XML '%s', s'ha ignorat"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Un node de nivell superior al fitxer XML '%s' és <%s> i no pas <entry>, s'ha "
 "ignorat"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "No s'ha pogut crear el directori «%s»: %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "És impossible de crear el fitxer '%s': %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "És impossible d'analitzar el fitxer XML \"%s\""

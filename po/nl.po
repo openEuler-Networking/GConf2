@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf cvs\n"
-"POT-Creation-Date: 2003-02-24 04:48+0100\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-01-03 01:05+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -85,11 +85,11 @@ msgstr "Bezig met initialiseren XML backend-module"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Ontgrendelen van XML-map \"%s\" mislukt: %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "XML cache-inhoud synchroniseren op schijf is mislukt"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -98,7 +98,7 @@ msgstr ""
 "Kon map `%s' niet verwijderen van de XML backend cache, omdat het "
 "synchroniseren naar de schijf niet successvol is verlopen"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2003-01-09 13:02+0300\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -100,12 +100,12 @@ msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Произошёл сбой при разблокировке XML-каталога \"%s\": %s"
 
 # backends/xml-cache.c:248
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr "Произошёл сбой при сохранении содержимого кэша XML на диск"
 
 # backends/xml-cache.c:278
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -115,7 +115,7 @@ msgstr ""
 "он не был успешно синхронизирован с диском"
 
 # backends/xml-cache.c:305
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -161,7 +161,7 @@ msgid "Failed to write XML data to `%s': %s"
 msgstr "Произошёл сбой при записи данных XML в \"%s\": %s"
 
 # backends/xml-dir.c:454 backends/xml-dir.c:1200
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Произошёл сбой при закрытии файла '%s': %s"
@@ -186,31 +186,31 @@ msgstr "Произошёл сбой при удалении старого фа�
 
 # backends/xml-dir.c:929
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Произошёл сбой при выполнении операции stat для \"%s\": %s"
 
 # gconf/gconftool.c:2415
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
 # backends/xml-dir.c:1073
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Обнаружена повторная запись \"%s\" в \"%s\", игнорируется"
 
 # backends/xml-dir.c:1095
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Обнаружена запись без имени в файле \"%s\" формата XML, игнорируется"
 
 # backends/xml-dir.c:1103
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
@@ -218,19 +218,19 @@ msgstr ""
 "<entry>, игнорируется"
 
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Не удалось создать каталог \"%s\": %s"
 
 # backends/xml-dir.c:1192
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Произошёл сбой при создании файла \"%s\": %s"
 
 # backends/xml-dir.c:421
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Произошёл сбой при разборе файла формата XML \"%s\""

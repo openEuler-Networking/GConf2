@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.6\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
+"POT-Creation-Date: 2003-06-02 15:16-0400\n"
 "PO-Revision-Date: 2001-02-07 19:01+01:00\n"
 "Last-Translator: Gabor Laszlo Kiss <docy@levele.com>\n"
 "Language-Team: Hungarian <hu@gnome.hu>\n"
@@ -80,11 +80,11 @@ msgstr "XML háttér modul indítása"
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Sikertelen az XML `%s' könyvtár zárolásának feloldása: %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
 msgstr ""
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
@@ -93,7 +93,7 @@ msgstr ""
 "Lehetetlen a `%s' könyvtár törlése az XML háttér gyorstárból, mert nem "
 "lehetett eredményesen szinkronizálni a lemezhez"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -130,7 +130,7 @@ msgstr "Sikertelen `%s' törlése: %s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "Nem tudom írni `%s' fájlt: %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Sikertelen a `%s' fájl bezárása: %s"
@@ -151,42 +151,42 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Sikertelen a régi `%s' fájl törlése: %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Sikertelen adat lekérdezés a `%s'-ről: %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Kettős bejegyzés `%s' a `%s'-ben, elvetem"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Név nélküli bejegyzés az XML `%s' fájlban, elvetem"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, fuzzy, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr "Felső szintű node az XML `%s' fájlban nem <bejegyezés>, elvetem"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, fuzzy, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Nem lehet a könyvtárat létrehozni `%s': %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Sikertelen a `%s' fájl létrehozása: %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, fuzzy, c-format
 msgid "Failed to parse XML file \"%s\""
 msgstr "Nem tudom írni `%s' fájlt: %s"
