@@ -848,9 +848,12 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       if (!success)
 	{
-
+	  /* FIXME: handle this */
+	  d(g_print ("FIXME: Couldn't get value\n"));
 	}
 
+      g_print ("got value: %p, %s\n", val, val ? gconf_value_to_string (val) : "?");
+      
       if (is_default_p)
 	*is_default_p = !!is_default;
 
@@ -978,7 +981,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
   g_return_val_if_fail(err == NULL || *err == NULL, FALSE);
 
   CHECK_OWNER_USE (conf);
-  
+
   if (!gconf_key_check(key, err))
     return FALSE;
 
@@ -1028,7 +1031,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
 			    DBUS_TYPE_INVALID);
 
   gconf_dbus_message_append_gconf_value (message, value);
-  
+
   dbus_error_init (&error);
   reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
   dbus_message_unref (message);
@@ -1614,20 +1617,21 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
 
   dbus_message_iter_init (reply, &iter);
 
-  while ((key = dbus_message_iter_get_string (&iter)))
+  while (dbus_message_iter_get_arg_type (&iter) == DBUS_TYPE_STRING)
     {
       gchar* s;
-
-      /* FIXME: do we send keys without dir prefix? */
+            
+      key = dbus_message_iter_get_string (&iter);
+      
       s = gconf_concat_dir_and_key (dir, key);
-   
       subdirs = g_slist_prepend (subdirs, s);
-
+      
       dbus_free (key);
-
-      dbus_message_iter_next (&iter);
+      
+      if (!dbus_message_iter_next (&iter))
+	break;
     }
-
+  
   dbus_message_unref (reply);
 
   return subdirs;
@@ -1834,8 +1838,7 @@ ensure_dbus_connection (void)
   const gchar *dbus_address;
   DBusError error;
   GError *gerror = NULL;
-  
-  /*DBusMessageHandler *handler;*/
+  /* DBusMessageHandler *handler; */
   
   if (connection)
     return TRUE;
@@ -1843,6 +1846,7 @@ ensure_dbus_connection (void)
   /* FIXME: Need to figure out how to handle the bus address. The typical case
      will most likely be to use the session bus. */
   dbus_address = g_getenv ("DBUS_ADDRESS");
+
 #if 0 
   if (!dbus_address)
     {
@@ -1850,6 +1854,7 @@ ensure_dbus_connection (void)
       return FALSE;
     }
 #endif
+
   dbus_error_init (&error);
 
   connection = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
@@ -1878,16 +1883,24 @@ ensure_dbus_connection (void)
 
   dbus_connection_setup_with_g_main (connection, NULL);
 */
-  /* FIXME
-  handler = dbus_message_handler_new (gconf_database_handler, NULL, NULL);
+
+  /* FIXME */
+  /*handler = dbus_message_handler_new (gconf_database_handler, NULL, NULL);
   dbus_connection_register_handler (connection, handler, config_listener_messages,
 				    G_N_ELEMENTS (config_listener_messages));
+  */
 
-  handler = dbus_message_handler_new (gconf_server_handler, NULL, NULL);
+  /*dbus_bool_t
+dbus_connection_add_filter (DBusConnection            *connection,
+                            DBusHandleMessageFunction  function,
+                            void                      *user_data,
+                            DBusFreeFunction           free_data_function)
+
+  
+  handler = dbus_message_handler_new (gconf_server_message_handler, NULL, NULL);
   dbus_connection_register_handler (connection, handler, lifecycle_messages,
 				    G_N_ELEMENTS (lifecycle_messages));
   */
-
   return TRUE;
 }
 
