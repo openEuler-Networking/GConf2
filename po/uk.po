@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-03-21 12:27+0200\n"
+"POT-Creation-Date: 2001-03-28 09:28+0300\n"
 "PO-Revision-Date: 1999-12-29 12:36+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -74,21 +74,26 @@ msgstr "Не вдалося в╕дмовитсь в╕д блокування каталогу XML \"%s\": %s"
 
 #: backends/xml-cache.c:119
 msgid "Unsynced directory deletions when shutting down XML backend"
-msgstr "Несинхрон╕зован╕ видалення в каталогу п╕д час вимкнення серверного модуля XML"
+msgstr ""
+"Несинхрон╕зован╕ видалення в каталогу п╕д час вимкнення серверного модуля XML"
 
 #: backends/xml-cache.c:229
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
-msgstr "Неможливо видалити каталог \"%s\" з кеша серверного модуля XML тому, що його не було усп╕шно синхрон╕зовано з диском"
+msgstr ""
+"Неможливо видалити каталог \"%s\" з кеша серверного модуля XML тому, що його "
+"не було усп╕шно синхрон╕зовано з диском"
 
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than "
 "%u seconds"
-msgstr "В кеш╕ лишилось %u елемент╕в п╕сля очищення вже синхрон╕зованих елемент╕в стар╕ших %u секунд"
+msgstr ""
+"В кеш╕ лишилось %u елемент╕в п╕сля очищення вже синхрон╕зованих елемент╕в "
+"стар╕ших %u секунд"
 
 #: backends/xml-dir.c:164
 #, c-format
@@ -289,12 +294,12 @@ msgstr "Не вдалося в╕дключити сервер"
 
 #: gconf/gconf-database.c:231
 msgid "Received invalid value in set request"
-msgstr "Отримано нев╕рне значення у запит╕"
+msgstr "Отримано нев╕рне значення у запит╕ на його встановлення"
 
 #: gconf/gconf-database.c:239
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr ""
+msgstr "Отримано незрозум╕ле значення CORBA у запит╕ на його встановлення для ключа \"%s\""
 
 #: gconf/gconf-database.c:517
 msgid "Received request to drop all cached data"
@@ -616,6 +621,8 @@ msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
 "took our lock"
 msgstr ""
+"Не створено блокування файлу \"%s\" (╕дентиф╕катор процесу створювача - %u, "
+"наш ╕дентиф╕катор - pid %u; очевидно хтось забрав наше блокування"
 
 #: gconf/gconf-internals.c:2546
 #, c-format
@@ -642,6 +649,8 @@ msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path."
 msgstr ""
+"Значення для \"%s\" встановлено у джерел╕ лише для зчитування на початку "
+"вашого конф╕╜урац╕йного шляху."
 
 #: gconf/gconf-sources.c:596
 #, c-format
@@ -661,7 +670,8 @@ msgstr "Помилка отримання мета╕нформац╕╖: %s"
 #: gconf/gconf-sources.c:1244
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
-msgstr "Ключ \"%s\" вказаний як схема для ключа \"%s\" насправд╕ м╕стить тип \"%s\""
+msgstr ""
+"Ключ \"%s\" вказаний як схема для ключа \"%s\" насправд╕ м╕стить тип \"%s\""
 
 #: gconf/gconf-value.c:82
 #, c-format
@@ -824,15 +834,16 @@ msgstr ""
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
 msgstr ""
-"Не знайдено конф╕╜урац╕йних файл╕в, спроба використати типове джерело конф╕╜урац╕╖ \"%s\""
+"Не знайдено конф╕╜урац╕йних файл╕в, спроба використати типове джерело "
+"конф╕╜урац╕╖ \"%s\""
 
 #: gconf/gconfd.c:306
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
 msgstr ""
-"Не знайдено джерел конф╕╜урац╕╖ у вих╕дному каталоз╕, конф╕╜урац╕╖ не було збережено; "
-"редагувати "
+"Не знайдено джерел конф╕╜урац╕╖ у вих╕дному каталоз╕, конф╕╜урац╕╖ не було "
+"збережено; редагувати "
 
 #: gconf/gconfd.c:320
 #, c-format
@@ -886,7 +897,8 @@ msgid ""
 "Failed to init Object Activation Framework: please mail bug report to OAF "
 "maintainers"
 msgstr ""
-"Зб╕й ╕н╕ц╕ал╕зац╕╖ OAF: будь ласка, пов╕домте про помилку член╕в супроводження OAF"
+"Зб╕й ╕н╕ц╕ал╕зац╕╖ OAF: будь ласка, пов╕домте про помилку член╕в "
+"супроводження OAF"
 
 #: gconf/gconfd.c:551
 msgid "Failed to get object reference for ConfigServer"
@@ -927,8 +939,8 @@ msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
 "gconfd shutdown (%s)"
 msgstr ""
-"Зб╕й в╕дкривання журналу gconfd; не було можливост╕ в╕дновити прослуховувач╕в п╕сля "
-"вимкнення gconfd (%s)"
+"Зб╕й в╕дкривання журналу gconfd; не було можливост╕ в╕дновити "
+"прослуховувач╕в п╕сля вимкнення gconfd (%s)"
 
 #: gconf/gconfd.c:1137
 #, c-format
@@ -975,7 +987,8 @@ msgstr ""
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
-"Неможливо в╕дновити прослуховувача на адрес╕ \"%s\", не вдалося розв'язати базу даних"
+"Неможливо в╕дновити прослуховувача на адрес╕ \"%s\", не вдалося розв'язати "
+"базу даних"
 
 #: gconf/gconfd.c:1783
 #, c-format
@@ -1032,7 +1045,8 @@ msgstr "Параметри дов╕дки"
 
 #: gconf/gconftool.c:72
 msgid "Set a key to a value and sync. Use with --type."
-msgstr "Встановити значення для ключа ╕ синхрон╕зувати. Використову╓ться з --type."
+msgstr ""
+"Встановити значення для ключа ╕ синхрон╕зувати. Використову╓ться з --type."
 
 #: gconf/gconftool.c:81
 msgid "Print the value of a key to standard output."
@@ -1043,12 +1057,12 @@ msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
 "--type."
 msgstr ""
-"Встановити схему ╕ синхрон╕зувати. Використову╓ться з --short-desc, --long-desc, --owner ╕ "
-"--type."
+"Встановити схему ╕ синхрон╕зувати. Використову╓ться з --short-desc, "
+"--long-desc, --owner ╕ --type."
 
 #: gconf/gconftool.c:100
 msgid "Unset the keys on the command line"
-msgstr "Зняти значення ключ╕в в командному рядку"
+msgstr "Зняти значення ключ╕в з командного рядка"
 
 #: gconf/gconftool.c:109
 msgid "Print all key/value pairs in a directory."
@@ -1099,6 +1113,8 @@ msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Вказати тип значення списку, що встановлю╓ться чи тип значення, що опису╓ "
+"схема. Згодяться ун╕кальн╕ абрев╕атури."
 
 #: gconf/gconftool.c:182 gconf/gconftool.c:191 gconf/gconftool.c:200
 msgid "int|bool|float|string"
@@ -1109,12 +1125,16 @@ msgid ""
 "Specify the type of the car pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Вказати тип значення пари CAR, що встановлю╓ться чи тип значення, що опису╓ "
+"схема. Згодяться ун╕кальн╕ абрев╕атури."
 
 #: gconf/gconftool.c:199
 msgid ""
 "Specify the type of the cdr pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Вказати тип значення пари CDR, що встановлю╓ться чи тип значення, що опису╓ "
+"схема. Згодяться ун╕кальн╕ абрев╕атури."
 
 #: gconf/gconftool.c:208
 msgid "Specify a short half-line description to go in a schema."
@@ -1146,7 +1166,9 @@ msgstr "НАЗВАФАЙЛУ"
 
 #: gconf/gconftool.c:244
 msgid "Specify a configuration source to use rather than the default path"
-msgstr "Вказати джерело конф╕╜урац╕╖, що буде використовуватись зам╕сть типового шляху"
+msgstr ""
+"Вказати джерело конф╕╜урац╕╖, що буде використовуватись зам╕сть типового "
+"шляху"
 
 #: gconf/gconftool.c:245
 msgid "SOURCE"
@@ -1166,18 +1188,25 @@ msgid ""
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
 "config source or set to the empty string to use the default."
 msgstr ""
+"Належним чином встановлю╓ файли схем в базу даних з командного рядка. "
+"Значення зм╕нно╖ середовища GCONF_CONFIG_SOURCE ма╓ бути нетиповим "
+"джерелом конф╕╜урац╕╖ або порожн╕м рядком для використання типового джерела."
 
 #: gconf/gconftool.c:271
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of values of "
 "different types for keys on the command line."
 msgstr ""
+"Випробування програми встановленням та зняттям купи "
+"значень р╕зних тип╕в для ключ╕в з командного рядка."
 
 #: gconf/gconftool.c:280
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of keys inside "
 "the directories on the command line."
 msgstr ""
+"Випробування програми встановленням та зняттям купи "
+"ключ╕в в каталогах з командного рядка."
 
 #: gconf/gconftool.c:327
 #, c-format
@@ -1190,11 +1219,11 @@ msgstr ""
 
 #: gconf/gconftool.c:339
 msgid "Can't get and set/unset simultaneously\n"
-msgstr ""
+msgstr "Неможливо отримувати ╕ встановлювати чи зн╕мати значення одночасно\n"
 
 #: gconf/gconftool.c:346
 msgid "Can't set and get/unset simultaneously\n"
-msgstr ""
+msgstr "Неможливо встановлювати ╕ отримувати чи зн╕мати значення одночасно\n"
 
 #: gconf/gconftool.c:354
 msgid "Can't use --all-pairs with --get or --set\n"
@@ -1373,12 +1402,12 @@ msgstr "Незрозум╕лий тип \"%s\"\n"
 
 #: gconf/gconftool.c:977
 msgid "Must specify alternating keys/values as arguments\n"
-msgstr ""
+msgstr "Потр╕бно вказати нов╕ значення ключ╕в ╕ значень як ар╜ументи\n"
 
 #: gconf/gconftool.c:997
 #, c-format
 msgid "No value to set for key: `%s'\n"
-msgstr "Неми╓ значення для встановлення його ключу: \"%s\"\n"
+msgstr "Нема╓ значення для встановлення його ключу: \"%s\"\n"
 
 #: gconf/gconftool.c:1025
 msgid "Cannot set schema as value\n"
