@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.2.1\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
-"PO-Revision-Date: 2002-11-25 22:39GMT\n"
-"Last-Translator: Michal Bukovjan <bukm@centrum.cz>\n"
+"POT-Creation-Date: 2003-02-06 11:58+0100\n"
+"PO-Revision-Date: 2003-02-07 04:22+0100\n"
+"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -812,7 +812,7 @@ msgstr "Schéma udává typ seznam, ale neudává typ prvků seznamu"
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
-msgstr "Schémá udává typ pár, ale neudává typ elementů car/cdr"
+msgstr "Schéma udává typ pár, ale neudává typ elementů car/cdr"
 
 #: gconf/gconf-sources.c:319
 #, c-format
