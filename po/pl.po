@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-10-28 15:46+0100\n"
-"PO-Revision-Date: 2001-10-31 12:00+0100\n"
+"POT-Creation-Date: 2001-10-31 20:39+0100\n"
+"PO-Revision-Date: 2001-10-31 21:07+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -329,6 +329,9 @@ msgid ""
 "listener on gconfd restart, resulting in unreliable notification of "
 "configuration changes."
 msgstr ""
+"Nie mo¿na zapisaæ dodania nas³uchiwacza w dzienniku (%s); przy ponownym "
+"uruchomieniu gconfd nie bêdzie mo¿na go przywróciæ, co spowoduje niew³a¶ciwe "
+"funkcjonowanie powiadamiania o zmianach w konfiguracji."
 
 #: gconf/gconf-database.c:1
 #, c-format
@@ -677,6 +680,10 @@ msgid ""
 "reachable from here - if you're logged in from two machines at once, you may "
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
+"Nie mo¿na nawi±zaæ po³±czenia z serwerem konfiguracji. Mo¿liwe równie¿, ¿e "
+"serwer (gconfd) zosta³ uruchomiony, lecz nie jest dostêpny z tego miejsca, "
+"co mo¿e siê zdarzyæ przy zalogowaniu z dwóch maszyn jednocze¶nie - konieczne "
+"mo¿e byæ uaktywnienie obs³ugi TCP w serwerze ORBit.\n"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -762,6 +769,16 @@ msgid ""
 "connections? As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
+"Nie mo¿na przypisaæ warto¶ci kluczowi \"%s\", poniewa¿ serwerowi "
+"konfiguracji nie podano ¿adnej zapisywalnej bazy danych. Dwa najczêstsze "
+"¼ród³a tego problemu to: 1) ¶cie¿ka konfiguracji nie zawiera ¿adnych baz "
+"danych lub nie zosta³a odnaleziona, 2) w jaki¶ sposów zosta³y uruchomione "
+"dwa procesy gconfd. Je¶li istniej± dwa procesy gconfd, mo¿e pomóc "
+"wylogowanie siê, usuniêcie wszystkich procesów gconfd i ponowne zalogowanie "
+"siê. Byæ mo¿e problem pojawi³ siê z powodu próby jednoczesnego u¿ycia GConfd "
+"z dwóch maszyn, podczas gdy domy¶lna konfiguracja ORBita nie zezwala na "
+"zdalne po³±czenia Corby. Aby poznaæ szczegó³y na temat powsta³ego problemu, "
+"przejrzyj user.* w syslogu."
 
 #: gconf/gconf-sources.c:1
 #, c-format
@@ -849,7 +866,7 @@ msgstr "\"%s\": %s"
 #: gconf/gconf.c:1
 #, c-format
 msgid "Server couldn't resolve the address `%s'"
-msgstr ""
+msgstr "Serwer nie mo¿e odnale¼æ adresu \"%s\""
 
 #: gconf/gconf.c:1
 msgid "Can't add notifications to a local configuration source"
@@ -1001,6 +1018,8 @@ msgstr "Nie mo¿na uzyskaæ referencji obiektu ConfigServer"
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
+"Nie mo¿na zapisaæ bajtu do potoku poprzez deskryptor %d, co mo¿e zawiesiæ "
+"klienta: %s"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1031,6 +1050,8 @@ msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
 "gconfd shutdown (%s)"
 msgstr ""
+"Nie mo¿na otworzyæ pliku dziennika gconfd; po zakoñzceniu gconfd nie bêdzie "
+"mo¿liwe przywrócenie nas³uchiwaczy (%s)"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1070,12 +1091,16 @@ msgstr "Nie mo¿na przenie¶æ nowego pliku z sapisem stanu: %s"
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr ""
+"Nie mo¿na przywróciæ oryginalnego pliku z zapisem stanu przeniesionego do "
+"\"%s\": %s"
 
 #: gconf/gconfd.c:1
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
+"Nie mo¿na przywróciæ nas³uchiwacza spod adresu \"%s\" - nie mo¿na odnale¼æ "
+"bazy danych"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1093,6 +1118,8 @@ msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to "
 "re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
+"Nie mo¿na zapisaæ dodania nas³uchiwacza w pliku dziennika gconfd; po "
+"zakoñzceniu gconfd nie bêdzie mo¿liwe jego ponowne dodanie (%s)"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1100,6 +1127,8 @@ msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously "
 "re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
+"Nie mo¿na zapisaæ usuniêcia nas³uchiwacza w pliku dziennika gconfd; po "
+"zakoñczeniu gconfd mo¿e to spowodowaæ b³êdne ponowne jego dodanie (%s)"
 
 #: gconf/gconfd.c:1 gconf/gconfd.c:1
 #, c-format
@@ -1275,6 +1304,9 @@ msgid ""
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
 "config source or set to the empty string to use the default."
 msgstr ""
+"Instaluje pliki schematów z wiersza poleceñ w bazie danych. Przy u¿yciu "
+"¼ród³a konfiguracji innego, ni¿ domy¶lne, powinna na nie wskazywaæ zmienna "
+"¶rodowiskowa GCONF_CONFIG_SOURCE, pusta warto¶æ oznacza domy¶lne ¼ród³o."
 
 #: gconf/gconftool.c:1
 msgid ""
