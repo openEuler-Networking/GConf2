@@ -42,6 +42,8 @@ gconfinclude_HEADERS =     \
 	gconf-error.h	   \
 	gconf-engine.h
 
+$(gconfinclude_HEADERS): $(CORBA_SOURCES)
+
 ## This is broken I know, I'm going to break the server/client up and have a library later
 
 gconfd_1_SOURCES = \

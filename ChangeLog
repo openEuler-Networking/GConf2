@@ -1,3 +1,8 @@
+2001-04-17  Darin Adler  <darin@eazel.com>
+
+	* gconf/Makefile.am: Now that we are not distributing built sources
+	we need some more dependencies to get the Tinderbox working.
+
 2001-04-17  Michael Meeks  <michael@ximian.com>
 
 	* gconf/Makefile.am (dist-hook): don't distribute built
