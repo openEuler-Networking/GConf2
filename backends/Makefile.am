@@ -1,5 +1,5 @@
 INCLUDES= -I$(top_srcdir) -I$(top_builddir) -I$(top_builddir)/gconf \
-	$(DEPENDENT_WITH_XML_CFLAGS) $(BDB_CFLAGS) \
+	$(GCONF_LIBXML_CFLAGS) $(BDB_CFLAGS) $(DEPENDENT_CFLAGS) \
 	-DGCONF_ENABLE_INTERNALS=1 -DG_LOG_DOMAIN=\"GConf-Backends\"
 
 EXTRA_DIST=README.bdb
@@ -12,8 +12,15 @@ else
 BDBBACKEND=
 endif
 
-backend_LTLIBRARIES = libgconfbackend-xml.la $(BDBBACKEND)
-noinst_LTLIBRARIES = libgconfbackend-markup.la
+if HAVE_LIBXML
+XMLBACKEND=libgconfbackend-xml.la
+noinst_PROGRAMS = xml-test
+else
+XMLBACKEND=
+noinst_PROGRAMS =
+endif
+
+backend_LTLIBRARIES = $(XMLBACKEND) $(BDBBACKEND) libgconfbackend-markup.la
 
 libgconfbackend_xml_la_SOURCES = \
 	xml-cache.h		\
@@ -25,7 +32,7 @@ libgconfbackend_xml_la_SOURCES = \
 	xml-backend.c
 
 libgconfbackend_xml_la_LDFLAGS = -avoid-version -module
-libgconfbackend_xml_la_LIBADD  = $(DEPENDENT_WITH_XML_LIBS)
+libgconfbackend_xml_la_LIBADD  = $(GCONF_LIBXML_LIBS)
 
 libgconfbackend_bdb_la_SOURCES = bdb.c bdb.h bdb-backend.c val-encode.c val-encode.h dir-utils.c dir-utils.h
 
@@ -42,7 +49,7 @@ libgconfbackend_markup_la_LDFLAGS = -avoid-version -module
 libgconfbackend_markup_la_LIBADD  = $(DEPENDENT_LIBS)
 
 
-noinst_PROGRAMS = xml-test
+
 
 xml_test_SOURCES= $(libgconfbackend_xml_la_SOURCES) xml-test.c
-xml_test_LDADD = $(DEPENDENT_WITH_XML_LIBS) $(top_builddir)/gconf/libgconf-$(MAJOR_VERSION).la
+xml_test_LDADD = $(GCONF_LIBXML_LIBS) $(top_builddir)/gconf/libgconf-$(MAJOR_VERSION).la

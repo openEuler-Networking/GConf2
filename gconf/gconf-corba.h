@@ -1,0 +1,35 @@
+/* GConf
+ * Copyright (C) 1999, 2000 Red Hat Inc.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ */
+
+#ifndef GCONF_GCONF_CORBA_H
+#define GCONF_GCONF_CORBA_H
+
+#include "gconf-internals.h"
+#include "GConfX.h"
+
+CORBA_ORB gconf_orb_get          (void);
+
+GConfLock* gconf_get_lock_or_current_holder (const gchar  *lock_directory,
+                                             ConfigServer *current_server,
+                                             GError      **err);
+ConfigServer gconf_get_current_lock_holder  (const gchar *lock_directory,
+                                             GString     *failure_log);
+
+
+#endif 

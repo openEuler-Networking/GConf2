@@ -5,7 +5,8 @@ GCONFD_BINARY_NAME=gconfd-2
 INCLUDES=								\
 	-I$(top_srcdir)							\
 	-I$(top_builddir)						\
-	$(DEPENDENT_WITH_XML_AND_GTK_CFLAGS) 				\
+	$(DEPENDENT_WITH_GTK_CFLAGS)	 				\
+	$(GCONF_LIBXML_CFLAGS)						\
 	$(GCONF_ORBIT_CFLAGS)						\
 	-DG_LOG_DOMAIN=\"GConf\"					\
 	-DGCONF_LOCALE_DIR=\""$(gconflocaledir)"\"			\
@@ -105,12 +106,12 @@ simple_test_LDADD = $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 gconftool_2_SOURCES = \
 	gconftool.c
 
-gconftool_2_LDADD = libgconf-$(MAJOR_VERSION).la $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS) $(POPT_LIBS) 
+gconftool_2_LDADD = libgconf-$(MAJOR_VERSION).la $(EFENCE) $(INTLLIBS) $(POPT_LIBS) 
 
 gconf_sanity_check_2_SOURCES = \
 	gconf-sanity-check.c
 
-gconf_sanity_check_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_AND_GTK_LIBS) $(POPT_LIBS) libgconf-$(MAJOR_VERSION).la
+gconf_sanity_check_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_GTK_LIBS) $(POPT_LIBS) libgconf-$(MAJOR_VERSION).la
 
 $(CORBA_GENERATED): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
