@@ -334,7 +334,7 @@ msgid "Received invalid value in set request"
 msgstr "تم تلقي قيمة غير صالحة في طلب الضبط"
 
 #: gconf/gconf-database.c:242
-#, c-format
+#, fuzzy, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr "لم أفهم معنى قيمة CORBA الذي تم تلقّيه ضمن طلب الضبط للمفتاح `%s' `%s'"
 
@@ -1100,7 +1100,7 @@ msgstr "تلقيت اﻻشارة %d، اغلاق سليم"
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
 #: gconf/gconfd.c:543
-#, c-format
+#, fuzzy, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "تشغيل (إصدارة %s( المستعمل "
 

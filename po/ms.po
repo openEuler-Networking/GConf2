@@ -47,7 +47,7 @@ msgid "Unloading XML backend module."
 msgstr "Nyahmuat module backend XML"
 
 #: backends/xml-backend.c:289
-#, c-format
+#, fuzzy, c-format
 msgid "Couldn't find the root directory in the address \"%s\""
 msgstr "Tak menjumpai direktori pangkal %s pada  alamat \"%s\""
 
