@@ -93,7 +93,6 @@ static GConfEngine    *default_engine = NULL;
 static GHashTable     *engines_by_db = NULL;
 static GHashTable     *engines_by_address = NULL;
 
-
 static gboolean     ensure_dbus_connection      (void);
 static gboolean     ensure_service              (gboolean          start_if_not_found,
 						 GError          **err);
@@ -377,7 +376,7 @@ ensure_dbus_connection (void)
   if (global_conn != NULL)
     return TRUE;
   
-  global_conn = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, NULL);
+  global_conn = dbus_g_connection_get_connection (dbus_g_bus_get (DBUS_BUS_SESSION, NULL));
   
   if (global_conn == NULL)
     return FALSE;

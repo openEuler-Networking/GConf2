@@ -21,7 +21,7 @@
 #define GCONF_DBUS_UTILS_H
 
 #include <glib.h>
-#include <dbus/dbus-glib.h>
+#include <dbus/dbus-glib-lowlevel.h>
 #include <gconf/gconf.h>
 #include <gconf/gconf-value.h>
 

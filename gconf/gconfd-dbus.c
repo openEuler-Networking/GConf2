@@ -25,7 +25,7 @@
 #include "gconfd-dbus.h"
 
 static DBusConnection *bus_conn;
-static const char *server_path[] = { "org", "gnome", "GConf", "Server", NULL };
+static const char *server_path = "org.gnome.GConf.Server";
 static gint nr_of_connections = 0;
 
 #define SERVICE_DELETED_RULE "type='signal',member='ServiceDeleted'," \

@@ -20,7 +20,7 @@
 #ifndef GCONF_GCONF_DATABASE_DBUS_H
 #define GCONF_GCONF_DATABASE_DBUS_H
 
-#include <dbus/dbus-glib.h>
+#include <dbus/dbus.h>
 #include "gconf-database.h"
 
 typedef struct _GConfDatabaseDBus GConfDatabaseDBus;

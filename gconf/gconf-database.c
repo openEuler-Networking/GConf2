@@ -32,6 +32,7 @@
 #endif
 #ifdef HAVE_DBUS
 #include "gconfd-dbus.h"
+#include "gconf-database-dbus.h"
 #endif
 
 /*
@@ -286,13 +287,13 @@ gconf_database_set   (GConfDatabase      *db,
 #endif
 #ifdef HAVE_DBUS
       gconf_database_dbus_notify_listeners(db, key, value,
-					    /* Can't possibly be the default,
-					       since we just set it,
-					       and must be writable since
-					       setting it succeeded.
+					   /* Can't possibly be the default,
+					      since we just set it,
+					      and must be writable since
+					      setting it succeeded.
 					    */
-					    FALSE,
-					    TRUE);
+					   FALSE,
+					   TRUE);
 #endif
       
     }

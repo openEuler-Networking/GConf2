@@ -20,7 +20,7 @@
 #ifndef GCONF_GCONFD_DBUS_H
 #define GCONF_GCONFD_DBUS_H
 
-#include <dbus/dbus-glib.h>
+#include <dbus/dbus.h>
 
 gboolean gconfd_dbus_init                     (void);
 gboolean gconfd_dbus_check_in_shutdown        (DBusConnection   *connection,
