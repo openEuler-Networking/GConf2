@@ -1183,43 +1183,38 @@ gconfd_dbus_init (void)
   const char *dbus_address;
   DBusResultCode result;
   DBusMessageHandler *handler;
+  GError *gerror = NULL;
   DBusError error;
 
+  /* dbus_error_init (&error);*/
+
+  dbus_conn = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
+  if (dbus_conn == NULL) {
+    gconf_log (GCL_ERR, _("Failed to connect to the D-BUS session bus: %s",
+			  gerror->message));
+    return FALSE;
+  }
+
+  if (!dbus_connection_register_object_path (dbus_conn,
+					     server_path,
+					     &server_vtable,
+					     NULL)) {
+    gconf_log (GCL_ERR, _("Failed to register server object"));
+    return FALSE;
+  }
+
   dbus_error_init (&error);
-  dbus_address = get_dbus_address ();
-  if (!dbus_address)
-    {
-      gconf_log (GCL_ERR, _("Failed to get the D-BUS bus daemon address"));
-      return FALSE;
-    }
-  
-  dbus_conn = dbus_connection_open (dbus_address, &result);
+  result = dbus_bus_acquire_service (dbus_conn,
+				     GCONF_SERVICE_NAME,
+				     0, &error);
+  if (dbus_error_is_set (&error)) {
+    gconf_log (GCL_ERR, _("Failed to acquire resource"));
+    dbus_error_free (&error);
+    return FALSE;
+  }
 
-  if (!dbus_conn)
-    {
-      gconf_log (GCL_ERR, _("Failed to connect to the D-BUS bus daemon: %s"),
-		 dbus_result_to_string (result));
-      return FALSE;
-    }
-
-  if (!dbus_bus_register (dbus_conn, &error))
-    {
-      gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
-		 error.message);
-      dbus_error_free (&error);
-      return FALSE;
-    }
-
-  if (dbus_bus_acquire_service (dbus_conn, GCONF_DBUS_CONFIG_SERVER,
-				DBUS_SERVICE_FLAG_PROHIBIT_REPLACEMENT,
-				NULL) != DBUS_SERVICE_REPLY_PRIMARY_OWNER)
-    {
-      gconf_log (GCL_ERR, _("Failed to acquire resource"));
-      return FALSE;
-    }
-
-  dbus_connection_setup_with_g_main (dbus_conn);
-
+  /* FIXME: Work from here! */
+#if 0
   /* Add the config server handler */
   handler = dbus_message_handler_new (gconfd_config_server_handler, NULL, NULL);
   dbus_connection_register_handler (dbus_conn, handler, config_server_messages,
@@ -1234,6 +1229,7 @@ gconfd_dbus_init (void)
   handler = dbus_message_handler_new (gconfd_lifecycle_handler, NULL, NULL);
   dbus_connection_register_handler (dbus_conn, handler, lifecycle_messages,
 				    G_N_ELEMENTS (lifecycle_messages));
+#endif
   
   return TRUE;
 }

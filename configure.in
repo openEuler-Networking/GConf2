@@ -185,6 +185,7 @@ if test x$with_ipc = xorbit -o x$with_ipc = xboth; then
   else
     ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
     AC_SUBST(ORBIT_IDL)
+    AC_DEFINE(HAVE_ORBIT, 1, ORBit support in the daemon)
   fi
 else 
   have_orbit=no
@@ -193,6 +194,9 @@ fi
 
 if test x$with_ipc = xdbus -o x$with_ipc = xboth; then
   PKG_CHECK_MODULES(GCONF_DBUS, dbus-glib-1 >= 0.20, have_dbus=yes, have_dbus=no)
+  if test x$have_dbus = xyes; then
+    AC_DEFINE(HAVE_DBUS, 1, D-BUS support in the daemon)
+  fi
 else
   have_dbus=no
 fi
