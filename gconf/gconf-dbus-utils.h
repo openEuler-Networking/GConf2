@@ -93,10 +93,10 @@ void         gconf_dbus_message_append_entry            (DBusMessage      *messa
 							 gboolean          is_writable,
 							 const gchar      *schema_name);
 gboolean gconf_dbus_get_entry_values_from_message_iter  (DBusMessageIter  *iter,
-							 const gchar     **key,
+							 gchar           **key,
 							 GConfValue      **value,
 							 gboolean         *is_default,
 							 gboolean         *is_writable,
-							 const gchar     **schema_name);
+							 gchar           **schema_name);
 
 #endif/* GCONF_DBUS_UTILS_H */

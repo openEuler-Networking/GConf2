@@ -676,7 +676,7 @@ check_next_dict_key (DBusMessageIter *dict, const gchar *key)
   gchar *name;
   gboolean ret_val = FALSE;
   
-  name = dbus_message_iter_get_dict_key (&dict);
+  name = dbus_message_iter_get_dict_key (dict);
   if (!name)
     return FALSE;
   
@@ -690,17 +690,14 @@ check_next_dict_key (DBusMessageIter *dict, const gchar *key)
 
 gboolean
 gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
-					       const gchar     **key,
+					       gchar           **key,
 					       GConfValue      **value,
 					       gboolean         *is_default,
 					       gboolean         *is_writable,
-					       const gchar     **schema_name)
+					       gchar           **schema_name)
 {
   DBusMessageIter dict;
 
-  g_return_val_if_fail (key != NULL, FALSE);
-  g_return_val_if_fail (value != NULL, FALSE);
-  
   dbus_message_iter_init_dict_iterator (iter, &dict);
 
   while (1) 

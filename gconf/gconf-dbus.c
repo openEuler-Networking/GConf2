@@ -1939,8 +1939,6 @@ gconf_activate_service (gboolean  start_if_not_found,
 	{
 	  const gchar *msg;
 	  
-	  g_print ("ERROR\n");
-
 	  if (dbus_error_is_set (&error))
 	    msg = error.message;
 	  else
