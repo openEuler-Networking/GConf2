@@ -1,4 +1,9 @@
 2004-03-24  Mark McLoughlin  <mark@skynet.ie>
+	
+	* gconf/gconf-database.c: (impl_ConfigDatabase_set): don't
+	convert the value into a string and then do nothing with it.
+	
+2004-03-24  Mark McLoughlin  <mark@skynet.ie>
 
 	* configure.in: kill the message-of-doom.
 
