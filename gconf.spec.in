@@ -96,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/*.0
 %{prefix}/lib/*.1
 %{prefix}/lib/*.so
+%{prefix}/pkgconfig/*
 %{prefix}/lib/GConf/1/*.so
 %{prefix}/share/locale/*/LC_MESSAGES/*.mo
 %{prefix}/share/oaf/*.oafinfo

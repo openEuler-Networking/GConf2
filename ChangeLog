@@ -1,3 +1,7 @@
+2001-03-26  Robin * Slomkowski  <rslomkow@eazel.com>
+
+	* gconf.spec.in: added .pc files
+
 2001-03-23  Martin Baulig  <baulig@suse.de>
 
 	* gconf.pc.in, gconfgtk.pc.in: New files.
