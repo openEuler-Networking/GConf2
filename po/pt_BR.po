@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
-"PO-Revision-Date: 2001-02-14 10:33-02:00\n"
+"Project-Id-Version: gconf 1.0.4\n"
+"POT-Creation-Date: 2001-09-17 14:45-0300\n"
+"PO-Revision-Date: 2001-09-18 20:18-03:00\n"
 "Last-Translator: Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -87,8 +87,8 @@ msgstr ""
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
-"%u items remain in the cache after cleaning already-synced items older than %"
-"u seconds"
+"%u items remain in the cache after cleaning already-synced items older than "
+"%u seconds"
 msgstr ""
 "%u itens continuam no cache após a limpeza dos itens já sincronizados mais "
 "antigos que %u segundos"
@@ -182,9 +182,9 @@ msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Ignorando nome de schema `%s', inválido: %s"
 
 #: backends/xml-entry.c:375
-#, fuzzy, c-format
+#, c-format
 msgid "Ignoring XML node `%s': %s"
-msgstr "Ignorando nó XML com nome `%s': %s"
+msgstr "Ignorando nó XML `%s': %s"
 
 #: backends/xml-entry.c:726
 #, c-format
@@ -667,7 +667,7 @@ msgid ""
 "bug, not a GConf issue. Logging out, killing oafd and gconfd, and logging "
 "back in may help. As always, check the user.* syslog for details on problems "
 "gconfd encountered."
-msgstr ""
+msgstr "Não é possível armazenar um valor na chave '%s', pois o servidor de configuração não possui bases de dados com possibilidade de escrita. Existem duas causas comuns para este problema: 1) o seu caminho de configuração não contém nenhuma base de dados ou não foi encontrado ou 2) OAF criou por engano dois processos gconfd. Se você possui dois processos gconfd (ou tinha dois quando o segundo foi lançado), então este é um erro do OAF, não um problema no GConf. Sair do sistema, matar oafd e gconfd e entrar no sistema de novo pode ajudar. Como sempre, verifique no syslog user.* detalhes sobre os problemas que o gconfd encontrou."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -773,7 +773,7 @@ msgid ""
 "was reported. This is not a bug in the GConf package. Do not report a GConf "
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
-msgstr ""
+msgstr "Erro ao contatar o servidor de configuração: OAF retornou nil para oaf_activate_from_id() e não configurou uma exceção para explicar o problema. Este é um erro do pacote OAF; algo errado aconteceu com o OAF e não foi relatado um erro. Este não é um erro do pacote GConf. Não relate um erro do GConf a não ser que você possua informação indicando o que aconteceu de errado com o OAF que foi causado pelo GConf."
 
 #: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
@@ -858,10 +858,6 @@ msgstr ""
 "Nenhuma fonte de configuração no caminho de fontes, configuração não será "
 "salva; edite "
 
-#: gconf/gconfd.c:307
-msgid "/path"
-msgstr ""
-
 #: gconf/gconfd.c:321
 #, c-format
 msgid "Error loading some config sources: %s"
@@ -922,43 +918,38 @@ msgid "Failed to get object reference for ConfigServer"
 msgstr "Falha ao obter referência de objeto para ConfigServer"
 
 #: gconf/gconfd.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create %s: %s"
-msgstr "Falha ao criar arquivo `%s': %s"
+msgstr "Falha ao criar %s: %s"
 
 #. Bad hack alert - register the current lockholder with oafd,
 #. * since oafd seems to have forgotten about us.
 #.
 #: gconf/gconfd.c:588
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get lock for daemon: %s"
-msgstr "Falha ao ler IOR para cliente: %s"
+msgstr "Falha ao obter bloqueio para daemon: %s"
 
 #: gconf/gconfd.c:594
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
-msgstr ""
+msgstr "Registrando servidor existente com oafd uma vez que o OAF aparenta tê-lo perdido"
 
 #: gconf/gconfd.c:603
-#, fuzzy
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register existing server."
-msgstr ""
-"OAF não conhece nosso IID; indica uma instalação defeituosa; não é possível "
-"registrar; terminando\n"
+msgstr "OAF não conhece nosso IID; indica uma instalação defeituosa; não é possível registrar servidor existente."
 
 #: gconf/gconfd.c:607
-#, fuzzy
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "Outro gconfd já registrado com o OAF; terminando\n"
+msgstr "Outro gconfd já registrado com o OAF; não é possível registrar o servidor existente"
 
 #: gconf/gconfd.c:612
-#, fuzzy
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr "Erro desconhecido registrado gconfd com o OAF; terminando\n"
+msgstr "Erro desconhecido registrado gconfd com o OAF; terminando"
 
 #: gconf/gconfd.c:639
 msgid ""
@@ -977,9 +968,9 @@ msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr "Erro desconhecido registrado gconfd com o OAF; terminando\n"
 
 #: gconf/gconfd.c:692
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to release lockfile: %s"
-msgstr "Falha ao liberar diretório de bloqueios `%s': %s"
+msgstr "Falha ao liberar arquivo de bloqueio: %s"
 
 #: gconf/gconfd.c:700
 msgid "Exiting"
@@ -1064,8 +1055,8 @@ msgstr "Não é possível abrir arquivo de estado '%s': %s"
 #: gconf/gconfd.c:2035
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Falha ao registrar inclusão de listener ao arquivo de registro do gconfd; "
 "não será possível re-incluir o listener se o gconfd for desligado (%s)"
@@ -1073,12 +1064,12 @@ msgstr ""
 #: gconf/gconfd.c:2040
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Falha ao registrar remoção de listener do arquivo de registro do gconfd; "
-"pode ocorrer uma re-inclusão errada do listener se o gconfd for desligado (%"
-"s)"
+"pode ocorrer uma re-inclusão errada do listener se o gconfd for desligado "
+"(%s)"
 
 #: gconf/gconfd.c:2063 gconf/gconfd.c:2228
 #, c-format
@@ -1119,8 +1110,8 @@ msgstr "Imprime o valor de uma chave para a saída padrão."
 
 #: gconf/gconftool.c:95
 msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
-"type."
+"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
+"--type."
 msgstr ""
 "Atribui um schema e sincroniza. Use com --short-desc, --long-desc, --owner e "
 "--type."
@@ -1275,23 +1266,23 @@ msgstr ""
 
 #: gconf/gconftool.c:294
 msgid "Get the short doc string for a key"
-msgstr ""
+msgstr "Obtém a linha de documentação curta para uma chave"
 
 #: gconf/gconftool.c:303
 msgid "Get the long doc string for a key"
-msgstr ""
+msgstr "Obtém a linha de documentação longa para uma chave"
 
 #: gconf/gconftool.c:312
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Obtém o nome do schema aplicado a esta chave"
 
 #: gconf/gconftool.c:321
 msgid "Specify the schema name followed by the key to apply the schema name to"
-msgstr ""
+msgstr "Especifica o nome do schema seguido pela chave sobre a qual aplicar este nome"
 
 #: gconf/gconftool.c:330
 msgid "Get the name of the default source"
-msgstr ""
+msgstr "Obtém o nome da fonte padrão"
 
 #: gconf/gconftool.c:382
 #, c-format
@@ -1312,31 +1303,24 @@ msgid "Can't set and get/unset simultaneously\n"
 msgstr "Não é possível atribuir e ler/limpar ao mesmo tempo\n"
 
 #: gconf/gconftool.c:409
-#, fuzzy
 msgid "Can't use --all-entries with --get or --set\n"
-msgstr "Não é possível usar --all-dirs com --get ou --set\n"
+msgstr "Não é possível usar --all-entries com --get ou --set\n"
 
 #: gconf/gconftool.c:417
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "Não é possível usar --all-dirs com --get ou --set\n"
 
 #: gconf/gconftool.c:427
-#, fuzzy
 msgid ""
-"--recursive-list should not be used with --get, --set, --unset, --all-"
-"entries, or --all-dirs\n"
-msgstr ""
-"--recursive-list não deve ser usado com --get, --set, --unset, --all-pairs "
-"ou --all-dirs\n"
+"--recursive-list should not be used with --get, --set, --unset, "
+"--all-entries, or --all-dirs\n"
+msgstr "--recursive-list não deve ser usado com --get, --set, --unset, --all-entries ou --all-dirs\n"
 
 #: gconf/gconftool.c:437
-#, fuzzy
 msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
-"all-dirs\n"
-msgstr ""
-"--set_schema não deve ser usado com --get, --set, --unset, --all-pairs ou --"
-"all-dirs\n"
+"--set_schema should not be used with --get, --set, --unset, --all-entries, "
+"--all-dirs\n"
+msgstr "--set_schema não deve ser usado com --get, --set, --unset, --all-entries ou --all-dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
@@ -1417,9 +1401,9 @@ msgstr ""
 "Devem ser especificados um ou mais diretórios para listar recursivamente.\n"
 
 #: gconf/gconftool.c:875
-#, fuzzy, c-format
+#, c-format
 msgid "Failure listing entries in `%s': %s\n"
-msgstr "Falha ao listar pares em `%s': %s"
+msgstr "Falha ao listar entradas em `%s': %s\n"
 
 #: gconf/gconftool.c:893
 msgid "(no value set)"
@@ -1432,7 +1416,7 @@ msgstr "Falha ao criar o servidor de configuração (gconfd): %s\n"
 
 #: gconf/gconftool.c:962
 msgid "Must specify a key or keys to get\n"
-msgstr "Devem ser especificada uma chave ou chaves para ler\n"
+msgstr "Devem ser especificadas uma chave ou chaves para ler\n"
 
 #: gconf/gconftool.c:997
 #, c-format
@@ -1525,54 +1509,52 @@ msgid "Error: %s\n"
 msgstr "Erro: %s\n"
 
 #: gconf/gconftool.c:1189
-#, fuzzy, c-format
+#, c-format
 msgid "Error setting value: %s\n"
-msgstr "Erro ao atribuir valor: %s"
+msgstr "Erro ao atribuir valor: %s\n"
 
 #: gconf/gconftool.c:1207
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing: %s\n"
-msgstr "Erro ao sincronizar: %s"
+msgstr "Erro ao sincronizar: %s\n"
 
 #: gconf/gconftool.c:1230
-#, fuzzy
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Devem ser especificada uma chave ou chaves para ler\n"
+msgstr "Devem ser especificadas uma chave ou chaves na linha de comando\n"
 
 #: gconf/gconftool.c:1250
-#, fuzzy, c-format
+#, c-format
 msgid "No schema known for `%s'\n"
-msgstr "Arquivo não encontrado `%s'\n"
+msgstr "Não existe schema conhecido para `%s'\n"
 
 #: gconf/gconftool.c:1283
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
-msgstr ""
+msgstr "Não existe linha de documentação no schema em '%s'\n"
 
 #: gconf/gconftool.c:1288
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting schema at '%s': %s\n"
-msgstr "Erro ao atribuir schema para `%s': %s"
+msgstr "Erro obtendo schema em '%s': %s\n"
 
 #: gconf/gconftool.c:1295
-#, fuzzy, c-format
+#, c-format
 msgid "No schema stored at '%s'\n"
-msgstr "Arquivo não encontrado `%s'\n"
+msgstr "Não existe schema armazenado em '%s'\n"
 
 #: gconf/gconftool.c:1298
 #, c-format
 msgid "Value at '%s' is not a schema\n"
-msgstr ""
+msgstr "Valor em '%s' não é um schema\n"
 
 #: gconf/gconftool.c:1354
-#, fuzzy
 msgid "Must specify a schema name followed by the key name to apply it to\n"
-msgstr "Deve ser especificada chave (nome do schema) como único argumento\n"
+msgstr "Deve ser especificado um nome de schema seguido por um nome de chave onde aplicá-lo\n"
 
 #: gconf/gconftool.c:1361
-#, fuzzy, c-format
+#, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr "ALERTA: falha ao associar schema `%s' com chave `%s': %s\n"
+msgstr "Erro ao associar nome de schema '%s' com nome de chave '%s': %s\n"
 
 #: gconf/gconftool.c:1381
 msgid "Must specify key (schema name) as the only argument\n"
@@ -1605,8 +1587,8 @@ msgstr "Erro ao sincronizar: %s"
 #: gconf/gconftool.c:1507
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
-"Devem ser especificados um ou mais diretórios de onde obter pares chave/"
-"valor.\n"
+"Devem ser especificados um ou mais diretórios de onde obter pares "
+"chave/valor.\n"
 
 #: gconf/gconftool.c:1521
 msgid "Must specify one or more keys to unset.\n"
@@ -1833,24 +1815,3 @@ msgstr "Alerta do GConf: falha ao listar pares em `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Esperado `%s' recebi `%s' para chave %s"
-
-#~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
-#~ msgstr "Ignorando nó XML `%s', exceto por possível nome de schema: %s"
-
-#~ msgid "Can't use --all-pairs with --get or --set\n"
-#~ msgstr "Não é possível usar --all-pairs com --get ou --set\n"
-
-#~ msgid "Unable to store a value at key '%s'"
-#~ msgstr "Não é possível armazenar um valor na chave '%s'"
-
-#~ msgid ""
-#~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the "
-#~ "problem. Please file an OAF bug report."
-#~ msgstr ""
-#~ "Erro ao contactar servidor de configuração: OAF retornou nil para "
-#~ "oaf_activate_from_id() e não levantou uma exceção explicando o problema. "
-#~ "Por favor, registre um relatório de erros sobre o OAF."
-
-#~ msgid "GConf was built with debugging features enabled"
-#~ msgstr "GConf foi compilado com recursos de depuração ativados"
