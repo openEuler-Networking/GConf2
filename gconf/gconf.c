@@ -107,7 +107,7 @@ typedef struct _GConfCnxn GConfCnxn;
 struct _GConfCnxn {
   gchar* namespace_section;
   guint client_id;
-  CORBA_unsigned_long server_id; /* id returned from server */
+  guint server_id; /* id returned from server */
   GConfEngine* conf;             /* engine we're associated with */
   GConfNotifyFunc func;
   gpointer user_data;
@@ -152,7 +152,7 @@ static int      gconf_engine_get_database (GConfEngine  *conf,
 static void         register_engine           (GConfEngine    *conf);
 static void         unregister_engine         (GConfEngine    *conf);
 static GConfEngine *lookup_engine             (const gchar    *address);
-static GConfEngine *lookup_engine_by_database (ConfigDatabase  db);
+static GConfEngine *lookup_engine_by_database (int             db);
 
 
 /* We'll use client-specific connection numbers to return to library
@@ -177,7 +177,7 @@ static GSList*    ctable_remove_by_conf      (CnxnTable           *ct,
 static GConfCnxn* ctable_lookup_by_client_id (CnxnTable           *ct,
                                               guint                client_id);
 static GConfCnxn* ctable_lookup_by_server_id (CnxnTable           *ct,
-                                              CORBA_unsigned_long  server_id);
+                                              guint                server_id);
 static void       ctable_reinstall           (CnxnTable           *ct,
                                               GConfCnxn           *cnxn,
                                               guint                old_server_id,
@@ -249,15 +249,14 @@ gconf_engine_pop_owner_usage  (GConfEngine *engine,
 static GHashTable *engines_by_db = NULL;
 
 static GConfEngine *
-lookup_engine_by_database (ConfigDatabase db)
+lookup_engine_by_database (int db)
 {
   if (engines_by_db)
-    return g_hash_table_lookup (engines_by_db, db);
+    return g_hash_table_lookup (engines_by_db, GINT_TO_POINTER (db));
   else
     return NULL;
 }
 
-/* This takes ownership of the ConfigDatabase */
 static void
 gconf_engine_set_database (GConfEngine *conf,
                            int          id)
@@ -267,7 +266,7 @@ gconf_engine_set_database (GConfEngine *conf,
   conf->database = id;
 
   if (engines_by_db == NULL)
-    engines_by_db = g_hash_table_new_full (g_int_hash, g_int_equal,
+    engines_by_db = g_hash_table_new_full (NULL, NULL,
 					   NULL, NULL);
   
   g_hash_table_insert (engines_by_db, GINT_TO_POINTER (conf->database), conf);  
@@ -298,6 +297,10 @@ gconf_engine_connect (GConfEngine *conf,
 
   if (conf->database != -1)
     return TRUE;
+
+  /* FIXME: Don't do this */
+  gconf_engine_set_database (conf, 0);
+  return TRUE;
   
  RETRY:
       
@@ -448,6 +451,7 @@ gconf_engine_get_default (void)
        * get errors half the time anyway.
        */
       gconf_engine_connect (conf, FALSE, NULL);
+
     }
   else
     conf->refcount += 1;
@@ -2367,13 +2371,94 @@ gconf_get_config_listener(void)
   return listener;
 }
 
+static const char *config_listener_messages[] =
+{
+  GCONF_DBUS_CONFIG_LISTENER_NOTIFY
+};
+
+static void
+gconf_config_listener_notify (DBusConnection *connection,
+			      DBusMessage    *message)
+{
+  GConfEngine *conf;
+  char *key;
+  guint cnxn_id;
+  int id;
+  gboolean is_default, is_writable;
+  GConfCnxn* cnxn;
+  DBusMessageIter *iter;
+  GConfValue *value;
+  GConfEntry* entry;
+  
+  dbus_message_get_args (message,
+			 DBUS_TYPE_UINT32, &id,
+			 DBUS_TYPE_UINT32, &cnxn_id,
+			 DBUS_TYPE_STRING, &key,
+			 DBUS_TYPE_BOOLEAN, &is_default,
+			 DBUS_TYPE_BOOLEAN, &is_writable,
+			 0);
+  iter = dbus_message_get_args_iter (message);
+  dbus_message_iter_next (iter);
+  dbus_message_iter_next (iter);
+  dbus_message_iter_next (iter);
+  dbus_message_iter_next (iter);
+  dbus_message_iter_next (iter);    
+
+  value = gconf_dbus_create_gconf_value_from_message (iter);
+  dbus_message_iter_unref (iter);
+  
+  conf = lookup_engine_by_database (id);
+
+  cnxn = ctable_lookup_by_server_id(conf->ctable, cnxn_id);
+  
+  if (cnxn == NULL)
+    {
+#ifdef GCONF_ENABLE_DEBUG
+      g_warning("Client received notify for unknown connection ID %u",
+                (guint)cnxn_id);
+#endif
+      return;
+    }
+
+  entry = gconf_entry_new_nocopy (g_strdup (key),
+                                  value);
+  gconf_entry_set_is_default (entry, is_default);
+  gconf_entry_set_is_writable (entry, is_writable);
+  
+  gconf_cnxn_notify(cnxn, entry);
+
+  gconf_entry_free (entry);  
+}
+
+static DBusHandlerResult
+gconf_config_listener_handler (DBusMessageHandler *handler,
+			       DBusConnection     *connection,
+			       DBusMessage        *message,
+			       void               *user_data)
+{
+  if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_LISTENER_NOTIFY))
+    {
+      gconf_config_listener_notify (connection, message);
+      
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  
+  return DBUS_HANDLER_RESULT_ALLOW_MORE_HANDLERS;
+}
+
 gboolean
 gconf_init_dbus (DBusConnection *connection)
 {
+  DBusMessageHandler *handler;
+  
   if (dbus_conn)
     return FALSE;
 
   dbus_conn = connection;
+
+  handler = dbus_message_handler_new (gconf_config_listener_handler, NULL, NULL);
+  dbus_connection_register_handler (dbus_conn, handler, config_listener_messages,
+				    G_N_ELEMENTS (config_listener_messages));
   return TRUE;
 }
 
@@ -2726,8 +2811,7 @@ ctable_new(void)
 
   ct = g_new(CnxnTable, 1);
 
-  ct->server_ids = g_hash_table_new (corba_unsigned_long_hash,
-                                     corba_unsigned_long_equal);  
+  ct->server_ids = g_hash_table_new (g_int_hash, g_int_equal);
   ct->client_ids = g_hash_table_new (g_int_hash, g_int_equal);
   
   return ct;
@@ -2818,7 +2902,7 @@ ctable_lookup_by_client_id(CnxnTable* ct, guint client_id)
 }
 
 static GConfCnxn* 
-ctable_lookup_by_server_id(CnxnTable* ct, CORBA_unsigned_long server_id)
+ctable_lookup_by_server_id(CnxnTable* ct, guint server_id)
 {
   return g_hash_table_lookup (ct->server_ids, &server_id);
 }

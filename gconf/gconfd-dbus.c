@@ -654,13 +654,15 @@ get_dbus_address (void)
   return g_getenv ("GCONF_DBUS_ADDRESS");
 }
 
+static DBusConnection *dbus_conn = NULL;
+
 gboolean
 gconfd_dbus_init (void)
 {
   const char *dbus_address;
   DBusResultCode result;
   DBusMessageHandler *handler;
-  DBusConnection *connection;
+
   char *name;
 
   dbus_address = get_dbus_address ();
@@ -670,16 +672,16 @@ gconfd_dbus_init (void)
       return FALSE;
     }
   
-  connection = dbus_connection_open (dbus_address, &result);
+  dbus_conn = dbus_connection_open (dbus_address, &result);
 
-  if (!connection)
+  if (!dbus_conn)
     {
       gconf_log (GCL_ERR, _("Failed to connect to the D-BUS bus daemon: %s"),
 		 dbus_result_to_string (result));
       return FALSE;
     }
 
-  name = dbus_bus_register_client (connection, &result);
+  name = dbus_bus_register_client (dbus_conn, &result);
   if (!name)
     {
       gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
@@ -687,7 +689,7 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  if (dbus_bus_acquire_service (connection, "org.freedesktop.Config.Server",
+  if (dbus_bus_acquire_service (dbus_conn, "org.freedesktop.Config.Server",
 				DBUS_SERVICE_FLAG_PROHIBIT_REPLACEMENT,
 				&result) != DBUS_SERVICE_REPLY_PRIMARY_OWNER)
     {
@@ -695,16 +697,16 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  dbus_connection_setup_with_g_main (connection);
+  dbus_connection_setup_with_g_main (dbus_conn);
 
   /* Add the config server handler */
   handler = dbus_message_handler_new (gconfd_config_server_handler, NULL, NULL);
-  dbus_connection_register_handler (connection, handler, config_server_messages,
+  dbus_connection_register_handler (dbus_conn, handler, config_server_messages,
 				    G_N_ELEMENTS (config_server_messages));
 
   /* Add the config database handler */
   handler = dbus_message_handler_new (gconfd_config_database_handler, NULL, NULL);
-  dbus_connection_register_handler (connection, handler, config_database_messages,
+  dbus_connection_register_handler (dbus_conn, handler, config_database_messages,
 				    G_N_ELEMENTS (config_database_messages));
   
   return TRUE;
@@ -723,6 +725,43 @@ gconfd_dbus_check_in_shutdown (DBusConnection *connection,
     return FALSE;
 }
 
+typedef struct {
+  GConfDatabase* db;
+  const GConfValue *value;
+  gboolean is_default;
+  gboolean is_writable;
+} ListenerNotifyClosure;
+
+static void
+notify_listeners_cb(GConfListeners* listeners,
+                    const gchar* all_above_key,
+                    guint cnxn_id,
+                    gpointer listener_data,
+                    gpointer user_data)
+{
+  Listener* l = listener_data;
+  ListenerNotifyClosure* closure = user_data;
+  DBusMessage *message;
+  
+  if (l->parent.type != GCONF_DATABASE_LISTENER_DBUS)
+    return;
+
+  message = dbus_message_new (l->who, GCONF_DBUS_CONFIG_LISTENER_NOTIFY);
+
+  dbus_message_append_args (message,
+			    DBUS_TYPE_UINT32, 0, /* FIXME: Use the correct database id */
+			    DBUS_TYPE_UINT32, cnxn_id,
+			    DBUS_TYPE_STRING, all_above_key,
+			    DBUS_TYPE_BOOLEAN, closure->is_default,
+			    DBUS_TYPE_BOOLEAN, closure->is_writable,
+			    0);
+
+  gconf_dbus_fill_message_from_gconf_value (message, closure->value);
+
+  dbus_connection_send_message (dbus_conn, message, NULL, NULL);
+  dbus_message_unref (message);
+}
+
 void
 gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 				      const gchar      *key,
@@ -730,9 +769,15 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 				      gboolean          is_default,
 				      gboolean          is_writable)
 {
-  if (l->parent.type != GCONF_DATABASE_LISTENER_CORBA)
-    return;
+  ListenerNotifyClosure closure;
 
+  closure.db = db;
+  closure.value = value;
+  closure.is_default = is_default;
+  closure.is_writable = is_writable;
+
+  gconf_listeners_notify (db->listeners, key, notify_listeners_cb, &closure);
+  
 }
 
 /*

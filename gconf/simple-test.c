@@ -82,7 +82,13 @@ notify_func (GConfClient* client,
 	     GConfEntry *entry,
 	     gpointer user_data)
 {
-  printf ("wheeeheee\n");
+  char *s;
+  
+  if (gconf_entry_get_value (entry))
+    s = gconf_value_to_string (gconf_entry_get_value (entry));
+  
+  printf ("key changed: %s to %s\n", gconf_entry_get_key (entry), s);
+  g_free (s);
 }
 
 static gboolean
