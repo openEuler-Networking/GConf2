@@ -30,6 +30,27 @@
 #include <time.h>
 #include <math.h>
 
+static gchar* daemon_ior = NULL;
+
+void
+gconf_set_daemon_ior(const gchar* ior)
+{
+  if (daemon_ior != NULL)
+    {
+      g_free(daemon_ior);
+      daemon_ior = NULL;
+    }
+      
+  if (ior != NULL)
+    daemon_ior = g_strdup(ior);
+}
+
+const gchar*
+gconf_get_daemon_ior(void)
+{
+  return daemon_ior;
+}
+
 /*
  * Locks
  */
@@ -695,3 +716,151 @@ gconf_CORBA_Object_hash (gconstpointer key)
 }
 
 
+/*
+ * Activation
+ */
+
+static void
+set_cloexec (gint fd)
+{
+  fcntl (fd, F_SETFD, FD_CLOEXEC);
+}
+
+static void
+close_fd_func (gpointer data)
+{
+  int *pipes = data;
+  
+  gint open_max;
+  gint i;
+  
+  open_max = sysconf (_SC_OPEN_MAX);
+  for (i = 3; i < open_max; i++)
+    {
+      /* don't close our write pipe */
+      if (i != pipes[1])
+        set_cloexec (i);
+    }
+}
+
+ConfigServer
+gconf_activate_server (gboolean  start_if_not_found,
+                       GError  **error)
+{
+  ConfigServer server;
+  int p[2] = { -1, -1 };
+  char buf[1];
+  GError *tmp_err;
+  char *argv[3];
+  char *gconfd_dir;
+  char *lock_dir;
+  GString *failure_log;
+  CORBA_Environment ev;
+
+  failure_log = g_string_new (NULL);
+  
+  gconfd_dir = gconf_get_daemon_dir ();
+  
+  if (mkdir (gconfd_dir, 0700) < 0 && errno != EEXIST)
+    gconf_log (GCL_WARNING, _("Failed to create %s: %s"),
+               gconfd_dir, g_strerror (errno));
+
+  g_free (gconfd_dir);
+
+  g_string_append (failure_log, " 1: ");
+  lock_dir = gconf_get_lock_dir ();
+  server = gconf_get_current_lock_holder (lock_dir, failure_log);
+  g_free (lock_dir);
+
+  /* Confirm server exists */
+  CORBA_exception_init (&ev);
+
+  if (!CORBA_Object_is_nil (server, &ev))
+    {
+      ConfigServer_ping (server, &ev);
+      
+      if (ev._major != CORBA_NO_EXCEPTION)
+        {
+          server = CORBA_OBJECT_NIL;
+
+          g_string_append_printf (failure_log,
+                                  _("Server ping error: %s"),
+                                  CORBA_exception_id (&ev));
+        }
+    }
+
+  CORBA_exception_free (&ev);
+  
+  if (server != CORBA_OBJECT_NIL)
+    {
+      g_string_free (failure_log, TRUE);
+      return server;
+    }
+  
+  if (start_if_not_found)
+    {
+      /* Spawn server */
+      if (pipe (p) < 0)
+        {
+          g_set_error (error,
+                       GCONF_ERROR,
+                       GCONF_ERROR_NO_SERVER,
+                       _("Failed to create pipe for communicating with spawned gconf daemon: %s\n"),
+                       g_strerror (errno));
+          goto out;
+        }
+
+      argv[0] = g_strconcat (GCONF_SERVERDIR, "/" GCONFD, NULL);
+      argv[1] = g_strdup_printf ("%d", p[1]);
+      argv[2] = NULL;
+  
+      tmp_err = NULL;
+      if (!g_spawn_async (NULL,
+                          argv,
+                          NULL,
+                          G_SPAWN_LEAVE_DESCRIPTORS_OPEN,
+                          close_fd_func,
+                          p,
+                          NULL,
+                          &tmp_err))
+        {
+          g_free (argv[0]);
+          g_free (argv[1]);
+          g_set_error (error,
+                       GCONF_ERROR,
+                       GCONF_ERROR_NO_SERVER,
+                       _("Failed to launch configuration server: %s\n"),
+                       tmp_err->message);
+          g_error_free (tmp_err);
+          goto out;
+        }
+      
+      g_free (argv[0]);
+      g_free (argv[1]);
+  
+      /* Block until server starts up */
+      read (p[0], buf, 1);
+
+      g_string_append (failure_log, " 2: ");
+      lock_dir = gconf_get_lock_dir ();
+      server = gconf_get_current_lock_holder (lock_dir, failure_log);
+      g_free (lock_dir);
+    }
+  
+ out:
+  if (server == CORBA_OBJECT_NIL &&
+      error &&
+      *error == NULL)
+    g_set_error (error,
+                 GCONF_ERROR,
+                 GCONF_ERROR_NO_SERVER,
+                 _("Failed to contact configuration server; some possible causes are that you need to enable TCP/IP networking for ORBit, or you have stale NFS locks due to a system crash. See http://www.gnome.org/projects/gconf/ for information. (Details - %s)"),
+                 failure_log->len > 0 ? failure_log->str : _("none"));
+
+  g_string_free (failure_log, TRUE);
+  
+  close (p[0]);
+  close (p[1]);
+  
+  return server;
+}

@@ -38,8 +38,6 @@
 #include "gconf-engine.h"
 #include "gconf-sources.h"
 
-#include "GConfX.h"
-
 gchar*       gconf_key_directory  (const gchar* key);
 const gchar* gconf_key_key        (const gchar* key);
 
@@ -53,17 +51,6 @@ enum {
 
 gboolean gconf_file_test   (const gchar* filename, int test);
 gboolean gconf_file_exists (const gchar* filename);
-
-GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
-ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
-void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
-                                                      ConfigValue       *dest);
-ConfigValue* gconf_invalid_corba_value               (void);
-
-void          gconf_fill_corba_schema_from_gconf_schema (const GConfSchema  *sc,
-                                                         ConfigSchema       *dest);
-ConfigSchema* gconf_corba_schema_from_gconf_schema      (const GConfSchema  *sc);
-GConfSchema*  gconf_schema_from_corba_schema            (const ConfigSchema *cs);
 
 const gchar*   gconf_value_type_to_string   (GConfValueType  type);
 GConfValueType gconf_value_type_from_string (const gchar    *str);
@@ -137,21 +124,11 @@ void   gconf_unquote_string_inplace (gchar        *str,
 
 GConfValue* gconf_value_decode (const gchar *encoded);
 gchar*      gconf_value_encode (GConfValue  *val);
-GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
-ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
-void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
-                                                      ConfigValue       *dest);
-ConfigValue* gconf_invalid_corba_value               (void);
+
 
 
 /* FIXME is this used? */
 gchar* gconf_quote_percents (const gchar* src);
-gchar* gconf_object_to_string (CORBA_Object obj,
-                               GError **err);
-gboolean gconf_CORBA_Object_equal (gconstpointer a,
-                                   gconstpointer b);
-guint    gconf_CORBA_Object_hash  (gconstpointer key);
-
 
 
 /*
@@ -180,11 +157,6 @@ gboolean gconf_value_pair_to_primitive_pair_destructive (GConfValue      *val,
 
 void         gconf_set_daemon_mode (gboolean     setting);
 gboolean     gconf_in_daemon_mode  (void);
-void         gconf_set_daemon_ior  (const gchar *ior);
-const gchar* gconf_get_daemon_ior  (void);
-
-/* Returns TRUE if there was an error, frees exception, sets err */
-gboolean gconf_handle_oaf_exception (CORBA_Environment* ev, GError** err);
 
 void gconf_nanosleep (gulong useconds);
 
@@ -199,9 +171,6 @@ void     gconf_set_error  (GError** err,
 
 /* merge two errors into a single message */
 GError*  gconf_compose_errors (GError* err1, GError* err2);
-
-ConfigServer gconf_activate_server (gboolean  start_if_not_found,
-                                    GError  **error);
 
 char*     gconf_get_lock_dir (void);
 char*     gconf_get_daemon_dir (void);

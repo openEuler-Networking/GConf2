@@ -23,11 +23,19 @@
 #include "GConfX.h"
 #include "gconf-internals.h"
 
-GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
-ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
-void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
-                                                      ConfigValue       *dest);
-ConfigValue* gconf_invalid_corba_value               (void);
+GConfValue*   gconf_value_from_corba_value              (const ConfigValue  *value);
+ConfigValue*  gconf_corba_value_from_gconf_value        (const GConfValue   *value);
+void          gconf_fill_corba_value_from_gconf_value   (const GConfValue   *value,
+							 ConfigValue        *dest);
+ConfigValue*  gconf_invalid_corba_value                 (void);
+void          gconf_fill_corba_schema_from_gconf_schema (const GConfSchema  *sc,
+							 ConfigSchema       *dest);
+ConfigSchema* gconf_corba_schema_from_gconf_schema      (const GConfSchema  *sc);
+GConfSchema*  gconf_schema_from_corba_schema            (const ConfigSchema *cs);
+
+
+
+
 
 void gconf_daemon_blow_away_locks (void);
 
@@ -47,5 +55,10 @@ gboolean gconf_CORBA_Object_equal (gconstpointer a,
                                    gconstpointer b);
 guint    gconf_CORBA_Object_hash  (gconstpointer key);
 
+ConfigServer gconf_activate_server (gboolean  start_if_not_found,
+                                    GError  **error);
+
+void         gconf_set_daemon_ior  (const gchar *ior);
+const gchar* gconf_get_daemon_ior  (void);
 
 #endif 
