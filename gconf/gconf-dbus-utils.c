@@ -4,47 +4,7 @@
 #include <string.h>
 #include <dbus/dbus.h>
 #include "gconf-dbus-utils.h"
-
-GConfValue* gconf_value_decode (const gchar* encoded);
-gchar * gconf_value_encode (GConfValue* val);
-
-/*
-
-Notify (ConfigDatabase db,
-        Array<string>  schema_names,
-        Array<bool>    is_defaults,
-        Array<bool>    is_writables,
-	v1, v2, v3, ...);
-
-Lookup (Array<string>  keys,
-        string         locale
-        boolean        use_schema_default,
-	// out:
-        Array<string>  schema_names,
-        Array<bool>    is_defaults,
-        Array<bool>    is_writables,
-	v1, v2, v3, ...);
-
-Set    (Array<string> keys,
-        v1, v2, v3, ...);
-
-AllEntries (string         dir,
-            string         locale,
-	    // out:
-            Array<string>  schema_names,
-            Array<bool>    is_defaults,
-            Array<bool>    is_writables,
-	    v1, v2, v3, ...);
-
-AllDirs    (string         dir,
-            string         locale,
-	    // out:
-            Array<string>  schema_names,
-            Array<bool>    is_defaults,
-            Array<bool>    is_writables,
-	    v1, v2, v3, ...);
-
-*/
+#include "gconf-internals.h"
 
 GConfValue *
 gconf_value_from_dict (DBusMessageIter *iter,
@@ -670,6 +630,7 @@ gconf_dbus_message_append_entry (DBusMessage      *message,
   dbus_message_iter_append_string (&dict, schema_name);
 }
 
+#if 0
 static gboolean
 check_next_dict_key (DBusMessageIter *dict, const gchar *key)
 {
@@ -687,6 +648,7 @@ check_next_dict_key (DBusMessageIter *dict, const gchar *key)
   g_free (name);
   return ret_val;
 }
+#endif
 
 gboolean
 gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
@@ -746,3 +708,4 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
 
   return TRUE;
 }
+

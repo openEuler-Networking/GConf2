@@ -170,17 +170,9 @@ server_handle_shutdown (DBusConnection *connection, DBusMessage *message)
   gconf_main_quit();
 }
 
-static const char *
-get_dbus_address (void)
-{
-  /* Temporary function until we have a session bus */
-  return g_getenv ("DBUS_ADDRESS");
-}
-
 gboolean
 gconfd_dbus_init (void)
 {
-  GError     *gerror = NULL;
   DBusError   error;
 
   dbus_error_init (&error);

@@ -323,6 +323,7 @@ log_handler (const gchar   *log_domain,
   gconf_log (pri, "%s", message);
 }
 
+#ifdef HAVE_CORBA
 /* From ORBit2 */
 /* There is a DOS attack if another user creates
  * the given directory and keeps us from creating
@@ -368,6 +369,7 @@ test_safe_tmp_dir (const char *dirname)
   
   return TRUE;
 }
+#endif
 
 int 
 main(int argc, char** argv)
@@ -481,7 +483,8 @@ main(int argc, char** argv)
   if (mkdir (gconfd_dir, 0700) < 0 && errno != EEXIST)
     gconf_log (GCL_WARNING, _("Failed to create %s: %s"),
                gconfd_dir, g_strerror (errno));
-  
+
+#ifdef HAVE_ORBIT
   if (!test_safe_tmp_dir (gconfd_dir))
     {
       err = g_error_new (GCONF_ERROR,
@@ -496,7 +499,13 @@ main(int argc, char** argv)
 
       daemon_lock = gconf_get_lock_or_current_holder (lock_dir, NULL, &err);
     }
-
+#else
+  /* FIXME: get rid of locks completely for dbus case, just get a fake one for
+   * now.
+   */
+  daemon_lock = gconf_get_lock (NULL, NULL);
+#endif
+  
   if (daemon_lock != NULL)
     {
       /* This loads backends and so on. It needs to be done before
@@ -506,7 +515,8 @@ main(int argc, char** argv)
        */
       gconf_server_load_sources ();
     }
-  
+
+#if HAVE_ORBIT
   /* notify caller that we're done either getting the lock
    * or not getting it
    */
@@ -520,6 +530,10 @@ main(int argc, char** argv)
 
       close (write_byte_fd);
     }
+#else
+  if (write_byte_fd >= 0)
+    close (write_byte_fd);  
+#endif
   
   if (daemon_lock == NULL)
     {
@@ -574,7 +588,7 @@ main(int argc, char** argv)
     }
 
   daemon_lock = NULL;
-  
+
   gconf_log (GCL_INFO, _("Exiting"));
 
   /* Can't do this due to stupid atexit() handler that calls g_log stuff */

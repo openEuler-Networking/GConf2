@@ -49,7 +49,7 @@ struct _GConfEngine {
 
   gchar *database;
 
-  GHashTable *notify_paths;
+  GHashTable *notify_dirs;
   GHashTable *notify_ids;
 
   /* If non-NULL, this is a local engine;
@@ -73,25 +73,25 @@ struct _GConfEngine {
    * has no ctable and no notifications)
    */
   guint is_local : 1;
+
+  guint has_filter : 1;
 };
 
-typedef struct _GConfCnxn GConfCnxn;
-
-struct _GConfCnxn {
+typedef struct {
   gchar* namespace_section;
   guint client_id;
 
-  GConfEngine* conf;             /* engine we're associated with */
+  GConfEngine* conf;             /* Engine we're associated with */
   GConfNotifyFunc func;
   gpointer user_data;
-};
+} GConfCnxn;
+
+typedef struct {
+  GList *cnxns;     /* List of connections to be notified below the dir */
+} CnxnsData;
 
 
-static DBusConnection *connection;
-
-/* Object path for D-BUS GConf server */
-static const gchar    *server = NULL;
-
+static DBusConnection *glob_conn = NULL;
 static gboolean        service_running = FALSE;
 static GConfEngine    *default_engine = NULL;
 static GHashTable     *engines_by_db = NULL;
@@ -121,6 +121,17 @@ static GConfCnxn *  gconf_cnxn_new              (GConfEngine      *conf,
 static void         gconf_cnxn_destroy          (GConfCnxn        *cnxn);
 static void         gconf_cnxn_notify           (GConfCnxn        *cnxn,
 						 GConfEntry       *entry);
+
+static GConfCnxn *  gconf_cnxn_lookup_id        (GConfEngine      *conf,
+						 guint             client_id);
+static GList *      gconf_cnxn_lookup_dir       (GConfEngine      *conf,
+						 const gchar      *dir);
+static void         gconf_cnxn_insert           (GConfEngine      *conf,
+						 const gchar      *dir,
+						 guint              client_id,
+						 GConfCnxn        *cnxn);
+static void         gconf_cnxn_remove           (GConfEngine      *conf,
+						 GConfCnxn        *cnxn);
 static DBusHandlerResult
 gconf_dbus_notify_filter                        (DBusConnection   *dbus_conn,
 						 DBusMessage      *message,
@@ -138,7 +149,7 @@ static gboolean     gconf_server_broken         (DBusMessage      *message);
 static void         gconf_detach_config_server  (void);
 static DBusHandlerResult handle_notify          (DBusConnection   *connection,
 						 DBusMessage      *message,
-						 GConfCnxn        *cnxn);
+						 GConfEngine      *conf);
 
 
 #define CHECK_OWNER_USE(engine)   \
@@ -194,7 +205,7 @@ gconf_server_broken (DBusMessage *message)
   /* A server that doesn't reply is a broken server. */
   if (!message)
     {
-      /* FIXME: should listen to the signal instead, daemon_running = FALSE; */
+      service_running = FALSE;
       d(g_print ("server broken!\n"));
       return TRUE;
     }
@@ -206,7 +217,7 @@ gconf_server_broken (DBusMessage *message)
   
   if (g_str_has_prefix (name, "org.freedesktop.DBus.Error"))
     {
-      /* FIXME: listen to signal... daemon_running = FALSE; */
+      service_running = FALSE;
       return TRUE;
     }
   else if (strcmp (name, GCONF_DBUS_ERROR_IN_SHUTDOWN) != 0)
@@ -228,8 +239,6 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **ger
 	{
 	  if (gerr)
 	    {
-	      /* FIXME: what error num should we use here? and what string */
-	      
 	      *gerr = gconf_error_new (GCONF_ERROR_NO_SERVER, _("D-BUS error: %s"),
 				       derr->message);
 	    }
@@ -242,7 +251,7 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **ger
 
       if (derr)
 	dbus_error_free (derr);
-      
+
       return TRUE;
     }
     
@@ -277,7 +286,7 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **ger
 	*gerr = gconf_error_new (GCONF_ERROR_FAILED, _("Unknown error %s: %s"),
 				 name, error_string);
     }
-  
+
   return TRUE;
 }
 
@@ -299,10 +308,10 @@ gconf_engine_blank (gboolean remote)
     {
       conf->database = NULL;
 
-      conf->notify_paths = g_hash_table_new_full (g_str_hash, g_str_equal,
-						g_free, (GDestroyNotify)gconf_cnxn_destroy);
+      conf->notify_dirs = g_hash_table_new_full (g_str_hash, g_str_equal,
+						 g_free, NULL);
 
-      conf->notify_ids = g_hash_table_new (g_int_hash, g_int_equal);
+      conf->notify_ids = g_hash_table_new (NULL, NULL);
       
       conf->local_sources = NULL;
       conf->is_local = FALSE;
@@ -312,7 +321,7 @@ gconf_engine_blank (gboolean remote)
     {
       conf->database = NULL;
       conf->notify_ids = NULL;
-      conf->notify_paths = NULL;
+      conf->notify_dirs = NULL;
       conf->local_sources = NULL;
       conf->is_local = TRUE;
       conf->is_default = FALSE;
@@ -429,7 +438,7 @@ gconf_engine_connect (GConfEngine *conf,
 					      GCONF_DBUS_SERVER_GET_DEFAULT_DB);
 
       dbus_error_init (&error);
-      reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+      reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
     }
   else
     {
@@ -442,7 +451,7 @@ gconf_engine_connect (GConfEngine *conf,
 				DBUS_TYPE_INVALID);
 
       dbus_error_init (&error);
-      reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+      reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
     }
 
   d(g_print ("got reply from get_db/get_default_db %p\n", reply));
@@ -472,7 +481,6 @@ gconf_engine_connect (GConfEngine *conf,
 			 NULL,
 			 DBUS_TYPE_STRING, &db,
 			 DBUS_TYPE_INVALID);
-
   
   d(g_print ("db = %s\n", db));
  
@@ -487,6 +495,14 @@ gconf_engine_connect (GConfEngine *conf,
     }
 
   gconf_engine_set_database (conf, db);
+
+  /* Add the per-engine notify filter. */
+  if (!conf->has_filter)
+    {
+      dbus_connection_add_filter (glob_conn, gconf_dbus_notify_filter,
+				  conf, NULL);
+      conf->has_filter = TRUE;
+    }
   
   return TRUE;
 }
@@ -586,6 +602,71 @@ gconf_cnxn_notify (GConfCnxn* cnxn,
 		 entry,
 		 cnxn->user_data);
 }
+
+static GList *
+gconf_cnxn_lookup_dir (GConfEngine *conf, const gchar *dir)
+{
+  CnxnsData *data;
+
+  data = g_hash_table_lookup (conf->notify_dirs, dir);
+
+  if (data == NULL)
+    return NULL;
+
+  return data->cnxns;
+}
+
+static GConfCnxn *
+gconf_cnxn_lookup_id (GConfEngine *conf, guint client_id)
+{
+  gint id = client_id;
+
+  return g_hash_table_lookup (conf->notify_ids, GINT_TO_POINTER (id));
+}
+
+static void
+gconf_cnxn_insert (GConfEngine *conf, const gchar *dir, guint client_id, GConfCnxn *cnxn)
+{
+  CnxnsData *data;
+  gint id = client_id;
+
+  data = g_hash_table_lookup (conf->notify_dirs, dir);
+
+  if (data == NULL)
+    {
+      data = g_new (CnxnsData, 1);
+      data->cnxns = NULL;
+      g_hash_table_insert (conf->notify_dirs, g_strdup (dir), data);
+    }
+  
+  data->cnxns = g_list_prepend (data->cnxns, cnxn);
+
+  g_hash_table_insert (conf->notify_ids, GINT_TO_POINTER (id), cnxn);
+}
+
+static void
+gconf_cnxn_remove (GConfEngine *conf, GConfCnxn *cnxn)
+{
+  CnxnsData *data;
+  gint id = cnxn->client_id;
+
+  g_hash_table_remove (conf->notify_ids, GINT_TO_POINTER (id));
+
+  data = g_hash_table_lookup (conf->notify_dirs, cnxn->namespace_section);
+  if (data)
+    {
+      data->cnxns = g_list_remove (data->cnxns, cnxn);
+
+      if (data->cnxns == NULL)
+	{
+	  g_hash_table_remove (conf->notify_dirs, cnxn->namespace_section);
+	  g_free (data);
+
+	  gconf_cnxn_destroy (cnxn);
+	}
+    }
+}
+  
 
 /*
  *  Public Interface
@@ -705,6 +786,12 @@ gconf_engine_unref(GConfEngine* conf)
 	  /* FIXME: remove notify_ids from hash when we have
 	     add/remove_notify. */
 
+	  if (conf->has_filter)
+	    {
+	      dbus_connection_remove_filter (glob_conn, gconf_dbus_message_filter, conf);
+	      conf->has_filter = FALSE;
+	    }
+	  
           if (conf->dnotify)
             {
               (* conf->dnotify) (conf->user_data);
@@ -720,8 +807,8 @@ gconf_engine_unref(GConfEngine* conf)
 
           if (conf->notify_ids)
 	    g_hash_table_destroy (conf->notify_ids);
-          if (conf->notify_paths)
-	    g_hash_table_destroy (conf->notify_paths);
+          if (conf->notify_dirs)
+	    g_hash_table_destroy (conf->notify_dirs);
         }
       
       if (conf == default_engine)
@@ -785,15 +872,11 @@ gconf_engine_notify_add (GConfEngine* conf,
   
   /*add_listener (conf, db, namespace_section, err);*/
 
-  // koko
   cnxn = gconf_cnxn_new (conf, namespace_section, func, user_data);
+  gconf_cnxn_insert (conf, namespace_section, cnxn->client_id, cnxn);
 
-  dbus_connection_add_filter (connection, gconf_dbus_notify_filter,
-			      cnxn, NULL);
-  
-  g_hash_table_insert (conf->notify_paths, g_strdup (namespace_section), cnxn);
-  g_hash_table_insert (conf->notify_ids, &cnxn->client_id, cnxn);
-  
+  d(g_print ("notify_add, id = %d\n", cnxn->client_id));
+
   return cnxn->client_id;
 }
 
@@ -813,56 +896,15 @@ gconf_engine_notify_remove (GConfEngine* conf,
   
   if (db == NULL)
     return;
-  
-  cnxn = g_hash_table_lookup (conf->notify_ids, &client_id);
 
-  g_return_if_fail (cnxn != NULL);
+  d(g_print ("notify_remove, id = %d\n", client_id));
   
   /*remove_listener (conf, db, namespace_section, err);*/
 
-  dbus_connection_remove_filter (connection, gconf_dbus_notify_filter, cnxn);
-  
-  g_hash_table_remove (conf->notify_ids, cnxn->namespace_section);
-  g_hash_table_remove (conf->notify_ids, &client_id);
-
-  gconf_cnxn_destroy (cnxn);
-}
-
-/* Handle a fake notify for testing... */
-static void
-fake_notify (GConfEngine *conf, const gchar *key, GConfValue *value)
-{
-  GConfCnxn *cnxn;
-  GConfEntry *entry;
-  gchar *path, *sep;
-
-  return;
-  
-  d(g_print ("Got fake notify on %s\n", key));
-
-  path = g_strdup (key);
-
-  while ((sep = strrchr (path, '/')))
-    {
-      if (sep == path)
-	break;
-      
-      *sep = '\0';
-
-      cnxn = g_hash_table_lookup (conf->notify_paths, path);
-
-      d(g_print ("try %s\n", path));
-      
-      if (cnxn)
-	{
-	  /* FIXME: might need _nocopy when moving this to real notify */
-	  entry = gconf_entry_new (g_strdup (key), value);
-	  gconf_cnxn_notify (cnxn, entry);
-	  gconf_entry_free (entry);  
-	}
-    }
-
-  g_free (path);
+  cnxn = gconf_cnxn_lookup_id (conf, client_id);
+  g_return_if_fail (cnxn != NULL);
+  if (cnxn != NULL)
+    gconf_cnxn_remove (conf, cnxn);
 }
 
 GConfValue *
@@ -953,18 +995,10 @@ gconf_engine_get_fuller (GConfEngine *conf,
 			    DBUS_TYPE_BOOLEAN, use_schema_default,
 			    DBUS_TYPE_INVALID);
 
-  d(g_print ("* send get\n"));
-
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
 
-  d(g_print ("* got reply, %p\n", reply));
-  if (dbus_error_is_set (&error))
-    {
-      d(g_print ("* got error, %s\n", error.message));
-    }
-  
   if (gconf_server_broken (reply))
     if (tries < MAX_RETRIES)
       {
@@ -988,16 +1022,12 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       dbus_message_iter_init (reply, &iter);
 
-      d(g_print ("* try to get value\n"));
-
       success = gconf_dbus_get_entry_values_from_message_iter (&iter,
 							       NULL,
 							       &val,
 							       &is_default,
 							       &is_writable,
 							       &schema_name);
-      d(g_print ("* after try to get value\n"));
-
       if (!success)
 	{
 	  /* FIXME: handle this */
@@ -1023,9 +1053,6 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       dbus_message_unref (reply);
 
-      /* FIXME: remove this, just for testing notify by trigging it here... */
-      fake_notify (conf, key, val);
-      
       return val;
     }
 }
@@ -1186,7 +1213,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
   gconf_dbus_message_append_gconf_value (message, value);
 
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1273,7 +1300,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
 			    DBUS_TYPE_INVALID);
 
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1383,7 +1410,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
 			    DBUS_TYPE_INVALID);
 
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1473,7 +1500,7 @@ gconf_engine_associate_schema  (GConfEngine* conf, const gchar* key,
 			    DBUS_TYPE_INVALID);
 
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1486,7 +1513,7 @@ gconf_engine_associate_schema  (GConfEngine* conf, const gchar* key,
         }
     }
 
- if (gconf_handle_dbus_exception (reply, &error,err))
+ if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1599,7 +1626,7 @@ gconf_engine_all_entries (GConfEngine* conf, const gchar* dir, GError** err)
 			    DBUS_TYPE_INVALID);
   
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1748,7 +1775,7 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
 			    DBUS_TYPE_INVALID);
   
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1935,7 +1962,7 @@ gconf_engine_dir_exists (GConfEngine *conf, const gchar *dir, GError** err)
 			    DBUS_TYPE_INVALID);
   
   dbus_error_init (&error);
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  reply = dbus_connection_send_with_reply_and_block (glob_conn, message, -1, &error);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1956,7 +1983,7 @@ gconf_engine_dir_exists (GConfEngine *conf, const gchar *dir, GError** err)
     }
   g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
 
-  dbus_message_get_args (message,
+  dbus_message_get_args (reply,
 			 &error,
 			 DBUS_TYPE_BOOLEAN, &exists,
 			 DBUS_TYPE_INVALID);
@@ -2006,8 +2033,10 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
                               DBUS_INTERFACE_ORG_FREEDESKTOP_LOCAL,
                               "Disconnected"))
     {
-      dbus_connection_unref (connection);
-      connection = NULL;
+      /* FIXME: We never seem to get this signal. */
+     
+      dbus_connection_unref (glob_conn);
+      glob_conn = NULL;
       service_running = FALSE;
 
       d(g_print ("****** Disconnected!\n"));
@@ -2018,18 +2047,29 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
 			      DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
                               "ServiceDeleted"))
     {
-      service_running = FALSE;
+      DBusMessageIter iter;
+      gchar *service;
+
+      dbus_message_iter_init (message, &iter);
+      service = dbus_message_iter_get_string (&iter);
+
+      if (strcmp (service, GCONF_DBUS_SERVICE) == 0)
+	{
+	  service_running = FALSE;
       
-      /* FIXME: Re-add notifications when we have add/remove notify on the server. */
-      d(g_print ("* Service deleted, sender: %s, member: %s, interface: %s, dest: %s\n",
-	       dbus_message_get_sender (message),
-	       dbus_message_get_member (message),
-	       dbus_message_get_interface (message),
-	       dbus_message_get_destination (message)));
+	  /* FIXME: Re-add notifications when we have add/remove notify on the
+	   * server.
+	   */
+	  d(g_print ("* GConf Service deleted\n"));
 
-      return DBUS_HANDLER_RESULT_HANDLED;      
+	  dbus_free (service);
+	  
+	  return DBUS_HANDLER_RESULT_HANDLED;      
+	}
+
+      dbus_free (service);
     }
-
+  
   return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 
@@ -2038,7 +2078,7 @@ gconf_dbus_notify_filter (DBusConnection    *dbus_conn,
 			  DBusMessage       *message,
 			  gpointer           user_data)
 {
-  GConfCnxn *cnxn = user_data;
+  GConfEngine *conf = user_data;
 
   d(g_print ("notify to filter: %s, from %s\n",
 	   dbus_message_get_member (message),
@@ -2051,8 +2091,8 @@ gconf_dbus_notify_filter (DBusConnection    *dbus_conn,
 			      GCONF_DBUS_DATABASE_INTERFACE,
 			      "Notify"))
     {
-      if (cnxn)
-	return handle_notify (connection, message, cnxn);
+      if (conf)
+	return handle_notify (dbus_conn, message, conf);
     }
   
   return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -2064,23 +2104,26 @@ ensure_dbus_connection (void)
   DBusError error;
   GError *gerror = NULL;
   
-  if (connection)
+  if (glob_conn)
     return TRUE;
 
   dbus_error_init (&error);
 
-  connection = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
-  if (!connection)
+  glob_conn = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
+
+  d(g_print ("ensure, got connection %p (%d)\n", glob_conn, getpid()));
+
+  if (!glob_conn)
     {
       g_warning ("Failed to connect to the D-BUS bus daemon: %s\n.",
 		  gerror->message);
       return FALSE;
     }
 
-  dbus_bus_add_match (connection, BUS_RULE, NULL);
-  dbus_bus_add_match (connection, NOTIFY_RULE, NULL);
+  dbus_bus_add_match (glob_conn, BUS_RULE, NULL);
+  dbus_bus_add_match (glob_conn, NOTIFY_RULE, NULL);
 
-  dbus_connection_add_filter (connection, gconf_dbus_message_filter,
+  dbus_connection_add_filter (glob_conn, gconf_dbus_message_filter,
 			      NULL, NULL);
 
   return TRUE;
@@ -2095,22 +2138,29 @@ gconf_activate_service (gboolean  start_if_not_found,
 
   dbus_error_init (&error);
 
-  if (dbus_bus_service_exists (connection, GCONF_DBUS_SERVICE, &error))
+  if (glob_conn)
     {
-      d(g_print ("* activate_service, already active\n"));
-      return TRUE;
+      if (dbus_bus_service_exists (glob_conn, GCONF_DBUS_SERVICE, &error))
+	{
+	  d(g_print ("* activate_service, already active\n"));
+	  return TRUE;
+	}
+      
+      if (dbus_error_is_set (&error))
+	{
+	  g_set_error (err, GCONF_ERROR,
+		       GCONF_ERROR_NO_SERVER,
+		       _("Failed to activate configuration server: %s\n"),
+		       error.message);
+	  
+	  dbus_error_free (&error);
+	  return FALSE;
+	}
     }
-  
-  if (dbus_error_is_set (&error))
+  else
     {
-      g_set_error (err, GCONF_ERROR,
-		   GCONF_ERROR_NO_SERVER,
-		   _("Failed to activate configuration server: %s\n"),
-		   error.message);
-
-      dbus_error_free (&error);
-      return FALSE;
-    }
+      d(g_print ("connection = NULL in activate_service (%d) %s\n", getpid(), g_get_prgname()));
+    }      
       
   if (start_if_not_found)
     {
@@ -2126,8 +2176,9 @@ gconf_activate_service (gboolean  start_if_not_found,
 				DBUS_TYPE_UINT32, 0,
 				0);
 
-      reply = dbus_connection_send_with_reply_and_block (connection,
+      reply = dbus_connection_send_with_reply_and_block (glob_conn,
 							 message, -1, &error);
+
       dbus_message_unref (message);
 
       if (reply == NULL)
@@ -2168,6 +2219,10 @@ gconf_activate_service (gboolean  start_if_not_found,
 	}
       else
 	{
+	  if (dbus_bus_service_exists (glob_conn, GCONF_DBUS_SERVICE, NULL))
+	    {
+	      d(g_print ("Seems to work, got service\n"));
+	    }
 	  dbus_message_unref (reply);
 	  return TRUE;
 	}
@@ -2181,7 +2236,7 @@ gconf_activate_service (gboolean  start_if_not_found,
 static const gchar *
 gconf_get_config_server (gboolean start_if_not_found, GError** err)
 {
-  g_return_val_if_fail(err == NULL || *err == NULL, server);
+  g_return_val_if_fail(err == NULL || *err == NULL, NULL);
 
   if (service_running)
     return GCONF_DBUS_SERVER_OBJECT;
@@ -2222,20 +2277,18 @@ gconf_debug_shutdown (void)
 static DBusHandlerResult
 handle_notify (DBusConnection *connection,
 	       DBusMessage *message,
-	       GConfCnxn *cnxn)
+	       GConfEngine *conf)
 {
   gchar *key, *schema_name;
   gboolean is_default, is_writable;
-  GConfEngine* conf;
   DBusMessageIter iter;
   GConfValue *value;
   GConfEntry* entry;
-  gchar *path, *sep;
+  gchar *dir, *sep;
+  GList *list, *l;
   gboolean match = FALSE;
 
-  g_return_val_if_fail (cnxn, DBUS_HANDLER_RESULT_NOT_YET_HANDLED);
-  
-  conf = cnxn->conf;
+  g_return_val_if_fail (conf != NULL, DBUS_HANDLER_RESULT_NOT_YET_HANDLED);
   
   dbus_message_iter_init (message, &iter);
 
@@ -2248,30 +2301,45 @@ handle_notify (DBusConnection *connection,
 
   d(g_print ("Got notify on %s\n", key));
 
-  path = g_strdup (key);
+  dir = g_strdup (key);
 
-  while ((sep = strrchr (path, '/')))
+  while (1)
     {
-      if (sep == path)
+      d(g_print ("try %s\n", dir));
+
+      /* All notifications we get here are for the right engine, we just
+       * need to go through the list of dirs and emit notification for those
+       * entries that match.
+       */
+      
+      list = gconf_cnxn_lookup_dir (conf, dir);
+      for (l = list; l; l = l->next)
+	{
+	  GConfCnxn *cnxn = l->data;
+
+	  d(g_print ("match? %s\n", cnxn->namespace_section));
+
+	  if (strcmp (cnxn->namespace_section, dir) == 0)
+	    {
+	      d(g_print ("yay! %s\n", dir));
+
+	      entry = gconf_entry_new (g_strdup (key), value);
+	      gconf_cnxn_notify (cnxn, entry);
+	      gconf_entry_free (entry);
+
+	      match = TRUE;
+	    }
+	}
+
+      sep = strrchr (dir, '/');
+      if (sep == dir)
 	break;
       
       *sep = '\0';
-
-      d(g_print ("try %s\n", path));
-      
-      if (g_hash_table_lookup (conf->notify_paths, path))
-	{
-	  /* FIXME: might need _nocopy when moving this to real notify */
-	  entry = gconf_entry_new (g_strdup (key), value);
-	  gconf_cnxn_notify (cnxn, entry);
-	  gconf_entry_free (entry);
-
-	  match = TRUE;
-	  break;
-	}
     }
 
-  g_free (path);
+  gconf_value_free (value);
+  g_free (dir);
 
   if (!match)
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -2308,8 +2376,8 @@ gconf_shutdown_daemon (GError** err)
 					  GCONF_DBUS_SERVER_INTERFACE,
 					  GCONF_DBUS_SERVER_SHUTDOWN);
 
-  dbus_connection_send (connection, message, 0);
-  dbus_connection_flush (connection);
+  dbus_connection_send (glob_conn, message, 0);
+  dbus_connection_flush (glob_conn);
 }
 
 /* FIXME: Do we really need to ping the dbus service? */

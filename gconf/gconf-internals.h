@@ -175,6 +175,10 @@ GError*  gconf_compose_errors (GError* err1, GError* err2);
 char*     gconf_get_lock_dir (void);
 char*     gconf_get_daemon_dir (void);
 
+gboolean  gconf_release_lock (GConfLock *lock,
+			      GError   **err);
+
+
 gboolean gconf_schema_validate (const GConfSchema  *sc,
                                 GError            **err);
 gboolean gconf_value_validate  (const GConfValue   *value,
