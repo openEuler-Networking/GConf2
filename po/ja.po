@@ -1,13 +1,13 @@
 # GConf ja.po.
-# Copyright (C) 2000-2002 Free Software Foundation, Inc.
-# Takeshi Aihana <aihana@gnome.gr.jp>, 2000-2002.
+# Copyright (C) 2000-2003 Free Software Foundation, Inc.
+# Takeshi Aihana <aihana@gnome.gr.jp>, 2000-2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 1.1.7\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
-"PO-Revision-Date: 2002-02-12 01:33+0900\n"
-"Last-Translator: Takeshi Aihana <aihana@gnome.gr.jp>\n"
+"Project-Id-Version: GConf 2.2.0\n"
+"POT-Creation-Date: 2003-01-26 12:16+0900\n"
+"PO-Revision-Date: 2003-01-26 12:15+0900\n"
+"Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,16 +47,17 @@ msgid "Unloading XML backend module."
 msgstr "XML バックエンドモジュールを解放中です。"
 
 #: backends/xml-backend.c:289
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't find the root directory in the address \"%s\""
-msgstr "%s ルートディレクトリはアドレス '%s' 中に見つかりませんでした。"
+msgstr "ルートディレクトリがアドレス \"%s\" 中に見つかりませんでした。"
 
 #: backends/xml-backend.c:414
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
-"アドレス '%s' 中の XML ルートディレクトリへの読み取り/書き込みが できません。"
+"アドレス \"%s\" 中の XML ルートディレクトリへの読み取り/書き込みができませ"
+"ん。"
 
 #: backends/xml-backend.c:424
 #, c-format
@@ -81,9 +82,9 @@ msgid "Initializing XML backend module"
 msgstr "XML バックエンドモジュールの初期化中です。"
 
 #: backends/xml-backend.c:790
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML dir \"%s\": %s"
-msgstr "XML 上のディレクトリ '%s' のロックに失敗しました: %s"
+msgstr "XML 上のディレクトリ \"%s\" のロックに失敗しました: %s"
 
 #: backends/xml-cache.c:257
 msgid "Failed to sync XML cache contents to disk"
@@ -164,11 +165,9 @@ msgid "Failed to stat `%s': %s"
 msgstr "'%s' の状態が取得できませんでした: %s"
 
 #: backends/xml-dir.c:959
-#, fuzzy, c-format
+#, c-format
 msgid "%s"
-msgstr ""
-"\n"
-"%s\n"
+msgstr "%s"
 
 #: backends/xml-dir.c:1109
 #, c-format
@@ -189,9 +188,9 @@ msgstr ""
 "します。"
 
 #: backends/xml-dir.c:1212
-#, fuzzy, c-format
+#, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "ディレクトリ '%s' を作成できませんでした: %s"
+msgstr "ディレクトリ \"%s\" を作成できませんでした: %s"
 
 #: backends/xml-dir.c:1228
 #, c-format
@@ -199,9 +198,9 @@ msgid "Failed to create file `%s': %s"
 msgstr "ファイル '%s' の作成に失敗しました: %s"
 
 #: backends/xml-dir.c:1327
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to parse XML file \"%s\""
-msgstr "ファイル '%s' への書き込みに失敗しました: %s"
+msgstr "XML ファイル \"%s\" の解析に失敗しました"
 
 #. There was an error
 #: backends/xml-entry.c:154
@@ -370,14 +369,14 @@ msgid "Failed to sync one or more sources: %s"
 msgstr "1 つ以上のファイルの同期でエラー: %s"
 
 #: gconf/gconf-database.c:1080
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
 "listener on gconfd restart, resulting in unreliable notification of "
 "configuration changes."
 msgstr ""
 "リスナー %s (%s) のログの追加に失敗しました; 設定変更の不確定な通知の結果ゆえ"
-"に、gconfd を再起動時にこのリスナーを復帰することはできません。"
+"に、gconfd の再起動時にこのリスナーをリストすることができなくなります。"
 
 #: gconf/gconf-database.c:1111
 #, c-format
@@ -704,9 +703,9 @@ msgid "Failed to create %s: %s"
 msgstr "ファイル %s の作成に失敗しました: %s"
 
 #: gconf/gconf-internals.c:2838
-#, fuzzy, c-format
+#, c-format
 msgid "Server ping error: %s"
-msgstr "シャットダウンエラー: %s\n"
+msgstr "サーバの Ping エラー: %s"
 
 #: gconf/gconf-internals.c:2859
 #, c-format
@@ -727,14 +726,19 @@ msgid ""
 "to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
 "(Details - %s)"
 msgstr ""
+"設定サーバ (gconfd) との接続に失敗しました: いくつか発生する可能性として、"
+"ORBit の TCP/IP ネットワークを有効にしていない、あるいはお使いのシステムで古"
+"い NFS のロックがクラッシュを引き起こしたことが考えられます。これに関連する情"
+"報については http://www.gnome.org/projects/gconf/ を参照して下さい (詳細 - %"
+"s)。"
 
 #: gconf/gconf-internals.c:2909
 msgid "none"
-msgstr ""
+msgstr "なし"
 
 #: gconf/gconf-sanity-check.c:39 gconf/gconftool.c:73
 msgid "Help options"
-msgstr "ヘルプオプション"
+msgstr "ヘルプ・オプション"
 
 #: gconf/gconf-sanity-check.c:74 gconf/gconftool.c:423
 #, c-format
@@ -754,6 +758,13 @@ msgid ""
 "problem with your configuration, as many programs will need to create files "
 "in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
+"次の問題を解決するにはお使いのシステムの管理者に連絡して下さい:\n"
+"[ファイル \"%s\" をロックできなかった] - これはお使いの OS の設定に問題がある"
+"可能性を示唆しています。もし NFS で /home ディレクトリをマウントしている場"
+"合、NFS クライアントまたはサーバのどちらかの設定が間違っているかもしれませ"
+"ん。rpc.statd と rpc.lockd のドキュメントを参照して下さい。この問題の共通する"
+"原因として、\"nfslock\" サービスが無効になっているケースもあります。エラーは "
+"\"%s\" (errno = %d) です。"
 
 #: gconf/gconf-sanity-check.c:143
 #, c-format
@@ -766,11 +777,18 @@ msgid ""
 "that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = "
 "%d)."
 msgstr ""
+"\"次の問題を解決するにはお使いのシステムの管理者に連絡して下さい:\n"
+"[ファイル \"%s\" をロックできなかった] - これはお使いの OS の設定に問題がある"
+"可能性を示唆しています。もし NFS で /home ディレクトリをマウントしている場"
+"合、NFS クライアントまたはサーバのどちらかの設定が間違っているかもしれませ"
+"ん。rpc.statd と rpc.lockd のドキュメントを参照して下さい。この問題の共通する"
+"原因として、\"nfslock\" サービスが無効になっているケースもあります。エラーは "
+"\"%s\" (errno = %d) です。"
 
 #: gconf/gconf-sanity-check.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "Can't remove file %s: %s\n"
-msgstr "ファイル '%s' が書き込めませんでした: %s"
+msgstr "ファイル \"%s\" を削除できません: %s\n"
 
 #: gconf/gconf-sanity-check.c:195
 #, c-format
@@ -779,11 +797,13 @@ msgid ""
 "No configuration sources in the configuration file \"%s\"; this means that "
 "preferences and other settings can't be saved. %s%s"
 msgstr ""
+"\"次の問題を解決するにはお使いのシステムの管理者に連絡して下さい:\n"
+"[設定ファイル \"%s\" の中に設定ソースがない] - これは設定情報を保存することが"
+"できないことが原因です。%s%s"
 
 #: gconf/gconf-sanity-check.c:198
-#, fuzzy
 msgid "Error reading the file: "
-msgstr "状態保持ファイルの読み込みでエラー: %s"
+msgstr "ファイルの読み込み中にエラー: "
 
 #: gconf/gconf-sanity-check.c:220
 #, c-format
@@ -791,6 +811,8 @@ msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"
 msgstr ""
+"\"次の問題を解決するにはお使いのシステムの管理者に連絡して下さい:\n"
+"[アドレス \"%s\" (設定ファイル \"%s\") を解決することができなかった] - %s"
 
 #: gconf/gconf-schema.c:221 gconf/gconf-schema.c:229 gconf/gconf-schema.c:237
 #: gconf/gconf-schema.c:245
@@ -801,12 +823,16 @@ msgstr "スキーマにある UTF-8 が正しくありません。"
 msgid ""
 "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
+"スキーマで型リストを指定していますが、リストアイテムの型が指定されていませ"
+"ん。"
 
 #: gconf/gconf-schema.c:264
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
 msgstr ""
+"スキーマで型ペアを指定していますが、car/cdr アイテムの型が指定されていませ"
+"ん。"
 
 #: gconf/gconf-sources.c:319
 #, c-format
@@ -1478,7 +1504,7 @@ msgstr "デフォルトソースの名前の取得"
 
 #: gconf/gconftool.c:362
 msgid "Print version"
-msgstr ""
+msgstr "印刷バージョン"
 
 #: gconf/gconftool.c:441
 msgid "Can't get and set/unset simultaneously\n"
@@ -1876,19 +1902,16 @@ msgid "WARNING: no key specified for schema\n"
 msgstr "警告: スキーマに指定されたキーはありません。\n"
 
 #: gconf/gconftool.c:2017
-#, fuzzy
 msgid "WARNING: no <list_type> specified for schema of type list\n"
-msgstr "警告: スキーマに指定されたキーはありません。\n"
+msgstr "警告: 型リストのスキーマを指定した <list_type> ではありません。\n"
 
 #: gconf/gconftool.c:2024
-#, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
-msgstr "警告: スキーマに指定されたキーはありません。\n"
+msgstr "警告: 型ペアのスキーマを指定した <car_type> ではありません。\n"
 
 #: gconf/gconftool.c:2030
-#, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
-msgstr "警告: スキーマに指定されたキーはありません。\n"
+msgstr "警告: 型ペアのスキーマを指定した <cdr_type> ではありません。\n"
 
 #: gconf/gconftool.c:2058
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
@@ -2019,26 +2042,3 @@ msgstr ""
 "ディレクトリのキーにおかしな値を設定する事によって アプリケーションを終了させ"
 "ようとしています:\n"
 "  %s\n"
-
-#~ msgid "Couldn't find the XML root directory in the address `%s'"
-#~ msgstr "アドレス '%s' 中の XML ルートディレクトリが見つかりませんでした。"
-
-#~ msgid ""
-#~ "Failed to contact configuration server; some possible causes are:\n"
-#~ "a) you have an existing configuration server (gconfd) running, but it "
-#~ "isn't reachable from here - if you're logged in from two machines at "
-#~ "once, you may need to enable TCP networking for ORBit by putting the line "
-#~ "\"ORBIIOPIPv4=1\" in /etc/orbitrc\n"
-#~ "b) you have stale locks in your NFS-mounted home directory due to a "
-#~ "system crash, try removing ~/.gconf/*.lock and ~/.gconfd/lock if you are "
-#~ "sure no gconfd processes are running on any machine using your home dir"
-#~ msgstr ""
-#~ "設定サーバとの通信に失敗しました; いくつかの原因が考えられます:\n"
-#~ "a) 既に設定サーバ (gconfd) が起動している状態で、ここからは通信できる状態"
-#~ "ではなかった - 同時に二つのコンピュータからログインしている場合、'/etc/"
-#~ "orbitrc' の中に \"ORBIIOPIPv4=1\" という行を挿入することで、ORBit に対す"
-#~ "る TCP ネットワークを有効にする必要があるかもしれません。\n"
-#~ "b) NFS マウントされたホームディレクトリ内で、システムのクラッシュによる"
-#~ "ロックがダメになった - そのホームディレクトリを使用しているコンピュータ上"
-#~ "で起動している gconfd プロセスが存在しないことを確認してから、'~/.gconf/*."
-#~ "lock' と '.gconfd/lock' を削除してみて下さい。"
