@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 2001-02-14 10:33-02:00\n"
 "Last-Translator: Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -312,11 +312,11 @@ msgstr "Recebida requisição para descartar todos os dados do cache"
 msgid "Received request to sync synchronously"
 msgstr "Recebida requisição para sincronizar sincronamente"
 
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "Erro fatal: falha ao obter referência de objeto para ConfigDatabase"
 
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Falha ao sincronizar uma ou mais fontes: %s"
@@ -325,7 +325,7 @@ msgstr "Falha ao sincronizar uma ou mais fontes: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -336,12 +336,12 @@ msgstr ""
 "este listener ao reiniciar o gconfd, resultando em uma notificação não "
 "confiável de modificações de configuração."
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "ID de listener %lu não existe"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -351,47 +351,47 @@ msgstr ""
 "inofensivo, pode resultar em uma notificação reaparecendo de forma "
 "estranha): %s"
 
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Erro ao obter valor para `%s': %s"
 
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Erro ao atribuir valor para `%s': %s"
 
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Erro ao limpar `%s': %s"
 
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Erro ao obter valor padrão para `%s': %s"
 
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Erro ao verificar existência de `%s': %s"
 
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Erro ao remover diretório `%s': %s"
 
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Falha ao obter todas as entradas em `%s': %s"
 
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Erro ao listar diretórios em `%s': %s"
 
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Erro ao atribuir schema para `%s': %s"
@@ -531,7 +531,7 @@ msgstr "Cadeia entre aspas não começa com aspas"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Cadeia entre aspas não termina com aspas"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Erro CORBA: %s"
@@ -763,12 +763,12 @@ msgid "Can't add notifications to a local configuration source"
 msgstr ""
 "Não é possível incluir notificações para uma fonde de configurações local"
 
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Falha ao incluir cliente na lista do servidor, erro CORBA: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -778,57 +778,57 @@ msgid ""
 "caused by GConf."
 msgstr ""
 
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "Falha ao iniciar GConf, terminando\n"
 
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Deve começar com uma barra (/)"
 
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Não pode ter duas barras (/) em seqüência"
 
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Não pode ter um ponto (.) logo após uma barra (/)"
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' é um caracter inválido em nomes de chave/diretório"
 
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Chave/diretório não pode terminar com uma barra (/)"
 
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Falha ao desligar servidor de configuração: %s"
 
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Flutuante esperado, recebi %s"
 
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Inteiro esperado, recebi %s"
 
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "String esperado, recebi %s"
 
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Booleano esperado, recebi %s"
 
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Schema esperado, recebi %s"
@@ -1413,8 +1413,8 @@ msgstr ""
 "Devem ser especificados um ou mais diretórios para listar recursivamente.\n"
 
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "Falha ao listar pares em `%s': %s"
 
 #: gconf/gconftool.c:872

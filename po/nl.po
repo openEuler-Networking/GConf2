@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf cvs\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 2000-11-19 18:25+0100\n"
 "Last-Translator: Almer S. Tigelaar <almer1@dds.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -319,12 +319,12 @@ msgstr "Verzoek om alle gecachede gegevens te laten vallen"
 msgid "Received request to sync synchronously"
 msgstr "Verzoek ontvangen om synchroon te synchronizeren"
 
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Fatale fout: fout bij het vergaren van object referentie naar ConfigDatabase"
 
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Fout bij synchronizeren van een of meer bronnen: %s"
@@ -333,7 +333,7 @@ msgstr "Fout bij synchronizeren van een of meer bronnen: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -344,12 +344,12 @@ msgstr ""
 "hersteld als gconfd word herstart, dit resulteert in onbetrouwbare "
 "notificatie van configuratie wijzingen."
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Luisteraar ID %lu bestaat niet"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -359,47 +359,47 @@ msgstr ""
 "(waarschijnlijk niet gevaarlijk, kan resulteren in een notificatie die "
 "opnieuw weer verschijnt): %s"
 
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fout bij het vergaren van waarde voor `%s': %s"
 
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Fout bij het instellen van waarde voor `%s': %s"
 
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Fout bij het ontzetten `%s': %s"
 
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Fout bij het vergaren van de standaardwaarde voor `%s': %s"
 
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Fout bij het controleren van bestaan van `%s': %s"
 
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Fout bij het verwijderen van directory `%s': %s"
 
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Fout bij het vergaren van alle \"entries\" in `%s': %s"
 
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Fout bij het vergaren van directorylijst in `%s': %s"
 
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Fout bij het instellen van schema voor `%s': %s"
@@ -539,7 +539,7 @@ msgstr "Gequoteerde tekenreeks begint niet met een quotatie teken"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Gequoteerde tekenreeks eindigt niet met een quotatie teken"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA fout: %s"
@@ -776,13 +776,13 @@ msgstr "Server kon adres `%s' niet vinden"
 msgid "Can't add notifications to a local configuration source"
 msgstr "Kan notificaties niet toevoegen aan lokale configuratie bron"
 
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr ""
 "Toevoegen van client aan de lijst van de server mislukt, CORBA fout: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -792,57 +792,57 @@ msgid ""
 "caused by GConf."
 msgstr ""
 
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "Fout bij initialiseren GConf, er word nu gestopt\n"
 
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Moet beginnen met een schuine streep (/)"
 
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Kan geen twee schuine strepen (/) achter elkaar hebben"
 
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Kan geen punt (.) na een schuine streep (/) hebben"
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' is een ongeldig karakter in sleutel/directory namen"
 
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Sleutel/directory mag niet eindigen op een schuine streep (/)"
 
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Fout bij sluiten configuratie server: %s"
 
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Verwachte 'float', kreeg %s"
 
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Verwachte 'int', kreeg %s"
 
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Verwachte 'string', kreeg %s"
 
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Verwachte 'bool', kreeg %s"
 
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Verwachte 'schema', kreeg %s"
@@ -1441,8 +1441,8 @@ msgstr ""
 "Moet een of meerdere directories specificeren om recursief weer te geven.\n"
 
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "Fout bij het weergeven van paren in `%s': %s"
 
 #: gconf/gconftool.c:872

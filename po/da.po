@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 2001-03-20 14:00+01:00\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -308,11 +308,11 @@ msgstr "Modtog forespørgsel om at droppe alle mellemlagrede data"
 msgid "Received request to sync synchronously"
 msgstr "Modtog forespørgsel om at udføre synkron synkronisering"
 
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "Fatal fejl: kunne ikke hente objektreference for ConfigDatabase"
 
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Det mislykkedes at synkronise af en eller flere kilder: %s"
@@ -321,7 +321,7 @@ msgstr "Det mislykkedes at synkronise af en eller flere kilder: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -332,12 +332,12 @@ msgstr ""
 "lytter ved genstart af gconfd, noget som vil resultere i upålidelig "
 "underrettelse af konfigurationsændringer."
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Lytter-id %lu eksisterer ikke"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -346,47 +346,47 @@ msgstr ""
 "Kunne ikke logge fjernelse af lytter til logfil (højst sandsynligt harmløst, "
 "kan resultere i at en ændringsunderrettelse genindtræffer på mystisk vis): %s"
 
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fejl ved forespørgsel af værdien af '%s': %s"
 
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Fejl ved tildeling af værdi til '%s': %s"
 
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Fejl ved nulstilling af '%s': %s"
 
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Fejl ved forespørgsel af standardværdi for '%s': %s"
 
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Fejl ved tjekning af eksisterende '%s': %s"
 
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Fejl ved fjernelse af katalog '%s': %s"
 
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Kunne ikke få alle indgange i '%s': %s"
 
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Fejl under listning af kataloger i `%s': %s"
 
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Fejl under opsætning af skema for `%s': %s"
@@ -525,7 +525,7 @@ msgstr "Tekst i citationstegn begynder ikke med et citationstegn"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Tekst i citationstegn slutter ikke med et citationstegn"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA-fejl: %s"
@@ -755,12 +755,12 @@ msgid "Can't add notifications to a local configuration source"
 msgstr ""
 "Kan ikke tilføje ændringsunderrettelser til en lokal konfigurationskilde"
 
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Tilføjelse af klient til serverens liste mislykkedes, CORBA fejl: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -770,57 +770,57 @@ msgid ""
 "caused by GConf."
 msgstr ""
 
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "Kunne ikke starte GConf, afslutter\n"
 
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Skal begynde med en skråstreg (/)"
 
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Kan ikke have to skråstreger (/) efter hinanden"
 
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Kan ikke have et punktum (.) lige efter en skråstreg (/)"
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "'%c' er et ugyldigt tegn i nøgle-/katalognavne"
 
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Nøgle/katalog må ikke slutte på en skråstreg (/)"
 
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Fejl ved nedlukning af konfigurationsserver: %s"
 
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Forventede kommatal, fik %s"
 
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Forventede heltal, fik %s"
 
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Forventede streng, fik %s"
 
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Forventede boolsk, fik %s"
 
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Forventede skema, fik %s"
@@ -1401,8 +1401,8 @@ msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Du skal angive et eller flere kataloger til rekursiv fremvisning.\n"
 
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "Fejl under listning af par i '%s': %s"
 
 #: gconf/gconftool.c:872

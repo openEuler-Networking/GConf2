@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 1999-12-29 12:36+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -311,12 +311,12 @@ msgstr "Отримано запит на скидання вс╕х кешованих даних"
 msgid "Received request to sync synchronously"
 msgstr "Отримано запит на синхронну синхрон╕зац╕ю"
 
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Фатальна помилка: не вдалося отримати посилання на об'╓кт для ConfigDatabase"
 
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Не вдалося синхрон╕зувати одне чи б╕льше джерел: %s"
@@ -325,7 +325,7 @@ msgstr "Не вдалося синхрон╕зувати одне чи б╕льше джерел: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -333,59 +333,59 @@ msgid ""
 "configuration changes."
 msgstr ""
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Прослуховувача з ╕дентиф╕катором %lu не ╕сну╓"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
 "result in a notification weirdly reappearing): %s"
 msgstr ""
 
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Помилка отримання значення \"%s\": %s"
 
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Помилка встановлення значення для \"%s\": %s"
 
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Помилка зняття значення \"%s\": %s"
 
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Помилка отримання типового значення \"%s\": %s"
 
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Помилка перев╕мрки наявност╕ \"%s\": %s"
 
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Помилка видалення каталогу \"%s\": %s"
 
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Невдалось отримати вс╕ елементи в \"%s\": %s"
 
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Помилка отримання списку каталогу в \"%s\": %s"
 
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Омилка отримання схеми для \"%s\": %s"
@@ -526,7 +526,7 @@ msgstr "Рядок в лапках не почина╓ться з лапки"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Рядок в лапках не к╕нча╓ться лапкою"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Помилка CORBA: %s"
@@ -757,12 +757,12 @@ msgstr "Сервер не зм╕г розп╕знати адресу \"%s\""
 msgid "Can't add notifications to a local configuration source"
 msgstr "Неможливо додати спов╕щення до локального джерела конф╕╜урац╕╖"
 
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Не вдалося додати кл╕╓нта у список сервера, помилка CORBA: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -772,57 +772,57 @@ msgid ""
 "caused by GConf."
 msgstr ""
 
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "Не вдалося ╕н╕ц╕ал╕зувати GConf: %s, вих╕д\n"
 
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Мусить починатися з \"/\""
 
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Не може бути два \"/\" в рядку"
 
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Не може бути крапки п╕сля \"/\""
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "\"%c\" - нев╕рний символ в назв╕ ключ╕в/каталог╕в"
 
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Ключ/каталог не може зак╕нчуватись слешем (/)"
 
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Невдалося в╕дключити сервер конф╕гурац╕╖: %s"
 
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Оч╕кувалось число з плаваючою точкою, отримано %s"
 
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Оч╕кувалось ц╕ле, отримано %s"
 
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Оч╕кувався рядок, отримано %s"
 
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Оч╕кувалось лог╕чне, отримано %s"
 
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Оч╕кувалась схема, отримано %s"
@@ -1397,8 +1397,8 @@ msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Потр╕бно вказати один чи б╕льше каталог╕в для рекурсивного списку.\n"
 
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "Невдалося отримати список пар в \"%s\": %s"
 
 #: gconf/gconftool.c:872

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 2001-03-16 21:50+0200\n"
 "Last-Translator: Nilgun Belma Buguner <nilgun@technologist.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -308,11 +308,11 @@ msgstr "Tüm arabelleklenmiþ verinin silinmesi istendi"
 msgid "Received request to sync synchronously"
 msgstr "Eþzamanlamanýn eþzamanlanmasý istendi"
 
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "Ölümcül hata: ConfigDatabase için baþvuru nesnesi alýnamadý"
 
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Bir ya da daha fazla kaynaðýn eþzamanlamasýnda hata: %s"
@@ -321,7 +321,7 @@ msgstr "Bir ya da daha fazla kaynaðýn eþzamanlamasýnda hata: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -332,12 +332,12 @@ msgstr ""
 "güvenilir olmayan bildirimlerinin sonucu olarak bu dinleyici gconfd tekrar "
 "baþlatýlýrken etkinleþtirilemeyecek."
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Dinleyici kimliði %lu yok"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -346,47 +346,47 @@ msgstr ""
 "Dinleyicinin kaldýrýlmasý günlük dosyasýna kaydedilemedi (genelde zararsýz, "
 "ara sýra ortaya çýkan bir sistem bildiriminin sonucu): %s"
 
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "`%s' için deðer alýnýrken hata: %s"
 
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "`%s' için deðer belirtilirken hata: %s"
 
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "`%s' kaldýrýlamadý: %s"
 
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "`%s' için öntanýmlý deðer alýnýrken hata: %s"
 
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "`%s' var mý/yok mu bakýlýrken hata: %s"
 
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "`%s' dizini silinirken hata: %s"
 
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "`%s' içindeki tüm girdiler alýnamadý: %s"
 
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "`%s' içindeki dizinler listelenirken hata: %s"
 
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "`%s' için þema belirtilirken hata: %s"
@@ -525,7 +525,7 @@ msgstr "Týrnaklarla belirlenen bir dizge ? iþareti ile baþlamaz"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Týrnaklarla belirlenen bir dizge ? iþareti ile bitmez"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA hatasý: %s"
@@ -755,12 +755,12 @@ msgstr "Sunucu `%s' adresini çözümleyemedi"
 msgid "Can't add notifications to a local configuration source"
 msgstr "Yerel yapýlandýrma kaynaðýna bildirimler eklenemedi"
 
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Ýstemci, sunucular listesine eklenemedi, CORBA hatasý: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -770,57 +770,57 @@ msgid ""
 "caused by GConf."
 msgstr ""
 
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "GConf çöktü\n"
 
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Bir '/' ile baþlamalý"
 
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Bir satýrda iki '/' olamaz"
 
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Bir nokta '/'den sonra gelemez"
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' anahtar/dizin isimlerinde geçersizdir"
 
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Anahtar/Dizin bir '/' ile bitemez"
 
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Yapýlandýrma sunucusu kapatýlamadý: %s"
 
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "\"gerçek sayý\" beklenirken %s alýndý"
 
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "\"tamsayý\" beklenirken %s alýndý"
 
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Dizge beklenirken %s alýndý"
 
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "\"mantýksal\" beklenirken %s alýndý"
 
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Þema beklenirken %s alýndý"
@@ -1403,8 +1403,8 @@ msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Ardýþýk listeye bir ya da daha fazla dizin belirtilmelidir.\n"
 
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "`%s' içinde çiftler listelenemedi: %s"
 
 #: gconf/gconftool.c:872

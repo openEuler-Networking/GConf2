@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
+"POT-Creation-Date: 2001-07-23 23:23-0400\n"
 "PO-Revision-Date: 2001-02-12 00:01:36+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -361,13 +361,13 @@ msgid "Received request to sync synchronously"
 msgstr "Λήφθηκε αίτηση για σύγχρονο συγχρονισμό"
 
 # gconf/gconfd.c:1056
-#: gconf/gconf-database.c:768
+#: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Μοιραίο σφάλμα: αποτυχία λήψης αναφοράς αντικειμένου για το ConfigDatabase"
 
 # gconf/gconfd.c:1194
-#: gconf/gconf-database.c:927
+#: gconf/gconf-database.c:929
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Αποτυχία συγχρονισμού μίας ή περισσοτέρων πηγών: %s"
@@ -376,7 +376,7 @@ msgstr "Αποτυχία συγχρονισμού μίας ή περισσοτέρων πηγών: %s"
 #. * Because it's likely the right thing for the client
 #. * app to simply continue.
 #.
-#: gconf/gconf-database.c:1013
+#: gconf/gconf-database.c:1015
 #, c-format
 msgid ""
 "Failed to log addition of listener (%s); will not be able to restore this "
@@ -387,12 +387,12 @@ msgstr ""
 "διατηρηθεί η κατάσταση αυτού του ακροατή κατά τυχούσα επανεκκίνηση του "
 "gconfd, έχοντας ως αποτέλεσμα την αναξιόπιστη γνωστοποίηση αλλαγών ρυθμίσεων."
 
-#: gconf/gconf-database.c:1040
+#: gconf/gconf-database.c:1042
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Δεν υπάρχει η ταυτότητα ακροατή %lu"
 
-#: gconf/gconf-database.c:1049
+#: gconf/gconf-database.c:1051
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -403,55 +403,55 @@ msgstr ""
 "γνωστοποίησης): %s"
 
 # gconf/gconfd.c:1523
-#: gconf/gconf-database.c:1167 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Σφάλμα κατά τη λήψη τιμής για `%s': %s"
 
 # gconf/gconfd.c:1561
-#: gconf/gconf-database.c:1214
+#: gconf/gconf-database.c:1216
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Σφάλμα κατά την ανάθεση τιμής για `%s': %s"
 
 # gconf/gconfd.c:1593
-#: gconf/gconf-database.c:1257
+#: gconf/gconf-database.c:1259
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Σφάλμα διαγραφής `%s': %s"
 
 # gconf/gconfd.c:1614
-#: gconf/gconf-database.c:1281
+#: gconf/gconf-database.c:1283
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Σφάλμα κατά τη λήψη εξ ορισμού τιμής για `%s': %s"
 
 # gconf/gconfd.c:1652
-#: gconf/gconf-database.c:1321
+#: gconf/gconf-database.c:1323
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Σφάλμα ελέγχου ύπαρξης `%s': %s"
 
 # gconf/gconfd.c:1676
-#: gconf/gconf-database.c:1345
+#: gconf/gconf-database.c:1347
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Σφάλμα αφαίρεσης καταλόγου `%s': %s"
 
 # gconf/gconfd.c:1701
-#: gconf/gconf-database.c:1372
+#: gconf/gconf-database.c:1374
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Αποτυχία λήψης όλων των εγγραφών στο `%s': %s"
 
 # gconf/gconfd.c:1725
-#: gconf/gconf-database.c:1398
+#: gconf/gconf-database.c:1400
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Σφάλμα απαρίθμησης καταλόγων στο `%s': %s"
 
 # gconf/gconfd.c:1745
-#: gconf/gconf-database.c:1419
+#: gconf/gconf-database.c:1421
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Σφάλμα ανάθεσης σχήματος για `%s': %s"
@@ -611,7 +611,7 @@ msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Το παρατιθέμενο αλφαριθμητικό δεν τελειώνει με εισαγωγικό σημείο"
 
 # gconf/gconf-internals.c:2105 gconf/gconf.c:2607
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3088
+#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Σφάλμα CORBA: %s"
@@ -875,13 +875,13 @@ msgid "Can't add notifications to a local configuration source"
 msgstr "Αδύνατη η πρόσθεση ειδοποιήσεων σε ένα τοπικό πηγαίο διαμόρφωσης"
 
 # gconf/gconf.c:1449
-#: gconf/gconf.c:1866
+#: gconf/gconf.c:1870
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr ""
 "Η προσθήκη του πελάτη στη λίστα του εξυπηρετητή απέτυχε, σφάλμα CORBA: %s"
 
-#: gconf/gconf.c:1883
+#: gconf/gconf.c:1887
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -892,68 +892,68 @@ msgid ""
 msgstr ""
 
 # gconf-editor/gconf-editor.c:69 gconf/gconftool.c:447
-#: gconf/gconf.c:2194
+#: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
 msgstr "Αποτυχία αρχικοποίησης GConf, τερματισμός\n"
 
 # gconf/gconf.c:1689
-#: gconf/gconf.c:2231
+#: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
 msgstr "Πρέπει να αρχίζει με μια κάθετο (/)"
 
 # gconf/gconf.c:1711
-#: gconf/gconf.c:2253
+#: gconf/gconf.c:2257
 msgid "Can't have two slashes (/) in a row"
 msgstr "Δε γίνεται να υπάρχουν δύο κάθετοι (/) στη σειρά"
 
 # gconf/gconf.c:1713
-#: gconf/gconf.c:2255
+#: gconf/gconf.c:2259
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Δε γίνεται να υπάρχει μια τελεία (.) αμέσως μετά από μία κάθετο (/)"
 
 # gconf/gconf.c:1734
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2280
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' δεν είναι έγκυρος χαρακτήρας σε ονόματα κλειδιών/καταλόγων"
 
 # gconf/gconf.c:1748
-#: gconf/gconf.c:2290
+#: gconf/gconf.c:2294
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Το κλειδί/κατάλογος δεν μπορεί να τελειώνει με κάθετο (/)"
 
 # gconf/gconf.c:2079
-#: gconf/gconf.c:2543
+#: gconf/gconf.c:2547
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Αδύνατο το κλείσιμο του εξυπηρέτη διαμόρφωσης: %s"
 
 # gconf/gconf.c:2140
-#: gconf/gconf.c:2604
+#: gconf/gconf.c:2608
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Αναμενόταν αριθμός κινητής υποδιαστολής, λήφθηκε %s"
 
 # gconf/gconf.c:2175
-#: gconf/gconf.c:2639
+#: gconf/gconf.c:2643
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Αναμενόταν ακέραιος, λήφθηκε %s"
 
 # gconf/gconf.c:2210
-#: gconf/gconf.c:2674
+#: gconf/gconf.c:2678
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Αναμενόταν αλφαριθμητικό, λήφθηκε %s"
 
 # gconf/gconf.c:2247
-#: gconf/gconf.c:2711
+#: gconf/gconf.c:2715
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Αναμενόταν δυαδική τιμή, λήφθηκε %s"
 
 # gconf/gconf.c:2280
-#: gconf/gconf.c:2744
+#: gconf/gconf.c:2748
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Αναμενόταν σχήμα, λήφθηκε %s"
@@ -1643,8 +1643,8 @@ msgstr ""
 
 # gconf/gconftool.c:749
 #: gconf/gconftool.c:854
-#, c-format
-msgid "Failure listing pairs in `%s': %s"
+#, fuzzy, c-format
+msgid "Failure listing entries in `%s': %s\n"
 msgstr "Αποτυχία απαρίθμησης ζευγών στο `%s': %s"
 
 # gconf/gconftool.c:767
