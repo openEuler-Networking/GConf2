@@ -4,8 +4,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf.pot\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
+"Project-Id-Version: GConf 1.0.4\n"
+"POT-Creation-Date: 2001-09-06 19:05+0200\n"
 "PO-Revision-Date: 2000-03-13 18:23+0000\n"
 "Last-Translator:  Alastair McKinstry <mckinstry@computer.org>\n"
 "Language-Team: Irish <ga@li.org>\n"
@@ -1046,7 +1046,7 @@ msgstr ""
 
 #: gconf/gconftool.c:68
 msgid "Help options"
-msgstr "Roghnachais Cabhair"
+msgstr "Roghnachais Cúidiú"
 
 #: gconf/gconftool.c:77
 msgid "Set a key to a value and sync. Use with --type."
