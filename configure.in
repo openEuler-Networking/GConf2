@@ -175,7 +175,7 @@ dnl NOTE: We need to use a separate automake conditional for this
 dnl       to make this work with the tarballs.
 AM_CONDITIONAL(ENABLE_GTK_DOC, test x$enable_gtk_doc = xyes)
 
-AC_ARG_WITH(ipc, [  --with-ipc=[orbit/dbus/both]   choose ipc mechanism to use in the daemon, [default=orbit]], with_ipc="$withval", with_ipc=orbit)
+AC_ARG_WITH(ipc, [  --with-ipc=[orbit/dbus/both]   choose ipc mechanism to use in the daemon, [default=dbus]], with_ipc="$withval", with_ipc=dbus)
 
 if test x$with_ipc = xorbit -o x$with_ipc = xboth; then
   PKG_CHECK_MODULES(GCONF_ORBIT, ORBit-2.0 >= 2.4.0 linc >= 0.5.0, have_orbit=yes, have_orbit=no)
