@@ -92,26 +92,29 @@ static GHashTable     *engines_by_db = NULL;
 static GHashTable     *engines_by_address = NULL;
 
 
+static gboolean     ensure_dbus_connection      (void);
+static gboolean     gconf_activate_service      (gboolean      start_if_not_found,
+						 GError      **err);
+static const gchar *gconf_get_config_server     (gboolean      start_if_not_found,
+						 GError      **err);
+static void         gconf_engine_detach         (GConfEngine  *conf);
+static gboolean     gconf_engine_connect        (GConfEngine  *conf,
+						 gboolean      start_if_not_found,
+						 GError      **err);
+static void         gconf_engine_set_database   (GConfEngine  *conf,
+						 const gchar  *db);
+static const gchar *gconf_engine_get_database   (GConfEngine  *conf,
+						 gboolean      start_if_not_found,
+						 GError      **err);
+static void         register_engine             (GConfEngine  *conf);
+static void         unregister_engine           (GConfEngine  *conf);
+static GConfEngine *lookup_engine               (const gchar  *address);
+static GConfEngine *lookup_engine_by_database   (const gchar  *db);
+static gboolean     gconf_handle_dbus_exception (DBusMessage  *message,
+						 GError      **err);
+static gboolean     gconf_server_broken         (DBusMessage  *message);
+static void         gconf_detach_config_server  (void);
 
-static const gchar *gconf_get_config_server    (gboolean      start_if_not_found,
-						GError      **err);
-static void         gconf_engine_detach        (GConfEngine  *conf);
-static gboolean     gconf_engine_connect       (GConfEngine  *conf,
-						gboolean      start_if_not_found,
-						GError      **err);
-static void         gconf_engine_set_database  (GConfEngine  *conf,
-						const gchar  *db);
-static const gchar *gconf_engine_get_database  (GConfEngine  *conf,
-						gboolean      start_if_not_found,
-						GError      **err);
-static void         register_engine            (GConfEngine  *conf);
-static void         unregister_engine          (GConfEngine  *conf);
-static GConfEngine *lookup_engine              (const gchar  *address);
-static GConfEngine *lookup_engine_by_database  (const gchar  *db);
-static gboolean     gconf_handle_dbus_exception    (DBusMessage  *message,
-						GError      **err);
-static gboolean     gconf_server_broken        (DBusMessage  *message);
-static void         gconf_detach_config_server (void);
 
 
 #define CHECK_OWNER_USE(engine)   \
@@ -346,9 +349,11 @@ gconf_engine_connect (GConfEngine *conf,
                       GError **err)
 {
   const gchar *cs;
-  const gchar *db;
+  const gchar *db = NULL;
   int tries = 0;
-      
+  DBusMessage *message, *reply;
+  DBusError error;
+
   g_return_val_if_fail (!conf->is_local, TRUE);
 
   if (conf->database != NULL)
@@ -362,11 +367,32 @@ gconf_engine_connect (GConfEngine *conf,
     return FALSE; /* Error should already be set */
 
   if (conf->is_default)
-    db = NULL; /* XXX: const gchar *_get_default_database (cs, &ev); */
-  else
-    db = NULL; /* XXX: const gchar *_get_database (cs, conf->address, &ev); */
+    {
+      message = dbus_message_new_method_call (GCONF_DBUS_SERVICE,
+					      cs,
+					      GCONF_DBUS_SERVER_INTERFACE,
+					      GCONF_DBUS_SERVER_GET_DEFAULT_DB);
 
-  if (gconf_server_broken (NULL)) /* XXX */
+      dbus_error_init (&error);
+      reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+    }
+  else
+    {
+      message = dbus_message_new_method_call (GCONF_DBUS_SERVICE,
+					      cs,
+					      GCONF_DBUS_SERVER_INTERFACE,
+					      GCONF_DBUS_SERVER_GET_DB);
+      dbus_message_append_args (message,
+				DBUS_TYPE_STRING, conf->address,
+				DBUS_TYPE_INVALID);
+
+      dbus_error_init (&error);
+      reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+    }
+
+  dbus_message_unref (message);
+  
+  if (gconf_server_broken (reply))
     {
       if (tries < MAX_RETRIES)
         {
@@ -375,20 +401,29 @@ gconf_engine_connect (GConfEngine *conf,
           goto RETRY;
         }
     }
-  
-  if (gconf_handle_dbus_exception (NULL, err)) /* XXX: message */
-    return FALSE;
 
+  if (gconf_handle_dbus_exception (reply, err))
+    {
+      if (reply)
+	dbus_message_unref (reply);
+      return FALSE;
+    }
+
+  dbus_message_get_args (reply,
+			 NULL,
+			 DBUS_TYPE_STRING, &db,
+			 DBUS_TYPE_INVALID);
+  
   if (db == NULL)
     {
       if (err)
         *err = gconf_error_new(GCONF_ERROR_BAD_ADDRESS,
                                _("Server couldn't resolve the address `%s'"),
                                conf->address ? conf->address : "default");
-          
+      
       return FALSE;
     }
-
+  
   gconf_engine_set_database (conf, db);
   
   return TRUE;
@@ -483,11 +518,14 @@ gconf_engine_get_default (void)
   
   if (default_engine)
     conf = default_engine;
-
+  
   if (conf == NULL)
     {
-      conf = gconf_engine_blank(TRUE);
+      conf = gconf_engine_blank (TRUE);
 
+      if (!ensure_dbus_connection ())
+	return NULL;
+	
       conf->is_default = TRUE;
 
       default_engine = conf;
@@ -1789,11 +1827,11 @@ ensure_dbus_connection (void)
   dbus_connection_setup_with_g_main (connection, NULL);
 
   /* FIXME
-  handler = dbus_message_handler_new (gconf_config_listener_handler, NULL, NULL);
+  handler = dbus_message_handler_new (gconf_database_handler, NULL, NULL);
   dbus_connection_register_handler (connection, handler, config_listener_messages,
 				    G_N_ELEMENTS (config_listener_messages));
 
-  handler = dbus_message_handler_new (gconf_lifecycle_handler, NULL, NULL);
+  handler = dbus_message_handler_new (gconf_server_handler, NULL, NULL);
   dbus_connection_register_handler (connection, handler, lifecycle_messages,
 				    G_N_ELEMENTS (lifecycle_messages));
   */
@@ -1802,27 +1840,28 @@ ensure_dbus_connection (void)
 }
 
 static gboolean
-activate_server (DBusConnection *connection,
-		 gboolean        start_if_not_found,
-		 GError        **error)
+gconf_activate_service (gboolean  start_if_not_found,
+			GError   **err)
 {
+  DBusError error;
   DBusMessage *message, *reply;
 
-  /* Confirm server exists */
-
-  /* FIXME: use define for ping message and check that this is still in
-     dbus... */
-  message = dbus_message_new_method_call (DBUS_SERVICE_ORG_FREEDESKTOP_DBUS,
-					  DBUS_PATH_ORG_FREEDESKTOP_DBUS,
-					  DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
-					  "Ping"); 
-
-  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, NULL);
-  dbus_message_unref (message);
-
-  if (dbus_message_get_type (reply) != DBUS_MESSAGE_TYPE_ERROR)
+  dbus_error_init (&error);
+  
+  if (dbus_bus_service_exists (connection, GCONF_DBUS_SERVICE, &error))
     return TRUE;
   
+  if (dbus_error_is_set (&error))
+    {
+      g_set_error (err, GCONF_ERROR,
+		   GCONF_ERROR_NO_SERVER,
+		   _("Failed to activate configuration server: %s\n"),
+		   error.message);
+
+      dbus_error_free (&error);
+      return FALSE;
+    }
+      
   if (start_if_not_found)
     {
       message = dbus_message_new_method_call (DBUS_SERVICE_ORG_FREEDESKTOP_DBUS,
@@ -1837,7 +1876,8 @@ activate_server (DBusConnection *connection,
 
       reply = dbus_connection_send_with_reply_and_block (connection,
 							 message, -1, NULL);
-
+      dbus_message_unref (message);
+      
       if (dbus_message_get_type (reply) == DBUS_MESSAGE_TYPE_ERROR)
 	{
 	  gchar *error_message;
@@ -1845,7 +1885,7 @@ activate_server (DBusConnection *connection,
 	  dbus_message_get_args (reply, NULL,
 				 DBUS_TYPE_STRING, &error_message,
 				 0);
-	  g_set_error (error, GCONF_ERROR,
+	  g_set_error (err, GCONF_ERROR,
 		       GCONF_ERROR_NO_SERVER,
 		       _("Failed to activate configuration server: %s\n"),
 		       error_message);
@@ -1869,12 +1909,65 @@ activate_server (DBusConnection *connection,
 static const gchar *
 gconf_get_config_server (gboolean start_if_not_found, GError** err)
 {
+  int tries = 0;
+  DBusMessage *message, *reply;
+  DBusError error;
+  gchar *cs = NULL;
+
   g_return_val_if_fail(err == NULL || *err == NULL, server);
   
   if (server != NULL)
     return server;
 
-  server = NULL; /* XXX: activate the service here, add client if we need to do that */
+  if (!gconf_activate_service (start_if_not_found, err))
+    return NULL;
+  
+ RETRY:
+      
+  message = dbus_message_new_method_call (GCONF_DBUS_SERVICE,
+					  "/org/gnome.GConf", /* FIXME: right? */
+					  "some-interface", /* FIXME */
+					  "GetServer"); /* FIXME */
+
+  dbus_error_init (&error);
+  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
+  
+  dbus_message_unref (message);
+  
+  if (gconf_server_broken (reply))
+    {
+      if (tries < MAX_RETRIES)
+        {
+          ++tries;
+          gconf_detach_config_server ();
+          goto RETRY;
+        }
+    }
+  
+  if (gconf_handle_dbus_exception (reply, err))
+    {
+      if (reply)
+	dbus_message_unref (reply);
+      return FALSE;
+    }
+
+  dbus_message_get_args (reply,
+			 NULL,
+			 DBUS_TYPE_STRING, &cs,
+			 DBUS_TYPE_INVALID);
+  
+  if (cs == NULL)
+    {
+      if (err)
+        *err = gconf_error_new(GCONF_ERROR_BAD_ADDRESS,
+                               _("Couldn't get server"));
+      
+      return FALSE;
+    }
+
+  server = g_strdup (cs);
+
+  dbus_free (cs);
   
   return server; /* return what we have, NULL or not */
 }
