@@ -8,10 +8,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.5.90\n"
+"Project-Id-Version: GConf 2.6.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-14 17:24+0100\n"
-"PO-Revision-Date: 2004-05-14 16:38+0200\n"
+"POT-Creation-Date: 2004-07-03 09:09+0200\n"
+"PO-Revision-Date: 2004-07-03 09:09+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2278,7 +2278,7 @@ msgstr ""
 #: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
-msgstr "Das Schema »%s« mit der Lokalisierungekennung »%s« wurde installiert\n"
+msgstr "Das Schema »%s« mit der Lokalisierungskennung »%s« wurde installiert\n"
 
 #: gconf/gconftool.c:3479
 #, c-format
