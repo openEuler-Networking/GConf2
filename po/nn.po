@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oaf 0.6.5\n"
 "POT-Creation-Date: 2001-07-23 23:23-0400\n"
-"PO-Revision-Date: 2001-07-16 19:39+0200\n"
+"PO-Revision-Date: 2001-07-24 23:30+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian (Nynorsk)\n"
 "MIME-Version: 1.0\n"
@@ -108,14 +108,14 @@ msgid "Failed to write file `%s': %s"
 msgstr "Kunne ikkje skriva fil `%s: %s"
 
 #: backends/xml-dir.c:359
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set mode on `%s': %s"
-msgstr "Kunne ikkje fjerna temaet '%1'"
+msgstr "Kunne ikkje setja modus på `%s': %s"
 
 #: backends/xml-dir.c:373 backends/xml-dir.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to rename `%s' to `%s': %s"
-msgstr "Kunne ikkje fjerna temaet '%1'"
+msgstr "Kunne ikkje endra navn på `%s' til `%s': %s"
 
 #: backends/xml-dir.c:389
 #, fuzzy, c-format
@@ -123,15 +123,15 @@ msgid "Failed to restore `%s' from `%s': %s"
 msgstr "Kunne ikkje fjerna temaet '%1'"
 
 #: backends/xml-dir.c:401
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to delete old file `%s': %s"
-msgstr "Kan ikkje sletta fil."
+msgstr "Kunne ikkje sletta gamal fil `%s': %s"
 
 #. These are all fatal errors
 #: backends/xml-dir.c:806
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to stat `%s': %s"
-msgstr "Kunne ikkje lagra %1."
+msgstr "Kunne ikkje køyra stat på `%s': %s"
 
 #: backends/xml-dir.c:950
 #, c-format
@@ -149,17 +149,14 @@ msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
 msgstr ""
 
 #: backends/xml-dir.c:1067
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create file `%s': %s"
-msgstr ""
-"Kunne ikkje laga mellombels fil\n"
-"%1:\n"
-"%2"
+msgstr "Kunne ikkje laga fil `%s': %s"
 
 #: backends/xml-dir.c:1075 gconf/gconf-internals.c:2489
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close file `%s': %s"
-msgstr "Kunne ikkje lasta biletefil."
+msgstr "Kunne ikkje stengja fil `%s': %s"
 
 #. There was an error
 #: backends/xml-entry.c:149
@@ -168,9 +165,9 @@ msgid "Ignoring XML node with name `%s': %s"
 msgstr ""
 
 #: backends/xml-entry.c:200
-#, fuzzy, c-format
+#, c-format
 msgid "%s"
-msgstr "%1 s"
+msgstr "%s"
 
 #: backends/xml-entry.c:327
 #, c-format

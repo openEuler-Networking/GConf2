@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
 "POT-Creation-Date: 2001-07-23 23:23-0400\n"
-"PO-Revision-Date: 2001-07-23 00:51+0200\n"
+"PO-Revision-Date: 2001-07-24 23:27+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1421,9 +1421,9 @@ msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Må spesifisere en eller flere kataloger som skal vises rekursivt.\n"
 
 #: gconf/gconftool.c:854
-#, fuzzy, c-format
+#, c-format
 msgid "Failure listing entries in `%s': %s\n"
-msgstr "Feil under listing av par i `%s': %s"
+msgstr "Feil under listing av oppføringer i `%s': %s\n"
 
 #: gconf/gconftool.c:872
 msgid "(no value set)"
