@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.6\n"
-"POT-Creation-Date: 2000-12-05 13:11+0100\n"
+"POT-Creation-Date: 2001-01-20 22:32-0500\n"
 "PO-Revision-Date: 2000-12-05 13:12+01:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"

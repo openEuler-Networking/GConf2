@@ -4,13 +4,44 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2000-11-08 19:24+0300\n"
+"POT-Creation-Date: 2001-01-20 22:32-0500\n"
 "PO-Revision-Date: 2000-11-08 19:53+03:00\n"
 "Last-Translator: Valek Filippov <frob@df.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8-bit\n"
+
+#: backends/bdb-backend.c:211
+#, fuzzy
+msgid "Unloading BerkeleyDB (BDB) backend module."
+msgstr "Выгрузка серверного модуля XML."
+
+#: backends/bdb-backend.c:234
+#, c-format
+msgid "Opened BerkeleyDB source at root %s"
+msgstr ""
+
+#: backends/bdb-backend.c:574
+#, fuzzy
+msgid "Initializing BDB backend module"
+msgstr "Инициализация серверного модуля XML"
+
+#: backends/dir-utils.c:88
+#, fuzzy, c-format
+msgid "Couldn't find the %s root directory in the address `%s'"
+msgstr "Не удалось найти корневой каталог XML по адресу '%s'"
+
+#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#, c-format
+msgid "Could not make directory `%s': %s"
+msgstr "Не удалось создать каталог '%s': %s"
+
+#: backends/dir-utils.c:192
+#, fuzzy, c-format
+msgid "Can't read from or write to the %s root directory in the address `%s'"
+msgstr ""
+"Невозможно прочитать из или записатьв корневой каталог XML по адресу '%s'"
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
@@ -20,11 +51,6 @@ msgstr "Выгрузка серверного модуля XML."
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Не удалось найти корневой каталог XML по адресу '%s'"
-
-#: backends/xml-backend.c:301 backends/xml-dir.c:1035
-#, c-format
-msgid "Could not make directory `%s': %s"
-msgstr "Не удалось создать каталог '%s': %s"
 
 #: backends/xml-backend.c:386
 #, c-format
@@ -810,10 +836,6 @@ msgid ""
 msgstr ""
 "Нет источников конфигурации в пути источников, конфигурация не была "
 "сохранена; отредактировать "
-
-#: gconf/gconfd.c:306
-msgid "/path"
-msgstr "/path"
 
 #: gconf/gconfd.c:320
 #, c-format
@@ -1626,3 +1648,6 @@ msgstr "Предупреждение GConf: Ошибка перечисления пар в \"%s\": %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Ожидалось \"%s\" получено \"%s\" для ключа %s"
+
+#~ msgid "/path"
+#~ msgstr "/path"

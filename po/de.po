@@ -12,13 +12,43 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gConf  0.10\n"
-"POT-Creation-Date: 2000-10-28 16:24+0200\n"
+"POT-Creation-Date: 2001-01-20 22:32-0500\n"
 "PO-Revision-Date: 2000-10-28 16:26+0200\n"
 "Last-Translator: Kai Lahmann <kl@linuxfaqs.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: backends/bdb-backend.c:211
+#, fuzzy
+msgid "Unloading BerkeleyDB (BDB) backend module."
+msgstr "XML-Backend-Modul wird aus dem Speicher entfernt."
+
+#: backends/bdb-backend.c:234
+#, c-format
+msgid "Opened BerkeleyDB source at root %s"
+msgstr ""
+
+#: backends/bdb-backend.c:574
+#, fuzzy
+msgid "Initializing BDB backend module"
+msgstr "Initialisiere XML-Backend-Modul"
+
+#: backends/dir-utils.c:88
+#, fuzzy, c-format
+msgid "Couldn't find the %s root directory in the address `%s'"
+msgstr "Konnte das XML-Rootverzeichnis nicht an der Adresse `%s' finden"
+
+#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#, c-format
+msgid "Could not make directory `%s': %s"
+msgstr "Konnte Verzeichnis `%s' nicht erstellen: %s"
+
+#: backends/dir-utils.c:192
+#, fuzzy, c-format
+msgid "Can't read from or write to the %s root directory in the address `%s'"
+msgstr "Kann nicht in XML-Verzeichnis an Adresse `%s' lesen oder schreiben"
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
@@ -28,11 +58,6 @@ msgstr "XML-Backend-Modul wird aus dem Speicher entfernt."
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Konnte das XML-Rootverzeichnis nicht an der Adresse `%s' finden"
-
-#: backends/xml-backend.c:301 backends/xml-dir.c:1035
-#, c-format
-msgid "Could not make directory `%s': %s"
-msgstr "Konnte Verzeichnis `%s' nicht erstellen: %s"
 
 #: backends/xml-backend.c:386
 #, c-format
@@ -139,7 +164,7 @@ msgstr "Oberstes Element in der XML-Datei `%s' ist kein <entry>, ignoriere"
 msgid "Failed to create file `%s': %s"
 msgstr "Erstellen von Datei %s gescheitert: %s"
 
-#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2470
+#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2471
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Konnte Datei `%s' nicht schließen: %s"
@@ -282,8 +307,7 @@ msgstr "Habe ungültigen Wert in Einstellungsanfrage erhalten"
 
 #: gconf/gconf-database.c:241
 #, c-format
-msgid ""
-"Couldn't make sense of CORBA value received in set request for key `%s'"
+msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Konnte Sinn des CORBA-Wertes in Einstellungsanfrage für Schlüssel `%s' nicht "
 "ausmachen"
@@ -317,9 +341,9 @@ msgid ""
 "configuration changes."
 msgstr ""
 "Konnte Hinzufügen eines Zuhörers (%s) nicht in Logdatei verzeichnen; werde "
-"nicht in der Lage sein, ihn bei einem Neustart von gconfd wiederherzustellen, "
-"was zu einer unzuverlässigen Benachrichtigung über Konfigurationsänderungen "
-"führen wird."
+"nicht in der Lage sein, ihn bei einem Neustart von gconfd "
+"wiederherzustellen, was zu einer unzuverlässigen Benachrichtigung über "
+"Konfigurationsänderungen führen wird."
 
 #: gconf/gconf-database.c:868
 #, c-format
@@ -445,223 +469,6 @@ msgstr "Konnte kein Lock erhalten"
 msgid "No database available to save your configuration"
 msgstr "Es wurde keine Datenbank gefunden, um die Konfiguration abzuspeichern."
 
-#: gconf/gconf-glib.c:657
-#, c-format
-msgid ""
-"Error on line %d char %d: %s\n"
-"(Some surrounding text was '%s')\n"
-msgstr ""
-"Fehler in Zeile %d, Zeichen %d: %s\n"
-"(Der umgebende Text war '%s')\n"
-
-#: gconf/gconf-glib.c:777
-msgid ""
-"Text ended in the middle of an entity, or entity name too long to be valid "
-"('&' should begin an entity such as '&quot;')"
-msgstr ""
-"Text endete mitten in einer Entity, oder Entityname ist zu lang, um gültig zu "
-"sein ('&' sollte am Anfang einer Entity wie '&quot;' stehen)"
-
-#: gconf/gconf-glib.c:829
-#, c-format
-msgid ""
-"Unknown entity '%s' ('&' must begin entities &amp; &quot; &lt; &gt; &apos;)"
-msgstr ""
-"Unbekannte Entity '%s' ('&' muss am Anfang einer Entity wie &amp; &quot; &lt; "
-"&gt; &apos; stehen)"
-
-#: gconf/gconf-glib.c:869
-msgid ""
-"Markup text ended in the middle of a character reference, just after '&#'"
-msgstr ""
-"Markierter Text endete mitten in einer Zeichenreferenz, gleich nach '&#'"
-
-#: gconf/gconf-glib.c:895
-#, c-format
-msgid ""
-"Character reference contained non-digit '%s' ('&#' should begin a reference "
-"to a unicode character, such as '&#2342;')"
-msgstr ""
-"Zeichenreferenz enhielt `non-digit' '%s' ('&#' sollte am Anfang einer "
-"Referenz mit einem Unicode-Zeichen stehen, z.B. '&#2342;')"
-
-#: gconf/gconf-glib.c:919
-msgid ""
-"Text ended in the middle of an character reference ('&#' should begin a "
-"character reference such as '&#2342;')"
-msgstr ""
-"Text endete in der Mitte einer Zeichenreferenz ('&#' sollte am Anfang einer "
-"Zeichenreferenz wie '&#2342;' stehen)"
-
-#: gconf/gconf-glib.c:944
-#, c-format
-msgid ""
-"Couldn't parse character reference '%s' ('&#' must begin a character "
-"reference such as '&#2343;')"
-msgstr ""
-"Konnte Zeichenreferenz '%s' nicht parsen ('&#' muss am Anfang einer "
-"Zeichenreferenz stehen, z.B. '&#2342;')"
-
-#: gconf/gconf-glib.c:966
-#, c-format
-msgid ""
-"Character code %#lx is not allowed in XML documents or is not a valid Unicode "
-"character"
-msgstr ""
-"Zeichencode %#lx ist in XML-Dokumenten nicht erlaubt oder ist kein gültiges "
-"Unicode-Zeichen"
-
-#: gconf/gconf-glib.c:1041
-msgid ""
-"Document ended just after an '&', '&' should begin an entity or character "
-"reference."
-msgstr ""
-"Dokument endete genau nach einem '&', '&' sollte eine Entity oder eine "
-"Zeichenreferenz einleiten."
-
-#: gconf/gconf-glib.c:1055
-msgid ""
-"'<' or '>' character not allowed here; only allowed around tags, for example "
-"<bold> or <paragraph>. Elsewhere, encode these characters as the entities "
-"&lt; and &gt;"
-msgstr ""
-"Die Zeichen'<' oder '>' sind hier nicht erlaubt, sondern nur bei Tags wie "
-"<bold> oder <paragraph>. Um sie sonst zu verwenden, bitte &lt; and &gt; "
-"benutzen"
-
-#: gconf/gconf-glib.c:1110
-#, c-format
-msgid "Character '%s' is not valid at the start of an attribute name"
-msgstr "Zeichen '%s' ist am Anfang eines Attributnamens ungültig"
-
-#: gconf/gconf-glib.c:1137
-msgid "Document ended just after attribute name"
-msgstr "Dokument hörte genau nach einem Attributnamen auf"
-
-#: gconf/gconf-glib.c:1148
-msgid "Attribute name must be immediately followed by an '=' character"
-msgstr "Nach einem Attributnamen muss sofort ein '=' Zeichen folgen"
-
-#: gconf/gconf-glib.c:1163
-msgid ""
-"'=' character after attribute must be immediately followed by an '\"' "
-"character"
-msgstr "'=' Zeichen muss unmittelbar nach einem'\"' Zeichen stehen"
-
-#: gconf/gconf-glib.c:1189
-#, c-format
-msgid ""
-"Character '%c' found inside an attribute value; perhaps your attribute value "
-"is missing the closing quotation mark '\"'"
-msgstr ""
-"Zeichen '%c' wurde in einem Attributwert gefunden; vielleicht fehlt bei Ihrem "
-"Attributwert das schließende Anführungszeichen '\"'"
-
-#: gconf/gconf-glib.c:1209
-msgid ""
-"Ran out of text before a quote mark ('\"') was seen at the end of an "
-"attribute value"
-msgstr ""
-"Text ging über ein Anführungszeichen ('\"') hinaus. Es wurde kein "
-"Anführungszeichen gefunden"
-
-#: gconf/gconf-glib.c:1222
-msgid ""
-"Text ends immediately after an attribute value, before the element was closed"
-msgstr ""
-"Text endete unmittelbar nach einem Attributwert, bevor überhaupt das Element "
-"geschlossen wurde"
-
-#: gconf/gconf-glib.c:1536
-msgid "Missing '<' at start of element"
-msgstr "'<' fehlt am Anfang des Elements"
-
-#: gconf/gconf-glib.c:1547
-msgid "Document ended just after '<' character"
-msgstr "Dokument endete genau nach einem '<' Zeichen"
-
-#: gconf/gconf-glib.c:1575
-msgid "No closing '>' found for a <? or <!"
-msgstr "Kein schließendes '>' gefunden für <? oder <!"
-
-#: gconf/gconf-glib.c:1604
-#, c-format
-msgid "Character '%s' is not valid at the start of an element name"
-msgstr "Zeichen '%s' ist am Anfang eines Elementnamens nicht erlaubt"
-
-#: gconf/gconf-glib.c:1628 gconf/gconf-glib.c:1641
-msgid "Document ended just after element name, no '>' seen"
-msgstr "Dokument endete genau nach einem Elementnamen, kein '>' gefunden"
-
-#: gconf/gconf-glib.c:1666
-#, c-format
-msgid "Elements should be closed with '>' or '/>', not with '%s'"
-msgstr "Elemente sollten mit '>' oder '/>' geschlossen werden, nicht mit '%s'"
-
-#: gconf/gconf-glib.c:1683
-msgid ""
-"Element ended just after '/', no '>' seen; empty elements should end with "
-"'/>'"
-msgstr ""
-"Element endete ganau nach '/', '>' wurde nicht gefunden; leere Elemente "
-"sollten mit einem '/>' geschlossen werden"
-
-#: gconf/gconf-glib.c:1722
-msgid "Close tag not found at end of element"
-msgstr "Tag zum Schließen am Ende des Elements nicht gefunden"
-
-#: gconf/gconf-glib.c:1737
-msgid "Close tag ends just after '<' character"
-msgstr "Tag zum Schließen endet genau nach '<' Zeichen"
-
-#: gconf/gconf-glib.c:1751
-msgid "Close tag should begin with '</', '/' character is missing"
-msgstr ""
-"Tag zum Schließen sollte mit einem '</' Zeichen beginnen, '/' Zeichen fehlt"
-
-#: gconf/gconf-glib.c:1765
-msgid "Close tag ends just after '/' character"
-msgstr "Tag zum Schließen endet genau nach einem '/' Zeichen"
-
-#: gconf/gconf-glib.c:1800
-msgid "Document ended just after element name in close tag, no '>' seen"
-msgstr ""
-"Dokument endete genau nach Elementnamen im Tag für Schließen, '>' wurde nicht "
-"gefunden"
-
-#: gconf/gconf-glib.c:1816
-msgid "Document ended just after close tag name, no '>' seen"
-msgstr ""
-"Dokument endete genau nach Tag Name für Schließen, '>' wurde nicht gefunden"
-
-#: gconf/gconf-glib.c:1835
-#, c-format
-msgid "Close tag '%s' does not match opening tag '%s'"
-msgstr "Tag für Schließen '%s' passt nicht zum Tag für Öffnen '%s'"
-
-#: gconf/gconf-glib.c:2173
-#, c-format
-msgid ""
-"Invalid UTF-8 character at byte %d in marked-up text. Some text before the "
-"bad character was '%s'"
-msgstr ""
-"Ungültiges UTF-8 Zeichen bei Byte %d im markierten Text. Der Text vor dem "
-"falschen Zeichen war '%s'"
-
-#: gconf/gconf-glib.c:2230
-msgid "The marked-up text contained nothing but whitespace."
-msgstr "Dieser markierte Text enthielt nicht mehr als nur Leerzeichen."
-
-#: gconf/gconf-glib.c:10694
-#, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "Konnte Datei `%s' nicht öffnen: %s"
-
-#: gconf/gconf-glib.c:10711
-#, c-format
-msgid "Error reading file '%s': %s"
-msgstr "Fehler beim Lesen der Datei '%s': %s"
-
 #: gconf/gconf-internals.c:85
 #, c-format
 msgid "No '/' in key `%s'"
@@ -699,89 +506,89 @@ msgstr "Füge Quelle `%s' hinzu\n"
 msgid "Read error on file `%s': %s\n"
 msgstr "Lesefehler auf Datei `%s': %s\n"
 
-#: gconf/gconf-internals.c:1320
+#: gconf/gconf-internals.c:1321
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Habe Liste erwartet, erhielt %s"
 
-#: gconf/gconf-internals.c:1330
+#: gconf/gconf-internals.c:1331
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Habe Liste von %s erwartet, erhielt Liste von %s"
 
-#: gconf/gconf-internals.c:1469
+#: gconf/gconf-internals.c:1470
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Habe Paar erwartet, erhielt %s"
 
-#: gconf/gconf-internals.c:1483
+#: gconf/gconf-internals.c:1484
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "Habe Paar (%s,%s) erwartet, erhielt ein Paar, bei dem ein oder beide Werte "
 "fehlten"
 
-#: gconf/gconf-internals.c:1499
+#: gconf/gconf-internals.c:1500
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Habe Paar von Typ (%s,%s) erwartet, erhielt Typ (%s,%s)"
 
-#: gconf/gconf-internals.c:1615
+#: gconf/gconf-internals.c:1616
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Zeichenkette in Anführungszeichen beginnt nicht mit Anführungszeichen"
 
-#: gconf/gconf-internals.c:1677
+#: gconf/gconf-internals.c:1678
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Zeichenkette in Anführungszeichen endet nicht mit Anführungszeichen"
 
-#: gconf/gconf-internals.c:2157 gconf/gconf.c:2945
+#: gconf/gconf-internals.c:2158 gconf/gconf.c:2945
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA-Fehler: %s"
 
-#: gconf/gconf-internals.c:2173
+#: gconf/gconf-internals.c:2174
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "OAF Problembeschreibung: '%s'"
 
-#: gconf/gconf-internals.c:2179
+#: gconf/gconf-internals.c:2180
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "Versuch, nicht aufgelistetes OAF-Objektverzeichnis zu entfernen"
 
-#: gconf/gconf-internals.c:2184
+#: gconf/gconf-internals.c:2185
 msgid "attempt to add already-listed OAF directory"
 msgstr "Versuch, bereits aufgelistetes OAF-Verzeichnis hinzuzufügen"
 
-#: gconf/gconf-internals.c:2191
+#: gconf/gconf-internals.c:2192
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "OAF-Parserfehler: %s"
 
-#: gconf/gconf-internals.c:2196
+#: gconf/gconf-internals.c:2197
 msgid "Unknown OAF error"
 msgstr "Unbekannter OAF-Fehler"
 
-#: gconf/gconf-internals.c:2279
+#: gconf/gconf-internals.c:2280
 #, c-format
 msgid "No ior file in `%s'"
 msgstr "Keine ior-Datei in `%s'"
 
-#: gconf/gconf-internals.c:2310
+#: gconf/gconf-internals.c:2311
 #, c-format
 msgid "gconfd taking lock `%s' from some other process"
 msgstr "gconfd erhält Sperre `%s' von einem anderen Prozess"
 
-#: gconf/gconf-internals.c:2321
+#: gconf/gconf-internals.c:2322
 #, c-format
 msgid "Another program has lock `%s'"
 msgstr "Ein anderes Programm hat die Sperre `%s'"
 
-#: gconf/gconf-internals.c:2341
+#: gconf/gconf-internals.c:2342
 msgid "couldn't contact ORB to ping existing gconfd"
 msgstr ""
 "Konnte keinen Kontakt mit ORB aufnehmen, um existierenden gconfd zu pingen"
 
-#: gconf/gconf-internals.c:2349
+#: gconf/gconf-internals.c:2350
 #, c-format
 msgid ""
 "Removing stale lock `%s' because IOR couldn't be converted to object "
@@ -790,44 +597,44 @@ msgstr ""
 "Entferne verfallene Sperre `%s', da IOR nicht in Objektreferenz umgewandelt "
 "werden konnte, IOR `%s'"
 
-#: gconf/gconf-internals.c:2361
+#: gconf/gconf-internals.c:2362
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
 msgstr ""
 "Entferne verfallene Sperre `%s' auf Grund Fehlers beim Pingen des Servers: %s"
 
-#: gconf/gconf-internals.c:2373
+#: gconf/gconf-internals.c:2374
 #, c-format
 msgid "GConf configuration daemon (gconfd) has lock `%s'"
 msgstr "GConf-Konfigurationsdämon (gconfd) hat Sperre `%s'"
 
-#: gconf/gconf-internals.c:2387
+#: gconf/gconf-internals.c:2388
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "Konnte Verzeichnis `%s' nicht anlegen: %s"
 
-#: gconf/gconf-internals.c:2422
+#: gconf/gconf-internals.c:2423
 #, c-format
 msgid "Can't create lock `%s': %s"
 msgstr "Kann Sperre `%s' nicht anlegen: %s"
 
-#: gconf/gconf-internals.c:2458
+#: gconf/gconf-internals.c:2459
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Kann nicht in Datei `%s' schreiben: %s"
 
-#: gconf/gconf-internals.c:2501
+#: gconf/gconf-internals.c:2502
 #, c-format
 msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
 msgstr ""
 "Kann Sperrdatei `%s' nicht öffnen; nehme an, dass sie nicht Ihnen gehört: %s"
 
-#: gconf/gconf-internals.c:2518
+#: gconf/gconf-internals.c:2519
 #, c-format
 msgid "Corrupt lock file `%s', removing anyway"
 msgstr "Beschädigte Sperrdatei `%s', entferne sie sowieso"
 
-#: gconf/gconf-internals.c:2528
+#: gconf/gconf-internals.c:2529
 #, c-format
 msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
@@ -836,7 +643,7 @@ msgstr ""
 "Habe Sperrdatei `%s' (Erzeuger-PID %u, unsere PID %u) nicht angelegt; nehme "
 "an, dass uns jemand die Sperre weggenommen hat"
 
-#: gconf/gconf-internals.c:2545
+#: gconf/gconf-internals.c:2546
 #, c-format
 msgid "Failed to release lock directory `%s': %s"
 msgstr "Konnte Sperrverzeichnis `%s' nicht freigeben: %s"
@@ -976,8 +783,9 @@ msgid ""
 "Please file an OAF bug report."
 msgstr ""
 "Fehler beim Kontaktieren des Konfigurationsservers: OAF gab NULL aus "
-"oaf_activate_from_id() zurück und hat keinen Ausnahmezustand gesetzt, der das "
-"Problem erklären würde. Bitte schicken Sie einen Fehlerbericht zu OAF ein."
+"oaf_activate_from_id() zurück und hat keinen Ausnahmezustand gesetzt, der "
+"das Problem erklären würde. Bitte schicken Sie einen Fehlerbericht zu OAF "
+"ein."
 
 #: gconf/gconf.c:2051
 msgid "Failed to init GConf, exiting\n"
@@ -1128,8 +936,8 @@ msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register; exiting\n"
 msgstr ""
-"OAF kennt unsere IID nicht; dies weist auf eine beschädigte Installation hin; "
-"kann nicht registrieren; breche ab\n"
+"OAF kennt unsere IID nicht; dies weist auf eine beschädigte Installation "
+"hin; kann nicht registrieren; breche ab\n"
 
 #: gconf/gconfd.c:528
 msgid "Another gconfd already registered with OAF; exiting\n"
@@ -1199,16 +1007,16 @@ msgstr "Konnte neue Statusspeicherungsdatei nicht auf ihren Platz bringen: %s"
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr ""
-"Konnte ursprüngliche Statusspeicherungs-Datei, die auf '%s' verschoben worden "
-"war, nicht wiederherstellen: %s"
+"Konnte ursprüngliche Statusspeicherungs-Datei, die auf '%s' verschoben "
+"worden war, nicht wiederherstellen: %s"
 
 #: gconf/gconfd.c:1633
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
-"Kann keinen Zuhörer auf Adresse '%s' wiederherstellen, konnte Datenbank nicht "
-"auflösen"
+"Kann keinen Zuhörer auf Adresse '%s' wiederherstellen, konnte Datenbank "
+"nicht auflösen"
 
 #: gconf/gconfd.c:1679
 #, c-format
@@ -1223,8 +1031,8 @@ msgstr "Öffnen der gespeicherten Status Datei '%s' nicht möglich: %s"
 #: gconf/gconfd.c:1849
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Konnte Hinzufügen eines Zuhörers nicht in der gconfd-Logdatei verzeichnen; "
 "werde nicht in der Lage sein, ihn wieder hinzuzufügen, wenn gconfd beendet "
@@ -1233,8 +1041,8 @@ msgstr ""
 #: gconf/gconfd.c:1854
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Konnte Entfernen eines Zuhörers nicht in der gconfd-Logdatei verzeichnen; "
 "werde ihn vielleicht irrtümlich wieder hinzufügen, wenn gconfd beendet wird "
@@ -1268,8 +1076,8 @@ msgstr ""
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
-"Einige Clients entfernten sich selbst aus dem GConf-Server. Sie wurden jedoch "
-"nicht hinzugefügt."
+"Einige Clients entfernten sich selbst aus dem GConf-Server. Sie wurden "
+"jedoch nicht hinzugefügt."
 
 #: gconf/gconftool.c:62
 msgid "Help options"
@@ -1427,8 +1235,8 @@ msgid ""
 msgstr ""
 "Installiert Schemendateien auf der Kommandozeile korrekt in die Datenbank. "
 "Die Umgebungsvariable GCONF_CONFIG_SOURCE sollte auf eine andere "
-"Konfigurationsquelle als die voreingestellte gesetzt sein oder zur Verwendung "
-"der Voreinstellung die leere Zeichenkette enthalten."
+"Konfigurationsquelle als die voreingestellte gesetzt sein oder zur "
+"Verwendung der Voreinstellung die leere Zeichenkette enthalten."
 
 #: gconf/gconftool.c:270
 msgid ""
@@ -1679,7 +1487,8 @@ msgstr "Fehler beim Synchronisieren: %s"
 
 #: gconf/gconftool.c:1107
 msgid "Must specify key (schema name) as the only argument\n"
-msgstr "Sie müssen einen Schlüssel (Schemaname) als einziges Argument angeben\n"
+msgstr ""
+"Sie müssen einen Schlüssel (Schemaname) als einziges Argument angeben\n"
 
 #: gconf/gconftool.c:1149
 msgid "List type must be a primitive type: string, int, float or bool\n"
@@ -1761,7 +1570,8 @@ msgstr "WARNUNG: konnte Typname `%s' nicht parsen\n"
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"Warnung: Listen-Typ can nur int, float, string oder bool sein, aber nicht %s\n"
+"Warnung: Listen-Typ can nur int, float, string oder bool sein, aber nicht "
+"%s\n"
 
 #: gconf/gconftool.c:1535
 #, c-format
@@ -1791,7 +1601,8 @@ msgstr "WARNUNG: kein Schlüssel für Schema angegeben\n"
 #: gconf/gconftool.c:1629
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
-"WARNUNG: Knoten <locale> hat kein Attribut `name=\"locale\"', ignoriere dies\n"
+"WARNUNG: Knoten <locale> hat kein Attribut `name=\"locale\"', ignoriere "
+"dies\n"
 
 #: gconf/gconftool.c:1635
 #, c-format
@@ -1910,7 +1721,8 @@ msgstr "Sie müssen zu beschädigende Verzeichnisse angeben\n"
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
-"directory:\n  %s\n"
+"directory:\n"
+"  %s\n"
 msgstr ""
 "Versuche, Ihre Anwendung durch Einstellen falscher Werte für Schlüssel in "
 "einem Verzeichnis zu beschädigen:\n"
@@ -1931,3 +1743,172 @@ msgstr "GConf-Warnung: Fehler beim Auflisten von Paaren in `%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Erwartete %s, erhielt %s für den Schlüssel %s"
 
+#~ msgid ""
+#~ "Error on line %d char %d: %s\n"
+#~ "(Some surrounding text was '%s')\n"
+#~ msgstr ""
+#~ "Fehler in Zeile %d, Zeichen %d: %s\n"
+#~ "(Der umgebende Text war '%s')\n"
+
+#~ msgid ""
+#~ "Text ended in the middle of an entity, or entity name too long to be valid "
+#~ "('&' should begin an entity such as '&quot;')"
+#~ msgstr ""
+#~ "Text endete mitten in einer Entity, oder Entityname ist zu lang, um gültig "
+#~ "zu sein ('&' sollte am Anfang einer Entity wie '&quot;' stehen)"
+
+#~ msgid ""
+#~ "Unknown entity '%s' ('&' must begin entities &amp; &quot; &lt; &gt; &apos;)"
+#~ msgstr ""
+#~ "Unbekannte Entity '%s' ('&' muss am Anfang einer Entity wie &amp; &quot; "
+#~ "&lt; &gt; &apos; stehen)"
+
+#~ msgid ""
+#~ "Markup text ended in the middle of a character reference, just after '&#'"
+#~ msgstr ""
+#~ "Markierter Text endete mitten in einer Zeichenreferenz, gleich nach '&#'"
+
+#~ msgid ""
+#~ "Character reference contained non-digit '%s' ('&#' should begin a reference "
+#~ "to a unicode character, such as '&#2342;')"
+#~ msgstr ""
+#~ "Zeichenreferenz enhielt `non-digit' '%s' ('&#' sollte am Anfang einer "
+#~ "Referenz mit einem Unicode-Zeichen stehen, z.B. '&#2342;')"
+
+#~ msgid ""
+#~ "Text ended in the middle of an character reference ('&#' should begin a "
+#~ "character reference such as '&#2342;')"
+#~ msgstr ""
+#~ "Text endete in der Mitte einer Zeichenreferenz ('&#' sollte am Anfang einer "
+#~ "Zeichenreferenz wie '&#2342;' stehen)"
+
+#~ msgid ""
+#~ "Couldn't parse character reference '%s' ('&#' must begin a character "
+#~ "reference such as '&#2343;')"
+#~ msgstr ""
+#~ "Konnte Zeichenreferenz '%s' nicht parsen ('&#' muss am Anfang einer "
+#~ "Zeichenreferenz stehen, z.B. '&#2342;')"
+
+#~ msgid ""
+#~ "Character code %#lx is not allowed in XML documents or is not a valid "
+#~ "Unicode character"
+#~ msgstr ""
+#~ "Zeichencode %#lx ist in XML-Dokumenten nicht erlaubt oder ist kein gültiges "
+#~ "Unicode-Zeichen"
+
+#~ msgid ""
+#~ "Document ended just after an '&', '&' should begin an entity or character "
+#~ "reference."
+#~ msgstr ""
+#~ "Dokument endete genau nach einem '&', '&' sollte eine Entity oder eine "
+#~ "Zeichenreferenz einleiten."
+
+#~ msgid ""
+#~ "'<' or '>' character not allowed here; only allowed around tags, for example "
+#~ "<bold> or <paragraph>. Elsewhere, encode these characters as the entities "
+#~ "&lt; and &gt;"
+#~ msgstr ""
+#~ "Die Zeichen'<' oder '>' sind hier nicht erlaubt, sondern nur bei Tags wie "
+#~ "<bold> oder <paragraph>. Um sie sonst zu verwenden, bitte &lt; and &gt; "
+#~ "benutzen"
+
+#~ msgid "Character '%s' is not valid at the start of an attribute name"
+#~ msgstr "Zeichen '%s' ist am Anfang eines Attributnamens ungültig"
+
+#~ msgid "Document ended just after attribute name"
+#~ msgstr "Dokument hörte genau nach einem Attributnamen auf"
+
+#~ msgid "Attribute name must be immediately followed by an '=' character"
+#~ msgstr "Nach einem Attributnamen muss sofort ein '=' Zeichen folgen"
+
+#~ msgid ""
+#~ "'=' character after attribute must be immediately followed by an '\"' "
+#~ "character"
+#~ msgstr "'=' Zeichen muss unmittelbar nach einem'\"' Zeichen stehen"
+
+#~ msgid ""
+#~ "Character '%c' found inside an attribute value; perhaps your attribute value "
+#~ "is missing the closing quotation mark '\"'"
+#~ msgstr ""
+#~ "Zeichen '%c' wurde in einem Attributwert gefunden; vielleicht fehlt bei "
+#~ "Ihrem Attributwert das schließende Anführungszeichen '\"'"
+
+#~ msgid ""
+#~ "Ran out of text before a quote mark ('\"') was seen at the end of an "
+#~ "attribute value"
+#~ msgstr ""
+#~ "Text ging über ein Anführungszeichen ('\"') hinaus. Es wurde kein "
+#~ "Anführungszeichen gefunden"
+
+#~ msgid ""
+#~ "Text ends immediately after an attribute value, before the element was closed"
+#~ msgstr ""
+#~ "Text endete unmittelbar nach einem Attributwert, bevor überhaupt das Element "
+#~ "geschlossen wurde"
+
+#~ msgid "Missing '<' at start of element"
+#~ msgstr "'<' fehlt am Anfang des Elements"
+
+#~ msgid "Document ended just after '<' character"
+#~ msgstr "Dokument endete genau nach einem '<' Zeichen"
+
+#~ msgid "No closing '>' found for a <? or <!"
+#~ msgstr "Kein schließendes '>' gefunden für <? oder <!"
+
+#~ msgid "Character '%s' is not valid at the start of an element name"
+#~ msgstr "Zeichen '%s' ist am Anfang eines Elementnamens nicht erlaubt"
+
+#~ msgid "Document ended just after element name, no '>' seen"
+#~ msgstr "Dokument endete genau nach einem Elementnamen, kein '>' gefunden"
+
+#~ msgid "Elements should be closed with '>' or '/>', not with '%s'"
+#~ msgstr ""
+#~ "Elemente sollten mit '>' oder '/>' geschlossen werden, nicht mit '%s'"
+
+#~ msgid ""
+#~ "Element ended just after '/', no '>' seen; empty elements should end with "
+#~ "'/>'"
+#~ msgstr ""
+#~ "Element endete ganau nach '/', '>' wurde nicht gefunden; leere Elemente "
+#~ "sollten mit einem '/>' geschlossen werden"
+
+#~ msgid "Close tag not found at end of element"
+#~ msgstr "Tag zum Schließen am Ende des Elements nicht gefunden"
+
+#~ msgid "Close tag ends just after '<' character"
+#~ msgstr "Tag zum Schließen endet genau nach '<' Zeichen"
+
+#~ msgid "Close tag should begin with '</', '/' character is missing"
+#~ msgstr ""
+#~ "Tag zum Schließen sollte mit einem '</' Zeichen beginnen, '/' Zeichen fehlt"
+
+#~ msgid "Close tag ends just after '/' character"
+#~ msgstr "Tag zum Schließen endet genau nach einem '/' Zeichen"
+
+#~ msgid "Document ended just after element name in close tag, no '>' seen"
+#~ msgstr ""
+#~ "Dokument endete genau nach Elementnamen im Tag für Schließen, '>' wurde "
+#~ "nicht gefunden"
+
+#~ msgid "Document ended just after close tag name, no '>' seen"
+#~ msgstr ""
+#~ "Dokument endete genau nach Tag Name für Schließen, '>' wurde nicht gefunden"
+
+#~ msgid "Close tag '%s' does not match opening tag '%s'"
+#~ msgstr "Tag für Schließen '%s' passt nicht zum Tag für Öffnen '%s'"
+
+#~ msgid ""
+#~ "Invalid UTF-8 character at byte %d in marked-up text. Some text before the "
+#~ "bad character was '%s'"
+#~ msgstr ""
+#~ "Ungültiges UTF-8 Zeichen bei Byte %d im markierten Text. Der Text vor dem "
+#~ "falschen Zeichen war '%s'"
+
+#~ msgid "The marked-up text contained nothing but whitespace."
+#~ msgstr "Dieser markierte Text enthielt nicht mehr als nur Leerzeichen."
+
+#~ msgid "Failed to open file '%s': %s"
+#~ msgstr "Konnte Datei `%s' nicht öffnen: %s"
+
+#~ msgid "Error reading file '%s': %s"
+#~ msgstr "Fehler beim Lesen der Datei '%s': %s"

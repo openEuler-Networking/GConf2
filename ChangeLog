@@ -1,3 +1,18 @@
+2001-01-21  Havoc Pennington  <hp@pobox.com>
+
+	* backends/xml-entry.c (schema_subnode_extract_data): don't warn
+	about <local_schema> with no locale field, because that's normal 
+	for the default case
+	(schema_node_extract_value): use <local_schema> with no locale
+	if it exists and we don't find anything better
+
+	* tests/testschemas.c (check_schema_use): fix indentation and mem
+	leaks
+
+	* gconf/gconftool.c (do_get): print default value from schema
+
+	* configure.in: Bump version to 0.12
+
 Fri Dec 01 00:54:33 2000  George Lebl <jirka@5z.com>
 
 	* gconf/gconf-locale.c (gconf_split_locale):  When inserting "C"

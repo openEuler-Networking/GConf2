@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.9\n"
-"POT-Creation-Date: 2000-12-11 20:11+0200\n"
+"POT-Creation-Date: 2001-01-20 22:32-0500\n"
 "PO-Revision-Date: 2000-12-09 22:00+02:00\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@saunalahti.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
