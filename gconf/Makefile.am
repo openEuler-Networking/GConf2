@@ -35,6 +35,7 @@ libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 CORBA_SOURCECODE = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 
+noinst_PROGRAMS = simple-test
 ## not BUILT_SOURCES which seems to make a mess. fix with automake 1.5?
 built_sourcecode = 			\
 	$(CORBA_SOURCECODE)		\
@@ -85,10 +86,10 @@ gconfd_2_SOURCES = \
 
 gconfd_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 
-# gconf_testclient_SOURCES = \
-# 	testclient.c
+simple_test_SOURCES = \
+	simple-test.c
 
-# gconf_testclient_LDADD = $(GLIB_LIBS) $(OAF_LIBS) libgconf-client.la
+simple_test_LDADD = $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 
 gconftool_2_SOURCES = \
 	gconftool.c

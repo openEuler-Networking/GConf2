@@ -21,10 +21,12 @@
 #define GCONF_GCONF_H
 
 #include <glib.h>
+#include <dbus/dbus-glib.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
+
 
 #include <gconf/gconf-schema.h>
 #include <gconf/gconf-engine.h>
@@ -267,6 +269,8 @@ gboolean     gconf_init           (int argc, char **argv, GError** err);
 gboolean     gconf_is_initialized (void);
 #endif /* GCONF_DISABLE_DEPRECATED */
 
+gboolean     gconf_init_dbus      (DBusConnection *connection);
+  
 /* No, you can't use this stuff. Bad application developer. Bad. */
 #ifdef GCONF_ENABLE_INTERNALS
 

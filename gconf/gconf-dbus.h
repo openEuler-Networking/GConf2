@@ -23,6 +23,17 @@
 #include <dbus/dbus-glib.h>
 #include "gconf.h"
 
+#define GCONF_DBUS_CONFIG_SERVER "org.freedesktop.Config.Server"
+
+#define GCONF_DBUS_CONFIG_SERVER_SHUTDOWN "org.freedesktop.Config.Server.Shutdown"
+
+#define GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS "org.freedesktop.Config.Database.DirExists"
+#define GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS "org.freedesktop.Config.Database.AllDirs"
+#define GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES "org.freedesktop.Config.Database.AllEntries"
+#define GCONF_DBUS_CONFIG_DATABASE_LOOKUP "org.freedesktop.Config.Database.Lookup"
+
+
+GConfValue *gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter);
 void gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
 					       const GConfValue *value);
 

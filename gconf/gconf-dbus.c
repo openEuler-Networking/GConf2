@@ -49,3 +49,48 @@ gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
       g_error ("unsupported gconf value type %d", value->type);
     }
 }
+
+GConfValue *
+gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter)
+{
+  int arg_type;
+  GConfValue *gval;
+  GConfValueType type = GCONF_VALUE_INVALID;
+  
+  arg_type = dbus_message_iter_get_arg_type (iter);
+
+  switch (arg_type)
+    {
+    case DBUS_TYPE_NIL:
+      return NULL;
+    case DBUS_TYPE_STRING:
+      type = GCONF_VALUE_STRING;
+      break;
+    default:
+      g_error ("unsupported arg type %d\n",
+	       arg_type);
+
+    }
+
+  g_assert(GCONF_VALUE_TYPE_VALID(type));
+
+  gval = gconf_value_new(type);
+
+  switch (gval->type)
+    {
+    case GCONF_VALUE_STRING:
+      {
+	char *str;
+	str = dbus_message_iter_get_string (iter);
+
+	gconf_value_set_string (gval, str);
+	dbus_free (str);
+	break;
+      }
+    default:
+      g_assert_not_reached ();
+      break;
+    }
+
+  return gval;
+}

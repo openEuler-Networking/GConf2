@@ -24,15 +24,15 @@
 #include "gconf-dbus.h"
 
 static const char *config_database_messages[] = {
-  GCONFD_CONFIG_DATABASE_DIR_EXISTS,
-  GCONFD_CONFIG_DATABASE_ALL_DIRS,
-  GCONFD_CONFIG_DATABASE_ALL_ENTRIES,
-  GCONFD_CONFIG_DATABASE_LOOKUP,
+  GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS,
+  GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS,
+  GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES,
+  GCONF_DBUS_CONFIG_DATABASE_LOOKUP,
 };
 
 static const char *config_server_messages[] =
 {
-  GCONFD_CONFIG_SERVER_SHUTDOWN
+  GCONF_DBUS_CONFIG_SERVER_SHUTDOWN
 };
 
 static void
@@ -53,7 +53,7 @@ gconfd_config_server_handler (DBusMessageHandler *handler,
 			      DBusMessage        *message,
 			      void               *user_data)
 {
-  if (dbus_message_name_is (message, GCONFD_CONFIG_SERVER_SHUTDOWN))
+  if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_SERVER_SHUTDOWN))
     {
       gconfd_shutdown (connection, message);
       
@@ -68,11 +68,11 @@ gconf_dbus_set_exception (DBusConnection *connection,
 			  DBusMessage    *message,
 			  GError         *error)
 {
-  if (error)
-    printf ("error: %s\n", error->message);
-  
-  g_warning ("FIXME: Check GError and maybe send back an error message");
   /* FIXME: Check GError and maybe send back an error message */
+  if (error)
+    g_warning ("FIXME: Check GError and send back an error message");    
+  
+
   return FALSE;
 }
 static GConfDatabase *
@@ -105,6 +105,8 @@ gconf_dbus_get_message_args (DBusConnection *connection,
 
   if (retval != DBUS_RESULT_SUCCESS)
     {
+      g_warning ("malformed message of type %s\n", dbus_message_get_name (message));
+      
       /* FIXME: Send error message */
       return FALSE;      
     }
@@ -390,22 +392,22 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
 				DBusMessage        *message,
 				void               *user_data)
 {
-  if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_DIR_EXISTS))
+  if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS))
     {
       gconfd_config_database_dir_exists (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
-  else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_ALL_DIRS))
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS))
     {
       gconfd_config_database_all_dirs (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
-  else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_ALL_ENTRIES))
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES))
     {
       gconfd_config_database_all_entries (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
-  else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_LOOKUP))
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_LOOKUP))
     {
       gconfd_config_database_lookup (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
@@ -418,7 +420,7 @@ static const char *
 get_dbus_address (void)
 {
   /* FIXME: Change this when we know how to find the message bus. */
-  return g_getenv ("GCONFD_DBUS_ADDRESS");
+  return g_getenv ("GCONF_DBUS_ADDRESS");
 }
 
 gboolean
