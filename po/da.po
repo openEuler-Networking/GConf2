@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.4\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-12-27 16:49+0100\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -70,11 +70,11 @@ msgstr "Kunne ikke læse fra eller skrive til XML-rodkatalog på adressen '%s'"
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Mappe/filrettigheder for XML-kilde ved roden %s er %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Klargører XML-backend-modul"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Kunne ikke opgive lås på XML-katalog '%s': %s"
@@ -600,10 +600,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Kunne ikke oprette eller åbne '%s'"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Kunne ikke låse '%s': sandsynligvis besidder en anden proces låsen, eller "
 "styresystemet har ikke NFS-fillåsning konfigureret korrekt (%s)"

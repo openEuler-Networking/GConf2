@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-12-30 20:36+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -66,11 +66,11 @@ msgstr ""
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Uprawnienia do katalogu/pliku dla ¼ród³a XML dla roota %s s±: %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Inicjacja pracuj±cego w tle modu³u XML"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Nie udana próba usuniêcia blokady na katalog XML `%s': %s"
@@ -602,10 +602,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Nie mo¿na stworzyæ lub otworzyæ \"%s\""
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Nie mo¿na zablokowaæ \"%s\": prawdopodobnie blokadê przetrzymuje inny proces "
 "lub w systemie zosta³o niepoprawnie skonfigurowane blokowanie po NFS-ie (%s)"

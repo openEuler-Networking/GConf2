@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.3\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-11-15 02:50+0200\n"
 "Last-Translator: Nilgün Belma Bugüner <nilgun@fide.org>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -61,11 +61,11 @@ msgstr "`%s' adresinde XML kök dizini okunamaz/yazılamaz."
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "%s kökündeki XML kaynak dizin/dosya erişim izinleri: %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "XML modülü başlatılıyor"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "`%s' XML dizininde kilitleme yapılamadı: %s"
@@ -594,7 +594,8 @@ msgstr "%s oluşturulması ve açılması başarısız oldu"
 #, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr "'%s' kilitlenemedi: başka bir süreç kilitlemiş olabilir (%s)"
 
 #: gconf/gconf-internals.c:2548

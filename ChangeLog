@@ -1,5 +1,9 @@
 2002-03-14  Havoc Pennington  <hp@redhat.com>
 
+	* configure.in: 1.0.9
+
+2002-03-14  Havoc Pennington  <hp@redhat.com>
+
 	* gconf/gconf-sanity-check.c: add sanity checker from HEAD (minus
 	the GUI parts)
 	

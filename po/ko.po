@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.12\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-02-09 02:04+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -60,11 +60,11 @@ msgstr ""
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr ""
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr ""
@@ -582,7 +582,8 @@ msgstr "`%s'파일을 생성하는데 실패했습니다: %s"
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:2548

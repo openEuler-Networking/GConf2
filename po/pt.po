@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.4.1\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-12-07 00:32+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <none@none.org>\n"
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Permissões de directório/ficheiro para fonte XML na raíz %s são: %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "A inicializar módulo de suporte XML"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Desistiu de libertar XML no directório `%s': %s"
@@ -597,10 +597,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Falha ao criar ou abrir '%s'"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Falha ao obter exclusividade de '%s': provavelmente outro processo tem a "
 "exclusividade ou o seu sistema operativo tem a exclusividade de ficheiro NFS "

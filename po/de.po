@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.x\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2002-01-06 20:14GMT\n"
 "Last-Translator: Manuel Borchers <webmaster@matronix.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -74,11 +74,11 @@ msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
 "Verzeichnis-/Dateiberechtigungen für XML-Quelle bei Wurzel %s sind %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "XML-Backend-Modul wird initialisiert"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Sperre auf XML-Verzeichnis `%s' konnte nicht gelöst werden: %s"
@@ -616,10 +616,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Erstellen oder Öffnen von '%s' fehlgeschlagen"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Sperre für '%s' konnte nicht erzeugt werden: vielleicht hat ein anderer "
 "Prozess die Sperre erzeugt oder ihr Betriebssystem hat eine fehlerhafte NFS-"

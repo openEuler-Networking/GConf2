@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.7\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2002-01-05 20:51+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -64,11 +64,11 @@ msgstr ""
 "Les permissions du répertoire/fichier pour la source XML à la racine %s "
 "sont : %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Initialisation du module XML"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Échec pour donner le verrou sur le répertoire XML « %s » : %s"
@@ -609,10 +609,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Impossible de créer ou d'ouvrir « %s »"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Impossible de verrouiller « %s » : un autre process a probablement le "
 "verrou, ou votre système d'exploitation a le vérouillage de fichier NFS mal "

@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-08-19 15:13+0200\n"
 "Last-Translator: Jesús Bravo Álvarez <jba@pobox.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -65,11 +65,11 @@ msgstr "Non se pode ler ou escribir no directorio raíz de XML no enderezo `%s'"
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Os permisos do directorio/ficheiro da fonte XML con raíz %s son: %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Inicializando o módulo XML"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Erro ao eliminar o bloqueo no directorio de XML `%s': %s"
@@ -603,7 +603,8 @@ msgstr "Erro ao crear %s: %s"
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:2548

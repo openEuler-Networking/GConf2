@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.6.5\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-12-30 22:27+0100\n"
 "Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: Norwegian/Nynorsk <nn@li.org>\n"
@@ -61,11 +61,11 @@ msgstr "Klarar ikkje å lese eller skrive til XML-rotkatalogen i adressa «%s»"
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Intialiserar XML-modulen"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr ""
@@ -592,7 +592,8 @@ msgstr "Klarte ikkje å opprette eller opne «%s»"
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:2548

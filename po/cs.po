@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf VERSION\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2000-03-09 14:58-0500\n"
 "Last-Translator: George Lebl <jirka@5z.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -60,11 +60,11 @@ msgstr ""
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr ""
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, fuzzy, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Nelze otevøít adresáø `%s': %s"
@@ -583,7 +583,8 @@ msgstr "Nelze zavøít soubor `%s': %s"
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:2548

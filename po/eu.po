@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf-1-0 1.0.7\n"
-"POT-Creation-Date: 2002-02-09 14:47+0100\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-05-25 13:35+0200\n"
 "Last-Translator: Josu Waliño <josu@elhuyar.com>\n"
 "Language-Team: Euskara\n"
@@ -62,11 +62,11 @@ msgstr ""
 "XML iturburuaren direktorioko/fitxategiko baimenak %s erroan hauek dira: %o/%"
 "o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "XML euskarri-modulua hasieratzen"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Errorea XML `%s' direktorioaren blokeoari jaregiten: %s "
@@ -597,10 +597,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Huts egin du '%s' sortzean edo irekitzean"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Huts egin du '%s' blokeatzean: beste prozesu batek blokeatuko zuen, edo "
 "sistema eragileak fitxategiak blokeatzeko NFS gaizki konfiguratuta izango du "

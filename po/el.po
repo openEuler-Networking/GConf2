@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.0.3\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2001-09-02 00:27+0100\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -79,12 +79,12 @@ msgstr ""
 "είναι: %o%o"
 
 # backends/xml-backend.c:694
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "Αρχικοποιείται η μονάδα υποστήριξης XML"
 
 # backends/xml-backend.c:759
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Αδύνατη η παράδοση κλειδώματος στον κατάλογο XML `%s': %s"
@@ -685,7 +685,8 @@ msgstr "Αδύνατη η δημιουργία του %s: %s"
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:2548

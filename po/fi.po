@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.0.7\n"
-"POT-Creation-Date: 2002-02-04 18:21-0500\n"
+"POT-Creation-Date: 2002-03-14 23:10-0500\n"
 "PO-Revision-Date: 2002-01-26 14:01+0200\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@saunalahti.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -70,11 +70,11 @@ msgstr ""
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "XML-lähteen hakemiston tai tiedoston oikeudet juuressa %s ovat: %o/%o"
 
-#: backends/xml-backend.c:708
+#: backends/xml-backend.c:714
 msgid "Initializing XML backend module"
 msgstr "XML-taustamoduuli käynnistyy"
 
-#: backends/xml-backend.c:773
+#: backends/xml-backend.c:779
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "XML-hakemiston '%s' lukituksen luovutus epäonnistui: %s"
@@ -604,10 +604,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Tiedoston \"%s\" luonti tai avaus epäonnistui"
 
 #: gconf/gconf-internals.c:2520
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
+"operating system has NFS file locking misconfigured, or a hard NFS client "
+"crash caused a stale lock (%s)"
 msgstr ""
 "Tiedoston \"%s\" lukitus epäonnistui: toinen prosessi omistaa lukituksen, "
 "tai käyttöjärjestelmäsi NFS-lukitus on väärin asetettu (%s)"
