@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-01-29 09:58-0200\n"
-"PO-Revision-Date: 2001-01-29 09:56-02:00\n"
+"POT-Creation-Date: 2001-02-14 10:31-0200\n"
+"PO-Revision-Date: 2001-02-14 10:33-02:00\n"
 "Last-Translator: Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -27,17 +27,17 @@ msgstr "Aberta fonte BerkeleyDB como root %s"
 msgid "Initializing BDB backend module"
 msgstr "Iniciando módulo BDB"
 
-#: backends/dir-utils.c:88
+#: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Não foi possível encontrar o diretório raiz %s no endereço `%s'"
 
-#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Não foi possível criar diretório `%s': %s"
 
-#: backends/dir-utils.c:192
+#: backends/dir-utils.c:212
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr "Não é possível ler ou escrever no diretório raiz %s no endereço `%s'"
@@ -103,59 +103,64 @@ msgstr "Não foi possível obter status de `%s': %s"
 msgid "XML filename `%s' is a directory"
 msgstr "Arquivo XML `%s' é um diretório"
 
-#: backends/xml-dir.c:293 backends/xml-dir.c:300
+#: backends/xml-dir.c:298 backends/xml-dir.c:305
 #, c-format
 msgid "Failed to delete `%s': %s"
 msgstr "Falha ao excluir `%s': %s"
 
-#: backends/xml-dir.c:341
+#: backends/xml-dir.c:346
 #, c-format
 msgid "Failed to write file `%s': %s"
 msgstr "Falha ao gravar arquivo `%s': %s"
 
-#: backends/xml-dir.c:357 backends/xml-dir.c:367
+#: backends/xml-dir.c:359
+#, c-format
+msgid "Failed to set mode on `%s': %s"
+msgstr "Falha ao atribuir modo a `%s': %s"
+
+#: backends/xml-dir.c:373 backends/xml-dir.c:383
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "Falha ao renomear `%s' para `%s': %s"
 
-#: backends/xml-dir.c:373
+#: backends/xml-dir.c:389
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
 msgstr "Falha ao restaurar `%s' de `%s': %s"
 
-#: backends/xml-dir.c:385
+#: backends/xml-dir.c:401
 #, c-format
 msgid "Failed to delete old file `%s': %s"
 msgstr "Falha ao excluir arquivo antigo `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:790
+#: backends/xml-dir.c:806
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Falha ao obter status `%s': %s"
 
-#: backends/xml-dir.c:934
+#: backends/xml-dir.c:950
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Entrada duplicada `%s' em `%s', ignorando"
 
-#: backends/xml-dir.c:956
+#: backends/xml-dir.c:972
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Entrada sem nome no arquivo XML `%s', ignorando"
 
-#: backends/xml-dir.c:963
+#: backends/xml-dir.c:979
 #, c-format
 msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
 msgstr ""
 "Nó de nível principal no arquivo XML `%s' não é uma <entrada>, ignorando"
 
-#: backends/xml-dir.c:1051
+#: backends/xml-dir.c:1067
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Falha ao criar arquivo `%s': %s"
 
-#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2471
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2471
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Falha ao fechar arquivo `%s': %s"
