@@ -1,3 +1,8 @@
+2003-07-17  Havoc Pennington  <hp@redhat.com>
+
+	* gconf/gconf-value.h: flags can't be 0, patch from 
+	Greg Hudson, #117712
+
 2003-06-24  Mohammad DAMT  <mdamt@bisnisweb.com>
 
 	* po/id.po: Added Indonesian translation
