@@ -70,6 +70,9 @@ database_handle_get_all_dirs                     (DBusConnection  *conn,
 static void           database_handle_set_schema (DBusConnection  *conn,
                                                   DBusMessage     *message,
                                                   GConfDatabaseDBus *db);
+static void           ensure_initialized         (void);
+static void           database_removed           (GConfDatabaseDBus *db);
+
 static DBusObjectPathVTable
 database_vtable = {
         (DBusObjectPathUnregisterFunction) database_unregistered_func,
@@ -365,7 +368,6 @@ database_handle_get_all_entries (DBusConnection *conn,
   locales = gconfd_locale_cache_lookup (locale);
   dbus_free (locale);
 
-  /* FIXME: Create locales from locale */
   entries = gconf_database_all_entries (db->db, dir, 
 					locales->list, &gerror);
   dbus_free (dir);
@@ -462,6 +464,22 @@ database_handle_set_schema (DBusConnection *conn,
   dbus_message_unref (reply);
 }
 
+static void
+database_removed (GConfDatabaseDBus *dbus_db)
+{
+  /* FIXME: Free stuff */
+}
+
+static void
+ensure_initialized (void)
+{
+  if (!databases)
+    databases = g_hash_table_new_full (g_str_hash,
+				       g_str_equal,
+				       g_free,
+				       (GDestroyNotify) database_removed);
+}
+
 GConfDatabaseDBus *
 gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 			 GError **gerror)
@@ -469,6 +487,11 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   GConfDatabaseDBus  *dbus_db;
   GConfDatabase      *db;
   gchar             **path;
+
+  ensure_initialized ();
+  
+  if (!address) 
+    address = "default";
 
   dbus_db = g_hash_table_lookup (databases, address);
   if (dbus_db)
@@ -488,7 +511,9 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   path = g_strsplit (dbus_db->object_path, "/", -1);
   dbus_connection_register_object_path (conn, (const gchar**) path, 
 					&database_vtable, dbus_db);
+
   g_strfreev (path);
+  g_hash_table_insert (databases, g_strdup (address), dbus_db);
 
   return dbus_db;
 }
@@ -510,6 +535,7 @@ database_foreach_unregister (gpointer key,
 void 
 gconf_database_dbus_unregister_all (void)
 {
+  ensure_initialized ();
   g_hash_table_foreach_remove (databases, 
 			       (GHRFunc) database_foreach_unregister, NULL);
 }
@@ -527,5 +553,4 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 				      gboolean          is_default,
 				      gboolean          is_writable)
 {
-
 }
