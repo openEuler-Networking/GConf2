@@ -1,3 +1,54 @@
+2.6.3
+===
+
+ Fixes:
+
+ - Fix issue with using merged files on a fresh system (Mark)
+ - Documentation fix (Leonardo Quijano Vincenzi)
+
+
+2.6.2
+===
+
+ Fixes:
+
+ - Get rid of duplicate '/' with AM_GCONF_SOURCE_2 (Daniel Elstner)
+ - Don't create a directory for docs if we're not installing them (Julio M. Merino Vidal)
+ - Fix a bug with the markup backend on 64-bit (Joe Marcus Clarke)
+ - Fix a leak (Kjartan)
+ - Return an error for incorrect source addresses (Mark)
+
+ Translators:
+
+ - Gisela Carbonell (ca)
+ - Christian Neumair (de)
+ - Christophe Merlet (RedFox) (fr)
+ - LoneStar (zh_CN)
+
+2.6.1
+===
+
+ Fixes:
+
+ - add a --enable-gtk=yes/no/auto configure arg (Julio Merino, Mark)
+ - fix basic example app to not crash (Elijah Newren)
+ - don't try and create a dir if it already exists (Ryan Lovett, Mark)
+ - only ever create the $(HOME)/.gconfd/ dir in the daemon (Colin Walters)
+ - add quotes around AM_GCONF_SOURCE_2 (Frédéric L. W. Meunier)
+ - handle <entry> with only <schema_name> correctly in --load (Mark)
+ - fix the order in which local-defaults.path gets included (Mark)
+ - fix minor inefficiency when not printing debugging messages (Mark)
+
+ Translators:
+
+ - Adam Weinberger (en_CA)
+ - Robert Sedak (hr)
+ - Samúel Jón Gunnarsson (is)
+ - Alessio Frusciante (it)
+ - Takeshi AIHANA (ja)
+ - Amanpreet Singh Alam (pa)
+ - Gurkan Aslan (tr)
+
 2.5.1
 ===
 
