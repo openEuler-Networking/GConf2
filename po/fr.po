@@ -8,10 +8,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.5.1\n"
+"Project-Id-Version: GConf 2.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
-"PO-Revision-Date: 2004-01-02 20:55+0100\n"
+"POT-Creation-Date: 2004-04-24 18:51+0200\n"
+"PO-Revision-Date: 2004-04-24 18:47+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -426,7 +426,7 @@ msgstr ""
 "journalisation a échoué (généralement sans problème, mais peut entraîner la "
 "réapparition d'une notification génante) : %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Erreur lors de l'obtention de la valeur de « %s » : %s"
@@ -920,26 +920,26 @@ msgstr ""
 "Le schéma spécifie un type « pair » mais ne spécifie pas le type des "
 "éléments car/cdr"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Le chargement de la source « %s » a échoué : %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Adresse « %s » résolue vers une source de configuration enregistrable à la "
 "position %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Adresse « %s » résolue vers une source de configuration en lecture seule à "
 "la position %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -947,7 +947,7 @@ msgstr ""
 "Adresse « %s » résolue vers une source de configuration partiellement "
 "enregistrable à la position %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -955,17 +955,17 @@ msgstr ""
 "Aucunes des adresses résolues n'est enregistrable : l'enregistrement des "
 "réglages de configuration ne sera pas possible"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr ""
 "Le schéma « %s » spécifié pour « %s » ne contient pas une valeur de schéma"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Le nom « / » peut seulement être un répertoire, pas une clé"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -974,7 +974,7 @@ msgstr ""
 "La valeur de « %s » est définie dans une source en lecture seule en premier "
 "dans votre chemin de configuration."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -1015,17 +1015,17 @@ msgstr ""
 "gconfd ainsi que des fichiers de verrouillage dans les emplacements de "
 "stockage individuel tel que ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Erreur lors de la recherche de la métainfo : %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Erreur lors de l'obtention de la métainfo : %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "La clé « %s » listé comme schéma pour la clé « %s » est de type « %s »"
@@ -1133,7 +1133,7 @@ msgstr "Impossible d'avoir deux barres obliques (/) dans une rangée"
 
 #: gconf/gconf.c:2476
 msgid "Can't have a period (.) right after a slash (/)"
-msgstr "Impossible d'avoir un point (.) juste aprés une barre oblique (/)"
+msgstr "Impossible d'avoir un point (.) juste après une barre oblique (/)"
 
 #: gconf/gconf.c:2495
 #, c-format
@@ -1333,7 +1333,7 @@ msgid ""
 "gconfd shutdown (%s)"
 msgstr ""
 "L'ouverture du fichier de journalisation de gconfd a échoué ; il sera "
-"impossible de restorer les auditeurs aprés l'arrêt de gconfd (%s)"
+"impossible de restorer les auditeurs après l'arrêt de gconfd (%s)"
 
 #: gconf/gconfd.c:1258
 #, c-format
@@ -2337,511 +2337,3 @@ msgstr ""
 "Tentative de blocage de votre application en définissant des valeurs "
 "incorrectes pour les clés dans le répertoire :\n"
 "  %s\n"
-
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u éléments restent dans le cache aprés le nettoyage des éléments déjà "
-#~ "synchronisés plus vieux que %u secondes"
-
-#~ msgid "%s"
-#~ msgstr "%s"
-
-#~ msgid "/path"
-#~ msgstr "/chemin"
-
-#~ msgid "--dir-exists option must be used by itself.\n"
-#~ msgstr "L'option --dir-exists doit être utilisée seule.\n"
-
-#~ msgid "--install-schema-file must be used by itself.\n"
-#~ msgstr "L'option --install-schema-file doit être utilisée seule.\n"
-
-#~ msgid "--makefile-install-rule must be used by itself.\n"
-#~ msgstr "L'option --makefile-install-rule doit être utilisée seule.\n"
-
-#~ msgid "--break-key must be used by itself.\n"
-#~ msgstr "L'option --break-key doit être utilisée seule.\n"
-
-#~ msgid "--break-directory must be used by itself.\n"
-#~ msgstr "L'option --break-directory doit être utilisée seule.\n"
-
-#~ msgid "Unloading BerkeleyDB (BDB) backend module."
-#~ msgstr "Déchargement du module BerkeleyDB (BDB)."
-
-#~ msgid "Opened BerkeleyDB source at root %s"
-#~ msgstr "Source BerkeleyDB ouverte à la racine %s"
-
-#~ msgid "Initializing BDB backend module"
-#~ msgstr "Initialisation du module BDB"
-
-#~ msgid "Couldn't find the root directory in the address \"%s\""
-#~ msgstr "Ne peut trouver le répertoire racine à l'adresse « %s »"
-
-#~ msgid "WARNING: node <%s> not understood below <schemalist>\n"
-#~ msgstr "AVERTISSEMENT : le noeud <%s> n'est pas compris sous <schemalist>\n"
-
-#~ msgid "Multiple segmentation faults occurred; can't display error dialog\n"
-#~ msgstr ""
-#~ "Plusieurs erreurs de segmentation ont survenues; ne peut affiché le "
-#~ "dialogue d'erreur\n"
-
-#~ msgid ""
-#~ "Segmentation fault!\n"
-#~ "Cannot display crash dialog: %s\n"
-#~ msgstr ""
-#~ "Erreur de segmentation !\n"
-#~ "Ne peut afficher le dialogue de plantage : %s\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to contact configuration server; some possible causes are:\n"
-#~ "a) you have an existing configuration server (gconfd) running, but it "
-#~ "isn't reachable from here - if you're logged in from two machines at "
-#~ "once, you may need to enable TCP networking for ORBit by putting the line "
-#~ "\"ORBIIOPIPv4=1\" in /etc/orbitrc\n"
-#~ "b) you have stale locks in your NFS-mounted home directory due to a "
-#~ "system crash, try removing ~/.gconf/*.lock and ~/.gconfd/lock if you are "
-#~ "sure no gconfd processes are running on any machine using your home dir"
-#~ msgstr ""
-#~ "Impossible de contacter le serveur de configuration (une cause probable "
-#~ "de cela est que vous avez un serveur de configuration existant (gconfd) "
-#~ "en train de fonctionner, mais il n'est pas joignable depuis ici - Si vous "
-#~ "êtes connecté depuis deux machines à la fois, vous pouvez avoir besoin "
-#~ "d'activer le réseau TCP/IP pour ORBit)\n"
-
-#~ msgid "Unsynced directory deletions when shutting down XML backend"
-#~ msgstr ""
-#~ "Suppressions de répertoire non synchronisées lors de l'extinction du "
-#~ "module XML"
-
-#, fuzzy
-#~ msgid "Error unsetting '%s': %s\n"
-#~ msgstr "Erreur d'annulation de « %s » : %s\n"
-
-#~ msgid "OAF problem description: '%s'"
-#~ msgstr "Description du problème OAF : « %s »"
-
-#~ msgid "attempt to remove not-listed OAF object directory"
-#~ msgstr "tentative de supprimer un objet répertoire OAF non listé"
-
-#~ msgid "attempt to add already-listed OAF directory"
-#~ msgstr "tentative d'ajouter un répertoire OAF déjà listé"
-
-#~ msgid "OAF parse error: %s"
-#~ msgstr "Erreur OAF d'analyse : %s"
-
-#~ msgid "Unknown OAF error"
-#~ msgstr "Erreur OAF inconnu"
-
-#~ msgid "Failed to read from child pipe (%s)"
-#~ msgstr "Impossible de lire depuis le tube fils (%s)"
-
-#~ msgid "Failed to fork (%s)"
-#~ msgstr "Impossible de cloner (%s)"
-
-#~ msgid "Failed to change to directory '%s' (%s)"
-#~ msgstr "Impossible de changer de répertoire « %s » (%s)"
-
-#~ msgid "Failed to execute child process (%s)"
-#~ msgstr "Impossible d'exécuter le processus fils (%s)"
-
-#~ msgid "Failed to redirect output or input of child process (%s)"
-#~ msgstr ""
-#~ "Impossible de rediriger la sortie ou l'entrée du processus fils (%s)"
-
-#~ msgid "Failed to fork child process (%s)"
-#~ msgstr "Impossible de cloner le processus enfant (%s)"
-
-#~ msgid "Unknown error executing child process"
-#~ msgstr "Erreur inconnue à l'exécution du processus enfant"
-
-#~ msgid "Failed to read enough data from child pid pipe (%s)"
-#~ msgstr ""
-#~ "Impossible de lire suffisemment de donnée depuis le tube fils pid (%s)"
-
-#~ msgid "Failed to create pipe for communicating with child process (%s)"
-#~ msgstr ""
-#~ "Impossible de créer un tube pour communiquer avec le processus fils (%s)"
-
-#~ msgid "Failed to init GConf, exiting\n"
-#~ msgstr "Impossible d'initialiser GConf, quitte\n"
-
-#~ msgid "No ior file in `%s'"
-#~ msgstr "Pas de fichier ior dans « %s »"
-
-#~ msgid "gconfd taking lock `%s' from some other process"
-#~ msgstr "gconfd a pris le verrou « %s » d'un autre processus"
-
-#~ msgid "Another program has lock `%s'"
-#~ msgstr "Un autre programme a le verrou « %s »"
-
-#~ msgid ""
-#~ "Removing stale lock `%s' because IOR couldn't be converted to object "
-#~ "reference, IOR `%s'"
-#~ msgstr ""
-#~ "Suppression du verrrou périmé « %s » parce que IOR ne peut être converti "
-#~ "vers une référence d'objet, IOR « %s »"
-
-#~ msgid "Removing stale lock `%s' because of error pinging server: %s"
-#~ msgstr ""
-#~ "Suppression du verrou périmé « %s » à cause d'une erreur de contact du "
-#~ "serveur : %s"
-
-#~ msgid "GConf configuration daemon (gconfd) has lock `%s'"
-#~ msgstr "Le démon de configuration GConf (gconfd) a le verrou « %s »"
-
-#~ msgid "Can't create lock `%s': %s"
-#~ msgstr "Impossible de créer le verrou « %s » : %s"
-
-#~ msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
-#~ msgstr ""
-#~ "Impossible d'ouvrir le verrou de fichier « %s » ; présume que ce n'est "
-#~ "pas le notre : %s"
-
-#~ msgid "Corrupt lock file `%s', removing anyway"
-#~ msgstr "Verrou de fichier « %s » corrompu, supprimé"
-
-#~ msgid ""
-#~ "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming "
-#~ "someone took our lock"
-#~ msgstr ""
-#~ "Impossible de créer le verrou de fichier « %s » (pid du créateur %u, "
-#~ "votre pid %u ; présume que quelqu'un à pris votre verrou"
-
-#~ msgid ""
-#~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the "
-#~ "problem. This is a bug in the OAF package; something went wrong in OAF, "
-#~ "and no error was reported. This is not a bug in the GConf package. Do not "
-#~ "report a GConf bug unless you have information indicating what went wrong "
-#~ "with OAF that was caused by GConf."
-#~ msgstr ""
-#~ "Erreur de contact du serveur de configuration : OAF a retourné nil depuis "
-#~ "oaf_activate_from_id() et n'a pas défini une exception expliquant le "
-#~ "problème. C'est un bogue dans le paquet OAF; quelque chose ne va pas dans "
-#~ "OAF et aucune erreur n'est rapportée. Ce n'est pas un bogue dans la "
-#~ "paquet GConf. Ne prapportez pas un bogue de GConf a moins que vous n'ayez "
-#~ "des informatiosn indiquant ce qui ne va pas avec OAF qui a été causé par "
-#~ "GConf."
-
-#~ msgid ""
-#~ "Failed to init Object Activation Framework: please mail bug report to OAF "
-#~ "maintainers"
-#~ msgstr ""
-#~ "Impossible d'initialiser « Object Activation Framework » : envoyer un "
-#~ "rapport d'anomalies par courrier électronique aux mainteneurs d'OAF, SVP."
-
-#~ msgid ""
-#~ "Registering existing server with oafd, since OAF appears to have leaked it"
-#~ msgstr ""
-#~ "Enregistrement du serveur existant avec oafd, puisque OAF semble l'avoir "
-#~ "laisser s'échapper"
-
-#~ msgid ""
-#~ "OAF doesn't know about our IID; indicates broken installation; can't "
-#~ "register existing server."
-#~ msgstr ""
-#~ "OAF ne connait rien de votre IID ; sûrement une mauvaise installation; "
-#~ "impossible d'enregistrer le serveur existant"
-
-#~ msgid ""
-#~ "Another gconfd already registered with OAF, so we can't register the "
-#~ "existing server"
-#~ msgstr ""
-#~ "Un autre gconfd est déjà enregistré auprés de OAF ; nous ne pouvons "
-#~ "enregistrer le serveur existant"
-
-#~ msgid "Unknown error registering existing gconfd with OAF; exiting"
-#~ msgstr "Erreur inconnu lors de l'enregistrement de gconfd avec OAF ; quitte"
-
-#~ msgid ""
-#~ "OAF doesn't know about our IID; indicates broken installation; can't "
-#~ "register; exiting\n"
-#~ msgstr ""
-#~ "OAF ne connait rien de votre IID ; sûrement une mauvaise installation; "
-#~ "impossible de s'enregistrer ; quitte\n"
-
-#~ msgid "Another gconfd already registered with OAF; exiting\n"
-#~ msgstr "Un autre gconfd est déjà enregistré auprés de OAF ; quitte\n"
-
-#~ msgid "Unknown error registering gconfd with OAF; exiting\n"
-#~ msgstr ""
-#~ "Erreur inconnue lors de l'enregistrement de gconfd auprés de OAF ; "
-#~ "quitte\n"
-
-#~ msgid ""
-#~ "Shouldn't run gconfd while installing new schema files.\n"
-#~ "Use gconftool --shutdown to shut down the daemon, most safely while no "
-#~ "applications are running\n"
-#~ "(though things theoretically work if apps are running).\n"
-#~ msgstr ""
-#~ "gconfd ne devrait pas fonctionner lorsque vous installez des nouveaux "
-#~ "fichiers de schema.\n"
-#~ "Utilisez gconftool --shutdown pour achever le démon, de préférence "
-#~ "lorsque qu'aucune applications ne fonctionne (cepandant, théoriquement, "
-#~ "cela devrait fonctionner même si des applications sont en cours de "
-#~ "fonctionnement).\n"
-
-#~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
-#~ msgstr ""
-#~ "Ignore le noeud XML « %s », à part pour le nom possible de schema : %s"
-
-#~ msgid "Can't use --all-pairs with --get or --set\n"
-#~ msgstr "Impossible d'utiliser --all-pairs avec --get ou --set\n"
-
-#~ msgid "Unable to store a value at key '%s'"
-#~ msgstr "Incapable d'enregistrer une valeur à la clé « %s »"
-
-#~ msgid ""
-#~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the "
-#~ "problem. Please file an OAF bug report."
-#~ msgstr ""
-#~ "Erreur de contact du serveur de configuration : OAF à retourné nil depuis "
-#~ "oaf_activate_from_id() et ne définit pas une exception expliquant le "
-#~ "problème. Envoyer par mail un rapport de bug, SVP."
-
-#~ msgid "GConf was built with debugging features enabled"
-#~ msgstr "GConf a été compilé avec les fonctionnalités de débogage activées"
-
-#~ msgid "found <local_schema> with no locale setting"
-#~ msgstr "a trouvé <local_schema> avec aucun réglage de locale"
-
-#~ msgid ""
-#~ "Error on line %d char %d: %s\n"
-#~ "(Some surrounding text was '%s')\n"
-#~ msgstr ""
-#~ "Erreur à la ligne %d caractères %d : %s\n"
-#~ "(Le texte englobant est '%s')\n"
-
-#~ msgid ""
-#~ "Text ended in the middle of an entity, or entity name too long to be "
-#~ "valid ('&' should begin an entity such as '&quot;')"
-#~ msgstr ""
-#~ "Le texte finit au milieu d'une entité, ou le nom de l'entité est trop "
-#~ "long pour être valide ('&' doit commencer une entité comme '&quot;')"
-
-#~ msgid ""
-#~ "Unknown entity '%s' ('&' must begin entities &amp; &quot; &lt; &gt; "
-#~ "&apos;)"
-#~ msgstr ""
-#~ "Entité inconnue '%s' ('&' doit commencer les entités &amps; &quot; &lt; "
-#~ "&gt; &apos;)"
-
-#~ msgid ""
-#~ "Markup text ended in the middle of a character reference, just after '&#'"
-#~ msgstr ""
-#~ "Le texte marqué finit au mileu d'une référence de caractère, just aprés "
-#~ "'&#'"
-
-#~ msgid ""
-#~ "Character reference contained non-digit '%s' ('&#' should begin a "
-#~ "reference to a unicode character, such as '&#2342;')"
-#~ msgstr ""
-#~ "La référence du caractère n'est pas un nombre '%s' ('&#' doit commencer "
-#~ "une référence vers un caractère unicode, comme '&#2342;')"
-
-#~ msgid ""
-#~ "Text ended in the middle of an character reference ('&#' should begin a "
-#~ "character reference such as '&#2342;')"
-#~ msgstr ""
-#~ "Le texte finit au milieu d'une référence de caractère ('&#' doit "
-#~ "commencer une référence de caractère comme '&#2342;')"
-
-#~ msgid ""
-#~ "Couldn't parse character reference '%s' ('&#' must begin a character "
-#~ "reference such as '&#2343;')"
-#~ msgstr ""
-#~ "Ne peut analyser la référence de caractère '%s' ('&#' doit commencer une "
-#~ "référence de caractère comme '%#2343;')"
-
-#~ msgid ""
-#~ "Character code %#lx is not allowed in XML documents or is not a valid "
-#~ "Unicode character"
-#~ msgstr ""
-#~ "Le code du caractère %#lx n'est pas permis dans les documents XML ou "
-#~ "n'est pas un caractère Unicode valide."
-
-#, fuzzy
-#~ msgid ""
-#~ "Documented ended just after an '&', '&' should begin an entity or "
-#~ "character reference."
-#~ msgstr ""
-#~ "Le document finit juste aprés un '&', '&' doit commencer une entité ou "
-#~ "une référence de caractère."
-
-#~ msgid ""
-#~ "'<' or '>' character not allowed here; only allowed around tags, for "
-#~ "example <bold> or <paragraph>. Elsewhere, encode these characters as the "
-#~ "entities &lt; and &gt;"
-#~ msgstr ""
-#~ "Les caractères '<' ou '>' ne sont pas permis ici; il ne sont permis "
-#~ "qu'autour de balises, par exemple <bold> ou <paragraph>. Sinon, encodez "
-#~ "ces caractères comme les entités &lt; et &gt;"
-
-#~ msgid "Character '%s' is not valid at the start of an attribute name"
-#~ msgstr "Le caractère '%s' n'est pas valide au début d'un nom d'attribut"
-
-#~ msgid "Document ended just after attribute name"
-#~ msgstr "Le document finit just aprés un nom d'attribut"
-
-#~ msgid "Attribute name must be immediately followed by an '=' character"
-#~ msgstr ""
-#~ "Le nom d'attribut doit être immédiatement suivi par un caractère '='"
-
-#~ msgid ""
-#~ "'=' character after attribute must be immediately followed by an '\"' "
-#~ "character"
-#~ msgstr ""
-#~ "Le caractère '=' aprés un attribut doit être immédiatement suivi par le "
-#~ "caractère '\"'"
-
-#~ msgid ""
-#~ "Character '%c' found inside an attribute value; perhaps your attribute "
-#~ "value is missing the closing quotation mark '\"'"
-#~ msgstr ""
-#~ "Le caractère '%c' a été trouvé a l'intérieur d'une valeur d'attribut; "
-#~ "peut être qu'il manque à votre valeur d'attibut le guillemet de fermeture "
-#~ "'\"'"
-
-#~ msgid ""
-#~ "Ran out of text before a quote mark ('\"') was seen at the end of an "
-#~ "attribute value"
-#~ msgstr ""
-#~ "La fin du texte a été rencontrée avant le guillement final '\"' à "
-#~ "l'intérieur d'une valeur d'attribut."
-
-#~ msgid ""
-#~ "Text ends immediately after an attribute value, before the element was "
-#~ "closed"
-#~ msgstr ""
-#~ "Le texte finit immédiatement aprés une valeur d'attribut avant que "
-#~ "l'élément soit fermé"
-
-#~ msgid "Missing '<' at start of element"
-#~ msgstr "Le caractère '<' est manquant au début de l'élément"
-
-#~ msgid "Document ended just after '<' character"
-#~ msgstr "Le document finit juste aprés le caractère '<'"
-
-#~ msgid "No closing '>' found for a <? or <!"
-#~ msgstr "Aucun caractère '>' trouvé pour <? ou <!"
-
-#~ msgid "Character '%s' is not valid at the start of an element name"
-#~ msgstr "Le caractère '%s' n'est pas valide au début du nom d'un élément"
-
-#~ msgid "Document ended just after element name, no '>' seen"
-#~ msgstr "Le document finit juste aprés un nom d'élément, aucun '>' vu"
-
-#~ msgid "Elements should be closed with '>' or '/>', not with '%s'"
-#~ msgstr "Les éléments doivent être fermé avec '>' ou '/>', et non avec '%s'"
-
-#~ msgid ""
-#~ "Element ended just after '/', no '>' seen; empty elements should end with "
-#~ "'/>'"
-#~ msgstr ""
-#~ "L'élément finit juste aprés '/', aucun '>' vu; les éléments vides doivent "
-#~ "finir avec '/>'"
-
-#~ msgid "Close tag not found at end of element"
-#~ msgstr "Balise de fermeture non trouvé à la fin de l'élément"
-
-#~ msgid "Close tag ends just after '<' character"
-#~ msgstr "Une balise de fermeture finit juste aprés le caractère '<'"
-
-#~ msgid "Close tag should begin with '</', '/' character is missing"
-#~ msgstr ""
-#~ "Une balise de fermeture doit commencer avec '</', le caractère '/' est "
-#~ "manquant"
-
-#~ msgid "Close tag ends just after '/' character"
-#~ msgstr "Une balise de fermeture finit juste aprés le caractère '/'"
-
-#~ msgid "Document ended just after element name in close tag, no '>' seen"
-#~ msgstr ""
-#~ "Le document finit juste aprés un nom d'élément dans une balise de "
-#~ "fermeture, aucun '>' vu"
-
-#~ msgid "Document ended just after close tag name, no '>' seen"
-#~ msgstr ""
-#~ "Le document finit juste aprés le nom d'une balise de fermeture, aucun '>' "
-#~ "vu"
-
-#~ msgid "Close tag '%s' does not match opening tag '%s'"
-#~ msgstr ""
-#~ "La balise de fermeture '%s' ne correspond pas à la balise d'ouverture '%s'"
-
-#~ msgid ""
-#~ "Invalid UTF-8 character at byte %d in marked-up text. Some text before "
-#~ "the bad character was '%s'"
-#~ msgstr ""
-#~ "Caractère UTF-8 invalide à l'octet %d du texte marqué. Une portion du "
-#~ "texte avant le mauvais caractère est '%s'"
-
-#~ msgid "The marked-up text contained nothing but whitespace."
-#~ msgstr "Le texte marqué ne contient rien d'autres que des espaces."
-
-#~ msgid "Received signal %d, shutting down."
-#~ msgstr "Réception du signal %d, acheve."
-
-#~ msgid "Didn't understand line in saved state file: '%s'"
-#~ msgstr "Ne peut comprendre une ligne du fichier d'état enregistré : '%s'"
-
-#~ msgid "Failed to parse connection ID in saved state file"
-#~ msgstr ""
-#~ "Impossible d'analyser l'ID de connection dans le fichier d'état enregistré"
-
-#~ msgid "Failed to unquote config source address from saved state file: %s"
-#~ msgstr ""
-#~ "Impossible de déguillemetter l'adresse de la source de configuration du "
-#~ "fichier d'état enregistré : %s"
-
-#~ msgid "Failed to unquote listener location from saved state file: %s"
-#~ msgstr ""
-#~ "Impossible de déguillemetter l'emplacement de l'écouteur du fichier "
-#~ "d'état enregistré : %s"
-
-#~ msgid "Failed to unquote IOR from saved state file: %s"
-#~ msgstr ""
-#~ "Impossible de déguillemetter l'IOR du fichier d'état enregistré : %s"
-
-#~ msgid ""
-#~ "Saved state file records the same listener added twice; ignoring the "
-#~ "second instance"
-#~ msgstr ""
-#~ "Le fichier d'état enregistré enregistre le même écouteur ajouté deux "
-#~ "fois; Ignore la seconde instance"
-
-#~ msgid ""
-#~ "Saved state file had a removal of a listener that wasn't added; ignoring "
-#~ "the removal."
-#~ msgstr ""
-#~ "Le fichier d'état enregistré a une suppression d'un écouteur qui n'a pas "
-#~ "été ajouté; ignore la suppression"
-
-#~ msgid ""
-#~ "Saved state file records the same client added twice; ignoring the second "
-#~ "instance"
-#~ msgstr ""
-#~ "Le fichier d'état enregistré enregistre le même client ajouté deux fois; "
-#~ "ignore la seconde instance"
-
-#~ msgid ""
-#~ "Saved state file had a removal of a client that wasn't added; ignoring "
-#~ "the removal."
-#~ msgstr ""
-#~ "Le fichier d'état enregistré a une suppression d'un client qui n'a pas "
-#~ "été ajouté; ignore la suppression."
-
-#~ msgid "Received signal %d, ignoring"
-#~ msgstr "Réception du signal %d, ignore"
-
-#~ msgid "Key"
-#~ msgstr "Clé"
-
-#~ msgid "Value"
-#~ msgstr "Valeur"
-
-#~ msgid "GEOMETRY"
-#~ msgstr "GÉOMÉTRIE"
