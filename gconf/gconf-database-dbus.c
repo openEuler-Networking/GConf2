@@ -846,6 +846,8 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 					       is_writable,
 					       NULL);
 	      
+	      dbus_message_set_no_reply (message, TRUE);
+	      
 	      dbus_connection_send (dbus_db->conn, message, NULL);
 	      dbus_message_unref (message);
 	    }
