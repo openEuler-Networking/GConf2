@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
-"PO-Revision-Date: 2002-07-02 11:05+0200\n"
+"POT-Creation-Date: 2003-01-22 16:52+0200\n"
+"PO-Revision-Date: 2003-01-21 04:06--500\n"
 "Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,16 +47,16 @@ msgid "Unloading XML backend module."
 msgstr "Вивантаження серверного модуля XML."
 
 #: backends/xml-backend.c:289
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't find the root directory in the address \"%s\""
-msgstr "Не вдалося віднайти кореневий каталог %s за адресою \"%s\""
+msgstr "Не вдалося віднайти кореневий каталог за адресою \"%s\""
 
 #: backends/xml-backend.c:414
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
-"Неможливо зчитати з чи записати в кореневий катало XML за адресою \"%s\""
+"Неможливо зчитати з чи записати в кореневий каталог XML за адресою \"%s\""
 
 #: backends/xml-backend.c:424
 #, c-format
@@ -81,7 +81,7 @@ msgid "Initializing XML backend module"
 msgstr "Ініціалізація серверного модуля XML"
 
 #: backends/xml-backend.c:790
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML dir \"%s\": %s"
 msgstr "Не вдалося зняти блокування з каталогу XML \"%s\": %s"
 
@@ -186,9 +186,9 @@ msgstr ""
 "<entry>, проіґноровано"
 
 #: backends/xml-dir.c:1212
-#, fuzzy, c-format
+#, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "Неможливо створити каталог \"%s\": %s"
+msgstr "Не вдалося створити каталог \"%s\": %s"
 
 #: backends/xml-dir.c:1228
 #, c-format
@@ -242,12 +242,12 @@ msgstr "Незрозумілий вузол XML <%s> в вузлі списку 
 
 #: backends/xml-entry.c:1063
 msgid "Invalid type (list, pair, or unknown) in a list node"
-msgstr "Невірний тип (список, пара чи невідомий) в вузлі списку"
+msgstr "Неправильний тип (список, пара чи невідомий) у вузлі списку"
 
 #: backends/xml-entry.c:1086
 #, c-format
 msgid "Bad XML node: %s"
-msgstr "Невірний вузол XML: %s"
+msgstr "Неправильний вузол XML: %s"
 
 #: backends/xml-entry.c:1094
 #, c-format
@@ -259,7 +259,7 @@ msgstr "Список містить погано введений вузол (%s
 #: backends/xml-entry.c:1146
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
-msgstr "Іґнорування невірного CAR з пари XML: %s"
+msgstr "Ігнорування неправильного ключа для пари XML: %s"
 
 #: backends/xml-entry.c:1155 backends/xml-entry.c:1178
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
@@ -269,7 +269,7 @@ msgstr ""
 #: backends/xml-entry.c:1168
 #, c-format
 msgid "Ignoring bad cdr from XML pair: %s"
-msgstr "Іґнорування невірного CDR з пари XML: %s"
+msgstr "Ігнорування неправильного значення для пари XML: %s"
 
 #: backends/xml-entry.c:1187
 #, c-format
@@ -278,19 +278,19 @@ msgstr "Незрозумілий вузол XML <%s> у вузлі пари XML"
 
 #: backends/xml-entry.c:1205
 msgid "Didn't find car and cdr for XML pair node"
-msgstr "Не зеайдено CAR і CDR для вузла пари XML"
+msgstr "Не знайдено ключ і значення для вузла пари XML"
 
 #: backends/xml-entry.c:1211
 msgid "Missing cdr from pair of values in XML file"
-msgstr "Відсутнє значення CDR з пари в файлі XML"
+msgstr "Відсутнє значення для пари у файлі XML"
 
 #: backends/xml-entry.c:1218
 msgid "Missing car from pair of values in XML file"
-msgstr "Відсутнє значення CAR в парі в файлі XML"
+msgstr "Відсутній ключ для пари у файлі XML"
 
 #: backends/xml-entry.c:1223
 msgid "Missing both car and cdr values from pair in XML file"
-msgstr "Відситні значення CAR і CDR в парі в файлі XML"
+msgstr "Відсутні ключ і значення для пари у файлі XML"
 
 #. -- end debug only
 #: gconf/gconf-backend.c:167
@@ -338,7 +338,7 @@ msgstr "Очікувалось \"%s\", отримано \"%s\" для ключа
 
 #: gconf/gconf-database.c:234
 msgid "Received invalid value in set request"
-msgstr "Отримано невірне значення у запиті"
+msgstr "Отримано неправильне значення у запиті"
 
 #: gconf/gconf-database.c:242
 #, c-format
@@ -592,7 +592,7 @@ msgstr "Очікувалася пара, отримано %s"
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
-"Очікувалась пара (%s,%s), отримано пару з невірними одним або обома "
+"Очікувалась пара (%s,%s), отримано пару з неправильними одним або обома "
 "значеннями"
 
 #: gconf/gconf-internals.c:1514
@@ -814,13 +814,13 @@ msgstr "Схема містить неправильну послідовніс�
 #: gconf/gconf-schema.c:254
 msgid ""
 "Schema specifies type list but doesn't specify the type of the list elements"
-msgstr ""
+msgstr "Схема визначає тип списку, але не визначає тип елементів списку"
 
 #: gconf/gconf-schema.c:264
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
-msgstr ""
+msgstr "Схема визначає тип пари, але не визначає типи для ключа чи значення"
 
 #: gconf/gconf-sources.c:319
 #, c-format
@@ -982,7 +982,7 @@ msgstr "Не зрозуміло \"%s\" (пара має закінчуватис
 #: gconf/gconf-value.c:446 gconf/gconf-value.c:532
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
-msgstr "Не зрозуміло \"%s\" (невірна кількість елементів)"
+msgstr "Не зрозуміло \"%s\" (неправильна кількість елементів)"
 
 #: gconf/gconf-value.c:486
 #, c-format
@@ -1033,7 +1033,7 @@ msgstr "\"%c\" - неправильний символ в назві ключі�
 #: gconf/gconf.c:2486
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
-msgstr "\"%c\" - невірний символ в назві ключів/каталогів"
+msgstr "\"%c\" – неправильний символ в назві ключів/каталогів"
 
 #: gconf/gconf.c:2500
 msgid "Key/directory may not end with a slash (/)"
@@ -1639,12 +1639,12 @@ msgstr "Тип списку: %s\n"
 #: gconf/gconftool.c:1073
 #, c-format
 msgid "Car Type: %s\n"
-msgstr "Тип CAR: %s\n"
+msgstr "Тип ключа: %s\n"
 
 #: gconf/gconftool.c:1074
 #, c-format
 msgid "Cdr Type: %s\n"
-msgstr "Тип CDR: %s\n"
+msgstr "Тип значення: %s\n"
 
 #: gconf/gconftool.c:1079
 #, c-format
@@ -1706,7 +1706,7 @@ msgstr "Потрібно вказувати примітивний тип спи
 #: gconf/gconftool.c:1235
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
-msgstr "Потрібно вказувати примітивні типи CAR та CDR\n"
+msgstr "Потрібно вказувати примітивні типи для значення і ключа\n"
 
 #: gconf/gconftool.c:1250
 #, c-format
@@ -1772,15 +1772,15 @@ msgstr "Потрібно вказати ключ (назву схеми) як є
 
 #: gconf/gconftool.c:1530
 msgid "List type must be a primitive type: string, int, float or bool\n"
-msgstr "Список має мати примітивний тип: string, int, float чи bool\n"
+msgstr "Список має мати простий тип: string, int, float чи bool\n"
 
 #: gconf/gconftool.c:1550
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
-msgstr "Тип CAR пари має бути примітивним: string, int, float чи bool\n"
+msgstr "Тип ключа пари має бути простим: string, int, float чи bool\n"
 
 #: gconf/gconftool.c:1570
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
-msgstr "Тип CDR пари має бути примітивним: string, int, float чи bool\n"
+msgstr "Тип значення пари має бути простим: string, int, float чи bool\n"
 
 #: gconf/gconftool.c:1585
 #, c-format
@@ -1829,12 +1829,12 @@ msgstr "Помилка отримання списку каталогів: %s\n"
 #: gconf/gconftool.c:1767
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
-msgstr "УВАГА: невірний чи відсутній тип для схеми (%s)\n"
+msgstr "УВАГА: неправильний чи відсутній тип для схеми (%s)\n"
 
 #: gconf/gconftool.c:1776
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
-msgstr "УВАГА: невірний чи відсутній тип list_type для схеми (%s)\n"
+msgstr "УВАГА: неправильний чи відсутній тип list_type для схеми (%s)\n"
 
 #: gconf/gconftool.c:1787 gconf/gconftool.c:1817 gconf/gconftool.c:1846
 #, c-format
@@ -1845,7 +1845,8 @@ msgstr ""
 #: gconf/gconftool.c:1805
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
-msgstr "УВАГА: невірний чи відсутній тип car_type чи cdr_type для схеми (%s)\n"
+msgstr ""
+"УВАГА: неправильний чи відсутній тип car_type чи cdr_type для схеми (%s)\n"
 
 #: gconf/gconftool.c:1830
 msgid "WARNING: You cannot set a default value for a schema\n"
@@ -1894,19 +1895,16 @@ msgid "WARNING: no key specified for schema\n"
 msgstr "УВАГА: не вказано ключ для схеми\n"
 
 #: gconf/gconftool.c:2017
-#, fuzzy
 msgid "WARNING: no <list_type> specified for schema of type list\n"
-msgstr "УВАГА: не вказано ключ для схеми\n"
+msgstr "УВАГА: не вказано вузла <list_type> для схеми типу \"список\"\n"
 
 #: gconf/gconftool.c:2024
-#, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
-msgstr "УВАГА: не вказано ключ для схеми\n"
+msgstr "УВАГА: не вказано вузла <car_type> для схеми типу \"пара\"\n"
 
 #: gconf/gconftool.c:2030
-#, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
-msgstr "УВАГА: не вказано ключ для схеми\n"
+msgstr "УВАГА: не вказано вузла <cdr_type> для схеми типу \"пара\"\n"
 
 #: gconf/gconftool.c:2058
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
@@ -1924,7 +1922,7 @@ msgstr ""
 #: gconf/gconftool.c:2145
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
-msgstr "УВАГА: Невірний вузол <%s> у вузлі <locale>\n"
+msgstr "УВАГА: Неправильний вузол <%s> у вузлі <locale>\n"
 
 #: gconf/gconftool.c:2174
 #, c-format
@@ -1971,7 +1969,7 @@ msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
 "<gconfschemafile>)\n"
 msgstr ""
-"Документ \"%s\" має невірний тип корінного вузла (<%s>, має бути "
+"Документ \"%s\" має неправильний тип корінного вузла (<%s>, має бути "
 "<gconfschemafile>)\n"
 
 #: gconf/gconftool.c:2377
@@ -2034,18 +2032,3 @@ msgstr ""
 "Спроба перервати вашу програму встановленням поганих значень для ключів у "
 "каталозі:\n"
 "  %s\n"
-
-#~ msgid "Couldn't find the XML root directory in the address `%s'"
-#~ msgstr "Не вдалося віднайти кореневий каталог XML за адресою \"%s\""
-
-#~ msgid "Multiple segmentation faults occurred; can't display error dialog\n"
-#~ msgstr ""
-#~ "Виникли множинні помилки сеґментації; неможливо відобразити діалог "
-#~ "помилки\n"
-
-#~ msgid ""
-#~ "Segmentation fault!\n"
-#~ "Cannot display crash dialog: %s\n"
-#~ msgstr ""
-#~ "Помилка сеґментації!\n"
-#~ "Неможливо відобразити діалог помилки: %s\n"
