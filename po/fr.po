@@ -5,8 +5,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 0.12\n"
-"POT-Creation-Date: 2001-02-05 16:04-0500\n"
+"Project-Id-Version: GConf 1.0.0\n"
+"POT-Creation-Date: 2001-03-11 21:55+0100\n"
 "PO-Revision-Date: 2001-03-09 19:35+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
@@ -302,32 +302,32 @@ msgstr "Ne peut trouver le module pour « %s »"
 msgid "Failed to shut down backend"
 msgstr "Impossible d'éteindre le module"
 
-#: gconf/gconf-database.c:233
+#: gconf/gconf-database.c:231
 msgid "Received invalid value in set request"
 msgstr "Réception d'une valeur invalide dans la requête de définition"
 
-#: gconf/gconf-database.c:241
+#: gconf/gconf-database.c:239
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Impossible de comprendre le sens de la valeur CORBA reçu dans la requête de "
 "définition de la clé « %s »"
 
-#: gconf/gconf-database.c:521
+#: gconf/gconf-database.c:517
 msgid "Received request to drop all cached data"
 msgstr "Réception de la requête d'abandonner toutes les données cachées"
 
-#: gconf/gconf-database.c:538
+#: gconf/gconf-database.c:534
 msgid "Received request to sync synchronously"
 msgstr "Réception de la requête de synchronisation synchrone"
 
-#: gconf/gconf-database.c:605
+#: gconf/gconf-database.c:601
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Erreur fatale : impossible d'obtenir la référence de l'objet pour "
 "ConfigDatabase"
 
-#: gconf/gconf-database.c:764
+#: gconf/gconf-database.c:760
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Impossible de synchroniser une ou plusieurs sources : %s"
@@ -347,12 +347,12 @@ msgstr ""
 "restorer cet écouteur au redémarrage de gconfd, résultant en une "
 "notification non sûr de changements de configuration."
 
-#: gconf/gconf-database.c:871
+#: gconf/gconf-database.c:873
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "L'écouteur ID %lu n'existe pas"
 
-#: gconf/gconf-database.c:880
+#: gconf/gconf-database.c:882
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -362,47 +362,47 @@ msgstr ""
 "d'historique (la plupart du temps sans problème, mais peut résulter à la "
 "réapparition d'une notification génante) : %s"
 
-#: gconf/gconf-database.c:992 gconf/gconf-sources.c:1281
+#: gconf/gconf-database.c:997 gconf/gconf-sources.c:1281
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Erreur durant l'obtention de la valeur de « %s » : %s"
 
-#: gconf/gconf-database.c:1039
+#: gconf/gconf-database.c:1044
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Erreur durant la définition de la valeur de « %s » : %s"
 
-#: gconf/gconf-database.c:1082
+#: gconf/gconf-database.c:1087
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Erreur durant l'annulation de « %s » : %s"
 
-#: gconf/gconf-database.c:1106
+#: gconf/gconf-database.c:1111
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Erreur durant l'obtention de la valeur par défaut de « %s » : %s"
 
-#: gconf/gconf-database.c:1145
+#: gconf/gconf-database.c:1151
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Erreur durant la vérification de l'existence de « %s » : %s"
 
-#: gconf/gconf-database.c:1169
+#: gconf/gconf-database.c:1175
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Erreur durant la suppression du répertoire « %s » : %s"
 
-#: gconf/gconf-database.c:1195
+#: gconf/gconf-database.c:1202
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Impossible d'obtenir toutes les entrées dans « %s » : %s"
 
-#: gconf/gconf-database.c:1221
+#: gconf/gconf-database.c:1228
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Erreur durant le listage des répertoires dans « %s » : %s"
 
-#: gconf/gconf-database.c:1242
+#: gconf/gconf-database.c:1249
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Erreur durant la definition du schema pour « %s » : %s"
@@ -542,7 +542,7 @@ msgstr "La chaîne guillemetée ne commence pas avec une marque de citation"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "La chaîne guillemetée ne se finit pas avec une marque de citation"
 
-#: gconf/gconf-internals.c:2158 gconf/gconf.c:2945
+#: gconf/gconf-internals.c:2158 gconf/gconf.c:2999
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Erreur CORBA : %s"
@@ -772,17 +772,17 @@ msgstr "« %s » : %s"
 msgid "Server couldn't resolve the address `%s'"
 msgstr "Le serveur ne peut résoudre l'adresse « %s »"
 
-#: gconf/gconf.c:568
+#: gconf/gconf.c:571
 msgid "Can't add notifications to a local configuration source"
 msgstr ""
 "Impossible d'ajouter des notifications à une source de configuration locale"
 
-#: gconf/gconf.c:1724
+#: gconf/gconf.c:1778
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "L'ajout du client à la liste du serveur a échoué, erreur CORBA : %s"
 
-#: gconf/gconf.c:1740
+#: gconf/gconf.c:1794
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -792,57 +792,57 @@ msgstr ""
 "oaf_activate_from_id() et ne définit pas une exception expliquant le "
 "problème. Envoyer par mail un rapport de bug, SVP."
 
-#: gconf/gconf.c:2051
+#: gconf/gconf.c:2105
 msgid "Failed to init GConf, exiting\n"
 msgstr "Impossible d'initialiser GConf, quitte\n"
 
-#: gconf/gconf.c:2088
+#: gconf/gconf.c:2142
 msgid "Must begin with a slash (/)"
 msgstr "Doit commencer avec un slash (/)"
 
-#: gconf/gconf.c:2110
+#: gconf/gconf.c:2164
 msgid "Can't have two slashes (/) in a row"
 msgstr "Impossible d'avoir deux slashs (/) dans une rangée"
 
-#: gconf/gconf.c:2112
+#: gconf/gconf.c:2166
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Impossible d'avoir un point (.) juste aprés un slash (/)"
 
-#: gconf/gconf.c:2133
+#: gconf/gconf.c:2187
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "« %c » est un caractère invalide dans un nom de clé/répertoire"
 
-#: gconf/gconf.c:2147
+#: gconf/gconf.c:2201
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Une clé/répertoire ne peut se finir avec un slash (/)"
 
-#: gconf/gconf.c:2400
+#: gconf/gconf.c:2454
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Échec d'extinction du serveur de configuration : %s"
 
-#: gconf/gconf.c:2461
+#: gconf/gconf.c:2515
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Flottant attendu, obtenu %s"
 
-#: gconf/gconf.c:2496
+#: gconf/gconf.c:2550
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Entier attendu, obtenu %s"
 
-#: gconf/gconf.c:2531
+#: gconf/gconf.c:2585
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Chaîne attendu, obtenu %s"
 
-#: gconf/gconf.c:2568
+#: gconf/gconf.c:2622
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Booléain attendu, obtenu %s"
 
-#: gconf/gconf.c:2601
+#: gconf/gconf.c:2655
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Schema attendu, obtenu %s"
@@ -919,16 +919,12 @@ msgstr "Réception du signal %d, s'etteind proprement"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:457
+#: gconf/gconfd.c:504
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "démarrage (version %s), pid %u utilisateur « %s »"
 
-#: gconf/gconfd.c:461
-msgid "GConf was built with debugging features enabled"
-msgstr "GConf a été compilé avec les fonctionnalités de débogage activées"
-
-#: gconf/gconfd.c:484
+#: gconf/gconfd.c:531
 msgid ""
 "Failed to init Object Activation Framework: please mail bug report to OAF "
 "maintainers"
@@ -936,11 +932,11 @@ msgstr ""
 "Impossible d'initialiser « Object Activation Framework » : envoyer un "
 "rapport d'anomalies par courrier électronique aux mainteneurs d'OAF, SVP."
 
-#: gconf/gconfd.c:504
+#: gconf/gconfd.c:551
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Impossible d'obtenir la référence de l'objet pour ConfigServer"
 
-#: gconf/gconfd.c:524
+#: gconf/gconfd.c:571
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register; exiting\n"
@@ -948,29 +944,29 @@ msgstr ""
 "OAF ne connait rien de votre IID ; sûrement une mauvaise installation; "
 "impossible de s'enregistrer ; quitte\n"
 
-#: gconf/gconfd.c:528
+#: gconf/gconfd.c:575
 msgid "Another gconfd already registered with OAF; exiting\n"
 msgstr "Un autre gconfd est déjà enregistré auprés de OAF ; quitte\n"
 
-#: gconf/gconfd.c:533
+#: gconf/gconfd.c:580
 msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr ""
 "Erreur inconnu durant l'enregistrement de gconfd auprés de OAF ; quitte\n"
 
-#: gconf/gconfd.c:571
+#: gconf/gconfd.c:618
 msgid "Exiting"
 msgstr "Quitte"
 
-#: gconf/gconfd.c:595
+#: gconf/gconfd.c:643
 msgid "GConf server is not in use, shutting down."
 msgstr "Le serveur GConf n'est pas en cours d'utilisation, extinction."
 
-#: gconf/gconfd.c:930
+#: gconf/gconfd.c:1002
 #, c-format
 msgid "Returning exception: %s"
 msgstr "Exception retournée : %s"
 
-#: gconf/gconfd.c:1018
+#: gconf/gconfd.c:1102
 #, c-format
 msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
@@ -979,7 +975,7 @@ msgstr ""
 "Impossible d'ouvrir le fichier de trace de gconfd ; ne sera pas capable de "
 "restorer les écouteurs aprés l'extinction de gconfd (%s)"
 
-#: gconf/gconfd.c:1041
+#: gconf/gconfd.c:1137
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
@@ -987,32 +983,32 @@ msgstr ""
 "Impossible de fermer le fichier de trace de gconfd ; des données peuvent ne "
 "pas avoir été correctement enregistrées (%s)"
 
-#: gconf/gconfd.c:1104
+#: gconf/gconfd.c:1206
 #, c-format
 msgid "Could not open saved state file '%s' for writing: %s"
 msgstr "Ne peut ouvrir le fichier d'état enregistré « %s » pour écriture : %s"
 
-#: gconf/gconfd.c:1118
+#: gconf/gconfd.c:1220
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr "Ne peut écrire le fichier d'état enregistré « %s » fd : %d : %s"
 
-#: gconf/gconfd.c:1127
+#: gconf/gconfd.c:1229
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
 msgstr "Ne peut fermer le nouveau fichier d'état enregistré « %s » : %s"
 
-#: gconf/gconfd.c:1141
+#: gconf/gconfd.c:1243
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr "Ne peut déplacer le vieux fichier d'état enregistré « %s » : %s"
 
-#: gconf/gconfd.c:1151
+#: gconf/gconfd.c:1253
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr "Ne peut déplacer le nouveau fichier d'état enregistré à la place : %s"
 
-#: gconf/gconfd.c:1160
+#: gconf/gconfd.c:1262
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
@@ -1020,7 +1016,7 @@ msgstr ""
 "Impossible de restorer le fichier d'état original enregistré qui a été "
 "déplacé vers « %s » : %s"
 
-#: gconf/gconfd.c:1633
+#: gconf/gconfd.c:1737
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
@@ -1028,17 +1024,17 @@ msgstr ""
 "Incapable de restorer un écouteur à l'adresse « %s », ne peut résoudre la "
 "base de données"
 
-#: gconf/gconfd.c:1679
+#: gconf/gconfd.c:1783
 #, c-format
 msgid "Error reading saved state file: %s"
 msgstr "Erreur de lecture du fichier d'état enregistré : %s"
 
-#: gconf/gconfd.c:1732
+#: gconf/gconfd.c:1836
 #, c-format
 msgid "Unable to open saved state file '%s': %s"
 msgstr "Incapable d'ouvrir le fichier d'état enregistré « %s » : %s"
 
-#: gconf/gconfd.c:1849
+#: gconf/gconfd.c:1953
 #, c-format
 msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to "
@@ -1048,7 +1044,7 @@ msgstr ""
 "gconfd; ne sera pas capable de réajouter l'écouteur si gconfd quitte ou "
 "s'eteinds (%s)"
 
-#: gconf/gconfd.c:1854
+#: gconf/gconfd.c:1958
 #, c-format
 msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously "
@@ -1058,29 +1054,29 @@ msgstr ""
 "gconfd; peut réajouter par erreur l'écouteur si gconfd quitte ou s'éteinds "
 "(%s)"
 
-#: gconf/gconfd.c:1877 gconf/gconfd.c:2038
+#: gconf/gconfd.c:1981 gconf/gconfd.c:2146
 #, c-format
 msgid "Failed to get IOR for client: %s"
 msgstr "Impossible d'obtenir l'IOR pour le client : %s"
 
-#: gconf/gconfd.c:1892
+#: gconf/gconfd.c:1996
 #, c-format
 msgid "Failed to open saved state file: %s"
 msgstr "Impossible d'ouvrir le fichier d'état enregistré : %s"
 
-#: gconf/gconfd.c:1905
+#: gconf/gconfd.c:2009
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr ""
 "Impossible d'écrire l'ajout du client au fichier d'état enregistré : %s"
 
-#: gconf/gconfd.c:1913
+#: gconf/gconfd.c:2017
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
 "Impossible de vider l'ajout du client au fichier d'état enregistré : %s"
 
-#: gconf/gconfd.c:1999
+#: gconf/gconfd.c:2107
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
@@ -1363,7 +1359,7 @@ msgstr ""
 "fichiers de schema.\n"
 "Utilisez gconftool --shutdown pour achever le démon, de préférence lorsque "
 "qu'aucune applications ne fonctionne (cepandant, théoriquement, cela devrait "
-"fonctionner meme si des applications sont en cours de fonctionnement).\n"
+"fonctionner même si des applications sont en cours de fonctionnement).\n"
 
 #: gconf/gconftool.c:525
 #, c-format
@@ -1375,308 +1371,312 @@ msgstr "Impossible d'accéder a(ux) source(s) de configuration : %s\n"
 msgid "Shutdown error: %s\n"
 msgstr "Erreur d'extinction : %s\n"
 
-#: gconf/gconftool.c:730
+#: gconf/gconftool.c:728
 msgid "Must specify one or more dirs to recursively list.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires à lister récursivement.\n"
 
-#: gconf/gconftool.c:764
+#: gconf/gconftool.c:762
 #, c-format
 msgid "Failure listing pairs in `%s': %s"
 msgstr "Échec lors du listage des paires dans « %s » : %s"
 
-#: gconf/gconftool.c:782
+#: gconf/gconftool.c:780
 msgid "(no value set)"
 msgstr "(aucune valeur défini)"
 
-#: gconf/gconftool.c:837
+#: gconf/gconftool.c:835
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "Impossible de « spawner » le serveur de configuration (gconfd) : %s\n"
 
-#: gconf/gconftool.c:851
+#: gconf/gconftool.c:849
 msgid "Must specify a key or keys to get\n"
 msgstr "Vous devez spécifier une ou plusieurs clés à définir\n"
 
-#: gconf/gconftool.c:886
+#: gconf/gconftool.c:884
 #, c-format
 msgid "Type: %s\n"
 msgstr "Type : %s\n"
 
-#: gconf/gconftool.c:887
+#: gconf/gconftool.c:885
 #, c-format
 msgid "List Type: %s\n"
 msgstr "Type Liste : %s\n"
 
-#: gconf/gconftool.c:888
+#: gconf/gconftool.c:886
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Type Car : %s\n"
 
-#: gconf/gconftool.c:889
+#: gconf/gconftool.c:887
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Type Cdr : %s\n"
 
-#: gconf/gconftool.c:894
+#: gconf/gconftool.c:892
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "Valeur par défaut : %s\n"
 
-#: gconf/gconftool.c:894 gconf/gconftool.c:896 gconf/gconftool.c:897
-#: gconf/gconftool.c:898
+#: gconf/gconftool.c:892 gconf/gconftool.c:894 gconf/gconftool.c:895
+#: gconf/gconftool.c:896
 msgid "Unset"
 msgstr "Indéfini"
 
-#: gconf/gconftool.c:896
+#: gconf/gconftool.c:894
 #, c-format
 msgid "Owner: %s\n"
 msgstr "Propriétaire : %s\n"
 
-#: gconf/gconftool.c:897
+#: gconf/gconftool.c:895
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "Courte desc. : %s\n"
 
-#: gconf/gconftool.c:898
+#: gconf/gconftool.c:896
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "Longue desc. : %s\n"
 
-#: gconf/gconftool.c:907
+#: gconf/gconftool.c:905
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "Aucune valeur définie pour « %s »\n"
 
-#: gconf/gconftool.c:911
+#: gconf/gconftool.c:909
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "Impossible d'obtenir de valeur pour « %s » : %s\n"
 
-#: gconf/gconftool.c:954 gconf/gconftool.c:966
+#: gconf/gconftool.c:952 gconf/gconftool.c:964
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "Ne comprend pas le type « %s »\n"
 
-#: gconf/gconftool.c:978
+#: gconf/gconftool.c:976
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "Vous devez spécifier au choix des clés/valeurs comme paramètres\n"
 
-#: gconf/gconftool.c:998
+#: gconf/gconftool.c:996
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "Aucune valeur à définir pour la clé : « %s »\n"
 
-#: gconf/gconftool.c:1026
+#: gconf/gconftool.c:1024
 msgid "Cannot set schema as value\n"
 msgstr "Impossible de définir le schema comme valeur\n"
 
-#: gconf/gconftool.c:1036
+#: gconf/gconftool.c:1034
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr ""
 "Quand vous définissez une liste vous devez spécifier une primitive "
 "list-type\n"
 
-#: gconf/gconftool.c:1050
+#: gconf/gconftool.c:1048
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr ""
 "Quand vous définissez une paire vous devez spécifier une primitive car-type "
 "et cdr-type\n"
 
-#: gconf/gconftool.c:1065
+#: gconf/gconftool.c:1063
 #, c-format
 msgid "Error: %s\n"
 msgstr "Erreur : %s\n"
 
-#: gconf/gconftool.c:1078 gconf/gconftool.c:1211
+#: gconf/gconftool.c:1076 gconf/gconftool.c:1209
 #, c-format
 msgid "Error setting value: %s"
 msgstr "Erreur à l'attribution de la valeur : %s"
 
-#: gconf/gconftool.c:1096 gconf/gconftool.c:1225
+#: gconf/gconftool.c:1094 gconf/gconftool.c:1223
 #, c-format
 msgid "Error syncing: %s"
 msgstr "Erreur de synchronisation : %s"
 
-#: gconf/gconftool.c:1114
+#: gconf/gconftool.c:1112
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "Vous devez spécifier un clé (nom du schema) comme seul paramètre\n"
 
-#: gconf/gconftool.c:1156
+#: gconf/gconftool.c:1154
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Le type de la liste doit être un type primitif : string, int, float ou bool\n"
 
-#: gconf/gconftool.c:1176
+#: gconf/gconftool.c:1174
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Le type car de la paire doit être un type primitif : string, int, float ou "
 "bool\n"
 
-#: gconf/gconftool.c:1196
+#: gconf/gconftool.c:1194
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Le type cdr de la paire doit être un type primitif : string, int, float ou "
 "bool\n"
 
-#: gconf/gconftool.c:1240
+#: gconf/gconftool.c:1238
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires pour en obtenir les paires "
 "clés/valeurs.\n"
 
-#: gconf/gconftool.c:1254
+#: gconf/gconftool.c:1252
 msgid "Must specify one or more keys to unset.\n"
 msgstr "Vous devez spécifier une ou plusieurs clés à annuler.\n"
 
-#: gconf/gconftool.c:1265
+#: gconf/gconftool.c:1263
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "Erreur d'annulation de « %s » : %s\n"
 
-#: gconf/gconftool.c:1288
+#: gconf/gconftool.c:1286
 msgid "Must specify one or more dirs to get subdirs from.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires pour en obtenir les "
 "sous-répertoires.\n"
 
-#: gconf/gconftool.c:1322
+#: gconf/gconftool.c:1320
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "Erreur lors du listage des répertoires : %s\n"
 
-#: gconf/gconftool.c:1364
+#: gconf/gconftool.c:1362
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
-msgstr "AVERT. : type invalide ou manquant pour le schema (%s)\n"
+msgstr "ATTENTION : type invalide ou manquant pour le schema (%s)\n"
 
-#: gconf/gconftool.c:1373
+#: gconf/gconftool.c:1371
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
-msgstr "AVERT. : list_type invalide ou manquant pour le schema (%s)\n"
+msgstr "ATTENTION : list_type invalide ou manquant pour le schema (%s)\n"
 
-#: gconf/gconftool.c:1384 gconf/gconftool.c:1414 gconf/gconftool.c:1443
+#: gconf/gconftool.c:1382 gconf/gconftool.c:1412 gconf/gconftool.c:1441
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
-"AVERT. : Échec d'analyse de la valeur par défaut « %s » pour le schema (%s)\n"
+"ATTENTION : Échec d'analyse de la valeur par défaut « %s » pour le schema "
+"(%s)\n"
 
-#: gconf/gconftool.c:1402
+#: gconf/gconftool.c:1400
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
-"AVERT. : car_type ou cdr_type invalide ou manquant pour le schema (%s)\n"
+"ATTENTION : car_type ou cdr_type invalide ou manquant pour le schema (%s)\n"
 
-#: gconf/gconftool.c:1427
+#: gconf/gconftool.c:1425
 msgid "WARNING: You cannot set a default value for a schema\n"
-msgstr "AVERT. : Vous ne pouvez définir une valeur par défaut pour un schema\n"
+msgstr ""
+"ATTENTION : Vous ne pouvez définir une valeur par défaut pour un schema\n"
 
-#: gconf/gconftool.c:1456
+#: gconf/gconftool.c:1454
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
-msgstr "AVERT. : erreur interne gconftool, GConfValueType inconnu\n"
+msgstr "ATTENTION : erreur interne gconftool, GConfValueType inconnu\n"
 
-#: gconf/gconftool.c:1504 gconf/gconftool.c:1525 gconf/gconftool.c:1546
-#: gconf/gconftool.c:1567
+#: gconf/gconftool.c:1502 gconf/gconftool.c:1523 gconf/gconftool.c:1544
+#: gconf/gconftool.c:1565
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
-msgstr "AVERT. : impossible d'analyser le nom du type « %s »\n"
+msgstr "ATTENTION : impossible d'analyser le nom du type « %s »\n"
 
-#: gconf/gconftool.c:1521
+#: gconf/gconftool.c:1519
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"AVERT. : list_type peur seulement être int, float, string ou bool et non « "
-"%s »\n"
+"ATTENTION : list_type peut seulement être int, float, string ou bool et non "
+"« %s »\n"
 
-#: gconf/gconftool.c:1542
+#: gconf/gconftool.c:1540
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"AVERT. : car_type peur seulement être int, float, string ou bool et non « %s "
-"»\n"
+"ATTENTION : car_type peut seulement être int, float, string ou bool et non « "
+"%s »\n"
 
-#: gconf/gconftool.c:1563
+#: gconf/gconftool.c:1561
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"AVERT. : cdr_type peur seulement être int, float, string ou bool et non « %s "
-"»\n"
+"ATTENTION : cdr_type peut seulement être int, float, string ou bool et non « "
+"%s »\n"
 
-#: gconf/gconftool.c:1590
+#: gconf/gconftool.c:1588
 msgid "WARNING: empty <applyto> node"
-msgstr "AVERT. : noeud <applyto> vide"
+msgstr "ATTENTION : noeud <applyto> vide"
 
-#: gconf/gconftool.c:1593 gconf/gconftool.c:1856
+#: gconf/gconftool.c:1591 gconf/gconftool.c:1854
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
-msgstr "AVERT. : le noeud <%s> n'est pas compris sous <schema>\n"
+msgstr "ATTENTION : le noeud <%s> n'est pas compris sous <schema>\n"
 
-#: gconf/gconftool.c:1603
+#: gconf/gconftool.c:1601
 msgid "WARNING: no key specified for schema\n"
-msgstr "AVERT. : aucune clé spécifié pour le schema\n"
+msgstr "ATTENTION : aucune clé spécifié pour le schema\n"
 
-#: gconf/gconftool.c:1636
+#: gconf/gconftool.c:1634
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
-"AVERT. : le noeud <locale> n'a aucun attribut « name=\"locale\" », ignoré\n"
+"ATTENTION : le noeud <locale> n'a aucun attribut « name=\"locale\" », "
+"ignoré\n"
 
-#: gconf/gconftool.c:1642
+#: gconf/gconftool.c:1640
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
-"AVERT. : plusieurs noeuds <locale> pour la locale « %s », ignore tous sauf "
-"le premier\n"
+"ATTENTION : plusieurs noeuds <locale> pour la locale « %s », ignore tous "
+"sauf le premier\n"
 
-#: gconf/gconftool.c:1723
+#: gconf/gconftool.c:1721
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
-msgstr "AVERT. : Noeud <%s> invalide dans un noeud <locale>\n"
+msgstr "ATTENTION : noeud <%s> invalide dans un noeud <locale>\n"
 
-#: gconf/gconftool.c:1752
+#: gconf/gconftool.c:1750
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
-"AVERT. : impossible d'installer le schema « %s » pour la locale « %s » : %s\n"
+"ATTENTION : impossible d'installer le schéma « %s » pour la locale « %s » : "
+"%s\n"
 
-#: gconf/gconftool.c:1760
+#: gconf/gconftool.c:1758
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
-msgstr "Schema « %s » installé pour la locale « %s »\n"
+msgstr "Schéma « %s » installé pour la locale « %s »\n"
 
-#: gconf/gconftool.c:1782
+#: gconf/gconftool.c:1780
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr ""
-"AVERT. : impossible d'associer le schema « %s » avec la clé « %s » : %s\n"
+"ATTENTION : impossible d'associer le schéma « %s » avec la clé « %s » : %s\n"
 
-#: gconf/gconftool.c:1790
+#: gconf/gconftool.c:1788
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
-msgstr "Schema « %s » attaché à la clé « %s »\n"
+msgstr "Schéma « %s » attaché à la clé « %s »\n"
 
-#: gconf/gconftool.c:1869
+#: gconf/gconftool.c:1867
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Vous devez avoir au moins une entrée <locale> dans un <schema>\n"
 
-#: gconf/gconftool.c:1898
+#: gconf/gconftool.c:1896
 #, c-format
 msgid "WARNING: node <%s> not understood below <schemalist>\n"
-msgstr "AVERT. : le noeud <%s> n'est pas compris sous <schemalist>\n"
+msgstr "ATTENTION : le noeud <%s> n'est pas compris sous <schemalist>\n"
 
-#: gconf/gconftool.c:1920
+#: gconf/gconftool.c:1918
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Impossible d'ouvrir « %s » : %s\n"
 
-#: gconf/gconftool.c:1927
+#: gconf/gconftool.c:1925
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Le document « %s » est vide ?\n"
 
-#: gconf/gconftool.c:1939
+#: gconf/gconftool.c:1937
 #, c-format
 msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
@@ -1685,26 +1685,26 @@ msgstr ""
 "Le document « %s » a le mauvais type de noeud racine (<%s>, devrait être "
 "<gconfschemafile>)\n"
 
-#: gconf/gconftool.c:1952
+#: gconf/gconftool.c:1950
 #, c-format
 msgid "Document `%s' has no top level <gconfschemafile> node\n"
 msgstr "Le document « %s » n'a pas de noeud racine <gconfschemafile>\n"
 
-#: gconf/gconftool.c:1966
+#: gconf/gconftool.c:1964
 #, c-format
 msgid "WARNING: node <%s> below <gconfschemafile> not understood\n"
-msgstr "AVERT. : le noeud <%s> sous <gconfschemafile> n'est pas compris\n"
+msgstr "ATTENTION : le noeud <%s> sous <gconfschemafile> n'est pas compris\n"
 
-#: gconf/gconftool.c:1977 gconf/gconftool.c:2009
+#: gconf/gconftool.c:1975 gconf/gconftool.c:2007
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Erreur de synchronisation des données de configuration : %s"
 
-#: gconf/gconftool.c:1993
+#: gconf/gconftool.c:1991
 msgid "Must specify some schema files to install\n"
 msgstr "Vous devez spécifier quelques fichiers de schema à installer\n"
 
-#: gconf/gconftool.c:2030
+#: gconf/gconftool.c:2028
 #, c-format
 msgid ""
 "\n"
@@ -1713,16 +1713,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:2050
+#: gconf/gconftool.c:2048
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Échec de l'annulation de la clé de torture %s : %s\n"
 
-#: gconf/gconftool.c:2176
+#: gconf/gconftool.c:2174
 msgid "Must specify some keys to break\n"
 msgstr "Vous devez spécifier quelques clés à torturer\n"
 
-#: gconf/gconftool.c:2182
+#: gconf/gconftool.c:2180
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -1732,11 +1732,11 @@ msgstr ""
 "valeurs pour les clés :\n"
 "  %s\n"
 
-#: gconf/gconftool.c:2200
+#: gconf/gconftool.c:2198
 msgid "Must specify some directories to break\n"
 msgstr "Vous devez spécifier quelques répertoires à torturer\n"
 
-#: gconf/gconftool.c:2219
+#: gconf/gconftool.c:2217
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -1762,6 +1762,9 @@ msgstr ""
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "« %s » attendu, obtenu « %s » pour la clé %s"
+
+#~ msgid "GConf was built with debugging features enabled"
+#~ msgstr "GConf a été compilé avec les fonctionnalités de débogage activées"
 
 #~ msgid "found <local_schema> with no locale setting"
 #~ msgstr "a trouvé <local_schema> avec aucun réglage de locale"
