@@ -1,5 +1,9 @@
 2001-04-17  Darin Adler  <darin@eazel.com>
 
+	* gconf/Makefile.am: Another try at that. This time for sure.
+
+2001-04-17  Darin Adler  <darin@eazel.com>
+
 	* gconf/Makefile.am: Now that we are not distributing built sources
 	we need some more dependencies to get the Tinderbox working.
 

@@ -42,8 +42,6 @@ gconfinclude_HEADERS =     \
 	gconf-error.h	   \
 	gconf-engine.h
 
-$(gconfinclude_HEADERS): $(CORBA_SOURCES)
-
 ## This is broken I know, I'm going to break the server/client up and have a library later
 
 gconfd_1_SOURCES = \
@@ -85,6 +83,8 @@ libgconf_1_la_SOURCES = \
 	gconf-value.c		\
 	gconf.c			\
 	$(CORBA_SOURCES)
+
+$(gconfd_1_OBJECTS) $(libgconf_1_la_OBJECTS): $(CORBA_SOURCES)
 
 libgconf_1_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE)
 
