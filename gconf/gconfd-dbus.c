@@ -182,25 +182,34 @@ gconfd_dbus_init (void)
 {
   GError     *gerror = NULL;
   DBusError   error;
-  const char *bus_address;
- 
-  bus_conn = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
+
+  dbus_error_init (&error);
+  bus_conn = dbus_bus_get (DBUS_BUS_SESSION, &error);
   
   if (!bus_conn) 
     {
       gconf_log (GCL_ERR, _("Failed to connect to the D-BUS daemon: %s"),
-		 gerror->message);
+		 error.message);
+      dbus_error_free (&error);
       return FALSE;
     }
 
-  /*if (!dbus_bus_register (bus_conn, &error))
+  if (!dbus_bus_register (bus_conn, &error))
     {
       gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
 		 error.message);
       dbus_error_free (&error);
       return FALSE;
     }
-*/
+  
+  dbus_bus_acquire_service (bus_conn, GCONF_DBUS_SERVICE, 0, &error);
+  if (dbus_error_is_set (&error)) 
+    {
+      gconf_log (GCL_ERR, _("Failed to acquire gconf service"));
+      dbus_error_free (&error);
+      return FALSE;
+    }
+
   if (!dbus_connection_register_object_path (bus_conn,
 					     server_path,
 					     &server_vtable,
@@ -209,17 +218,10 @@ gconfd_dbus_init (void)
       gconf_log (GCL_ERR, _("Failed to register server object with the D-BUS bus daemon"));
       return FALSE;
     }
- /* 
-  dbus_bus_acquire_service (bus_conn, GCONF_DBUS_SERVICE, 0, &error);
-  if (dbus_error_is_set (&error)) 
-    {
-      gconf_log (GCL_ERR, _("Failed to acquire gconf service"));
-      dbus_error_free (&error);
-      return FALSE;
-    }
-*/
+  
+  
   nr_of_connections = 1;
-/* dbus_connection_setup_with_g_main (bus_conn, NULL); */
+  dbus_connection_setup_with_g_main (bus_conn, NULL);
   
   return TRUE;
 }
