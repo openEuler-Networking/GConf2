@@ -19,6 +19,7 @@
  */
 
 #include "gconf-database-corba.h"
+#include "gconf-corba.h"
 #include "gconfd.h"
 #include "gconfd-corba.h"
 #include "gconf-locale.h"
