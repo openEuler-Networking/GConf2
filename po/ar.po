@@ -1,3 +1,4 @@
+# translation of gconf.gnome-2-2.ar.po to Arabic
 # translation of gconf.po to
 # translation of gconf.po to Arabic
 # Copyright (C) 2002,2003 Free Software Foundation, Inc.
@@ -6,15 +7,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-04-27 19:47+0200\n"
-"PO-Revision-Date: 2003-05-01 17:18+0200\n"
+"Project-Id-Version: gconf.gnome-2-2.ar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-19 03:57+0200\n"
+"PO-Revision-Date: 2003-07-19 09:48+0200\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.0\n"
 
 #: backends/bdb-backend.c:215
 msgid "Unloading BerkeleyDB (BDB) backend module."
@@ -334,9 +336,9 @@ msgid "Received invalid value in set request"
 msgstr "تم تلقي قيمة غير صالحة في طلب الضبط"
 
 #: gconf/gconf-database.c:242
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr "لم أفهم معنى قيمة CORBA الذي تم تلقّيه ضمن طلب الضبط للمفتاح `%s' `%s'"
+msgstr "لم أفهم معنى قيمة CORBA الذي تم تلقّيه ضمن طلب ضبط المفتاح `%s'"
 
 #: gconf/gconf-database.c:524
 msgid "Received request to drop all cached data"
@@ -1100,9 +1102,9 @@ msgstr "تلقيت اﻻشارة %d، اغلاق سليم"
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
 #: gconf/gconfd.c:543
-#, fuzzy, c-format
+#, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr "تشغيل (إصدارة %s( المستعمل "
+msgstr "تشغيل (إصدارة %s)، pid %u المستعمل '%s'"
 
 #: gconf/gconfd.c:583
 msgid "Failed to get object reference for ConfigServer"
@@ -1940,30 +1942,30 @@ msgstr ""
 "محاولة كسر تطبيقك بوضع قيم غير سليمة للمفاتيحفي الدليل:\n"
 "  %s\n"
 
-msgid "Couldn't find the XML root directory in the address `%s'"
-msgstr "لم اتمكّن من ايجاد الدليل الجذري لـ XML في العنوان `%s'"
+#~ msgid "Couldn't find the XML root directory in the address `%s'"
+#~ msgstr "لم اتمكّن من ايجاد الدليل الجذري لـ XML في العنوان `%s'"
 
-msgid "Multiple segmentation faults occurred; can't display error dialog\n"
-msgstr "حدثت، أخطاء تقطيع عديدة، لا أستطيع عرض حوار الانهيار\n"
+#~ msgid "Multiple segmentation faults occurred; can't display error dialog\n"
+#~ msgstr "حدثت، أخطاء تقطيع عديدة، لا أستطيع عرض حوار الانهيار\n"
 
-msgid ""
-"Segmentation fault!\n"
-"Cannot display crash dialog: %s\n"
-msgstr "خطأ كتابة قراءة داكرة لا استطيع عرض حوار الإنهيار: %s\n"
+#~ msgid ""
+#~ "Segmentation fault!\n"
+#~ "Cannot display crash dialog: %s\n"
+#~ msgstr "خطأ كتابة قراءة داكرة لا استطيع عرض حوار الإنهيار: %s\n"
 
-msgid ""
-"Failed to contact configuration server (a likely cause of this is that you "
-"have an existing configuration server (gconfd) running, but it isn't "
-"reachable from here - if you're logged in from two machines at once, you may "
-"need to enable TCP networking for ORBit)\n"
-msgstr ""
-"فشل في اﻻتصال بنادل اﻻعداد (سبب ممكن لذلك، ان لديك نادل اعداد (gconfd) يعمل "
-"مسبّقا، لكن غير ممكن الوصول إليه من هنا ان كنت سجّلت من ماكنتان في آن واحد، "
-"ربما وجب عليك تفعيل تشبيك TCP لـ ORBit) \n"
+#~ msgid ""
+#~ "Failed to contact configuration server (a likely cause of this is that "
+#~ "you have an existing configuration server (gconfd) running, but it isn't "
+#~ "reachable from here - if you're logged in from two machines at once, you "
+#~ "may need to enable TCP networking for ORBit)\n"
+#~ msgstr ""
+#~ "فشل في اﻻتصال بنادل اﻻعداد (سبب ممكن لذلك، ان لديك نادل اعداد (gconfd) "
+#~ "يعمل مسبّقا، لكن غير ممكن الوصول إليه من هنا ان كنت سجّلت من ماكنتان في آن "
+#~ "واحد، ربما وجب عليك تفعيل تشبيك TCP لـ ORBit) \n"
 
-msgid "Error listing subdirs of '%s': %s\n"
-msgstr "خطأ سرد الدلائل الثانوية لـ'%s': %s\n"
+#~ msgid "Error listing subdirs of '%s': %s\n"
+#~ msgstr "خطأ سرد الدلائل الثانوية لـ'%s': %s\n"
 
-msgid "Error unsetting '%s': %s\n"
-msgstr "خطأ تعطيل '%s': %s\n"
+#~ msgid "Error unsetting '%s': %s\n"
+#~ msgstr "خطأ تعطيل '%s': %s\n"
 

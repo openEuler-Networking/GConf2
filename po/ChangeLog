@@ -1,3 +1,7 @@
+2003-07-19  Arafat Medini <lumina@silverpen.de>
+
+	* ar.po: Updated and fixed Arabic translation.
+
 2003-07-14  Abel Cheung  <maddog@linux.org.hk>
 
 	* ms.po, ar.po: Mark wrong entry as fuzzy (msgfmt check failed).
