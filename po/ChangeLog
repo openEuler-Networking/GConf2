@@ -1,3 +1,8 @@
+2003-06-26  Pablo Gonzalo del Campo  <pablodc@bigfoot.com>
+
+        * es.po: Updated Spanish translation by
+                 Francisco Javier F. Serrador <serrador@arrakis.es>.
+
 2003-05-11  Abel Cheung  <maddog@linux.org.hk>
 
 	* POTFILES.skip: New file.
@@ -14,7 +19,7 @@
 
 2002-04-30  Fatih Demir <kabalak@gtranslator.org>
 
-	* tr.po: Committed updated Turkish translation by Nilg-Aün.$)B
+	* tr.po: Committed updated Turkish translation by Nilg-AÃ¼n.$)B
 
 2002-04-28  Christophe Merlet  <christophe@merlet.net>
 
@@ -35,7 +40,7 @@
 
 2002-04-18  Kjartan Maraas  <kmaraas@gnome.org>
 
-	* no.po: Updated Norwegian (bokm-Aål) translation.$)B
+	* no.po: Updated Norwegian (bokm-AÃ¥l) translation.$)B
 	
 2002-04-10  Pauli Virtanen  <pauli.virtanen@hut.fi>
 
@@ -91,7 +96,7 @@
 
 2001-12-13  Kjartan Maraas  <kmaraas@gnome.org>
 
-	* no.po: Updated Norwegian (bokm-Aål) translation.$)B
+	* no.po: Updated Norwegian (bokm-AÃ¥l) translation.$)B
 	
 2001-12-11  Stanislav Visnovsky  <visnovsky@nenya.ms.mff.cuni.cz>
 
@@ -119,7 +124,7 @@
 
 2001-11-15  Fatih Demir <kabalak@gtranslator.org>
 
-	* tr.po: Committed updated Turkish translation by Nilg-Aün.$)B
+	* tr.po: Committed updated Turkish translation by NilgÂ-AÃ¼n.$)B
 
 2001-11-08  Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>
 
@@ -138,7 +143,7 @@
 
 	* pl.po: Updated Polish translation.
 
-2001-10-17  Carlos Perell-Aó Marín <carlos@gnome-db.org>$)B
+2001-10-17  Carlos PerellÂ-AÃ³ MarÂÃ­n <carlos@gnome-db.org>$)B
 
 	* pt.po: Updated by Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -154,7 +159,7 @@
 
 	* pl.po: Updated Polish translation.
 
-2001-10-14  Carlos Perell-Aó Marín <carlos@gnome-db.org>$)B
+2001-10-14  Carlos PerellÂ-AÃ³ MarÂÃ­n <carlos@gnome-db.org>$)B
 
 	* pt.po: Added by Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -673,7 +678,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norb’äãk  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin NorbÂ’Ã¤Ã£k  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
