@@ -70,6 +70,7 @@ static int long_docs_mode = FALSE;
 static int schema_name_mode = FALSE;
 static int associate_schema_mode = FALSE;
 static int dissociate_schema_mode = FALSE;
+static int ignore_schema_defaults = FALSE;
 static int default_source_mode = FALSE;
 static int recursive_unset_mode = FALSE;
 static int do_version = FALSE;
@@ -410,6 +411,15 @@ struct poptOption options[] = {
     NULL
   },
   {
+    "ignore-schema-defaults",
+    '\0',
+    POPT_ARG_NONE,
+    &ignore_schema_defaults,
+    0,
+    N_("Ignore schema defaults when reading values."),
+    NULL
+  },
+  {
     "get-default-source",
     '\0',
     POPT_ARG_NONE,
@@ -588,7 +598,7 @@ main (int argc, char** argv)
     {
       g_printerr (_("--set_schema should not be used with --get, --set, --unset, --all-entries, --all-dirs\n"));
       return 1;
-    }  
+    }
 
   if ((value_type != NULL) && !(set_mode || set_schema_mode))
     {
@@ -599,6 +609,14 @@ main (int argc, char** argv)
   if (set_mode && (value_type == NULL))
     {
       g_printerr (_("Must specify a type when setting a value\n"));
+      return 1;
+    }
+
+  if (ignore_schema_defaults && !(get_mode || all_entries_mode ||
+				  dump_values || recursive_list ||
+				  get_list_size_mode || get_list_element_mode))
+    {
+      g_printerr (_("--ignore-schema-defaults is only relevant with --get, --all-entries, --dump, --recursive-list, --get-list-size or --get-list-element\n"));
       return 1;
     }
 
@@ -703,12 +721,6 @@ main (int argc, char** argv)
       return 1;
     }
 
-  if (config_source && !use_local_source)
-    {
-      g_printerr (_("You should use --direct when using a non-default configuration source\n"));
-      return 1;
-    }
-  
   if (!gconf_init(argc, argv, &err))
     {
       g_printerr (_("Failed to init GConf: %s\n"), err->message);
@@ -780,10 +792,16 @@ main (int argc, char** argv)
     conf = gconf_engine_get_default();
   else
     {
+      GSList *addresses;
+
+      addresses = gconf_persistent_name_get_address_list (config_source);
+
       if (use_local_source)
-        conf = gconf_engine_get_local(config_source, &err);
+        conf = gconf_engine_get_local_for_addresses (addresses, &err);
       else
-        conf = gconf_engine_get_for_address(config_source, &err);
+        conf = gconf_engine_get_for_addresses (addresses, &err);
+
+      gconf_address_list_free (addresses);
     }
   
   if (conf == NULL)
@@ -1226,7 +1244,8 @@ list_pairs_in_dir(GConfEngine* conf, const gchar* dir, guint depth)
           GConfEntry* pair = tmp->data;
           gchar* s;
 
-          if (gconf_entry_get_value (pair))
+          if (gconf_entry_get_value (pair) && 
+	      (!ignore_schema_defaults || !gconf_entry_get_is_default (pair)))
             s = gconf_value_to_string (gconf_entry_get_value (pair));
           else
             s = g_strdup(_("(no value set)"));
@@ -1497,7 +1516,8 @@ dump_entries_in_dir(GConfEngine* conf, const gchar* dir, const gchar* base_dir)
         g_print ("      <schema_key>%s</schema_key>\n",
 		 get_key_relative(gconf_entry_get_schema_name(entry), base_dir));
 
-      if (entry->value)
+      if (entry->value && 
+	  (!ignore_schema_defaults || !gconf_entry_get_is_default(entry)))
         print_value_in_xml(entry->value, 6);
 
       g_print ("    </entry>\n");
@@ -1541,6 +1561,21 @@ do_spawn_daemon(GConfEngine* conf)
     }
 }
 
+static inline GConfValue *
+get_maybe_without_default (GConfEngine  *conf,
+			   const gchar  *key,
+			   GError      **err)
+{
+  if (!ignore_schema_defaults)
+    {
+      return gconf_engine_get (conf, key, err);
+    }
+  else
+    {
+      return gconf_engine_get_without_default (conf, key, err);
+    }
+}
+
 static int
 do_get(GConfEngine* conf, const gchar** args)
 {
@@ -1559,7 +1594,7 @@ do_get(GConfEngine* conf, const gchar** args)
 
       err = NULL;
 
-      value = gconf_engine_get (conf, *args, &err);
+      value = get_maybe_without_default (conf, *args, &err);
          
       if (value != NULL)
         {
@@ -1818,7 +1853,7 @@ do_get_type(GConfEngine* conf, const gchar** args)
 
       err = NULL;
 
-      value = gconf_engine_get (conf, *args, &err);
+      value = get_maybe_without_default (conf, *args, &err);
          
       if (value != NULL)
 	{
@@ -1856,7 +1891,7 @@ do_get_list_size(GConfEngine* conf, const gchar** args)
       return 1;
     }
 
-  list = gconf_engine_get (conf, *args, &err);
+  list = get_maybe_without_default (conf, *args, &err);
 
   if (list == NULL)
     {
@@ -1901,7 +1936,7 @@ do_get_list_element(GConfEngine* conf, const gchar** args)
       return 1;
     }
 
-  list = gconf_engine_get (conf, *args, &err);
+  list = get_maybe_without_default (conf, *args, &err);
 
   if (list == NULL)
     {
@@ -2763,7 +2798,6 @@ set_values(GConfEngine* conf, const gchar* base_dir, const gchar* key, const cha
 {
   GSList* tmp;
   gchar* full_key;
-  gchar* full_schema_key;
  
   if (base_dir)
     full_key = gconf_concat_dir_and_key(base_dir, key);
@@ -2772,23 +2806,17 @@ set_values(GConfEngine* conf, const gchar* base_dir, const gchar* key, const cha
 
   if (schema_key)
     {
+      gchar* full_schema_key;
+
       if (base_dir && *schema_key != '/')
         full_schema_key = gconf_concat_dir_and_key(base_dir, schema_key);
       else
         full_schema_key = g_strdup(schema_key);
-    }
-  else
-    full_schema_key = NULL;
-
-  tmp = values;
-  while (tmp)
-    {
-      GConfValue* value = tmp->data;
-      GError* error;
 
       if (full_schema_key)
         {
-          error = NULL;
+	  GError* error = NULL;
+	  
           if (!gconf_engine_associate_schema(conf, full_key, full_schema_key,  &error))
             {
               g_assert(error != NULL);
@@ -2797,7 +2825,16 @@ set_values(GConfEngine* conf, const gchar* base_dir, const gchar* key, const cha
 			  full_schema_key, full_key, error->message);
               g_error_free(error);
             }
-        }
+
+	  g_free(full_schema_key);
+	}
+    }
+
+  tmp = values;
+  while (tmp)
+    {
+      GConfValue* value = tmp->data;
+      GError* error;
 
       error = NULL;
       gconf_engine_set(conf, full_key, value, &error);
@@ -2811,7 +2848,6 @@ set_values(GConfEngine* conf, const gchar* base_dir, const gchar* key, const cha
       tmp = tmp->next;
     }
 
-  g_free(full_schema_key);
   g_free(full_key);
 }
 
@@ -2840,7 +2876,7 @@ process_entry(GConfEngine* conf, xmlNodePtr node, const gchar** base_dirs, const
       iter = iter->next;
     }
 
-  if (key && values)
+  if (key && (values || schema_key))
     {
       if (!base_dirs)
         set_values(conf, orig_base, key, schema_key, values);

@@ -1,3 +1,4 @@
+/* -*- mode: C; c-file-style: "gnu" -*- */
 /* GConf
  * Copyright (C) 2003 Imendio HB
  *
@@ -26,7 +27,7 @@
 
 static DBusConnection *bus_conn;
 static const char *server_path[] = { "org", "gnome", "GConf", "Server", NULL };
-static gint nr_of_connections = 0;
+static int nr_of_connections = 0;
 
 #define SERVICE_DELETED_RULE "type='signal',member='ServiceDeleted'," \
 	"sender='org.freedesktop.DBus',interface='org.freedesktop.DBus'"
@@ -54,7 +55,6 @@ server_vtable = {
 static void
 server_unregistered_func (DBusConnection *connection, void *user_data)
 {
-  g_print ("Server object unregistered\n");
   nr_of_connections = 0;
 }
 
@@ -101,17 +101,17 @@ server_message_func (DBusConnection *connection,
 static void
 server_real_handle_get_db (DBusConnection *connection,
 			   DBusMessage    *message,
-			   const char     *address)
+			   GSList         *addresses)
 {
   DBusMessageIter    iter;
   GConfDatabaseDBus *db;
   DBusMessage       *reply;
   GError            *gerror = NULL;
- 
+  
   if (gconfd_dbus_check_in_shutdown (connection, message))
     return;
 
-  db = gconf_database_dbus_get (connection, address, &gerror);
+  db = gconf_database_dbus_get (connection, addresses, &gerror);
 
   if (gconfd_dbus_set_exception (connection, message, &gerror))
     return;
@@ -142,15 +142,44 @@ server_handle_get_default_db (DBusConnection *connection,
 static void
 server_handle_get_db (DBusConnection *connection, DBusMessage *message)
 {
-  char *address;
+  GSList          *addresses = NULL;
+  char            *address;
+  DBusMessageIter  iter;
+  DBusMessageIter  array_iter;
+  int              array_type;
+  DBusMessage     *reply;
 
-  if (!gconfd_dbus_get_message_args (connection, message, 
-				     DBUS_TYPE_STRING, &address,
-				     0))
-    return;
+  if (!dbus_message_iter_init (message, &iter))
+    goto fail;
+    
+  if (!dbus_message_iter_init_array_iterator (&iter,
+					      &array_iter,
+					      &array_type) ||
+      array_type != DBUS_TYPE_STRING)
+    goto fail;
+  
+  while (1)
+    {
+      address = dbus_message_iter_get_string (&array_iter);
+      
+      addresses = g_slist_append (addresses, address);
+      
+      if (!dbus_message_iter_next (&array_iter))
+	break;
+    }
+  
+  server_real_handle_get_db (connection, message, addresses);
 
-  server_real_handle_get_db (connection, message, address);
-  dbus_free (address);
+  g_slist_foreach (addresses, (GFunc)dbus_free, NULL);
+  g_slist_free (addresses);
+
+  return;
+  
+ fail:
+  reply = dbus_message_new_error (message, GCONF_DBUS_ERROR_FAILED,
+				  _("Got a malformed message."));
+  dbus_connection_send (connection, reply, NULL);
+  dbus_message_unref (reply);
 }
 
 static void
@@ -190,14 +219,6 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  if (!dbus_bus_register (bus_conn, &error))
-    {
-      gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
-		 error.message);
-      dbus_error_free (&error);
-      return FALSE;
-    }
-  
   /* Add filter for ServiceDeleted so we get notified when the clients go away. */
   dbus_bus_add_match (bus_conn, SERVICE_DELETED_RULE, NULL);
 

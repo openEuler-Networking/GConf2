@@ -44,6 +44,7 @@
 
 #ifdef HAVE_DBUS
 #include "gconfd-dbus.h"
+#include "gconf-database-dbus.h"
 #endif
 
 #include <stdio.h>
@@ -85,6 +86,10 @@ safe_g_hash_table_insert(GHashTable* ht, gpointer key, gpointer value)
 
 static GConfLock *daemon_lock = NULL;
 
+static GList* db_list = NULL;
+static GHashTable* dbs_by_addresses = NULL;
+static GConfDatabase *default_db = NULL;
+
 /*
  * Declarations
  */
@@ -92,9 +97,7 @@ static GConfLock *daemon_lock = NULL;
 static void     gconf_main            (void);
 static gboolean gconf_main_is_running (void);
 
-
-
-static void    enter_shutdown          (void);
+static void     enter_shutdown (void);
 
 static void                 init_databases (void);
 static void                 shutdown_databases (void);
@@ -568,7 +571,7 @@ main(int argc, char** argv)
   /* Save current state in logfile (may compress the logfile a good
    * bit)
    */
-  gconfd_corba_logfile_save ();
+  gconfd_corba_logfile_save (default_db);
 #endif
   
   shutdown_databases ();
@@ -648,7 +651,7 @@ periodic_cleanup_timeout(gpointer data)
 
 #ifdef HAVE_ORBIT
   /* Compress the running state file */
-  gconfd_corba_logfile_save ();
+  gconfd_corba_logfile_save (default_db);
 #endif
   
   need_log_cleanup = FALSE;
@@ -714,23 +717,15 @@ gconf_main_is_running (void)
  * Database storage
  */
 
-static GList* db_list = NULL;
-static GHashTable* dbs_by_address = NULL;
-static GConfDatabase *default_db = NULL;
-
 static void
 init_databases (void)
 {
   gconfd_need_log_cleanup ();
   
   g_assert(db_list == NULL);
-  g_assert(dbs_by_address == NULL);
-  
-  dbs_by_address = g_hash_table_new (g_str_hash, g_str_equal);
-
-  /* Default database isn't in the address hash since it has
-     multiple addresses in a stack
-  */
+  g_assert(dbs_by_addresses == NULL);
+   
+  dbs_by_addresses = g_hash_table_new (g_str_hash, g_str_equal);
 }
 
 static void
@@ -739,10 +734,8 @@ set_default_database (GConfDatabase* db)
   gconfd_need_log_cleanup ();
   
   default_db = db;
-  
-  /* Default database isn't in the address hash since it has
-     multiple addresses in a stack
-  */
+
+  register_database (db);
 }
 
 static void
@@ -751,9 +744,9 @@ register_database (GConfDatabase *db)
   gconfd_need_log_cleanup ();
   
   if (db->sources->sources)
-    safe_g_hash_table_insert(dbs_by_address,
-                             ((GConfSource*)db->sources->sources->data)->address,
-                             db);
+    safe_g_hash_table_insert (dbs_by_addresses,
+			      (char *) gconf_database_get_persistent_name (db),
+                              db);
   
   db_list = g_list_prepend (db_list, db);
 }
@@ -764,8 +757,10 @@ unregister_database (GConfDatabase *db)
   gconfd_need_log_cleanup ();
   
   if (db->sources->sources)
-    g_hash_table_remove(dbs_by_address,
-                        ((GConfSource*)(db->sources->sources->data))->address);
+    {
+      g_hash_table_remove (dbs_by_addresses,
+			   gconf_database_get_persistent_name (db));
+    }
 
   db_list = g_list_remove (db_list, db);
 
@@ -773,12 +768,21 @@ unregister_database (GConfDatabase *db)
 }
 
 GConfDatabase*
-gconfd_lookup_database (const gchar *address)
+gconfd_lookup_database (GSList *addresses)
 {
-  if (address == NULL)
+  GConfDatabase *retval;
+  char          *key;
+
+  if (addresses == NULL)
     return default_db;
-  else
-    return g_hash_table_lookup (dbs_by_address, address);
+
+  key = gconf_address_list_get_persistent_name (addresses);
+
+  retval = g_hash_table_lookup (dbs_by_addresses, key);
+
+  g_free (key);
+
+  return retval;
 }
 
 GList *
@@ -788,23 +792,19 @@ gconfd_get_database_list (void)
 }
 
 GConfDatabase*
-gconfd_obtain_database (const gchar *address,
+gconfd_obtain_database (GSList  *addresses,
 			GError **err)
 {
-  
   GConfSources* sources;
-  GSList* addresses = NULL;
   GError* error = NULL;
   GConfDatabase *db;
 
-  db = gconfd_lookup_database (address);
+  db = gconfd_lookup_database (addresses);
 
   if (db)
     return db;
 
-  addresses = g_slist_append(addresses, g_strdup(address));
   sources = gconf_sources_new_from_addresses(addresses, &error);
-  g_slist_free (addresses);
 
   if (error != NULL)
     {
@@ -865,7 +865,7 @@ drop_old_databases(void)
       GConfDatabase* db = tmp_list->data;
 
       unregister_database (db);
-            
+
       tmp_list = g_list_next (tmp_list);
     }
 
@@ -895,10 +895,10 @@ shutdown_databases (void)
   g_list_free (db_list);
   db_list = NULL;
 
-  if (dbs_by_address)
-    g_hash_table_destroy(dbs_by_address);
+  if (dbs_by_addresses)
+    g_hash_table_destroy(dbs_by_addresses);
 
-  dbs_by_address = NULL;
+  dbs_by_addresses = NULL;
 
   if (default_db)
     gconf_database_free (default_db);
@@ -915,6 +915,87 @@ no_databases_in_use (void)
   return db_list == NULL &&
     gconf_listeners_count (default_db->listeners) == 0;
 }
+
+void
+gconfd_notify_other_listeners (GConfDatabase *modified_db,
+			       GConfSources  *modified_sources,
+                               const char    *key)
+{
+  GList *tmp;
+
+  if (!modified_sources)
+    return;
+  
+  tmp = db_list;
+  while (tmp != NULL)
+    {
+      GConfDatabase *db = tmp->data;
+
+      if (db != modified_db)
+	{
+	  GList *tmp2;
+
+	  tmp2 = modified_sources->sources;
+	  while (tmp2)
+	    {
+	      GConfSource *modified_source = tmp2->data;
+
+	      if (gconf_sources_is_affected (db->sources, modified_source, key))
+		{
+		  GConfValue  *value;
+		  GError      *error;
+		  gboolean     is_default;
+		  gboolean     is_writable;
+
+		  error = NULL;
+		  value = gconf_database_query_value (db,
+						      key,
+						      NULL,
+						      TRUE,
+						      NULL,
+						      &is_default,
+						      &is_writable,
+						      &error);
+		  if (error != NULL)
+		    {
+		      gconf_log (GCL_WARNING,
+				 _("Error obtaining new value for `%s': %s"),
+				 key, error->message);
+		      g_error_free (error);
+		      return;
+		    }
+
+#ifdef HAVE_ORBIT
+		  gconf_database_corba_notify_listeners (db,
+							 NULL,
+							 key,
+							 value,
+							 is_default,
+							 is_writable,
+							 FALSE);
+#endif
+#ifdef HAVE_DBUS
+		  gconf_database_dbus_notify_listeners (db,
+							NULL,
+							key,
+							value,
+							is_default,
+							is_writable,
+							FALSE);
+#endif
+
+		  if (value)
+		    gconf_value_free (value);
+		}
+
+	      tmp2 = tmp2->next;
+	    }
+	}
+
+      tmp = tmp->next;
+    }
+}
+
 
 /*
  * Cleanup
@@ -940,3 +1021,4 @@ gconfd_in_shutdown (void)
 {
   return in_shutdown;
 }
+

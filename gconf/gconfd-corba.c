@@ -48,7 +48,7 @@ static void    log_clients_to_string (GString              *str);
  * CORBA goo
  */
 
-static ConfigServer server = CORBA_OBJECT_NIL;
+static ConfigServer2 server = CORBA_OBJECT_NIL;
 static PortableServer_POA the_poa;
 
 static ConfigDatabase
@@ -59,6 +59,11 @@ static ConfigDatabase
 gconfd_get_database(PortableServer_Servant servant,
                     const CORBA_char* address,
                     CORBA_Environment* ev);
+
+static ConfigDatabase
+gconfd_get_database_for_addresses (PortableServer_Servant           servant,
+				   const ConfigServer2_AddressList *addresses,
+				   CORBA_Environment               *ev);
 
 static void
 gconfd_add_client (PortableServer_Servant servant,
@@ -92,8 +97,13 @@ static POA_ConfigServer__epv server_epv = {
   gconfd_shutdown
 };
 
-static POA_ConfigServer__vepv poa_server_vepv = { &base_epv, &server_epv };
-static POA_ConfigServer poa_server_servant = { NULL, &poa_server_vepv };
+static POA_ConfigServer2__epv server2_epv = { 
+  NULL,
+  gconfd_get_database_for_addresses
+};
+
+static POA_ConfigServer2__vepv poa_server_vepv = { &base_epv, &server_epv, &server2_epv };
+static POA_ConfigServer2 poa_server_servant = { NULL, &poa_server_vepv };
 
 static ConfigDatabase
 gconfd_get_default_database(PortableServer_Servant servant,
@@ -118,19 +128,51 @@ gconfd_get_database(PortableServer_Servant servant,
                     CORBA_Environment* ev)
 {
   GConfDatabase *db;
+  GSList *addresses;
   GError* error = NULL;  
 
   if (gconfd_corba_check_in_shutdown (ev))
     return CORBA_OBJECT_NIL;
   
-  db = gconfd_obtain_database (address, &error);
+  addresses = g_slist_append (NULL, (char *) address);
+  db = gconfd_obtain_database (addresses, &error);
+  g_slist_free (addresses);
+  
+  if (db != NULL)
+    return CORBA_Object_duplicate (gconf_database_corba_get_objref (db), ev);
+
+  gconf_corba_set_exception (&error, ev);
+
+  return CORBA_OBJECT_NIL;
+}
+
+static ConfigDatabase
+gconfd_get_database_for_addresses (PortableServer_Servant           servant,
+				   const ConfigServer2_AddressList *seq,
+				   CORBA_Environment               *ev)
+{
+  GConfDatabase  *db;
+  GSList         *addresses = NULL;
+  GError         *error = NULL;  
+  int             i;
+
+  if (gconfd_corba_check_in_shutdown (ev))
+    return CORBA_OBJECT_NIL;
+
+  i = 0;
+  while (i < seq->_length)
+    addresses = g_slist_append (addresses, seq->_buffer [i++]);
+
+  db = gconfd_obtain_database (addresses, &error);
+
+  g_slist_free (addresses);
 
   if (db != NULL)
     return CORBA_Object_duplicate (gconf_database_corba_get_objref (db), ev);
-  else if (gconf_corba_set_exception(&error, ev))
-    return CORBA_OBJECT_NIL;
-  else
-    return CORBA_OBJECT_NIL;
+
+  gconf_corba_set_exception (&error, ev);
+
+  return CORBA_OBJECT_NIL;
 }
 
 static void
@@ -176,7 +218,7 @@ gconfd_shutdown(PortableServer_Servant servant, CORBA_Environment *ev)
 }
 
 PortableServer_POA
-gconf_corba_get_poa ()
+gconf_corba_get_poa (void)
 {
   return the_poa;
 }
@@ -192,7 +234,7 @@ gconfd_corba_init (void)
 
   orb = gconf_orb_get ();
   
-  POA_ConfigServer__init (&poa_server_servant, &ev);
+  POA_ConfigServer2__init (&poa_server_servant, &ev);
   
   the_poa = (PortableServer_POA)CORBA_ORB_resolve_initial_references(orb, "RootPOA", &ev);
   PortableServer_POAManager_activate(PortableServer_POA__get_the_POAManager(the_poa, &ev), &ev);
@@ -337,7 +379,7 @@ close_append_handle (void)
  * leave the running log in place.
  */
 void
-gconfd_corba_logfile_save (void)
+gconfd_corba_logfile_save (GConfDatabase *default_db)
 {
   GList *tmp_list;
   gchar *logdir = NULL;
@@ -346,7 +388,7 @@ gconfd_corba_logfile_save (void)
   gchar *tmpfile2 = NULL;
   GString *saveme = NULL;
   gint fd = -1;
-  
+
   /* Close the running log */
   close_append_handle ();
   
@@ -356,18 +398,12 @@ gconfd_corba_logfile_save (void)
                          * that matter on open()
                          */
 
-  saveme = g_string_new ("");
+  saveme = g_string_new (NULL);
 
   /* Clients */
   log_clients_to_string (saveme);
   
-  /* Default database */
-  gconf_database_log_listeners_to_string (gconfd_lookup_database (NULL),
-                                          TRUE,
-                                          saveme);
-
-  /* Other databases */
-  
+  /* Databases */
   tmp_list = gconfd_get_database_list ();;
 
   while (tmp_list)
@@ -375,7 +411,7 @@ gconfd_corba_logfile_save (void)
       GConfDatabase *db = tmp_list->data;
 
       gconf_database_log_listeners_to_string (db,
-                                              FALSE,
+					      db == default_db ? TRUE : FALSE,
                                               saveme);
       
       tmp_list = g_list_next (tmp_list);
@@ -906,13 +942,21 @@ listener_logentry_restore_and_destroy_foreach (gpointer key,
                                                gpointer data)
 {
   ListenerLogEntry *lle = key;
-  GConfDatabase *db;
+  GConfDatabase *db = NULL;
   
   if (strcmp (lle->address, "def") == 0)
     db = gconfd_lookup_database (NULL);
   else
-    db = gconfd_obtain_database (lle->address, NULL);
-  
+    {
+      GSList *addresses;
+
+      addresses = gconf_persistent_name_get_address_list (lle->address);
+
+      db = gconfd_obtain_database (addresses, NULL);
+
+      gconf_address_list_free (addresses);
+    }
+
   if (db == NULL)
     {
       gconf_log (GCL_WARNING,
@@ -948,7 +992,7 @@ read_line (FILE *f)
   int c;
   GString *str;
   
-  str = g_string_new ("");
+  str = g_string_new (NULL);
   
   flockfile (f);
 

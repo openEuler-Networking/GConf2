@@ -45,11 +45,12 @@ CORBA_unsigned_long gconf_database_corba_readd_listener   (GConfDatabase       *
 							   const gchar         *where);
 
 void                gconf_database_corba_notify_listeners (GConfDatabase       *db,
+							   GConfSources        *modified_sources,
 							   const gchar         *key,
 							   const GConfValue    *value,
 							   gboolean             is_default,
-							   gboolean             is_writable);
-
+							   gboolean             is_writable,
+							   gboolean             notify_others);
 
 #endif
 

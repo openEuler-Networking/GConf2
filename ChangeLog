@@ -1,3 +1,325 @@
+2004-04-19  Mark McLoughlin  <mark@skynet.ie>
+
+	Based on a patch from Julio Merino <jmmv@hispabsd.org>
+	in bug #102825
+
+	* configure.in: add a --enable-gtk=yes/no/auto (defaults to auto)
+
+2004-04-19  Mark McLoughlin  <mark@skynet.ie>
+
+	Patch Elijah Newren <bugsqueesher@yahoo.com> in bug #138009
+
+	* examples/basic-gconf-app.c: (config_entry_commit):
+	return a boolean so we don't crash.
+
+2004-04-19  Mark McLoughlin  <mark@skynet.ie>
+
+	Based on a patch from Ryan Lovett <ryan@ocf.berkeley.edu>
+	in bug #95198.
+
+	* backends/markup-backend.c: (resolve_address):
+	  backends/xml-backend.c: (resolve_address): check to see
+	if the dir exists before trying to create it rather than
+	relying on EEXIST from mkdir.
+
+2004-04-19  Mark McLoughlin  <mark@skynet.ie>
+
+	* backends/dir-utils.[ch],
+	  backends/val-encode.[ch]: remove last remenants
+	of the BDB backend.
+
+2004-04-19  Mark McLoughlin  <mark@skynet.ie>
+
+	Tracked down by Gustavo GirÃ¡ldez  <gustavo.giraldez@gmx.net>
+	in bug #139170
+
+	* gconf/gconfd.c: (logfile_save): don't save default_db explicitly
+	since its now stored in the same list as the other dbs - but do
+	make sure that it gets saved as "def" rather than using its full
+	address list.
+
+2004-04-16  Colin Walters  <walters@redhat.com>
+
+	* gconf/gconf-internals.c (gconf_activate_server): Move temporary
+	directory creation into daemon code, so that we play better with
+	SELinux.  Patch reviewed by (and several improvements suggested by)
+	Mark McLoughlin <mark@skynet.ie>.
+
+2004-04-13  Mark McLoughlin  <mark@skynet.ie>
+
+	Fix pointed out by Frédéric L. W. Meunier <1@pervalidus.net>.
+
+	* gconf.m4.in: add quotes around AM_GCONF_SOURCE_2 to
+	quell autoconf's rudeness.
+
+2004-04-08  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+        * configure.in: Added "gu" (Gujarati) to ALL_LINGUAS.
+
+2004-04-08  Adam Weinberger  <adamw@gnome.org>
+
+	* configure.in: Added en_CA to ALL_LINGUAS.
+
+2004-04-05  Mark McLoughlin  <mark@skynet.ie>
+
+	Revert the --dump behaviour change (not dumping schema defaults)
+	and add a --ignore-schema-defaults argument which applies to
+	all arguments which get the value of a key.
+
+	* gconf/gconftool.c:
+	(main): check that --ignore-schema-defaults is being used with
+	an option which gets a value.
+	(list_pairs_in_dir), (dump_entries_in_dir):
+	respect --ignore-schema-defaults.
+	(get_maybe_without_default): helper function.
+	(do_get), (do_get_type), (do_get_list_size), (do_get_list_element):
+	respect --ignore-schema-defaults.
+
+2004-04-02  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconftool.c: (set_values), (process_entry): handle
+	an <entry> with only a <schema_name> correctly.
+
+2004-04-01  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconftool.c: (dump_entries_in_dir): don't dump
+	the value if its the schema default.
+
+2004-04-01  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/default.path.in: fix the position of the
+	local-defaults.path include. Bug #137578.
+
+2004-03-31  Mark McLoughlin  <mark@skynet.ie>
+
+	Fix last remaining obvious issue I'm seeing with the previous
+	patches. gconfd was crashing when removing objects from the
+	panel.
+
+	* gconf/gconf-database.c: (gconf_database_recursive_unset):
+	Don't try and propogate a NULL error.
+	
+	* gconf/gconf-sources.c:
+	(gconf_sources_unset_value): create modified_sources when
+	they it doesn't exist.
+	(prepend_unset_notify): add a couple of assertions.
+	(recursive_unset_helper): unset modified_sources between
+	unsets so that we don't append to the same source list.
+
+2004-03-30  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconf-backend.c: (gconf_backend_verify_vtable):
+	Return TRUE if the vtable is okay.
+
+2004-03-30  Mark McLoughlin  <mark@skynet.ie>
+
+	* doc/gconf/tmpl/gconf-backend.sgml: add some documentation
+	for set_notify_func().
+
+2004-03-30  Mark McLoughlin  <mark@skynet.ie>
+
+	* tests/testbackend.c: (foreach_recursive), (sync_and_clear),
+	(check_unset), (set_value), (get_value): upd. for the fact
+	we have a copy of the vtale now rather than a pointer to it.
+
+2004-03-30  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconf-backend.h: actually add the vtable_size
+	vtable member.
+
+2004-03-29  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconf-database.c:
+	(safe_g_hash_table_insert): remove - no hash table here.
+
+2004-03-29  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconf-engine.h: add gconf_engine_get_for_addresses()
+	and gconf_engine_get_local_for_addresses().
+	
+	* gconf/gconf.c:
+	(gconf_engine_connect): implement setting up a database from
+	an arbitrary stack of sources.
+	(register_engine): use the concatenation of addresses for the key.
+	(unregister_engine): free the persistent address and address list on
+	unregistering.
+	(lookup_engine): use the concatenation of addresses for the key.
+	(gconf_engine_get_local_for_addresses): add.
+	(gconf_engine_get_for_address): update for register_engine change.
+	(gconf_engine_get_for_addresses): impl support for remote composite dbs.
+	(update_listener): update for the fact that listeners are now saved using
+	the persistent name.
+	
+	* gconf/GConfX.idl: extend the ConfigServer interface
+	by adding ConfigServer2 inherting from ConfigServer.
+	Add ConfigServer2::get_database_for_addresses().
+	
+	* gconf/gconf-backend.c:
+	(gconf_address_valid), (gconf_get_backend): check the backend
+	address doesn't contain any special characters.
+	
+	* gconf/gconf-database.[ch]:
+	(source_notify_cb): don't notify unless this change could
+	actually cause a change for the client.
+	(gconf_database_notify_listeners): impl. notifying "other"
+	listeners - clients listening on other stacks which contains
+	any of the modified sources.
+	(gconf_database_set), (gconf_database_unset): keep track of
+	the sources modified by the change and update for the
+	notify_listeners change.
+	(gconf_database_recursive_unset): ditto and upd. for the
+	change in the listeners list returned by
+	gconf_sources_recursive_unset().
+	(gconf_database_get_persistent_name): make the persistent
+	name a concatenation of the individual addresses instead
+	of the first address.
+	
+	* gconf/gconf-internals.[ch]:
+	(gconf_address_list_get_persistent_name): impl method similar
+	to gconf_database_get_persistent_name, except concatenate
+	the addresses from a GSList.
+	(gconf_persistent_name_get_address_list): do the reverse.
+	(gconf_address_list_free): free the list of strings.
+
+	* gconf/gconf-sources.[ch]:
+	(gconf_sources_new_from_source): allow creating an empty source
+	list.
+	(gconf_sources_set_value),
+	(gconf_sources_unset_value): return the sources modified by
+	the change.
+	(prepend_unset_notify), (recursive_unset_helper),
+	(gconf_sources_recursive_unset): return a list of GConfUnsetNotifys
+	which contains both the key and the modified source.
+	(get_address_resource): copy and paste of gconf_address_resource
+	except it doesn't dup the return value.
+	(gconf_sources_is_affected): figure out if a change to a particular
+	key in one source affects the key with a particular stack of sources.
+	
+	* gconf/gconfd.[ch]: impl ConfigServer2 inheritance.
+	(gconfd_get_database): upd for obtain_database change.
+	(gconfd_get_composite_database): implement.
+	(init_databases): rename dbs_by_address to dbs_by_addresses.
+	(set_default_database): register the default db like the others.
+	(register_database): use the persistent name as the key.
+	(unregister_database): ditto.
+	(lookup_database): ditto.
+	(obtain_database): use a list of addresses, not a single one.
+	(gconfd_notify_other_listeners): impl notifying listeners
+	on GConfDatabases other than the one which was changed.
+	(listener_logentry_restore_and_destroy_foreach): restore by
+	splitting the address list string.
+
+	* gconf/gconftool.c: (main): enable --config-source without
+	--direct as it works better now. Also allow --config-source
+	to be an address list.
+	
+2004-03-29  Mark McLoughlin  <mark@skynet.ie>
+
+	* backends/markup-backend.c,
+	  backends/xml-backend.c: initialize the set_notify_func
+	vtable member.
+
+2004-03-29  Mark McLoughlin  <mark@skynet.ie>
+
+	Re-work the notifications-from-backends patch so that the
+	backend doesn't have to keep track of a callback per
+	listener as suggested by Cyrille.
+
+	* gconf/gconf-backend.h: add a set_notify_func() member	to
+	the vtable and remove the callback arg from add_listener().
+	
+	* gconf/gconf-database.c:
+	(gconf_database_new): set the notification callback here.
+	(gconf_database_readd_listener): upd.
+	
+	* gconf/gconf-sources.[ch]:
+	(gconf_source_set_notify_func): add.
+	(gconf_source_add_listener): upd.
+	(gconf_sources_set_notify_func): add.
+	(gconf_sources_add_listener): upd.
+
+2004-03-26  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconf-database.c: (source_notify_cb): don't leak
+	the schema name.
+	
+	* gconf/gconf-sources.c:
+	(gconf_sources_add_listener),
+	(gconf_sources_remove_listener): fix mistake pointed out
+	by Cyrille.
+
+2004-03-25  Mark McLoughlin  <mark@skynet.ie>
+
+	Allow backends to notify the daemon of changes to entries.
+	Based on a patch from Cyrille Moureaux <Cyrille.Moureaux@Sun.COM>
+	in bug #07692.
+
+	* gconf/gconf-backend.h: add add_listener() and
+	remove_listener() members to the vtable.
+	
+	* gconf/gconf-database.c:
+	(source_notify_cb): re-compute the value and notify
+	listeners when the backend reports the key has changed.
+	(gconf_database_readd_listener),
+	(gconf_database_remove_listener): add/remove backend
+	listeners.
+	
+	* gconf/gconf-sources.[c]:
+	(gconf_source_add_listener),
+	(gconf_source_remove_listener),
+	(gconf_sources_add_listener),
+	(gconf_sources_remove_listener): impl. the glue.
+	
+	* doc/gconf/tmpl/gconf-backend.sgml: update the backend
+	documentation.
+	
+	* backends/markup-backend.c,
+	  backends/xml-backend.c: set the add_listener() and
+	remove_listener() members to NULL.
+	
+2004-03-24  Mark McLoughlin  <mark@skynet.ie>
+	
+	* gconf/gconf-backend.h: add a vtable_size member to
+	the vtable.
+
+	* gconf/gconf-backend.c:
+	(gconf_backend_verify_vtable): impl. copying handling
+	mismatches in vtable sizes and also refuse to use the
+	backend if any of the functions we require are NULL.
+	(gconf_get_backend): fixup error handling a bit.
+	
+	* gconf/gconf-sources.c: update to take into account
+	that the we have a copy of the vtable now rather than
+	just a pointer to it.
+	
+	* doc/gconf/tmpl/gconf-backend.sgml: upd.
+
+	* backends/markup-backend.c,
+	  backends/xml-backend.c: add sizeof (GConfBackendVTable) to
+	the vtable.
+	
+2004-03-24  Mark McLoughlin  <mark@skynet.ie>
+	
+	* gconf/gconf-database.c: (impl_ConfigDatabase_set): don't
+	convert the value into a string and then do nothing with it.
+	
+2004-03-30  Mark McLoughlin  <mark@skynet.ie>
+
+	* configure.in: bump to 2.7.1. 2.6.x development is on
+	the gnome-2-6 branch now.
+
+2004-03-24  Mark McLoughlin  <mark@skynet.ie>
+
+	* configure.in: kill the message-of-doom.
+
+2004-03-22  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+        * configure.in: Added "pa" (Punjabi) to ALL_LINGUAS.
+
+2004-03-22  Mark McLoughlin  <mark@skynet.ie>
+
+	* configure.in: post-release bump to 2.6.1.
+
 2004-03-22  Mark McLoughlin  <mark@skynet.ie>
 
 	* configure.in: Version 2.6.0

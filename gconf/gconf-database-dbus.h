@@ -25,16 +25,17 @@
 
 typedef struct _GConfDatabaseDBus GConfDatabaseDBus;
 
-GConfDatabaseDBus * gconf_database_dbus_get (DBusConnection *conn, 
-					     const gchar *address,
-					     GError **error);
-void                gconf_database_dbus_unregister_all (void);
-const gchar *       gconf_database_dbus_get_path (GConfDatabaseDBus *db);
+GConfDatabaseDBus *gconf_database_dbus_get              (DBusConnection     *conn,
+							 GSList             *addresses,
+							 GError            **error);
+void               gconf_database_dbus_unregister_all   (void);
+const gchar *      gconf_database_dbus_get_path         (GConfDatabaseDBus  *db);
+void               gconf_database_dbus_notify_listeners (GConfDatabase      *db,
+							 GConfSources       *modified_sources,
+							 const gchar        *key,
+							 const GConfValue   *value,
+							 gboolean            is_default,
+							 gboolean            is_writable,
+							 gboolean            notify_others);
 
-
-void     gconf_database_dbus_notify_listeners (GConfDatabase    *db,
-                                               const gchar      *key,
-                                               const GConfValue *value,
-                                               gboolean          is_default,
-                                               gboolean          is_writable);
 #endif

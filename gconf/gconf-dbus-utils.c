@@ -362,7 +362,7 @@ gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter,
 	    {
 	      int *array;
 
-	      array = g_new (dbus_int32_t, len);
+	      array = g_new (dbus_int32_t, len + 1);
 
 	      i = 0;
 	      while (list)
@@ -383,7 +383,7 @@ gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter,
 	    {
 	      double *array;
 
-	      array = g_new (double, len);
+	      array = g_new (double, len + 1);
 
 	      i = 0;
 	      while (list)
@@ -404,7 +404,7 @@ gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter,
 	    {
 	      unsigned char *array;
 
-	      array = g_new (unsigned char, len);
+	      array = g_new (unsigned char, len + 1);
 
 	      i = 0;
 	      while (list)

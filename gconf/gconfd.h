@@ -27,19 +27,19 @@ G_BEGIN_DECLS
 #include "gconf-error.h"
 #include "gconf-database.h"
 
-
-void gconfd_need_log_cleanup (void);
+void           gconfd_need_log_cleanup       (void);
 
 /* This list should not be freed */
-GList *        gconfd_get_database_list (void);
+GList *        gconfd_get_database_list      (void);
+GConfDatabase *gconfd_lookup_database        (GSList         *addresses);
+GConfDatabase* gconfd_obtain_database        (GSList         *addresses,
+					      GError        **err);
+void           gconf_main_quit               (void);
+gboolean       gconfd_in_shutdown            (void);
+void           gconfd_notify_other_listeners (GConfDatabase  *modified_db,
+					      GConfSources   *modified_sources,
+					      const char     *key);
 
-GConfDatabase *gconfd_lookup_database   (const gchar  *address);
-GConfDatabase* gconfd_obtain_database   (const gchar  *address,
-					 GError      **err);
-
-void gconf_main_quit (void);
-
-gboolean gconfd_in_shutdown (void);
 
 G_END_DECLS
 

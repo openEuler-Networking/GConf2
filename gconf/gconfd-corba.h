@@ -49,7 +49,7 @@ gboolean gconfd_logfile_change_listener (GConfDatabase *db,
                                          const gchar *where,
                                          GError **err);
 
-void gconfd_corba_logfile_save (void);
+void gconfd_corba_logfile_save (GConfDatabase *default_db);
 void gconfd_corba_logfile_read (void);
 void gconfd_corba_log_client_add (const ConfigListener client);
 void gconfd_corba_log_client_remove (const ConfigListener client);

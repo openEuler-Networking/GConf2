@@ -35,8 +35,7 @@ struct _GConfDatabaseDBus {
   GConfDatabase  *db;
   DBusConnection *conn;
   
-  char     *address;
-  char     *object_path;
+  char *object_path;
   
   /* Information about clients that want notification. */
   GHashTable *notifications;
@@ -120,15 +119,15 @@ database_unregistered_func (DBusConnection *connection, GConfDatabaseDBus *db)
 }
 
 static DBusHandlerResult
-database_message_func (DBusConnection  *connection,
-                       DBusMessage     *message,
+database_message_func (DBusConnection    *connection,
+                       DBusMessage       *message,
                        GConfDatabaseDBus *db)
 {
   if (gconfd_dbus_check_in_shutdown (connection, message))
     {
       return DBUS_HANDLER_RESULT_HANDLED;
     }
-
+  
   if (dbus_message_is_method_call (message,
 				   GCONF_DBUS_DATABASE_INTERFACE,
 				   GCONF_DBUS_DATABASE_LOOKUP)) {
@@ -177,16 +176,18 @@ database_message_func (DBusConnection  *connection,
   else if (dbus_message_is_method_call (message,
 					GCONF_DBUS_DATABASE_INTERFACE,
 					GCONF_DBUS_DATABASE_ADD_NOTIFY)) {
-	  database_handle_add_notify (connection, message, db);
+    database_handle_add_notify (connection, message, db);
   }
   else if (dbus_message_is_method_call (message,
 					GCONF_DBUS_DATABASE_INTERFACE,
 					GCONF_DBUS_DATABASE_REMOVE_NOTIFY)) {
-	  database_handle_remove_notify (connection, message, db);
-  } else {
-    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    database_handle_remove_notify (connection, message, db);
   }
-
+  else
+    {
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+  
   return DBUS_HANDLER_RESULT_HANDLED;
 }
 
@@ -247,8 +248,8 @@ database_handle_service_deleted (DBusConnection *connection,
 }
     
 static void
-database_handle_lookup (DBusConnection  *conn,
-                        DBusMessage     *message,
+database_handle_lookup (DBusConnection    *conn,
+                        DBusMessage       *message,
                         GConfDatabaseDBus *db)
 {
   GConfValue *value;
@@ -256,8 +257,8 @@ database_handle_lookup (DBusConnection  *conn,
   gchar *key;
   gchar *locale;
   GConfLocaleList *locales;
-  gboolean     use_schema_default;
-  GError      *gerror = NULL;
+  gboolean use_schema_default;
+  GError *gerror = NULL;
   
   if (!gconfd_dbus_get_message_args (conn, message,
 				     DBUS_TYPE_STRING, &key,
@@ -265,7 +266,7 @@ database_handle_lookup (DBusConnection  *conn,
 				     DBUS_TYPE_BOOLEAN, &use_schema_default,
 				     0))
     return;
-  
+
   locales = gconfd_locale_cache_lookup (locale);
   dbus_free (locale);
   
@@ -276,29 +277,33 @@ database_handle_lookup (DBusConnection  *conn,
   dbus_free (key);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
-    return;
+    goto fail;
 
   reply = dbus_message_new_method_return (message);
   gconf_dbus_message_append_gconf_value (reply, value);
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
+
+ fail:
+  if (value)
+    gconf_value_free (value);
 }
 
 static void 
-database_handle_lookup_ext (DBusConnection  *conn,
-			    DBusMessage     *message,
+database_handle_lookup_ext (DBusConnection    *conn,
+			    DBusMessage       *message,
 			    GConfDatabaseDBus *db)
 {
   GConfValue *value;
-  gchar      *schema_name;
-  gboolean    value_is_default;
-  gboolean    value_is_writable;
+  gchar *schema_name;
+  gboolean value_is_default;
+  gboolean value_is_writable;
   DBusMessage *reply;
   gchar *key;
   gchar *locale;
   GConfLocaleList *locales;
-  gboolean     use_schema_default;
-  GError      *gerror = NULL;
+  gboolean use_schema_default;
+  GError *gerror = NULL;
   
   if (!gconfd_dbus_get_message_args (conn, message,
 				     DBUS_TYPE_STRING, &key,
@@ -306,7 +311,7 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				     DBUS_TYPE_BOOLEAN, &use_schema_default,
 				     0))
     return;
-  
+
   locales = gconfd_locale_cache_lookup (locale);
   dbus_free (locale);
   
@@ -316,7 +321,7 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				      &value_is_writable, &gerror);
   
   if (gconfd_dbus_set_exception (conn, message, &gerror))
-    return;
+    goto fail;
 
   reply = dbus_message_new_method_return (message);
   gconf_dbus_message_append_entry (reply,
@@ -325,18 +330,22 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				   value_is_default,
 				   value_is_writable,
 				   schema_name);
-  
-  dbus_free (key);
-  gconf_value_free (value);
-  g_free (schema_name);
-  
+
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
+
+ fail:
+  dbus_free (key);
+
+  if (value)
+    gconf_value_free (value);
+
+  g_free (schema_name);
 }
                                                                       
 static void
-database_handle_set (DBusConnection *conn,
-                     DBusMessage    *message,
+database_handle_set (DBusConnection    *conn,
+                     DBusMessage       *message,
                      GConfDatabaseDBus *db)
 {
   gchar *key;
@@ -364,8 +373,8 @@ database_handle_set (DBusConnection *conn,
 }
 
 static void
-database_handle_unset (DBusConnection *conn,
-		       DBusMessage    *message,
+database_handle_unset (DBusConnection    *conn,
+		       DBusMessage       *message,
 		       GConfDatabaseDBus *db)
 {
   gchar *key;
@@ -379,6 +388,12 @@ database_handle_unset (DBusConnection *conn,
 				     0))
     return;
 
+  if (locale[0] == '\0')
+    {
+      dbus_free (locale);
+      locale = NULL;
+    }
+  
   gconf_database_unset (db->db, key, locale, &gerror);
   dbus_free (key);
   dbus_free (locale);
@@ -408,7 +423,13 @@ database_handle_recursive_unset  (DBusConnection *conn,
 				     DBUS_TYPE_UINT32, &unset_flags,
 				     0))
     return;
-
+  
+  if (locale[0] == '\0')
+    {
+      dbus_free (locale);
+      locale = NULL;
+    }
+  
   gconf_database_recursive_unset (db->db, key, locale, unset_flags, &gerror);
   dbus_free (key);
   dbus_free (locale);
@@ -683,8 +704,9 @@ ensure_initialized (void)
 }
 
 GConfDatabaseDBus *
-gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
-			 GError **gerror)
+gconf_database_dbus_get (DBusConnection  *conn,
+			 GSList          *addresses,
+			 GError         **gerror)
 {
   GConfDatabaseDBus  *dbus_db = NULL;
   GConfDatabase      *db;
@@ -692,18 +714,23 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 
   ensure_initialized ();
 
-  db = gconfd_lookup_database (address);
+  db = gconfd_lookup_database (addresses);
   if (!db)
     {
-      db = gconfd_obtain_database (address, gerror);
+      db = gconfd_obtain_database (addresses, gerror);
       if (!db)
 	{
-	  gconf_log (GCL_WARNING, _("Database not found: %s"), address);
+	  char *name;
+
+	  name = gconf_address_list_get_persistent_name (addresses);
+	  gconf_log (GCL_WARNING, _("Database not found: %s"), name);
+	  g_free (name);
+
 	  return NULL;
 	}
     }
 
-  if (!address)
+  if (!addresses)
     dbus_db = default_db;
   else
     dbus_db = g_hash_table_lookup (databases, &db); 
@@ -715,14 +742,12 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   dbus_db->db = db;
   dbus_db->conn = conn;
 
-  if (!address)
+  if (!addresses)
     {
-      dbus_db->address = NULL;
       default_db = dbus_db;
     }
   else 
     {
-      dbus_db->address = g_strdup (address);
       g_hash_table_insert (databases, &db, dbus_db);
     }
 
@@ -775,16 +800,19 @@ gconf_database_dbus_get_path (GConfDatabaseDBus *db)
 
 void
 gconf_database_dbus_notify_listeners (GConfDatabase    *db,
+				      GConfSources     *modified_sources,
 				      const gchar      *key,
 				      const GConfValue *value,
 				      gboolean          is_default,
-				      gboolean          is_writable)
+				      gboolean          is_writable,
+				      gboolean          notify_others)
 {
   GConfDatabaseDBus *dbus_db = NULL;
   char *dir, *sep;
   GList *l;
   NotificationData *notification;
   DBusMessage *message;
+  gboolean last;
   
   if (db == default_db->db)
     dbus_db = default_db;
@@ -800,11 +828,14 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
    * remove the leaf, lookup again, remove the leaf, and so on until a match is
    * found. Notify the clients (identified by their base service) that
    * correspond to the found namespace.
-  */ 
+  */
+  last = FALSE;
   while (1)
     {
       notification = g_hash_table_lookup (dbus_db->notifications, dir);
 
+      g_print ("try '%s', %p\n", dir, notification);
+      
       if (notification)
 	{
 	  for (l = notification->clients; l; l = l->next)
@@ -832,13 +863,31 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 	      dbus_message_unref (message);
 	    }
 	}
-      
-      sep = strrchr (dir, '/');
-      if (sep == dir)
+
+      if (last)
 	break;
       
-      *sep = '\0';
+      sep = strrchr (dir, '/');
+
+      /* Special case to catch notifications on the root. */
+      if (sep == dir)
+	{
+	  last = TRUE;
+	  sep[1] = '\0';
+	}
+      else
+	*sep = '\0';
     }
 
   g_free (dir);
+
+  if (notify_others)
+    {
+      g_return_if_fail (modified_sources != NULL);
+
+      gconfd_notify_other_listeners (db, modified_sources, key);
+
+      g_list_free (modified_sources->sources);
+      g_free (modified_sources);
+    }
 }

@@ -36,7 +36,7 @@
 #include <unistd.h>
 #include <dbus/dbus.h>
 
-#define d(x) 
+#define d(x)
 
 #define BUS_RULE    "type='signal',sender='org.freedesktop.DBus',interface='org.freedesktop.DBus'"
 #define NOTIFY_RULE "type='method_call',interface='org.gnome.GConf.Database'"
@@ -52,11 +52,16 @@ struct _GConfEngine {
   /* If non-NULL, this is a local engine;
      local engines don't do notification! */
   GConfSources* local_sources;
-  
-  /* An address if this is not the default engine;
+
+  /* A list of addresses that make up this db
+   * if this is not the default engine;
    * NULL if it's the default
    */
-  gchar *address;
+  GSList *addresses;
+
+  /* A concatentation of the addresses above.
+   */
+  char *persistent_address;
 
   gpointer user_data;
   GDestroyNotify dnotify;
@@ -137,7 +142,7 @@ static DBusHandlerResult
 gconf_dbus_message_filter                       (DBusConnection   *dbus_conn,
 						 DBusMessage      *message,
 						 gpointer          user_data);
-static GConfEngine *lookup_engine_by_address    (const gchar      *address);
+static GConfEngine *lookup_engine_by_address    (GSList           *addresses);
 static GConfEngine *lookup_engine_by_database   (const gchar      *db);
 static gboolean     gconf_handle_dbus_exception (DBusMessage      *message,
 						 DBusError        *derr,
@@ -489,6 +494,10 @@ ensure_database (GConfEngine *conf,
   DBusMessage *message, *reply;
   DBusError error;
   gchar *db;
+  const char **strv;
+  int len, i;
+  GSList *list;
+  DBusMessageIter iter;
 
   g_return_val_if_fail (!conf->is_local, TRUE);
 
@@ -520,11 +529,28 @@ ensure_database (GConfEngine *conf,
 					      GCONF_DBUS_SERVER_OBJECT,
 					      GCONF_DBUS_SERVER_INTERFACE,
 					      GCONF_DBUS_SERVER_GET_DB);
-      dbus_message_append_args (message,
-				DBUS_TYPE_STRING, conf->address,
-				DBUS_TYPE_INVALID);
-    }
 
+      dbus_message_append_iter_init (message, &iter);
+      
+      list = conf->addresses;
+      len = g_slist_length (list);
+      
+      strv = (const char **)g_new (char *, len + 1);
+      strv[len] = NULL;
+
+      i = 0;
+      while (list)
+	{
+	  strv[i] = (gchar *)list->data;
+	  
+	  list = list->next;
+	  ++i;
+	}
+      
+      dbus_message_iter_append_string_array (&iter, strv, len);
+      g_free (strv);
+    }
+      
   dbus_error_init (&error);
   reply = dbus_connection_send_with_reply_and_block (global_conn,
 						     message, -1, &error);
@@ -546,7 +572,7 @@ ensure_database (GConfEngine *conf,
       if (err)
         *err = gconf_error_new (GCONF_ERROR_BAD_ADDRESS,
 				_("Server couldn't resolve the address `%s'"),
-				conf->address ? conf->address : "default");
+				conf->persistent_address);
       
       return FALSE;
     }
@@ -578,22 +604,30 @@ gconf_engine_is_local (GConfEngine* conf)
 static void
 register_engine (GConfEngine *conf)
 {
-  g_return_if_fail (conf->address != NULL);
+  g_return_if_fail (conf->addresses != NULL);
 
+  g_assert (conf->persistent_address == NULL);
+
+  conf->persistent_address = 
+    gconf_address_list_get_persistent_name (conf->addresses);
+  
   if (engines_by_address == NULL)
     engines_by_address = g_hash_table_new (g_str_hash, g_str_equal);
 
-  g_hash_table_insert (engines_by_address, conf->address, conf);
+  g_hash_table_insert (engines_by_address, conf->persistent_address, conf);
 }
 
 static void
 unregister_engine (GConfEngine *conf)
 {
-  g_return_if_fail (conf->address != NULL);
   g_return_if_fail (engines_by_address != NULL);
   
-  g_hash_table_remove (engines_by_address, conf->address);
-
+  g_assert (conf->persistent_address != NULL);
+  
+  g_hash_table_remove (engines_by_address, conf->persistent_address);
+  g_free (conf->persistent_address);
+  conf->persistent_address = NULL;
+ 
   if (g_hash_table_size (engines_by_address) == 0)
     {
       g_hash_table_destroy (engines_by_address);
@@ -603,14 +637,24 @@ unregister_engine (GConfEngine *conf)
 }
 
 static GConfEngine *
-lookup_engine_by_address (const gchar *address)
+lookup_engine_by_address (GSList *addresses)
 {
-  if (engines_by_address)
-    return g_hash_table_lookup (engines_by_address, address);
-  else
-    return NULL;
-}
+  if (engines_by_address != NULL)
+    {
+      GConfEngine *retval;
+      char        *key;
+      
+      key = gconf_address_list_get_persistent_name (addresses);
+      
+      retval = g_hash_table_lookup (engines_by_address, key);
+      
+      g_free (key);
+      
+      return retval;
+    }
 
+  return NULL;
+}
 
 /*
  * Connection maintenance
@@ -747,6 +791,24 @@ gconf_engine_get_local      (const gchar* address,
   return conf;
 }
 
+GConfEngine *
+gconf_engine_get_local_for_addresses (GSList  *addresses,
+				      GError **err)
+{
+  GConfEngine *conf;
+
+  g_return_val_if_fail (addresses != NULL, NULL);
+  g_return_val_if_fail (err == NULL || *err == NULL, NULL);
+  
+  conf = gconf_engine_blank (FALSE);
+
+  conf->local_sources = gconf_sources_new_from_addresses (addresses, err);
+
+  g_assert (gconf_engine_is_local (conf));
+  
+  return conf;
+}
+
 GConfEngine*
 gconf_engine_get_default (void)
 {
@@ -770,19 +832,65 @@ gconf_engine_get_default (void)
 }
 
 GConfEngine*
-gconf_engine_get_for_address (const gchar* address, GError** err)
+gconf_engine_get_for_address (const gchar  *address,
+			      GError      **err)
 {
-  GConfEngine* conf;
+  GConfEngine *conf;
+  GSList      *addresses;
 
-  conf = lookup_engine_by_address (address);
+  addresses = g_slist_append (NULL, g_strdup (address));
+  
+  conf = lookup_engine_by_address (addresses);
 
   if (conf == NULL)
     {
       conf = gconf_engine_blank (TRUE);
 
       conf->is_default = FALSE;
-      conf->address = g_strdup (address);
+      conf->addresses = addresses;
 
+      if (!ensure_database (conf, TRUE, err))
+        {
+          gconf_engine_unref (conf);
+          return NULL;
+        }
+      
+      register_engine (conf);
+    }
+  else
+    {
+      g_free (addresses->data);
+      g_slist_free (addresses);
+      conf->refcount += 1;
+    }
+  
+  return conf;
+}
+
+GConfEngine*
+gconf_engine_get_for_addresses (GSList *addresses, GError** err)
+{
+  GConfEngine* conf;
+
+  conf = lookup_engine_by_address (addresses);
+
+  if (conf == NULL)
+    {
+      GSList *tmp;
+
+      conf = gconf_engine_blank (TRUE);
+
+      conf->is_default = FALSE;
+      conf->addresses = NULL;
+      
+      tmp = addresses;
+      while (tmp != NULL)
+	{
+          conf->addresses = g_slist_append (conf->addresses,
+                                            g_strdup (tmp->data));
+          tmp = tmp->next;
+        }
+      
       if (!ensure_database (conf, TRUE, err))
         {
           gconf_engine_unref (conf);
@@ -833,10 +941,16 @@ gconf_engine_unref (GConfEngine* conf)
               (* conf->dnotify) (conf->user_data);
             }
           
-          /* do this after removing the notifications,
-             to avoid funky race conditions */
-          if (conf->address)
-            unregister_engine (conf);
+          if (conf->addresses)
+	    {
+	      gconf_address_list_free (conf->addresses);
+	      conf->addresses = NULL;
+	    }
+
+	  if (conf->persistent_address)
+	    {
+	      unregister_engine (conf);
+	    }
 
           /* Release the ConfigDatabase */
           gconf_engine_detach (conf);
@@ -1248,7 +1362,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
     {
       GError* error = NULL;
       
-      gconf_sources_set_value (conf->local_sources, key, value, &error);
+      gconf_sources_set_value (conf->local_sources, key, value, NULL, &error);
 
       if (error != NULL)
         {
@@ -1320,7 +1434,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
     {
       GError* error = NULL;
       
-      gconf_sources_unset_value (conf->local_sources, key, NULL, &error);
+      gconf_sources_unset_value (conf->local_sources, key, NULL, NULL, &error);
 
       if (error != NULL)
         {
@@ -1354,7 +1468,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
   
   dbus_message_append_args (message,
 			    DBUS_TYPE_STRING, key,
-			    DBUS_TYPE_STRING, gconf_current_locale (),
+			    DBUS_TYPE_STRING, "",
 			    DBUS_TYPE_INVALID);
 
   dbus_error_init (&error);
@@ -1447,7 +1561,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
   
   dbus_message_append_args (message,
 			    DBUS_TYPE_STRING, key,
-			    DBUS_TYPE_STRING, gconf_current_locale (),
+			    DBUS_TYPE_STRING, "",
 			    DBUS_TYPE_UINT32, dbus_flags,
 			    DBUS_TYPE_INVALID);
 
@@ -2150,7 +2264,7 @@ gconf_debug_shutdown (void)
 {
   gconf_detach_config_server ();
 
-  return 1;
+  return 0;
 }
 
 static DBusHandlerResult

@@ -211,7 +211,6 @@ impl_ConfigDatabase_set(PortableServer_Servant servant,
                         CORBA_Environment * ev)
 {
   GConfDatabase *db = DB_FROM_SERVANT (servant);
-  gchar* str;
   GConfValue* val;
   GError* error = NULL;
 
@@ -232,15 +231,16 @@ impl_ConfigDatabase_set(PortableServer_Servant servant,
       return;
     }
       
-  str = gconf_value_to_string(val);
-
 #if 0
-  /* reduce traffice to the logfile */
-  gconf_log(GCL_DEBUG, "Received request to set key `%s' to `%s'", key, str);
-#endif
-  
-  g_free(str);
+  {
+    gchar* str = gconf_value_to_string(val);
 
+    /* reduce traffice to the logfile */
+    gconf_log(GCL_DEBUG, "Received request to set key `%s' to `%s'", key, str);
+  
+    g_free(str);
+  }
+#endif
   
   gconf_database_set(db, key, val, &error);
 
@@ -880,6 +880,8 @@ gconf_database_corba_readd_listener   (GConfDatabase       *db,
   cnxn = gconf_listeners_add (db->listeners, where, l,
                               (GFreeFunc)listener_destroy);
 
+  gconf_sources_add_listener (db->sources, cnxn, where);
+  
   if (l->parent.name == NULL)
     l->parent.name = g_strdup_printf ("%u", cnxn);
   
@@ -962,6 +964,8 @@ gconf_database_corba_remove_listener (GConfDatabase       *db,
                  err->message);
       g_error_free (err);
     }
+
+  gconf_sources_remove_listener (db->sources, cnxn);
   
   /* calls destroy notify */
   gconf_listeners_remove (db->listeners, cnxn);
@@ -1019,10 +1023,12 @@ notify_listeners_cb(GConfListeners* listeners,
 
 void
 gconf_database_corba_notify_listeners (GConfDatabase       *db,
+				       GConfSources        *modified_sources,
 				       const gchar         *key,
 				       const GConfValue    *value,
 				       gboolean             is_default,
-				       gboolean             is_writable)
+				       gboolean             is_writable,
+				       gboolean             notify_others)
 {
   ListenerNotifyClosure closure;
   GSList* tmp;
@@ -1053,6 +1059,16 @@ gconf_database_corba_notify_listeners (GConfDatabase       *db,
       tmp = g_slist_next(tmp);
     }
 
+  if (notify_others)
+    {
+      g_return_if_fail (modified_sources != NULL);
+
+      gconfd_notify_other_listeners (db, modified_sources, key);
+
+      g_list_free (modified_sources->sources);
+      g_free (modified_sources);
+    }
+  
   CORBA_free (closure.value);
 }
 

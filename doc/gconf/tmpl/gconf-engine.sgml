@@ -30,6 +30,15 @@ configuration values.
 An opaque data type representing one or more configuration sources.
 </para>
 
+@refcount: 
+@local_sources: 
+@address: 
+@user_data: 
+@dnotify: 
+@owner: 
+@owner_use_count: 
+@is_default: 
+@is_local: 
 
 <!-- ##### FUNCTION gconf_engine_get_default ##### -->
 <para>
