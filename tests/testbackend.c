@@ -380,6 +380,53 @@ set_bool (GConfSource *source,
   return ret;
 }
 
+static gboolean
+set_float (GConfSource *source,
+           const char  *key,
+           double       v,
+           GError     **err)
+{
+  GConfValue *value;
+  gboolean ret;
+  
+  value = gconf_value_new (GCONF_VALUE_FLOAT);
+  gconf_value_set_float (value, v);
+  ret = set_value (source, key, value, err);
+  gconf_value_free (value);
+  return ret;
+}
+
+static gboolean
+set_list (GConfSource   *source,
+          const char    *key,
+          GConfValueType list_type,
+          GSList        *list,
+          GError       **err)
+{
+  GConfValue *value_list;
+  GError *tmp_err = NULL;
+  gboolean ret;
+  
+  g_return_val_if_fail (source != NULL, FALSE);
+  g_return_val_if_fail (key != NULL, FALSE);
+  g_return_val_if_fail (list_type != GCONF_VALUE_INVALID, FALSE);
+  g_return_val_if_fail (list_type != GCONF_VALUE_LIST, FALSE);
+  g_return_val_if_fail (list_type != GCONF_VALUE_PAIR, FALSE);
+  g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
+
+  value_list = gconf_value_list_from_primitive_list (list_type, list, &tmp_err);
+
+  if (tmp_err)
+    {
+      g_propagate_error (err, tmp_err);
+      return FALSE;
+    }
+
+  ret = set_value (source, key, value_list, err);
+  gconf_value_free (value_list);
+  return ret;
+}
+
 static GConfValue*
 get_value (GConfSource *source,
            const char  *key,
@@ -400,6 +447,7 @@ get_string (GConfSource *source,
 
   if (val)
     {
+      g_assert (val->type == GCONF_VALUE_STRING);
       s = gconf_value_steal_string (val);
       gconf_value_free (val);
     }
@@ -423,6 +471,7 @@ get_bool (GConfSource *source,
 
   if (val)
     {
+      g_assert (val->type == GCONF_VALUE_BOOL);
       b = gconf_value_get_bool (val);
       gconf_value_free (val);
     }
@@ -432,6 +481,80 @@ get_bool (GConfSource *source,
     }
 
   return b;
+}
+
+static int
+get_int (GConfSource *source,
+          const char  *key,
+          GError     **err)
+{
+  GConfValue *val;
+  int i;
+  
+  val = get_value (source, key, err);
+
+  if (val)
+    {
+      g_assert (val->type == GCONF_VALUE_INT);
+      i = gconf_value_get_int (val);
+      gconf_value_free (val);
+    }
+  else
+    {
+      i = FALSE;
+    }
+
+  return i;
+}
+
+static double
+get_float (GConfSource *source,
+           const char  *key,
+           GError     **err)
+{
+  GConfValue *val;
+  double d;
+  
+  val = get_value (source, key, err);
+
+  if (val)
+    {
+      g_assert (val->type == GCONF_VALUE_FLOAT);
+      d = gconf_value_get_float (val);
+      gconf_value_free (val);
+    }
+  else
+    {
+      d = FALSE;
+    }
+
+  return d;
+}
+
+static GSList*
+get_list (GConfSource     *source,
+          const char      *key,
+          GConfValueType   list_type,
+          GError         **err)
+{
+  GConfValue* val;
+
+  g_return_val_if_fail (source != NULL, NULL);
+  g_return_val_if_fail (key != NULL, NULL);
+  g_return_val_if_fail (list_type != GCONF_VALUE_INVALID, NULL);
+  g_return_val_if_fail (list_type != GCONF_VALUE_LIST, NULL);
+  g_return_val_if_fail (list_type != GCONF_VALUE_PAIR, NULL);
+  g_return_val_if_fail (err == NULL || *err == NULL, NULL);
+
+  val = get_value (source, key, err);
+
+  if (val == NULL)
+    return NULL;
+  else
+    {
+      /* This type-checks the value */
+      return gconf_value_list_to_primitive_list_destructive (val, list_type, err);
+    }
 }
 
 static void
@@ -647,7 +770,6 @@ check_bool_storage (GConfSource *source)
 void
 check_float_storage (GConfSource *source)
 {
-#if 0
   GError* err = NULL;
   const char** keyp = NULL;
   guint i; 
@@ -664,7 +786,7 @@ check_float_storage (GConfSource *source)
         {
           gdouble gotten;
           
-          if (!gconf_engine_set_float (source, *keyp, floats[i], &err))
+          if (!set_float (source, *keyp, floats[i], &err))
             {
               g_printerr ("Failed to set key `%s' to `%g': %s\n",
                           *keyp, floats[i], err->message);
@@ -675,7 +797,7 @@ check_float_storage (GConfSource *source)
             {
               sync_and_clear (source);
               
-              gotten = gconf_engine_get_float (source, *keyp, &err);
+              gotten = get_float (source, *keyp, &err);
 
               if (err != NULL)
                 {
@@ -713,7 +835,7 @@ check_float_storage (GConfSource *source)
         {
           gdouble gotten;
           
-          if (!gconf_engine_set_float (source, *keyp, floats[i], &err))
+          if (!set_float (source, *keyp, floats[i], &err))
             {
               g_printerr ("Failed to set key `%s' to `%g': %s\n",
                           *keyp, floats[i], err->message);
@@ -724,7 +846,7 @@ check_float_storage (GConfSource *source)
             {
               sync_and_clear (source);
               
-              gotten = gconf_engine_get_float (source, *keyp, &err);
+              gotten = get_float (source, *keyp, &err);
 
               if (err != NULL)
                 {
@@ -752,13 +874,11 @@ check_float_storage (GConfSource *source)
     }
           
   check_unset (source);
-#endif
 }
 
 void
 check_int_storage (GConfSource *source)
 {
-#if 0
   GError* err = NULL;
   const char** keyp = NULL;
   guint i; 
@@ -774,7 +894,7 @@ check_int_storage (GConfSource *source)
         {
           gint gotten;
           
-          if (!gconf_engine_set_int (source, *keyp, ints[i], &err))
+          if (!set_int (source, *keyp, ints[i], &err))
             {
               g_printerr ("Failed to set key `%s' to `%d': %s\n",
                           *keyp, ints[i], err->message);
@@ -785,7 +905,7 @@ check_int_storage (GConfSource *source)
             {
               sync_and_clear (source);
               
-              gotten = gconf_engine_get_int (source, *keyp, &err);
+              gotten = get_int (source, *keyp, &err);
 
               if (err != NULL)
                 {
@@ -823,7 +943,7 @@ check_int_storage (GConfSource *source)
         {
           gint gotten;
           
-          if (!gconf_engine_set_int (source, *keyp, ints[i], &err))
+          if (!set_int (source, *keyp, ints[i], &err))
             {
               g_printerr ("Failed to set key `%s' to `%d': %s\n",
                           *keyp, ints[i], err->message);
@@ -834,7 +954,7 @@ check_int_storage (GConfSource *source)
             {
               sync_and_clear (source);
               
-              gotten = gconf_engine_get_int (source, *keyp, &err);
+              gotten = get_int (source, *keyp, &err);
 
               if (err != NULL)
                 {
@@ -862,7 +982,6 @@ check_int_storage (GConfSource *source)
     }
           
   check_unset (source);
-#endif
 }
 
 static void
@@ -1011,7 +1130,6 @@ list_of_floats (void)
 static void
 check_list_storage (GConfSource *source)
 {
-#if 0
   GError* err = NULL;
   const char** keyp = NULL;
   guint i;
@@ -1052,7 +1170,7 @@ check_list_storage (GConfSource *source)
         {
           GSList* gotten = NULL;
           
-          if (!gconf_engine_set_list (source, *keyp, list_types[i], lists[i], &err))
+          if (!set_list (source, *keyp, list_types[i], lists[i], &err))
             {
               g_printerr ("Failed to set key `%s' to list: %s\n",
                           *keyp, err->message);
@@ -1063,7 +1181,7 @@ check_list_storage (GConfSource *source)
             {
               sync_and_clear (source);
               
-              gotten = gconf_engine_get_list (source, *keyp, list_types[i], &err);
+              gotten = get_list (source, *keyp, list_types[i], &err);
 
               if (err != NULL)
                 {
@@ -1094,7 +1212,6 @@ check_list_storage (GConfSource *source)
     }
 
   check_unset (source);
-#endif
 }
 
 typedef struct
@@ -1161,6 +1278,8 @@ main (int argc, char **argv)
       return 1;
     }
 
+  g_assert (source != NULL);
+  
   stats.entry_count = 0;
   foreach_recursive (source, "/", 0, print_entry, &stats);
 
@@ -1185,11 +1304,12 @@ main (int argc, char **argv)
   g_print ("\nChecking bool storage:");
   
   check_bool_storage (source);
+
+  sync_and_clear (source);
   
   gconf_source_free (source);
 
   g_print ("\n\n");
-
   
   return 0;
 }

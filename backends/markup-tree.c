@@ -488,6 +488,8 @@ markup_dir_ensure_entry (MarkupDir   *dir,
   if (entry != NULL)
     return entry;
 
+  g_return_val_if_fail (dir->entries_loaded, NULL);
+  
   /* Create a new entry */
   entry = markup_entry_new (dir, relative_key);
   dir->entries = g_slist_prepend (dir->entries, entry);
@@ -540,9 +542,11 @@ markup_dir_ensure_subdir (MarkupDir   *dir,
 
   if (subdir == NULL)
     {
+      g_return_val_if_fail (dir->subdirs_loaded, NULL);
+      
       subdir = markup_dir_new (dir->tree, dir, relative_key);
       subdir->entries_need_save = TRUE; /* so we save empty %gconf.xml */
-
+      
       /* we don't need to load stuff, since we know the dir didn't exist */
       subdir->entries_loaded = TRUE;
       subdir->subdirs_loaded = TRUE;
@@ -657,12 +661,14 @@ create_filesystem_dir (const char *name,
   return TRUE;
 }
 
-static void
+static gboolean
 delete_useless_subdirs (MarkupDir *dir)
 {
   GSList *tmp;
   GSList *kept_subdirs;
+  gboolean some_deleted;
 
+  some_deleted = FALSE;
   kept_subdirs = NULL;
   
   tmp = dir->subdirs;
@@ -701,25 +707,60 @@ delete_useless_subdirs (MarkupDir *dir)
           g_free (fs_filename);
 
           markup_dir_free (subdir);
+
+          some_deleted = TRUE;
         }
       else
         {
+          if (subdir->entries == NULL && subdir->subdirs == NULL)
+            {
+              char *fs_filename;
+              struct stat statbuf;
+              
+              fs_filename = markup_dir_build_path (subdir, TRUE);
+
+              if (stat (fs_filename, &statbuf) < 0)
+                {
+                  /* This is some kind of cruft, not an XML directory */
+                  g_printerr ("failed to stat %s: %s\n", fs_filename, g_strerror (errno));
+                }
+              else
+                {
+                  load_subdirs (subdir);
+                  if (statbuf.st_size == 0 && subdir->subdirs == NULL)
+                    {                                    
+                      g_print ("Not deleting %s entries_loaded = %d subdirs_loaded = %d "
+                               "subdir_needs_sync = %d entries_need_save = %d; %d entries %d subdirs\n",
+                               subdir->name, subdir->entries_loaded, subdir->subdirs_loaded,
+                               subdir->some_subdir_needs_sync, subdir->entries_need_save,
+                               g_slist_length (subdir->entries),
+                               g_slist_length (subdir->subdirs));
+                      exit (1);
+                    }
+                }
+              g_free (fs_filename);
+            }
           kept_subdirs = g_slist_prepend (kept_subdirs, subdir);
         }
-
+      
       tmp = tmp->next;
     }
-
+ 
   g_slist_free (dir->subdirs);
   dir->subdirs = g_slist_reverse (kept_subdirs);
-}
 
-static void
+  return some_deleted;
+} 
+
+static gboolean
 delete_useless_entries (MarkupDir *dir)
 {
   GSList *tmp;
   GSList *kept_entries;
+  gboolean some_deleted;
 
+  some_deleted = FALSE;
+  
   kept_entries = NULL;
 
   tmp = dir->entries;
@@ -734,6 +775,7 @@ delete_useless_entries (MarkupDir *dir)
           entry->schema_name == NULL)
         {
           markup_entry_free (entry);
+          some_deleted = TRUE;
         }
       else
         {
@@ -745,6 +787,8 @@ delete_useless_entries (MarkupDir *dir)
 
   g_slist_free (dir->entries);
   dir->entries = g_slist_reverse (kept_entries);
+
+  return some_deleted;
 }
 
 static gboolean
@@ -753,7 +797,25 @@ markup_dir_sync (MarkupDir *dir)
   char *fs_dirname;
   char *fs_filename;
   GSList *tmp;
+  gboolean some_useless_entries;
+  gboolean some_useless_subdirs;
+
+  some_useless_entries = FALSE;
+  some_useless_subdirs = FALSE;
   
+  {
+    MarkupDir *parent;
+
+    parent = dir->parent;
+    while (parent)
+      {
+        fputs ("  ", stdout);
+        parent = parent->parent;
+      }
+
+    g_print ("%s\n", dir->name);
+  }
+    
   /* We assume our parent directories have all been synced, before
    * we are synced. So we don't need to mkdir() parent directories.
    */
@@ -784,7 +846,8 @@ markup_dir_sync (MarkupDir *dir)
       
       g_return_val_if_fail (dir->entries_loaded, FALSE);
 
-      delete_useless_entries (dir);
+      if (delete_useless_entries (dir))
+        some_useless_entries = TRUE;
       
       /* Be sure the directory exists */
       if (!dir->filesystem_dir_probably_exists)
@@ -855,10 +918,29 @@ markup_dir_sync (MarkupDir *dir)
    * we're deleting our subdirs, the root dir (tree->root)
    * never gets deleted - this is intentional.
    */
-  delete_useless_subdirs (dir);
+  if (delete_useless_subdirs (dir))
+    some_useless_subdirs = TRUE;
   
   g_free (fs_dirname);
   g_free (fs_filename);
+
+
+  /* If we deleted an entry or subdir from this directory, and hadn't
+   * fully loaded this directory, we now don't know whether the entry
+   * or subdir was the last thing making the directory worth keeping
+   * around. So we need to load so we can be established as useless if
+   * necessary.
+   */
+  if (some_useless_entries && !dir->subdirs_loaded)
+    {
+      g_assert (dir->entries_loaded);
+      load_subdirs (dir);
+    }
+  if (some_useless_subdirs && !dir->entries_loaded)
+    {
+      g_assert (dir->subdirs_loaded);
+      load_entries (dir);
+    }
 
   return !markup_dir_needs_sync (dir);
 }
