@@ -1,3 +1,17 @@
+2001-05-11  Havoc Pennington  <hp@redhat.com>
+
+	* configure.in: bump version to 1.0.1
+
+	* gconf/gconfd.c (signal_handler): on SIGUSR1, enable/disable
+	debug spew.
+
+	* gconf/gconf-internals.c (gconf_log): use a runtime variable to
+	decide whether to log debug messages
+
+	* gconf/gconf-database.c, gconf/gconfd.c, gconf/gconf-internals.c:
+	Change some GCL_WARNING to GCL_DEBUG to chill out logging of
+	fairly normal events
+
 2001-04-17  Darin Adler  <darin@eazel.com>
 
 	* gconf/Makefile.am: Another try at that. This time for sure.

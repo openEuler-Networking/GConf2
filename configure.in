@@ -4,7 +4,7 @@ AC_INIT(gconf/gconf.h)
 
 AM_CONFIG_HEADER(config.h)
 
-AM_INIT_AUTOMAKE(GConf, 1.0.0)
+AM_INIT_AUTOMAKE(GConf, 1.0.1)
 
 AM_MAINTAINER_MODE
 
@@ -154,6 +154,15 @@ if test "x$XML_LIBS" = x; then
 fi
 AC_SUBST(XML_LIBS)
 AC_SUBST(XML_CFLAGS)
+
+AC_PATH_PROG(GNOME_CONFIG,gnome-config,no)
+if test x$GNOME_CONFIG = xno; then
+  AC_MSG_ERROR(Couldn't find gnome-config)
+fi
+GNOME_LIBS=`$GNOME_CONFIG --libs gnome gnomeui gtk`
+GNOME_CFLAGS=`$GNOME_CONFIG --cflags gnome gnomeui gtk`
+AC_SUBST(GNOME_LIBS)
+AC_SUBST(GNOME_CFLAGS)
 
 BDB_LIBS=
 BDB_CFLAGS=
