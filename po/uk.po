@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-02-12 16:25+0200\n"
+"POT-Creation-Date: 2001-02-14 15:39+0200\n"
 "PO-Revision-Date: 1999-12-29 12:36+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -40,7 +40,8 @@ msgstr "Неможливо створити каталог \"%s\": %s"
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr ""
-"Неможливо зд╕йснити зчитування чи запис у кореневому каталз╕ %s за адресою \"%s\""
+"Неможливо зд╕йснити зчитування чи запис у кореневому каталз╕ %s за адресою "
+"\"%s\""
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
@@ -55,7 +56,7 @@ msgstr "Не вдалося в╕днайти кореневий каталог XML за адресою \"%s\""
 #, c-format
 msgid "Can't read from or write to the XML root directory in the address `%s'"
 msgstr ""
-"Неможливо зчитати з чи записати в кореневий катало XML за адресою \"%s\""
+"Неможливо зчитати з чи записати в кореневий каталог XML за адресою \"%s\""
 
 #: backends/xml-backend.c:396
 #, c-format
@@ -97,7 +98,7 @@ msgstr "Не вдалося отримати ╕нформац╕ю про \"%s\": %s"
 #: backends/xml-dir.c:174
 #, c-format
 msgid "XML filename `%s' is a directory"
-msgstr "Назва файлу XML -- каталог"
+msgstr "Назва XML-файлу -- каталог"
 
 #: backends/xml-dir.c:298 backends/xml-dir.c:305
 #, c-format
@@ -143,12 +144,12 @@ msgstr "Повторення входження \"%s\" в \"%s\", про╕╜норовано"
 #: backends/xml-dir.c:972
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
-msgstr "Входження без назви у файл╕ XML \"%s\", про╕╜норовано"
+msgstr "Входження без назви у XML-файл╕ \"%s\", про╕╜норовано"
 
 #: backends/xml-dir.c:979
 #, c-format
 msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
-msgstr "Вузол верхнього р╕вня в файл╕ XML \"%s\" не <entry>, про╕╜норовано"
+msgstr "Вузол верхнього р╕вня в XML-файл╕ \"%s\" не <entry>, ╕╜норування"
 
 #: backends/xml-dir.c:1067
 #, c-format
@@ -164,7 +165,7 @@ msgstr "Не вдалося закрити файл \"%s\": %s"
 #: backends/xml-entry.c:148
 #, c-format
 msgid "Ignoring XML node with name `%s': %s"
-msgstr "Про╕╜норовано вузол XML з назвою \"%s\": %s"
+msgstr "╤╜норування XML-вузла з назвою \"%s\": %s"
 
 #: backends/xml-entry.c:199
 #, c-format
@@ -174,7 +175,7 @@ msgstr "%s"
 #: backends/xml-entry.c:326
 #, c-format
 msgid "Ignoring schema name `%s', invalid: %s"
-msgstr ""
+msgstr "╤╜норування назви схеми \"%s\", не дозволя╓ться: %s"
 
 #. FIXME for nodes with no value stored, but containing a schema name,
 #. * we improperly log an error here
@@ -182,7 +183,7 @@ msgstr ""
 #: backends/xml-entry.c:372
 #, c-format
 msgid "Ignoring XML node `%s', except for possible schema name: %s"
-msgstr ""
+msgstr "╤╜норування XML-вузла \"%s\", за виключенням можливо╖ назви схеми: %s"
 
 #: backends/xml-entry.c:723
 #, c-format
@@ -192,7 +193,7 @@ msgstr "Помилка отримання типового значення схеми: %s"
 #: backends/xml-entry.c:937
 #, c-format
 msgid "No \"type\" attribute for <%s> node"
-msgstr ""
+msgstr "Нема╓ ознаки \"type\" для вузла <%s>"
 
 #: backends/xml-entry.c:951
 #, c-format
@@ -201,61 +202,61 @@ msgstr "Вузол ма╓ нев╕домий атрибут \"type\" - \"%s\", про╕╜норовано"
 
 #: backends/xml-entry.c:966
 msgid "No \"value\" attribute for node"
-msgstr ""
+msgstr "Нема╓ ознаки \"value\" для вузла"
 
 #: backends/xml-entry.c:1014 backends/xml-entry.c:1090
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
-msgstr ""
+msgstr "Незрозум╕лий XML-вузол <%s> всередин╕ XML-вузла списку"
 
 #: backends/xml-entry.c:1048
 msgid "Invalid type (list, pair, or unknown) in a list node"
-msgstr ""
+msgstr "Нев╕рний тип (список, пара чи нев╕домий) у вузл╕ списку"
 
 #: backends/xml-entry.c:1071
 #, c-format
 msgid "Bad XML node: %s"
-msgstr "Нев╕рний вузол XML: %s"
+msgstr "Нев╕рний XML-вузол: %s"
 
 #: backends/xml-entry.c:1079
 #, c-format
 msgid "List contains a badly-typed node (%s, should be %s)"
-msgstr ""
+msgstr "Список м╕стить нев╕рно введений вузол (%s, ма╓ бути %s)"
 
 #: backends/xml-entry.c:1131
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
-msgstr ""
+msgstr "╤╜норування поганого CAR з XML-пари: %s"
 
 #: backends/xml-entry.c:1140 backends/xml-entry.c:1163
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
-msgstr ""
+msgstr "анал╕з XML-файлу: списки ╕ пари не можуть розм╕щатися в парах"
 
 #: backends/xml-entry.c:1153
 #, c-format
 msgid "Ignoring bad cdr from XML pair: %s"
-msgstr ""
+msgstr "╤╜норування поганого CDR з XML-пари: %s"
 
 #: backends/xml-entry.c:1172
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML pair node"
-msgstr ""
+msgstr "Незрозум╕лий XML-вузол <%s> всередин╕ XML-вузла пари"
 
 #: backends/xml-entry.c:1190
 msgid "Didn't find car and cdr for XML pair node"
-msgstr ""
+msgstr "Не знайдено CAR ╕ CDR для XML-вузла пари"
 
 #: backends/xml-entry.c:1196
 msgid "Missing cdr from pair of values in XML file"
-msgstr ""
+msgstr "В╕дсутн╕й CDR з пари значень в XML-файл╕"
 
 #: backends/xml-entry.c:1203
 msgid "Missing car from pair of values in XML file"
-msgstr ""
+msgstr "В╕дсутн╕й CAR з пари значень в XML-файл╕"
 
 #: backends/xml-entry.c:1208
 msgid "Missing both car and cdr values from pair in XML file"
-msgstr ""
+msgstr "В╕дсутн╕ CAR ╕ CDR з пари значень в XML-файл╕"
 
 #. -- end debug only
 #: gconf/gconf-backend.c:167
@@ -661,7 +662,7 @@ msgstr ""
 #: gconf/gconf-value.c:82
 #, c-format
 msgid "Didn't understand `%s' (expected integer)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (оч╕кувалось ц╕ле число)"
 
 #: gconf/gconf-value.c:92
 #, c-format
@@ -671,52 +672,52 @@ msgstr "Ц╕ле \"%s\" надто велике чи мале"
 #: gconf/gconf-value.c:113
 #, c-format
 msgid "Didn't understand `%s' (expected real number)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (оч╕кувалось д╕йсне число)"
 
 #: gconf/gconf-value.c:146
 #, c-format
 msgid "Didn't understand `%s' (expected true or false)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (оч╕кувалось лог╕чне значення)"
 
 #: gconf/gconf-value.c:214
 #, c-format
 msgid "Didn't understand `%s' (list must start with a '[')"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (список ма╓ починатись з \"[\")"
 
 #: gconf/gconf-value.c:227
 #, c-format
 msgid "Didn't understand `%s' (list must end with a ']')"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (список ма╓ зак╕нчуватись на \"]\")"
 
 #: gconf/gconf-value.c:278
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (знайдено зайвий символ \"]\" в списку)"
 
 #: gconf/gconf-value.c:309 gconf/gconf-value.c:462
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (знайдено зайв╕ символи в к╕нц╕)"
 
 #: gconf/gconf-value.c:348
 #, c-format
 msgid "Didn't understand `%s' (pair must start with a '(')"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (пара ма╓ починатись з \"(\")"
 
 #: gconf/gconf-value.c:361
 #, c-format
 msgid "Didn't understand `%s' (pair must end with a ')')"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (пара ма╓ зак╕нчуватись на \")\")"
 
 #: gconf/gconf-value.c:391 gconf/gconf-value.c:477
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (нев╕рна к╕льк╕сть елемент╕в)"
 
 #: gconf/gconf-value.c:431
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
-msgstr ""
+msgstr "Не зрозум╕ло \"%s\" (знайдено зайвий символ \")\" в пар╕)"
 
 #: gconf/gconf.c:54
 #, c-format
@@ -824,7 +825,7 @@ msgstr ""
 #: gconf/gconfd.c:320
 #, c-format
 msgid "Error loading some config sources: %s"
-msgstr ""
+msgstr "Помилка завантаження деяких джерел конф╕╜урац╕╖: %s"
 
 #: gconf/gconfd.c:332
 msgid ""
@@ -839,17 +840,21 @@ msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
 msgstr ""
+"Не було усп╕шно розп╕знано джерел конф╕╜урац╕╖, в як╕ можна записувати, "
+"можливо деяк╕ зм╕ни конф╕╜урац╕╖ не вдасться зберегти"
 
 #: gconf/gconfd.c:375
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
-msgstr ""
+msgstr "Отримано си╜нал %d, ядро скинуто. Будь ласка, пов╕домте про помилку в GConf."
 
 #: gconf/gconfd.c:391
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
-msgstr "Отримано си╜нал %d, ненормальне завершення роботи. Будь ласка, зв╕туйте про помилку GConf."
+msgstr ""
+"Отримано си╜нал %d, ненормальне завершення роботи. Будь ласка, зв╕туйте про "
+"помилку GConf."
 
 #: gconf/gconfd.c:408
 #, c-format
@@ -875,7 +880,7 @@ msgstr ""
 
 #: gconf/gconfd.c:504
 msgid "Failed to get object reference for ConfigServer"
-msgstr ""
+msgstr "Не вдалося отримати посилання на об'╓кт для ConfigServer"
 
 #: gconf/gconfd.c:524
 msgid ""
@@ -889,7 +894,7 @@ msgstr "╤нший gconf вже заре╓стровано в OAF; вих╕д\n"
 
 #: gconf/gconfd.c:533
 msgid "Unknown error registering gconfd with OAF; exiting\n"
-msgstr ""
+msgstr "Нев╕дома помилка ре╓страц╕╖ gconfd з OAF; вих╕д\n"
 
 #: gconf/gconfd.c:571
 msgid "Exiting"
@@ -897,7 +902,7 @@ msgstr "Завершення"
 
 #: gconf/gconfd.c:595
 msgid "GConf server is not in use, shutting down."
-msgstr ""
+msgstr "Сервер GConf не використову╓ться, вимикання."
 
 #: gconf/gconfd.c:930
 #, c-format
@@ -946,7 +951,9 @@ msgstr "Не вдалося перенести новий файл збереженого стану на м╕сце: %s"
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr "Не вдалося в╕дновити ори╜╕нальний файл збереженого стану, який було перенесено у \"%s\": %s"
+msgstr ""
+"Не вдалося в╕дновити ори╜╕нальний файл збереженого стану, який було "
+"перенесено у \"%s\": %s"
 
 #: gconf/gconfd.c:1633
 #, c-format
@@ -1111,7 +1118,7 @@ msgstr "ВЛАСНИК"
 
 #: gconf/gconftool.c:234
 msgid "Specify a schema file to be installed"
-msgstr ""
+msgstr "Вказати файл схеми, що ма╓ бути встановлено"
 
 #: gconf/gconftool.c:235
 msgid "FILENAME"
@@ -1130,6 +1137,8 @@ msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
 msgstr ""
+"Доступ до бази даних конф╕╜урац╕╖ напряму, повз сервер вимага╓, щоб "
+"gconfd не був запущений."
 
 #: gconf/gconftool.c:261
 msgid ""
@@ -1205,28 +1214,30 @@ msgstr ""
 
 #: gconf/gconftool.c:411
 msgid "--dir-exists option must be used by itself.\n"
-msgstr ""
+msgstr "Параметр --dir-exists ма╓ бути використаний сам.\n"
 
 #: gconf/gconftool.c:420
 msgid "--install-schema-file must be used by itself.\n"
-msgstr ""
+msgstr "Параметр --install-schema-file ма╓ бути використаний сам.\n"
 
 #: gconf/gconftool.c:430
 msgid "--makefile-install-rule must be used by itself.\n"
-msgstr ""
+msgstr "Параметр --makefile-install-rule ма╓ бути використаний сам.\n"
 
 #: gconf/gconftool.c:440
 msgid "--break-key must be used by itself.\n"
-msgstr ""
+msgstr "Параметр --break-key ма╓ бути використаний сам.\n"
 
 #: gconf/gconftool.c:450
 msgid "--break-directory must be used by itself.\n"
-msgstr ""
+msgstr "Параметр --break-directory ма╓ бути використаний сам.\n"
 
 #: gconf/gconftool.c:457
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
+"Потр╕бно вказати джерело конф╕╜урац╕╖ за допомогою параметра --config-source, "
+"якщо використову╓те параметр --direct\n"
 
 #: gconf/gconftool.c:463
 #, c-format
@@ -1260,7 +1271,7 @@ msgstr "Помилка вимкнення: %s\n"
 
 #: gconf/gconftool.c:730
 msgid "Must specify one or more dirs to recursively list.\n"
-msgstr ""
+msgstr "Потр╕бно вказати один чи б╕льше каталог╕в для рекурсивного списку.\n"
 
 #: gconf/gconftool.c:764
 #, c-format
@@ -1355,7 +1366,8 @@ msgstr "Неможна встановлювати схему як значення\n"
 
 #: gconf/gconftool.c:1036
 msgid "When setting a list you must specify a primitive list-type\n"
-msgstr "П╕д час встановлення списку необх╕дно вказати прим╕тивний тип list-type\n"
+msgstr ""
+"П╕д час встановлення списку необх╕дно вказати прим╕тивний тип list-type\n"
 
 #: gconf/gconftool.c:1050
 msgid ""
@@ -1428,7 +1440,8 @@ msgstr "УВАГА: нев╕рний чи в╕дсутн╕й тип list_type для схеми (%s)\n"
 #: gconf/gconftool.c:1384 gconf/gconftool.c:1414 gconf/gconftool.c:1443
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
-msgstr "УВАГА: Не вдалося проанал╕зувати типове значення \"%s\" для схеми (%s)\n"
+msgstr ""
+"УВАГА: Не вдалося проанал╕зувати типове значення \"%s\" для схеми (%s)\n"
 
 #: gconf/gconftool.c:1402
 #, c-format
@@ -1453,17 +1466,20 @@ msgstr "УВАГА: не вдалося проанал╕зувати назву типу \"%s\"\n"
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
-msgstr "УВАГА: list_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
+msgstr ""
+"УВАГА: list_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
 
 #: gconf/gconftool.c:1542
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
-msgstr "УВАГА: car_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
+msgstr ""
+"УВАГА: car_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
 
 #: gconf/gconftool.c:1563
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
-msgstr "УВАГА: cdr_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
+msgstr ""
+"УВАГА: cdr_type може мати лише типи int, float, string ╕ bool, а не \"%s\"\n"
 
 #: gconf/gconftool.c:1590
 msgid "WARNING: empty <applyto> node"
