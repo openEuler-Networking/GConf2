@@ -1,3 +1,7 @@
+2001-10-17  Ole Laursen  <olau@hardworking.dk>
+
+	* da.po: Updated Danish translation.
+
 2001-10-14  Christian Rose  <menthos@menthos.com>
 
 	* sv.po: Updated Swedish translation.
@@ -6,7 +10,7 @@
 
 	* pl.po: Updated Polish translation.
 
-2001-10-14  Carlos Perelló Marín <carlos@gnome-db.org>
+2001-10-14  Carlos Perells Marmn <carlos@gnome-db.org>
 
 	* pt.po: Added by Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -20,7 +24,7 @@
 
 2001-10-13  Kjartan Maraas  <kmaraas@gnome.org>
 
-	* no.po: Updated Norwegian (bokmål) translation.
+	* no.po: Updated Norwegian (bokmel) translation.
 	
 2001-10-12  Stanislav Visnovsky  <visnovsky@nenya.ms.mff.cuni.cz>
 
@@ -33,12 +37,12 @@
 2001-10-07  Christian Rose  <menthos@menthos.com>
 
 	* sv.po: Fixed some things. Thanks to
-	Göran Uddeborg <goeran@uddeborg.pp.se>
+	Gvran Uddeborg <goeran@uddeborg.pp.se>
 	for his review.
 
 2001-10-07  Kjartan Maraas  <kmaraas@gnome.org>
 
-	* no.po: Updated Norwegian (bokmål) translation.
+	* no.po: Updated Norwegian (bokmel) translation.
 	
 2001-10-07  Sami Pesonen  <spesonen@dlc.fi>
 
