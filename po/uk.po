@@ -74,21 +74,21 @@ msgstr "Не вдалося в╕дмовитсь в╕д блокування каталогу XML \"%s\": %s"
 
 #: backends/xml-cache.c:119
 msgid "Unsynced directory deletions when shutting down XML backend"
-msgstr ""
+msgstr "Несинхрон╕зован╕ видалення в каталогу п╕д час вимкнення серверного модуля XML"
 
 #: backends/xml-cache.c:229
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
-msgstr ""
+msgstr "Неможливо видалити каталог \"%s\" з кеша серверного модуля XML тому, що його не було усп╕шно синхрон╕зовано з диском"
 
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than "
 "%u seconds"
-msgstr ""
+msgstr "В кеш╕ лишилось %u елемент╕в п╕сля очищення вже синхрон╕зованих елемент╕в стар╕ших %u секунд"
 
 #: backends/xml-dir.c:164
 #, c-format
@@ -401,7 +401,7 @@ msgstr "В╕дмовлено у правах"
 
 #: gconf/gconf-error.c:29
 msgid "Couldn't resolve address for configuration source"
-msgstr ""
+msgstr "Не вдалося розв'язати адресу до джерела конф╕╜урац╕╖"
 
 #: gconf/gconf-error.c:30
 msgid "Bad key or directory name"
@@ -630,11 +630,11 @@ msgstr "Помилка завантаження джерела \"%s\": %s"
 #: gconf/gconf-sources.c:506
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
-msgstr ""
+msgstr "Схема \"%s\" вказана для \"%s\" м╕стить не схемн╕ значення"
 
 #: gconf/gconf-sources.c:555
 msgid "The '/' name can only be a directory, not a key"
-msgstr ""
+msgstr "Назва \"/\" може бути лише каталогом, не ключем"
 
 #: gconf/gconf-sources.c:584
 #, c-format
@@ -661,7 +661,7 @@ msgstr "Помилка отримання мета╕нформац╕╖: %s"
 #: gconf/gconf-sources.c:1244
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
-msgstr ""
+msgstr "Ключ \"%s\" вказаний як схема для ключа \"%s\" насправд╕ м╕стить тип \"%s\""
 
 #: gconf/gconf-value.c:82
 #, c-format
@@ -735,7 +735,7 @@ msgstr "Сервер не зм╕г розп╕знати адресу \"%s\""
 
 #: gconf/gconf.c:571
 msgid "Can't add notifications to a local configuration source"
-msgstr ""
+msgstr "Неможливо додати спов╕щення до локального джерела конф╕╜урац╕╖"
 
 #: gconf/gconf.c:1778
 #, c-format
@@ -748,6 +748,9 @@ msgid ""
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
 "Please file an OAF bug report."
 msgstr ""
+"Помилка з'╓днання ╕з сервером конф╕╜урац╕╖: OAF повернув nil з "
+"oaf_activate_from_id() ╕ не встановив виключення, що поясню╓ цю проблему. "
+"Будь ласка, пов╕домте про помилку в OAF."
 
 #: gconf/gconf.c:2105
 msgid "Failed to init GConf, exiting\n"
@@ -813,18 +816,23 @@ msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
 msgstr ""
+"gconfd скомп╕льовано з налагодженням; спроба завантажити gconf.path з "
+"вих╕дного каталогу"
 
 #: gconf/gconfd.c:297
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
 msgstr ""
+"Не знайдено конф╕╜урац╕йних файл╕в, спроба використати типове джерело конф╕╜урац╕╖ \"%s\""
 
 #: gconf/gconfd.c:306
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
 msgstr ""
+"Не знайдено джерел конф╕╜урац╕╖ у вих╕дному каталоз╕, конф╕╜урац╕╖ не було збережено; "
+"редагувати "
 
 #: gconf/gconfd.c:320
 #, c-format
@@ -878,6 +886,7 @@ msgid ""
 "Failed to init Object Activation Framework: please mail bug report to OAF "
 "maintainers"
 msgstr ""
+"Зб╕й ╕н╕ц╕ал╕зац╕╖ OAF: будь ласка, пов╕домте про помилку член╕в супроводження OAF"
 
 #: gconf/gconfd.c:551
 msgid "Failed to get object reference for ConfigServer"
@@ -888,6 +897,8 @@ msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register; exiting\n"
 msgstr ""
+"OAF не зна╓ про наш IID; це св╕дчить про нев╕рне встановлення; неможливо "
+"заре╓струватись; вих╕д\n"
 
 #: gconf/gconfd.c:575
 msgid "Another gconfd already registered with OAF; exiting\n"
@@ -916,12 +927,15 @@ msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
 "gconfd shutdown (%s)"
 msgstr ""
+"Зб╕й в╕дкривання журналу gconfd; не було можливост╕ в╕дновити прослуховувач╕в п╕сля "
+"вимкнення gconfd (%s)"
 
 #: gconf/gconfd.c:1137
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
+"Зб╕й закривання журналу gconfd; дан╕ може бути запису не належним чином (%s)"
 
 #: gconf/gconfd.c:1206
 #, c-format
@@ -961,6 +975,7 @@ msgstr ""
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
+"Неможливо в╕дновити прослуховувача на адрес╕ \"%s\", не вдалося розв'язати базу даних"
 
 #: gconf/gconfd.c:1783
 #, c-format
@@ -1009,7 +1024,7 @@ msgstr "Не вдалося скинути кл╕╓нта у файл збереженого стану: %s"
 #: gconf/gconfd.c:2107
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
-msgstr ""
+msgstr "Якийсь кл╕╓нт видалив себе з сервера GConf, хоч його не було додано."
 
 #: gconf/gconftool.c:63
 msgid "Help options"
@@ -1017,7 +1032,7 @@ msgstr "Параметри дов╕дки"
 
 #: gconf/gconftool.c:72
 msgid "Set a key to a value and sync. Use with --type."
-msgstr ""
+msgstr "Встановити значення для ключа ╕ синхрон╕зувати. Використову╓ться з --type."
 
 #: gconf/gconftool.c:81
 msgid "Print the value of a key to standard output."
@@ -1028,6 +1043,8 @@ msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
 "--type."
 msgstr ""
+"Встановити схему ╕ синхрон╕зувати. Використову╓ться з --short-desc, --long-desc, --owner ╕ "
+"--type."
 
 #: gconf/gconftool.c:100
 msgid "Unset the keys on the command line"
@@ -1070,6 +1087,8 @@ msgid ""
 "Specify the type of the value being set, or the type of the value a schema "
 "describes. Unique abbreviations OK."
 msgstr ""
+"Вказати тип значення, що встановлю╓ться чи тип значення, що опису╓ схема. "
+"Згодяться ун╕кальн╕ абрев╕атури."
 
 #: gconf/gconftool.c:173
 msgid "int|bool|float|string|list|pair"
@@ -1211,7 +1230,7 @@ msgstr "Потр╕бно вказувати тип у встановленн╕ значення\n"
 
 #: gconf/gconftool.c:403
 msgid "Ping option must be used by itself.\n"
-msgstr ""
+msgstr "Параметр зондування мусить використовуватись окремо.\n"
 
 #: gconf/gconftool.c:412
 msgid "--dir-exists option must be used by itself.\n"
