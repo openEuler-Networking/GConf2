@@ -225,8 +225,6 @@ if test x$have_libxml = xyes; then
 fi
 AM_CONDITIONAL(HAVE_LIBXML, test x$have_libxml = xyes)
 
-GCONF_LIBXML_CFLAGS=
-GCONF_LIBXML_LIBS=
 dnl Libxml flags
 AC_SUBST(GCONF_LIBXML_CFLAGS)
 AC_SUBST(GCONF_LIBXML_LIBS)
