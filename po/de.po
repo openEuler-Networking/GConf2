@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.1.x\n"
-"POT-Creation-Date: 2003-01-20 14:54+0100\n"
+"POT-Creation-Date: 2003-01-12 13:13-0500\n"
 "PO-Revision-Date: 2003-01-20 14:54+0100\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -770,8 +770,8 @@ msgstr ""
 "folgende Problem zu lösen:\n"
 "Datei „%s” konnte nicht geöffnet oder erstellt werden. Dies deutet darauf "
 "hin, dass ein Problem in Ihrer Konfiguration vorliegen könnte, da viele "
-"Programme Dateien in Ihrem Heimverzeichnis anlegen müssen. Der Fehler war "
-"„%s” (Fehlerkennung: %d)."
+"Programme Dateien in Ihrem Heimverzeichnis anlegen müssen. Der Fehler war „%"
+"s” (Fehlerkennung: %d)."
 
 #: gconf/gconf-sanity-check.c:143
 #, c-format
@@ -791,7 +791,8 @@ msgstr ""
 "Ihr Heimverzeichnis per NFS eingehängt ist, kann es sein, dass entweder der "
 "Client oder der Server nicht richtig konfiguriert ist. Schauen Sie in der "
 "rpc.statd- und der rpc.lockd-Dokumentation nach. Ein Grund für diesen Fehler "
-"ist, dass der „nfslock”-Dienst deaktiviert wurde. Der Fehler war „%s” (Fehlerkennung: %d),"
+"ist, dass der „nfslock”-Dienst deaktiviert wurde. Der Fehler war „%"
+"s” (Fehlerkennung: %d),"
 
 #: gconf/gconf-sanity-check.c:160
 #, c-format
