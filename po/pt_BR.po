@@ -1,14 +1,16 @@
-# GNOME Conf translation for Brazilian Portuguese.
-# Copyright (C) 1999-2001 Free Software Foundation, Inc.
+# GNOME Conf: translation to Brazilian Portuguese (pt_BR)
+# Copyright (C) 1999-2003 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gconf package.
 # Alexandre Hautequest <hquest@fesppr.br>, 1999.
 # Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>, 2000-2001.
+# Alexandre Folle de Menezes <afmenezes@terra.com.br>, 2003.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.0.7\n"
 "POT-Creation-Date: 2002-03-14 23:10-0500\n"
-"PO-Revision-Date: 2001-11-08 22:22-0200\n"
-"Last-Translator: Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>\n"
+"PO-Revision-Date: 2003-07-05 15:20-0300\n"
+"Last-Translator: Alexandre Folle de Menezes <afmenezes@terra.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -589,8 +591,7 @@ msgstr "Não foi possível bloquear arquivo temporário '%s': %s"
 #: gconf/gconf-internals.c:2464
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
-msgstr ""
-"Não foi possível criar arquivo '%s', provavelmente porque ele já existe"
+msgstr "Não foi possível criar arquivo '%s', provavelmente porque ele já existe"
 
 #: gconf/gconf-internals.c:2510
 #, c-format
@@ -603,7 +604,10 @@ msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
 "operating system has NFS file locking misconfigured, or a hard NFS client "
 "crash caused a stale lock (%s)"
-msgstr "Falha ao bloquear '%s': outro processo possui o bloqueio (%s)"
+msgstr ""
+"Falha ao bloquear '%s': outro processo provavelmente obteve o bloqueio, "
+"ou o sistema operacional tem o bloqueio NFS mal configurado, ou um cliente "
+"NFS travou causando um bloqueio travado (%s)"
 
 #: gconf/gconf-internals.c:2548
 #, c-format
@@ -683,9 +687,9 @@ msgid ""
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
 "Falha ao contactar o servidor de configuração (uma causa provável disto é "
-"que você possui um servidor de configuração (gconfd) rodando, mas ele não é "
-"acessível daqui - se você estiver em duas máquinas ao mesmo tempo, você pode "
-"precisar ativar comunicação em rede TCP para o ORBit)\n"
+"que se tem um servidor de configuração (gconfd) rodando, mas ele não é "
+"acessível daqui - se se estiver em duas máquinas ao mesmo tempo, pode ser"
+"preciso ativar comunicação em rede TCP para o ORBit)\n"
 
 #: gconf/gconf-internals.c:3724
 #, c-format
@@ -772,10 +776,10 @@ msgstr ""
 "configuração não possui bancos de dados com possibilidade de escrita. "
 "Existem duas causas comuns para este problema: 1) o seu caminho de "
 "configuração não contém nenhum banco de dados ou não foi encontrado ou 2) de "
-"alguma forma foram criados por engano dois processos gconfd. Se você possui "
+"alguma forma foram criados por engano dois processos gconfd. Se se tem "
 "dois processos gconfd (ou tinha dois quando o segundo foi lançado), sair do "
 "sistema, matar todas as cópias de gconfd e entrar no sistema de novo pode "
-"ajudar. Talvez o problema seja que você tentou usar o GConf em duas máquinas "
+"ajudar. Talvez o problema seja que se tentou usar o GConf em duas máquinas "
 "ao mesmo tempo e o ORBit ainda possui suas configurações padrão que impedem "
 "conexões CORBA remotas? Como sempre, verifique no syslog user.* detalhes "
 "sobre os problemas que o gconfd encontrou."
@@ -1188,8 +1192,7 @@ msgstr "Imprime todos os subdiretórios de um diretório."
 
 #: gconf/gconftool.c:132
 msgid "Print all subdirectories and entries under a dir, recursively."
-msgstr ""
-"Imprime todos os subdiretórios e itens sob um diretório, recursivamente."
+msgstr "Imprime todos os subdiretórios e itens sob um diretório, recursivamente."
 
 #: gconf/gconftool.c:141
 msgid "Return 0 if the directory exists, 2 if it does not."
@@ -1421,12 +1424,11 @@ msgstr "Opção --break-directory deve ser usada sozinha.\n"
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
-"Você deve especificar uma fonte de configuração com --config-source ao usar "
-"--direct\n"
+"Deve-se especificar uma fonte de configuração com --config-source ao usar --direct\n"
 
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
-msgstr ""
+msgstr "Deve-se usar --direct ao usar uma fonte de configuração não-padrão\n"
 
 #: gconf/gconftool.c:531
 #, c-format
@@ -1545,15 +1547,13 @@ msgstr "Não é possível atribuir um schema como valor\n"
 
 #: gconf/gconftool.c:1145
 msgid "When setting a list you must specify a primitive list-type\n"
-msgstr ""
-"Ao atribuir a uma lista você deve especificar um tipo de lista primitivo\n"
+msgstr "Ao atribuir a uma lista deve-se especificar um tipo de lista primitivo\n"
 
 #: gconf/gconftool.c:1159
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr ""
-"Ao atribuir a uma par você deve especificar um tipo de car e de cdr "
-"primitivos\n"
+"Ao atribuir a uma par deve-se especificar um tipo de car e de cdr primitivos\n"
 
 #: gconf/gconftool.c:1174
 #, c-format
@@ -1685,7 +1685,7 @@ msgstr "ALERTA: tipo de car ou de cdr inválido ou faltante para schema (%s)\n"
 
 #: gconf/gconftool.c:1692
 msgid "WARNING: You cannot set a default value for a schema\n"
-msgstr "ALERTA: Você não pode atribuir uma valor padrão a um schema\n"
+msgstr "ALERTA: Não se pode atribuir uma valor padrão a um schema\n"
 
 #: gconf/gconftool.c:1721
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
@@ -1768,7 +1768,7 @@ msgstr "Anexado schema `%s' à chave `%s'\n"
 
 #: gconf/gconftool.c:2134
 msgid "You must have at least one <locale> entry in a <schema>\n"
-msgstr "Você deve ter pelo menos um item <locale> em um <schema>\n"
+msgstr "Deve-se ter pelo menos um item <locale> em um <schema>\n"
 
 #: gconf/gconftool.c:2165
 #, c-format
