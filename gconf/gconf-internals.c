@@ -2869,6 +2869,8 @@ orb_remove_connection (GIOPConnection * cnx)
 #include <netinet/in.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+#include <sys/socket.h>
+
 const char *
 get_hostname (void)
 {

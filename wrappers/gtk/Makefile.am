@@ -13,7 +13,7 @@ libgconf_gtk_1_la_SOURCES = \
 
 libgconf_gtk_1_la_LDFLAGS=-version-info $(GCONFGTK_CURRENT):$(GCONFGTK_REVISION):$(GCONFGTK_AGE)
 
-libgconf_gtk_1_la_LIBADD= $(INTLLIBS) $(OAF_LIBS) $(GTK_LIBS)
+libgconf_gtk_1_la_LIBADD= $(INTLLIBS) $(OAF_LIBS) $(GTK_LIBS) $(top_builddir)/gconf/libgconf-$(MAJOR_VERSION).la
 
 noinst_PROGRAMS= testgconfclient
 

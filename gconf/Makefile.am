@@ -30,7 +30,7 @@ lib_LTLIBRARIES = libgconf-1.la
 
 bin_PROGRAMS = gconfd-1 gconftool-1 gconf-sanity-check-1
 
-CORBA_SOURCES = GConf-common.c GConf-skels.c GConf-stubs.c GConf.h
+CORBA_SOURCES = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 
 BUILT_SOURCES = $(CORBA_SOURCES)
 
@@ -75,8 +75,8 @@ gconf_sanity_check_1_SOURCES = \
 
 gconf_sanity_check_1_LDADD = $(EFENCE) $(INTLLIBS) $(OAF_LIBS) $(GLIB_LIBS) $(ORBIT_LIBS) $(POPT_LIBS) $(XML_LIBS) libgconf-$(MAJOR_VERSION).la
 
-$(CORBA_SOURCES): $(srcdir)/GConf.idl
-	orbit-idl $(srcdir)/GConf.idl
+$(CORBA_SOURCES): $(srcdir)/GConfX.idl
+	orbit-idl $(srcdir)/GConfX.idl
 
 libgconf_1_la_SOURCES = \
 	gconf-internals.c	\
@@ -102,7 +102,7 @@ libgconf_1_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF
 
 libgconf_1_la_LIBADD = $(INTLLIBS) $(OAF_LIBS) $(GLIB_LIBS)
 
-EXTRA_DIST=GConf.idl default.path.in
+EXTRA_DIST=GConfX.idl default.path.in
 
 install-exec-local:
 	(cd $(DESTDIR)$(bindir) && $(LN_S) -f gconftool-$(MAJOR_VERSION) gconftool)

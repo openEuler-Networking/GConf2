@@ -24,10 +24,10 @@ libgconfbackend_xml_la_SOURCES = \
 	xml-backend.c
 
 libgconfbackend_xml_la_LDFLAGS = -avoid-version -module
-libgconfbackend_xml_la_LIBADD  = $(GLIB_LIBS) $(XML_LIBS)
+libgconfbackend_xml_la_LIBADD  = $(GLIB_LIBS) $(XML_LIBS) $(top_builddir)/gconf/libgconf-$(MAJOR_VERSION).la
 
 libgconfbackend_bdb_la_SOURCES = bdb.c bdb.h bdb-backend.c val-encode.c val-encode.h dir-utils.c dir-utils.h
 
 
 libgconfbackend_bdb_la_LDFLAGS = -avoid-version -module
-libgconfbackend_bdb_la_LIBADD = $(GLIB_LIBS) $(BDB_LIBS)
+libgconfbackend_bdb_la_LIBADD = $(GLIB_LIBS) $(BDB_LIBS) $(top_builddir)/gconf/libgconf-$(MAJOR_VERSION).la
