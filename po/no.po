@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
 "POT-Creation-Date: 2002-09-21 15:33+0200\n"
-"PO-Revision-Date: 2002-09-21 15:44+0200\n"
+"PO-Revision-Date: 2002-09-23 21:43+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -61,15 +61,15 @@ msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Katalog-/filrettigheter for XML-kilde med root %s er: %o/%o"
 
 #: backends/xml-backend.c:590
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing the XML backend directory cache: %s"
-msgstr "Feil under synkronisering av konfigurasjonsdata: %s"
+msgstr "Feil under synkronisering katalogbuffer for XML-bakende: %s"
 
 #: backends/xml-backend.c:655
 msgid ""
 "Remove dir operation is no longer supported, just remove all the values in "
 "the directory"
-msgstr ""
+msgstr "Operasjon for fjering av katalog er ikke støttet lenger. Bare fjern alle verdiene i katalogen"
 
 #: backends/xml-backend.c:722
 msgid "Initializing XML backend module"
@@ -82,7 +82,7 @@ msgstr "Kunne ikke gi opp lås på XML-katalog «%s»: %s"
 
 #: backends/xml-cache.c:257
 msgid "Failed to sync XML cache contents to disk"
-msgstr ""
+msgstr "Feil ved synkronisering av innhold i XML-cache til disk"
 
 #: backends/xml-cache.c:287
 #, c-format
@@ -182,9 +182,9 @@ msgid "Failed to create file `%s': %s"
 msgstr "Kunne ikke opprette fil «%s»: %s"
 
 #: backends/xml-dir.c:1327
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to parse XML file \"%s\""
-msgstr "Kunne ikke skrive fil «%s»: %s"
+msgstr "Feil ved lesing av XML-fil «%s»"
 
 #. There was an error
 #: backends/xml-entry.c:154
@@ -488,14 +488,14 @@ msgid "No database available to save your configuration"
 msgstr "Ingen database tilgjengelig for lagring av din konfigurasjon"
 
 #: gconf/gconf-internals.c:86
-#, fuzzy, c-format
+#, c-format
 msgid "No '/' in key \"%s\""
-msgstr "Ingen '/' i nøkkel `%s'"
+msgstr "Ingen «/» i nøkkel «%s»"
 
 #: gconf/gconf-internals.c:199
 #, c-format
 msgid "Invalid UTF-8 in string value in '%s'"
-msgstr "Ugyldig UTF-8 i strengverdi i '%s'"
+msgstr "Ugyldig UTF-8 i strengverdi i  «%s»"
 
 #: gconf/gconf-internals.c:258
 msgid "Couldn't interpret CORBA value for list element"
@@ -605,14 +605,11 @@ msgid "Failed to create or open '%s'"
 msgstr "Kunne ikke opprette eller åpne '%s'"
 
 #: gconf/gconf-internals.c:2370
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
 "operating system has NFS file locking misconfigured (%s)"
-msgstr ""
-"Klarte ikke å låse «%s»: en annen prosess holder sannsynligvis låsen, "
-"fillåsing for NFS feilkonfigurert på ditt system, eller en krasj på en "
-"klient kan ha etterlatt seg en gammel lås (%s)"
+msgstr "Klarte ikke å låse «%s»: en annen prosess holder sannsynligvis låsen eller fillåsing for NFS feilkonfigurert på ditt system (%s)"
 
 #: gconf/gconf-internals.c:2400
 #, c-format
@@ -630,14 +627,14 @@ msgstr ""
 "kunne ikke kontakte ORB for å finne eksisterende objektreferanse for gconfd"
 
 #: gconf/gconf-internals.c:2457
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "Kunne ikke konvertere objekt til IOR"
+msgstr "Kunne ikke konvertere IOR «%s» til en objektreferanse"
 
 #: gconf/gconf-internals.c:2507
 #, c-format
 msgid "couldn't create directory `%s': %s"
-msgstr "kunne ikke opprette katalogen `%s': %s"
+msgstr "kunne ikke opprette katalogen «%s»: %s"
 
 #: gconf/gconf-internals.c:2566
 #, c-format
@@ -677,7 +674,7 @@ msgstr "Kunne ikke opprette %s: %s"
 #: gconf/gconf-internals.c:2838
 #, c-format
 msgid "Server ping error: %s"
-msgstr ""
+msgstr "Feil ved pinging av tjener: %s"
 
 #: gconf/gconf-internals.c:2859
 #, c-format
@@ -702,7 +699,7 @@ msgstr ""
 
 #: gconf/gconf-internals.c:2909
 msgid "none"
-msgstr ""
+msgstr "ingen"
 
 #: gconf/gconf-sanity-check.c:39 gconf/gconftool.c:77
 msgid "Help options"
@@ -811,7 +808,7 @@ msgid ""
 msgstr "Verdi for «%s» satt i en skrivebeskyttet kilde i begynnelsen av din konfigurasjonssti."
 
 #: gconf/gconf-sources.c:692
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writable databases. There are some common causes of this problem: 1) your "
@@ -829,17 +826,7 @@ msgid ""
 "details on problems gconfd encountered. There can only be one gconfd per "
 "home directory, and it must own a lockfile in ~/.gconfd and also lockfiles "
 "in individual storage locations such as ~/.gconf"
-msgstr ""
-"Kunne ikke lagre en verdi i nøkkel '%s', siden konfigurasjonstjeneren ikke "
-"har noen skrivbare databaser. Det er to vanlige årsaker til dette problemet: "
-"1) din konfigurasjonssti-fil inneholder ingen databaser, eller ble ikke "
-"funnet eller 2) vi har ved en feil opprettet to gconfd-prosesser. Hvis du "
-"har to gconfd-prosesser (eller hadde to da den andre ble startet), kan "
-"hjelpe å logge ut, drepe alle instanser av gconfd, og logge inn igjen. "
-"Kanskje problemet er at du prøvde å bruke GConf fra to maskiner samtidig, og "
-"ORBit fremdeles har sin standardkonfigurasjon som ikke tillater eksterne "
-"CORBA-forbindelser? Som alltid, sjekk user.* systemloggene for detaljer om "
-"problemer som gconfd har støtt på."
+msgstr "Kunne ikke lagre en verdi i nøkkel «%s», siden konfigurasjonstjeneren ikke har noen skrivbare databaser. Det er to vanlige årsaker til dette problemet: 1) din konfigurasjonssti-fil, %s/path, inneholder ingen databaser eller ble ikke funnet, 2) vi har ved en feil opprettet to gconfd-prosesser.3) operativsystemet er feilkonfigurert slik at NFS-låsing ikke fungerer korrekt for din hjemmekatalog, eller 4) din NFS-klient krasjet og ga ikke beskjed til tjeneren ved omstart at fillåsene skulle slippes. Hvis du har to gconfd-prosesser (eller hadde to da den andre ble startet), kan hjelpe å logge ut, drepe alle instanser av gconfd, og logge inn igjen. Hvis du har gamle låsfiler kan du fjerne ~/.gconf*/*lock. Kanskje problemet er at du prøvde å bruke GConf fra to maskiner samtidig, og ORBit fremdeles har sin standardkonfigurasjon som ikke tillater eksterne CORBA-forbindelser. I dette tilfellet legger du til «ORBIIOPIPv4=1» i /etc/orbitrc. Som alltid, sjekk user.* systemloggene for detaljer om problemer som gconfd har støtt på. Du kan kun ha en gconfd per hjemmekatalog, og denne må eie en låsfil i ~/.gconfd i tillegg til låsfiler i individuelle lagringslokasjoner som ~/.gconf"
 
 #: gconf/gconf-sources.c:1414
 #, c-format
@@ -1247,11 +1234,10 @@ msgid "Unset the keys on the command line"
 msgstr "Nullstill nøklene fra kommandolinjen"
 
 #: gconf/gconftool.c:123
-#, fuzzy
 msgid ""
 "Recursively unset all keys at or below the key/directory names on the "
 "command line"
-msgstr "Må spesifisere en eller flere nøkler på kommandolinjen\n"
+msgstr "Nullstill alle nøkler ved elled under nøkkel-/katalognavn gitt på kommandolinjen rekursivt"
 
 #: gconf/gconftool.c:132
 msgid "Print all key/value pairs in a directory."
@@ -1417,9 +1403,8 @@ msgstr ""
 "Spesifiser schema-navn fulgt av nøkkelen som schema-navnet skal påføres"
 
 #: gconf/gconftool.c:348
-#, fuzzy
 msgid "Remove any schema name applied to the given keys"
-msgstr "Hent navn på schema som er påført denne nøkkelen"
+msgstr "Fjern schemanavn som er brukt på oppgitte nøkler"
 
 #: gconf/gconftool.c:357
 msgid "Get the name of the default source"
@@ -1688,9 +1673,9 @@ msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "Feil under assosiering av schema-navn '%s' med nøkkelnavn '%s': %s\n"
 
 #: gconf/gconftool.c:1467
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing schema name from '%s': %s\n"
-msgstr "Feil under henting av schema ved `%s': %s\n"
+msgstr "Feil under fjerning av schemanavn fra «%s»: %s\n"
 
 #: gconf/gconftool.c:1492
 msgid "Must specify key (schema name) as the only argument\n"
@@ -1735,14 +1720,13 @@ msgid "Error unsetting `%s': %s\n"
 msgstr "Feil under nullstilling av `%s': %s\n"
 
 #: gconf/gconftool.c:1663
-#, fuzzy
 msgid "Must specify one or more keys to recursively unset.\n"
-msgstr "Må spesifisere en eller flere kataloger som skal vises rekursivt.\n"
+msgstr "Må spesifisere en eller flere nøkler som skal nullstilles rekursivt.\n"
 
 #: gconf/gconftool.c:1677
-#, fuzzy, c-format
+#, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
-msgstr "Feil under listing av oppføringer i `%s': %s\n"
+msgstr "Feil ved rekursiv nullstilling av «%s»: %s\n"
 
 #: gconf/gconftool.c:1695
 msgid "Must specify one or more dirs to get subdirs from.\n"
