@@ -20,7 +20,7 @@ msgstr "BerkeleyDB (BDB) \"backend\" modulunu çýxarýram ."
 #: backends/bdb-backend.c:234
 #, c-format
 msgid "Opened BerkeleyDB source at root %s"
-msgstr "BerkeleyDB qaynaºý kök \"%s\"da(dæ) açýldý"
+msgstr "BerkeleyDB qaynaðý kök \"%s\"da(dæ) açýldý"
 
 #: backends/bdb-backend.c:574
 msgid "Initializing BDB backend module"
@@ -455,7 +455,7 @@ msgstr "Qýfýl yarada bilmædim"
 
 #: gconf/gconf-error.c:40
 msgid "No database available to save your configuration"
-msgstr "Qurºularýnýzýn qeyd edilæ bilæcæyi bir databeyz yoxdur"
+msgstr "Qurðularýnýzýn qeyd edilæ bilæcæyi bir databeyz yoxdur"
 
 #: gconf/gconf-internals.c:85
 #, c-format
