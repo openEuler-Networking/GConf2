@@ -1,3 +1,19 @@
+2.6.4
+===
+
+ Fixes:
+
+  - Fix crash when schemas only contain localized values (Mark)
+  - Set the umask in --makefile-install-mode (Mark)
+  - Fix some bugs with merge files support (Mark)
+  - Remove cruft from the path file (Fernando Herrera)
+  - Port the docs from GtkObject to GObject (Kai Willadsen)
+  - Add the FAQ and DTD to the tarball (J.H.M. Dassen)
+
+ Translators:
+
+  - Christian Neumair (de)
+
 2.6.3
 ===
 

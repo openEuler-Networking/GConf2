@@ -1,5 +1,9 @@
 2004-08-25  Mark McLoughlin  <mark@skynet.ie>
 
+	* configure.in: Version 2.6.4.
+
+2004-08-25  Mark McLoughlin  <mark@skynet.ie>
+
 	* backends/markup-tree.c: (markup_entry_get_value): don't
 	abort if we find no local schema to match any locales - there
 	may not be a "C" local schema at all. See bug #147522 for a

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-14 17:24+0100\n"
+"POT-Creation-Date: 2004-08-25 22:27+0100\n"
 "PO-Revision-Date: 2002-06-11 15:49+1000\n"
 "Last-Translator: Ben Wu <hpwu@redhat.com>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -726,11 +726,11 @@ msgstr ""
 msgid "none"
 msgstr "沒有"
 
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:84
+#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:86
 msgid "Help options"
 msgstr "求助選項"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:506
+#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:508
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -1299,165 +1299,165 @@ msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr "有些客戶在他們還沒有被加入前，將自己從 GConf 伺服器移除。"
 
-#: gconf/gconftool.c:93
+#: gconf/gconftool.c:95
 msgid "Set a key to a value and sync. Use with --type."
 msgstr "設定一個金鑰給這個值然後同步化。 使用 --type。"
 
-#: gconf/gconftool.c:102
+#: gconf/gconftool.c:104
 msgid "Print the value of a key to standard output."
 msgstr "以標準輸出的方式列出這個金鑰的值。"
 
-#: gconf/gconftool.c:111
+#: gconf/gconftool.c:113
 msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
 "type."
 msgstr ""
 "設定一個概要然後同步化。 使用 --short-desc, --long-desc, --owner, 與 --type。"
 
-#: gconf/gconftool.c:121
+#: gconf/gconftool.c:123
 msgid "Unset the keys on the command line"
 msgstr "在命令列取消設定這個金鑰"
 
-#: gconf/gconftool.c:130
+#: gconf/gconftool.c:132
 msgid ""
 "Recursively unset all keys at or below the key/directory names on the "
 "command line"
 msgstr "在命令列遞迴地解除設定在金鑰/目錄名稱中的所有金鑰"
 
-#: gconf/gconftool.c:139
+#: gconf/gconftool.c:141
 msgid "Print all key/value pairs in a directory."
 msgstr "列出在這個目錄下所有成對的 金鑰/值。"
 
-#: gconf/gconftool.c:148
+#: gconf/gconftool.c:150
 msgid "Print all subdirectories in a directory."
 msgstr "列出在這個目錄下的所有子目錄。"
 
-#: gconf/gconftool.c:157
+#: gconf/gconftool.c:159
 #, fuzzy
 msgid ""
 "Dump to standard out an XML description of all entries under a dir, "
 "recursively."
 msgstr "循環地列出在這個目錄下的所有子目錄與紀錄檔。"
 
-#: gconf/gconftool.c:166
+#: gconf/gconftool.c:168
 msgid ""
 "Load from the specified file an XML description of values and set them "
 "relative to a dir."
 msgstr ""
 
-#: gconf/gconftool.c:175
+#: gconf/gconftool.c:177
 msgid "Print all subdirectories and entries under a dir, recursively."
 msgstr "循環地列出在這個目錄下的所有子目錄與紀錄檔。"
 
-#: gconf/gconftool.c:184
+#: gconf/gconftool.c:186
 msgid "Return 0 if the directory exists, 2 if it does not."
 msgstr "如果這個目錄存在，傳回 0; 如果不存在，傳回 2。"
 
-#: gconf/gconftool.c:193
+#: gconf/gconftool.c:195
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
 msgstr "關閉 gconfd。 不要輕易使用這個選項！"
 
-#: gconf/gconftool.c:202
+#: gconf/gconftool.c:204
 msgid "Return 0 if gconfd is running, 2 if not."
 msgstr "如果 gconfd 正在執行，傳回 0; 如果沒有，傳回 2。"
 
-#: gconf/gconftool.c:211
+#: gconf/gconftool.c:213
 msgid ""
 "Launch the config server (gconfd). (Normally happens automatically when "
 "needed.)"
 msgstr "啟動 config 伺服器 (gconfd)。 （通常在需要時會自動啟動。）"
 
-#: gconf/gconftool.c:220
+#: gconf/gconftool.c:222
 msgid ""
 "Specify the type of the value being set, or the type of the value a schema "
 "describes. Unique abbreviations OK."
 msgstr "指定已設定的數值類型，或概要所描述的數值類型。 獨特的縮寫式即可。"
 
-#: gconf/gconftool.c:221
+#: gconf/gconftool.c:223
 msgid "int|bool|float|string|list|pair"
 msgstr "int|bool|float|string|list|pair"
 
-#: gconf/gconftool.c:229
+#: gconf/gconftool.c:231
 #, fuzzy
 msgid "Print the data type of a key to standard output."
 msgstr "以標準輸出的方式列出這個金鑰的值。"
 
-#: gconf/gconftool.c:238
+#: gconf/gconftool.c:240
 #, fuzzy
 msgid "Get the number of elements in a list key."
 msgstr "取得套用在此金鑰的概要名稱"
 
-#: gconf/gconftool.c:247
+#: gconf/gconftool.c:249
 msgid "Get a specific element from a list key, numerically indexed."
 msgstr ""
 
-#: gconf/gconftool.c:256
+#: gconf/gconftool.c:258
 msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr "指定已設定的數值類型，或概要所描述的數值類型。 獨特的縮寫式即可。"
 
-#: gconf/gconftool.c:257 gconf/gconftool.c:266 gconf/gconftool.c:275
+#: gconf/gconftool.c:259 gconf/gconftool.c:268 gconf/gconftool.c:277
 msgid "int|bool|float|string"
 msgstr "int|bool|float|string"
 
-#: gconf/gconftool.c:265
+#: gconf/gconftool.c:267
 msgid ""
 "Specify the type of the car pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
 "指定已設定的 car pair 的數值類型，或概要所描述的數值類型。 獨特的縮寫式即可。"
 
-#: gconf/gconftool.c:274
+#: gconf/gconftool.c:276
 msgid ""
 "Specify the type of the cdr pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
 "指定已設定的 cdr pair 的數值類型，或概要所描述的數值類型。 獨特的縮寫式即可。"
 
-#: gconf/gconftool.c:283
+#: gconf/gconftool.c:285
 msgid "Specify a short half-line description to go in a schema."
 msgstr "指定要加入概要的一行短說明。"
 
-#: gconf/gconftool.c:284 gconf/gconftool.c:293
+#: gconf/gconftool.c:286 gconf/gconftool.c:295
 msgid "DESCRIPTION"
 msgstr "說明"
 
-#: gconf/gconftool.c:292
+#: gconf/gconftool.c:294
 msgid "Specify a several-line description to go in a schema."
 msgstr "指定要加入概要的多行說明。"
 
-#: gconf/gconftool.c:301
+#: gconf/gconftool.c:303
 msgid "Specify the owner of a schema"
 msgstr "指定此概要的擁有者"
 
-#: gconf/gconftool.c:302
+#: gconf/gconftool.c:304
 msgid "OWNER"
 msgstr "擁有者"
 
-#: gconf/gconftool.c:310
+#: gconf/gconftool.c:312
 msgid "Specify a schema file to be installed"
 msgstr "指定要安裝的概要檔"
 
-#: gconf/gconftool.c:311
+#: gconf/gconftool.c:313
 msgid "FILENAME"
 msgstr "檔名"
 
-#: gconf/gconftool.c:319
+#: gconf/gconftool.c:321
 msgid "Specify a configuration source to use rather than the default path"
 msgstr "指定要使用的設定原始檔而不是預設路徑"
 
-#: gconf/gconftool.c:320
+#: gconf/gconftool.c:322
 msgid "SOURCE"
 msgstr "原始檔"
 
-#: gconf/gconftool.c:328
+#: gconf/gconftool.c:330
 msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
 msgstr "繞過伺服器直接存取 config 資料庫。 gconfd 必須不在執行中。"
 
-#: gconf/gconftool.c:337
+#: gconf/gconftool.c:339
 msgid ""
 "Properly installs schema files on the command line into the database. "
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
@@ -1466,7 +1466,7 @@ msgstr ""
 "在命令列下適當地安裝概要檔到資料庫中。 環境變數 GCONF_CONFIG_SOURCE 必須設定"
 "為非預設的 config 原始檔或設定空白的字串以使用預設值。"
 
-#: gconf/gconftool.c:346
+#: gconf/gconftool.c:348
 #, fuzzy
 msgid ""
 "Properly uninstalls schema files on the command line from the database. "
@@ -1476,7 +1476,7 @@ msgstr ""
 "在命令列下適當地安裝概要檔到資料庫中。 環境變數 GCONF_CONFIG_SOURCE 必須設定"
 "為非預設的 config 原始檔或設定空白的字串以使用預設值。"
 
-#: gconf/gconftool.c:355
+#: gconf/gconftool.c:357
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of values of "
 "different types for keys on the command line."
@@ -1484,63 +1484,63 @@ msgstr ""
 "Torture-test 是一種在命令列下為金鑰設定與反設定一連串不同類型 數值的應用程"
 "式。"
 
-#: gconf/gconftool.c:364
+#: gconf/gconftool.c:366
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of keys inside "
 "the directories on the command line."
 msgstr ""
 "Torture-test 是一種在命令列下設定與反設定目錄中的一連串金鑰的應用程式。"
 
-#: gconf/gconftool.c:373
+#: gconf/gconftool.c:375
 msgid "Get the short doc string for a key"
 msgstr "為此金鑰取得短的 doc 字串"
 
-#: gconf/gconftool.c:382
+#: gconf/gconftool.c:384
 msgid "Get the long doc string for a key"
 msgstr "為此金鑰取得長的 doc 字串"
 
-#: gconf/gconftool.c:391
+#: gconf/gconftool.c:393
 msgid "Get the name of the schema applied to this key"
 msgstr "取得套用在此金鑰的概要名稱"
 
-#: gconf/gconftool.c:400
+#: gconf/gconftool.c:402
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr "指定概要名稱以及要套用於其上的金鑰"
 
-#: gconf/gconftool.c:409
+#: gconf/gconftool.c:411
 msgid "Remove any schema name applied to the given keys"
 msgstr "移除套用在此金鑰的任何概要名稱"
 
-#: gconf/gconftool.c:418
+#: gconf/gconftool.c:420
 msgid "Get the name of the default source"
 msgstr "取得預設原始檔的名稱"
 
-#: gconf/gconftool.c:427
+#: gconf/gconftool.c:429
 msgid "Print version"
 msgstr "列出版本資訊"
 
-#: gconf/gconftool.c:524
+#: gconf/gconftool.c:526
 msgid "Can't get and set/unset simultaneously\n"
 msgstr "無法同時作取得和設定/反設定\n"
 
-#: gconf/gconftool.c:534
+#: gconf/gconftool.c:536
 msgid "Can't set and get/unset simultaneously\n"
 msgstr "無法同時作設定和取得/反設定\n"
 
-#: gconf/gconftool.c:541
+#: gconf/gconftool.c:543
 #, fuzzy
 msgid "Can't get type and set/unset simultaneously\n"
 msgstr "無法同時作取得和設定/反設定\n"
 
-#: gconf/gconftool.c:552
+#: gconf/gconftool.c:554
 msgid "Can't use --all-entries with --get or --set\n"
 msgstr "無法使用 --all-entries 加上 --get 或 --set\n"
 
-#: gconf/gconftool.c:563
+#: gconf/gconftool.c:565
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "無法使用 --all-dirs 加上 --get 或 --set\n"
 
-#: gconf/gconftool.c:576
+#: gconf/gconftool.c:578
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
@@ -1548,7 +1548,7 @@ msgstr ""
 "--recursive-list 不能與 --get, --set, --unset, --all-entries, 或 --all-dirs "
 "一起使用\n"
 
-#: gconf/gconftool.c:589
+#: gconf/gconftool.c:591
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
@@ -1556,539 +1556,539 @@ msgstr ""
 "--set_schema 不能與 --get, --set, --unset, --all-entries, --all-dirs 一起使"
 "用\n"
 
-#: gconf/gconftool.c:595
+#: gconf/gconftool.c:597
 msgid "Value type is only relevant when setting a value\n"
 msgstr "數值類型只有在設定數值時是相關的\n"
 
-#: gconf/gconftool.c:601
+#: gconf/gconftool.c:603
 msgid "Must specify a type when setting a value\n"
 msgstr "當設定數值時必須指定一種類型\n"
 
-#: gconf/gconftool.c:613 gconf/gconftool.c:626 gconf/gconftool.c:639
-#: gconf/gconftool.c:653 gconf/gconftool.c:666 gconf/gconftool.c:679
-#: gconf/gconftool.c:693
+#: gconf/gconftool.c:615 gconf/gconftool.c:628 gconf/gconftool.c:641
+#: gconf/gconftool.c:655 gconf/gconftool.c:668 gconf/gconftool.c:681
+#: gconf/gconftool.c:695
 #, fuzzy, c-format
 msgid "%s option must be used by itself.\n"
 msgstr "Ping 的選項必須由它自己使用。\n"
 
-#: gconf/gconftool.c:702
+#: gconf/gconftool.c:704
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
 "當您使用 --direct 時，您必須指定一個 config 原始檔並加上 --config-source\n"
 
-#: gconf/gconftool.c:708
+#: gconf/gconftool.c:710
 msgid "You should use --direct when using a non-default configuration source\n"
 msgstr "當您使用一個非預設的設定原始檔時，您必須使用 --direct\n"
 
-#: gconf/gconftool.c:714
+#: gconf/gconftool.c:716
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "初始化 GConf 失敗： %s\n"
 
-#: gconf/gconftool.c:743
+#: gconf/gconftool.c:745
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
 msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL 已設定，並非安裝概要\n"
 
-#: gconf/gconftool.c:750
+#: gconf/gconftool.c:752
 #, fuzzy
 msgid ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
 msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL 已設定，並非安裝概要\n"
 
-#: gconf/gconftool.c:763
+#: gconf/gconftool.c:765
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "必須設定環境變數 GCONF_CONFIG_SOURCE\n"
 
-#: gconf/gconftool.c:792
+#: gconf/gconftool.c:794
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
 msgstr "存取設定原始檔失敗： %s\n"
 
-#: gconf/gconftool.c:1077
+#: gconf/gconftool.c:1085
 #, c-format
 msgid "Shutdown error: %s\n"
 msgstr "關閉發生錯誤： %s\n"
 
-#: gconf/gconftool.c:1120
+#: gconf/gconftool.c:1128
 #, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr "必須指定一個或多個目錄給循環的名單。\n"
 
-#: gconf/gconftool.c:1172
+#: gconf/gconftool.c:1180
 #, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "必須指定要反設定的一個或多個金鑰。\n"
 
-#: gconf/gconftool.c:1214 gconf/gconftool.c:1479
+#: gconf/gconftool.c:1222 gconf/gconftool.c:1487
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "無法列出在 `%s' 的紀錄： %s\n"
 
-#: gconf/gconftool.c:1232
+#: gconf/gconftool.c:1240
 msgid "(no value set)"
 msgstr "（沒有設定數值）"
 
-#: gconf/gconftool.c:1537
+#: gconf/gconftool.c:1545
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "無法建立 config 伺服器 (gconfd)： %s\n"
 
-#: gconf/gconftool.c:1551
+#: gconf/gconftool.c:1559
 msgid "Must specify a key or keys to get\n"
 msgstr "必須指定要取得的金鑰\n"
 
-#: gconf/gconftool.c:1586
+#: gconf/gconftool.c:1594
 #, c-format
 msgid "Type: %s\n"
 msgstr "類型： %s\n"
 
-#: gconf/gconftool.c:1587
+#: gconf/gconftool.c:1595
 #, c-format
 msgid "List Type: %s\n"
 msgstr "名單類型： %s\n"
 
-#: gconf/gconftool.c:1588
+#: gconf/gconftool.c:1596
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Car 類型： %s\n"
 
-#: gconf/gconftool.c:1589
+#: gconf/gconftool.c:1597
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Cdr 類型： %s\n"
 
-#: gconf/gconftool.c:1594
+#: gconf/gconftool.c:1602
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "預設值： %s\n"
 
-#: gconf/gconftool.c:1594 gconf/gconftool.c:1596 gconf/gconftool.c:1597
-#: gconf/gconftool.c:1598
+#: gconf/gconftool.c:1602 gconf/gconftool.c:1604 gconf/gconftool.c:1605
+#: gconf/gconftool.c:1606
 msgid "Unset"
 msgstr "反設定"
 
-#: gconf/gconftool.c:1596
+#: gconf/gconftool.c:1604
 #, c-format
 msgid "Owner: %s\n"
 msgstr "擁有者： %s\n"
 
-#: gconf/gconftool.c:1597
+#: gconf/gconftool.c:1605
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "短說明： %s\n"
 
-#: gconf/gconftool.c:1598
+#: gconf/gconftool.c:1606
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "長說明： %s\n"
 
-#: gconf/gconftool.c:1607 gconf/gconftool.c:1831 gconf/gconftool.c:1865
-#: gconf/gconftool.c:1910 gconf/gconftool.c:2055
+#: gconf/gconftool.c:1615 gconf/gconftool.c:1839 gconf/gconftool.c:1873
+#: gconf/gconftool.c:1918 gconf/gconftool.c:2063
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "沒有設定數值給 `%s'\n"
 
-#: gconf/gconftool.c:1611 gconf/gconftool.c:1835 gconf/gconftool.c:1869
-#: gconf/gconftool.c:1914 gconf/gconftool.c:2059
+#: gconf/gconftool.c:1619 gconf/gconftool.c:1843 gconf/gconftool.c:1877
+#: gconf/gconftool.c:1922 gconf/gconftool.c:2067
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "無法取得數值給 `%s'： %s\n"
 
-#: gconf/gconftool.c:1654 gconf/gconftool.c:1666
+#: gconf/gconftool.c:1662 gconf/gconftool.c:1674
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "不了解類型 `%s'\n"
 
-#: gconf/gconftool.c:1678
+#: gconf/gconftool.c:1686
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "必須指定另一對 金鑰/數值 當作引數\n"
 
-#: gconf/gconftool.c:1698
+#: gconf/gconftool.c:1706
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "沒有數值要設定給金鑰： `%s'\n"
 
-#: gconf/gconftool.c:1726
+#: gconf/gconftool.c:1734
 msgid "Cannot set schema as value\n"
 msgstr "無法設定概要為數值\n"
 
-#: gconf/gconftool.c:1736
+#: gconf/gconftool.c:1744
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "當設定名單時，您必須指定一個原始的名單類型 (list-type)\n"
 
-#: gconf/gconftool.c:1750
+#: gconf/gconftool.c:1758
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "當設定一對 (pair) 時，您必須指定一個原始的 car-type 與 cdr-type\n"
 
-#: gconf/gconftool.c:1765
+#: gconf/gconftool.c:1773
 #, c-format
 msgid "Error: %s\n"
 msgstr "錯誤： %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
+#: gconf/gconftool.c:1786 gconf/gconftool.c:2816
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "設定數值發生錯誤： %s\n"
 
-#: gconf/gconftool.c:1796
+#: gconf/gconftool.c:1804
 #, c-format
 msgid "Error syncing: %s\n"
 msgstr "同步化發生錯誤： %s\n"
 
-#: gconf/gconftool.c:1811
+#: gconf/gconftool.c:1819
 #, fuzzy
 msgid "Must specify a key or keys to get type\n"
 msgstr "必須指定要取得的金鑰\n"
 
-#: gconf/gconftool.c:1855
+#: gconf/gconftool.c:1863
 #, fuzzy
 msgid "Must specify a key to lookup size of.\n"
 msgstr "必須指定要取得的金鑰\n"
 
-#: gconf/gconftool.c:1880 gconf/gconftool.c:1925
+#: gconf/gconftool.c:1888 gconf/gconftool.c:1933
 #, fuzzy, c-format
 msgid "Key %s is not a list.\n"
 msgstr "在 '%s' 的數值不是一個概要\n"
 
-#: gconf/gconftool.c:1900
+#: gconf/gconftool.c:1908
 #, fuzzy
 msgid "Must specify a key from which to get list element.\n"
 msgstr "必須指定要取得的金鑰\n"
 
-#: gconf/gconftool.c:1931
+#: gconf/gconftool.c:1939
 #, fuzzy
 msgid "Must specify list index.\n"
 msgstr "必須指定一些要毀損的金鑰\n"
 
-#: gconf/gconftool.c:1938
+#: gconf/gconftool.c:1946
 msgid "List index must be non-negative.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1947
+#: gconf/gconftool.c:1955
 msgid "List index is out of bounds.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1973
+#: gconf/gconftool.c:1981
 msgid "Must specify a key or keys on the command line\n"
 msgstr "必須在命令列指定金鑰\n"
 
-#: gconf/gconftool.c:1993
+#: gconf/gconftool.c:2001
 #, c-format
 msgid "No schema known for `%s'\n"
 msgstr "沒有已知的概要給 `%s'\n"
 
-#: gconf/gconftool.c:2026
+#: gconf/gconftool.c:2034
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
 msgstr "沒有 doc 字串儲存在 '%s' 的概要中\n"
 
-#: gconf/gconftool.c:2031
+#: gconf/gconftool.c:2039
 #, c-format
 msgid "Error getting schema at '%s': %s\n"
 msgstr "在 '%s' 取得概要發生錯誤： %s\n"
 
-#: gconf/gconftool.c:2038
+#: gconf/gconftool.c:2046
 #, c-format
 msgid "No schema stored at '%s'\n"
 msgstr "沒有概要儲存在 '%s' 中\n"
 
-#: gconf/gconftool.c:2041
+#: gconf/gconftool.c:2049
 #, c-format
 msgid "Value at '%s' is not a schema\n"
 msgstr "在 '%s' 的數值不是一個概要\n"
 
-#: gconf/gconftool.c:2097
+#: gconf/gconftool.c:2105
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr "必須指定一個概要名稱以及要套用於其上的金鑰名稱\n"
 
-#: gconf/gconftool.c:2104
+#: gconf/gconftool.c:2112
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "要使概要名稱 '%s' 與金鑰名稱 '%s' 產生關聯發生錯誤： %s\n"
 
-#: gconf/gconftool.c:2122
+#: gconf/gconftool.c:2130
 #, fuzzy
 msgid "Must specify keys to unapply schema from\n"
 msgstr "必須指定要取得的金鑰\n"
 
-#: gconf/gconftool.c:2132
+#: gconf/gconftool.c:2140
 #, c-format
 msgid "Error removing schema name from '%s': %s\n"
 msgstr "從 '%s' 移除概要名稱發生錯誤： %s\n"
 
-#: gconf/gconftool.c:2157
+#: gconf/gconftool.c:2165
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "必須指定金鑰（概要名稱）為唯一的引數\n"
 
-#: gconf/gconftool.c:2199
+#: gconf/gconftool.c:2207
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr "名單類型必須是原始的類型： string, int, float 或 bool\n"
 
-#: gconf/gconftool.c:2219
+#: gconf/gconftool.c:2227
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr "一對的 car 類型必須是原始的類型： string, int, float 或 bool\n"
 
-#: gconf/gconftool.c:2239
+#: gconf/gconftool.c:2247
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr "一對的 cdr 類型必須是原始的類型： string, int, float 或 bool\n"
 
-#: gconf/gconftool.c:2254
+#: gconf/gconftool.c:2262
 #, c-format
 msgid "Error setting value: %s"
 msgstr "設定數值發生錯誤： %s"
 
-#: gconf/gconftool.c:2268
+#: gconf/gconftool.c:2276
 #, c-format
 msgid "Error syncing: %s"
 msgstr "同步化發生錯誤： %s"
 
-#: gconf/gconftool.c:2283
+#: gconf/gconftool.c:2291
 #, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr "必須指定一個或多個用來取得一對 金鑰/數值 的目錄。\n"
 
-#: gconf/gconftool.c:2297
+#: gconf/gconftool.c:2305
 msgid "Must specify one or more keys to unset.\n"
 msgstr "必須指定要反設定的一個或多個金鑰。\n"
 
-#: gconf/gconftool.c:2308
+#: gconf/gconftool.c:2316
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "反設定時發生錯誤 `%s'： %s\n"
 
-#: gconf/gconftool.c:2328
+#: gconf/gconftool.c:2336
 msgid "Must specify one or more keys to recursively unset.\n"
 msgstr "必須指定一個或多個金鑰給遞迴地解除設定。\n"
 
-#: gconf/gconftool.c:2342
+#: gconf/gconftool.c:2350
 #, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "遞迴的解除設定 \"%s\" 時失敗： %s\n"
 
-#: gconf/gconftool.c:2362
+#: gconf/gconftool.c:2370
 #, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr "必須指定一個或多個目錄以取得其中的子目錄。\n"
 
-#: gconf/gconftool.c:2396
+#: gconf/gconftool.c:2404
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "列出目錄發生錯誤： %s\n"
 
-#: gconf/gconftool.c:2532
+#: gconf/gconftool.c:2540
 msgid "WARNING: must specify both a <car> and a <cdr> in a <pair>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2559
+#: gconf/gconftool.c:2567
 #, fuzzy, c-format
 msgid "WARNING: key specified (%s) for schema under a <value> - ignoring\n"
 msgstr "警告： 沒有指定金鑰給概要\n"
 
-#: gconf/gconftool.c:2592
+#: gconf/gconftool.c:2600
 msgid "WARNING: must have a child node under <value>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2598
+#: gconf/gconftool.c:2606
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood\n"
 msgstr "警告： 節點 <%s> 不了解以下的 <schema>\n"
 
-#: gconf/gconftool.c:2616
+#: gconf/gconftool.c:2624
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse int value `%s'\n"
 msgstr "警告： 無法解析類型名稱 `%s'\n"
 
-#: gconf/gconftool.c:2637
+#: gconf/gconftool.c:2645
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse float value `%s'\n"
 msgstr "警告： 無法解析類型名稱 `%s'\n"
 
-#: gconf/gconftool.c:2659
+#: gconf/gconftool.c:2667
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse string value `%s'\n"
 msgstr "警告： 無法解析類型名稱 `%s'\n"
 
-#: gconf/gconftool.c:2680
+#: gconf/gconftool.c:2688
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "警告： 無法解析類型名稱 `%s'\n"
 
-#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
+#: gconf/gconftool.c:2797 gconf/gconftool.c:3341
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "警告： 無法使概要 `%s' 與金鑰 `%s' 產生關聯： %s\n"
 
-#: gconf/gconftool.c:2902
+#: gconf/gconftool.c:2910
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "警告： 概要 (%s) 有無效或遺失的類型\n"
 
-#: gconf/gconftool.c:2911
+#: gconf/gconftool.c:2919
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "警告： 概要 (%s) 有無效或遺失的名單類型\n"
 
-#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
+#: gconf/gconftool.c:2930 gconf/gconftool.c:2960 gconf/gconftool.c:2989
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "警告： 無法解析預設數值 `%s' 給概要 (%s)\n"
 
-#: gconf/gconftool.c:2940
+#: gconf/gconftool.c:2948
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "警告： 概要 (%s) 有無效或遺失的 car 類型或 cdr 類型\n"
 
-#: gconf/gconftool.c:2965
+#: gconf/gconftool.c:2973
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "警告： 您不能設一個預設數值給概要\n"
 
-#: gconf/gconftool.c:2994
+#: gconf/gconftool.c:3002
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "警告： gconftool 內部發生錯誤，有未知的 GConfValueType\n"
 
-#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
-#: gconf/gconftool.c:3105
+#: gconf/gconftool.c:3050 gconf/gconftool.c:3071 gconf/gconftool.c:3092
+#: gconf/gconftool.c:3113
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "警告： 無法解析類型名稱 `%s'\n"
 
-#: gconf/gconftool.c:3059
+#: gconf/gconftool.c:3067
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "警告： 名單類型 (list_type ) 只能是 int, float, string 或 bool 而不是 `%s'\n"
 
-#: gconf/gconftool.c:3080
+#: gconf/gconftool.c:3088
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr "警告： car 類型只能是 int, float, string 或 bool 而不是 `%s'\n"
 
-#: gconf/gconftool.c:3101
+#: gconf/gconftool.c:3109
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr "警告： cdr 類型只能是 int, float, string 或 bool 而不是 `%s'\n"
 
-#: gconf/gconftool.c:3141
+#: gconf/gconftool.c:3149
 msgid "WARNING: empty <applyto> node"
 msgstr "警告： 空白的 <applyto> 節點"
 
-#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
+#: gconf/gconftool.c:3152 gconf/gconftool.c:3414
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "警告： 節點 <%s> 不了解以下的 <schema>\n"
 
-#: gconf/gconftool.c:3155
+#: gconf/gconftool.c:3163
 #, fuzzy
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "警告： 沒有指定金鑰給概要\n"
 
-#: gconf/gconftool.c:3161
+#: gconf/gconftool.c:3169
 #, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "警告： 沒有指定金鑰給概要\n"
 
-#: gconf/gconftool.c:3167
+#: gconf/gconftool.c:3175
 #, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "警告： 沒有指定金鑰給概要\n"
 
-#: gconf/gconftool.c:3196
+#: gconf/gconftool.c:3204
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr "警告： <locale> 節點沒有 `name=\"locale\"' 屬性，忽略中\n"
 
-#: gconf/gconftool.c:3202
+#: gconf/gconftool.c:3210
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr "警告： 多重的 <locale> 節點給地域 `%s'，先忽略所有之前的\n"
 
-#: gconf/gconftool.c:3300
+#: gconf/gconftool.c:3308
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "警告： 在 <locale> 節點中有無效的節點 <%s>\n"
 
-#: gconf/gconftool.c:3341
+#: gconf/gconftool.c:3349
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "連接概要 `%s' 至金鑰 `%s'\n"
 
-#: gconf/gconftool.c:3415
+#: gconf/gconftool.c:3423
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "您必須至少有一個 <locale> 紀錄在 <schema> 中\n"
 
-#: gconf/gconftool.c:3447
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "警告： 無法安裝概要 `%s' 地域 `%s'： %s\n"
 
-#: gconf/gconftool.c:3455
+#: gconf/gconftool.c:3463
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "安裝概要 `%s' 給地域 `%s'\n"
 
-#: gconf/gconftool.c:3479
+#: gconf/gconftool.c:3487
 #, fuzzy, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "警告： 無法安裝概要 `%s' 地域 `%s'： %s\n"
 
-#: gconf/gconftool.c:3487
+#: gconf/gconftool.c:3495
 #, fuzzy, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "安裝概要 `%s' 給地域 `%s'\n"
 
-#: gconf/gconftool.c:3525
+#: gconf/gconftool.c:3533
 msgid "WARNING: no key specified for schema\n"
 msgstr "警告： 沒有指定金鑰給概要\n"
 
-#: gconf/gconftool.c:3566
+#: gconf/gconftool.c:3574
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "警告： 節點 <%s> 不了解以下的 <schema>\n"
 
-#: gconf/gconftool.c:3597
+#: gconf/gconftool.c:3605
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "無法開啟 `%s'： %s\n"
 
-#: gconf/gconftool.c:3604
+#: gconf/gconftool.c:3612
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "文件 `%s' 是空白的嗎？\n"
 
-#: gconf/gconftool.c:3616
+#: gconf/gconftool.c:3624
 #, fuzzy, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "文件 `%s' 含有錯誤類型的 root 節點 （<%s>，應該是 <gconfschemafile>）\n"
 
-#: gconf/gconftool.c:3629
+#: gconf/gconftool.c:3637
 #, fuzzy, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "文件 `%s' 沒有最高層級的 <gconfschemafile> 節點\n"
 
-#: gconf/gconftool.c:3643
+#: gconf/gconftool.c:3651
 #, fuzzy, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "警告： 不了解在 <gconfschemafile> 以下的節點 <%s>\n"
 
-#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
+#: gconf/gconftool.c:3662 gconf/gconftool.c:3697 gconf/gconftool.c:3729
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "同步化 config 資料發生錯誤： %s"
 
-#: gconf/gconftool.c:3673
+#: gconf/gconftool.c:3681
 msgid "Must specify some schema files to install\n"
 msgstr "必須指定一些要安裝的概要檔\n"
 
-#: gconf/gconftool.c:3705
+#: gconf/gconftool.c:3713
 #, fuzzy
 msgid "Must specify some schema files to uninstall\n"
 msgstr "必須指定一些要安裝的概要檔\n"
 
-#: gconf/gconftool.c:3742
+#: gconf/gconftool.c:3750
 #, c-format
 msgid ""
 "\n"
@@ -2097,16 +2097,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3762
+#: gconf/gconftool.c:3770
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "無法反設定損壞的金鑰 %s： %s\n"
 
-#: gconf/gconftool.c:3888
+#: gconf/gconftool.c:3896
 msgid "Must specify some keys to break\n"
 msgstr "必須指定一些要毀損的金鑰\n"
 
-#: gconf/gconftool.c:3894
+#: gconf/gconftool.c:3902
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2115,11 +2115,11 @@ msgstr ""
 "嘗試要毀損您的應用系統，藉由設定不當數值給金鑰：\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3912
+#: gconf/gconftool.c:3920
 msgid "Must specify some directories to break\n"
 msgstr "必須指定一些要毀損的目錄\n"
 
-#: gconf/gconftool.c:3931
+#: gconf/gconftool.c:3939
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
