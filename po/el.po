@@ -3,18 +3,16 @@
 # Sarantis Paskalis <paskalis@di.uoa.gr>, 2000.
 # Review by Simos (10min review, mostly grammatical checks)
 # Simos Xenitellis <simos@hellug.gr>, 2001.
-#
 # Initial translation by Sarantis, about 230 messages.
 # simos: 252 messages, 5Feb2001.
 # simos: 323 messages, 12Feb2001.
-#
 # list type=είδος λίστας
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.0.3\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
-"PO-Revision-Date: 2001-02-12 00:01:36+0900\n"
+"POT-Creation-Date: 2001-09-02 00:17+0100\n"
+"PO-Revision-Date: 2001-09-02 00:27+0100\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -108,8 +106,8 @@ msgstr ""
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
-"%u items remain in the cache after cleaning already-synced items older than %"
-"u seconds"
+"%u items remain in the cache after cleaning already-synced items older than "
+"%u seconds"
 msgstr ""
 "%u στοιχεία απομένουν στην λανθάνουσα μνήμη μετά τον καθαρισμό των "
 "συγχρονισμένων στοιχείων, παλαιότερων από %u δευτερόλεπτα"
@@ -218,9 +216,9 @@ msgstr "Αγνόηση ονόματος σχήματος `%s', μη έγκυρο: %s"
 
 # gconf/gconfd.c:1745
 #: backends/xml-entry.c:375
-#, fuzzy, c-format
+#, c-format
 msgid "Ignoring XML node `%s': %s"
-msgstr "Αγνόηση κόμβου XML με όνομα `%s': %s"
+msgstr "Αγνόηση κόμβου XML `%s': %s"
 
 # gconf/gconftool.c:1243
 #: backends/xml-entry.c:726
@@ -343,7 +341,8 @@ msgstr "Λήφθηκε άκυρη τιμή στην αίτηση καταχώρησης"
 # gconf/gconfd.c:519
 #: gconf/gconf-database.c:240
 #, c-format
-msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
+msgid ""
+"Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Αδύνατος ο προσδιορισμός της τιμής CORBA που λήφθηκε στην αίτηση καταχώρησης "
 "για το κλειδί `%s"
@@ -726,8 +725,8 @@ msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
 "took our lock"
 msgstr ""
-"Δεν δημιουργήθηκε αρχείο κλειδώματος `%s' (δημιουργός pid %u, δικό μας pid %"
-"u· υποθέτουμε ότι κάποιος πήρε το κλείδωμα μας"
+"Δεν δημιουργήθηκε αρχείο κλειδώματος `%s' (δημιουργός pid %u, δικό μας pid "
+"%u· υποθέτουμε ότι κάποιος πήρε το κλείδωμα μας"
 
 # gconf/gconf-internals.c:2491
 #: gconf/gconf-internals.c:2576
@@ -765,16 +764,16 @@ msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writeable databases. There are two common causes of this problem: 1) your "
 "configuration path file doesn't contain any databases or wasn't found or 2) "
-"OAF mistakenly created two gconfd processes. If you have two gconfd "
-"processes (or had two at the time the second was launched), then it's an OAF "
-"bug, not a GConf issue. Logging out, killing oafd and gconfd, and logging "
-"back in may help. As always, check the user.* syslog for details on problems "
-"gconfd encountered."
+"OAF mistakenly created two gconfd processes. If you have two gconfd processes "
+"(or had two at the time the second was launched), then it's an OAF bug, not a "
+"GConf issue. Logging out, killing oafd and gconfd, and logging back in may "
+"help. As always, check the user.* syslog for details on problems gconfd "
+"encountered."
 msgstr ""
 "Αδύνατη η αποθήκευση τιμής στο κλειδί '%s' διότι ο εξυπηρετητής ρυθμίσεων δε "
 "παρέχει εγγράψιμες βάσεις. Υπάρχουν δύο τυπικές αιτίες για αυτό το πρόβλημα: "
-"1) η διαδρομή αρχείου ρυθμίσεων δεν περιλαμβάνει καμία βάση ή δε βρέθηκε ή "
-"2) το OAF κατά λάθος δημιούργησε δύο διαδικασίες gconfd. Αν έχετε δύο "
+"1) η διαδρομή αρχείου ρυθμίσεων δεν περιλαμβάνει καμία βάση ή δε βρέθηκε ή 2) "
+"το OAF κατά λάθος δημιούργησε δύο διαδικασίες gconfd. Αν έχετε δύο "
 "διαδικασίες gconfg (ή είχατε δύο τη στιγμή εκκίνησης του δευτέρου), τότε "
 "είναι σφάλμα λογισμικού του OAF και όχι πρόβλημα του GConf. Η έξοδος από το "
 "σύστημα, ο τερματισμός των διεργασιών oafd και gconfd και η είσοδος ξανά στο "
@@ -898,6 +897,12 @@ msgid ""
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
 msgstr ""
+"Σφάλμα στην επικοινωνία με τον εξυπηρετητή ρυθμίσεων: Το OAF επέστρεψε μηδέν "
+"από το oaf_activate_from_id() και δεν έθεσε μια εξαίρεση εξηγώντας το "
+"πρόβλημα. Αυτό είναι ένα σφάλμα στο πακέτο OAF, συνέβει κάτι λάθος στο OAF "
+"και δεν αναφέρθηκε σφάλμα. Αυτό δεν είναι σφάλμα στο πακέτο GConf. Μην το "
+"αναφέρετε ως σφάλμα του GConf εκτός αν έχετε πληροφορίες που δείχνουν ότι το "
+"σφάλμα προήλθε από το GConf."
 
 # gconf-editor/gconf-editor.c:69 gconf/gconftool.c:447
 #: gconf/gconf.c:2198
@@ -998,10 +1003,6 @@ msgstr ""
 "Δεν βρέθηκαν πηγαίες διαμορφώσεις στην πηγαία διαδρομή, η διαμόρφωση δε θα "
 "αποθηκευτεί· επεξεργασία "
 
-#: gconf/gconfd.c:307
-msgid "/path"
-msgstr ""
-
 # gconf/gconfd.c:901
 #: gconf/gconfd.c:321
 #, c-format
@@ -1014,8 +1015,8 @@ msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
 msgstr ""
-"Δεν αναλύθηκαν επιτυχώς πηγαίες διευθύνσεις, αδύνατη η φόρτωση ή η "
-"αποθήκευση δεδομένων διαμόρφωσης"
+"Δεν αναλύθηκαν επιτυχώς πηγαίες διευθύνσεις, αδύνατη η φόρτωση ή η αποθήκευση "
+"δεδομένων διαμόρφωσης"
 
 # gconf/gconfd.c:930
 #: gconf/gconfd.c:350
@@ -1088,12 +1089,14 @@ msgstr "Αποτυχία λήψης κλειδώματος για την υπηρεσία: %s"
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
 msgstr ""
+"Δήλωση του υπάρχοντος εξυπηρετητή με τον oafd, διότι το oafd φαίνετε να το "
+"διέρρευσε"
 
 # gconf/gconfd.c:1075
 #: gconf/gconfd.c:603
 msgid ""
-"OAF doesn't know about our IID; indicates broken installation; can't "
-"register existing server."
+"OAF doesn't know about our IID; indicates broken installation; can't register "
+"existing server."
 msgstr ""
 "Το ΠΕΑ (OAF) δε γνωρίζει περί του IID μας, υποδηλώνει κακή εγκατάσταση, δε "
 "μπορεί να καταχωρηθεί ο υπάρχον εξυπηρετητής."
@@ -1101,8 +1104,8 @@ msgstr ""
 # gconf/gconfd.c:1079
 #: gconf/gconfd.c:607
 msgid ""
-"Another gconfd already registered with OAF, so we can't register the "
-"existing server"
+"Another gconfd already registered with OAF, so we can't register the existing "
+"server"
 msgstr ""
 "Ένα άλλο gconfd είναι ήδη καταχωρημένο στο ΠΕΑ (OAF)· οπότε δε μπορούμε να "
 "καταχωρήσουμε τον υπάρχον εξυπηρετητή"
@@ -1182,8 +1185,8 @@ msgstr ""
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr ""
-"Αδύνατη η εγγραφή αποθηκευμένου αρχείου κατάστασης `%s' περιγ. αρχείου: %d: %"
-"s"
+"Αδύνατη η εγγραφή αποθηκευμένου αρχείου κατάστασης `%s' περιγ. αρχείου: %d: "
+"%s"
 
 # gconf/gconf-internals.c:2416
 #: gconf/gconfd.c:1311
@@ -1196,8 +1199,8 @@ msgstr "Αποτυχία κλεισίματος νέου αποθηκευμένου αρχείου κατάστασης `%s': %s"
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr ""
-"Αδύνατη η τοποθέτηση στην άκρη του παλαιού αποθηκευμένου αρχείου κατάστασης `"
-"%s': %s"
+"Αδύνατη η τοποθέτηση στην άκρη του παλαιού αποθηκευμένου αρχείου κατάστασης "
+"`%s': %s"
 
 # gconf/gconf-internals.c:2416
 #: gconf/gconfd.c:1335
@@ -1218,8 +1221,8 @@ msgstr ""
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
-"Αδυναμία αποκατάστασης ακροατή στη διεύθυνση '%s', αδύνατη η διεκπαιρέωση "
-"της βάσης δεδομένων"
+"Αδυναμία αποκατάστασης ακροατή στη διεύθυνση '%s', αδύνατη η διεκπαιρέωση της "
+"βάσης δεδομένων"
 
 # gconf/gconfd.c:1676
 #: gconf/gconfd.c:1865
@@ -1236,8 +1239,8 @@ msgstr "Αδύνατο το άνοιγμα αρχείου αποθηκευμένης κατάστασης `%s': %s"
 #: gconf/gconfd.c:2035
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to re-add "
+"the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Αποτυχία καταγραφής της πρόσθεσης ακροατή στο αρχείο καταγραφών του gconfd. "
 "Δε θα είναι δυνατό να επαναπροστεθεί ο ακροατής αν το gconfd τερματίσει ή "
@@ -1246,8 +1249,8 @@ msgstr ""
 #: gconf/gconfd.c:2040
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously re-add "
+"the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Αποτυχία καταγραφής της διαγραφής ακροατή στο αρχείο καταγραφών του gconfd. "
 "Είναι πιθανό να επαναπροστεθεί ο ακροατής κατά λάθος αν το gconfd τερματίσει "
@@ -1277,8 +1280,8 @@ msgstr ""
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
-"Αποτυχία ολοκλήρωσης προσθήκης πελάτη στο αρχείο αποθηκευμένσης κατάστασης: %"
-"s"
+"Αποτυχία ολοκλήρωσης προσθήκης πελάτη στο αρχείο αποθηκευμένσης κατάστασης: "
+"%s"
 
 #: gconf/gconfd.c:2189
 msgid ""
@@ -1304,8 +1307,8 @@ msgstr "Εκτύπωση της τιμής ενός κλειδιού στην κανονική  έξοδο"
 # gconf/gconftool.c:100
 #: gconf/gconftool.c:95
 msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
-"type."
+"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
+"--type."
 msgstr ""
 "Ανάθεση ενός σχήματος και συγχρονισμός. Χρήση με --short-desc, --long-desc, "
 "--owner, και --type."
@@ -1376,8 +1379,8 @@ msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
-"Καθορισμός του τύπου της τιμής της λίστας που ανατίθεται ή τον τύπο της "
-"τιμής που περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
+"Καθορισμός του τύπου της τιμής της λίστας που ανατίθεται ή τον τύπο της τιμής "
+"που περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
 
 # gconf/gconftool.c:183
 #: gconf/gconftool.c:187 gconf/gconftool.c:196 gconf/gconftool.c:205
@@ -1500,15 +1503,15 @@ msgid "Get the name of the schema applied to this key"
 msgstr "Λήψη του ονόματος του σχήματος που εφαρμόστηκε στο κλειδί"
 
 #: gconf/gconftool.c:321
-msgid "Specify the schema name followed by the key to apply the schema name to"
+msgid ""
+"Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
-"Καθορισμός του ονόματος σχήματος ακολουθούμενου του κλειδιού για την "
-"εφαρμογή του ονόματος σχήματο"
+"Καθορισμός του ονόματος σχήματος ακολουθούμενου του κλειδιού για την εφαρμογή "
+"του ονόματος σχήματο"
 
 #: gconf/gconftool.c:330
-#, fuzzy
 msgid "Get the name of the default source"
-msgstr "Λήψη του ονόματος του σχήματος που εφαρμόστηκε στο κλειδί"
+msgstr "Λήψη ονόματος της εξ' ορισμού πηγής"
 
 # gconf/gconftool.c:310
 #: gconf/gconftool.c:382
@@ -1544,17 +1547,17 @@ msgstr "Αδύνατη η χρήση της --all-dirs με τις --get ή --set\n"
 # gconf/gconftool.c:355
 #: gconf/gconftool.c:427
 msgid ""
-"--recursive-list should not be used with --get, --set, --unset, --all-"
-"entries, or --all-dirs\n"
+"--recursive-list should not be used with --get, --set, --unset, "
+"--all-entries, or --all-dirs\n"
 msgstr ""
-"Η επιλογή --recursive-list δε θα έπρεπε να χρησιμοποιείται με τις --get, --"
-"set, --unset, --all-entries ή --all-dirs\n"
+"Η επιλογή --recursive-list δε θα έπρεπε να χρησιμοποιείται με τις --get, "
+"--set, --unset, --all-entries ή --all-dirs\n"
 
 # gconf/gconftool.c:365
 #: gconf/gconftool.c:437
 msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
-"all-dirs\n"
+"--set_schema should not be used with --get, --set, --unset, --all-entries, "
+"--all-dirs\n"
 msgstr ""
 "Η επιλογή --set_schema δε θα έπρεπε να χρησιμοποιείται με τις --get, --set, "
 "--all-entries ή --all-dirs\n"
@@ -1587,8 +1590,7 @@ msgstr "Η επιλογή --install-schema-file πρέπει να χρησιμοποιείται μόνη της.\n"
 # gconf/gconftool.c:414
 #: gconf/gconftool.c:490
 msgid "--makefile-install-rule must be used by itself.\n"
-msgstr ""
-"Η επιλογή --makefile-install-rule πρέπει να χρησιμοποιείται μόνη της.\n"
+msgstr "Η επιλογή --makefile-install-rule πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:424
 #: gconf/gconftool.c:501
@@ -1630,8 +1632,7 @@ msgid ""
 "applications are running\n"
 "(though things theoretically work if apps are running).\n"
 msgstr ""
-"Δε θα έπρεπε να εκτελείται το gconfd όταν εγκαθίστανται νέα αρχεία "
-"σχήματος.\n"
+"Δε θα έπρεπε να εκτελείται το gconfd όταν εγκαθίστανται νέα αρχεία σχήματος.\n"
 "Χρησιμοποιείστε το gconftool --shutdown για να κλείσετε το δαίμονα, "
 "ασφαλέστερα όταν δεν εκτελούνται εφαρμογές\n"
 "(αν και θεωρητικά θα έπρεπε να δουλέψει αν εκτελούνται εφαρμογές).\n"
@@ -1938,8 +1939,7 @@ msgstr ""
 # gconf/gconftool.c:1256
 #: gconf/gconftool.c:1723
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
-msgstr ""
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Εσωτερικό σφάλμα του gconftool, άγνωστο GConfValueType\n"
+msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Εσωτερικό σφάλμα του gconftool, άγνωστο GConfValueType\n"
 
 # gconf/gconftool.c:1304
 #: gconf/gconftool.c:1770 gconf/gconftool.c:1791 gconf/gconftool.c:1812
@@ -1953,8 +1953,8 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία γραμματικής ανάλυσης ονόματος τύπου `%s'\n"
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Το list_type μπορεί να είναι μόνο ακέραιος, κιν. "
-"υποδιαστολής, αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
+"ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Το list_type μπορεί να είναι μόνο ακέραιος, κιν. υποδιαστολής, "
+"αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
 
 #: gconf/gconftool.c:1808
 #, c-format
@@ -1981,8 +1981,7 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κενός κόμβος <applyto>"
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <%s> δεν είναι κατανοητός χαμηλότερα από το "
-"<schema>\n"
+"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <%s> δεν είναι κατανοητός χαμηλότερα από το <schema>\n"
 
 # gconf/gconftool.c:1340
 #: gconf/gconftool.c:1870
@@ -2016,8 +2015,7 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Άκυρος κόμβος <%s> σε ένα κόμβο <locale>\n"
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία εγκατάστασης σχήματος `%s' τοπικής ρύθμισης `%s': %"
-"s\n"
+"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία εγκατάστασης σχήματος `%s' τοπικής ρύθμισης `%s': %s\n"
 
 # gconf/gconftool.c:1488
 #: gconf/gconftool.c:2027
@@ -2041,8 +2039,7 @@ msgstr "Σχήμα `%s' επισυνάφτηκε στο κλειδί `%s'\n"
 # gconf/gconftool.c:1588
 #: gconf/gconftool.c:2136
 msgid "You must have at least one <locale> entry in a <schema>\n"
-msgstr ""
-"Πρέπει να υπάρχει τουλάχιστον μία καταχώρηση <locale> σε ένα <schema>\n"
+msgstr "Πρέπει να υπάρχει τουλάχιστον μία καταχώρηση <locale> σε ένα <schema>\n"
 
 # gconf/gconftool.c:1617
 #: gconf/gconftool.c:2165
@@ -2141,8 +2138,7 @@ msgstr "Πρέπει να καθοριστούν μερικοί κατάλογοι προς σπάσιμο\n"
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
-"directory:\n"
-"  %s\n"
+"directory:\n  %s\n"
 msgstr ""
 "Προσπάθεια ανίχνευσης ελλαττώματος στην εφαρμογή θέτοντας άσχετες τιμές για "
 "το κλειδί στον κατάλογο:\n"
@@ -2180,12 +2176,12 @@ msgstr "Αναμενόταν `%s' λήφθηκε `%s' για το κλειδί %s"
 # gconf/gconf.c:1463
 #~ msgid ""
 #~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the "
-#~ "problem. Please file an OAF bug report."
+#~ "oaf_activate_from_id() and did not set an exception explaining the problem. "
+#~ "Please file an OAF bug report."
 #~ msgstr ""
-#~ "Σφάλμα στην επαφή με τον εξυπηρέτη διαμόρφωσης: Το OAF επέστρεψε μηδέν "
-#~ "από την oaf_activate_from_id() και δεν καθόρισε μια εξαίρεση που να "
-#~ "εξηγεί το πρόβλημα. Παρακαλώ στείλτε μια αναφορά σφάλματος OAF"
+#~ "Σφάλμα στην επαφή με τον εξυπηρέτη διαμόρφωσης: Το OAF επέστρεψε μηδέν από "
+#~ "την oaf_activate_from_id() και δεν καθόρισε μια εξαίρεση που να εξηγεί το "
+#~ "πρόβλημα. Παρακαλώ στείλτε μια αναφορά σφάλματος OAF"
 
 #~ msgid "GConf was built with debugging features enabled"
 #~ msgstr ""
