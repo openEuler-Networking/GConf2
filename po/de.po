@@ -569,7 +569,7 @@ msgstr "Das UTF-8 in der Kurzbeschreibung des Schemas ist ungültig"
 
 #: gconf/gconf-internals.c:607
 msgid "Invalid UTF-8 in long description for schema"
-msgstr "Das UTF-8 in der langen Beschreibung des Schemas ist ungültig"
+msgstr "Das UTF-8 in der ausführlichen Beschreibung des Schemas ist ungültig"
 
 #: gconf/gconf-internals.c:615
 msgid "Invalid UTF-8 in owner for schema"
@@ -1668,7 +1668,7 @@ msgstr "Die kurze Dokumentationszeichenkette für einen Schlüssel anfordern"
 
 #: gconf/gconftool.c:382
 msgid "Get the long doc string for a key"
-msgstr "Die lange Dokumentationszeichenkette für einen Schlüssel anfordern"
+msgstr "Die ausführliche Dokumentationszeichenkette für einen Schlüssel anfordern"
 
 #: gconf/gconftool.c:391
 msgid "Get the name of the schema applied to this key"
