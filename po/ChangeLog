@@ -1,7 +1,8 @@
-2002-02-24  Pablo Saratxaga <pablo@mandrakesoft.com>
+2002-02-25  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* az.po: Corrected charset declaration
 	* nl.po: Corrected syntax error
+	* Makefile.in.in: enabled install to $DESTDIR
 
 2002-02-09  Pablo Saratxaga <pablo@mandrakesoft.com>
 
