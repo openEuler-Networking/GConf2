@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-10-31 20:39+0100\n"
-"PO-Revision-Date: 2001-10-31 21:07+0100\n"
+"POT-Creation-Date: 2001-12-30 20:34+0100\n"
+"PO-Revision-Date: 2001-12-30 20:36+0100\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -603,8 +603,12 @@ msgstr "Nie mo¿na stworzyæ lub otworzyæ \"%s\""
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Failed to lock '%s': another process has the lock (%s)"
-msgstr "Nie mo¿na zablokowaæ \"%s\": blokadê przetrzymuje inny proces (%s)"
+msgid ""
+"Failed to lock '%s': probably another process has the lock, or your "
+"operating system has NFS file locking misconfigured (%s)"
+msgstr ""
+"Nie mo¿na zablokowaæ \"%s\": prawdopodobnie blokadê przetrzymuje inny proces "
+"lub w systemie zosta³o niepoprawnie skonfigurowane blokowanie po NFS-ie (%s)"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -1427,6 +1431,12 @@ msgid ""
 msgstr ""
 "Przy u¿yciu --direct nale¿y podaæ ¼ród³o konfiguracji przy u¿yciu "
 "--config-source\n"
+
+#: gconf/gconftool.c:1
+msgid "You should use --direct when using a non-default configuration source\n"
+msgstr ""
+"Przy korzystaniu z ¼ród³a konfiguracji innego ni¿ domy¶lne nale¿y u¿yæ "
+"--direct\n"
 
 #: gconf/gconftool.c:1
 #, c-format
