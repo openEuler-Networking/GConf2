@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.4\n"
-"POT-Creation-Date: 2001-10-17 21:56+0200\n"
-"PO-Revision-Date: 2001-10-17 21:59+0200\n"
+"POT-Creation-Date: 2001-12-27 16:49+0100\n"
+"PO-Revision-Date: 2001-12-27 16:49+0100\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Opstarter BDB-backend-modul"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Kunne ikke finde %s-rodkatalog på adressen '%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1053
+#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1050
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Kunne ikke oprette kataloget '%s': %s"
@@ -55,26 +55,26 @@ msgstr "Kunne ikke læse fra eller skrive til %s-rodkatalog på adressen '%s'"
 msgid "Unloading XML backend module."
 msgstr "Fjern XML-backend-modulet fra hukommelsen."
 
-#: backends/xml-backend.c:286
+#: backends/xml-backend.c:289
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Kunne ikke finde XML-rodkatalog på adressen '%s'"
 
-#: backends/xml-backend.c:386
+#: backends/xml-backend.c:414
 #, c-format
 msgid "Can't read from or write to the XML root directory in the address `%s'"
 msgstr "Kunne ikke læse fra eller skrive til XML-rodkatalog på adressen '%s'"
 
-#: backends/xml-backend.c:396
+#: backends/xml-backend.c:424
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Mappe/filrettigheder for XML-kilde ved roden %s er %o/%o"
 
-#: backends/xml-backend.c:680
+#: backends/xml-backend.c:708
 msgid "Initializing XML backend module"
 msgstr "Klargører XML-backend-modul"
 
-#: backends/xml-backend.c:745
+#: backends/xml-backend.c:773
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Kunne ikke opgive lås på XML-katalog '%s': %s"
@@ -142,33 +142,33 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Kunne ikke slette gammel fil '%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:806
+#: backends/xml-dir.c:803
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Kunne ikke finde filen '%s': %s"
 
-#: backends/xml-dir.c:950
+#: backends/xml-dir.c:947
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Duplikeret punkt '%s' i '%s', ignorerer"
 
-#: backends/xml-dir.c:972
+#: backends/xml-dir.c:969
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Punkt uden navn i XML-fil '%s', ignorerer"
 
-#: backends/xml-dir.c:980
+#: backends/xml-dir.c:977
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Topniveau-punkt i XML-filen '%s' er <%s> istedet for <entry>, ignorerer"
 
-#: backends/xml-dir.c:1069
+#: backends/xml-dir.c:1066
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Kunne ikke oprette filen '%s': %s"
 
-#: backends/xml-dir.c:1077
+#: backends/xml-dir.c:1074
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Kunne ikke lukke filen '%s': %s"
@@ -347,7 +347,7 @@ msgstr ""
 "Kunne ikke logge fjernelse af lytter til logfil (højst sandsynligt harmløst, "
 "kan resultere i at en ændringsunderrettelse genindtræffer på mystisk vis): %s"
 
-#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1328
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fejl ved forespørgsel af værdien af '%s': %s"
@@ -456,221 +456,225 @@ msgstr "Kunne ikke låse"
 msgid "No database available to save your configuration"
 msgstr "Ingen database tilgængelig for lagring af din konfiguration"
 
-#: gconf/gconf-internals.c:112
+#: gconf/gconf-internals.c:114
 #, c-format
 msgid "No '/' in key `%s'"
 msgstr "Ingen '/' i nøglen '%s'"
 
-#: gconf/gconf-internals.c:225
+#: gconf/gconf-internals.c:227
 #, c-format
 msgid "Invalid UTF-8 in string value in '%s'"
 msgstr "Ugyldig UTF-8 i tekstværdi i '%s'"
 
-#: gconf/gconf-internals.c:284
+#: gconf/gconf-internals.c:286
 msgid "Couldn't interpret CORBA value for list element"
 msgstr "Kunne ikke tolke CORBA-værdi for listeelement"
 
-#: gconf/gconf-internals.c:286
+#: gconf/gconf-internals.c:288
 #, c-format
 msgid "Incorrect type for list element in %s"
 msgstr "Forkert type af listeelement i %s"
 
-#: gconf/gconf-internals.c:299
+#: gconf/gconf-internals.c:301
 msgid "Received list from gconfd with a bad list type"
 msgstr "Modtog liste fra gconfd med en ugyldig listetype"
 
-#: gconf/gconf-internals.c:480
+#: gconf/gconf-internals.c:482
 msgid "Failed to convert object to IOR"
 msgstr "Kunne ikke konvertere objekt til IOR"
 
-#: gconf/gconf-internals.c:617
+#: gconf/gconf-internals.c:619
 msgid "Invalid UTF-8 in locale for schema"
 msgstr "Ugyldig UTF-8 i regionaldata i skema"
 
-#: gconf/gconf-internals.c:625
+#: gconf/gconf-internals.c:627
 msgid "Invalid UTF-8 in short description for schema"
 msgstr "Ugyldig UTF-8 i kort beskrivelse i skema"
 
-#: gconf/gconf-internals.c:633
+#: gconf/gconf-internals.c:635
 msgid "Invalid UTF-8 in long description for schema"
 msgstr "Ugyldig UTF-8 i lang beskrivelse i skema"
 
-#: gconf/gconf-internals.c:641
+#: gconf/gconf-internals.c:643
 msgid "Invalid UTF-8 in owner for schema"
 msgstr "Ugyldig UTF-8 i ejer i skema"
 
-#: gconf/gconf-internals.c:866
+#: gconf/gconf-internals.c:868
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Kunne ikke åbne sti-fil '%s': %s\n"
 
-#: gconf/gconf-internals.c:926
+#: gconf/gconf-internals.c:928
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Tilføjer kilde '%s'\n"
 
-#: gconf/gconf-internals.c:938
+#: gconf/gconf-internals.c:940
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Læsefejl på fil '%s': %s\n"
 
-#: gconf/gconf-internals.c:1269 gconf/gconf-internals.c:1335
+#: gconf/gconf-internals.c:1271 gconf/gconf-internals.c:1337
 #: gconf/gconf-value.c:125 gconf/gconf-value.c:224 gconf/gconf-value.c:366
 #: gconf/gconf-value.c:1084
 msgid "Text contains invalid UTF-8"
 msgstr "Tekst indeholder ugyldig UTF-8"
 
-#: gconf/gconf-internals.c:1420
+#: gconf/gconf-internals.c:1422
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Forventede liste, fik %s"
 
-#: gconf/gconf-internals.c:1430
+#: gconf/gconf-internals.c:1432
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Forventede liste af %s, fik liste af %s"
 
-#: gconf/gconf-internals.c:1569
+#: gconf/gconf-internals.c:1571
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Forventede par, fik %s"
 
-#: gconf/gconf-internals.c:1583
+#: gconf/gconf-internals.c:1585
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr "Forventede (%s,%s) par, fik par hvor én eller begge værdier manglede"
 
-#: gconf/gconf-internals.c:1599
+#: gconf/gconf-internals.c:1601
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Forventede par af typen (%s,%s) fik typen (%s,%s)"
 
-#: gconf/gconf-internals.c:1715
+#: gconf/gconf-internals.c:1717
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Tekst i citationstegn begynder ikke med et citationstegn"
 
-#: gconf/gconf-internals.c:1777
+#: gconf/gconf-internals.c:1779
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Tekst i citationstegn slutter ikke med et citationstegn"
 
-#: gconf/gconf-internals.c:1913
+#: gconf/gconf-internals.c:1915
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodet værdi er ikke gyldig UTF-8"
 
-#: gconf/gconf-internals.c:2263 gconf/gconf.c:3082
+#: gconf/gconf-internals.c:2265 gconf/gconf.c:3082
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA-fejl: %s"
 
-#: gconf/gconf-internals.c:2279
+#: gconf/gconf-internals.c:2281
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "OAF-problembeskrivelse: %s"
 
-#: gconf/gconf-internals.c:2285
+#: gconf/gconf-internals.c:2287
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "forsøg på at fjerne ikke-listet OAF-objektmappe"
 
-#: gconf/gconf-internals.c:2290
+#: gconf/gconf-internals.c:2292
 msgid "attempt to add already-listed OAF directory"
 msgstr "forsøg på at tilføje allerede listet OAF-mappe"
 
-#: gconf/gconf-internals.c:2297
+#: gconf/gconf-internals.c:2299
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "OAF-fortolkningsfejl: %s"
 
-#: gconf/gconf-internals.c:2302
+#: gconf/gconf-internals.c:2304
 msgid "Unknown OAF error"
 msgstr "Ukendt OAF-fejl"
 
-#: gconf/gconf-internals.c:2435
+#: gconf/gconf-internals.c:2437
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Kunne ikke låse midlertidig fil '%s': %s"
 
-#: gconf/gconf-internals.c:2462
+#: gconf/gconf-internals.c:2464
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Kunne ikke oprette fil '%s', nok fordi den allerede eksisterer"
 
-#: gconf/gconf-internals.c:2508
+#: gconf/gconf-internals.c:2510
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Kunne ikke oprette eller åbne '%s'"
 
-#: gconf/gconf-internals.c:2518
+#: gconf/gconf-internals.c:2520
 #, c-format
-msgid "Failed to lock '%s': another process has the lock (%s)"
-msgstr "Kunne ikke låse '%s': en anden proces har låsen (%s)"
+msgid ""
+"Failed to lock '%s': probably another process has the lock, or your "
+"operating system has NFS file locking misconfigured (%s)"
+msgstr ""
+"Kunne ikke låse '%s': sandsynligvis besidder en anden proces låsen, eller "
+"styresystemet har ikke NFS-fillåsning konfigureret korrekt (%s)"
 
-#: gconf/gconf-internals.c:2546
+#: gconf/gconf-internals.c:2548
 #, c-format
 msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
 msgstr "IOR-fil '%s' ikke åbnet rigtigt, ingen gconfd fundet: %s"
 
-#: gconf/gconf-internals.c:2576
+#: gconf/gconf-internals.c:2578
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr "gconftool eller anden ikke-gconfd proces har låsefilen '%s'"
 
-#: gconf/gconf-internals.c:2593
+#: gconf/gconf-internals.c:2595
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
 msgstr ""
 "kunne ikke kontakte ORB for at løse eksisterende gconfd objektreference"
 
-#: gconf/gconf-internals.c:2625
+#: gconf/gconf-internals.c:2627
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "kunne ikke oprette kataloget '%s': %s"
 
-#: gconf/gconf-internals.c:2684
+#: gconf/gconf-internals.c:2686
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Kan ikke skrive til filen '%s': %s"
 
-#: gconf/gconf-internals.c:2725
+#: gconf/gconf-internals.c:2727
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "Vi har ikke låsen på filen '%s', men vi burde have den"
 
-#: gconf/gconf-internals.c:2746
+#: gconf/gconf-internals.c:2748
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Kunne ikke lænke '%s'til '%s': %s"
 
-#: gconf/gconf-internals.c:2758
+#: gconf/gconf-internals.c:2760
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Kunne ikke fjerne låsefilen '%s': %s"
 
-#: gconf/gconf-internals.c:2777
+#: gconf/gconf-internals.c:2779
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Kunne ikke rense fil '%s': %s"
 
-#: gconf/gconf-internals.c:2791
+#: gconf/gconf-internals.c:2793
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Kunne ikke frigive låsekatalog '%s': %s"
 
-#: gconf/gconf-internals.c:3001 gconf/gconfd.c:580
+#: gconf/gconf-internals.c:3003 gconf/gconfd.c:580
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "Kunne ikke oprette %s: %s"
 
-#: gconf/gconf-internals.c:3034
+#: gconf/gconf-internals.c:3036
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Kunne ikke oprette kanal for kommunikering med opstartet gconfd-dæmon: %s\n"
 
-#: gconf/gconf-internals.c:3058
+#: gconf/gconf-internals.c:3060
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Kunne ikke opstarte konfigurationsserver: %s\n"
 
-#: gconf/gconf-internals.c:3080
+#: gconf/gconf-internals.c:3084
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -682,46 +686,46 @@ msgstr ""
 "er logget ind fra to maskiner på samme tid, skal du muligvis aktivere TCP-"
 "netværk for ORBit)\n"
 
-#: gconf/gconf-internals.c:3717
+#: gconf/gconf-internals.c:3720
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Kunne ikke læse fra børnekanal: %s"
 
-#: gconf/gconf-internals.c:3782
+#: gconf/gconf-internals.c:3785
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Kunne ikke fork() (%s)"
 
-#: gconf/gconf-internals.c:3922
+#: gconf/gconf-internals.c:3925
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Kunne ikke gå til katalog '%s' (%s)"
 
-#: gconf/gconf-internals.c:3932
+#: gconf/gconf-internals.c:3935
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Kunne ikke udføre barneproces (%s)"
 
-#: gconf/gconf-internals.c:3941
+#: gconf/gconf-internals.c:3944
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Kunne ikke omdirigere uddata eller inddata for barneproces (%s)"
 
-#: gconf/gconf-internals.c:3950
+#: gconf/gconf-internals.c:3953
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Kunne ikke oprette barneproces (%s)"
 
-#: gconf/gconf-internals.c:3958
+#: gconf/gconf-internals.c:3961
 msgid "Unknown error executing child process"
 msgstr "Ukendt fejl ved udførsel af barneproces"
 
-#: gconf/gconf-internals.c:3979
+#: gconf/gconf-internals.c:3982
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Kunne ikke læse nok data fra kanal for barne-pid (%s)"
 
-#: gconf/gconf-internals.c:4029
+#: gconf/gconf-internals.c:4032
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Kunne ikke oprette kanal for kommunikation med barneproces (%s)"
@@ -731,16 +735,16 @@ msgstr "Kunne ikke oprette kanal for kommunikation med barneproces (%s)"
 msgid "Failed to load source `%s': %s"
 msgstr "Kunne ikke indlæse kilden '%s': %s"
 
-#: gconf/gconf-sources.c:510
+#: gconf/gconf-sources.c:544
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Skemaet '%s' angivet for '%s' lagrer en ikke-skemaværdi"
 
-#: gconf/gconf-sources.c:567
+#: gconf/gconf-sources.c:601
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Navnet '/' kan kun være et katalog, ikke en nøgle"
 
-#: gconf/gconf-sources.c:596
+#: gconf/gconf-sources.c:630
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -749,7 +753,7 @@ msgstr ""
 "Værdi for `%s' sat i en skrivebeskyttet kilde i begyndelsen af din "
 "konfigurationssti."
 
-#: gconf/gconf-sources.c:608
+#: gconf/gconf-sources.c:642
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -774,17 +778,17 @@ msgstr ""
 "forhindrer eksterne CORBA-forbindelser? Tjek som altid user.*-sysloggen for "
 "detaljer om problemer gconfd stødte på."
 
-#: gconf/gconf-sources.c:1164
+#: gconf/gconf-sources.c:1198
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Fejl ved søgning af metainfo: %s"
 
-#: gconf/gconf-sources.c:1233
+#: gconf/gconf-sources.c:1267
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Fejl ved hentning af metainfo: %s"
 
-#: gconf/gconf-sources.c:1257
+#: gconf/gconf-sources.c:1291
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Nøglen `%s' listet som skema for nøglen '%s' lagrer faktisk typen '%s'"
@@ -1030,12 +1034,12 @@ msgstr "Afslutter"
 msgid "GConf server is not in use, shutting down."
 msgstr "GConf-server er ikke i brug, lukker ned."
 
-#: gconf/gconfd.c:1049
+#: gconf/gconfd.c:1059
 #, c-format
 msgid "Returning exception: %s"
 msgstr "Returnerede undtagelse: %s"
 
-#: gconf/gconfd.c:1149
+#: gconf/gconfd.c:1159
 #, c-format
 msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
@@ -1044,38 +1048,38 @@ msgstr ""
 "Kunne ikke åbne gconfd-logfil; vil ikke kunne genoprette lyttere efter "
 "nedlukning af gconfd (%s)"
 
-#: gconf/gconfd.c:1184
+#: gconf/gconfd.c:1194
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr "Kunne ikke lukke gconfd-logfil; data blev måske ikke gemt rigtigt (%s)"
 
-#: gconf/gconfd.c:1253
+#: gconf/gconfd.c:1263
 #, c-format
 msgid "Could not open saved state file '%s' for writing: %s"
 msgstr "Kunne ikke åbne tilstandsgemningsfilen '%s' til skrivning: %s"
 
-#: gconf/gconfd.c:1267
+#: gconf/gconfd.c:1277
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr "Kunne ikke skrive tilstandsgemningsfilen '%s' fd: %d: %s"
 
-#: gconf/gconfd.c:1276
+#: gconf/gconfd.c:1286
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
 msgstr "Kunne ikke lukke ny tilstandsgemningsfil '%s': %s"
 
-#: gconf/gconfd.c:1290
+#: gconf/gconfd.c:1300
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr "Kunne ikke flytte gammel tilstandsgemningsfil '%s': %s"
 
-#: gconf/gconfd.c:1300
+#: gconf/gconfd.c:1310
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr "Kunne ikke flytte ny tilstandsgemningsfil på plads: %s"
 
-#: gconf/gconfd.c:1309
+#: gconf/gconfd.c:1319
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
@@ -1083,24 +1087,24 @@ msgstr ""
 "Kunne ikke genoprette oprindelig tilstandsgemningsfil som er blevet flyttet "
 "til '%s': %s"
 
-#: gconf/gconfd.c:1784
+#: gconf/gconfd.c:1794
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
 "Kunne ikke genoprette en lytter på adressen '%s', kunne ikke finde databasen"
 
-#: gconf/gconfd.c:1830
+#: gconf/gconfd.c:1840
 #, c-format
 msgid "Error reading saved state file: %s"
 msgstr "Fejl ved læsning af tilstandsgemningsfil: %s"
 
-#: gconf/gconfd.c:1883
+#: gconf/gconfd.c:1893
 #, c-format
 msgid "Unable to open saved state file '%s': %s"
 msgstr "Kunne ikke åbne tilstandsgemningsfilen '%s': %s"
 
-#: gconf/gconfd.c:2000
+#: gconf/gconfd.c:2010
 #, c-format
 msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to re-"
@@ -1109,7 +1113,7 @@ msgstr ""
 "Kunne ikke logge tilføjelse af lytter til gconfd-logfilen; vil ikke kunne "
 "tilføje lytteren hvis gconfd afslutter eller lukker ned (%s)"
 
-#: gconf/gconfd.c:2005
+#: gconf/gconfd.c:2015
 #, c-format
 msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously re-"
@@ -1118,27 +1122,27 @@ msgstr ""
 "Kunne ikke logge fjernelse af lytter i gconfd-logfilen; kan medføre at "
 "lytter tilføjes igen hvis gconfd afsluttes eller maskinen lukkes ned (%s)."
 
-#: gconf/gconfd.c:2028 gconf/gconfd.c:2193
+#: gconf/gconfd.c:2038 gconf/gconfd.c:2203
 #, c-format
 msgid "Failed to get IOR for client: %s"
 msgstr "Kunne ikke få IOR for klient: %s"
 
-#: gconf/gconfd.c:2043
+#: gconf/gconfd.c:2053
 #, c-format
 msgid "Failed to open saved state file: %s"
 msgstr "Kunne ikke åbne tilstandsgemningsfil: %s"
 
-#: gconf/gconfd.c:2056
+#: gconf/gconfd.c:2066
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr "Kunne ikke skrive tilføjelse af klient til tilstandsgemningsfil: %s"
 
-#: gconf/gconfd.c:2064
+#: gconf/gconfd.c:2074
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr "Kunne ikke afslutte tilføjelse af klient til tilstandsgemningsfil: %s"
 
-#: gconf/gconfd.c:2154
+#: gconf/gconfd.c:2164
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
@@ -1415,311 +1419,316 @@ msgstr ""
 "direct\n"
 
 #: gconf/gconftool.c:525
+msgid "You should use --direct when using a non-default configuration source\n"
+msgstr ""
+"Du bør benytte --direct ved brug af en ikke-standardkonfigurationskilde\n"
+
+#: gconf/gconftool.c:531
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Kunne ikke starte GConf: %s\n"
 
-#: gconf/gconftool.c:560
+#: gconf/gconftool.c:566
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "Skal sætte GCONF_CONFIG_SOURCE-miljøvariablen\n"
 
-#: gconf/gconftool.c:589
+#: gconf/gconftool.c:595
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
 msgstr "Kunne ikke få fat i konfigurationskilde(r): %s\n"
 
-#: gconf/gconftool.c:790
+#: gconf/gconftool.c:796
 #, c-format
 msgid "Shutdown error: %s\n"
 msgstr "Nedlukningsfejl: %s\n"
 
-#: gconf/gconftool.c:833
+#: gconf/gconftool.c:839
 msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Du skal angive et eller flere kataloger til rekursiv fremvisning.\n"
 
-#: gconf/gconftool.c:867
+#: gconf/gconftool.c:873
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "Fejl under listning af poster i '%s': %s\n"
 
-#: gconf/gconftool.c:885
+#: gconf/gconftool.c:891
 msgid "(no value set)"
 msgstr "(ingen værdi sat)"
 
-#: gconf/gconftool.c:940
+#: gconf/gconftool.c:946
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "Fejl under dannelse af konfigurationsserveren (gconfd): %s\n"
 
-#: gconf/gconftool.c:954
+#: gconf/gconftool.c:960
 msgid "Must specify a key or keys to get\n"
 msgstr "Skal angive nøgle eller nøgler for at få\n"
 
-#: gconf/gconftool.c:989
+#: gconf/gconftool.c:995
 #, c-format
 msgid "Type: %s\n"
 msgstr "Type: %s\n"
 
-#: gconf/gconftool.c:990
+#: gconf/gconftool.c:996
 #, c-format
 msgid "List Type: %s\n"
 msgstr "Listetype: %s\n"
 
-#: gconf/gconftool.c:991
+#: gconf/gconftool.c:997
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Car-type: %s\n"
 
-#: gconf/gconftool.c:992
+#: gconf/gconftool.c:998
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Cdr-type: %s\n"
 
-#: gconf/gconftool.c:997
+#: gconf/gconftool.c:1003
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "Standardværdi: %s\n"
 
-#: gconf/gconftool.c:997 gconf/gconftool.c:999 gconf/gconftool.c:1000
-#: gconf/gconftool.c:1001
+#: gconf/gconftool.c:1003 gconf/gconftool.c:1005 gconf/gconftool.c:1006
+#: gconf/gconftool.c:1007
 msgid "Unset"
 msgstr "Nulstil"
 
-#: gconf/gconftool.c:999
+#: gconf/gconftool.c:1005
 #, c-format
 msgid "Owner: %s\n"
 msgstr "Ejer: %s\n"
 
-#: gconf/gconftool.c:1000
+#: gconf/gconftool.c:1006
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "Kort beskriv.: %s\n"
 
-#: gconf/gconftool.c:1001
+#: gconf/gconftool.c:1007
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "Lang beskriv.: %s\n"
 
-#: gconf/gconftool.c:1010 gconf/gconftool.c:1304
+#: gconf/gconftool.c:1016 gconf/gconftool.c:1310
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "Ingen værdi sat for '%s'\n"
 
-#: gconf/gconftool.c:1014 gconf/gconftool.c:1308
+#: gconf/gconftool.c:1020 gconf/gconftool.c:1314
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "Kunne ikke få værdi for '%s': %s\n"
 
-#: gconf/gconftool.c:1057 gconf/gconftool.c:1069
+#: gconf/gconftool.c:1063 gconf/gconftool.c:1075
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "Forstår ikke typen '%s'\n"
 
-#: gconf/gconftool.c:1081
+#: gconf/gconftool.c:1087
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr ""
 "Nøgler/værdier skal angives skiftevis som parametre\n"
 "\n"
 
-#: gconf/gconftool.c:1101
+#: gconf/gconftool.c:1107
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "Ingen værdi sat for nøgle: '%s'\n"
 
-#: gconf/gconftool.c:1129
+#: gconf/gconftool.c:1135
 msgid "Cannot set schema as value\n"
 msgstr "Kan ikke sætte skema som værdi\n"
 
-#: gconf/gconftool.c:1139
+#: gconf/gconftool.c:1145
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Når en liste sættes, skal du angive en primitiv listetype\n"
 
-#: gconf/gconftool.c:1153
+#: gconf/gconftool.c:1159
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Når et par sættes skal du angive en primitiv car-type og cdr-type\n"
 
-#: gconf/gconftool.c:1168
+#: gconf/gconftool.c:1174
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fejl: %s\n"
 
-#: gconf/gconftool.c:1181
+#: gconf/gconftool.c:1187
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Fejl under sætning af værdi: %s\n"
 
-#: gconf/gconftool.c:1199
+#: gconf/gconftool.c:1205
 #, c-format
 msgid "Error syncing: %s\n"
 msgstr "Fejl ved synkronisering: %s\n"
 
-#: gconf/gconftool.c:1222
+#: gconf/gconftool.c:1228
 msgid "Must specify a key or keys on the command line\n"
 msgstr "Skal angive en eller flere nøgler ved kommandolinjen\n"
 
-#: gconf/gconftool.c:1242
+#: gconf/gconftool.c:1248
 #, c-format
 msgid "No schema known for `%s'\n"
 msgstr "Intet skema kendt for '%s'\n"
 
-#: gconf/gconftool.c:1275
+#: gconf/gconftool.c:1281
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
 msgstr "Ingen dokumentationstekst gemt i skemaet ved '%s'\n"
 
-#: gconf/gconftool.c:1280
+#: gconf/gconftool.c:1286
 #, c-format
 msgid "Error getting schema at '%s': %s\n"
 msgstr "Fejl under hentning af skema ved `%s': %s\n"
 
-#: gconf/gconftool.c:1287
+#: gconf/gconftool.c:1293
 #, c-format
 msgid "No schema stored at '%s'\n"
 msgstr "Intet skema gemt ved '%s'\n"
 
-#: gconf/gconftool.c:1290
+#: gconf/gconftool.c:1296
 #, c-format
 msgid "Value at '%s' is not a schema\n"
 msgstr "Værdien ved '%s' er ikke et skema\n"
 
-#: gconf/gconftool.c:1346
+#: gconf/gconftool.c:1352
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr ""
 "Et skemanavn efterfulgt af nøglenavnet som det skal anvendes på, skal "
 "angives\n"
 
-#: gconf/gconftool.c:1353
+#: gconf/gconftool.c:1359
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "Fejl ved associering af skemanavnet '%s' med nøglenavnet '%s': %s\n"
 
-#: gconf/gconftool.c:1373
+#: gconf/gconftool.c:1379
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "Du skal angive nøgle (skemanavn) som eneste parameter\n"
 
-#: gconf/gconftool.c:1415
+#: gconf/gconftool.c:1421
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr "Listetype skal være en primitiv type: string, int, float eller bool\n"
 
-#: gconf/gconftool.c:1435
+#: gconf/gconftool.c:1441
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Parrets car-type skal være en primitiv type: string, int, float eller bool\n"
 
-#: gconf/gconftool.c:1455
+#: gconf/gconftool.c:1461
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Parrets cdr-type skal være en primitiv type: string, int, float eller bool\n"
 
-#: gconf/gconftool.c:1470
+#: gconf/gconftool.c:1476
 #, c-format
 msgid "Error setting value: %s"
 msgstr "Fejl under sætning af værdi: %s"
 
-#: gconf/gconftool.c:1484
+#: gconf/gconftool.c:1490
 #, c-format
 msgid "Error syncing: %s"
 msgstr "Fejl ved synkronisering: %s"
 
-#: gconf/gconftool.c:1499
+#: gconf/gconftool.c:1505
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
 "Der skal angives et eller flere kataloger der kan hentes nøgle/værdi-par "
 "fra.\n"
 
-#: gconf/gconftool.c:1513
+#: gconf/gconftool.c:1519
 msgid "Must specify one or more keys to unset.\n"
 msgstr "Der skal angives en eller flere nøgler som skal nulstilles.\n"
 
-#: gconf/gconftool.c:1524
+#: gconf/gconftool.c:1530
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "Fejl under nulstilling af '%s': %s\n"
 
-#: gconf/gconftool.c:1547
+#: gconf/gconftool.c:1553
 msgid "Must specify one or more dirs to get subdirs from.\n"
 msgstr ""
 "Der skal angives et eller flere kataloger til at hente underkataloger fra.\n"
 
-#: gconf/gconftool.c:1581
+#: gconf/gconftool.c:1587
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "Fejl ved visning af kataloger: %s\n"
 
-#: gconf/gconftool.c:1623
+#: gconf/gconftool.c:1629
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "ADVARSEL: ugyldig eller manglende type for skema (%s)\n"
 
-#: gconf/gconftool.c:1632
+#: gconf/gconftool.c:1638
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "ADVARSEL: ugyldig eller manglende list_type for skema (%s)\n"
 
-#: gconf/gconftool.c:1643 gconf/gconftool.c:1673 gconf/gconftool.c:1702
+#: gconf/gconftool.c:1649 gconf/gconftool.c:1679 gconf/gconftool.c:1708
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "ADVARSEL: Kunne ikke fortolke standardværdi '%s' for skema (%s)\n"
 
-#: gconf/gconftool.c:1661
+#: gconf/gconftool.c:1667
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "ADVARSEL: ugyldig eller manglende car_type for skema (%s)\n"
 
-#: gconf/gconftool.c:1686
+#: gconf/gconftool.c:1692
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "ADVARSEL: Du kan ikke sætte en standardværdi for et skema\n"
 
-#: gconf/gconftool.c:1715
+#: gconf/gconftool.c:1721
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "ADVARSEL: gconftool, intern fejl, ukendt GConfValueType\n"
 
-#: gconf/gconftool.c:1762 gconf/gconftool.c:1783 gconf/gconftool.c:1804
-#: gconf/gconftool.c:1825
+#: gconf/gconftool.c:1768 gconf/gconftool.c:1789 gconf/gconftool.c:1810
+#: gconf/gconftool.c:1831
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "ADVARSEL: kunne ikke fortolke typenavn '%s'\n"
 
-#: gconf/gconftool.c:1779
+#: gconf/gconftool.c:1785
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ADVARSEL: list_type kan kun være int, float, string eller bool og ikke `%s'\n"
 
-#: gconf/gconftool.c:1800
+#: gconf/gconftool.c:1806
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ADVARSEL: car_type kan kun være int, float, string eller bool og ikke `%s'\n"
 
-#: gconf/gconftool.c:1821
+#: gconf/gconftool.c:1827
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ADVARSEL: cdr_type kan kun være int, float, string eller bool og ikke `%s'\n"
 
-#: gconf/gconftool.c:1849
+#: gconf/gconftool.c:1855
 msgid "WARNING: empty <applyto> node"
 msgstr "ADVARSEL: tomt <applyto> element"
 
-#: gconf/gconftool.c:1852 gconf/gconftool.c:2115
+#: gconf/gconftool.c:1858 gconf/gconftool.c:2121
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "ADVARSEL: elementet <%s> ikke forstået under <skema>\n"
 
-#: gconf/gconftool.c:1862
+#: gconf/gconftool.c:1868
 msgid "WARNING: no key specified for schema\n"
 msgstr "ADVARSEL: ingen nøgle angivet for skema\n"
 
-#: gconf/gconftool.c:1895
+#: gconf/gconftool.c:1901
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "ADVARSEL: <locale>-elementet har ingen 'name=\"locale\"'-egenskab, "
 "ignorerer\n"
 
-#: gconf/gconftool.c:1901
+#: gconf/gconftool.c:1907
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -1727,51 +1736,51 @@ msgstr ""
 "ADVARSEL: flere <locale>-elementer for lokalet '%s', ignorerer alle andre "
 "end den første\n"
 
-#: gconf/gconftool.c:1982
+#: gconf/gconftool.c:1988
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "ADVARSEL: Ugyldigt element <%s> i et <locale>-element\n"
 
-#: gconf/gconftool.c:2011
+#: gconf/gconftool.c:2017
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "ADVARSEL: Kunne ikke installere skema '%s' lokale '%s': %s\n"
 
-#: gconf/gconftool.c:2019
+#: gconf/gconftool.c:2025
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Installerede skema '%s' for lokale '%s'\n"
 
-#: gconf/gconftool.c:2041
+#: gconf/gconftool.c:2047
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "ADVARSEL: kunne ikke associere skema '%s' med nøglen '%s': %s\n"
 
-#: gconf/gconftool.c:2049
+#: gconf/gconftool.c:2055
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Vedhæftede skema '%s' til nøglen '%s'\n"
 
-#: gconf/gconftool.c:2128
+#: gconf/gconftool.c:2134
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Du skal have mindst et <locale> i et <schema>\n"
 
-#: gconf/gconftool.c:2157
+#: gconf/gconftool.c:2165
 #, c-format
 msgid "WARNING: node <%s> not understood below <schemalist>\n"
 msgstr "ADVARSEL: elementet <%s> ikke forstået under <schemalist>\n"
 
-#: gconf/gconftool.c:2179
+#: gconf/gconftool.c:2188
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Kunne ikke åbne '%s': %s\n"
 
-#: gconf/gconftool.c:2186
+#: gconf/gconftool.c:2195
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Dokumentet '%s' er tomt?\n"
 
-#: gconf/gconftool.c:2198
+#: gconf/gconftool.c:2207
 #, c-format
 msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
@@ -1780,26 +1789,26 @@ msgstr ""
 "Dokumentet '%s' har forkert type rod-element (<%s>, skulle være "
 "<gconfschemafile>)\n"
 
-#: gconf/gconftool.c:2211
+#: gconf/gconftool.c:2220
 #, c-format
 msgid "Document `%s' has no top level <gconfschemafile> node\n"
 msgstr "Dokument `%s' har intet <gconfskemafil>-element på øverste niveau\n"
 
-#: gconf/gconftool.c:2225
+#: gconf/gconftool.c:2234
 #, c-format
 msgid "WARNING: node <%s> below <gconfschemafile> not understood\n"
 msgstr "ADVARSEL: node <%s> herunder <gconfskemafil> ikke forstået\n"
 
-#: gconf/gconftool.c:2236 gconf/gconftool.c:2268
+#: gconf/gconftool.c:2245 gconf/gconftool.c:2277
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Fejl ved synkronisering af konfigurationsdata: %s"
 
-#: gconf/gconftool.c:2252
+#: gconf/gconftool.c:2261
 msgid "Must specify some schema files to install\n"
 msgstr "Skal angive nogle skema-filer til installering\n"
 
-#: gconf/gconftool.c:2289
+#: gconf/gconftool.c:2298
 #, c-format
 msgid ""
 "\n"
@@ -1808,16 +1817,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:2309
+#: gconf/gconftool.c:2318
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Kunne ikke fjerne afbrydelsesnøgle %s: %s\n"
 
-#: gconf/gconftool.c:2435
+#: gconf/gconftool.c:2444
 msgid "Must specify some keys to break\n"
 msgstr "Skal angive en eller flere nøgler at ødelægge\n"
 
-#: gconf/gconftool.c:2441
+#: gconf/gconftool.c:2450
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -1826,11 +1835,11 @@ msgstr ""
 "Forsøger at ødelægge din program ved at sætte forkerte værdier for nøgle:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:2459
+#: gconf/gconftool.c:2468
 msgid "Must specify some directories to break\n"
 msgstr "Skal angive nogle kataloger som skal ødelægges\n"
 
-#: gconf/gconftool.c:2478
+#: gconf/gconftool.c:2487
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

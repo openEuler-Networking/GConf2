@@ -1,3 +1,7 @@
+2001-12-27  Ole Laursen  <olau@hardworking.dk>
+
+	* da.po: Updated Danish translation.
+
 2001-12-13  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian (bokmål) translation.
@@ -28,7 +32,7 @@
 
 2001-11-15  Fatih Demir <kabalak@gtranslator.org>
 
-	* tr.po: Committed updated Turkish translation by Nilg-Aün.$)B
+	* tr.po: Committed updated Turkish translation by Nilgün.
 
 2001-11-08  Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>
 
@@ -47,7 +51,7 @@
 
 	* pl.po: Updated Polish translation.
 
-2001-10-17  Carlos Perell-Aó Marín <carlos@gnome-db.org>$)B
+2001-10-17  Carlos Perelló Marín <carlos@gnome-db.org>
 
 	* pt.po: Updated by Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -63,7 +67,7 @@
 
 	* pl.po: Updated Polish translation.
 
-2001-10-14  Carlos Perell-Aó Marín <carlos@gnome-db.org>$)B
+2001-10-14  Carlos Perelló Marín <carlos@gnome-db.org>
 
 	* pt.po: Added by Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -582,7 +586,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norbäãk  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin Norb’äãk  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
