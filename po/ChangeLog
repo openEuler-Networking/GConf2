@@ -1,3 +1,7 @@
+2001-02-15  Christopher R. Gabriel  <cgabriel@softwarelibero.org>
+
+	* it.po: Added the initial italian translation
+
 2001-02-13  Christophe Merlet  <redfox@eikonex.org>
 
 	* fr.po: Updated French translation.
@@ -323,7 +327,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norb粃k  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin Norb粃k  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
