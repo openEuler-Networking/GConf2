@@ -21,6 +21,7 @@
 #include <gconf/gconf-internals.h>
 #include <stdlib.h>
 #include <gnome-xml/entities.h>
+#include <gnome-xml/xmlmemory.h>
 
 static void
 entry_sync_if_needed(Entry* e, GConfValue* val);

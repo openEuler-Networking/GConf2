@@ -24,6 +24,7 @@
 #include <popt.h>
 #include <gnome-xml/tree.h>
 #include <gnome-xml/parser.h>
+#include <gnome-xml/xmlmemory.h>
 #include <stdlib.h>
 #include <errno.h>
 

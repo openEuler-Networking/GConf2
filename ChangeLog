@@ -1,3 +1,11 @@
+2001-03-13  Ramiro Estrugo  <ramiro@eazel.com>
+
+	* backends/xml-entry.c:
+	* gconf/gconftool.c:
+	Add inclusion of <gnome-xml/xmlmemory.h> to fix the fact that
+	'xmlFree' is undefined.  This was caused by the last free
+	vs. xmlFree change.
+	
 2001-03-13  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* backends/xml-entry.c: Fix to use xmlFree() instead of free().
