@@ -417,14 +417,14 @@ setup_dbus (void)
   dbus_address = get_dbus_address ();
   if (!dbus_address)
     {
-      g_printerr ("Failed to get the D-BUS bus daemon address");
+      g_printerr ("Failed to get the D-BUS bus daemon address.\n");
       return FALSE;
     }
 
   dbus_conn = dbus_connection_open (dbus_address, &result);
   if (!dbus_conn)
     {
-      g_printerr ("Failed to connect to the D-BUS bus daemon: %s",
+      g_printerr ("Failed to connect to the D-BUS bus daemon: %s\n.",
 		  dbus_result_to_string (result));
       return FALSE;
     }
@@ -432,7 +432,7 @@ setup_dbus (void)
   name = dbus_bus_register_client (dbus_conn, &error);
   if (!name)
     {
-      gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
+      g_printerr (_("Failed to register client with the D-BUS bus daemon: %s"),
 		 error.message);
       dbus_error_free (&error);
       return FALSE;
@@ -631,7 +631,7 @@ main (int argc, char** argv)
 
   if (!setup_dbus ())
     {
-      g_printerr ("could not initialize D-BUS");
+      g_printerr (_("Could not initialize D-BUS.\n"));
       return 1;
     }
 

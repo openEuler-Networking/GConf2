@@ -99,7 +99,7 @@ notify_func (GConfClient* client,
 static gboolean
 idle_func (GConfClient *client)
 {
-  gconf_client_set_string (client, "/desktop/gnome/interface/icon_theme", "Anders rocks", NULL);
+  //  gconf_client_set_string (client, "/desktop/gnome/interface/icon_theme", "Anders rocks", NULL);
   return FALSE;
 }
 

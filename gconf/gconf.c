@@ -257,6 +257,9 @@ lookup_engine_by_database (int db)
     return NULL;
 }
 
+/* FIXME: Don't assume this */
+static gboolean daemon_running = TRUE;
+
 static void
 gconf_engine_set_database (GConfEngine *conf,
                            int          id)
@@ -602,46 +605,23 @@ gconf_engine_get_user_data  (GConfEngine   *engine)
   return engine->user_data;
 }
 
-guint
-gconf_engine_notify_add(GConfEngine* conf,
-                        const gchar* namespace_section,
-                        GConfNotifyFunc func,
-                        gpointer user_data,
-                        GError** err)
+static guint
+add_listener (GConfEngine *conf,
+	      int          db,
+	      const char  *namespace_section,
+	      GError     **err)
 {
-  int db;
-  gulong id;
-  GConfCnxn* cnxn;
   gint tries = 0;
+  gulong id;
   DBusDict *properties;
   DBusMessage *message, *reply;
-  
-  g_return_val_if_fail(!gconf_engine_is_local(conf), 0);
-
-  CHECK_OWNER_USE (conf);
-  
-  if (gconf_engine_is_local(conf))
-    {
-      if (err)
-        *err = gconf_error_new(GCONF_ERROR_LOCAL_ENGINE,
-                               _("Can't add notifications to a local configuration source"));
-
-      return 0;
-    }
 
   properties = dbus_dict_new ();
+  
   dbus_dict_set_string (properties, "name", g_get_prgname () ? g_get_prgname () : "unknown");
   
  RETRY:
 
-  db = gconf_engine_get_database (conf, TRUE, err);
-
-  if (db == -1)
-    {
-      g_return_val_if_fail(err == NULL || *err != NULL, 0);
-
-      return 0;
-    }
 
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER);
   
@@ -675,6 +655,45 @@ gconf_engine_notify_add(GConfEngine* conf,
 			 DBUS_TYPE_UINT32, &id,
 			 0);
 
+  return id;
+}
+	      
+	      
+guint
+gconf_engine_notify_add(GConfEngine* conf,
+                        const gchar* namespace_section,
+                        GConfNotifyFunc func,
+                        gpointer user_data,
+                        GError** err)
+{
+  GConfCnxn* cnxn;
+  int db;
+  gulong id;
+  
+  g_return_val_if_fail(!gconf_engine_is_local(conf), 0);
+
+  CHECK_OWNER_USE (conf);
+  
+  if (gconf_engine_is_local(conf))
+    {
+      if (err)
+        *err = gconf_error_new(GCONF_ERROR_LOCAL_ENGINE,
+                               _("Can't add notifications to a local configuration source"));
+
+      return 0;
+    }
+
+  db = gconf_engine_get_database (conf, TRUE, err);
+
+  if (db == -1)
+    {
+      g_return_val_if_fail(err == NULL || *err != NULL, 0);
+
+      return 0;
+    }
+  
+  id = add_listener (conf, db, namespace_section, err);
+  
   cnxn = gconf_cnxn_new(conf, namespace_section, id, func, user_data);
 
   ctable_insert(conf->ctable, cnxn);
@@ -2405,6 +2424,12 @@ static const char *config_listener_messages[] =
   GCONF_DBUS_CONFIG_LISTENER_NOTIFY
 };
 
+static const char *lifecycle_messages[] =
+{
+  DBUS_MESSAGE_SERVICE_DELETED,
+  DBUS_MESSAGE_SERVICE_CREATED,
+};
+
 static void
 gconf_config_listener_notify (DBusConnection *connection,
 			      DBusMessage    *message)
@@ -2459,6 +2484,78 @@ gconf_config_listener_notify (DBusConnection *connection,
   gconf_entry_free (entry);  
 }
 
+static void
+restore_one_listener (gpointer key,
+		      gpointer value,
+		      gpointer user_data)
+{
+  GConfCnxn *cnxn = value;
+  GConfEngine *engine = user_data;
+  guint server_id;
+
+  server_id = add_listener (engine, engine->database,
+			    cnxn->namespace_section, NULL);
+
+  ctable_reinstall (engine->ctable, cnxn, cnxn->server_id,
+		    server_id);
+}
+
+static void
+restore_listeners_for_one_engine (gpointer key,
+				  gpointer value,
+				  gpointer user_data)
+{
+  GConfEngine *engine = value;
+
+  /* FIXME: Write a ctable_foreach function and use it */
+  g_hash_table_foreach (engine->ctable->client_ids, restore_one_listener, engine);
+}
+				    
+
+static void
+restore_listeners (void)
+{
+  g_hash_table_foreach (engines_by_db, restore_listeners_for_one_engine, NULL);
+}
+
+static DBusHandlerResult
+gconf_lifecycle_handler (DBusMessageHandler *handler,
+			 DBusConnection     *connection,
+			 DBusMessage        *message,
+			 void               *user_data)
+{
+  if (dbus_message_name_is (message, DBUS_MESSAGE_SERVICE_DELETED))
+    {
+      char *name;
+
+      dbus_message_get_args (message, NULL,
+			     DBUS_TYPE_STRING, &name,
+			     0);
+
+      if (strcmp (name, GCONF_DBUS_CONFIG_SERVER) == 0)
+	{
+	  printf ("Daemon is gone\n");
+	  daemon_running = FALSE;
+	}
+    }
+  else if (dbus_message_name_is (message, DBUS_MESSAGE_SERVICE_CREATED))
+    {
+      char *name;
+
+      dbus_message_get_args (message, NULL,
+			     DBUS_TYPE_STRING, &name,
+			     0);
+
+      if (strcmp (name, GCONF_DBUS_CONFIG_SERVER) == 0)
+	{
+	  restore_listeners ();
+	  daemon_running = TRUE;
+	}
+      
+    }
+  return DBUS_HANDLER_RESULT_ALLOW_MORE_HANDLERS;
+}
+
 static DBusHandlerResult
 gconf_config_listener_handler (DBusMessageHandler *handler,
 			       DBusConnection     *connection,
@@ -2488,6 +2585,11 @@ gconf_init_dbus (DBusConnection *connection)
   handler = dbus_message_handler_new (gconf_config_listener_handler, NULL, NULL);
   dbus_connection_register_handler (dbus_conn, handler, config_listener_messages,
 				    G_N_ELEMENTS (config_listener_messages));
+
+  handler = dbus_message_handler_new (gconf_lifecycle_handler, NULL, NULL);
+  dbus_connection_register_handler (dbus_conn, handler, lifecycle_messages,
+				    G_N_ELEMENTS (lifecycle_messages));
+  
   return TRUE;
 }
 
@@ -2958,6 +3060,9 @@ ctable_reinstall (CnxnTable* ct,
 void          
 gconf_shutdown_daemon (GError** err)
 {
+  DBusMessage *message;
+  
+#ifdef GCONF_CORBA_BROKEN
   CORBA_Environment ev;
   ConfigServer cs;
 
@@ -2977,9 +3082,13 @@ gconf_shutdown_daemon (GError** err)
     }
 
   CORBA_exception_init (&ev);
-
-  ConfigServer_shutdown (cs, &ev);
-
+#endif
+  
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_SERVER_SHUTDOWN);
+  dbus_connection_send (dbus_conn, message, NULL);
+  dbus_connection_flush (dbus_conn);
+  
+#if GCONF_CORBA_BROKEN
   if (ev._major != CORBA_NO_EXCEPTION)
     {
       if (err)
@@ -2988,6 +3097,7 @@ gconf_shutdown_daemon (GError** err)
 
       CORBA_exception_free(&ev);
     }
+#endif
 }
 
 gboolean
@@ -3502,6 +3612,42 @@ corba_errno_to_gconf_errno(ConfigErrorType corba_err)
     }
 }
 
+
+static GConfError
+dbus_error_name_to_gconf_errno (const char *name)
+{
+  int i;
+  struct
+  {
+    const char *name;
+    GConfError error;
+  } errors [] = {
+    { GCONF_DBUS_ERROR_FAILED, GCONF_ERROR_FAILED },
+    { GCONF_DBUS_ERROR_NO_PERMISSION, GCONF_ERROR_NO_PERMISSION },
+    { GCONF_DBUS_ERROR_BAD_ADDRESS, GCONF_ERROR_BAD_ADDRESS },
+    { GCONF_DBUS_ERROR_BAD_KEY, GCONF_ERROR_BAD_KEY },
+    { GCONF_DBUS_ERROR_PARSE_ERROR, GCONF_ERROR_PARSE_ERROR },
+    { GCONF_DBUS_ERROR_CORRUPT, GCONF_ERROR_CORRUPT },
+    { GCONF_DBUS_ERROR_TYPE_MISMATCH, GCONF_ERROR_TYPE_MISMATCH },
+    { GCONF_DBUS_ERROR_IS_DIR, GCONF_ERROR_IS_DIR },
+    { GCONF_DBUS_ERROR_IS_KEY, GCONF_ERROR_IS_KEY },
+    { GCONF_DBUS_ERROR_OVERRIDDEN, GCONF_ERROR_OVERRIDDEN },
+    { GCONF_DBUS_ERROR_LOCK_FAILED, GCONF_ERROR_LOCK_FAILED },
+    { GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE, GCONF_ERROR_NO_WRITABLE_DATABASE },
+    { GCONF_DBUS_ERROR_IN_SHUTDOWN, GCONF_ERROR_IN_SHUTDOWN },
+  };
+
+  for (i = 0; i < G_N_ELEMENTS (errors); i++)
+    {
+      if (strcmp (name, errors[i].name) == 0)
+	return errors[i].error;
+    }
+
+  g_assert_not_reached ();
+  
+  return GCONF_ERROR_SUCCESS;
+}
+
 static gboolean
 gconf_server_broken(DBusMessage *message)
 {
@@ -3530,14 +3676,47 @@ gconf_server_broken(DBusMessage *message)
   return FALSE;
 }
 
+
 static gboolean
 gconf_handle_dbus_exception (DBusMessage *message, GError** err)
 {
-  if (dbus_message_get_is_error (message))
+  char *error_string;
+  const char *name;
+  
+  if (!dbus_message_get_is_error (message))
+    return FALSE;
+
+  name = dbus_message_get_name (message);
+
+  dbus_message_get_args (message, NULL,
+			 DBUS_TYPE_STRING, &error_string,
+			 0);
+  
+  if (g_str_has_prefix (name, "org.freedesktop.DBus.Error"))
     {
-      g_warning ("Implement me: %s\n", dbus_message_get_name (message));
+      if (err)
+	*err = gconf_error_new (GCONF_ERROR_NO_SERVER, _("D-BUS error: %s"),
+				error_string);
     }
-  return FALSE;
+  else if (g_str_has_prefix (name, "org.GConf.Error"))
+    {
+      if (err)
+	{
+	  GConfError en;
+	  
+	  en = dbus_error_name_to_gconf_errno (name);
+
+	  *err = gconf_error_new (en, error_string);
+	}
+    }
+  else
+    {
+      if (err)
+	*err = gconf_error_new (GCONF_ERROR_FAILED, _("Unknown error %s: %s"),
+				name, error_string);
+    }
+  
+  return TRUE;
 }
 
 static gboolean

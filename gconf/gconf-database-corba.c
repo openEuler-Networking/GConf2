@@ -1116,6 +1116,9 @@ listener_save_foreach (const gchar* location,
   gchar *ior;
   gchar *s;
 
+  if (l->parent.type != GCONF_DATABASE_LISTENER_CORBA)
+    return;
+  
   gconf_log (GCL_DEBUG, "Saving listener %s (%u) to log file", l->parent.name,
              (guint) cnxn_id);
   

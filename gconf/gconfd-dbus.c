@@ -94,14 +94,76 @@ gconfd_config_server_handler (DBusMessageHandler *handler,
 static gboolean
 gconf_dbus_set_exception (DBusConnection *connection,
 			  DBusMessage    *message,
-			  GError         *error)
+			  GError        **error)
 {
-  /* FIXME: Check GError and maybe send back an error message */
-  if (error)
-    g_warning ("FIXME: Check GError and send back an error message");    
+  GConfError en;
+  const char *name;
+  DBusMessage *reply;
   
+  if (error == NULL || *error == NULL)
+    return FALSE;
 
-  return FALSE;
+  en = (*error)->code;
+
+  /* success is not supposed to get set */
+  g_return_val_if_fail(en != GCONF_ERROR_SUCCESS, FALSE);
+
+  switch (en)
+    {
+    case GCONF_ERROR_FAILED:
+      name = GCONF_DBUS_ERROR_FAILED;
+      break;
+    case GCONF_ERROR_NO_PERMISSION:
+      name = GCONF_DBUS_ERROR_NO_PERMISSION;
+      break;
+    case GCONF_ERROR_BAD_ADDRESS:
+      name = GCONF_DBUS_ERROR_BAD_ADDRESS;
+      break;
+    case GCONF_ERROR_BAD_KEY:
+      name = GCONF_DBUS_ERROR_BAD_KEY;
+      break;
+    case GCONF_ERROR_PARSE_ERROR:
+      name = GCONF_DBUS_ERROR_PARSE_ERROR;
+      break;
+    case GCONF_ERROR_CORRUPT:
+      name = GCONF_DBUS_ERROR_CORRUPT;
+      break;
+    case GCONF_ERROR_TYPE_MISMATCH:
+      name = GCONF_DBUS_ERROR_TYPE_MISMATCH;
+      break;
+    case GCONF_ERROR_IS_DIR:
+      name = GCONF_DBUS_ERROR_IS_DIR;
+      break;
+    case GCONF_ERROR_IS_KEY:
+      name = GCONF_DBUS_ERROR_IS_KEY;
+      break;
+    case GCONF_ERROR_NO_WRITABLE_DATABASE:
+      name = GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE;
+      break;
+    case GCONF_ERROR_IN_SHUTDOWN:
+      name = GCONF_DBUS_ERROR_IN_SHUTDOWN;
+      break;
+    case GCONF_ERROR_OVERRIDDEN:
+      name = GCONF_DBUS_ERROR_OVERRIDDEN;
+      break;
+    case GCONF_ERROR_LOCK_FAILED:
+      name = GCONF_DBUS_ERROR_LOCK_FAILED;
+      break;
+    case GCONF_ERROR_OAF_ERROR:
+    case GCONF_ERROR_LOCAL_ENGINE:
+    case GCONF_ERROR_NO_SERVER:
+    case GCONF_ERROR_SUCCESS:
+    default:
+      gconf_log (GCL_ERR, "Unhandled error code %d", en);
+      g_assert_not_reached();
+      break;
+    }
+
+  reply = dbus_message_new_error_reply (message, name, (*error)->message);
+  dbus_connection_send (connection, reply, NULL);  
+  dbus_message_unref (reply);
+  
+  return TRUE;
 }
 static GConfDatabase *
 gconf_database_from_id (DBusConnection *connection,
@@ -173,7 +235,7 @@ gconfd_config_database_dir_exists (DBusConnection *connection,
 
   dbus_free (dir);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -220,7 +282,7 @@ gconfd_config_database_all_entries (DBusConnection *connection,
   pairs = gconf_database_all_entries(db, dir, locale_list->list, &error);
 
   dbus_free (dir);
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   len = g_slist_length(pairs);
@@ -321,7 +383,7 @@ gconfd_config_database_all_dirs (DBusConnection *connection,
 
   subdirs = gconf_database_all_dirs (db, dir, &error);
   dbus_free (dir);
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;  
 
   len = g_slist_length (subdirs);
@@ -402,7 +464,7 @@ gconfd_config_database_lookup (DBusConnection *connection,
   gconf_log (GCL_DEBUG, "In lookup_with_schema_name returning schema name '%s' error '%s'",
              s, error ? error->message : "none");
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     {
       if (val)
 	gconf_value_free (val);
@@ -461,7 +523,7 @@ gconfd_config_database_lookup_default_value (DBusConnection *connection,
 
   gconf_locale_list_unref(locale_list);
 
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;  
 
   reply = dbus_message_new_reply (message);
@@ -499,7 +561,7 @@ gconfd_config_database_remove_dir (DBusConnection *connection,
   gconf_database_remove_dir(db, dir, &error);
   dbus_free (dir);
 
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;  
 
   /* This really sucks, but we need to ack that the removal was successful */
@@ -566,6 +628,8 @@ gconfd_config_database_add_listener (DBusConnection *connection,
   dbus_dict_get_string (dict, "name", &name);
 
   cnxn = gconf_database_dbus_add_listener (db, dbus_message_get_sender (message), name, dir);
+  printf ("added listener from %s, %s. Result is %d\n", dbus_message_get_sender (message), dir, cnxn);
+  
   reply = dbus_message_new_reply (message);
   dbus_message_append_uint32 (reply, cnxn);
   dbus_connection_send (connection, reply, NULL);
@@ -644,7 +708,7 @@ gconfd_config_database_set (DBusConnection *connection,
   gconf_database_set (db, key, value, &error);
   gconf_value_free (value);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   /* This really sucks, but we need to ack that the setting was successful */
@@ -688,7 +752,7 @@ gconfd_config_database_recursive_unset (DBusConnection *connection,
   error = NULL;
   gconf_database_recursive_unset (db, key, NULL, gconf_flags, &error);
 
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -723,7 +787,7 @@ gconfd_config_database_unset (DBusConnection *connection,
   
   gconf_database_unset (db, key, NULL, &error);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -762,7 +826,7 @@ gconfd_config_database_set_schema (DBusConnection *connection,
                              schema_key : NULL,
                              &error);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -794,7 +858,7 @@ gconfd_config_database_synchronous_sync (DBusConnection *connection,
 
   gconf_database_synchronous_sync (db, &error);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -826,7 +890,7 @@ gconfd_config_database_sync (DBusConnection *connection,
 
   gconf_database_sync (db, &error);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -858,7 +922,7 @@ gconfd_config_database_clear_cache (DBusConnection *connection,
 
   gconf_database_clear_cache (db, &error);
   
-  if (gconf_dbus_set_exception (connection, message, error))
+  if (gconf_dbus_set_exception (connection, message, &error))
     return;
 
   reply = dbus_message_new_reply (message);
@@ -1119,7 +1183,7 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  if (dbus_bus_acquire_service (dbus_conn, "org.freedesktop.Config.Server",
+  if (dbus_bus_acquire_service (dbus_conn, GCONF_DBUS_CONFIG_SERVER,
 				DBUS_SERVICE_FLAG_PROHIBIT_REPLACEMENT,
 				NULL) != DBUS_SERVICE_REPLY_PRIMARY_OWNER)
     {
