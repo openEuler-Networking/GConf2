@@ -1,12 +1,12 @@
 # GConf's Portuguese Translation
 # Copyright (C) 2001 Free Software Foundation, Inc.
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
-"PO-Revision-Date: 2002-06-15 19:19+0100\n"
+"POT-Creation-Date: 2003-01-30 22:53+0000\n"
+"PO-Revision-Date: 2003-01-30 22:54+0100\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -47,16 +47,16 @@ msgid "Unloading XML backend module."
 msgstr "A libertar módulo de suporte XML."
 
 #: backends/xml-backend.c:289
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't find the root directory in the address \"%s\""
-msgstr "Directório raíz %s não encontrado no endereço `%s'"
+msgstr "Directório raíz não encontrado no endereço \"%s\""
 
 #: backends/xml-backend.c:414
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
-"Não é possível escrever para ou ler do directório raíz XML no endereço `%s'"
+"Não é possível escrever para ou ler do directório raíz XML no endereço \"%s\""
 
 #: backends/xml-backend.c:424
 #, c-format
@@ -81,13 +81,13 @@ msgid "Initializing XML backend module"
 msgstr "A inicializar módulo de suporte XML"
 
 #: backends/xml-backend.c:790
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML dir \"%s\": %s"
-msgstr "Desistiu de libertar XML no directório `%s': %s"
+msgstr "Desistiu de libertar XML no directório \"%s\": %s"
 
 #: backends/xml-cache.c:257
 msgid "Failed to sync XML cache contents to disk"
-msgstr "Falha ao xincronizar conteudos de cache XML para disco"
+msgstr "Falha ao sincronizar conteudos de cache XML para disco"
 
 #: backends/xml-cache.c:287
 #, c-format
@@ -186,9 +186,9 @@ msgstr ""
 "ignorar"
 
 #: backends/xml-dir.c:1212
-#, fuzzy, c-format
+#, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "Impossível criar directório `%s': %s"
+msgstr "Impossível criar directório \"%s\": %s"
 
 #: backends/xml-dir.c:1228
 #, c-format
@@ -813,12 +813,14 @@ msgstr "Esquema contém UTF-8 inválido"
 msgid ""
 "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
+"squema especifica tipo lista mas não especifica o tipo dos elementos da lista"
 
 #: gconf/gconf-schema.c:264
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
 msgstr ""
+"Esquema especifica tipo pares mas não especifica o tipo dos elementos car/cdr"
 
 #: gconf/gconf-sources.c:319
 #, c-format
@@ -1906,19 +1908,16 @@ msgid "WARNING: no key specified for schema\n"
 msgstr "AVISO: nenhuma chave especificada para o esquema\n"
 
 #: gconf/gconftool.c:2017
-#, fuzzy
 msgid "WARNING: no <list_type> specified for schema of type list\n"
-msgstr "AVISO: nenhuma chave especificada para o esquema\n"
+msgstr "AVISO: nenhuma <list_type> especificada para o esquema do tipo lista\n"
 
 #: gconf/gconftool.c:2024
-#, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
-msgstr "AVISO: nenhuma chave especificada para o esquema\n"
+msgstr "AVISO: nenhuma <car_type> especificada para o esquema do tipo par\n"
 
 #: gconf/gconftool.c:2030
-#, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
-msgstr "AVISO: nenhuma chave especificada para o esquema\n"
+msgstr "AVISO: nenhuma <cdr_type> especificada para o esquema do tipo par\n"
 
 #: gconf/gconftool.c:2058
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
