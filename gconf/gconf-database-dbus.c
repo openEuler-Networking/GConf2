@@ -272,6 +272,7 @@ database_handle_lookup (DBusConnection  *conn,
   value = gconf_database_query_value (db->db, key, locales->list, 
 				      use_schema_default,
 				      NULL, NULL, NULL, &gerror);
+
   dbus_free (key);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
@@ -313,7 +314,7 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				      use_schema_default,
 				      &schema_name, &value_is_default, 
 				      &value_is_writable, &gerror);
-
+  
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
 
@@ -324,10 +325,11 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				   value_is_default,
 				   value_is_writable,
 				   schema_name);
+  
   dbus_free (key);
   gconf_value_free (value);
   g_free (schema_name);
-
+  
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
 }
@@ -348,7 +350,7 @@ database_handle_set (DBusConnection *conn,
   key = dbus_message_iter_get_string (&iter);
   dbus_message_iter_next (&iter);
   value = gconf_dbus_create_gconf_value_from_message_iter (&iter);
-  
+
   gconf_database_set (db->db, key, value, &gerror);
   dbus_free (key);
   gconf_value_free (value);

@@ -91,6 +91,10 @@ gconf_value_from_dict (DBusMessageIter *iter,
 
 	return value;
       }
+
+    case DBUS_TYPE_NIL:
+      return NULL;
+      
     default:
       return NULL;
     }
@@ -103,6 +107,12 @@ set_dict_value_from_gconf_value (DBusMessageIter *dict,
 {
   dbus_message_iter_append_dict_key (dict, key);
 
+  if (value == NULL)
+    {
+      dbus_message_iter_append_nil (dict);
+      return;
+    }
+  
   switch (value->type)
     {
     case GCONF_VALUE_STRING:

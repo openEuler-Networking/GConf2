@@ -36,7 +36,7 @@
 #include <unistd.h>
 #include <dbus/dbus.h>
 
-#define d(x) x
+#define d(x) 
 
 #define BUS_RULE    "type='signal',sender='org.freedesktop.DBus',interface='org.freedesktop.DBus'"
 #define NOTIFY_RULE "type='method_call',interface='org.gnome.GConf.Database'"
@@ -341,8 +341,6 @@ database_hash_value_destroy (gpointer value)
 {
   GConfEngine *conf = value;
 
-  g_print ("DESTROY FUNC FOR %s\n", conf->database);
-  
   g_free (conf->database);
   conf->database = NULL;
 }
