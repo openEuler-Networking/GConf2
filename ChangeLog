@@ -1,3 +1,9 @@
+2001-08-07  Marco Pesenti Gritti  <mpeseng@tin.it>
+
+	* doc/gconf/gconf.sgml: small explanation about AM_GCONF_SOURCE
+	macro
+	* gconf.m4.in: fix a typo in dnl
+	
 2001-08-13  Havoc Pennington  <hp@redhat.com>
 
 	* gconf/gconf-internals.c (gconf_load_source_path): patch from
