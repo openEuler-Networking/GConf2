@@ -1,3 +1,10 @@
+2001-09-28  Havoc Pennington  <hp@redhat.com>
+
+	* gconf/gconf-internals.c (gconf_get_current_lock_holder): we read
+	the IOR file, not the directory it's inside
+
+	* gconf/gconfd.c (main): fix uninitialized write_byte_fd variable
+
 2001-09-26  Havoc Pennington  <hp@redhat.com>
 
         Experimental changes, GCONF_BEFORE_OAF_REMOVAL tag will allow 

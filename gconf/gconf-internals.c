@@ -2678,7 +2678,13 @@ gconf_release_lock (GConfLock *lock,
 ConfigServer
 gconf_get_current_lock_holder  (const gchar *lock_directory)
 {
-  return read_current_server (lock_directory, FALSE);
+  char *iorfile;
+  ConfigServer server;
+
+  iorfile = g_strconcat (lock_directory, "/ior", NULL);
+  server = read_current_server (iorfile, FALSE);
+  g_free (iorfile);
+  return server;
 }
 
 /* Copied from OAF */

@@ -124,7 +124,6 @@ static gboolean in_shutdown = FALSE;
 static ConfigServer server = CORBA_OBJECT_NIL;
 static PortableServer_POA the_poa;
 static GConfLock *daemon_lock = NULL;
-static int write_byte_fd = -1;
 
 static ConfigDatabase
 gconfd_get_default_database(PortableServer_Servant servant,
@@ -481,10 +480,13 @@ main(int argc, char** argv)
   char *lock_dir;
   char *gconfd_dir;
   int replacement_fd;
+  int write_byte_fd;
   
   /* Now this is an argument parser */
   if (argc > 1)
     write_byte_fd = atoi (argv[1]);
+  else
+    write_byte_fd = -1;
   
   chdir ("/");
 
