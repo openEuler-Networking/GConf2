@@ -1,3 +1,18 @@
+2005-01-27  Mikael Hallendal  <micke@imendio.com>
+
+	* gconf/gconf-database-dbus.c: (database_filter_func),
+	(database_handle_service_owner_changed):
+	* gconf/gconf-dbus-utils.h:
+	* gconf/gconf-dbus.c: (gconf_dbus_message_filter):
+	* gconf/gconfd-dbus.c: (gconfd_dbus_init):
+	* gconf/gconfd.c: (main):
+	- Updated to work with D-Bus 0.23
+	- Note that it still installs the service file in lib/dbus-1.0 instead 
+	  of new location in share/
+	- Uses ServiceOwnerChanged API now.
+	* configure.in:
+	- Bumped version to 2.6.4.2
+
 2005-01-17  Mikael Hallendal  <micke@imendio.com>
 
 	* configure.in: Bumped to 2.6.4.1

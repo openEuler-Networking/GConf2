@@ -59,7 +59,7 @@ database_filter_func                             (DBusConnection  *connection,
 						  DBusMessage     *message,
 						  GConfDatabaseDBus *db);
 static DBusHandlerResult
-database_handle_service_deleted                  (DBusConnection  *connection,
+database_handle_service_owner_changed            (DBusConnection  *connection,
 						  DBusMessage     *message,
 						  GConfDatabaseDBus *db);
 static void           database_handle_lookup     (DBusConnection  *conn,
@@ -206,21 +206,22 @@ database_filter_func (DBusConnection  *connection,
 {
   if (dbus_message_is_signal (message,
 			      DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
-                              "ServiceDeleted"))
-    return database_handle_service_deleted (connection, message, db);
+                              "ServiceOwnerChanged"))
+    return database_handle_service_owner_changed (connection, message, db);
 
   return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 
 static DBusHandlerResult
-database_handle_service_deleted (DBusConnection *connection,
-				 DBusMessage *message,
-				 GConfDatabaseDBus *db)
+database_handle_service_owner_changed (DBusConnection *connection,
+				       DBusMessage *message,
+				       GConfDatabaseDBus *db)
 {  
   DBusMessageIter iter;
   char *service;
   GList *notifications = NULL, *l;
   NotificationData *notification;
+  char *owner;
   
   /* FIXME: This might be a bit too slow to do like this. We could add a hash
    * table that maps client base service names to notification data, instead of
@@ -229,6 +230,30 @@ database_handle_service_deleted (DBusConnection *connection,
   dbus_message_iter_init (message, &iter);
   service = dbus_message_iter_get_string (&iter);
 
+  if (!dbus_message_iter_next (&iter))
+    {
+      g_warning ("Misformated ServiceOwnerChanged message");
+      dbus_free (service);
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+  
+  if (!dbus_message_iter_next (&iter))
+    {
+      g_warning ("Misformated ServiceOwnerChanged message");
+      dbus_free (service);
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+
+  owner = dbus_message_iter_get_string (&iter);
+  if (strcmp (owner, "") != 0) 
+    {
+      /* Service still exist, don't remove notifications */
+      dbus_free (service);
+      dbus_free (owner);
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+  dbus_free (owner);
+  
   g_hash_table_foreach (db->notifications, get_all_notifications_func,
 			&notifications);
   

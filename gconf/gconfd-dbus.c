@@ -20,6 +20,7 @@
 #include <config.h>
 
 #include <dbus/dbus-glib.h>
+#include <dbus/dbus-glib-lowlevel.h>
 #include <string.h>
 #include "gconf-database-dbus.h"
 #include "gconf-dbus-utils.h"
@@ -30,7 +31,7 @@ static DBusConnection *bus_conn;
 static const char *server_path = "/org/gnome/GConf/Server";
 static gint nr_of_connections = 0;
 
-#define SERVICE_DELETED_RULE "type='signal',member='ServiceDeleted'," \
+#define SERVICE_OWNER_CHANGED_RULE "type='signal',member='ServiceOwnerChanged'," \
 	"sender='org.freedesktop.DBus',interface='org.freedesktop.DBus'"
 
 
@@ -197,8 +198,8 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  /* Add filter for ServiceDeleted so we get notified when the clients go away. */
-  dbus_bus_add_match (bus_conn, SERVICE_DELETED_RULE, NULL);
+  /* Add filter for ServiceOwnerChanged so we get notified when the clients go away. */
+  dbus_bus_add_match (bus_conn, SERVICE_OWNER_CHANGED_RULE, NULL);
 
   dbus_bus_acquire_service (bus_conn, GCONF_DBUS_SERVICE, 0, &error);
   if (dbus_error_is_set (&error)) 

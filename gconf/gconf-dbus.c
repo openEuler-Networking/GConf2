@@ -37,6 +37,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include <dbus/dbus.h>
+#include <dbus/dbus-glib-lowlevel.h>
 
 #define d(x) 
 
@@ -2087,32 +2088,31 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
     }
   else if (dbus_message_is_signal (message,
 				   DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
-				   "ServiceDeleted"))
+				   "ServiceOwnerChanged"))
     {
-      dbus_message_iter_init (message, &iter);
-      service = dbus_message_iter_get_string (&iter);
-      
-      if (strcmp (service, GCONF_DBUS_SERVICE) == 0)
-	{
-	  /* GConfd is gone, set the state so we can detect that we're down. */
-	  service_running = FALSE;
-	  needs_reconnect = TRUE;
+      char *owner;
 
-	  d(g_print ("* GConf Service deleted\n"));
-	}
-      
-      dbus_free (service);
-      
-      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;      
-    }
-  else if (dbus_message_is_signal (message,
-				   DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
-				   "ServiceCreated"))
-    {
       dbus_message_iter_init (message, &iter);
+      
       service = dbus_message_iter_get_string (&iter);
       
-      if (strcmp (service, GCONF_DBUS_SERVICE) == 0)
+      if (strcmp (service, GCONF_DBUS_SERVICE) != 0)
+	{
+	  dbus_free (service);
+	  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+	}
+
+      dbus_free (service);
+
+      if (!dbus_message_iter_next (&iter)) 
+	{
+	  d(g_print ("Malformed ServiceOwnerChanged signal\n"));
+	  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+	}
+     
+      
+      owner = dbus_message_iter_get_string (&iter); 
+      if (strcmp (owner, "") == 0) 
 	{
 	  /* GConfd is back. */
 	  service_running = TRUE;
@@ -2123,14 +2123,31 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
 	      reinitialize_databases ();
 	    }
 	  
-	  d(g_print ("* Gconf Service created\n"));
+	  d(g_print ("*** Gconf Service created\n"));
+	}
+
+      dbus_free (owner);
+
+      if (!dbus_message_iter_next (&iter)) {
+	d(g_print ("Malformed ServiceOwnerChanged signal\n"));
+	return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+      }
+      
+      owner = dbus_message_iter_get_string (&iter);
+      if (strcmp (owner, "") == 0) 
+	{
+	  /* GConfd is gone, set the state so we can detect that we're down. */
+	  service_running = FALSE;
+	  needs_reconnect = TRUE;
+
+	  d(g_print ("*** GConf Service deleted\n"));
 	}
       
-      dbus_free (service);
+      dbus_free (owner);
 
-      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;      
     }
-  
+
   return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 } 
 
