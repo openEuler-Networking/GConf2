@@ -9,14 +9,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-12 12:33+0100\n"
+"POT-Creation-Date: 2003-12-05 00:37+0100\n"
 "PO-Revision-Date: 2003-10-26 22:46+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: GNOME PL Team <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -324,110 +324,62 @@ msgstr "Ostrzeżenie GConfa: błąd przy wypisywaniu par w \"%s\": %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Oczekiwano \"%s\", otrzymano \"%s\" dla klucza %s"
 
-#: gconf/gconf-database.c:234
-msgid "Received invalid value in set request"
-msgstr "Otrzymano niewłaściwą wartość w zbiorze żądania"
-
-#: gconf/gconf-database.c:242
-#, c-format
-msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr ""
-"Nie można zinterpretować wartości Corby otrzymanej z żądaniem przypisania do "
-"klucza \"%s\""
-
-#: gconf/gconf-database.c:524
-msgid "Received request to drop all cached data"
-msgstr "Otrzymano żądanie aby odrzucić wszystkie cache'owane dane"
-
-#: gconf/gconf-database.c:541
-msgid "Received request to sync synchronously"
-msgstr "Otrzymano żądanie synchronicznej synchronizacji"
-
-#: gconf/gconf-database.c:826
-msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr "Poważny błąd: nie można uzyskać referencji obiektu ConfigDatabase"
-
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:173
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Błąd przy synchronizowaniu jednego lub więcej źródeł: %s"
 
-#: gconf/gconf-database.c:1080
-#, c-format
-msgid ""
-"Failed to log addition of listener %s (%s);will not be able to restore this "
-"listener on gconfd restart, resulting in unreliable notification of "
-"configuration changes."
-msgstr ""
-"Nie można zapisać dodania nasłuchiwacza %s w dzienniku (%s); przy ponownym "
-"uruchomieniu gconfd nie będzie można go przywrócić, co spowoduje niewłaściwe "
-"funkcjonowanie powiadamiania o zmianach w konfiguracji."
-
-#: gconf/gconf-database.c:1114
-#, c-format
-msgid "Listener ID %lu doesn't exist"
-msgstr "ID nasłuchiwacza %lu nie istnieje"
-
-#: gconf/gconf-database.c:1128
-#, c-format
-msgid ""
-"Failed to log removal of listener to logfile (most likely harmless, may "
-"result in a notification weirdly reappearing): %s"
-msgstr ""
-"Nie można zapisać w dzienniku usunięcia nasłuchiwacza (może to spowodować "
-"dziwne ponawianie powiadomień): %s"
-
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:241 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Błąd przy pobieraniu wartości dla \"%s\": %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:287
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Błąd przy ustawianiu wartości dla \"%s\": %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:342
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Błąd przy czyszczeniu \"%s\": %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:371
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Błąd przy pobieraniu domyślnej wartości \"%s\": %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:418
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Błąd przy czyszczeniu \"%s\": %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:450
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Błąd przy pobieraniu nowej wartości dla \"%s\": %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:496
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Błąd przy sprawdzaniu istnienia \"%s\": %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:520
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Błąd przy usuwaniu katalogu \"%s\": %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:547
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Nie można pobrać wszystkich elementów z \"%s\": %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:573
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Błąd przy pobieraniu zawartości katalogów w \"%s\": %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:594
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Błąd przy ustawianiu schematu dla \"%s\": %s"
@@ -496,125 +448,108 @@ msgstr "Nie można uzyskać blokady"
 msgid "No database available to save your configuration"
 msgstr "Brak dostępnej bazy danych do zapisu konfiguracji"
 
-#: gconf/gconf-internals.c:86
+#: gconf/gconf-internals.c:67
 #, c-format
 msgid "No '/' in key \"%s\""
 msgstr "Brak znaku \"/\" w kluczu \"%s\""
 
-#: gconf/gconf-internals.c:199
-#, c-format
-msgid "Invalid UTF-8 in string value in '%s'"
-msgstr "Niepoprawny UTF-8 w wartości napisu w \"%s\""
-
-#: gconf/gconf-internals.c:258
-msgid "Couldn't interpret CORBA value for list element"
-msgstr "Nie można zinterpretować wartości Corby elementu listy"
-
-#: gconf/gconf-internals.c:260
-#, c-format
-msgid "Incorrect type for list element in %s"
-msgstr "Niepoprawny typ elementu listy w %s"
-
-#: gconf/gconf-internals.c:273
-msgid "Received list from gconfd with a bad list type"
-msgstr "Otrzymano od procesu gconfd listę niewłaściwego typu"
-
-#: gconf/gconf-internals.c:454
-msgid "Failed to convert object to IOR"
-msgstr "Nie można przekonwertować obiektu na IOR"
-
-#: gconf/gconf-internals.c:591
-msgid "Invalid UTF-8 in locale for schema"
-msgstr "Niepoprawny napis UTF-8 jako kod języka schematu"
-
-#: gconf/gconf-internals.c:599
-msgid "Invalid UTF-8 in short description for schema"
-msgstr "Niepoprawny UTF-8 w krótkim opisie schematu"
-
-#: gconf/gconf-internals.c:607
-msgid "Invalid UTF-8 in long description for schema"
-msgstr "Niepoprawny UTF-8 w długim opisie schematu"
-
-#: gconf/gconf-internals.c:615
-msgid "Invalid UTF-8 in owner for schema"
-msgstr "Niepoprawny UTF-8 w nazwie właściciela schematu"
-
-#: gconf/gconf-internals.c:838
+#: gconf/gconf-internals.c:337
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Nie można otworzyć pliku \"%s\": %s\n"
 
-#: gconf/gconf-internals.c:887
+#: gconf/gconf-internals.c:386
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Dodanie źródła \"%s\"\n"
 
-#: gconf/gconf-internals.c:899
+#: gconf/gconf-internals.c:398
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Błąd przy odczycie pliku \"%s\": %s\n"
 
-#: gconf/gconf-internals.c:1203 gconf/gconf-internals.c:1269
+#: gconf/gconf-internals.c:702 gconf/gconf-internals.c:768
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "Tekst zawiera niepoprawną sekwencję UTF-8"
 
-#: gconf/gconf-internals.c:1354
+#: gconf/gconf-internals.c:853
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Oczekiwano listy, otrzymano %s"
 
-#: gconf/gconf-internals.c:1364
+#: gconf/gconf-internals.c:863
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Oczekiwano listy %s, otrzymano listę %s"
 
-#: gconf/gconf-internals.c:1492
+#: gconf/gconf-internals.c:991
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Oczekiwano pary, otrzymano %s"
 
-#: gconf/gconf-internals.c:1506
+#: gconf/gconf-internals.c:1005
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "Oczekiwano pary (%s,%s), otrzymano parę z brakującą jedną lub obiema "
 "wartościami"
 
-#: gconf/gconf-internals.c:1522
+#: gconf/gconf-internals.c:1021
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Oczekiwano pary (%s,%s), otrzymano parę (%s,%s)"
 
-#: gconf/gconf-internals.c:1638
+#: gconf/gconf-internals.c:1137
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Zacytowany napis nie rozpoczyna się znakiem cytowania"
 
-#: gconf/gconf-internals.c:1700
+#: gconf/gconf-internals.c:1199
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Zacytowany napis nie kończy się znakiem cytowania"
 
-#: gconf/gconf-internals.c:1836
+#: gconf/gconf-internals.c:1335
 msgid "Encoded value is not valid UTF-8"
 msgstr "Zakodowana wartość nie jest poprawnym napisem UTF-8"
 
-#: gconf/gconf-internals.c:2295
+#: gconf/gconf-internals.c:1837
+#, c-format
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr "nie udało się otworzyć pliku \"%s\" z IOR, nie odnaleziono gconfd: %s"
+
+#: gconf/gconf-internals.c:1867
+#, c-format
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr ""
+"plik blokady \"%s\" jest przetrzymywany przez gconftool lub inny proces (nie "
+"gconfd)"
+
+#: gconf/gconf-internals.c:1884
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr "nie można uzyskać od ORB-a odwołania do istniejącego obiektu gconfd"
+
+#: gconf/gconf-internals.c:1894
+#, c-format
+msgid "Failed to convert IOR '%s' to an object reference"
+msgstr "Nie można przekonwertować IOR-a \"%s\" na odwołanie do obiektu"
+
+#: gconf/gconf-internals.c:1949
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Nie można zablokować tymczasowego pliku \"%s\": %s"
 
-#: gconf/gconf-internals.c:2322
+#: gconf/gconf-internals.c:1976
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Nie można utworzyć pliku \"%s\", prawdopodobnie już on istnieje"
 
-#: gconf/gconf-internals.c:2368
+#: gconf/gconf-internals.c:2023
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Nie można utworzyć lub otworzyć \"%s\""
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2033
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -623,111 +558,51 @@ msgstr ""
 "Nie można zablokować \"%s\": prawdopodobnie blokadę przetrzymuje inny proces "
 "lub w systemie zostało niepoprawnie skonfigurowane blokowanie po NFS-ie (%s)"
 
-#: gconf/gconf-internals.c:2408
-#, c-format
-msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr "nie udało się otworzyć pliku \"%s\" z IOR, nie odnaleziono gconfd: %s"
-
-#: gconf/gconf-internals.c:2438
-#, c-format
-msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr ""
-"plik blokady \"%s\" jest przetrzymywany przez gconftool lub inny proces (nie "
-"gconfd)"
-
-#: gconf/gconf-internals.c:2455
-msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr "nie można uzyskać od ORB-a odwołania do istniejącego obiektu gconfd"
-
-#: gconf/gconf-internals.c:2465
-#, c-format
-msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "Nie można przekonwertować IOR-a \"%s\" na odwołanie do obiektu"
-
-#: gconf/gconf-internals.c:2515
-#, c-format
-msgid "couldn't create directory `%s': %s"
-msgstr "Nie można utworzyć katalogu \"%s\": %s"
-
-#: gconf/gconf-internals.c:2574
-#, c-format
-msgid "Can't write to file `%s': %s"
-msgstr "Nie można zapisać do pliku \"%s\": %s"
-
-#: gconf/gconf-internals.c:2615
+#: gconf/gconf-internals.c:2117
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "Program nie posiada blokady na plik \"%s\", choć powinien"
 
-#: gconf/gconf-internals.c:2636
+#: gconf/gconf-internals.c:2138
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Nie można dowiązać \"%s\" do \"%s\": %s"
 
-#: gconf/gconf-internals.c:2648
+#: gconf/gconf-internals.c:2150
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Nie można usunąć pliku blokady \"%s\": %s"
 
-#: gconf/gconf-internals.c:2667
+#: gconf/gconf-internals.c:2169
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Nie można wyczyścić pliku \"%s\": %s"
 
-#: gconf/gconf-internals.c:2681
+#: gconf/gconf-internals.c:2183
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Nie można usunąć katalogu blokady \"%s\": %s"
 
-#: gconf/gconf-internals.c:2723
+#: gconf/gconf-internals.c:2220
+#, c-format
+msgid "couldn't create directory `%s': %s"
+msgstr "Nie można utworzyć katalogu \"%s\": %s"
+
+#: gconf/gconf-internals.c:2279
+#, c-format
+msgid "Can't write to file `%s': %s"
+msgstr "Nie można zapisać do pliku \"%s\": %s"
+
+#: gconf/gconf-internals.c:2323
 #, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nie można usunąć pliku blokady %s: %s\n"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
-#, c-format
-msgid "Failed to create %s: %s"
-msgstr "Nie można utworzyć %s: %s"
-
-#: gconf/gconf-internals.c:2878
-#, c-format
-msgid "Server ping error: %s"
-msgstr "Brak odpowiedzi serwera przy sprawdzeniu aktywności: %s"
-
-#: gconf/gconf-internals.c:2899
-#, c-format
-msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-msgstr ""
-"Nie można utworzyć potoku do komunikacji z uruchomionym demonem gconf: %s\n"
-
-#: gconf/gconf-internals.c:2923
-#, c-format
-msgid "Failed to launch configuration server: %s\n"
-msgstr "Nie można uruchomić serwera konfiguracji: %s\n"
-
-#: gconf/gconf-internals.c:2948
-#, c-format
-msgid ""
-"Failed to contact configuration server; some possible causes are that you "
-"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
-"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
-"(Details - %s)"
-msgstr ""
-"Nie można nawiązać połączenia z serwerem konfiguracji. Możliwe, że konieczne "
-"będzie uaktywnienie obsługi TCP/IP w konfiguracji ORBita. Może to też być "
-"spowodowane blokadami pozostałymi po awarii systemu. Aby uzyskać więcej "
-"informacji, odwiedź stronę http://www.gnome.org/projects/gconf/ (szczegóły - "
-"%s)."
-
-#: gconf/gconf-internals.c:2949
-msgid "none"
-msgstr "brak"
-
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:84
+#: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:84
 msgid "Help options"
 msgstr "Opcje pomocy"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:506
+#: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:506
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -737,7 +612,7 @@ msgstr ""
 "Uruchom \"%s --help\", aby wypisać pełną listę opcji dostępnych z wiersza "
 "poleceń.\n"
 
-#: gconf/gconf-sanity-check.c:141 gconf/gconf-sanity-check.c:166
+#: gconf/gconf-sanity-check.c:144 gconf/gconf-sanity-check.c:169
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -751,7 +626,7 @@ msgstr ""
 "problem z konfiguracją, gdyż wiele programów wymaga tworzenia w katalogu "
 "domowym pewnych plików. Błąd, który wystąpił: \"%s\" (errno = %d)."
 
-#: gconf/gconf-sanity-check.c:180
+#: gconf/gconf-sanity-check.c:183
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -771,12 +646,12 @@ msgstr ""
 "tego błędu jest zablokowana usługa \"nfslock\". Błąd, który wystąpił: \"%s"
 "\" (errno = %d)."
 
-#: gconf/gconf-sanity-check.c:197
+#: gconf/gconf-sanity-check.c:200
 #, c-format
 msgid "Can't remove file %s: %s\n"
 msgstr "Nie można usunąć pliku \"%s\": %s\n"
 
-#: gconf/gconf-sanity-check.c:233
+#: gconf/gconf-sanity-check.c:236
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -788,11 +663,11 @@ msgstr ""
 "W pliku konfiguracyjnym \"%s\" nie ma żadnych źródeł konfiguracji; oznacza "
 "to, że nie jest możliwy zapis preferencji i innych ustawień. %s%s"
 
-#: gconf/gconf-sanity-check.c:236
+#: gconf/gconf-sanity-check.c:239
 msgid "Error reading the file: "
 msgstr "Błąd przy odczycie pliku: "
 
-#: gconf/gconf-sanity-check.c:259
+#: gconf/gconf-sanity-check.c:262
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -803,7 +678,7 @@ msgstr ""
 "Nie można odnaleźć adresu \"%s\", występującego w pliku konfiguracyjnym \"%s"
 "\": %s"
 
-#: gconf/gconf-sanity-check.c:320
+#: gconf/gconf-sanity-check.c:323
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
@@ -825,15 +700,15 @@ msgstr ""
 "\n"
 "Czy chcesz kontynuować?"
 
-#: gconf/gconf-sanity-check.c:341
+#: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
 msgstr "K_oniec sesji"
 
-#: gconf/gconf-sanity-check.c:343
+#: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
 msgstr "_Kontynuuj"
 
-#: gconf/gconf-sanity-check.c:356
+#: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
 msgstr "%s Kontynuować (t/n)?"
@@ -1027,97 +902,69 @@ msgstr "Niezrozumiała wartość \"%s\" (niewłaściwa liczba elementów)"
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "Nie zrozumiano \"%s\" (dodatkowy \")\" wewnątrz pary)"
 
-#: gconf/gconf.c:55
+#: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
 msgstr "Klucz \"%s\" jest pusty"
 
-#: gconf/gconf.c:62
+#: gconf/gconf.c:51
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
 
-#: gconf/gconf.c:345
-#, c-format
-msgid "Server couldn't resolve the address `%s'"
-msgstr "Serwer nie może odnaleźć adresu \"%s\""
-
-#: gconf/gconf.c:634
-msgid "Can't add notifications to a local configuration source"
-msgstr "Nie można dodać powiadomień do lokalnego źródła konfiguracji"
-
-#: gconf/gconf.c:2097
-#, c-format
-msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr "Nie można dodać klienta do listy na serwerze. Błąd Corby: %s"
-
-#: gconf/gconf.c:2452
+#: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
 msgstr "Musi się rozpoczynać ukośnikiem (/)"
 
-#: gconf/gconf.c:2474
+#: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
 msgstr "Dwa ukośniki nie mogą występować bezpośrednio po sobie (/)"
 
-#: gconf/gconf.c:2476
+#: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Kropka (.) nie może być umieszczona bezpośrednio po ukośniku (/)"
 
-#: gconf/gconf.c:2495
+#: gconf/gconf.c:159
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr ""
 "Znak \"%c\" nie jest znakiem ASCII, więc nie jest dozwolony w nazwach kluczy"
 
-#: gconf/gconf.c:2505
+#: gconf/gconf.c:169
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "Znak \"%c\" jest niedozwolony w nazwach kluczy lub katalogów"
 
-#: gconf/gconf.c:2519
+#: gconf/gconf.c:183
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Klucz lub katalog nie może kończyć się ukośnikiem (/)"
 
-#: gconf/gconf.c:2888
-#, c-format
-msgid "Failure shutting down config server: %s"
-msgstr "Błąd przy kończeniu pracy serwera konfiguracji: %s"
-
-#: gconf/gconf.c:2949
+#: gconf/gconf.c:408
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Oczekiwano liczby zmiennoprzecinkowej, otrzymano %s"
 
-#: gconf/gconf.c:2984
+#: gconf/gconf.c:443
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Oczekiwano liczby całkowitej, otrzymano %s"
 
-#: gconf/gconf.c:3019
+#: gconf/gconf.c:478
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Oczekiwano napisu, otrzymano %s"
 
-#: gconf/gconf.c:3053
+#: gconf/gconf.c:512
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Oczekiwano wartości logicznej, otrzymano %s"
 
-#: gconf/gconf.c:3086
+#: gconf/gconf.c:545
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Oczekiwano schematu, otrzymano %s"
 
-#: gconf/gconf.c:3443
-#, c-format
-msgid "CORBA error: %s"
-msgstr "Błąd Corby: %s"
-
-#: gconf/gconfd.c:250
-msgid "Shutdown request received"
-msgstr "Otrzymano żądanie zakończenia"
-
-#: gconf/gconfd.c:282
+#: gconf/gconfd.c:147
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -1125,7 +972,7 @@ msgstr ""
 "Demon gconfd został skompilowany z obsługą debugowania; próba odczytu gconf."
 "path z katalogu źródłowego"
 
-#: gconf/gconfd.c:296
+#: gconf/gconfd.c:161
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -1136,7 +983,7 @@ msgstr ""
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:304
+#: gconf/gconfd.c:169
 #, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
@@ -1145,12 +992,12 @@ msgstr ""
 "Brak źródeł konfiguracji na ścieżce źródłowej, konfiguracja nie zostanie "
 "zapisana. Zmodyfikuj plik %s"
 
-#: gconf/gconfd.c:317
+#: gconf/gconfd.c:182
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "Błąd przy wczytywaniu pewnych źródeł konfiguracji: %s"
 
-#: gconf/gconfd.c:329
+#: gconf/gconfd.c:194
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -1158,7 +1005,7 @@ msgstr ""
 "Nie uzyskano żadnego źródła konfiguracji, nie można więc odczytać ani "
 "zapisać danych konfiguracyjnych"
 
-#: gconf/gconfd.c:346
+#: gconf/gconfd.c:211
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1166,12 +1013,12 @@ msgstr ""
 "Nie uzyskano żadnego zapisywalnego źródła konfiguracji, zapis zmian w "
 "konfiguracji może więc nie być możliwy"
 
-#: gconf/gconfd.c:372
+#: gconf/gconfd.c:237
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "Otrzymano sygnał %d, zapis pliku core. Zgłoś błąd GConfa."
 
-#: gconf/gconfd.c:390
+#: gconf/gconfd.c:255
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
@@ -1179,188 +1026,73 @@ msgstr ""
 "Otrzymano sygnał %d, przeprowadzono awaryjne zakończenie. Powiadom o błędzie "
 "w GConfie."
 
-#: gconf/gconfd.c:407
+#: gconf/gconfd.c:272
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "Otrzymano sygnał %d, poprawne zakończenie"
 
-#: gconf/gconfd.c:480
+#: gconf/gconfd.c:341
 #, c-format
 msgid "Failed to open %s: %s"
 msgstr "Nie można otworzyć %s: %s"
 
-#: gconf/gconfd.c:487
+#: gconf/gconfd.c:348
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Nie można uzyskać informacji o %s: %s"
 
-#: gconf/gconfd.c:496
+#: gconf/gconfd.c:357
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr "Właściciel %s nie jest bieżącym użytkownikiem"
 
-#: gconf/gconfd.c:504
+#: gconf/gconfd.c:365
 #, c-format
 msgid "Bad permissions %lo on directory %s"
 msgstr "Nieprawidłowe uprawnienia %lo na katalogu %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:586
+#: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "uruchamianie (wersja %s), pid %u, użytkownik \"%s\""
 
-#: gconf/gconfd.c:626
-msgid "Failed to get object reference for ConfigServer"
-msgstr "Nie można uzyskać referencji obiektu ConfigServer"
+#: gconf/gconfd.c:484
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Nie można utworzyć %s: %s"
 
 # Nie jestem przekonany do końca czy taka forma jest dobra
-#: gconf/gconfd.c:646
+#: gconf/gconfd.c:492
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr "Katlog %s jest niepoprawny i nie można go użyć"
 
-#: gconf/gconfd.c:675
+#: gconf/gconfd.c:528
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 "Nie można zapisać bajtu do potoku poprzez deskryptor %d, co może zawiesić "
 "klienta: %s"
 
-#: gconf/gconfd.c:685
+#: gconf/gconfd.c:542
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "Nie można uzyskać blokady od demona, zakończenie: %s"
 
-#: gconf/gconfd.c:723
+#: gconf/gconfd.c:584
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "Błąd przy zwalnianiu pliku blokady: %s"
 
-#: gconf/gconfd.c:731
+#: gconf/gconfd.c:592
 msgid "Exiting"
 msgstr "Zakończenie"
 
-#: gconf/gconfd.c:757
+#: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
 msgstr "Serwer GConf nie jest używany, zakończenie."
-
-#: gconf/gconfd.c:1123
-#, c-format
-msgid "Returning exception: %s"
-msgstr "Zwracanie wyjątku: %s"
-
-#: gconf/gconfd.c:1223
-#, c-format
-msgid ""
-"Failed to open gconfd logfile; won't be able to restore listeners after "
-"gconfd shutdown (%s)"
-msgstr ""
-"Nie można otworzyć pliku dziennika gconfd; po zakończeniu gconfd nie będzie "
-"możliwe przywrócenie nasłuchiwaczy (%s)"
-
-#: gconf/gconfd.c:1258
-#, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
-msgstr ""
-"Nie można zamknąć pliku dziennika gconfd, dane mogły nie zostać poprawnie "
-"zapisane (%s)"
-
-#: gconf/gconfd.c:1327
-#, c-format
-msgid "Could not open saved state file '%s' for writing: %s"
-msgstr "Nie można otworzyć pliku \"%s\" z zapisem stanu do zapisu: %s"
-
-#: gconf/gconfd.c:1341
-#, c-format
-msgid "Could not write saved state file '%s' fd: %d: %s"
-msgstr "Nie można zapisać do pliku \"%s\" (fd: %d) z zapisem stanu: %s"
-
-#: gconf/gconfd.c:1350
-#, c-format
-msgid "Failed to close new saved state file '%s': %s"
-msgstr "Nie można zamknąć nowego pliku \"%s\" z zapisem stanu: %s"
-
-#: gconf/gconfd.c:1364
-#, c-format
-msgid "Could not move aside old saved state file '%s': %s"
-msgstr "Nie można przenieść starego pliku \"%s\" z zapisem stanu: %s"
-
-#: gconf/gconfd.c:1374
-#, c-format
-msgid "Failed to move new save state file into place: %s"
-msgstr "Nie można przenieść nowego pliku z zapisem stanu: %s"
-
-#: gconf/gconfd.c:1383
-#, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr ""
-"Nie można przywrócić oryginalnego pliku z zapisem stanu przeniesionego do \"%"
-"s\": %s"
-
-#: gconf/gconfd.c:1854
-#, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
-msgstr ""
-"Nie można przywrócić nasłuchiwacza spod adresu \"%s\" - nie można odnaleźć "
-"bazy danych"
-
-#: gconf/gconfd.c:1900
-#, c-format
-msgid "Error reading saved state file: %s"
-msgstr "Błąd przy odczycie pliku z zapisem stanu: %s"
-
-#: gconf/gconfd.c:1954
-#, c-format
-msgid "Unable to open saved state file '%s': %s"
-msgstr "Nie można otworzyć pliku \"%s\" z zapisem stanu: %s"
-
-#: gconf/gconfd.c:2073
-#, c-format
-msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"Nie można zapisać dodania nasłuchiwacza w pliku dziennika gconfd; po "
-"zakończeniu gconfd nie będzie możliwe jego ponowne dodanie (%s)"
-
-#: gconf/gconfd.c:2078
-#, c-format
-msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"Nie można zapisać usunięcia nasłuchiwacza w pliku dziennika gconfd; po "
-"zakończeniu gconfd może to spowodować błędne ponowne jego dodanie (%s)"
-
-#: gconf/gconfd.c:2101 gconf/gconfd.c:2275
-#, c-format
-msgid "Failed to get IOR for client: %s"
-msgstr "Nie można pobrać wartości IOR dla klienta: %s"
-
-#: gconf/gconfd.c:2116
-#, c-format
-msgid "Failed to open saved state file: %s"
-msgstr "Odczytanie zapisanego stanu z pliku nie powiodło się: %s"
-
-#: gconf/gconfd.c:2129
-#, c-format
-msgid "Failed to write client add to saved state file: %s"
-msgstr "Nie można zapisać dodania klienta w pliku z zapisem stanu: %s"
-
-#: gconf/gconfd.c:2137
-#, c-format
-msgid "Failed to flush client add to saved state file: %s"
-msgstr "Nie można zrzucić dodania klienta do pliku z zapisem stanu: %s"
-
-#: gconf/gconfd.c:2236
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
-msgstr "Klient, który nie był dodany, usunął się z serwera."
 
 #: gconf/gconftool.c:93
 msgid "Set a key to a value and sync. Use with --type."
@@ -2237,6 +1969,200 @@ msgstr ""
 "Próba uszkodzenia aplikacji poprzez przypisanie niepoprawnych wartości do "
 "kluczy w katalogu:\n"
 "  %s\n"
+
+#~ msgid "Received invalid value in set request"
+#~ msgstr "Otrzymano niewłaściwą wartość w zbiorze żądania"
+
+#~ msgid ""
+#~ "Couldn't make sense of CORBA value received in set request for key `%s'"
+#~ msgstr ""
+#~ "Nie można zinterpretować wartości Corby otrzymanej z żądaniem przypisania "
+#~ "do klucza \"%s\""
+
+#~ msgid "Received request to drop all cached data"
+#~ msgstr "Otrzymano żądanie aby odrzucić wszystkie cache'owane dane"
+
+#~ msgid "Received request to sync synchronously"
+#~ msgstr "Otrzymano żądanie synchronicznej synchronizacji"
+
+#~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
+#~ msgstr "Poważny błąd: nie można uzyskać referencji obiektu ConfigDatabase"
+
+#~ msgid ""
+#~ "Failed to log addition of listener %s (%s);will not be able to restore "
+#~ "this listener on gconfd restart, resulting in unreliable notification of "
+#~ "configuration changes."
+#~ msgstr ""
+#~ "Nie można zapisać dodania nasłuchiwacza %s w dzienniku (%s); przy "
+#~ "ponownym uruchomieniu gconfd nie będzie można go przywrócić, co spowoduje "
+#~ "niewłaściwe funkcjonowanie powiadamiania o zmianach w konfiguracji."
+
+#~ msgid "Listener ID %lu doesn't exist"
+#~ msgstr "ID nasłuchiwacza %lu nie istnieje"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to logfile (most likely harmless, may "
+#~ "result in a notification weirdly reappearing): %s"
+#~ msgstr ""
+#~ "Nie można zapisać w dzienniku usunięcia nasłuchiwacza (może to spowodować "
+#~ "dziwne ponawianie powiadomień): %s"
+
+#~ msgid "Invalid UTF-8 in string value in '%s'"
+#~ msgstr "Niepoprawny UTF-8 w wartości napisu w \"%s\""
+
+#~ msgid "Couldn't interpret CORBA value for list element"
+#~ msgstr "Nie można zinterpretować wartości Corby elementu listy"
+
+#~ msgid "Incorrect type for list element in %s"
+#~ msgstr "Niepoprawny typ elementu listy w %s"
+
+#~ msgid "Received list from gconfd with a bad list type"
+#~ msgstr "Otrzymano od procesu gconfd listę niewłaściwego typu"
+
+#~ msgid "Failed to convert object to IOR"
+#~ msgstr "Nie można przekonwertować obiektu na IOR"
+
+#~ msgid "Invalid UTF-8 in locale for schema"
+#~ msgstr "Niepoprawny napis UTF-8 jako kod języka schematu"
+
+#~ msgid "Invalid UTF-8 in short description for schema"
+#~ msgstr "Niepoprawny UTF-8 w krótkim opisie schematu"
+
+#~ msgid "Invalid UTF-8 in long description for schema"
+#~ msgstr "Niepoprawny UTF-8 w długim opisie schematu"
+
+#~ msgid "Invalid UTF-8 in owner for schema"
+#~ msgstr "Niepoprawny UTF-8 w nazwie właściciela schematu"
+
+#~ msgid "Server ping error: %s"
+#~ msgstr "Brak odpowiedzi serwera przy sprawdzeniu aktywności: %s"
+
+#~ msgid ""
+#~ "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+#~ msgstr ""
+#~ "Nie można utworzyć potoku do komunikacji z uruchomionym demonem gconf: %"
+#~ "s\n"
+
+#~ msgid "Failed to launch configuration server: %s\n"
+#~ msgstr "Nie można uruchomić serwera konfiguracji: %s\n"
+
+#~ msgid ""
+#~ "Failed to contact configuration server; some possible causes are that you "
+#~ "need to enable TCP/IP networking for ORBit, or you have stale NFS locks "
+#~ "due to a system crash. See http://www.gnome.org/projects/gconf/ for "
+#~ "information. (Details - %s)"
+#~ msgstr ""
+#~ "Nie można nawiązać połączenia z serwerem konfiguracji. Możliwe, że "
+#~ "konieczne będzie uaktywnienie obsługi TCP/IP w konfiguracji ORBita. Może "
+#~ "to też być spowodowane blokadami pozostałymi po awarii systemu. Aby "
+#~ "uzyskać więcej informacji, odwiedź stronę http://www.gnome.org/projects/"
+#~ "gconf/ (szczegóły - %s)."
+
+#~ msgid "none"
+#~ msgstr "brak"
+
+#~ msgid "Server couldn't resolve the address `%s'"
+#~ msgstr "Serwer nie może odnaleźć adresu \"%s\""
+
+#~ msgid "Can't add notifications to a local configuration source"
+#~ msgstr "Nie można dodać powiadomień do lokalnego źródła konfiguracji"
+
+#~ msgid "Adding client to server's list failed, CORBA error: %s"
+#~ msgstr "Nie można dodać klienta do listy na serwerze. Błąd Corby: %s"
+
+#~ msgid "Failure shutting down config server: %s"
+#~ msgstr "Błąd przy kończeniu pracy serwera konfiguracji: %s"
+
+#~ msgid "CORBA error: %s"
+#~ msgstr "Błąd Corby: %s"
+
+#~ msgid "Shutdown request received"
+#~ msgstr "Otrzymano żądanie zakończenia"
+
+#~ msgid "Failed to get object reference for ConfigServer"
+#~ msgstr "Nie można uzyskać referencji obiektu ConfigServer"
+
+#~ msgid "Returning exception: %s"
+#~ msgstr "Zwracanie wyjątku: %s"
+
+#~ msgid ""
+#~ "Failed to open gconfd logfile; won't be able to restore listeners after "
+#~ "gconfd shutdown (%s)"
+#~ msgstr ""
+#~ "Nie można otworzyć pliku dziennika gconfd; po zakończeniu gconfd nie "
+#~ "będzie możliwe przywrócenie nasłuchiwaczy (%s)"
+
+#~ msgid ""
+#~ "Failed to close gconfd logfile; data may not have been properly saved (%s)"
+#~ msgstr ""
+#~ "Nie można zamknąć pliku dziennika gconfd, dane mogły nie zostać poprawnie "
+#~ "zapisane (%s)"
+
+#~ msgid "Could not open saved state file '%s' for writing: %s"
+#~ msgstr "Nie można otworzyć pliku \"%s\" z zapisem stanu do zapisu: %s"
+
+#~ msgid "Could not write saved state file '%s' fd: %d: %s"
+#~ msgstr "Nie można zapisać do pliku \"%s\" (fd: %d) z zapisem stanu: %s"
+
+#~ msgid "Failed to close new saved state file '%s': %s"
+#~ msgstr "Nie można zamknąć nowego pliku \"%s\" z zapisem stanu: %s"
+
+#~ msgid "Could not move aside old saved state file '%s': %s"
+#~ msgstr "Nie można przenieść starego pliku \"%s\" z zapisem stanu: %s"
+
+#~ msgid "Failed to move new save state file into place: %s"
+#~ msgstr "Nie można przenieść nowego pliku z zapisem stanu: %s"
+
+#~ msgid ""
+#~ "Failed to restore original saved state file that had been moved to '%s': %"
+#~ "s"
+#~ msgstr ""
+#~ "Nie można przywrócić oryginalnego pliku z zapisem stanu przeniesionego do "
+#~ "\"%s\": %s"
+
+#~ msgid ""
+#~ "Unable to restore a listener on address '%s', couldn't resolve the "
+#~ "database"
+#~ msgstr ""
+#~ "Nie można przywrócić nasłuchiwacza spod adresu \"%s\" - nie można "
+#~ "odnaleźć bazy danych"
+
+#~ msgid "Error reading saved state file: %s"
+#~ msgstr "Błąd przy odczycie pliku z zapisem stanu: %s"
+
+#~ msgid "Unable to open saved state file '%s': %s"
+#~ msgstr "Nie można otworzyć pliku \"%s\" z zapisem stanu: %s"
+
+#~ msgid ""
+#~ "Failed to log addition of listener to gconfd logfile; won't be able to re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "Nie można zapisać dodania nasłuchiwacza w pliku dziennika gconfd; po "
+#~ "zakończeniu gconfd nie będzie możliwe jego ponowne dodanie (%s)"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to gconfd logfile; might erroneously re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "Nie można zapisać usunięcia nasłuchiwacza w pliku dziennika gconfd; po "
+#~ "zakończeniu gconfd może to spowodować błędne ponowne jego dodanie (%s)"
+
+#~ msgid "Failed to get IOR for client: %s"
+#~ msgstr "Nie można pobrać wartości IOR dla klienta: %s"
+
+#~ msgid "Failed to open saved state file: %s"
+#~ msgstr "Odczytanie zapisanego stanu z pliku nie powiodło się: %s"
+
+#~ msgid "Failed to write client add to saved state file: %s"
+#~ msgstr "Nie można zapisać dodania klienta w pliku z zapisem stanu: %s"
+
+#~ msgid "Failed to flush client add to saved state file: %s"
+#~ msgstr "Nie można zrzucić dodania klienta do pliku z zapisem stanu: %s"
+
+#~ msgid ""
+#~ "Some client removed itself from the GConf server when it hadn't been "
+#~ "added."
+#~ msgstr "Klient, który nie był dodany, usunął się z serwera."
 
 #~ msgid ""
 #~ "%u items remain in the cache after cleaning already-synced items older "

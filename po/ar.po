@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ar\n"
-"POT-Creation-Date: 2003-09-10 15:15-0400\n"
+"POT-Creation-Date: 2003-12-05 00:37+0100\n"
 "PO-Revision-Date: 2003-05-19 17:18+0200\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -59,9 +59,10 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr " خطأ في مماثلة دليل الذاكرة الوسيطة XML الخلفية: %s"
 
 #: backends/xml-backend.c:684
+#, fuzzy
 msgid ""
-"Remove dir operation is no longer supported, just remove all the values in "
-"the directory"
+"Remove directory operation is no longer supported, just remove all the "
+"values in the directory"
 msgstr "عملية Remove dir لم تعد مدعومة، أزل جميع القيم الموجودة في الدليل"
 
 #: backends/xml-backend.c:770
@@ -79,8 +80,8 @@ msgid "Initializing XML backend module"
 msgstr "ابتداء الوحدة البرمجية الأساسية لـ XML"
 
 #: backends/xml-backend.c:877
-#, c-format
-msgid "Failed to give up lock on XML dir \"%s\": %s"
+#, fuzzy, c-format
+msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "فشلت عملية التخلص من القفل عند دليل XML \"%s\": %s"
 
 #: backends/xml-cache.c:286
@@ -95,15 +96,6 @@ msgid ""
 msgstr ""
 "غير قادر على إزالة الدليل `%s'  من الذاكرة الوسيطة لـ XML, بسبب عدم مماثلته "
 "بشكل ناجح مع القرص"
-
-#: backends/xml-cache.c:343
-#, c-format
-msgid ""
-"%u items remain in the cache after cleaning already-synced items older than %"
-"u seconds"
-msgstr ""
-"تبقى العناصر %u في الذاكرة الوسيطة بعد إزالة العناصر التي تمت مماثلتها "
-"والأقدم من %u ثانية"
 
 #: backends/xml-dir.c:171
 #, c-format
@@ -160,11 +152,6 @@ msgstr "فشلت في مسح الملف القديم `%s': %s"
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "فشل في الحصول على معلومات `%s': %s"
-
-#: backends/xml-dir.c:1002
-#, c-format
-msgid "%s"
-msgstr "%s"
 
 #: backends/xml-dir.c:1152
 #, c-format
@@ -314,122 +301,77 @@ msgstr "لم يتم تحديد الوحدة البرمجية الأساسية ل
 msgid "Failed to shut down backend"
 msgstr "فشل في إغلاق الخلفية"
 
-#: gconf/gconf-client.c:343 gconf/gconf-client.c:361
+#: gconf/gconf-client.c:344 gconf/gconf-client.c:362
 #, c-format
 msgid "GConf Error: %s\n"
 msgstr "خطأ GConf : %s\n"
 
-#: gconf/gconf-client.c:895
+#: gconf/gconf-client.c:896
 #, c-format
 msgid "GConf warning: failure listing pairs in `%s': %s"
 msgstr "تحذير GConf: فشل سرد الأزواج في `%s': %s"
 
-#: gconf/gconf-client.c:1180
+#: gconf/gconf-client.c:1181
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "توقّعت `%s' تلقّيت `%s' للمفتاح %s"
 
-#: gconf/gconf-database.c:234
-msgid "Received invalid value in set request"
-msgstr "تم تلقي قيمة غير صالحة في طلب الضبط"
-
-#: gconf/gconf-database.c:242
-#, c-format
-msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr "لم أفهم معنى قيمة CORBA الذي تم تلقّيه ضمن طلب الضبط للمفتاح `%s'"
-
-#: gconf/gconf-database.c:524
-msgid "Received request to drop all cached data"
-msgstr "تم تلقي طلب إلغاء جميع بيانات الذاكرة الوسيطة"
-
-#: gconf/gconf-database.c:541
-msgid "Received request to sync synchronously"
-msgstr "تم تلقي طلب مزامنة بشكل تزامني"
-
-#: gconf/gconf-database.c:826
-msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr "خطأ فادح: فشل في الحصول على مرجع الجسم من أجل ConfigDatabase"
-
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:173
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "فشل في مزامنة مصدَر أو أكثر: %s"
 
-#: gconf/gconf-database.c:1080
-#, c-format
-msgid ""
-"Failed to log addition of listener %s (%s);will not be able to restore this "
-"listener on gconfd restart, resulting in unreliable notification of "
-"configuration changes."
-msgstr ""
-"فشل في تسجيل إضافة المستمع %s (%s); لن اتمكن من تسجيل استرجاع هذا المستمع "
-"عند إعادة تشغيل gconfd, مما سينتِج تذكيرا غير مضمون لالتغييرات الحاصلة لالضبط"
-
-#: gconf/gconf-database.c:1114
-#, c-format
-msgid "Listener ID %lu doesn't exist"
-msgstr "معرّف المستمع %lu غير موجود"
-
-#: gconf/gconf-database.c:1128
-#, c-format
-msgid ""
-"Failed to log removal of listener to logfile (most likely harmless, may "
-"result in a notification weirdly reappearing): %s"
-msgstr ""
-"فشل في تسجيل حذف المستمع في ملف التسجيل (من المأكّد انه غيرمضرّ، ربما تكون "
-"النتيجة في تذكير يظهر مرّة اخرى: %s"
-
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:241 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "خطأ في اخذ قيمة  `%s': %s "
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:287
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "خطأ في وضع قيمة لـ `%s': %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:342
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "خطأ في حذف `%s': %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:371
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "خطأ في اخذ القيمة اﻻفتراضية لـ `%s': %s "
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:418
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "خطأ في حذف \"%s\": %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:450
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "خطأ في اخذ قيمة جديدة لـ \"%s\": %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:496
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "خطأ في التأكّد من وجود  `%s': %s "
 
-#: gconf/gconf-database.c:1520
-#, c-format
-msgid "Error removing dir `%s': %s"
+#: gconf/gconf-database.c:520
+#, fuzzy, c-format
+msgid "Error removing directory \"%s\": %s"
 msgstr "خطأ في حذف الدليل `%s': %s "
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:547
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "فشل في الحصول على جميع البيانات عند `%s': %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:573
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "خطأ في سرد الدلائل عند `%s': %s "
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:594
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "خطأ في وضع مخطّط لـ `%s': %s"
@@ -498,123 +440,104 @@ msgstr "فشل في الحصول على قفل"
 msgid "No database available to save your configuration"
 msgstr "لا قاعدة بيانات موجودة لحفظ اعدادتك"
 
-#: gconf/gconf-internals.c:86
+#: gconf/gconf-internals.c:67
 #, c-format
 msgid "No '/' in key \"%s\""
 msgstr "في المفتاح  \"%s\" '/' لا "
 
-#: gconf/gconf-internals.c:199
-#, c-format
-msgid "Invalid UTF-8 in string value in '%s'"
-msgstr "يو تي اف غير سليم في سلسلة القيمة عند '%s'"
-
-#: gconf/gconf-internals.c:258
-msgid "Couldn't interpret CORBA value for list element"
-msgstr "لوحدة القائمة Corbaلم اتمكن من تئويل قيمة"
-
-#: gconf/gconf-internals.c:260
-#, c-format
-msgid "Incorrect type for list element in %s"
-msgstr "نوع غير صحيح لوحدة القائمة عند %s"
-
-#: gconf/gconf-internals.c:273
-msgid "Received list from gconfd with a bad list type"
-msgstr "تلقّيت قائمة من gconfd ذات نوع قائمة غير سليم"
-
-#: gconf/gconf-internals.c:454
-msgid "Failed to convert object to IOR"
-msgstr "فشل في تحويل الجسم الى IOR"
-
-#: gconf/gconf-internals.c:591
-msgid "Invalid UTF-8 in locale for schema"
-msgstr "يو تي اف غير سليم في الموقع للمخطّط "
-
-#: gconf/gconf-internals.c:599
-msgid "Invalid UTF-8 in short description for schema"
-msgstr "يو تي اف غير سليم عند الوصف القصير للمخطّط"
-
-#: gconf/gconf-internals.c:607
-msgid "Invalid UTF-8 in long description for schema"
-msgstr "يو تي اف غير سليم عند الوصف الطويل للمخطّط"
-
-#: gconf/gconf-internals.c:615
-msgid "Invalid UTF-8 in owner for schema"
-msgstr "يو تي اف غير سليم عند المالك للمخطّط"
-
-#: gconf/gconf-internals.c:838
+#: gconf/gconf-internals.c:337
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "لم استطع فتح ملف الطريق `%s': %s\n"
 
-#: gconf/gconf-internals.c:887
+#: gconf/gconf-internals.c:386
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "اضافة مصدر `%s'\n"
 
-#: gconf/gconf-internals.c:899
+#: gconf/gconf-internals.c:398
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "خطأ قراءة عند الملف `%s': %s\n"
 
-#: gconf/gconf-internals.c:1203 gconf/gconf-internals.c:1269
+#: gconf/gconf-internals.c:702 gconf/gconf-internals.c:768
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "النص يحتوي على يو تي اف غير سليم"
 
-#: gconf/gconf-internals.c:1354
+#: gconf/gconf-internals.c:853
 #, c-format
 msgid "Expected list, got %s"
 msgstr "ترقّبت قائمة تلقّيت %s"
 
-#: gconf/gconf-internals.c:1364
+#: gconf/gconf-internals.c:863
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "ترقّبت قائمة %s، تلقيت قائمة %s  "
 
-#: gconf/gconf-internals.c:1492
+#: gconf/gconf-internals.c:991
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "ترقّبت زوجا تلقّيت %s"
 
-#: gconf/gconf-internals.c:1506
+#: gconf/gconf-internals.c:1005
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr "ترقّبت زوج (%s,%s) تلقّيت زوجا نقَص قيمةً او قيمتان "
 
-#: gconf/gconf-internals.c:1522
+#: gconf/gconf-internals.c:1021
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "ترقّبت زوجا من نوع (%s,%s) تلقّيت النوع (%s,%s)"
 
-#: gconf/gconf-internals.c:1638
+#: gconf/gconf-internals.c:1137
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "السلسلة المقتبسة لا تبدأ بعلامة اقتطاف"
 
-#: gconf/gconf-internals.c:1700
+#: gconf/gconf-internals.c:1199
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "السلسلة المقتبسة لا تنتهي بعلامة اقتطاف"
 
-#: gconf/gconf-internals.c:1836
+#: gconf/gconf-internals.c:1335
 msgid "Encoded value is not valid UTF-8"
 msgstr "القيمة المشفرة ليست قيمة يو تي اف سليمة"
 
-#: gconf/gconf-internals.c:2295
+#: gconf/gconf-internals.c:1837
+#, c-format
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr "لم يفتح ملف IOR '%s' بنجاح لا gconfd محدّد: %s  "
+
+#: gconf/gconf-internals.c:1867
+#, c-format
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr "اداة gconf او عملية اخرى غير موصولة بـgconfd لها ملف القفل  '%s'"
+
+#: gconf/gconf-internals.c:1884
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr "لم اتمكن من اﻻتصال مع ORB  لحل مرجع جسم gconfd الموجود"
+
+#: gconf/gconf-internals.c:1894
+#, c-format
+msgid "Failed to convert IOR '%s' to an object reference"
+msgstr "فشل في تحويل  IOR '%s' الى مرجع جسم"
+
+#: gconf/gconf-internals.c:1949
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "لم استطع قفل الملف الوقتي '%s': %s "
 
-#: gconf/gconf-internals.c:2322
+#: gconf/gconf-internals.c:1976
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "لم استطع انشاء الملف '%s' ربما لانه موجود "
 
-#: gconf/gconf-internals.c:2368
+#: gconf/gconf-internals.c:2023
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "فشل في انشاء او فتح '%s' "
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2033
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -623,106 +546,51 @@ msgstr ""
 "فشل في قفل '%s': ربما لان لعملية اخرى القفل او لنظام تشغيلك قفل NFS للملفات "
 "معدّ بشكل غير سليم(%s)"
 
-#: gconf/gconf-internals.c:2408
-#, c-format
-msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr "لم يفتح ملف IOR '%s' بنجاح لا gconfd محدّد: %s  "
-
-#: gconf/gconf-internals.c:2438
-#, c-format
-msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr "اداة gconf او عملية اخرى غير موصولة بـgconfd لها ملف القفل  '%s'"
-
-#: gconf/gconf-internals.c:2455
-msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr "لم اتمكن من اﻻتصال مع ORB  لحل مرجع جسم gconfd الموجود"
-
-#: gconf/gconf-internals.c:2465
-#, c-format
-msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "فشل في تحويل  IOR '%s' الى مرجع جسم"
-
-#: gconf/gconf-internals.c:2515
-#, c-format
-msgid "couldn't create directory `%s': %s"
-msgstr "لم اتمكن من انشاء دليل  `%s': %s"
-
-#: gconf/gconf-internals.c:2574
-#, c-format
-msgid "Can't write to file `%s': %s"
-msgstr "لا استطيع الكتابة على ملف `%s': %s"
-
-#: gconf/gconf-internals.c:2615
+#: gconf/gconf-internals.c:2117
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "لم نقفل ملف `%s' لكن كان من اﻻفضل علينا القيام بذلك"
 
-#: gconf/gconf-internals.c:2636
+#: gconf/gconf-internals.c:2138
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "فشل في ربط '%s' لـ '%s': %s"
 
-#: gconf/gconf-internals.c:2648
+#: gconf/gconf-internals.c:2150
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "فشل في حذف ملف القفل `%s': %s"
 
-#: gconf/gconf-internals.c:2667
+#: gconf/gconf-internals.c:2169
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "فشل في محو الملف '%s': %s"
 
-#: gconf/gconf-internals.c:2681
+#: gconf/gconf-internals.c:2183
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "فشل  في حخف دليل القفل `%s': %s"
 
-#: gconf/gconf-internals.c:2723
+#: gconf/gconf-internals.c:2220
+#, c-format
+msgid "couldn't create directory `%s': %s"
+msgstr "لم اتمكن من انشاء دليل  `%s': %s"
+
+#: gconf/gconf-internals.c:2279
+#, c-format
+msgid "Can't write to file `%s': %s"
+msgstr "لا استطيع الكتابة على ملف `%s': %s"
+
+#: gconf/gconf-internals.c:2323
 #, fuzzy, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "فشل في حذف ملف القفل `%s': %s"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:640
-#, c-format
-msgid "Failed to create %s: %s"
-msgstr "فشل في انشاء %s: %s"
-
-#: gconf/gconf-internals.c:2878
-#, c-format
-msgid "Server ping error: %s"
-msgstr "خطأ بينج عند الخادم : %s"
-
-#: gconf/gconf-internals.c:2899
-#, c-format
-msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-msgstr "فشل في انشاء انبوب لالاتصال مع جني gconf المتكاثر: %s\n"
-
-#: gconf/gconf-internals.c:2923
-#, c-format
-msgid "Failed to launch configuration server: %s\n"
-msgstr "فشل في تشغيل نادل اﻻعدادات: %s\n"
-
-#: gconf/gconf-internals.c:2948
-#, c-format
-msgid ""
-"Failed to contact configuration server; some possible causes are that you "
-"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
-"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
-"(Details - %s)"
-msgstr ""
-"فشل في اﻻتصال بنادل اﻻعدادات؛ بعض الحلول الممكنة تفعيل تشبيكTCP/IP "
-"لـORBit،او ان تعتق اقفال NFS :بسبب انهيار النظام، للمزيد من المعلومات راجع "
-"http://www.gnome.org/projects/gconf/ (التفاصيل - %s)"
-
-#: gconf/gconf-internals.c:2949
-msgid "none"
-msgstr "لا شيء"
-
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:84
+#: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:84
 msgid "Help options"
 msgstr "خيارات المساعدة"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:506
+#: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:506
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -731,7 +599,7 @@ msgstr ""
 "خطأ عند الخيار %s: %s.\n"
 "فعل '%s --help' لترى قائمة كاملة لخيارات أوامر السطر.\n"
 
-#: gconf/gconf-sanity-check.c:141 gconf/gconf-sanity-check.c:166
+#: gconf/gconf-sanity-check.c:144 gconf/gconf-sanity-check.c:169
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -744,7 +612,7 @@ msgstr ""
 "ان العديد من البرامج ستستحق لانشاء هذهالملفات في دليلك المنزلي. كان الخطأ \"%"
 "s\" (errno = %d)."
 
-#: gconf/gconf-sanity-check.c:180
+#: gconf/gconf-sanity-check.c:183
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -761,12 +629,12 @@ msgstr ""
 "سليمة. راجع توثيق rpc.statdو rpc.lockd. سبب شائع لهذا الخطأ هو تعطّل خدمة "
 "\"nfslock\". كان الخطأ \"%s\" (errno =%d)."
 
-#: gconf/gconf-sanity-check.c:197
+#: gconf/gconf-sanity-check.c:200
 #, c-format
 msgid "Can't remove file %s: %s\n"
 msgstr "لا استطيع حذف %s: %s\n"
 
-#: gconf/gconf-sanity-check.c:233
+#: gconf/gconf-sanity-check.c:236
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -777,11 +645,11 @@ msgstr ""
 ".لا مصادر اعدادت في ملف اﻻعدادات \"%s\"؛ هذا يعني عدمامكانيّة تسجيل التفضيلات "
 "و التنصيبات اﻻخرى. %s%s"
 
-#: gconf/gconf-sanity-check.c:236
+#: gconf/gconf-sanity-check.c:239
 msgid "Error reading the file: "
 msgstr "خطأ عند قراءة الملف:"
 
-#: gconf/gconf-sanity-check.c:259
+#: gconf/gconf-sanity-check.c:262
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -790,7 +658,7 @@ msgstr ""
 "رجاء اتصل بمدير نظامك لحل المشكل التالي:\n"
 ".لم اتمكن من حل العنوان التالي \"%s\" في ملف اﻻعدادات \"%s\": %s"
 
-#: gconf/gconf-sanity-check.c:320
+#: gconf/gconf-sanity-check.c:323
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
@@ -803,15 +671,15 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:341
+#: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:343
+#: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:356
+#: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
 msgstr ""
@@ -984,102 +852,74 @@ msgstr "لم افهم  `%s' (عدد عناصر مغلوط)"
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "لم افهم  `%s' (إضافية و لا مفرّقة موجودة داخل الزوج ']')"
 
-#: gconf/gconf.c:55
+#: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
 msgstr "المفتاح \"%s\" مصفّر"
 
-#: gconf/gconf.c:62
+#: gconf/gconf.c:51
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
 
-#: gconf/gconf.c:345
-#, c-format
-msgid "Server couldn't resolve the address `%s'"
-msgstr "لم يحل النادل العنوان `%s'"
-
-#: gconf/gconf.c:634
-msgid "Can't add notifications to a local configuration source"
-msgstr "لم اتمكن من إضافة تذكير لمصدر اعدادات محلّي"
-
-#: gconf/gconf.c:2078
-#, c-format
-msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr "فشلت إضافة العميل لقائمة النادل، خطأ CORBA: %s"
-
-#: gconf/gconf.c:2433
+#: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
 msgstr "يجب ان يبدأ بقاطع  (/)"
 
-#: gconf/gconf.c:2455
+#: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
 msgstr "لا يمكن ان يوجد قاطعان (/) في  "
 
-#: gconf/gconf.c:2457
+#: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "لا يمكن ان يكون له فترة (.) ملاصقة لقاطع (/)"
 
-#: gconf/gconf.c:2476
+#: gconf/gconf.c:159
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr "'%c' ليس رمز ASCII، وبالتالي رمز غير مسموح به في اسماء المفاتيح "
 
-#: gconf/gconf.c:2486
+#: gconf/gconf.c:169
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' رمز غير سليم في اسماء المفاتيح/الدلائل"
 
-#: gconf/gconf.c:2500
+#: gconf/gconf.c:183
 msgid "Key/directory may not end with a slash (/)"
 msgstr "المفتاح/الدليل لا ينتهي بـ (/)"
 
-#: gconf/gconf.c:2869
-#, c-format
-msgid "Failure shutting down config server: %s"
-msgstr "فشل في غلق نادل اﻻعدادات: %s"
-
-#: gconf/gconf.c:2930
+#: gconf/gconf.c:408
 #, c-format
 msgid "Expected float, got %s"
 msgstr "ترقّبت عدد عشريّا تلقيّت %s"
 
-#: gconf/gconf.c:2965
+#: gconf/gconf.c:443
 #, c-format
 msgid "Expected int, got %s"
 msgstr "ترقّبت عددا صحيحا، تلقّيت %s"
 
-#: gconf/gconf.c:3000
+#: gconf/gconf.c:478
 #, c-format
 msgid "Expected string, got %s"
 msgstr "ترقّبت سلسلة، تلقّيت %s"
 
-#: gconf/gconf.c:3034
+#: gconf/gconf.c:512
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "ترقبّت منطقيّا تلقيّت %s"
 
-#: gconf/gconf.c:3067
+#: gconf/gconf.c:545
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "ترقّبت سمة تلقّيت %s"
 
-#: gconf/gconf.c:3424
-#, c-format
-msgid "CORBA error: %s"
-msgstr "خطأ Corba : %s"
-
-#: gconf/gconfd.c:250
-msgid "Shutdown request received"
-msgstr "تلقيّت طلب الاغلاق"
-
-#: gconf/gconfd.c:282
+#: gconf/gconfd.c:147
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
 msgstr "جُمّع gconfd بتنقيح؛ سأحاول تحميل gconf.path من الدليل المصدري"
 
-#: gconf/gconfd.c:296
+#: gconf/gconfd.c:161
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -1088,29 +928,26 @@ msgstr "لم أجد ملفّات اﻻعداد، سأحاول استعمال م�
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:304
+#: gconf/gconfd.c:169
+#, fuzzy, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
-"edit "
+"edit %s"
 msgstr "لا مصادر اعداد في طريق المصدر، اﻻعداد لن يحفظ؛ تحرير"
 
-#: gconf/gconfd.c:304
-msgid "/path"
-msgstr "/مسار"
-
-#: gconf/gconfd.c:317
+#: gconf/gconfd.c:182
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "خطأ تحميل بعض مصادر الاعداد: %s"
 
-#: gconf/gconfd.c:329
+#: gconf/gconfd.c:194
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
 msgstr ""
 "لا عناوين مصادر اﻻعداد حلّت بنجاح، لا أستطيع تحميل أو تخزين بيانات الاِعداد"
 
-#: gconf/gconfd.c:346
+#: gconf/gconfd.c:211
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1118,191 +955,81 @@ msgstr ""
 "لا مصادر اعداد مفتوحة للقراءة حلت بنجاح، ربما لن استطيع حفظ بعض تغييرات "
 "الاِعداد"
 
-#: gconf/gconfd.c:372
+#: gconf/gconfd.c:237
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "رجاء قدم تقرير خلل عن GConfتلقيت اشارة %d، سأتخلّص من المركز."
 
-#: gconf/gconfd.c:390
+#: gconf/gconfd.c:255
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr "تلقيت اشارة  %d اغلاق غير عادي رجاء قدم تقرير خطا عن GConf."
 
-#: gconf/gconfd.c:407
+#: gconf/gconfd.c:272
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "تلقيت اﻻشارة %d، اغلاق سليم"
 
-#: gconf/gconfd.c:481
+#: gconf/gconfd.c:341
 #, fuzzy, c-format
 msgid "Failed to open %s: %s"
 msgstr "فشل فتح `%s': %s\n"
 
-#: gconf/gconfd.c:488
+#: gconf/gconfd.c:348
 #, fuzzy, c-format
 msgid "Failed to stat %s: %s"
 msgstr "فشل في الحصول على معلومات `%s': %s"
 
-#: gconf/gconfd.c:497
+#: gconf/gconfd.c:357
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr ""
 
-#: gconf/gconfd.c:505
-#, c-format
-msgid "Bad permissions %o on dir %s"
-msgstr ""
+#: gconf/gconfd.c:365
+#, fuzzy, c-format
+msgid "Bad permissions %lo on directory %s"
+msgstr "عملية مفتاح على الدليل"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:587
+#: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "تشغيل (الإصدارة %s)، pid %u المستعمل '%s'"
 
-#: gconf/gconfd.c:627
-msgid "Failed to get object reference for ConfigServer"
-msgstr "فشل في الحصول على مرجع الجسم  لنادل ConfigServer"
+#: gconf/gconfd.c:484
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "فشل في انشاء %s: %s"
 
-#: gconf/gconfd.c:647
+#: gconf/gconfd.c:492
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr ""
 
-#: gconf/gconfd.c:676
+#: gconf/gconfd.c:528
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr "فشل في كتابة البايت للانبوب %d ربما يعْلق برنامج العميل: %s"
 
-#: gconf/gconfd.c:686
+#: gconf/gconfd.c:542
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "فشل في قفل الجني، خروج: %s"
 
-#: gconf/gconfd.c:724
+#: gconf/gconfd.c:584
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "خطأ إصدار ملف القفل: %s"
 
-#: gconf/gconfd.c:732
+#: gconf/gconfd.c:592
 msgid "Exiting"
 msgstr "خروج"
 
-#: gconf/gconfd.c:758
+#: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
 msgstr "نادل GConf غير مستعمل، اغلاق"
-
-#: gconf/gconfd.c:1124
-#, c-format
-msgid "Returning exception: %s"
-msgstr "إرجاع إستثناء: %s "
-
-#: gconf/gconfd.c:1224
-#, c-format
-msgid ""
-"Failed to open gconfd logfile; won't be able to restore listeners after "
-"gconfd shutdown (%s)"
-msgstr ""
-"فشل فتح ملف التسجيل لـ gconfd لن استطيع استرجاع المستمعين بعد إغلاق gconfd (%"
-"s)"
-
-#: gconf/gconfd.c:1259
-#, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
-msgstr "فشل غلق ملف التسجيل gconfd البيانات ربما لم تحفظ بشكل سليم (%s)"
-
-#: gconf/gconfd.c:1328
-#, c-format
-msgid "Could not open saved state file '%s' for writing: %s"
-msgstr "لم أتمكن من فتح ملف الحالة المحفوظ '%s' للكتابة: %s"
-
-#: gconf/gconfd.c:1342
-#, c-format
-msgid "Could not write saved state file '%s' fd: %d: %s"
-msgstr "لم أتمكن من الكتابة على ملف الحالة المحفوظ '%s' fd: %d: %s"
-
-#: gconf/gconfd.c:1351
-#, c-format
-msgid "Failed to close new saved state file '%s': %s"
-msgstr "لم أتمكن من غلق ملف الحالة المحفوظ '%s': %s"
-
-#: gconf/gconfd.c:1365
-#, c-format
-msgid "Could not move aside old saved state file '%s': %s"
-msgstr "لم أتمكن من تحويل ملف الحالة القديم جانبا '%s': %s"
-
-#: gconf/gconfd.c:1375
-#, c-format
-msgid "Failed to move new save state file into place: %s"
-msgstr "فشلت في تحويل ملف تسجيل الحالة الجديد إلى مكانه: %s"
-
-#: gconf/gconfd.c:1384
-#, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr "فشلت في استرجاع ملف الحالة اﻻصلي الذي حوّل إلى '%s': %s"
-
-#: gconf/gconfd.c:1855
-#, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
-msgstr ""
-"لم اتمكن من ارجاع مستمع عند العنوان '%s'، لم استطع احلال قاعدة البيانات"
-
-#: gconf/gconfd.c:1901
-#, c-format
-msgid "Error reading saved state file: %s"
-msgstr "خطأ أثناء قراءة ملفات الحالة المحفوظة: %s"
-
-#: gconf/gconfd.c:1955
-#, c-format
-msgid "Unable to open saved state file '%s': %s"
-msgstr "لم اتمكن من من فتح ملف الحالة المحفوظ '%s': %s"
-
-#: gconf/gconfd.c:2074
-#, c-format
-msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"فشل تسجيل إضافة مستمع لملف التسجيل لـ gconfd؛ لن أتمكن من إعادة إضافة "
-"المستمعإذا خرج gconfd أو أغلق (%s)"
-
-#: gconf/gconfd.c:2079
-#, c-format
-msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"فشل تسجيل حذف المستمع في ملف  التسجيل لـ gconfd؛ ربما يعيد إضافة المستمع خطأً "
-"إذا خرج gconfd أو أغلق (%s)"
-
-#: gconf/gconfd.c:2102 gconf/gconfd.c:2276
-#, c-format
-msgid "Failed to get IOR for client: %s"
-msgstr "فشلت في الحصول على IOR للعميل: %s"
-
-#: gconf/gconfd.c:2117
-#, c-format
-msgid "Failed to open saved state file: %s"
-msgstr "فشلت في فتح ملف الحالة المحفوظ: %s"
-
-#: gconf/gconfd.c:2130
-#, c-format
-msgid "Failed to write client add to saved state file: %s"
-msgstr "فشل في كتابة عنوان العميل في ملف الحالة المحفوظ: %s"
-
-#: gconf/gconfd.c:2138
-#, c-format
-msgid "Failed to flush client add to saved state file: %s"
-msgstr "فشلت في تطهير عنوان العميل لملف الحالة المحفوظ: %s"
-
-#: gconf/gconfd.c:2237
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
-msgstr "بعض العملاء حذفوا أنفسهم من نادل GConf أثر عدم إضافتهم."
 
 #: gconf/gconftool.c:93
 msgid "Set a key to a value and sync. Use with --type."
@@ -1622,353 +1349,356 @@ msgid "Shutdown error: %s\n"
 msgstr "خطأ إغلاق: %s\n"
 
 #: gconf/gconftool.c:1120
-msgid "Must specify one or more dirs to recursively list.\n"
+#, fuzzy
+msgid "Must specify one or more directories to recursively list.\n"
 msgstr "حدّد دليلا أو أكثر لسردها تكراريّا.\n"
 
-#: gconf/gconftool.c:1170
+#: gconf/gconftool.c:1172
 #, fuzzy
-msgid "Must specify one or more dirs to dump.\n"
+msgid "Must specify one or more directories to dump.\n"
 msgstr "حدّد مفتاحا أو أكثر للحذف.\n"
 
-#: gconf/gconftool.c:1211 gconf/gconftool.c:1469
+#: gconf/gconftool.c:1214 gconf/gconftool.c:1479
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "فشل سرد ال في `%s': %s\n"
 
-#: gconf/gconftool.c:1229
+#: gconf/gconftool.c:1232
 msgid "(no value set)"
 msgstr "(لا قيمة وضعت)"
 
-#: gconf/gconftool.c:1527
+#: gconf/gconftool.c:1537
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "فشلت في تكثير نادل اﻻعداد  (gconfd): %s\n"
 
-#: gconf/gconftool.c:1541
+#: gconf/gconftool.c:1551
 msgid "Must specify a key or keys to get\n"
 msgstr "حدّد مفتاحا أو أكثر تريد أن تحصل عليها\n"
 
-#: gconf/gconftool.c:1576
+#: gconf/gconftool.c:1586
 #, c-format
 msgid "Type: %s\n"
 msgstr "النوع: %s\n"
 
-#: gconf/gconftool.c:1577
+#: gconf/gconftool.c:1587
 #, c-format
 msgid "List Type: %s\n"
 msgstr "نوع القائمة: %s\n"
 
-#: gconf/gconftool.c:1578
+#: gconf/gconftool.c:1588
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "نوع الرمز: %s\n"
 
-#: gconf/gconftool.c:1579
+#: gconf/gconftool.c:1589
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "نوع cdr : %s\n"
 
-#: gconf/gconftool.c:1584
+#: gconf/gconftool.c:1594
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "القيمة الإفتراضية: %s\n"
 
-#: gconf/gconftool.c:1584 gconf/gconftool.c:1586 gconf/gconftool.c:1587
-#: gconf/gconftool.c:1588
+#: gconf/gconftool.c:1594 gconf/gconftool.c:1596 gconf/gconftool.c:1597
+#: gconf/gconftool.c:1598
 msgid "Unset"
 msgstr "إحذف"
 
-#: gconf/gconftool.c:1586
+#: gconf/gconftool.c:1596
 #, c-format
 msgid "Owner: %s\n"
 msgstr "المالك: %s\n"
 
-#: gconf/gconftool.c:1587
+#: gconf/gconftool.c:1597
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "وصف قصير: %s\n"
 
-#: gconf/gconftool.c:1588
+#: gconf/gconftool.c:1598
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "وصف طويل: %s\n"
 
-#: gconf/gconftool.c:1597 gconf/gconftool.c:1821 gconf/gconftool.c:1855
-#: gconf/gconftool.c:1900 gconf/gconftool.c:2045
+#: gconf/gconftool.c:1607 gconf/gconftool.c:1831 gconf/gconftool.c:1865
+#: gconf/gconftool.c:1910 gconf/gconftool.c:2055
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "لا قيمة موضوعة لـ `%s'\n"
 
-#: gconf/gconftool.c:1601 gconf/gconftool.c:1825 gconf/gconftool.c:1859
-#: gconf/gconftool.c:1904 gconf/gconftool.c:2049
+#: gconf/gconftool.c:1611 gconf/gconftool.c:1835 gconf/gconftool.c:1869
+#: gconf/gconftool.c:1914 gconf/gconftool.c:2059
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "فشل في الحصول على قيمة لـ `%s': %s\n"
 
-#: gconf/gconftool.c:1644 gconf/gconftool.c:1656
+#: gconf/gconftool.c:1654 gconf/gconftool.c:1666
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "لم أفهم نوع `%s'\n"
 
-#: gconf/gconftool.c:1668
+#: gconf/gconftool.c:1678
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "حدّد المفاتيح/القيم المتناوبة كمتغيّرات\n"
 
-#: gconf/gconftool.c:1688
+#: gconf/gconftool.c:1698
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "لا قيمة لوضعها للمغتاح: `%s'\n"
 
-#: gconf/gconftool.c:1716
+#: gconf/gconftool.c:1726
 msgid "Cannot set schema as value\n"
 msgstr "لا أستطيع وضع السيمة كقيمة\n"
 
-#: gconf/gconftool.c:1726
+#: gconf/gconftool.c:1736
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "عند ضبط قائمة يجب أن تحدّد نوع قائمة بسيط\n"
 
-#: gconf/gconftool.c:1740
+#: gconf/gconftool.c:1750
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "عند ضبط زوج يجب أن تحدّد نوع رمز أو نوع cdr بسيط\n"
 
-#: gconf/gconftool.c:1755
+#: gconf/gconftool.c:1765
 #, c-format
 msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
 
-#: gconf/gconftool.c:1768 gconf/gconftool.c:2796
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "خطأ ضبط القيمة: %s\n"
 
-#: gconf/gconftool.c:1786
+#: gconf/gconftool.c:1796
 #, c-format
 msgid "Error syncing: %s\n"
 msgstr "خطأ مزامنة: %s\n"
 
-#: gconf/gconftool.c:1801
+#: gconf/gconftool.c:1811
 #, fuzzy
 msgid "Must specify a key or keys to get type\n"
 msgstr "حدّد مفتاحا أو أكثر تريد أن تحصل عليها\n"
 
-#: gconf/gconftool.c:1845
+#: gconf/gconftool.c:1855
 #, fuzzy
 msgid "Must specify a key to lookup size of.\n"
 msgstr "حدّد مفتاحا أو أكثر تريد أن تحصل عليها\n"
 
-#: gconf/gconftool.c:1870 gconf/gconftool.c:1915
+#: gconf/gconftool.c:1880 gconf/gconftool.c:1925
 #, fuzzy, c-format
 msgid "Key %s is not a list.\n"
 msgstr "القيمة عند '%s' ليست سيمة\n"
 
-#: gconf/gconftool.c:1890
+#: gconf/gconftool.c:1900
 #, fuzzy
 msgid "Must specify a key from which to get list element.\n"
 msgstr "حدّد مفتاحا أو أكثر تريد أن تحصل عليها\n"
 
-#: gconf/gconftool.c:1921
+#: gconf/gconftool.c:1931
 #, fuzzy
 msgid "Must specify list index.\n"
 msgstr "يجب تخصيص بعض المقاتيح للكسر\n"
 
-#: gconf/gconftool.c:1928
+#: gconf/gconftool.c:1938
 msgid "List index must be non-negative.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1937
+#: gconf/gconftool.c:1947
 msgid "List index is out of bounds.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1963
+#: gconf/gconftool.c:1973
 msgid "Must specify a key or keys on the command line\n"
 msgstr "حدّد مفتاحا أو أكشر عند سطر اﻻوامر\n"
 
-#: gconf/gconftool.c:1983
+#: gconf/gconftool.c:1993
 #, c-format
 msgid "No schema known for `%s'\n"
 msgstr "لا سيمة معروفة لـ `%s'\n"
 
-#: gconf/gconftool.c:2016
+#: gconf/gconftool.c:2026
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
 msgstr "لا مستندات مخزنة في السيمة عند '%s'\n"
 
-#: gconf/gconftool.c:2021
+#: gconf/gconftool.c:2031
 #, c-format
 msgid "Error getting schema at '%s': %s\n"
 msgstr "خطأ عند أخذ السيمة من '%s': %s\n"
 
-#: gconf/gconftool.c:2028
+#: gconf/gconftool.c:2038
 #, c-format
 msgid "No schema stored at '%s'\n"
 msgstr "لا سيمة مخزنة عند '%s'\n"
 
-#: gconf/gconftool.c:2031
+#: gconf/gconftool.c:2041
 #, c-format
 msgid "Value at '%s' is not a schema\n"
 msgstr "القيمة عند '%s' ليست سيمة\n"
 
-#: gconf/gconftool.c:2087
+#: gconf/gconftool.c:2097
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr "حدّد اسم سيمة مذيّلة باسم المفتاح الذي سيطبّق عليها\n"
 
-#: gconf/gconftool.c:2094
+#: gconf/gconftool.c:2104
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "خطأ ربط اسم السيمة '%s' باسم المفتاح '%s': %s\n"
 
-#: gconf/gconftool.c:2112
+#: gconf/gconftool.c:2122
 #, fuzzy
 msgid "Must specify keys to unapply schema from\n"
 msgstr "يجب تخصيص بعض المقاتيح للكسر\n"
 
-#: gconf/gconftool.c:2122
+#: gconf/gconftool.c:2132
 #, c-format
 msgid "Error removing schema name from '%s': %s\n"
 msgstr "خطأ حذف اسم السيمة من '%s': %s\n"
 
-#: gconf/gconftool.c:2147
+#: gconf/gconftool.c:2157
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "حدّد: مفتاح (اسم سيمة) كالمتغيّر الوحيد\n"
 
-#: gconf/gconftool.c:2189
+#: gconf/gconftool.c:2199
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 " نوع القائمة يجب ان يكون نوعا بسيطا: سلسلة أو عددا صحيحا أو  عددا عشريا أو "
 "منطقيا\n"
 
-#: gconf/gconftool.c:2209
+#: gconf/gconftool.c:2219
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "نوع رمز الزوج يجب أن يكون نوعا بسيطا: سلسلة أو عددا صحيحا أو  عددا عشريا أو "
 "منطقيا\n"
 
-#: gconf/gconftool.c:2229
+#: gconf/gconftool.c:2239
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "زوج نوع cdr يجب أن يكون نوعا بسيطا: سلسلة أو عددا صحيحا أو  عددا عشريا أو "
 "منطقيا\n"
 
-#: gconf/gconftool.c:2244
+#: gconf/gconftool.c:2254
 #, c-format
 msgid "Error setting value: %s"
 msgstr "خطأ وضع القيمة: %s"
 
-#: gconf/gconftool.c:2258
+#: gconf/gconftool.c:2268
 #, c-format
 msgid "Error syncing: %s"
 msgstr "خطأ تزامن: %s"
 
-#: gconf/gconftool.c:2273
-msgid "Must specify one or more dirs to get key/value pairs from.\n"
+#: gconf/gconftool.c:2283
+#, fuzzy
+msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr "حدّد دليلا أو أكثر لتتلقّى أزواج مفتاح/قيمة منها.\n"
 
-#: gconf/gconftool.c:2287
+#: gconf/gconftool.c:2297
 msgid "Must specify one or more keys to unset.\n"
 msgstr "حدّد مفتاحا أو أكثر للحذف.\n"
 
-#: gconf/gconftool.c:2298
+#: gconf/gconftool.c:2308
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "خطأ الحذف `%s': %s\n"
 
-#: gconf/gconftool.c:2318
+#: gconf/gconftool.c:2328
 msgid "Must specify one or more keys to recursively unset.\n"
 msgstr "حدّد مفتاحا أو أكثر لحذفها تكراريّا.\n"
 
-#: gconf/gconftool.c:2332
+#: gconf/gconftool.c:2342
 #, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "فشل عند الحذف التكراري لـ \"%s\": %s\n"
 
-#: gconf/gconftool.c:2352
-msgid "Must specify one or more dirs to get subdirs from.\n"
+#: gconf/gconftool.c:2362
+#, fuzzy
+msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr "حدّد دليلا أو أكثر لتتلقى منها الدلائل الثانوية \n"
 
-#: gconf/gconftool.c:2386
+#: gconf/gconftool.c:2396
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "خطأ سرد الدلائل: %s\n"
 
-#: gconf/gconftool.c:2522
+#: gconf/gconftool.c:2532
 msgid "WARNING: must specify both a <car> and a <cdr> in a <pair>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2549
+#: gconf/gconftool.c:2559
 #, fuzzy, c-format
 msgid "WARNING: key specified (%s) for schema under a <value> - ignoring\n"
 msgstr "تنبيه: لا مفتاح مخصّص لالسيمة\n"
 
-#: gconf/gconftool.c:2582
+#: gconf/gconftool.c:2592
 msgid "WARNING: must have a child node under <value>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2588
+#: gconf/gconftool.c:2598
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood\n"
 msgstr "تنبيه: العقدة <%s> غير مفهومة تحت <schema>\n"
 
-#: gconf/gconftool.c:2606
+#: gconf/gconftool.c:2616
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse int value `%s'\n"
 msgstr "تنبيه: فشل في اعراب نوع اﻻسم `%s'\n"
 
-#: gconf/gconftool.c:2627
+#: gconf/gconftool.c:2637
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse float value `%s'\n"
 msgstr "تنبيه: فشل في اعراب نوع اﻻسم `%s'\n"
 
-#: gconf/gconftool.c:2649
+#: gconf/gconftool.c:2659
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse string value `%s'\n"
 msgstr "تنبيه: فشل في اعراب نوع اﻻسم `%s'\n"
 
-#: gconf/gconftool.c:2670
+#: gconf/gconftool.c:2680
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "تنبيه: فشل في اعراب نوع اﻻسم `%s'\n"
 
-#: gconf/gconftool.c:2786 gconf/gconftool.c:3322
+#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "تنبيه: فشلت في ربط سيمة `%s' بالمفتاح `%s': %s\n"
 
-#: gconf/gconftool.c:2891
+#: gconf/gconftool.c:2901
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "تنبيه: نوع ناقص او غير سليم للسيمة (%s)\n"
 
-#: gconf/gconftool.c:2900
+#: gconf/gconftool.c:2910
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "تنبيه: نوع قائمة ناقص او غير سليم للسيمة (%s)\n"
 
-#: gconf/gconftool.c:2911 gconf/gconftool.c:2941 gconf/gconftool.c:2970
+#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "تنبيه: فشل اعراب القيمة اﻻفتراضية `%s' للسيمة (%s)\n"
 
-#: gconf/gconftool.c:2929
+#: gconf/gconftool.c:2939
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "تنبيه: نوع رمز او نوع cdr غير سليمان او ناقصان للسيمة (%s)\n"
 
-#: gconf/gconftool.c:2954
+#: gconf/gconftool.c:2964
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "تنبيه: لا يمكنك وضع قيمة افتراضية لسيمة\n"
 
-#: gconf/gconftool.c:2983
+#: gconf/gconftool.c:2993
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "تنبيه: خطأ داخلي لدى أداة gconf، GConfValueType غير معروف\n"
 
-#: gconf/gconftool.c:3031 gconf/gconftool.c:3052 gconf/gconftool.c:3073
-#: gconf/gconftool.c:3094
+#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
+#: gconf/gconftool.c:3104
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "تنبيه: فشل في اعراب نوع اﻻسم `%s'\n"
 
-#: gconf/gconftool.c:3048
+#: gconf/gconftool.c:3058
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -1976,134 +1706,134 @@ msgstr ""
 "تنبيه: نوع القائمة لا يمكن ان يكون الا عددا صحيحا او عشريا او سلسلة او "
 "منطقيا و لا `%s'\n"
 
-#: gconf/gconftool.c:3069
+#: gconf/gconftool.c:3079
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "تنبيه: نوع الرمز لا يمكن ان يكون الا عددا صحيحا او عشريا او سلسلة او منطقيا "
 "و لا `%s'\n"
 
-#: gconf/gconftool.c:3090
+#: gconf/gconftool.c:3100
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "تنبيه: نوع cdr لا يمكن ان يكون الا عددا صحيحا او عشريا او منطقيا و لا `%s'\n"
 
-#: gconf/gconftool.c:3130
+#: gconf/gconftool.c:3140
 msgid "WARNING: empty <applyto> node"
 msgstr "فارغة <applyto> تنبيه: عقدة"
 
-#: gconf/gconftool.c:3133 gconf/gconftool.c:3395
+#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "تنبيه: العقدة <%s> غير مفهومة تحت <schema>\n"
 
-#: gconf/gconftool.c:3144
+#: gconf/gconftool.c:3154
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "تنبيه: لا <list_type> مخصص لسيمة نوع القائمة\n"
 
-#: gconf/gconftool.c:3150
+#: gconf/gconftool.c:3160
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "تنبيه: لا <car_type> مخصّص لسيمة نوع الزوج\n"
 
-#: gconf/gconftool.c:3156
+#: gconf/gconftool.c:3166
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "تنبيه: لا <cdr_type> مخصّص لسيمة نوع الزوج\n"
 
-#: gconf/gconftool.c:3185
+#: gconf/gconftool.c:3195
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr "تنبيه: عقدة <locale> ليس لها `اسم=\"locale\"'، تجاهل\n"
 
-#: gconf/gconftool.c:3191
+#: gconf/gconftool.c:3201
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr "تنبيه: عقد <locale> عديدة للموقع `%s'، تجاهل القديمة أولا\n"
 
-#: gconf/gconftool.c:3289
+#: gconf/gconftool.c:3299
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "تنبيه: عقدة غير سليمة <%s> في عقدة <locale>\n"
 
-#: gconf/gconftool.c:3330
+#: gconf/gconftool.c:3340
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "ربطت السيمة `%s' للمفتاح `%s'\n"
 
-#: gconf/gconftool.c:3404
+#: gconf/gconftool.c:3414
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "يجب ان يكون لديك عنصر <locale> على اﻻقل في<schema>\n"
 
-#: gconf/gconftool.c:3436
+#: gconf/gconftool.c:3446
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "تنبيه: فشل في تثبيت السيمة `%s' في الموقع `%s': %s\n"
 
-#: gconf/gconftool.c:3444
+#: gconf/gconftool.c:3454
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr " سيمة مثبّتة `%s' للموقع `%s'\n"
 
-#: gconf/gconftool.c:3468
+#: gconf/gconftool.c:3478
 #, fuzzy, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "تنبيه: فشل في تثبيت السيمة `%s' في الموقع `%s': %s\n"
 
-#: gconf/gconftool.c:3476
+#: gconf/gconftool.c:3486
 #, fuzzy, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr " سيمة مثبّتة `%s' للموقع `%s'\n"
 
-#: gconf/gconftool.c:3514
+#: gconf/gconftool.c:3524
 msgid "WARNING: no key specified for schema\n"
 msgstr "تنبيه: لا مفتاح مخصّص لالسيمة\n"
 
-#: gconf/gconftool.c:3555
+#: gconf/gconftool.c:3565
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "تنبيه: العقدة <%s> غير مفهومة تحت <schema>\n"
 
-#: gconf/gconftool.c:3586
+#: gconf/gconftool.c:3596
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "فشل فتح `%s': %s\n"
 
-#: gconf/gconftool.c:3593
+#: gconf/gconftool.c:3603
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "المستند `%s' فارغ؟\n"
 
-#: gconf/gconftool.c:3605
+#: gconf/gconftool.c:3615
 #, fuzzy, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "المستند `%s' له نوع عقدة جذر خاطئ (<%s>, وجب ان يكون <gconfschemafile>)\n"
 
-#: gconf/gconftool.c:3618
+#: gconf/gconftool.c:3628
 #, fuzzy, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "ليس للمستند `%s' عقدة ذات مستوا اعلى <gconfschemafile>\n"
 
-#: gconf/gconftool.c:3632
+#: gconf/gconftool.c:3642
 #, fuzzy, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "تنبيه:لم تفهم عقدة <%s> أسفل <gconfschemafile>\n"
 
-#: gconf/gconftool.c:3643 gconf/gconftool.c:3678 gconf/gconftool.c:3710
+#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "خطأ تزمين بيانات اﻻعداد: %s"
 
-#: gconf/gconftool.c:3662
+#: gconf/gconftool.c:3672
 msgid "Must specify some schema files to install\n"
 msgstr "حدد بعض ملفات سيمات لضبطها\n"
 
-#: gconf/gconftool.c:3694
+#: gconf/gconftool.c:3704
 #, fuzzy
 msgid "Must specify some schema files to uninstall\n"
 msgstr "حدد بعض ملفات سيمات لضبطها\n"
 
-#: gconf/gconftool.c:3731
+#: gconf/gconftool.c:3741
 #, c-format
 msgid ""
 "\n"
@@ -2112,16 +1842,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3751
+#: gconf/gconftool.c:3761
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "فشل في حذف مفتاح الكسر %s: %s\n"
 
-#: gconf/gconftool.c:3877
+#: gconf/gconftool.c:3887
 msgid "Must specify some keys to break\n"
 msgstr "يجب تخصيص بعض المقاتيح للكسر\n"
 
-#: gconf/gconftool.c:3883
+#: gconf/gconftool.c:3893
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2130,11 +1860,11 @@ msgstr ""
 "محاولة كسر تطبيقك بوضع قيم غير سليمة للمفتاح:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3901
+#: gconf/gconftool.c:3911
 msgid "Must specify some directories to break\n"
 msgstr "يجب بعض الدلائل لكسرها\n"
 
-#: gconf/gconftool.c:3920
+#: gconf/gconftool.c:3930
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -2143,6 +1873,202 @@ msgid ""
 msgstr ""
 "محاولة كسر تطبيقك بوضع قيم غير سليمة للمفاتيحفي الدليل:\n"
 "  %s\n"
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "تبقى العناصر %u في الذاكرة الوسيطة بعد إزالة العناصر التي تمت مماثلتها "
+#~ "والأقدم من %u ثانية"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "Received invalid value in set request"
+#~ msgstr "تم تلقي قيمة غير صالحة في طلب الضبط"
+
+#~ msgid ""
+#~ "Couldn't make sense of CORBA value received in set request for key `%s'"
+#~ msgstr "لم أفهم معنى قيمة CORBA الذي تم تلقّيه ضمن طلب الضبط للمفتاح `%s'"
+
+#~ msgid "Received request to drop all cached data"
+#~ msgstr "تم تلقي طلب إلغاء جميع بيانات الذاكرة الوسيطة"
+
+#~ msgid "Received request to sync synchronously"
+#~ msgstr "تم تلقي طلب مزامنة بشكل تزامني"
+
+#~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
+#~ msgstr "خطأ فادح: فشل في الحصول على مرجع الجسم من أجل ConfigDatabase"
+
+#~ msgid ""
+#~ "Failed to log addition of listener %s (%s);will not be able to restore "
+#~ "this listener on gconfd restart, resulting in unreliable notification of "
+#~ "configuration changes."
+#~ msgstr ""
+#~ "فشل في تسجيل إضافة المستمع %s (%s); لن اتمكن من تسجيل استرجاع هذا المستمع "
+#~ "عند إعادة تشغيل gconfd, مما سينتِج تذكيرا غير مضمون لالتغييرات الحاصلة "
+#~ "لالضبط"
+
+#~ msgid "Listener ID %lu doesn't exist"
+#~ msgstr "معرّف المستمع %lu غير موجود"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to logfile (most likely harmless, may "
+#~ "result in a notification weirdly reappearing): %s"
+#~ msgstr ""
+#~ "فشل في تسجيل حذف المستمع في ملف التسجيل (من المأكّد انه غيرمضرّ، ربما تكون "
+#~ "النتيجة في تذكير يظهر مرّة اخرى: %s"
+
+#~ msgid "Invalid UTF-8 in string value in '%s'"
+#~ msgstr "يو تي اف غير سليم في سلسلة القيمة عند '%s'"
+
+#~ msgid "Couldn't interpret CORBA value for list element"
+#~ msgstr "لوحدة القائمة Corbaلم اتمكن من تئويل قيمة"
+
+#~ msgid "Incorrect type for list element in %s"
+#~ msgstr "نوع غير صحيح لوحدة القائمة عند %s"
+
+#~ msgid "Received list from gconfd with a bad list type"
+#~ msgstr "تلقّيت قائمة من gconfd ذات نوع قائمة غير سليم"
+
+#~ msgid "Failed to convert object to IOR"
+#~ msgstr "فشل في تحويل الجسم الى IOR"
+
+#~ msgid "Invalid UTF-8 in locale for schema"
+#~ msgstr "يو تي اف غير سليم في الموقع للمخطّط "
+
+#~ msgid "Invalid UTF-8 in short description for schema"
+#~ msgstr "يو تي اف غير سليم عند الوصف القصير للمخطّط"
+
+#~ msgid "Invalid UTF-8 in long description for schema"
+#~ msgstr "يو تي اف غير سليم عند الوصف الطويل للمخطّط"
+
+#~ msgid "Invalid UTF-8 in owner for schema"
+#~ msgstr "يو تي اف غير سليم عند المالك للمخطّط"
+
+#~ msgid "Server ping error: %s"
+#~ msgstr "خطأ بينج عند الخادم : %s"
+
+#~ msgid ""
+#~ "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+#~ msgstr "فشل في انشاء انبوب لالاتصال مع جني gconf المتكاثر: %s\n"
+
+#~ msgid "Failed to launch configuration server: %s\n"
+#~ msgstr "فشل في تشغيل نادل اﻻعدادات: %s\n"
+
+#~ msgid ""
+#~ "Failed to contact configuration server; some possible causes are that you "
+#~ "need to enable TCP/IP networking for ORBit, or you have stale NFS locks "
+#~ "due to a system crash. See http://www.gnome.org/projects/gconf/ for "
+#~ "information. (Details - %s)"
+#~ msgstr ""
+#~ "فشل في اﻻتصال بنادل اﻻعدادات؛ بعض الحلول الممكنة تفعيل تشبيكTCP/IP "
+#~ "لـORBit،او ان تعتق اقفال NFS :بسبب انهيار النظام، للمزيد من المعلومات "
+#~ "راجع http://www.gnome.org/projects/gconf/ (التفاصيل - %s)"
+
+#~ msgid "none"
+#~ msgstr "لا شيء"
+
+#~ msgid "Server couldn't resolve the address `%s'"
+#~ msgstr "لم يحل النادل العنوان `%s'"
+
+#~ msgid "Can't add notifications to a local configuration source"
+#~ msgstr "لم اتمكن من إضافة تذكير لمصدر اعدادات محلّي"
+
+#~ msgid "Adding client to server's list failed, CORBA error: %s"
+#~ msgstr "فشلت إضافة العميل لقائمة النادل، خطأ CORBA: %s"
+
+#~ msgid "Failure shutting down config server: %s"
+#~ msgstr "فشل في غلق نادل اﻻعدادات: %s"
+
+#~ msgid "CORBA error: %s"
+#~ msgstr "خطأ Corba : %s"
+
+#~ msgid "Shutdown request received"
+#~ msgstr "تلقيّت طلب الاغلاق"
+
+#~ msgid "/path"
+#~ msgstr "/مسار"
+
+#~ msgid "Failed to get object reference for ConfigServer"
+#~ msgstr "فشل في الحصول على مرجع الجسم  لنادل ConfigServer"
+
+#~ msgid "Returning exception: %s"
+#~ msgstr "إرجاع إستثناء: %s "
+
+#~ msgid ""
+#~ "Failed to open gconfd logfile; won't be able to restore listeners after "
+#~ "gconfd shutdown (%s)"
+#~ msgstr ""
+#~ "فشل فتح ملف التسجيل لـ gconfd لن استطيع استرجاع المستمعين بعد إغلاق "
+#~ "gconfd (%s)"
+
+#~ msgid ""
+#~ "Failed to close gconfd logfile; data may not have been properly saved (%s)"
+#~ msgstr "فشل غلق ملف التسجيل gconfd البيانات ربما لم تحفظ بشكل سليم (%s)"
+
+#~ msgid "Could not open saved state file '%s' for writing: %s"
+#~ msgstr "لم أتمكن من فتح ملف الحالة المحفوظ '%s' للكتابة: %s"
+
+#~ msgid "Could not write saved state file '%s' fd: %d: %s"
+#~ msgstr "لم أتمكن من الكتابة على ملف الحالة المحفوظ '%s' fd: %d: %s"
+
+#~ msgid "Failed to close new saved state file '%s': %s"
+#~ msgstr "لم أتمكن من غلق ملف الحالة المحفوظ '%s': %s"
+
+#~ msgid "Could not move aside old saved state file '%s': %s"
+#~ msgstr "لم أتمكن من تحويل ملف الحالة القديم جانبا '%s': %s"
+
+#~ msgid "Failed to move new save state file into place: %s"
+#~ msgstr "فشلت في تحويل ملف تسجيل الحالة الجديد إلى مكانه: %s"
+
+#~ msgid ""
+#~ "Failed to restore original saved state file that had been moved to '%s': %"
+#~ "s"
+#~ msgstr "فشلت في استرجاع ملف الحالة اﻻصلي الذي حوّل إلى '%s': %s"
+
+#~ msgid ""
+#~ "Unable to restore a listener on address '%s', couldn't resolve the "
+#~ "database"
+#~ msgstr ""
+#~ "لم اتمكن من ارجاع مستمع عند العنوان '%s'، لم استطع احلال قاعدة البيانات"
+
+#~ msgid "Error reading saved state file: %s"
+#~ msgstr "خطأ أثناء قراءة ملفات الحالة المحفوظة: %s"
+
+#~ msgid "Unable to open saved state file '%s': %s"
+#~ msgstr "لم اتمكن من من فتح ملف الحالة المحفوظ '%s': %s"
+
+#~ msgid ""
+#~ "Failed to log addition of listener to gconfd logfile; won't be able to re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "فشل تسجيل إضافة مستمع لملف التسجيل لـ gconfd؛ لن أتمكن من إعادة إضافة "
+#~ "المستمعإذا خرج gconfd أو أغلق (%s)"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to gconfd logfile; might erroneously re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "فشل تسجيل حذف المستمع في ملف  التسجيل لـ gconfd؛ ربما يعيد إضافة المستمع "
+#~ "خطأً إذا خرج gconfd أو أغلق (%s)"
+
+#~ msgid "Failed to get IOR for client: %s"
+#~ msgstr "فشلت في الحصول على IOR للعميل: %s"
+
+#~ msgid "Failed to open saved state file: %s"
+#~ msgstr "فشلت في فتح ملف الحالة المحفوظ: %s"
+
+#~ msgid "Failed to write client add to saved state file: %s"
+#~ msgstr "فشل في كتابة عنوان العميل في ملف الحالة المحفوظ: %s"
+
+#~ msgid "Failed to flush client add to saved state file: %s"
+#~ msgstr "فشلت في تطهير عنوان العميل لملف الحالة المحفوظ: %s"
+
+#~ msgid ""
+#~ "Some client removed itself from the GConf server when it hadn't been "
+#~ "added."
+#~ msgstr "بعض العملاء حذفوا أنفسهم من نادل GConf أثر عدم إضافتهم."
 
 #~ msgid "Unloading BerkeleyDB (BDB) backend module."
 #~ msgstr "إلغاء تحميل الوحدة البرمجيّة BerkeleyDB (BDB)"
