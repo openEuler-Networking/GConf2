@@ -40,12 +40,16 @@ static void              server_unregistered_func (DBusConnection *connection,
 static DBusHandlerResult server_message_func      (DBusConnection  *connection,
                                                    DBusMessage     *message,
 						   void            *user_data);
+static DBusHandlerResult server_filter_func       (DBusConnection  *connection,
+						   DBusMessage     *message,
+						   void            *user_data);
 static void              server_handle_get_db     (DBusConnection  *connection,
                                                    DBusMessage     *message);
 static void              server_handle_shutdown   (DBusConnection  *connection,
                                                    DBusMessage     *message);
 static void          server_handle_get_default_db (DBusConnection  *connection,
                                                    DBusMessage     *message);
+
 
 static DBusObjectPathVTable
 server_vtable = {
@@ -99,6 +103,21 @@ server_message_func (DBusConnection *connection,
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
   
   return DBUS_HANDLER_RESULT_HANDLED;
+}
+
+static DBusHandlerResult
+server_filter_func (DBusConnection  *connection,
+		    DBusMessage     *message,
+		    void            *user_data)
+{
+  if (dbus_message_is_signal (message,
+			      DBUS_INTERFACE_ORG_FREEDESKTOP_LOCAL,
+			      "Disconnected")) {
+	  /* Exit cleanly. */
+	  gconf_main_quit ();
+  }
+  
+  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 
 static void
@@ -198,7 +217,15 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  /* Add filter for ServiceOwnerChanged so we get notified when the clients go away. */
+  /* We handle exiting ourselves on disconnect. */
+  dbus_connection_set_exit_on_disconnect (bus_conn, FALSE);
+
+  /* Add message filter to handle Disconnected. */
+  dbus_connection_add_filter (bus_conn,
+			      (DBusHandleMessageFunction) server_filter_func,
+			      NULL, NULL);
+  
+  /* Add rule for ServiceOwnerChanged so we get notified when the clients go away. */
   dbus_bus_add_match (bus_conn, SERVICE_OWNER_CHANGED_RULE, NULL);
 
   dbus_bus_acquire_service (bus_conn, GCONF_DBUS_SERVICE, 0, &error);

@@ -1,3 +1,11 @@
+2005-02-10  Richard Hult  <richard@imendio.com>
+
+	* configure.in: Bump version to 2.6.4.3.
+
+	* gconf/gconfd-dbus.c (server_filter_func, gconfd_dbus_init):
+	Don't exit on disconnect, handle Disconnect signal and exit
+	cleanly.
+
 2005-01-27  Mikael Hallendal  <micke@imendio.com>
 
 	* gconf/gconf-database-dbus.c: (database_filter_func),
