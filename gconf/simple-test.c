@@ -86,7 +86,8 @@ notify_func (GConfClient* client,
   
   if (gconf_entry_get_value (entry))
     s = gconf_value_to_string (gconf_entry_get_value (entry));
-  
+
+  gconf_client_unset (client, gconf_entry_get_key (entry), NULL);
   printf ("key changed: %s to %s\n", gconf_entry_get_key (entry), s);
   g_free (s);
 }

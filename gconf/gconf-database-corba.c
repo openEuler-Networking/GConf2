@@ -477,8 +477,7 @@ impl_ConfigDatabase_set_schema (PortableServer_Servant servant,
     return;
   
   gconf_database_set_schema (db, key,
-                             *schema_key != '\0' ?
-                             schema_key : NULL,
+			     schema_key,
                              &error);
   
   gconf_corba_set_exception (&error, ev);

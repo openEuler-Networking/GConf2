@@ -32,11 +32,19 @@
 #define GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES "org.freedesktop.Config.Database.AllEntries"
 #define GCONF_DBUS_CONFIG_DATABASE_LOOKUP "org.freedesktop.Config.Database.Lookup"
 #define GCONF_DBUS_CONFIG_DATABASE_SET "org.freedesktop.Config.Database.Set"
+#define GCONF_DBUS_CONFIG_DATABASE_UNSET "org.freedesktop.Config.Database.Unset"
 #define GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR "org.freedesktop.Config.Database.RemoveDir"
 #define GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE "org.freedesktop.Config.Database.LookupDefaultValue"
 #define GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER "org.freedesktop.Config.Database.AddListener"
+#define GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET "org.freedesktop.Config.Database.RecursiveUnset"
+#define GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA "org.freedesktop.Config.Database.SetSchema"
+#define GCONF_DBUS_CONFIG_DATABASE_SYNC "org.freedesktop.Config.Database.Sync"
+#define GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE "org.freedesktop.Config.Database.ClearCache"
+#define GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC "org.freedesktop.Config.Database.Synchronous.Sync"
 
 #define GCONF_DBUS_CONFIG_LISTENER_NOTIFY "org.freedesktop.Config.Listener.Notify"
+
+#define GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES 0x1
 
 GConfValue *gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter);
 void gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,

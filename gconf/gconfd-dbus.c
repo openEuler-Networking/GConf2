@@ -33,6 +33,12 @@ static const char *config_database_messages[] = {
   GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR,
   GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER,
   GCONF_DBUS_CONFIG_DATABASE_SET,
+  GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET,
+  GCONF_DBUS_CONFIG_DATABASE_UNSET,
+  GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA,
+  GCONF_DBUS_CONFIG_DATABASE_SYNC,
+  GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC
+  GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE
 };
 
 static const char *config_server_messages[] =
@@ -597,6 +603,226 @@ gconfd_config_database_set (DBusConnection *connection,
   dbus_message_unref (reply);
 }
 
+static void
+gconfd_config_database_recursive_unset (DBusConnection *connection,
+					DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  gchar *key;
+  GConfDatabase *db;
+  GConfUnsetFlags gconf_flags;
+  DBusMessage *reply;
+  GError *error = NULL;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    DBUS_TYPE_UINT32, &flags,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      return;
+    }
+  
+  gconf_flags = 0;
+  if (flags & GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES)
+    gconf_flags |= GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES;
+
+  error = NULL;
+  gconf_database_recursive_unset (db, key, NULL, gconf_flags, &error);
+
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_unset (DBusConnection *connection,
+			      DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  gchar *key;
+  GConfDatabase *db;
+  GConfUnsetFlags gconf_flags;
+  DBusMessage *reply;
+  GError *error = NULL;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      return;
+    }
+  
+  gconf_database_unset (db, key, NULL, &error);
+
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_set_schema (DBusConnection *connection,
+				   DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  gchar *key, *schema_key;
+  GConfDatabase *db;
+  DBusMessage *reply;
+  GError *error = NULL;
+
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    DBUS_TYPE_STRING, &schema_key,
+				    DBUS_TYPE_UINT32, &flags,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      return;
+    }
+
+  gconf_database_set_schema (db, key,
+                             *schema_key != '\0' ?
+                             schema_key : NULL,
+                             &error);
+
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_synchronous_sync (DBusConnection *connection,
+					 DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  GConfDatabase *db;
+  DBusMessage *reply;
+  GError *error = NULL;
+
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      return;
+    }
+
+  gconf_database_synchronous_sync (db, &error);
+  
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_sync (DBusConnection *connection,
+			     DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  GConfDatabase *db;
+  DBusMessage *reply;
+  GError *error = NULL;
+
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      return;
+    }
+
+  gconf_database_sync (db, &error);
+  
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_clear_cache (DBusConnection *connection,
+				    DBusMessage    *message)
+{
+  guint flags;
+  int id;
+  GConfDatabase *db;
+  DBusMessage *reply;
+  GError *error = NULL;
+
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      return;
+    }
+
+  gconf_database_clear_cache (db, &error);
+  
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
 static DBusHandlerResult
 gconfd_config_database_handler (DBusMessageHandler *handler,
 				DBusConnection     *connection,
@@ -641,6 +867,36 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET))
     {
       gconfd_config_database_set (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET))
+    {
+      gconfd_config_database_recursive_unset (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_UNSET))
+    {
+      gconfd_config_database_unset (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA))
+    {
+      gconfd_config_database_set_schema (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SYNC))
+    {
+      gconfd_config_database_sync (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC))
+    {
+      gconfd_config_database_synchronous_sync (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE))
+    {
+      gconfd_config_database_clear_cache (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   
