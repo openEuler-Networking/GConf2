@@ -1,19 +1,21 @@
-# gconf.HEAD.az.po faylının Azərbaycan dilinə tərcüməsi
-# gconf faylınınn Azərbaycan dilinə tərcüməsi
-# Copyright (C) 2000,2003 Free Software Foundation, Inc.
+# translation of gconf.HEAD.po to Azerbaijani Turkish
+# translation of gconf.HEAD.az.po to Azerbaijani Turkish
+# Copyright (C) 2000,2003, 2004 Free Software Foundation, Inc.
 # Vasif Ismailoglu MD <azerb_linux@hotmail.com>, 2001.
-# Mətin Əmirov <metin@karegen.com>, 2003
+# Mətin Əmirov <metin@karegen.com>, 2003, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf.HEAD.az\n"
+"Project-Id-Version: gconf.HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-08-16 20:50+0200\n"
+"PO-Revision-Date: 2004-02-05 23:05+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
-"Language-Team: Azerbaijani <gnome@azitt.com>\n"
+"Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Generator: KBabel 1.0.2\n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -57,13 +59,12 @@ msgstr ""
 "XML arxa plan qovluğunun ön yaddaşı sinxronlaşdırılırkən xəta oldu : %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
-"Remove dir əməliyyatı artıq dəstəklənmir. Sadəcə olaraq qovluğun içindəki "
-"bütün qiymətləri silin"
+"Remove directory əməliyyatı artıq dəstəklənmir. Sadəcə olaraq qovluğun "
+"içindəki bütün qiymətləri silin"
 
 #: backends/xml-backend.c:770
 #, c-format
@@ -80,9 +81,9 @@ msgid "Initializing XML backend module"
 msgstr "XML modulunu əlavə edirəm"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "`%s' XML qovluğunda qıfıllama edə bilmədim : %s"
+msgstr "\"%s\" XML qovluğunda qıfıllama edilə bilmədi: %s"
 
 #: backends/xml-cache.c:286
 msgid "Failed to sync XML cache contents to disk"
@@ -364,9 +365,9 @@ msgid "Error checking existence of `%s': %s"
 msgstr "`%s' varlığını yoxlarkən xəta oldu : %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "`%s' qovluğu silinərkən xəta oldu : %s"
+msgstr "\"%s\" qovluğunu silinərkən xəta oldu: %s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -803,8 +804,22 @@ msgid ""
 "home directory, and it must own a lockfile in ~/.gconfd and also lockfiles "
 "in individual storage locations such as ~/.gconf"
 msgstr ""
-"Qiymət, '%s' açarında saxlana bilmədi çünki quraşdırma vericisində yazıla "
-"bilən heç bir databeyz möcud deyil."
+"Unable to store a value at key '%s', as the configuration server has no "
+"writable databases. There are some common causes of this problem: 1) your "
+"configuration path file %s/path doesn't contain any databases or wasn't "
+"found 2) somehow we mistakenly created two gconfd processes 3) your "
+"operating system is misconfigured so NFS file locking doesn't work in your "
+"home directory or 4) your NFS client machine crashed and didn't properly "
+"notify the server on reboot that file locks should be dropped. If you have "
+"two gconfd processes (or had two at the time the second was launched), "
+"logging out, killing all copies of gconfd, and logging back in may help. If "
+"you have stale locks, remove ~/.gconf*/*lock. Perhaps the problem is that "
+"you attempted to use GConf from two machines at once, and ORBit still has "
+"its default configuration that prevents remote CORBA connections - put "
+"\"ORBIIOPIPv4=1\" in /etc/orbitrc. As always, check the user.* syslog for "
+"details on problems gconfd encountered. There can only be one gconfd per "
+"home directory, and it must own a lockfile in ~/.gconfd and also lockfiles "
+"in individual storage locations such as ~/.gconf"
 
 #: gconf/gconf-sources.c:1414
 #, c-format
@@ -964,13 +979,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
-"Qaynaq qovluğunda quraşdırma mənbələri yoxdur, qurğular qeyd "
-"edilməyəcəkdir ; dəyişdir "
+"Mənbə qovluğunda quraşdırma mənbələri yoxdur, qurğular qeyd edilməyəcəkdir ; "
+"%s faylını təkmilləşdirin"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1030,16 +1045,16 @@ msgid "Owner of %s is not the current user"
 msgstr "%s yiyəsi hazırkı istifadəçi deyil"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "%s cərgəsi üstündə xətalı %o səlahiyyətləri"
+msgstr "Hökmsüz səlahiyyətlər %lo bu qovluq üstündə: %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
 #: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr "başlayıram (buraxılış %s), pid %u istifadəçi '%s'"
+msgstr "başladılır (buraxılış %s), pid %u istifadəçi '%s'"
 
 #: gconf/gconfd.c:484
 #, c-format
@@ -1407,16 +1422,14 @@ msgid "Shutdown error: %s\n"
 msgstr "bağlaılma xətası : %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr ""
 "Alt qovluqlarla göstəriləcək bir qovluğu ya da qovluqları bildirmək "
-"məcburiyyətindəsən \n"
+"məcburiyyətindəsiniz \n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Dump ediləcək bir ya da daha çox qovluq vermək məcburiyyətindəsən.\n"
+msgstr "Dump ediləcək bir ya da daha çox qovluq vermək məcburiyyətindəsiniz.\n"
 
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
 #, c-format
@@ -1641,11 +1654,10 @@ msgid "Error syncing: %s"
 msgstr "Sinxronlaşdırılırkən xəta oldu : %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
-"Açar/qiymət eşlemlerini göstəriləcək bir ya da daha çox qovluqları bildirmək "
-"məcburiyyətindəsən .\n"
+"Açar/qiymət cütlərini göstəriləcək bir ya da daha çox qovluqları bildirmək "
+"məcburiyyətindəsiniz.\n"
 
 #: gconf/gconftool.c:2297
 msgid "Must specify one or more keys to unset.\n"
@@ -1668,11 +1680,10 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "\"%s\" -ın təkrar silinməsində xəta yarandı: %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
-"Alt qovluqları göstəriləcək bir ya da daha çox qovluqları bildirmək "
-"məcburiyyətindəsən .\n"
+"Alt qovluqları alacaq bir ya da daha çox qovluqları bildirmək "
+"məcburiyyətindəsiniz.\n"
 
 #: gconf/gconftool.c:2396
 #, c-format
@@ -1943,15 +1954,31 @@ msgstr ""
 "Proqramı bə'zi xətalı qiymətləri bu qovuqda oturdaraq qırmağa cəhd edirəm :\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u üzv axtar yaddaşda geriyə qaldı. %u saniyədən köhnə "
-#~ "sinxronlaşdırılmamış üzvlər silinmişdir"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "%s qovluğu tapıla bilmir\n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "'%s' üstünə GConf ağacı qeyd etmə xətası: %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "İstifadə qaydası: %s <cərgə>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "İstifadə qaydası: %s <cərgə>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Qiymət oturtma istə'yində keçərsiz qiymət tapıldı"
@@ -2057,9 +2084,6 @@ msgstr ""
 
 #~ msgid "Shutdown request received"
 #~ msgstr "Qapanma istəyi alındı"
-
-#~ msgid "/path"
-#~ msgstr "/cığır"
 
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Quraşdırma vericisi üçün cism bağını ala bilmədim"

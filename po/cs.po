@@ -1,14 +1,15 @@
 # Czech translation of GConf.
 # Copyright (C) 2002 Free Software Foundation, Inc.
+# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
 # George Lebl <jirka@5z.com>, 2000.
 # Michal Bukovjan <bukm@centrum.cz>, 2002.
-# Miloslav Trmac <mitr@volny.cz>, 2003.
+# Miloslav Trmac <mitr@volny.cz>, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf VERSION\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-11-18 21:09+0100\n"
+"PO-Revision-Date: 2004-01-25 01:55+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -709,7 +710,7 @@ msgstr "Schéma udává typ seznam, ale neudává typ prvků seznamu"
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
-msgstr "Schémá udává typ pár, ale neudává typ elementů car/cdr"
+msgstr "Schéma udává typ pár, ale neudává typ elementů car/cdr"
 
 #: gconf/gconf-sources.c:319
 #, c-format
@@ -781,7 +782,7 @@ msgid ""
 "in individual storage locations such as ~/.gconf"
 msgstr ""
 "Nemohu uložit hodnotu klíče '%s', protože server pro nastavení nemá žádnou "
-"zapisovatelnou databázi. Existuje několik častých příčin tohot problému: 1) "
+"zapisovatelnou databázi. Existuje několik častých příčin tohoto problému: 1) "
 "váš soubor cest s nastavením %s/path neobsahuje žádnou databázi nebo nebyl "
 "nalezen, 2) díky chybě byly nějakým způsobem vytvořeny dva procesy gconfd, "
 "3) váš operační systém je špatně nastaven, takže zamykání souborů NFS "
@@ -1222,7 +1223,7 @@ msgstr "NÁZEVSOUBORU"
 
 #: gconf/gconftool.c:319
 msgid "Specify a configuration source to use rather than the default path"
-msgstr "Určení zdroje konfifurace, který použít místo implicitní cesty"
+msgstr "Určení zdroje konfigurace, který použít místo implicitní cesty"
 
 #: gconf/gconftool.c:320
 msgid "SOURCE"
@@ -1335,7 +1336,7 @@ msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
 msgstr ""
-"--set_schema by nemělo být použiváno s --get, --set, --unset, --all-entries, "
+"--set_schema by nemělo být používáno s --get, --set, --unset, --all-entries, "
 "--all-dirs\n"
 
 #: gconf/gconftool.c:595
@@ -1910,6 +1911,32 @@ msgstr ""
 "Pokouším se o narušení vaší aplikace nastavením chybných hodnot pro klíče v "
 "adresáři:\n"
 "  %s\n"
+
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Nemohu najít adresář %s\n"
+
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Chyba při ukládání stromu GConf do '%s': %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Použití: %s <adresář>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Použití: %s <adresář>\n"
+#~ "  Sloučí hierarchii systému souborů modulu markup tvaru:\n"
+#~ "    adr/%%gconf.xml\n"
+#~ "        podadr1/%%gconf.xml\n"
+#~ "        podadr2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    adr/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Obdržena neplatná hodnota v požadavku set"

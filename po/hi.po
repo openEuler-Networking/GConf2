@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"net>\n"
 "Report-Msgid-Bugs-To: \n"
+"net>\n"
 "X-Generator: KBabel 1.0\n"
 
 #: backends/dir-utils.c:108
@@ -1790,8 +1790,13 @@ msgid ""
 "  %s\n"
 msgstr ""
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "डॉयरेक्ट्री '%s' नही बना पाए : %s"
+
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "डॉयरेक्ट्री नही बना पाए '%s': %s"
 
 #~ msgid "Server ping error: %s"
 #~ msgstr "सर्वर पिंग त्रुटी : %s"
@@ -1801,6 +1806,9 @@ msgstr ""
 
 #~ msgid "CORBA error: %s"
 #~ msgstr "कोर्बा त्रुटी : %s"
+
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "/path"
 #~ msgstr "/पाथ"

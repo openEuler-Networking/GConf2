@@ -1957,14 +1957,13 @@ msgstr ""
 "cyfeiriadur:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u eitem ar ôl yn y storfa ar ôl glanhau eitemau yn hŷn na %u eiliad"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Methu creu cyfeiriadur `%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Gwall wrth gyrchu sgema at '%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Derbyniwyd gwerth annilys yn y cais gosod"
@@ -2073,10 +2072,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Derbynnwyd gofynniad terfynnu"
 
-# EFALLAI
-#~ msgid "/path"
-#~ msgstr "/llwybr"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Methwyd cyrchu cefeirnod gwrthrych ar gyfer ConfigServer"
 
@@ -2161,6 +2156,19 @@ msgstr ""
 #~ msgstr ""
 #~ "Tynnodd rhyw gleient ei hun o'r gweinydd GConf pan nad oedd wedi ei "
 #~ "ychwannegu."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u eitem ar ôl yn y storfa ar ôl glanhau eitemau yn hŷn na %u eiliad"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+# EFALLAI
+#~ msgid "/path"
+#~ msgstr "/llwybr"
 
 #~ msgid "%s must be used by itself.\n"
 #~ msgstr "Rhaid defnyddio %s ar ei hunan.\n"

@@ -1966,15 +1966,13 @@ msgstr ""
 "клучевите во директориумот:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u предмети остануваат во кешот после чистење на веќе синхронизирани "
-#~ "предмети постари од %u секунди"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Не можев да го направам директориумот `%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Грешка земајќи ја схемата на '%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Примена невалидна вредност во барањето за сетирање"
@@ -2085,9 +2083,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Барањето за исклучување е примено"
 
-#~ msgid "/path"
-#~ msgstr "/path"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Не успеав да земам објект референца за ConfigServer"
 
@@ -2179,6 +2174,19 @@ msgstr ""
 #~ "added."
 #~ msgstr ""
 #~ "Некој клиент самиот се одстранил од GConf серверот кога не бил додаден."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u предмети остануваат во кешот после чистење на веќе синхронизирани "
+#~ "предмети постари од %u секунди"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/path"
 
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "--dir-exists опција мора да биде употребува од себе.\n"

@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1926,15 +1927,13 @@ msgstr ""
 "çalışıyor:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "arabellekte %u öğe kaldı.\n"
-#~ "(%u saniyeden daha eski eşzamanlı öğeler temizlendikten sonra)"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "`%s' dizini oluşturulamadı: %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "`%s' içindeki dizinler listelenirken hata: %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Ayar isteğinden geçersiz değer alındı"
@@ -2041,9 +2040,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Kapatma isteği alındı"
 
-#~ msgid "/path"
-#~ msgstr "/dosyaYolu"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "ConfigServer için nesne başvurusu alınamadı"
 
@@ -2130,6 +2126,19 @@ msgstr ""
 #~ "added."
 #~ msgstr "GConf sunucusu eklemediği sırada tek bir istemci sunucudan silindi."
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "arabellekte %u öğe kaldı.\n"
+#~ "(%u saniyeden daha eski eşzamanlı öğeler temizlendikten sonra)"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/dosyaYolu"
+
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "--dir-exists seçeneği tek başına kullanılabilir.\n"
 
@@ -2178,9 +2187,6 @@ msgstr ""
 
 #~ msgid "Unsynced directory deletions when shutting down XML backend"
 #~ msgstr "XML modülü kapatılırken bazı dizinler silinmeden kaldı"
-
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "`%s' içindeki dizinler listelenirken hata: %s\n"
 
 #~ msgid "Error unsetting '%s': %s\n"
 #~ msgstr "`%s' kaldırılırken hata: %s\n"

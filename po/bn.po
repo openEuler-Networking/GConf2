@@ -18,9 +18,8 @@ msgstr ""
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
-msgstr "%s  ঠিকানায় %s রুট ডিরেকটরী খুজে পাওয়া যায়নি "
+msgstr "%s  ঠিকানায় %s রুট ডিরেকটরী খুঁজে পাওয়া যায়নি "
 
-# খঁুজে,
 #: backends/dir-utils.c:124 backends/xml-backend.c:332
 #, c-format
 msgid "Could not make directory `%s': %s"
@@ -58,17 +57,16 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr ""
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
-msgstr "সম্পূর্ণ ডিরেকটরি অপসারণ করা এখন অসমর্থিত, শুধু  ডিরেকটরির সব মান অপসারণ কর"
+msgstr ""
+"সম্পূর্ণ ডিরেকটরি অপসারণ করা এখন অসমর্থিত, ডিরেকটরির সব মান অপসারণ করলেই হবে"
 
-# খঁুজে,
 #: backends/xml-backend.c:770
-#, fuzzy, c-format
+#, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
-msgstr "'%s' নামক ডিরেকটরী তৈরি করতে পারেনি: %s"
+msgstr ""
 
 #: backends/xml-backend.c:788
 #, c-format
@@ -80,9 +78,9 @@ msgid "Initializing XML backend module"
 msgstr "একস,এম,এল(XML) এর  ব্যাকএন্ড মডিউল চালু করছে"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "\"%s\" XML ডিরেকটরির লক বাদ দিতে পারেনি:%s"
+msgstr "XML ডিরেকটরি \"%s\" এর লক বাদ দেওয়া যাইনি:%s"
 
 #: backends/xml-cache.c:286
 msgid "Failed to sync XML cache contents to disk"
@@ -358,9 +356,9 @@ msgid "Error checking existence of `%s': %s"
 msgstr "'%s' আছে কিনা সেই ত্রুটি পরীক্ষা:%s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "'%s' ডিরেকটরি  অপসারণে ত্রুটি:%s"
+msgstr "\"%s\" ডিরেকটরি  অপসারণে ত্রুটি:%s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -610,8 +608,9 @@ msgid ""
 "problem with your configuration, as many programs will need to create files "
 "in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
-"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য তোমার  সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
-"কর :\"%s\" ফাইল তৈরি কিংবা খুলতে পারেনি যা নির্দেশ করে তোমার কনফিগারেশনে একটা "
+"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য আপনার সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
+"করুন:\n"
+"\"%s\" ফাইল তৈরি কিংবা খুলতে পারেনি যা নির্দেশ করে তোমার কনফিগারেশনে একটা "
 "সমস্যা আছে কারণ অনেক প্রোগ্রামেরই হোম ডিরেকটরিতেফাইল তৈরি করার দরকার হবে।ত্রুটিটা "
 "হল \"%s\"(errno=%d)"
 
@@ -641,32 +640,31 @@ msgstr "'%s' ফাইলটি সরানো যায়নি:%s\n"
 
 # "\n" এর পরে একটা space ছিল, মানে "\n " এইভাবে লেখা ছিল।
 #: gconf/gconf-sanity-check.c:236
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "No configuration sources in the configuration file \"%s\"; this means that "
 "preferences and other settings can't be saved. %s%s"
 msgstr ""
-"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য তোমার  সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
-"কর :\"%s\" ফাইল তৈরি কিংবা খুলতে পারেনি যা নির্দেশ করে তোমার কনফিগারেশনে একটা "
-"সমস্যা আছে কারণ অনেক প্রোগ্রামেরই হোম ডিরেকটরিতেফাইল তৈরি করার দরকার হবে।ত্রুটিটা "
-"হল \"%s\"(errno=%d)"
+"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য আপনার সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
+"করুন:\n"
+" কনফিগারেশ ফাইল \"%s\" এর ভিতর কোন কনফিগারেশ নেই; এই জন্য কোন সেটিং সংরক্ষন "
+"করাযাবে না. %s%s"
 
 #: gconf/gconf-sanity-check.c:239
 msgid "Error reading the file: "
-msgstr ""
+msgstr "ফাইল পড়তে ত্রুটি: "
 
 # "\n" এর পরে একটা space ছিল, মানে "\n " এইভাবে লেখা ছিল।
 #: gconf/gconf-sanity-check.c:262
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"
 msgstr ""
-"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য তোমার  সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
-"কর :\"%s\" ফাইল তৈরি কিংবা খুলতে পারেনি যা নির্দেশ করে তোমার কনফিগারেশনে একটা "
-"সমস্যা আছে কারণ অনেক প্রোগ্রামেরই হোম ডিরেকটরিতেফাইল তৈরি করার দরকার হবে।ত্রুটিটা "
-"হল \"%s\"(errno=%d)"
+"নিম্নোক্ত সমস্যাগুলোর সমাধানের জন্য আপনার সিস্টেম অ্যাডমিনস্ট্রেটরের সাথে যোগাযোগ "
+"করুন:\n"
+"কনফিগারেশন ফাইল \"%s\" এর ঠিকানা \"%s\" সমাধান করা যাইনি: %s"
 
 #: gconf/gconf-sanity-check.c:323
 msgid ""
@@ -683,7 +681,7 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
-msgstr ""
+msgstr "লগ-আউট (_আ)"
 
 #: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
@@ -696,9 +694,8 @@ msgstr ""
 
 #: gconf/gconf-schema.c:221 gconf/gconf-schema.c:229 gconf/gconf-schema.c:237
 #: gconf/gconf-schema.c:245
-#, fuzzy
 msgid "Schema contains invalid UTF-8"
-msgstr "টেকসটে ত্রুটিযুক্ত UTF-8 আছে"
+msgstr "স্কীমাতে ত্রুটিযুক্ত UTF-8 আছে"
 
 #: gconf/gconf-schema.c:254
 msgid ""
@@ -712,9 +709,9 @@ msgid ""
 msgstr ""
 
 #: gconf/gconf-sources.c:319
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to load source \"%s\": %s"
-msgstr " মুছে ফেলতে পারেনি \"%s\" :%s"
+msgstr "সোর্স \"%s\" লোড করা যায়নি:%s"
 
 #: gconf/gconf-sources.c:346
 #, c-format
@@ -776,14 +773,14 @@ msgid ""
 msgstr ""
 
 #: gconf/gconf-sources.c:1414
-#, fuzzy, c-format
+#, c-format
 msgid "Error finding metainfo: %s"
-msgstr "'%s' এর জন্য স্কীমার মানসমূহ নির্ধারণে ত্রুটি:%s"
+msgstr "মেটা-ইনফো খূঁজেতে ত্রুটি:%s"
 
 #: gconf/gconf-sources.c:1483
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting metainfo: %s"
-msgstr "'%s'এর জন্য মান পাওয়াতে ত্রুটি:%s"
+msgstr "মেটা-ইনফো পেতে ত্রুটি:%s"
 
 #: gconf/gconf-sources.c:1507
 #, c-format
@@ -793,123 +790,123 @@ msgstr ""
 #: gconf/gconf-value.c:110
 #, c-format
 msgid "Didn't understand `%s' (expected integer)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (ইনটিজার আশা করা হয়েছিল)"
 
 #: gconf/gconf-value.c:120
 #, c-format
 msgid "Integer `%s' is too large or small"
-msgstr ""
+msgstr "ইনটিজার `%s' খুব ছোট অথবা বড়"
 
 #: gconf/gconf-value.c:141
 #, c-format
 msgid "Didn't understand `%s' (expected real number)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (রিয়াল আশা করা হয়েছিল)"
 
 #: gconf/gconf-value.c:185
 #, c-format
 msgid "Didn't understand `%s' (expected true or false)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (সত্য [true] অথবা মিথ্যা [false] আশা করা হয়েছিল)"
 
 #: gconf/gconf-value.c:261
 #, c-format
 msgid "Didn't understand `%s' (list must start with a '[')"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (তালিকা '[' দিয়ে শুরু হতে হবে)"
 
 #: gconf/gconf-value.c:274
 #, c-format
 msgid "Didn't understand `%s' (list must end with a ']')"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (তালিকা ']' দিয়ে শেষ হতে হবে)"
 
 #: gconf/gconf-value.c:325
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (তালিকার মধ্যে  অতিরিক্ত ']' পাওয়া গিয়েছে)"
 
 #: gconf/gconf-value.c:356 gconf/gconf-value.c:517
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (শেষে অতিরিক্ত অক্ষর)"
 
 #: gconf/gconf-value.c:403
 #, c-format
 msgid "Didn't understand `%s' (pair must start with a '(')"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (যুগল '(' দিয়ে শুরু হতে হবে)"
 
 #: gconf/gconf-value.c:416
 #, c-format
 msgid "Didn't understand `%s' (pair must end with a ')')"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (যুগল ')' দিয়ে শেষ হতে হবে)"
 
 #: gconf/gconf-value.c:446 gconf/gconf-value.c:532
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (ভুল সংখক বস্তু)"
 
 #: gconf/gconf-value.c:486
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
-msgstr ""
+msgstr "`%s' বুঝা যায়নি (যুগলের মধ্যে  অতিরিক্ত ')' পাওয়া গিয়েছে)"
 
 #: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
-msgstr ""
+msgstr "কী \"%s\" শূন্য (NULL)"
 
 #: gconf/gconf.c:51
 #, c-format
 msgid "\"%s\": %s"
-msgstr ""
+msgstr "\"%s\": %s"
 
 #: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
-msgstr ""
+msgstr "স্ল্যস (/) দিয়ে শুরু হতে তবে"
 
 #: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
-msgstr ""
+msgstr "পরপর দুটি স্ল্যস (/) থাকতে পারবে না"
 
 #: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
-msgstr ""
+msgstr "স্ল্যস (/) এর পরে ফোটা (.) থাকতে পারবে না"
 
 #: gconf/gconf.c:159
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
-msgstr ""
+msgstr "`%c' ASCII অক্ষর নয় বলে কী এর নামের মধ্যে গ্রহনযোগ্য নয়"
 
 #: gconf/gconf.c:169
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
-msgstr ""
+msgstr "কী/ডিরেক্টরী এর নামের মধ্যে `%c' গ্রহনযোগ্য অক্ষর নয়"
 
 #: gconf/gconf.c:183
 msgid "Key/directory may not end with a slash (/)"
-msgstr ""
+msgstr "কী/ডিরেক্টরী এর নাম স্ল্যস (/) দিয়ে শেষ হতে পারেনা"
 
 #: gconf/gconf.c:408
-#, fuzzy, c-format
+#, c-format
 msgid "Expected float, got %s"
-msgstr "প্রত্যাশিত  তালিকা, পেয়েছে %s"
+msgstr "ফ্লোট আশা করা হয়েছিল, পেয়েছি %s"
 
 #: gconf/gconf.c:443
-#, fuzzy, c-format
+#, c-format
 msgid "Expected int, got %s"
-msgstr "প্রত্যাশিত  তালিকা, পেয়েছে %s"
+msgstr "ইন্ট আশা করা হয়েছিল, পেয়েছি %s"
 
 #: gconf/gconf.c:478
-#, fuzzy, c-format
+#, c-format
 msgid "Expected string, got %s"
-msgstr "প্রত্যাশিত  তালিকা, পেয়েছে %s"
+msgstr "স্ট্রিং আশা করা হয়েছিল, পেয়েছি %s"
 
 #: gconf/gconf.c:512
-#, fuzzy, c-format
+#, c-format
 msgid "Expected bool, got %s"
-msgstr "প্রত্যাশিত  তালিকা, পেয়েছে %s"
+msgstr "বুল (bool) আশা করা হয়েছিল, পেয়েছি %s"
 
 #: gconf/gconf.c:545
-#, fuzzy, c-format
+#, c-format
 msgid "Expected schema, got %s"
-msgstr "প্রত্যাশিত  তালিকা, পেয়েছে %s"
+msgstr "স্কীমা আশা করা হয়েছিল, পেয়েছি %s"
 
 #: gconf/gconfd.c:147
 msgid ""
@@ -934,9 +931,9 @@ msgid ""
 msgstr ""
 
 #: gconf/gconfd.c:182
-#, fuzzy, c-format
+#, c-format
 msgid "Error loading some config sources: %s"
-msgstr "'%s' এর জন্য স্কীমার মানসমূহ নির্ধারণে ত্রুটি:%s"
+msgstr "'কিছু কনফিগ সোর্স লোড করতে ত্রুটি:%s"
 
 #: gconf/gconfd.c:194
 msgid ""
@@ -967,31 +964,31 @@ msgid "Received signal %d, shutting down cleanly"
 msgstr ""
 
 #: gconf/gconfd.c:341
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to open %s: %s"
-msgstr "%s তৈরি করতে ব্যর্থ:%s"
+msgstr "%s খুলতে ব্যর্থ: %s"
 
 #: gconf/gconfd.c:348
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to stat %s: %s"
-msgstr "%s তৈরি করতে ব্যর্থ:%s"
+msgstr "%s এর তথ্য নিতে ব্যর্থ:%s"
 
 #: gconf/gconfd.c:357
 #, c-format
 msgid "Owner of %s is not the current user"
-msgstr ""
+msgstr "%s এর মালিক বর্তমান ব্যবহারকারী নয়"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "ডিরেকটরিতে কী বা গুরুত্বপূর্ণ কাজ"
+msgstr "ভুল অনুমতি %lo ডিরেক্টরি %s তে"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
 #: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr ""
+msgstr "শুরু হচ্ছে (সংস্করণ %s), পিআইডি %u ব্যবহারকারী '%s'"
 
 #: gconf/gconfd.c:484
 #, c-format
@@ -1001,7 +998,7 @@ msgstr "%s তৈরি করতে ব্যর্থ:%s"
 #: gconf/gconfd.c:492
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
-msgstr ""
+msgstr "ডিরেক্টরি %s তে সমস্যা আছে, gconfd এটি ব্যবহার করতে পারবে না"
 
 #: gconf/gconfd.c:528
 #, c-format
@@ -1009,18 +1006,18 @@ msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 
 #: gconf/gconfd.c:542
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
-msgstr "'%s' এ মোড ঠিক করতে পারেনি :%s"
+msgstr ""
 
 #: gconf/gconfd.c:584
-#, fuzzy, c-format
+#, c-format
 msgid "Error releasing lockfile: %s"
-msgstr "'%s' মডিউল চালু করাতে ত্রুটি: %s\n"
+msgstr "'লকফাইল ছাড়তে সমস্যা হয়েছে: %s"
 
 #: gconf/gconfd.c:592
 msgid "Exiting"
-msgstr ""
+msgstr "বের হচ্ছি"
 
 #: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
@@ -1076,7 +1073,7 @@ msgstr ""
 
 #: gconf/gconftool.c:184
 msgid "Return 0 if the directory exists, 2 if it does not."
-msgstr ""
+msgstr "ডিরেক্টরী থাকলে থাকলে ০ ফেরত পাঠান, অথবা ২"
 
 #: gconf/gconftool.c:193
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
@@ -1084,7 +1081,7 @@ msgstr ""
 
 #: gconf/gconftool.c:202
 msgid "Return 0 if gconfd is running, 2 if not."
-msgstr ""
+msgstr "gconfd চালু থাকলে ০ ফেরত পাঠান, অথবা ২"
 
 #: gconf/gconftool.c:211
 msgid ""
@@ -1100,7 +1097,7 @@ msgstr ""
 
 #: gconf/gconftool.c:221
 msgid "int|bool|float|string|list|pair"
-msgstr ""
+msgstr "ইন্ট|বুল|ফ্লোট|স্ট্রিং|লিস্ট|যুগল"
 
 #: gconf/gconftool.c:229
 msgid "Print the data type of a key to standard output."
@@ -1122,7 +1119,7 @@ msgstr ""
 
 #: gconf/gconftool.c:257 gconf/gconftool.c:266 gconf/gconftool.c:275
 msgid "int|bool|float|string"
-msgstr ""
+msgstr "ইন্ট|বুল|ফ্লোট|স্ট্রিং"
 
 #: gconf/gconftool.c:265
 msgid ""
@@ -1154,7 +1151,7 @@ msgstr ""
 
 #: gconf/gconftool.c:302
 msgid "OWNER"
-msgstr ""
+msgstr "মালিক"
 
 #: gconf/gconftool.c:310
 msgid "Specify a schema file to be installed"
@@ -1162,7 +1159,7 @@ msgstr ""
 
 #: gconf/gconftool.c:311
 msgid "FILENAME"
-msgstr ""
+msgstr "ফাইল নাম"
 
 #: gconf/gconftool.c:319
 msgid "Specify a configuration source to use rather than the default path"
@@ -1170,7 +1167,7 @@ msgstr ""
 
 #: gconf/gconftool.c:320
 msgid "SOURCE"
-msgstr ""
+msgstr "সোর্স"
 
 #: gconf/gconftool.c:328
 msgid ""
@@ -1289,9 +1286,9 @@ msgid "You should use --direct when using a non-default configuration source\n"
 msgstr ""
 
 #: gconf/gconftool.c:714
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "%s তৈরি করতে ব্যর্থ:%s"
+msgstr "GConf শুরু করতে ব্যর্থ: %s\n"
 
 #: gconf/gconftool.c:743
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
@@ -1309,7 +1306,7 @@ msgstr ""
 #: gconf/gconftool.c:792
 #, fuzzy, c-format
 msgid "Failed to access configuration source(s): %s\n"
-msgstr "কনফিগারেশন সার্ভারকে চালু করতে পারেনি:%s\n"
+msgstr "কনফিগারেশন চালু করতে পারেনি:%s\n"
 
 #: gconf/gconftool.c:1077
 #, fuzzy, c-format
@@ -1375,17 +1372,17 @@ msgstr ""
 #: gconf/gconftool.c:1596
 #, c-format
 msgid "Owner: %s\n"
-msgstr ""
+msgstr "মালিক: %s\n"
 
 #: gconf/gconftool.c:1597
 #, c-format
 msgid "Short Desc: %s\n"
-msgstr ""
+msgstr "সংক্ষিপ্ত বর্ণনা: %s\n"
 
 #: gconf/gconftool.c:1598
 #, c-format
 msgid "Long Desc: %s\n"
-msgstr ""
+msgstr "বিস্তারিত বর্ণনা: %s\n"
 
 #: gconf/gconftool.c:1607 gconf/gconftool.c:1831 gconf/gconftool.c:1865
 #: gconf/gconftool.c:1910 gconf/gconftool.c:2055
@@ -1816,8 +1813,14 @@ msgid ""
 "  %s\n"
 msgstr ""
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "%s নামক ডিরেকটরী খূঁজে পাওয়া যাইনি\n"
+
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "'%s' তে GConf ট্রি সেভ করতে ত্রুটি:%s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "ব্যাবহার: %s <dir>\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "মান নির্ধারণের জন্য অনুরোধে পাওয়া মান ত্রুটিপূর্ণ"
@@ -1873,61 +1876,46 @@ msgstr ""
 #~ msgid "none"
 #~ msgstr "কোনটি না বা একটি ও না"
 
-#, fuzzy
 #~ msgid "Server couldn't resolve the address `%s'"
-#~ msgstr "%s  ঠিকানায় %s রুট ডিরেকটরী খুজে পাওয়া যায়নি "
+#~ msgstr "সার্ভার ঠিকানা '%s' সমাধান করতে পরেনি"
 
-#, fuzzy
-#~ msgid "Can't add notifications to a local configuration source"
-#~ msgstr "কনফিগারেশন সোর্সের জন্য ঠিকানা স্থির করতে পারেনি"
-
-#, fuzzy
 #~ msgid "Failure shutting down config server: %s"
-#~ msgstr "কনফিগারেশন সার্ভারকে চালু করতে পারেনি:%s\n"
+#~ msgstr "কনফিগ সার্ভারকে বন্ধ করতে ত্রুটি: %s"
 
-#, fuzzy
 #~ msgid "CORBA error: %s"
-#~ msgstr "GConf  ত্রুটি: %s\n"
+#~ msgstr "CORBA ত্রুটি: %s"
 
 #, fuzzy
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "মারাত্মক  ত্রুটি: ConfigDatabase এর জন্য অবজেকটের উল্লেখ খঁুজে পাওয়া যায়নি"
 
-#, fuzzy
 #~ msgid "Could not open saved state file '%s' for writing: %s"
-#~ msgstr "'%s' পাথ ফাইল খুলতে পারেনি:%s\n"
+#~ msgstr "'সংরক্ষিত অবস্থা ফাইল '%s' লেখার জন্য খুলতে পারেনি: %s"
 
-#, fuzzy
 #~ msgid "Could not write saved state file '%s' fd: %d: %s"
-#~ msgstr "'%s'ফাইলে লিখতে পারেনি:%s"
+#~ msgstr "'সংরক্ষিত অবস্থা ফাইল '%s' এ লেখা যায়নি fd: %d: %s"
 
-#, fuzzy
 #~ msgid "Failed to close new saved state file '%s': %s"
-#~ msgstr "বন্ধ করতে পারেনি '%s' ফাইল :%s"
+#~ msgstr "'নতূন সংরক্ষিত অবস্থা ফাইল '%s' বন্ধ করা যায়নি: %s"
 
-#, fuzzy
 #~ msgid "Could not move aside old saved state file '%s': %s"
-#~ msgstr "অস্থায়ী ফাইল '%s'কে লক(lock) করতে পারেনি :%s"
+#~ msgstr "'পুরাতন সংরক্ষিত অবস্থা ফাইল '%s' সরিয়ে রাখা যায়নি: %s"
 
-#, fuzzy
 #~ msgid "Failed to move new save state file into place: %s"
-#~ msgstr "'%s' ফাইল তৈরি করতে পারেনি: %s"
+#~ msgstr "'নতূন সংরক্ষিত অবস্থা ফাইল ঠিক স্থানে সরানে যায়নি: %s"
 
-#, fuzzy
 #~ msgid "Error reading saved state file: %s"
-#~ msgstr "'%s' ডিরেকটরি  অপসারণে ত্রুটি:%s"
+#~ msgstr "'সংরক্ষিত অবস্থা ফাইল পড়া যায়নি: %s"
 
-#, fuzzy
 #~ msgid "Unable to open saved state file '%s': %s"
-#~ msgstr "'%s' ফাইল তৈরি করতে পারেনি: %s"
+#~ msgstr "'সংরক্ষিত অবস্থা ফাইল '%s' খোলা যায়নি: %s"
 
 #, fuzzy
 #~ msgid "Failed to get IOR for client: %s"
 #~ msgstr "'%s'কে তৈরি কিংবা খুলতে ব্যর্থ"
 
-#, fuzzy
 #~ msgid "Failed to open saved state file: %s"
-#~ msgstr "'%s' ফাইল তৈরি করতে পারেনি: %s"
+#~ msgstr "'সংরক্ষিত অবস্থা ফাইল খোলা যায়নি: %s"
 
 #, fuzzy
 #~ msgid "Failed to write client add to saved state file: %s"
@@ -1936,6 +1924,9 @@ msgstr ""
 #, fuzzy
 #~ msgid "Failed to flush client add to saved state file: %s"
 #~ msgstr "বন্ধ করতে পারেনি '%s' ফাইল :%s"
+
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "Unloading BerkeleyDB (BDB) backend module."
 #~ msgstr "BerkeleyDB(BDB) এর ব্যাকএন্ড মডিউল আনলোড করছে।"

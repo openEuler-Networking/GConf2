@@ -12,6 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1916,18 +1917,13 @@ msgstr ""
 "okerrak ezarriz:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u elementu geratu dira cache-an, %u segundo baino gehiagoko elementu "
-#~ "sinkronizatuak garbitu ondoren"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Ezin izan du `%s' direktorioa egin: %s "
 
 #, fuzzy
-#~ msgid "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "%s\n"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Errorea `%s'(e)n eskema lortzean: %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Eskaera egiterakoan balio okerra jaso dut"
@@ -2028,9 +2024,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Ixteko eskaera jaso dut"
 
-#~ msgid "/path"
-#~ msgstr "/bide-izena"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Huts egin du ConfigServer-ren objektuaren erreferentzia lortzean"
 
@@ -2123,6 +2116,22 @@ msgstr ""
 #~ msgstr ""
 #~ "Bezero batzuek euren burua kendu dute GConf zerbitzaritik, baina gehitu "
 #~ "gabe zeuden."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u elementu geratu dira cache-an, %u segundo baino gehiagoko elementu "
+#~ "sinkronizatuak garbitu ondoren"
+
+#, fuzzy
+#~ msgid "%s"
+#~ msgstr ""
+#~ "\n"
+#~ "%s\n"
+
+#~ msgid "/path"
+#~ msgstr "/bide-izena"
 
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "--dir-exists aukera bakarrik erabili behar da.\n"

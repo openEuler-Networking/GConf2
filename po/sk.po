@@ -1934,15 +1934,13 @@ msgstr ""
 "priečinku:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u položiek zostalo v keši po vyčistení už synchronizovaných položiek "
-#~ "starších ako %u sekúnd"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Nie je možné vytvoriť priečinok '%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Chyba pri získavaní schémy z '%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Zachytená neplatná hodnota v požiadavke"
@@ -2049,9 +2047,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Prijatá požiadavka na ukončenie"
 
-#~ msgid "/path"
-#~ msgstr "/cesta"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Nepodarilo sa získať referenciu na objekt pre ConfigServer"
 
@@ -2140,3 +2135,16 @@ msgstr ""
 #~ "Some client removed itself from the GConf server when it hadn't been "
 #~ "added."
 #~ msgstr "Niektorý klient sa odstránil z GConf serveru keď tam nebol pridaný."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u položiek zostalo v keši po vyčistení už synchronizovaných položiek "
+#~ "starších ako %u sekúnd"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/cesta"

@@ -1,14 +1,14 @@
 # gconf  Korean message translation
 # Chideok Hwang <hwang@mizi.co.kr>, 2000.
-# Changwoo Ryu <cwryu@debian.org>, 2002-2003.
+# Changwoo Ryu <cwryu@debian.org>, 2002-2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.3.3\n"
+"Project-Id-Version: gconf 2.5.1\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-07-20 22:15+0900\n"
+"PO-Revision-Date: 2004-01-30 03:46+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
-"Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
+"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,7 +57,6 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "XML 백엔드 디렉토리 캐쉬를 동기화하는 데 오류가 발생했습니다: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -80,7 +79,7 @@ msgid "Initializing XML backend module"
 msgstr "XML 백엔드 모듈을 초기화합니다"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "XML 디렉토리 \"%s\"에 잠금을 포기하는 데 실패했습니다: %s"
 
@@ -357,9 +356,9 @@ msgid "Error checking existence of `%s': %s"
 msgstr "`%s'의 존재유무를 검사하는 데 오류가 발생했습니다: %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "`%s' 디렉토리를 지우는 데 오류가 발생했습니다: %s"
+msgstr "\"%s\" 디렉토리를 지우는 데 오류가 발생했습니다: %s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -686,7 +685,7 @@ msgstr ""
 "현재 세션을 계속 사용할 수도 있지만, 다른 세션에서 그 기본 설정을 이용할 때 "
 "일시적으로 문제가 발생할 수도 있습니다.\n"
 "\n"
-"이 세션을 계속 사용할까요?"
+"이 세션을 계속 사용하시겠습니까?"
 
 #: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
@@ -699,7 +698,7 @@ msgstr "계속(_C)"
 #: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
-msgstr "%s 계속할까요 (y/n)?"
+msgstr "%s 계속하시겠습니까 (y/n)?"
 
 #: gconf/gconf-schema.c:221 gconf/gconf-schema.c:229 gconf/gconf-schema.c:237
 #: gconf/gconf-schema.c:245
@@ -960,11 +959,13 @@ msgstr "설정 파일을 찾을 수 ㅇ벗습니다. 기본 설정 소스 `%s'�
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
-msgstr "소스 경로에 설정 소스가 없습니다. 설정을 저장할 수 없습니다; "
+msgstr ""
+"소스 경로에 설정 소스가 없습니다. 설정을 저장할 수 없습니다; %s을(를) 편집하"
+"십시오"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1021,9 +1022,9 @@ msgid "Owner of %s is not the current user"
 msgstr "%s을(를) 가진 사람이 현재 사용자가 아닙니다"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "%2$s 디렉토리의 소유권이 %1$o(으)로 잘못되어 있습니다"
+msgstr "%2$s 디렉토리의 소유권이 %1$lo(으)로 잘못되었습니다"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1065,7 +1066,7 @@ msgstr "끝냄"
 
 #: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
-msgstr "GConf 서버가 사용중이 아니라, 끝마칩니다"
+msgstr "GConf 서버가 사용중이 아니라, 끝마칩니다."
 
 #: gconf/gconftool.c:93
 msgid "Set a key to a value and sync. Use with --type."
@@ -1123,7 +1124,7 @@ msgstr "디렉토리 아래의 모든 하위 디렉토리와 항목들을 재귀
 
 #: gconf/gconftool.c:184
 msgid "Return 0 if the directory exists, 2 if it does not."
-msgstr "디렉토리가 있으면 0 아니면 2를 돌려줍니다"
+msgstr "디렉토리가 있으면 0 아니면 2를 돌려줍니다."
 
 #: gconf/gconftool.c:193
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
@@ -1132,7 +1133,7 @@ msgstr ""
 
 #: gconf/gconftool.c:202
 msgid "Return 0 if gconfd is running, 2 if not."
-msgstr "gconfd가 돌아가고 있으면 0 아니면 2를 돌려줍니다"
+msgstr "gconfd가 돌아가고 있으면 0 아니면 2를 돌려줍니다."
 
 #: gconf/gconftool.c:211
 msgid ""
@@ -1383,7 +1384,7 @@ msgstr ""
 
 #: gconf/gconftool.c:763
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-msgstr "GCONF_CONFIG_SOURCE 환경변수의 값을 설정하세요\n"
+msgstr "GCONF_CONFIG_SOURCE 환경변수의 값을 설정하십시오\n"
 
 #: gconf/gconftool.c:792
 #, c-format
@@ -1396,12 +1397,10 @@ msgid "Shutdown error: %s\n"
 msgstr "끝마치는 데 오류가 발생했습니다: %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr "재귀적으로 열거하려면 한 개 이상의 디렉토리를 지정해야 합니다.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "덤프할 한 개 이상의 디렉토리를 지정해야 합니다.\n"
 
@@ -1528,7 +1527,7 @@ msgstr "타입을 얻어낼 키를 지정해야 합니다\n"
 
 #: gconf/gconftool.c:1855
 msgid "Must specify a key to lookup size of.\n"
-msgstr "크기를 알아볼 키를 지정해야 합니다\n"
+msgstr "크기를 알아볼 키를 지정해야 합니다.\n"
 
 #: gconf/gconftool.c:1880 gconf/gconftool.c:1925
 #, c-format
@@ -1629,7 +1628,6 @@ msgid "Error syncing: %s"
 msgstr "동기화에 실패했습니다: %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr "키/값 쌍을 얻어낼 한 개 이상의 디렉토리를 지정해야 합니다.\n"
 
@@ -1652,7 +1650,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "\"%s\"의 재귀적으로 값 해제하는 중에 실패: %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr "하위 디렉토리를 얻어낼 한 개 이상의 디렉토리를 지정해야 합니다.\n"
 
@@ -1848,7 +1845,7 @@ msgstr "`%s'을(를) 여는 데 실패했습니다: %s\n"
 #: gconf/gconftool.c:3603
 #, c-format
 msgid "Document `%s' is empty?\n"
-msgstr "`%s' 문서가 비어있지 않나요?\n"
+msgstr "`%s' 문서가 비어있지 않습니까?\n"
 
 #: gconf/gconftool.c:3615
 #, c-format
@@ -1921,15 +1918,31 @@ msgstr ""
 "디렉토리의 키에 잘못된 값을 설정하여 응용 프로그램을 중단하도록 시도합니다:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u개의 항목이 캐쉬에 남아 있습니다.  이 때 %u초 보다 오래된 항목 중 이미 "
-#~ "쓰여진 항목들을 지웠습니다"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "%s 디렉토리를 찾을 수 없습니다\n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "GConf 트리를 '%s'에 저장하는 데 오류가 발생했습니다: %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "사용법: %s <디렉토리>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "사용법: %s <디렉토리>\n"
+#~ "  다음과 같은 마크업 백엔드 파일시스템을:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  다음과 같이 합칩니다:\n"
+#~ "    dir/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "set 요청에서 잘못된 값을 받았습니다"
@@ -2036,9 +2049,6 @@ msgstr ""
 
 #~ msgid "Shutdown request received"
 #~ msgstr "끝내라는 요청을 받았습니다"
-
-#~ msgid "/path"
-#~ msgstr "/path를 편집하십시오"
 
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "ConfigServer에 대한 오브젝트 참조를 얻지 못했습니다"

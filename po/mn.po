@@ -1,20 +1,22 @@
+# translation of gconf.HEAD.po to Mongolian
 # translation of gconf.HEAD.mn.po to Mongolian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2003
-# Sanlig Badral <badral@openmn.org>, 2003
+# Sanlig Badral <badral@openmn.org>, 2003.
+# Sanlig Badral <Badral@openmn.org>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf.HEAD.mn\n"
+"Project-Id-Version: gconf.HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-08-20 12:31+0200\n"
-"Last-Translator: Sanlig Badral <badral@openmn.org>\n"
-"Language-Team: Mongolian <openmn-linux@lists.sf.net>\n"
+"PO-Revision-Date: 2004-01-07 01:05+0100\n"
+"Last-Translator: Sanlig Badral <Badral@openmn.org>\n"
+"Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -57,13 +59,12 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "XML-Backend-Лавлахын cache-д синхронизаци хийж байхад алдаа: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
-"dir устгах үйлдэл дэмжигдэхээ больсон, Та зүгээр л лавлах доторхи бүх "
-"үсгүүдийг устгана уу"
+"Лавлах устгах үйлдэл дэмжигдэхээ больсон, Та зүгээр л лавлах доторхи бүх "
+"утгуудыг устгана уу"
 
 #: backends/xml-backend.c:770
 #, c-format
@@ -80,7 +81,7 @@ msgid "Initializing XML backend module"
 msgstr "XML-Backend-Модул инициацлагдаж байна"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "»%s« XML-Лавлахыг түлхүүрлэх оролдлого бүтсэнгүй: %s"
 
@@ -360,7 +361,7 @@ msgid "Error checking existence of `%s': %s"
 msgstr "»%s« -н оршин буй эсэхийг шалгаж байхад алдаа: %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "»%s« лавлахыг устгаж байхад алдаа: %s"
 
@@ -960,12 +961,12 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
-"Эхийн замд тохируулгын эх алга, тохируулга хадгалагдахгүй; Та замыг "
+"Эхийн замд тохируулгын эх алга, тохируулга хадгалагдахгүй; Та %s-г "
 "засварлана уу"
 
 #: gconf/gconfd.c:182
@@ -1023,9 +1024,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Идэвхитэй хэрэглэгч %s -н эзэмшигч биш байна"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Лавлах %s дэх буруу хандалт %o"
+msgstr "Лавлах %s дэх буруу хандалт %lo"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1401,12 +1402,11 @@ msgid "Shutdown error: %s\n"
 msgstr "Унтрааж байхад алдаа: %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr "Та нэг эсвэл хэд хэдэн лавлах рекурс жигсаалтаар тодорхойлох ёстой.\n"
+msgstr ""
+"Рекурсээр жагсаахдаа та нэг эсвэл хэд хэдэн лавлах тодорхойлох ёстой.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "Та гаргахдаа нэг эсвэл хэд хэдэн түлхүүр өгөх ёстой.\n"
 
@@ -1634,7 +1634,6 @@ msgid "Error syncing: %s"
 msgstr "Синхронизаци хийж байхад алдаа: %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr "Та түлхүүр/утгын хос авахдаа нэг эсвэл хэд хэдэн лавлах өгөх ёстой.\n"
 
@@ -1658,7 +1657,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "»%s« -н рекурс чөлөөлөлтийн үед алдаа: %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
 "Та дэд лавлахуудыг авахын тулд нэг эсвэл хэд хэдэн лавлах тодорхойлох "
@@ -1931,15 +1929,31 @@ msgstr ""
 "байна:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u элемент Cache -д бүх хэдийнэ %u секундээс илүү болсон синхронизаци "
-#~ "элементүүдийг цэвэрлэсний дараа үлдэв"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "»%s« лавлах олдсонгүй\n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "GConf модыг »%s« рүү хадгалах үед алдаа: %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "дуудалт: %s <лавлах>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Дуудалт: %s <dir>\n"
+#~ "  markup backend файлын системийн шатлал дараах хэлбэрээр нэгтгэгдэнэ:\n"
+#~ "    лавлах/%%gconf.xml\n"
+#~ "        дэд-лавлах1/%%gconf.xml\n"
+#~ "        дэд-лавлах2/%%gconf.xml\n"
+#~ "  тийш:\n"
+#~ "    лавлах/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Холбоотой хүсэлтэд хүчингүй утга хүлээн авлаа"
@@ -2046,9 +2060,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Дуусгах хүсэлт хүлээн авлаа"
 
-#~ msgid "/path"
-#~ msgstr "/Зам"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "ConfigServer -н Объект хамааралыг авч чадсангүй"
 
@@ -2133,6 +2144,19 @@ msgstr ""
 #~ msgstr ""
 #~ "Хэд хэдэн клиент өөрсдөө GConf-серверээс устлаа хэдийгээр тэд нэмэгдээгүй "
 #~ "байсан ч."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u элемент Cache -д бүх хэдийнэ %u секундээс илүү болсон синхронизаци "
+#~ "элементүүдийг цэвэрлэсний дараа үлдэв"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/Зам"
 
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "--dir-exists сонголт дангаараа хэрэглэгдэх ёстой.\n"

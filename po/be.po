@@ -2300,17 +2300,15 @@ msgstr ""
 "ключоў у каталёзе:\n"
 "  %s\n"
 
-# backends/xml-cache.c:305
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u элемэнтаў застаецца ў кэшы пасьля ачысткі ад ужо сынхранізаваных "
-#~ "элемэнтаў старэйшых за %u сэкундаў"
+# backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Не атрымалася стварыць тэчку \"%s\": %s"
 
-# gconf/gconftool.c:2415
-#~ msgid "%s"
-#~ msgstr "%s"
+# gconf/gconftool.c:1341
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Памылка атрыманьня схемы па \"%s\": %s\n"
 
 # gconf/gconf-database.c:233
 #~ msgid "Received invalid value in set request"
@@ -2449,10 +2447,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Атрыманы запыт на выключэньне"
 
-# gconf/gconfd.c:300
-#~ msgid "/path"
-#~ msgstr "/path"
-
 # gconf/gconfd.c:570
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Збой пад час атрыманьня спасылкі на аб'ект для ConfigServer"
@@ -2560,6 +2554,22 @@ msgstr ""
 #~ msgstr ""
 #~ "Пэўны кліент выдаліў сябе з паслужніка GConf, але ня бу раней даданы да "
 #~ "яго!"
+
+# backends/xml-cache.c:305
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u элемэнтаў застаецца ў кэшы пасьля ачысткі ад ужо сынхранізаваных "
+#~ "элемэнтаў старэйшых за %u сэкундаў"
+
+# gconf/gconftool.c:2415
+#~ msgid "%s"
+#~ msgstr "%s"
+
+# gconf/gconfd.c:300
+#~ msgid "/path"
+#~ msgstr "/path"
 
 # gconf/gconftool.c:495
 #~ msgid "--dir-exists option must be used by itself.\n"

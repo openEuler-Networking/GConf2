@@ -12,6 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1791,15 +1792,13 @@ msgid ""
 "  %s\n"
 msgstr ""
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u obiecte au rămas în memoria tampon după eliminarea obiectelor deja "
-#~ "actualizate mai vechi de %u secunde"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Nu am putut crea directorul `%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Eroare la listarea directorelor în `%s': %s"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Informaţie(valoare) invalidă recepţionată la 'set request'"
@@ -1894,6 +1893,16 @@ msgstr ""
 #~ msgid "Failed to flush client add to saved state file: %s"
 #~ msgstr "Nu am reuşit să creez fişierul `%s': %s"
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u obiecte au rămas în memoria tampon după eliminarea obiectelor deja "
+#~ "actualizate mai vechi de %u secunde"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
 #~ msgid "Unloading BerkeleyDB (BDB) backend module."
 #~ msgstr "Descarc modulul BerkeleyDB (BDB)"
 
@@ -1910,10 +1919,6 @@ msgstr ""
 #~ msgid "Unsynced directory deletions when shutting down XML backend"
 #~ msgstr ""
 #~ "Ştergere de directoare invalide(nesincronizate) la oprirea modulului XML"
-
-#, fuzzy
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Eroare la listarea directorelor în `%s': %s"
 
 #, fuzzy
 #~ msgid "Error unsetting '%s': %s\n"

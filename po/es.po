@@ -1,6 +1,4 @@
-# translation of gconf.HEAD.po to Spanish
 # translation of gconf.HEAD.es.po to Spanish
-# Trnaslation of .po file for gconf into Spanish.
 # Copyright (C) 2001-2002,2003 Free Software Foundation, Inc.
 # Héctor García Álvarez <hector@scouts-es.org>, 2001.
 # Germán Poo Caamaño <gpoo@ubiobio.cl>, 2002.  (Revisión).
@@ -10,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-10-10 23:27+0200\n"
+"PO-Revision-Date: 2004-01-03 23:02+0100\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +60,6 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Ha ocurrido un error al sincronizar el caché del directorio en XML: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -86,7 +83,7 @@ msgid "Initializing XML backend module"
 msgstr "Inicializando el módulo de XML"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr ""
 "Ha ocurrido un error al liberar el bloqueo en el directorio XML «%s»: %s"
@@ -369,7 +366,7 @@ msgid "Error checking existence of `%s': %s"
 msgstr "Ha ocurrido un error al comprobar la existencia de «%s»: %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Ha ocurrido un error al eliminar el directorio «%s»: %s"
 
@@ -990,13 +987,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
 "No hay fuentes de configuración en la ruta de fuentes, la configuración no "
-"se guardará; editar "
+"se guardará; editar %s"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1054,9 +1051,9 @@ msgid "Owner of %s is not the current user"
 msgstr "El propietario de %s no es el usuario actual"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Permisos incorrectos %o en el directorio %s"
+msgstr "Permisos incorrectos %lo en el directorio %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1444,12 +1441,10 @@ msgid "Shutdown error: %s\n"
 msgstr "Error al cerrar el programa: %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr "Debe especificar uno o mas directorios para listar recursivamente.\n"
+msgstr "Debe especificar uno o más directorios para listar recursivamente.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "Debe especificar uno o más directorios para volcar.\n"
 
@@ -1679,7 +1674,6 @@ msgid "Error syncing: %s"
 msgstr "Error al sincronizar: %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
 "Debe especificar uno o más directorios donde obtener los pares clave/valor.\n"
@@ -1705,7 +1699,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "Error al eliminar la asignación recursivamente \"%s\": %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
 "Debe especificar uno o más directorios de los cuales obtener "
@@ -1990,15 +1983,31 @@ msgstr ""
 "el directorio:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u elementos permanecen en el caché tras limpiarla de elementos ya "
-#~ "sincronizados con más de %u segundos"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "No se pudo encontrar el directorio %s \n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Error al guardar el árbol Gconf en «%s»: %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Uso: %s <dir>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Uso: %s <dir>\n"
+#~ "  Combina una jerarquía de sistema de archivo marco como:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  a:\n"
+#~ "    dir/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Se ha recibido un valor erróneo al realizar la petición"
@@ -2115,9 +2124,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Se ha recibido una petición de finalización"
 
-#~ msgid "/path"
-#~ msgstr "/path"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr ""
 #~ "Ha ocurrido un error al obtener la referencia de un objeto para "
@@ -2213,6 +2219,19 @@ msgstr ""
 #~ msgstr ""
 #~ "Se ha eliminado algún cliente del servidor GConf cuando no había sido "
 #~ "añadido."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u elementos permanecen en el caché tras limpiarla de elementos ya "
+#~ "sincronizados con más de %u segundos"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/path"
 
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "La opción --dir-exists debe usarse sin otras opciones.\n"

@@ -1,17 +1,18 @@
 # Irish (gaeilge) translation for GConf.pot
-# Copyright (C) 2000 Free Software Foundation, Inc.
+# Copyright (C) 2000,2004 Free Software Foundation, Inc.
 # Alastair McKinstry <mckinstry@computer.org>, 2000.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf.pot\n"
+"Project-Id-Version: GConf.pot HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2000-03-13 18:23+0000\n"
+"PO-Revision-Date: 2004-01-13 18:23+0000\n"
 "Last-Translator:  Alastair McKinstry <mckinstry@computer.org>\n"
 "Language-Team: Irish <ga@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -294,9 +295,9 @@ msgid "Failed to shut down backend"
 msgstr ""
 
 #: gconf/gconf-client.c:344 gconf/gconf-client.c:362
-#, fuzzy, c-format
+#, c-format
 msgid "GConf Error: %s\n"
-msgstr "Earráid: %s\n"
+msgstr "Earráid GConf: %s\n"
 
 #: gconf/gconf-client.c:896
 #, c-format
@@ -334,14 +335,14 @@ msgid "Error getting default value for `%s': %s"
 msgstr ""
 
 #: gconf/gconf-database.c:418
-#, fuzzy, c-format
+#, c-format
 msgid "Error unsetting \"%s\": %s"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconf-database.c:450
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting new value for \"%s\": %s"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconf-database.c:496
 #, c-format
@@ -349,9 +350,9 @@ msgid "Error checking existence of `%s': %s"
 msgstr ""
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -578,7 +579,7 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:84
 msgid "Help options"
-msgstr "Roghnachais Cabhair"
+msgstr "Roghnachais Cúidiú"
 
 #: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:506
 #, c-format
@@ -622,9 +623,8 @@ msgid ""
 msgstr ""
 
 #: gconf/gconf-sanity-check.c:239
-#, fuzzy
 msgid "Error reading the file: "
-msgstr "Earráid: %s\n"
+msgstr "Earráid ag leámh comhad: "
 
 #: gconf/gconf-sanity-check.c:262
 #, c-format
@@ -648,7 +648,7 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
-msgstr ""
+msgstr "_Éirigh As"
 
 #: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
@@ -978,13 +978,13 @@ msgid "Failed to get lock for daemon, exiting: %s"
 msgstr ""
 
 #: gconf/gconfd.c:584
-#, fuzzy, c-format
+#, c-format
 msgid "Error releasing lockfile: %s"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconfd.c:592
 msgid "Exiting"
-msgstr "Ag eirigh as"
+msgstr "Ag éirigh as"
 
 #: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
@@ -1134,7 +1134,7 @@ msgstr ""
 
 #: gconf/gconftool.c:320
 msgid "SOURCE"
-msgstr ""
+msgstr "FOINSE"
 
 #: gconf/gconftool.c:328
 msgid ""
@@ -1312,19 +1312,19 @@ msgid "Type: %s\n"
 msgstr "Saghas: %s\n"
 
 #: gconf/gconftool.c:1587
-#, fuzzy, c-format
+#, c-format
 msgid "List Type: %s\n"
-msgstr "Saghas: %s\n"
+msgstr "Saghas Líosta: %s\n"
 
 #: gconf/gconftool.c:1588
-#, fuzzy, c-format
+#, c-format
 msgid "Car Type: %s\n"
-msgstr "Saghas: %s\n"
+msgstr "Saghas 'Car': %s\n"
 
 #: gconf/gconftool.c:1589
-#, fuzzy, c-format
+#, c-format
 msgid "Cdr Type: %s\n"
-msgstr "Saghas: %s\n"
+msgstr "Saghas 'Cdr': %s\n"
 
 #: gconf/gconftool.c:1594
 #, c-format
@@ -1401,9 +1401,9 @@ msgid "Error setting value: %s\n"
 msgstr ""
 
 #: gconf/gconftool.c:1796
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing: %s\n"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:1811
 msgid "Must specify a key or keys to get type\n"
@@ -1477,9 +1477,9 @@ msgid "Must specify keys to unapply schema from\n"
 msgstr ""
 
 #: gconf/gconftool.c:2132
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing schema name from '%s': %s\n"
-msgstr "Earráid: %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:2157
 msgid "Must specify key (schema name) as the only argument\n"
@@ -1780,8 +1780,5 @@ msgid ""
 "  %s\n"
 msgstr ""
 
-#, fuzzy
-#~ msgid "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "%s\n"
+#~ msgid "none"
+#~ msgstr "tada"

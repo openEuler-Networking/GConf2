@@ -1,27 +1,27 @@
 # translation of el.po to Greek
 # GNOME Gconf Greek PO file.
-# Copyright (C) 2000,2003 Free Software Foundation, Inc.
+# Copyright (C) 2000,2003, 2004 Free Software Foundation, Inc.
 # Review by Simos (10min review, mostly grammatical checks)
 #
 # Initial translation by Sarantis, about 230 messages.
 # kostas: updated and finished the translation,02122002
 # kostas: 03sep2003, updated translation for 2.4
 # list type=είδος λίστας
-# Sarantis Paskalis <paskalis@di.uoa.gr>, 2000
-# Kostas Papadimas <pkst@gmx.net>, 2003
+# Sarantis Paskalis <paskalis@di.uoa.gr>, 2000.
+# Kostas Papadimas <pkst@gnome.org>, 2003,2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-09-03 13:19+0300\n"
-"Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
+"PO-Revision-Date: 2004-02-03 19:03+0200\n"
+"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.0\n"
+"X-Generator: KBabel 1.0.2\n"
 
 # backends/xml-backend.c:300
 #: backends/dir-utils.c:108
@@ -75,7 +75,6 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Σφάλμα στο συγχρονισμό XML backend directory cache: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -104,9 +103,9 @@ msgstr "Αρχικοποιείται η μονάδα υποστήριξης XML"
 
 # backends/xml-backend.c:759
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "Αδύνατη η παράδοση κλειδώματος στον κατάλογο XML \"%s\": %s"
+msgstr "Αποτυχία παράδοσης κλειδώματος στον κατάλογο XML \"%s\": %s"
 
 #: backends/xml-cache.c:286
 msgid "Failed to sync XML cache contents to disk"
@@ -422,9 +421,9 @@ msgstr "Σφάλμα ελέγχου ύπαρξης `%s': %s"
 
 # gconf/gconfd.c:1676
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Σφάλμα αφαίρεσης καταλόγου `%s': %s"
+msgstr "Σφάλμα αφαίρεσης καταλόγου  \"%s\": %s"
 
 # gconf/gconfd.c:1701
 #: gconf/gconf-database.c:547
@@ -1095,13 +1094,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
 "Δεν βρέθηκαν πηγαίες διαμορφώσεις στην πηγαία διαδρομή, η διαμόρφωση δε θα "
-"αποθηκευτεί· επεξεργασία "
+"αποθηκευτεί· επεξεργασία  %s"
 
 # gconf/gconfd.c:901
 #: gconf/gconfd.c:182
@@ -1166,9 +1165,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Ο ιδιοκτήτης του %s  δεν είναι ο τρέχων χρήστης"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Λάθος δικαιώματα %o στον κατάλογο %s"
+msgstr "Λάθος δικαιώματα %lo στον κατάλογο %s"
 
 # gconf/gconfd.c:1013
 #. openlog() does not copy logname - what total brokenness.
@@ -1612,7 +1611,6 @@ msgstr "Σφάλμα κλεισίματος: %s\n"
 
 # gconf/gconftool.c:715
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr ""
 "Πρέπει να καθοριστεί ένας ή περισσότεροι κατάλογοι για αναδρομική "
@@ -1620,9 +1618,8 @@ msgstr ""
 
 # gconf/gconftool.c:1113
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι.\n"
+msgstr "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι για dump.\n"
 
 # gconf/gconftool.c:749
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
@@ -1891,7 +1888,6 @@ msgstr "Σφάλμα στο συγχρονισμό: %s"
 
 # gconf/gconftool.c:1099
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
 "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι από όπου να ληφθούν τα "
@@ -1922,7 +1918,6 @@ msgstr "Σφάλμα κατά την αναδρομική αποδέσμευση
 
 # gconf/gconftool.c:1147
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
 "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι από όπου να ληφθούν οι "
@@ -2256,16 +2251,33 @@ msgstr ""
 "το κλειδί στον κατάλογο:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u αντικείμενα παραμένουν στην cache μετά την εκκαθάριση την ήδη "
-#~ "συγχρονισμένων αντικειμένων που είναι παλιότερα από %u δευτερόλεπτα"
+# backends/xml-backend.c:315
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Αδυναμία εύρεσης καταλόγου %s\n"
 
-# gconf/gconf-internals.c:2120
-#~ msgid "%s"
-#~ msgstr "%s"
+# gconf/gconfd.c:1725
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Σφάλμα αποθήκευσης δένδρου GConf '%s': %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Χρήση: %s <dir>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Χρήση: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
 
 # gconf/gconfd.c:511
 #~ msgid "Received invalid value in set request"
@@ -2396,9 +2408,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Λήφθηκε αίτηση κλεισίματος"
 
-#~ msgid "/path"
-#~ msgstr "/διαδρομή"
-
 # gconf/gconfd.c:1056
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Αδύνατη η λήψη αναφοράς αντικειμένου για τον Εξυπηρέτη Διαμόρφωσης"
@@ -2511,6 +2520,20 @@ msgstr ""
 #~ "Κάποιος πελάτης απομάκρυνε τον εαυτό του απί τον εξυπηρετητή GConf όταν "
 #~ "δεν είχε προστεθεί"
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u αντικείμενα παραμένουν στην cache μετά την εκκαθάριση την ήδη "
+#~ "συγχρονισμένων αντικειμένων που είναι παλιότερα από %u δευτερόλεπτα"
+
+# gconf/gconf-internals.c:2120
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/διαδρομή"
+
 # gconf/gconftool.c:395
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "Η επιλογή --dir-exists πρέπει να χρησιμοποιείται μόνη της.\n"
@@ -2553,11 +2576,6 @@ msgstr ""
 #~ msgstr ""
 #~ "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <%s> δεν είναι κατανοητός χαμηλότερα από το "
 #~ "<schemalist>\n"
-
-# gconf/gconfd.c:1725
-#, fuzzy
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Σφάλμα απαρίθμησης καταλόγων στο `%s': %s"
 
 # gconf/gconftool.c:1124
 #, fuzzy

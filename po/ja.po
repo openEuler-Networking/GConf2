@@ -1947,6 +1947,14 @@ msgstr ""
 "ようとしています:\n"
 "  %s\n"
 
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "ディレクトリ '%s' を作成できませんでした: %s"
+
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "'%s' でスキーマの取得のエラー: %s\n"
+
 #~ msgid "Received invalid value in set request"
 #~ msgstr "設定した要求の中に不正な値を受け取りました。"
 

@@ -1919,15 +1919,13 @@ msgstr ""
 "imeniku:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "V predpomnilniku je po čiščenju že usklajenih predmetov starejših od %2$u "
-#~ "sekund ostalo še %1$u predmetov"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Nisem mogel ustvariti imenika '%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Napaka ob izpisu seznama podimenikov '%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Prejel sem neveljavno vrednost v zahtevku \"set\""
@@ -2037,9 +2035,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Prejet je bil zahtevek za ustavitev"
 
-#~ msgid "/path"
-#~ msgstr "/pot"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Nisem uspel dobiti sklica predmeta za ConfigServer"
 
@@ -2133,6 +2128,19 @@ msgstr ""
 #~ msgstr ""
 #~ "Nek odjemalec se je odstranil z GConf strežnika, čeprav ni bil dodan."
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "V predpomnilniku je po čiščenju že usklajenih predmetov starejših od %2$u "
+#~ "sekund ostalo še %1$u predmetov"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/pot"
+
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "Možnosti --dir-exits ni mogoče uporabljati hkrati z drugimi.\n"
 
@@ -2203,9 +2211,6 @@ msgstr ""
 
 #~ msgid "Unsynced directory deletions when shutting down XML backend"
 #~ msgstr "Neskladna brisanja imenikov ob zapiranju modula XML"
-
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Napaka ob izpisu seznama podimenikov '%s': %s\n"
 
 #~ msgid "Error unsetting '%s': %s\n"
 #~ msgstr "Napaka ob odnastavljanju '%s': %s\n"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1.6\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-08-16 20:51+0200\n"
+"PO-Revision-Date: 2004-02-05 23:33+0200\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@hut.fi>\n"
 "Language-Team: Gnome Finnish Translation Team <gnome-fi-laatu@lists."
 "sourceforge.net>\n"
@@ -68,13 +68,12 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Virhe XML-taustamoduulin hakemistovälimuistin synkronoinnissa: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
 "Hakemiston poistotoiminto ei ole enää tuettu: poista vain kaikki hakemiston "
-"sisältämät avaimet"
+"sisältämät arvot"
 
 #: backends/xml-backend.c:770
 #, c-format
@@ -92,7 +91,7 @@ msgid "Initializing XML backend module"
 msgstr "XML-taustamoduuli käynnistyy"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "XML-hakemiston \"%s\" lukituksen luovutus epäonnistui: %s"
 
@@ -372,7 +371,7 @@ msgid "Error checking existence of `%s': %s"
 msgstr "Hakemiston \"%s\" olemassaolon tarkistus epäonnistui: %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Hakemiston \"%s\" poisto epäonnistui: %s"
 
@@ -987,12 +986,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
-"Lähdehakemistossa ei ole asetuslähteitä: asetukset eivät tallennu. Muokkaa "
+"Lähdepolussa ei ole asetuslähteitä: asetukset eivät tallennu. Muokkaa "
+"tiedostoa %s"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1049,9 +1049,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Hakemiston %s omistaja ei ole nykyinen käyttäjä"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Hakemistolla %2$s on virheelliset oikeudet %1$o"
+msgstr "Hakemistolla %2$s on virheelliset oikeudet %1$lo"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1434,14 +1434,12 @@ msgid "Shutdown error: %s\n"
 msgstr "Sammutusvirhe: %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr ""
 "Yksi tai useampi hakemisto täytyy määritellä luetteloitaessa "
 "rekursiivisesti.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "Yksi tai useampi tulostettava hakemisto täytyy määritellä.\n"
 
@@ -1668,7 +1666,6 @@ msgid "Error syncing: %s"
 msgstr "Synkronointi epäonnistui: %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr "Hakemistot, joista avain-arvoparit haetaan, täytyy määritellä.\n"
 
@@ -1691,7 +1688,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "\"%s\":n avainten rekursiivinen poistaminen epäonnistui: %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr "Hakemistoja, joiden alihakemistot haetaan, täytyy määritellä.\n"
 
@@ -1960,15 +1956,31 @@ msgstr ""
 "hakemistossa:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u kohdetta on jäljellä välimuistissa %u sekuntia vanhempien jo "
-#~ "synkronoitujen kohteiden poiston jälkeen"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Hakemistoa \"%s\" ei löydy\n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "GConf-puun tallennus tiedostoon \"%s\" epäonnistui: %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Käyttö: %s <hakemisto>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Käyttö: %s <hakemisto>\n"
+#~ "  Yhdistää merkintämoduulin tiedostojärjestelmärakenteen seuraavasti:\n"
+#~ "    hak/%%gconf.xml\n"
+#~ "        alihak1/%%gconf.xml\n"
+#~ "        alihak2/%%gconf.xml\n"
+#~ "  tuloksena:\n"
+#~ "    hak/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Virheellisen arvo sisältävä asetuspyyntö saapui"
@@ -2078,9 +2090,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Sammutuspyyntö saapui"
 
-#~ msgid "/path"
-#~ msgstr "/polku"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Viittauksen saaminen olioon ConfigServer epäonnistui"
 
@@ -2168,3 +2177,16 @@ msgstr ""
 #~ "added."
 #~ msgstr ""
 #~ "Jokin asiakas poisti itsensä GConf-palvelimesta, kun sitä ei oltu lisätty."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u kohdetta on jäljellä välimuistissa %u sekuntia vanhempien jo "
+#~ "synkronoitujen kohteiden poiston jälkeen"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/polku"

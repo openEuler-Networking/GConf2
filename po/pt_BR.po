@@ -1967,15 +1967,13 @@ msgstr ""
 "no diretório:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u itens continuam no cache após a limpeza dos itens já sincronizados "
-#~ "mais antigos que %u segundos"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Não foi possível criar diretório `%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Erro ao obter schema em '%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Valor inválido recebido na requisição de atribuição"
@@ -2087,9 +2085,6 @@ msgstr ""
 #~ msgid "Shutdown request received"
 #~ msgstr "Recebida requisição para desligar"
 
-#~ msgid "/path"
-#~ msgstr "/path"
-
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Falha ao obter referência de objeto para ConfigServer"
 
@@ -2174,3 +2169,16 @@ msgstr ""
 #~ "Some client removed itself from the GConf server when it hadn't been "
 #~ "added."
 #~ msgstr "Algum cliente se excluiu do servidor GConf sem ter sido incluído."
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u itens continuam no cache após a limpeza dos itens já sincronizados "
+#~ "mais antigos que %u segundos"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/path"

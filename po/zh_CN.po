@@ -2023,13 +2023,13 @@ msgstr ""
 "正在试图通过为目录中的关键字设置不正确的值来破坏您的应用程序：\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr "在清除旧于“%u”秒的已同步的项后，有 %u 项保留在缓存中"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "无法创建目录“%s”：%s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "在“%s”获取 schema 时发生错误：%s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "接收到“设置请求中有无效值”"
@@ -2153,10 +2153,6 @@ msgstr ""
 #~ msgstr "已接收到关闭请求"
 
 # SUN NEW TRANSLATION
-#~ msgid "/path"
-#~ msgstr "/path"
-
-# SUN NEW TRANSLATION
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "无法获取 ConfigServer 的对象引用"
 
@@ -2252,3 +2248,15 @@ msgstr ""
 #~ "Some client removed itself from the GConf server when it hadn't been "
 #~ "added."
 #~ msgstr "当某个客户端未被添加时，它将自己从 GConf 服务器中删除。"
+
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr "在清除旧于“%u”秒的已同步的项后，有 %u 项保留在缓存中"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+# SUN NEW TRANSLATION
+#~ msgid "/path"
+#~ msgstr "/path"

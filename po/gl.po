@@ -17,6 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1898,15 +1899,13 @@ msgstr ""
 "do directorio:\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u elementos permanecen na caché tras borrar elementos xa sincronizados "
-#~ "de máis de %u segundos"
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Non foi posible crear o directorio `%s': %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Erro listando os directorios en `%s': %s"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Recibiuse un valor non válido na petición de establecer"
@@ -1985,9 +1984,6 @@ msgstr ""
 
 #~ msgid "Shutdown request received"
 #~ msgstr "Recibiuse unha petición de finalización"
-
-#~ msgid "/path"
-#~ msgstr "/path"
 
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Erro ao obter unha referencia de obxecto para o ConfigServer"
@@ -2078,6 +2074,19 @@ msgstr ""
 #~ "added."
 #~ msgstr "Algún cliente eliminouse do servidor GConf, mais non se engadira."
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u elementos permanecen na caché tras borrar elementos xa sincronizados "
+#~ "de máis de %u segundos"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/path"
+
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "A opción --dir-exists debe usarse por si mesma.\n"
 
@@ -2112,10 +2121,6 @@ msgstr ""
 #~ msgid "Unsynced directory deletions when shutting down XML backend"
 #~ msgstr ""
 #~ "Eliminacións de directorios non sincronizadas ao desactivar o módulo XML"
-
-#, fuzzy
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Erro listando os directorios en `%s': %s"
 
 #, fuzzy
 #~ msgid "Error unsetting '%s': %s\n"

@@ -2012,6 +2012,15 @@ msgstr ""
 "a claus al directori:\n"
 "  %s\n"
 
+#, fuzzy
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "No s'ha pogut crear el directori '%s': %s"
+
+#
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Error en llistar directoris en `%s': %s"
+
 #~ msgid "Received invalid value in set request"
 #~ msgstr "S'ha rebut un valor no vàlid en definir el requeriment"
 
@@ -2279,10 +2288,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Violació de segment!\n"
 #~ "No es pot mostrar el quadre de diàleg de fallada: %s\n"
-
-#
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Error en llistar directoris en `%s': %s"
 
 #
 #~ msgid "Error unsetting '%s': %s\n"

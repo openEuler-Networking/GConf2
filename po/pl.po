@@ -1970,6 +1970,32 @@ msgstr ""
 "kluczy w katalogu:\n"
 "  %s\n"
 
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Nie można znaleźć katalogu %s\n"
+
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "Błąd podczas zapisu drzewa GConf do \"%s\": %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Użycie: %s <katalog>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Użycie: %s <katalog>\n"
+#~ "  Scala hierarhię znaczników w systemie plików w postaci:\n"
+#~ "    katalog/%%gconf.xml\n"
+#~ "            podkatalog1/%%gconf.xml\n"
+#~ "            podkatalog2/%%gconf.xml\n"
+#~ "  do postaci:\n"
+#~ "    katalog/%%gconf-tree.xml\n"
+
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Otrzymano niewłaściwą wartość w zbiorze żądania"
 

@@ -13,6 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1802,8 +1803,12 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-#~ msgid "%s"
-#~ msgstr "%"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "'%s'എന്ന കൂട് ഉണ്ടാക്കാന്‌ കഴിയുന്നില്ല: %s\n"
+
+#, fuzzy
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr "%s വായിക്കുന്നതില്‌ പരാജയം : %s"
 
 #, fuzzy
 #~ msgid "Listener ID %lu doesn't exist"
@@ -1833,10 +1838,6 @@ msgstr ""
 #~ msgstr ""
 #~ "GConf പിശക്:\n"
 #~ "  %s"
-
-#, fuzzy
-#~ msgid "/path"
-#~ msgstr "വഴി"
 
 #, fuzzy
 #~ msgid "Could not open saved state file '%s' for writing: %s"
@@ -1887,3 +1888,11 @@ msgstr ""
 #, fuzzy
 #~ msgid "Failed to flush client add to saved state file: %s"
 #~ msgstr "രചന %sലെ പ്രമേയം വായിക്കുന്നതില്‌ പരാജയപ്പെട്ടു: %s\n"
+
+#, fuzzy
+#~ msgid "%s"
+#~ msgstr "%"
+
+#, fuzzy
+#~ msgid "/path"
+#~ msgstr "വഴി"

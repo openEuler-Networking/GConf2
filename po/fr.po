@@ -1,14 +1,16 @@
 # French translation of GConf.
-# Copyright (C) 2000-2003 Free Software Foundation, Inc.
+# Copyright (C) 2000-2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gconf package.
+#
 # Vincent Renardias <vincent@ldsol.com>, 2000.
-# maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2003.
+# maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2004.
 # Sun G11n <gnome_int_l10n@ireland.sun.com>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.3.3\n"
+"Project-Id-Version: GConf 2.5.1\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-07-20 11:32+0200\n"
+"PO-Revision-Date: 2004-01-02 20:55+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +21,7 @@ msgstr ""
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
-msgstr "Répertoire racine %s introuvable à l'adresse « %s »"
+msgstr "Impossible de trouver le répertoire racine %s à l'adresse « %s »"
 
 #: backends/dir-utils.c:124 backends/xml-backend.c:332
 #, c-format
@@ -40,14 +42,15 @@ msgstr "Déchargement du module XML."
 #: backends/xml-backend.c:285
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
-msgstr "Répertoire racine XML introuvable à l'adresse « %s »"
+msgstr "Impossible de trouver le répertoire racine XML à l'adresse « %s »"
 
 #: backends/xml-backend.c:443
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
-"Ne peut lire lire ou écrire au répertoire racine XML à l'adresse « %s »"
+"Impossible de lire ou d'écrire dans le répertoire racine XML à l'adresse « %"
+"s »"
 
 #: backends/xml-backend.c:453
 #, c-format
@@ -62,7 +65,6 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Erreur de synchronisation du répertoire de cache du moteur XML : %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -87,7 +89,7 @@ msgid "Initializing XML backend module"
 msgstr "Initialisation du module XML"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Le déverrouillage du répertoire XML « %s » a échoué : %s"
 
@@ -107,7 +109,7 @@ msgstr ""
 #: backends/xml-dir.c:171
 #, c-format
 msgid "Could not stat `%s': %s"
-msgstr "Ne peut avoir les statistiques « %s » : %s"
+msgstr "Impossible d'obtenir les statistiques « %s » : %s"
 
 #: backends/xml-dir.c:181
 #, c-format
@@ -180,7 +182,7 @@ msgstr ""
 #: backends/xml-dir.c:1255
 #, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "Ne peut créer le répertoire « %s » : %s"
+msgstr "Impossible de créer le répertoire « %s » : %s"
 
 #: backends/xml-dir.c:1271
 #, c-format
@@ -306,7 +308,7 @@ msgstr ""
 #: gconf/gconf-backend.c:230
 #, c-format
 msgid "Error opening module `%s': %s\n"
-msgstr "Erreur durant l'ouverture du module « %s » : %s\n"
+msgstr "Erreur lors de l'ouverture du module « %s » : %s\n"
 
 #: gconf/gconf-backend.c:262
 #, c-format
@@ -341,42 +343,42 @@ msgstr "La synchronisation de une ou plusieurs sources a échoué : %s"
 #: gconf/gconf-database.c:241 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
-msgstr "Erreur durant l'obtention de la valeur de « %s » : %s"
+msgstr "Erreur lors de l'obtention de la valeur de « %s » : %s"
 
 #: gconf/gconf-database.c:287
 #, c-format
 msgid "Error setting value for `%s': %s"
-msgstr "Erreur durant la définition de la valeur de « %s » : %s"
+msgstr "Erreur lors de la définition de la valeur de « %s » : %s"
 
 #: gconf/gconf-database.c:342
 #, c-format
 msgid "Error unsetting `%s': %s"
-msgstr "Erreur durant l'annulation de « %s » : %s"
+msgstr "Erreur lors de l'annulation de « %s » : %s"
 
 #: gconf/gconf-database.c:371
 #, c-format
 msgid "Error getting default value for `%s': %s"
-msgstr "Erreur durant l'obtention de la valeur par défaut de « %s » : %s"
+msgstr "Erreur lors de l'obtention de la valeur par défaut de « %s » : %s"
 
 #: gconf/gconf-database.c:418
 #, c-format
 msgid "Error unsetting \"%s\": %s"
-msgstr "Erreur durant l'annulation de « %s » : %s"
+msgstr "Erreur lors de l'annulation de « %s » : %s"
 
 #: gconf/gconf-database.c:450
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
-msgstr "Erreur durant l'obtention de la nouvelle valeur de « %s » : %s"
+msgstr "Erreur lors de l'obtention de la nouvelle valeur de « %s » : %s"
 
 #: gconf/gconf-database.c:496
 #, c-format
 msgid "Error checking existence of `%s': %s"
-msgstr "Erreur durant la vérification de l'existence de « %s » : %s"
+msgstr "Erreur lors de la vérification de l'existence de « %s » : %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Erreur durant la suppression du répertoire « %s » : %s"
+msgstr "Erreur lors de la suppression du répertoire « %s » : %s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -386,12 +388,12 @@ msgstr "L'obtention de toutes les entrées dans « %s » a échoué : %s"
 #: gconf/gconf-database.c:573
 #, c-format
 msgid "Error listing dirs in `%s': %s"
-msgstr "Erreur durant le listage des répertoires dans « %s » : %s"
+msgstr "Erreur lors du listage des répertoires dans « %s » : %s"
 
 #: gconf/gconf-database.c:594
 #, c-format
 msgid "Error setting schema for `%s': %s"
-msgstr "Erreur durant la definition du schéma pour « %s » : %s"
+msgstr "Erreur lors de la definition du schéma pour « %s » : %s"
 
 #: gconf/gconf-error.c:25
 msgid "Success"
@@ -540,7 +542,8 @@ msgstr ""
 #: gconf/gconf-internals.c:1884
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
 msgstr ""
-"ne peut contacter ORB pour résoudre la référence à l'objet gconfd existant"
+"impossible de contacter ORB pour résoudre la référence à l'objet gconfd "
+"existant"
 
 #: gconf/gconf-internals.c:1894
 #, c-format
@@ -607,7 +610,7 @@ msgstr "impossible de créer le répertoire « %s » : %s"
 #: gconf/gconf-internals.c:2279
 #, c-format
 msgid "Can't write to file `%s': %s"
-msgstr "Impossible d'écrire vers le fichier « %s » : %s"
+msgstr "Impossible d'écrire dans le fichier « %s » : %s"
 
 #: gconf/gconf-internals.c:2323
 #, c-format
@@ -857,7 +860,7 @@ msgstr "Erreur lors de la recherche de la métainfo : %s"
 #: gconf/gconf-sources.c:1483
 #, c-format
 msgid "Error getting metainfo: %s"
-msgstr "Erreur durant l'obtention de la métainfo : %s"
+msgstr "Erreur lors de l'obtention de la métainfo : %s"
 
 #: gconf/gconf-sources.c:1507
 #, c-format
@@ -1015,13 +1018,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
 "Aucune source de configuration dans le chemin source, la configuration ne "
-"sera pas enregistrée ; éditez "
+"sera pas enregistrée ; éditez %s"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1081,9 +1084,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Le propriétaire de %s n'est pas l'utilisateur courant"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Mauvaise permission %o sur le répertoire %s"
+msgstr "Mauvaise permission %lo sur le répertoire %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1117,7 +1120,7 @@ msgstr "L'obtention du verrou pour le démon a échoué, sortie : %s"
 #: gconf/gconfd.c:584
 #, c-format
 msgid "Error releasing lockfile: %s"
-msgstr "Erreur durant la libération du verrou de fichier : %s"
+msgstr "Erreur lors de la libération du verrou de fichier : %s"
 
 #: gconf/gconfd.c:592
 msgid "Exiting"
@@ -1468,15 +1471,13 @@ msgid "Shutdown error: %s\n"
 msgstr "Erreur d'arrêt : %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires à lister récursivement.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Vous devez spécifier une ou plusieurs répertoire à afficher.\n"
+msgstr "Vous devez spécifier une ou plusieurs répertoires à afficher.\n"
 
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
 #, c-format
@@ -1709,7 +1710,6 @@ msgid "Error syncing: %s"
 msgstr "Erreur de synchronisation : %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires pour en obtenir les paires "
@@ -1734,7 +1734,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "Échec lors de l'annulation récursive dans « %s » : %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires pour en obtenir les sous-"
@@ -2023,15 +2022,32 @@ msgstr ""
 "incorrectes pour les clés dans le répertoire :\n"
 "  %s\n"
 
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u éléments restent dans le cache aprés le nettoyage des éléments déjà "
-#~ "synchronisés plus vieux que %u secondes"
+#~ msgid "Cannot find directory %s\n"
+#~ msgstr "Impossible de trouver le répertoire %s\n"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Error saving GConf tree to '%s': %s\n"
+#~ msgstr ""
+#~ "Erreur lors de l'enregistrement de l'arborescence GConf dans « %s » : %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Usage : %s <rép>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Usage : %s <rép>\n"
+#~ "  Fusionne une hiérarchie de fichiers tel que :\n"
+#~ "    rép/%%gconf.xml\n"
+#~ "        sousrép1/%%gconf.xml\n"
+#~ "        sousrép2/%%gconf.xml\n"
+#~ "  en :\n"
+#~ "    rép/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Réception d'une valeur non valide dans la requête de définition"
@@ -2074,7 +2090,7 @@ msgstr ""
 #~ "la réapparition d'une notification génante) : %s"
 
 #~ msgid "Invalid UTF-8 in string value in '%s'"
-#~ msgstr "UTF-8 non valide dans la valeur de la chaine « %s »"
+#~ msgstr "UTF-8 non valide dans la valeur de la chaîne « %s »"
 
 #~ msgid "Couldn't interpret CORBA value for list element"
 #~ msgstr "Impossible d'interpréter la valeur CORBA pour l'élément de liste"
@@ -2145,9 +2161,6 @@ msgstr ""
 
 #~ msgid "Shutdown request received"
 #~ msgstr "Réception de la demande d'arrêt"
-
-#~ msgid "/path"
-#~ msgstr "/chemin"
 
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "L'obtention de la référence de l'objet pour ConfigServer a échoué"
@@ -2248,6 +2261,19 @@ msgstr ""
 #~ "Un client s'est supprimé du serveur GConf alors qu'il n'avait pas été "
 #~ "ajouté."
 
+#~ msgid ""
+#~ "%u items remain in the cache after cleaning already-synced items older "
+#~ "than %u seconds"
+#~ msgstr ""
+#~ "%u éléments restent dans le cache aprés le nettoyage des éléments déjà "
+#~ "synchronisés plus vieux que %u secondes"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "/path"
+#~ msgstr "/chemin"
+
 #~ msgid "--dir-exists option must be used by itself.\n"
 #~ msgstr "L'option --dir-exists doit être utilisée seule.\n"
 
@@ -2309,12 +2335,8 @@ msgstr ""
 
 #~ msgid "Unsynced directory deletions when shutting down XML backend"
 #~ msgstr ""
-#~ "Suppressions de répertoire non synchronisées durant l'extinction du "
+#~ "Suppressions de répertoire non synchronisées lors de l'extinction du "
 #~ "module XML"
-
-#, fuzzy
-#~ msgid "Error listing subdirs of '%s': %s\n"
-#~ msgstr "Erreur durant le listage des répertoires dans « %s » : %s"
 
 #, fuzzy
 #~ msgid "Error unsetting '%s': %s\n"
@@ -2454,7 +2476,7 @@ msgstr ""
 #~ "enregistrer le serveur existant"
 
 #~ msgid "Unknown error registering existing gconfd with OAF; exiting"
-#~ msgstr "Erreur inconnu durant l'enregistrement de gconfd avec OAF ; quitte"
+#~ msgstr "Erreur inconnu lors de l'enregistrement de gconfd avec OAF ; quitte"
 
 #~ msgid ""
 #~ "OAF doesn't know about our IID; indicates broken installation; can't "
@@ -2468,7 +2490,8 @@ msgstr ""
 
 #~ msgid "Unknown error registering gconfd with OAF; exiting\n"
 #~ msgstr ""
-#~ "Erreur inconnu durant l'enregistrement de gconfd auprés de OAF ; quitte\n"
+#~ "Erreur inconnue lors de l'enregistrement de gconfd auprés de OAF ; "
+#~ "quitte\n"
 
 #~ msgid ""
 #~ "Shouldn't run gconfd while installing new schema files.\n"
