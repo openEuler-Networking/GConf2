@@ -1,4 +1,10 @@
-2001-03-06 Rebecca Schulman <rebecka@eazel.com>
+2001-03-07  Christian Meyer  <chrisime@gnome.org>
+
+	* de.po: Cleaned up the file a bit, resulting in a quicker update for
+                 the status page.
+
+2001-03-06  Rebecca Schulman <rebecka@eazel.com>
+
 	* tr.po: Fixed misplaced quotes
 
 2001-03-06  Fatih Demir	<kabalak@gtranslator.org>
