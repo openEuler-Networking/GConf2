@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2002-03-14 23:10-0500\n"
+"POT-Creation-Date: 2002-01-26 22:16+0100\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -59,11 +59,11 @@ msgstr "Ne morem brati iz ali pisati v korenski imenik XML na naslovu `%s'"
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Dovoljenja imenika/datoteke za vir XML na korenu %s so: %o/%o"
 
-#: backends/xml-backend.c:714
+#: backends/xml-backend.c:708
 msgid "Initializing XML backend module"
 msgstr "Inicializiram ozadni XML modul"
 
-#: backends/xml-backend.c:779
+#: backends/xml-backend.c:773
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
 msgstr "Nisem uspel sprostiti kljuèavnice v imeniku XML `%s': %s"
@@ -592,14 +592,10 @@ msgid "Failed to create or open '%s'"
 msgstr "Nisem uspel ustvariti ali odpreti '%s'"
 
 #: gconf/gconf-internals.c:2520
-#, fuzzy, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured, or a hard NFS client "
-"crash caused a stale lock (%s)"
-msgstr ""
-"Nisem uspel zakleniti '%s': verjetno ima kljuèavnico drug proces ali pa ima "
-"va¹ operacijski sistem nepravilno nastavljeno zaklepanje datotek NFS (%s)"
+"operating system has NFS file locking misconfigured (%s)"
+msgstr "Nisem uspel zakleniti '%s': verjetno ima kljuèavnico drug proces ali pa ima va¹ operacijski sistem nepravilno nastavljeno zaklepanje datotek NFS (%s)"
 
 #: gconf/gconf-internals.c:2548
 #, c-format
@@ -1419,8 +1415,7 @@ msgstr "Ob uporabi --direct morate navesti vir nastavitev z --config-source\n"
 
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
-msgstr ""
-"Kadar uporabljate neprivzet vir nastavitev, bi morali uporabljati --direct\n"
+msgstr "Kadar uporabljate neprivzet vir nastavitev, bi morali uporabljati --direct\n"
 
 #: gconf/gconftool.c:531
 #, c-format
