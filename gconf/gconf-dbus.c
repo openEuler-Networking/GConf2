@@ -1826,6 +1826,8 @@ ensure_dbus_connection (void)
 {
   const gchar *dbus_address;
   DBusError error;
+  GError *gerror = NULL;
+  
   /*DBusMessageHandler *handler;*/
   
   if (connection)
@@ -1834,24 +1836,25 @@ ensure_dbus_connection (void)
   /* FIXME: Need to figure out how to handle the bus address. The typical case
      will most likely be to use the session bus. */
   dbus_address = g_getenv ("DBUS_ADDRESS");
-  
+#if 0 
   if (!dbus_address)
     {
       g_warning ("Failed to get the D-BUS bus daemon address.\n");
       return FALSE;
     }
-  
+#endif
   dbus_error_init (&error);
 
-  connection = dbus_connection_open (dbus_address, &error);
+  connection = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
+  /* dbus_connection_open (dbus_address, &error); */
   if (!connection)
     {
       g_warning ("Failed to connect to the D-BUS bus daemon: %s\n.",
-		  error.message);
-      dbus_error_free (&error);
+		  gerror->message);
+     /* dbus_error_free (&error); */
       return FALSE;
     }
-
+/*
   if (!dbus_bus_register (connection, &error))
     {
       g_warning ("Failed to register client with the D-BUS bus daemon: %s",
@@ -1867,7 +1870,7 @@ ensure_dbus_connection (void)
     }
 
   dbus_connection_setup_with_g_main (connection, NULL);
-
+*/
   /* FIXME
   handler = dbus_message_handler_new (gconf_database_handler, NULL, NULL);
   dbus_connection_register_handler (connection, handler, config_listener_messages,
