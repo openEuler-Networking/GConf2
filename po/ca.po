@@ -1,15 +1,15 @@
 # Catalan translation of GConf.
-# Copyright (C) 2000, 2001, 2002, 2003 Free Software Foundation, Inc.
+# Copyright (C) 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
 # Softcatalà <info@softcatala.org>, 2000, 2001, 2002.
 # Gisella Carbonell <gcarbonell@arrakis.es>, 2002.
-# Jordi Mallach <jordi@sindominio.net>, 2003.
+# Jordi Mallach <jordi@sindominio.net>, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-19 13:11+0100\n"
-"PO-Revision-Date: 2003-11-13 16:08+0100\n"
+"PO-Revision-Date: 2004-04-27 13:14+0200\n"
 "Last-Translator: Gisela Carbonell <gcarbonell@arrakis.es>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,20 +32,20 @@ msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr "No es pot llegir des de/escriure al directori arrel %s a l'adreça `%s'"
 
 #: backends/gconf-merge-tree.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot find directory %s\n"
-msgstr "No s'ha pogut crear el directori '%s': %s"
+msgstr "No s'ha pogut trobar el directori %s\n"
 
 #
 #: backends/gconf-merge-tree.c:94
-#, fuzzy, c-format
+#, c-format
 msgid "Error saving GConf tree to '%s': %s\n"
-msgstr "Error en llistar directoris en `%s': %s"
+msgstr "S'ha produït un error en desar el arbre de GConf a «%s»: %s\n"
 
 #: backends/gconf-merge-tree.c:120
 #, c-format
 msgid "Usage: %s <dir>\n"
-msgstr ""
+msgstr "Forma d'ús: %s <dir>\n"
 
 #: backends/gconf-merge-tree.c:126
 #, c-format
@@ -58,6 +58,13 @@ msgid ""
 "  to:\n"
 "    dir/%%gconf-tree.xml\n"
 msgstr ""
+"Forma d'ús: %s <dir>\n"
+"  Fusiona una jerarquia de rerefons de sistemes de fitxers de marcat com:\n"
+"    dir/%%gconf.xml\n"
+"        subdir1/%%gconf.xml\n"
+"        subdir2/%%gconf.xml\n"
+"  a:\n"
+"    dir/%%gconf-tree.xml\n"
 
 #: backends/xml-backend.c:236
 msgid "Unloading XML backend module."
