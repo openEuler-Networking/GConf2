@@ -50,6 +50,9 @@ GConfLock* gconf_get_lock_or_current_holder (const gchar  *lock_directory,
                                              GError      **err);
 ConfigServer gconf_get_current_lock_holder  (const gchar *lock_directory,
                                              GString     *failure_log);
+gboolean
+gconf_release_lock (GConfLock *lock,
+                    GError   **err);
 
 gchar* gconf_object_to_string (CORBA_Object obj,
                                GError **err);

@@ -80,7 +80,7 @@ database_vtable = {
 static void
 database_unregistered_func (DBusConnection *connection, GConfDatabaseDBus *db)
 {
-        g_print ("Database object unregistered\n");
+  /* FIXME: What to do here? */
 }
 
 static DBusHandlerResult
@@ -88,57 +88,58 @@ database_message_func (DBusConnection  *connection,
                        DBusMessage     *message,
                        GConfDatabaseDBus *db)
 {
-        g_print ("In database func\n");
-         
-        if (dbus_message_is_method_call (message,
-                                         GCONF_DBUS_DATABASE_INTERFACE,
-					 GCONF_DBUS_DATABASE_LOOKUP)) {
-                database_handle_lookup (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_LOOKUP_EXTENDED)) {
-                database_handle_lookup_ext (connection, message, db);
-        }
-	else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_SET)) {
-                database_handle_set (connection, message, db);
-        }
-	else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_UNSET)) {
-                database_handle_unset (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_RECURSIVE_UNSET)) {
-                database_handle_recursive_unset (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_DIR_EXISTS)) {
-                database_handle_dir_exists (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_GET_ALL_ENTRIES)) {
-                database_handle_get_all_entries (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_GET_ALL_DIRS)) {
-                database_handle_get_all_dirs (connection, message, db);
-        }
-        else if (dbus_message_is_method_call (message,
-                                              GCONF_DBUS_DATABASE_INTERFACE,
-                                              GCONF_DBUS_DATABASE_SET_SCHEMA)) {
-                database_handle_set_schema (connection, message, db);
-        } else {
-                return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
-        }
-                                                                                
-        return DBUS_HANDLER_RESULT_HANDLED;
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+
+  if (dbus_message_is_method_call (message,
+				   GCONF_DBUS_DATABASE_INTERFACE,
+				   GCONF_DBUS_DATABASE_LOOKUP)) {
+    database_handle_lookup (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_LOOKUP_EXTENDED)) {
+    database_handle_lookup_ext (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_SET)) {
+    database_handle_set (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_UNSET)) {
+    database_handle_unset (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_RECURSIVE_UNSET)) {
+    database_handle_recursive_unset (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_DIR_EXISTS)) {
+    database_handle_dir_exists (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_GET_ALL_ENTRIES)) {
+    database_handle_get_all_entries (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_GET_ALL_DIRS)) {
+    database_handle_get_all_dirs (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_SET_SCHEMA)) {
+    database_handle_set_schema (connection, message, db);
+  } else {
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+  }
+
+  return DBUS_HANDLER_RESULT_HANDLED;
 }
         
 static void

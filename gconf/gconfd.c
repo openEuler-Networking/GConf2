@@ -493,9 +493,9 @@ main(int argc, char** argv)
     }
   else
     {
-  err = NULL;
+      err = NULL;
 
-  daemon_lock = gconf_get_lock (lock_dir, &err);
+      daemon_lock = gconf_get_lock_or_current_holder (lock_dir, NULL, &err);
     }
 
   if (daemon_lock != NULL)

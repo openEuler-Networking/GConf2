@@ -29,6 +29,7 @@
 #include <locale.h>
 #include <time.h>
 #include <math.h>
+#include "gconf.h"
 
 static gchar* daemon_ior = NULL;
 

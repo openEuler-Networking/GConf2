@@ -26,6 +26,7 @@
 
 static DBusConnection *bus_conn;
 static const char *server_path[] = { "org", "gnome", "GConf", "Server", NULL };
+static gint nr_of_connections = 0;
 
 static void              server_unregistered_func (DBusConnection *connection,
 						   void           *user_data);
@@ -41,16 +42,16 @@ static void          server_handle_get_default_db (DBusConnection  *connection,
 
 static DBusObjectPathVTable
 server_vtable = {
-        server_unregistered_func,
-        server_message_func,
-        NULL,
+  server_unregistered_func,
+  server_message_func,
+  NULL,
 };
 
 static void
 server_unregistered_func (DBusConnection *connection, void *user_data)
 {
-        g_print ("Server object unregistered\n");
-	/* Free the server object? */
+  g_print ("Server object unregistered\n");
+  nr_of_connections = 0;
 }
 
 static DBusHandlerResult
@@ -58,6 +59,9 @@ server_message_func (DBusConnection *connection,
 		     DBusMessage    *message,
 		     void           *user_data)
 {
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+
   if (dbus_message_get_type (message) != DBUS_MESSAGE_TYPE_METHOD_CALL) 
     {
       g_print ("Not a method call\n");
@@ -220,25 +224,16 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
+  nr_of_connections = 1;
   dbus_connection_setup_with_g_main (bus_conn, NULL);
   
   return TRUE;
 }
 
-gboolean 
-gconfd_dbus_check_in_shutdown (DBusConnection *connection, DBusMessage *message)
-{
-  /* FIXME: Copy from andersca's code */
-  return FALSE;
-}
-
 guint
 gconfd_dbus_client_count (void)
 {
-  /* FIXME: Return 1 if we have the bus running, 
-   * if the bus goes down, return 0
-   */
-  return 1;
+  return nr_of_connections;
 }
 
 gboolean
@@ -344,4 +339,23 @@ gconfd_dbus_set_exception (DBusConnection  *connection,
   return TRUE;
 }
 
+gboolean
+gconfd_dbus_check_in_shutdown (DBusConnection *connection,
+                               DBusMessage    *message)
+{
+  if (gconfd_in_shutdown ())
+    {
+      DBusMessage *reply;
+       
+      reply = dbus_message_new_error (message,
+				      GCONF_DBUS_ERROR_IN_SHUTDOWN,
+				      _("The GConf daemon is currently shutting down."));
+      dbus_connection_send (connection, reply, NULL);
+      dbus_message_unref (reply);
+       
+      return TRUE;
+    }
+  else
+    return FALSE;
+}
 
