@@ -1,22 +1,26 @@
 NULL=
 
+GCONFD_BINARY_NAME=gconfd-1
+
 INCLUDES=\
-	-I$(top_srcdir) \
-	-I$(top_builddir) \
-	$(GLIB_CFLAGS) \
-	$(ORBIT_CFLAGS) \
-	$(XML_CFLAGS) \
-	$(OAF_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GConf\"                   \
-	-DGCONF_LOCALE_DIR=\""$(gconflocaledir)"\"  \
-        -DGCONF_SRCDIR=\""$(absolute_top_srcdir)"\" \
-	-DGCONF_CONFDIR=\""$(sysconfdir)/gconf/$(MAJOR_VERSION)"\" \
-	-DGCONF_ETCDIR=\""$(sysconfdir)/gconf"\" \
-	-DGCONF_BUILDDIR=\""$(top_builddir)"\" 			\
-	-DGCONF_BACKEND_DIR=\""$(pkglibdir)/$(MAJOR_VERSION)"\" \
-	-DVERSION=\""$(VERSION)"\" \
-	-DIID=\""OAFIID:gconfd:19991118"\" \
-	-DGCONF_ENABLE_INTERNALS=1 \
+	-I$(top_srcdir)							\
+	-I$(top_builddir)						\
+	$(GLIB_CFLAGS)							\
+	$(ORBIT_CFLAGS)							\
+	$(XML_CFLAGS)							\
+	$(OAF_CFLAGS)							\
+	-DG_LOG_DOMAIN=\"GConf\"					\
+	-DGCONF_LOCALE_DIR=\""$(gconflocaledir)"\"			\
+        -DGCONF_SRCDIR=\""$(absolute_top_srcdir)"\"			\
+	-DGCONF_CONFDIR=\""$(sysconfdir)/gconf/$(MAJOR_VERSION)"\"	\
+	-DGCONF_ETCDIR=\""$(sysconfdir)/gconf"\"			\
+	-DGCONF_BUILDDIR=\""$(top_builddir)"\"				\
+	-DGCONF_BINDIR=\""$(bindir)"\"					\
+	-DGCONF_BACKEND_DIR=\""$(pkglibdir)/$(MAJOR_VERSION)"\"		\
+	-DVERSION=\""$(VERSION)"\"					\
+	-DIID=\""OAFIID:gconfd:19991118"\"				\
+	-DGCONF_ENABLE_INTERNALS=1					\
+	-DGCONFD=\""$(GCONFD_BINARY_NAME)"\" 				\
 	$(NULL)
 
 EFENCE=
@@ -91,7 +95,7 @@ libgconf_1_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF
 
 libgconf_1_la_LIBADD = $(INTLLIBS) $(OAF_LIBS) $(GLIB_LIBS)
 
-EXTRA_DIST=GConf.idl gconfd.oafinfo.in default.path.in
+EXTRA_DIST=GConf.idl default.path.in
 
 install-exec-local:
 	(cd $(DESTDIR)$(bindir) && $(LN_S) -f gconftool-$(MAJOR_VERSION) gconftool)
@@ -99,6 +103,3 @@ install-exec-local:
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)
 	$(INSTALL_DATA) default.path $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)/path
-	-mkdir -p $(DESTDIR)$(datadir)/oaf
-	$(INSTALL_DATA) gconfd.oafinfo $(DESTDIR)$(datadir)/oaf/gconfd-$(MAJOR_VERSION).oafinfo
-

@@ -2,10 +2,10 @@
 
 ## fork-bomb and see if we end up with duplicate gconfd 
 
-COUNT=3
+COUNT=8
 TMPDIR=/tmp/gconftestactivationraces
 
-mkdir $TMPDIR
+mkdir $TMPDIR || true
 
 /bin/rm $TMPDIR/* || true
 

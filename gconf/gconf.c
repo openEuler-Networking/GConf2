@@ -287,7 +287,7 @@ gconf_engine_connect (GConfEngine *conf,
       if (err)
         *err = gconf_error_new(GCONF_ERROR_BAD_ADDRESS,
                                _("Server couldn't resolve the address `%s'"),
-                               conf->address);
+                               conf->address ? conf->address : "default");
           
       return FALSE;
     }
@@ -1842,20 +1842,17 @@ static ConfigServer   server = CORBA_OBJECT_NIL;
 
 /* errors in here should be GCONF_ERROR_NO_SERVER */
 static ConfigServer
-try_to_contact_server(gboolean start_if_not_found, GError** err)
+try_to_contact_server (gboolean start_if_not_found, GError** err)
 {
   CORBA_Environment ev;
-  OAF_ActivationFlags flags;
-  
-  CORBA_exception_init(&ev);
 
-  flags = 0;
-  if (!start_if_not_found)
-    flags |= OAF_FLAG_EXISTING_ONLY;
+  /* Try to launch server */      
+  server = gconf_activate_server (start_if_not_found,
+                                  err);
   
-  server = oaf_activate_from_id ("OAFAID:["IID"]", flags, NULL, &ev);
-
-  /* So try to ping server, by adding ourselves as a client */
+  /* Try to ping server, by adding ourselves as a client */
+  CORBA_exception_init (&ev);
+  
   if (!CORBA_Object_is_nil (server, &ev))
     {
       ConfigServer_add_client (server,
@@ -1872,19 +1869,6 @@ try_to_contact_server(gboolean start_if_not_found, GError** err)
 
           CORBA_exception_free(&ev);
 	}
-    }
-  else
-    {
-      if (gconf_handle_oaf_exception(&ev, err))
-        {
-          /* Make the errno more specific */
-          if (err && *err)
-            (*err)->code = GCONF_ERROR_NO_SERVER;
-        }
-
-      if (err && *err == NULL)
-        *err = gconf_error_new(GCONF_ERROR_NO_SERVER,
-                               _("Error contacting configuration server: OAF returned nil from oaf_activate_from_id() and did not set an exception explaining the problem. This is a bug in the OAF package; something went wrong in OAF, and no error was reported. This is not a bug in the GConf package. Do not report a GConf bug unless you have information indicating what went wrong with OAF that was caused by GConf."));
     }
 
 #ifdef GCONF_ENABLE_DEBUG      
@@ -2113,6 +2097,7 @@ drop_all_caches (PortableServer_Servant     _servant,
 static ConfigListener 
 gconf_get_config_listener(void)
 {
+  g_return_val_if_fail (listener != CORBA_OBJECT_NIL, CORBA_OBJECT_NIL);
   return listener;
 }
 
@@ -2129,7 +2114,7 @@ gconf_postinit(gpointer app, gpointer mod_info)
   if (listener == CORBA_OBJECT_NIL)
     {
       CORBA_Environment ev;
-      PortableServer_ObjectId objid = {0, sizeof("ConfigListener"), "ConfigListener"};
+      PortableServer_ObjectId* objid;
       PortableServer_POA poa;
 
       CORBA_exception_init(&ev);
@@ -2137,7 +2122,7 @@ gconf_postinit(gpointer app, gpointer mod_info)
       
       g_assert (ev._major == CORBA_NO_EXCEPTION);
 
-      poa = (PortableServer_POA)CORBA_ORB_resolve_initial_references(oaf_orb_get(), "RootPOA", &ev);
+      poa = (PortableServer_POA)CORBA_ORB_resolve_initial_references(gconf_orb_get(), "RootPOA", &ev);
 
       g_assert (ev._major == CORBA_NO_EXCEPTION);
 
@@ -2145,8 +2130,7 @@ gconf_postinit(gpointer app, gpointer mod_info)
 
       g_assert (ev._major == CORBA_NO_EXCEPTION);
 
-      PortableServer_POA_activate_object_with_id(poa,
-                                                 &objid, &poa_listener_servant, &ev);
+      objid = PortableServer_POA_activate_object(poa, &poa_listener_servant, &ev);
 
       g_assert (ev._major == CORBA_NO_EXCEPTION);
       
@@ -2186,7 +2170,7 @@ gconf_init           (int argc, char **argv, GError** err)
     }
   else
     {
-      orb = oaf_orb_get();
+      orb = gconf_orb_get();
     }
       
   gconf_postinit(NULL, NULL);
@@ -2764,7 +2748,7 @@ gconf_engine_get_schema  (GConfEngine* conf, const gchar* key, GError** err)
 
 GSList*
 gconf_engine_get_list    (GConfEngine* conf, const gchar* key,
-                   GConfValueType list_type, GError** err)
+                          GConfValueType list_type, GError** err)
 {
   GConfValue* val;
 

@@ -1,3 +1,41 @@
+2001-09-26  Havoc Pennington  <hp@redhat.com>
+
+        Experimental changes, GCONF_BEFORE_OAF_REMOVAL tag will allow 
+	us to back them out if required.
+	
+	* gconf.m4.in: patch from Yanko Kaneti to have AM_GCONF_SOURCE
+	define a GCONF_SCHEMA_FILE_DIR variable for the directory where
+	schema files should be installed
+
+	* gconf/Makefile.am (install-data-local): don't install oafinfo
+
+	* configure.in: don't generate oafinfo
+
+	* gconf/gconftool.c (main): remove error message about running
+	gconfd while installing schemas, instead we'll fail to get a lock.
+
+	* gconf/gconfd.c (main): redirect stdin/out/err to /dev/null
+	instead of just closing them, saves ORBit some confusion
+
+	* backends/xml-cache.c (cache_clean): change the "items remain in
+	cache" message to DEBUG level
+ 
+ 	* gconf/gconf.c (gconf_postinit): merge from HEAD, don't use
+ 	custom object ID
+ 
+ 	* gconf/gconf-internals.c (gconf_get_lock_or_current_holder):
+	rearrange locking to just use fcntl()
+ 
+ 	* gconf/gconf.c (gconf_engine_connect): fix error message in
+ 	default daemon case
+ 
+ 	* gconf/gconfd.c (gconf_main): reduce exit-after-unused timeout to
+ 	2 minutes
+ 
+ 	* gconf/Makefile.am (INCLUDES): add -DGCONF_BINDIR
+ 
+ 	* gconf/gconf-internals.c: delete nanosleep junk
+	
 2001-09-17  Zbigniew Chyla  <cyba@gnome.pl>
 
 	* configure.in (ALL_LINGUAS): Added pl.

@@ -1518,7 +1518,7 @@ listener_save_foreach (const gchar* location,
   g_free (s);
   g_string_append_c (fd->str, ' ');
   
-  orb = oaf_orb_get ();
+  orb = gconf_orb_get ();
 
   CORBA_exception_init (&ev);
   
