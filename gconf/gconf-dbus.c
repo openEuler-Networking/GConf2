@@ -777,7 +777,9 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
   d(g_print ("* got reply, %p\n", reply));
   if (dbus_error_is_set (&error))
-    d(g_print ("* got error, %s\n", error.message));
+    {
+      d(g_print ("* got error, %s\n", error.message));
+    }
   
   if (gconf_server_broken (reply))
     if (tries < MAX_RETRIES)
