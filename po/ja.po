@@ -521,8 +521,7 @@ msgstr "(キーと値の)ペアを期待されたが、得られたのは %s です。"
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
-"(%s と "
-"%s)のペアを期待されたが、得られたのは１つないし両方の値が無いペアです。"
+"(%s と %s)のペアを期待されたが、得られたのは１つないし両方の値が無いペアです。"
 
 #: gconf/gconf-internals.c:1500
 #, c-format
@@ -885,8 +884,7 @@ msgstr ""
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr ""
-"シグナル %d を受け取りました。コアダンプです。GConf "
-"バグとして報告して下さい。"
+"シグナル %d を受け取りました。コアダンプです。GConf バグとして報告して下さい。"
 
 #: gconf/gconfd.c:391
 #, c-format
@@ -1005,8 +1003,7 @@ msgstr "'%s' に移動した状態保持ファイルの復帰に失敗しました: %s"
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
-"アドレス '%s' "
-"のリスナーの復帰ができません。データベースを解決できませんでした"
+"アドレス '%s' のリスナーの復帰ができません。データベースを解決できませんでした"
 
 #: gconf/gconfd.c:1679
 #, c-format
