@@ -28,6 +28,9 @@ CORBA_SOURCES = GConf-common.c GConf-skels.c GConf-stubs.c GConf.h
 
 BUILT_SOURCES = $(CORBA_SOURCES)
 
+dist-hook:
+	cd $(distdir) ; rm -f $(BUILT_SOURCES)
+
 gconfincludedir = $(includedir)/gconf/$(MAJOR_VERSION)/gconf
 gconfinclude_HEADERS =     \
 	gconf.h            \
