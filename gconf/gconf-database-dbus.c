@@ -26,11 +26,14 @@
 
 static GHashTable *databases = NULL;
 static gint object_nr = 0;
+static GConfDatabaseDBus *default_db = NULL;
 
 struct _GConfDatabaseDBus {
 	GConfDatabase  *db;
 	DBusConnection *conn;
-	const char     *object_path;
+
+	char     *address;
+	char     *object_path;
 
 	/* Information about listeners */
 };
@@ -478,7 +481,7 @@ ensure_initialized (void)
   if (!databases)
     databases = g_hash_table_new_full (g_str_hash,
 				       g_str_equal,
-				       g_free,
+				       NULL,
 				       (GDestroyNotify) database_removed);
 }
 
@@ -491,11 +494,12 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   gchar             **path;
 
   ensure_initialized ();
-  
-  if (!address) 
-    address = "default";
+ 
+  if (address) 
+    dbus_db = g_hash_table_lookup (databases, address);
+  else 
+    dbus_db = default_db;
 
-  dbus_db = g_hash_table_lookup (databases, address);
   if (dbus_db)
     return dbus_db;
 
@@ -506,6 +510,17 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   dbus_db = g_new0 (GConfDatabaseDBus, 1);
   dbus_db->db = db;
   dbus_db->conn = conn;
+  if (address) 
+    {
+      dbus_db->address = g_strdup (address);
+      g_hash_table_insert (databases, dbus_db->address, dbus_db);
+    }
+  else
+    {
+      dbus_db->address = NULL;
+      default_db = dbus_db;
+    }
+
   dbus_db->object_path = g_strdup_printf ("%s/%d", 
 					  DATABASE_OBJECT_PATH, 
 					  object_nr++);
@@ -515,7 +530,6 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 					&database_vtable, dbus_db);
 
   g_strfreev (path);
-  g_hash_table_insert (databases, g_strdup (address), dbus_db);
 
   return dbus_db;
 }
@@ -540,6 +554,9 @@ gconf_database_dbus_unregister_all (void)
   ensure_initialized ();
   g_hash_table_foreach_remove (databases, 
 			       (GHRFunc) database_foreach_unregister, NULL);
+
+  database_foreach_unregister (NULL, default_db, NULL);
+  default_db = NULL;
 }
 
 const char *
