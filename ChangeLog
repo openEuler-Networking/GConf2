@@ -1,5 +1,9 @@
 2004-07-02  Mark McLoughlin  <mark@skynet.ie>
 
+	* configure.in: Version 2.6.3.
+
+2004-07-02  Mark McLoughlin  <mark@skynet.ie>
+
 	Fix for bug #145141.
 
 	* backends/markup-tree.c: (load_subdirs): recognise
