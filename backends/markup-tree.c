@@ -712,34 +712,6 @@ delete_useless_subdirs (MarkupDir *dir)
         }
       else
         {
-          if (subdir->entries == NULL && subdir->subdirs == NULL)
-            {
-              char *fs_filename;
-              struct stat statbuf;
-              
-              fs_filename = markup_dir_build_path (subdir, TRUE);
-
-              if (stat (fs_filename, &statbuf) < 0)
-                {
-                  /* This is some kind of cruft, not an XML directory */
-                  g_printerr ("failed to stat %s: %s\n", fs_filename, g_strerror (errno));
-                }
-              else
-                {
-                  load_subdirs (subdir);
-                  if (statbuf.st_size == 0 && subdir->subdirs == NULL)
-                    {                                    
-                      g_print ("Not deleting %s entries_loaded = %d subdirs_loaded = %d "
-                               "subdir_needs_sync = %d entries_need_save = %d; %d entries %d subdirs\n",
-                               subdir->name, subdir->entries_loaded, subdir->subdirs_loaded,
-                               subdir->some_subdir_needs_sync, subdir->entries_need_save,
-                               g_slist_length (subdir->entries),
-                               g_slist_length (subdir->subdirs));
-                      exit (1);
-                    }
-                }
-              g_free (fs_filename);
-            }
           kept_subdirs = g_slist_prepend (kept_subdirs, subdir);
         }
       
@@ -802,7 +774,8 @@ markup_dir_sync (MarkupDir *dir)
 
   some_useless_entries = FALSE;
   some_useless_subdirs = FALSE;
-  
+
+#if 0
   {
     MarkupDir *parent;
 
@@ -815,6 +788,7 @@ markup_dir_sync (MarkupDir *dir)
 
     g_print ("%s\n", dir->name);
   }
+#endif
     
   /* We assume our parent directories have all been synced, before
    * we are synced. So we don't need to mkdir() parent directories.

@@ -28,6 +28,7 @@
 #include <math.h>
 
 static const char **locales = NULL;
+static gboolean sync_enabled = FALSE;
 
 typedef void (* ForeachEntryFunc) (GConfEntry *entry,
                                    int         depth,
@@ -134,6 +135,9 @@ sync_and_clear (GConfSource *source)
 {
   GError *err;
 
+  if (!sync_enabled)
+    return;
+  
   err = NULL;
   if (!(* source->backend->vtable->sync_all) (source, &err))
     {
@@ -919,8 +923,8 @@ check_int_storage (GConfSource *source)
               else
                 {
                   check (ints[i] == gotten,
-                         "int set/get pair: `%d' set, `%d' got",
-                         ints[i], gotten);
+                         "int set/get pair %s: `%d' set, `%d' got",
+                         *keyp, ints[i], gotten);
 
                 }
             }
@@ -968,8 +972,8 @@ check_int_storage (GConfSource *source)
               else
                 {
                   check (ints[i] == gotten,
-                         "int set/get pair: `%d' set, `%d' got",
-                         ints[i], gotten);
+                         "int set/get pair %s: `%d' set, `%d' got",
+                         *keyp, ints[i], gotten);
 
                 }
             }
@@ -1252,30 +1256,20 @@ print_entry (GConfEntry *entry,
   g_free (str);
 }
 
-int
-main (int argc, char **argv)
+static void
+run_all_checks (const char *address)
 {
   GConfSource *source;
   GError *error;
   Stats stats;
-  
-  if (argc != 2)
-    {
-      g_printerr ("Must specify a config source address on the command line\n");
-      return 1;
-    }
-
-  setlocale (LC_ALL, "");
-
-  locales = (const char**) gconf_split_locale (gconf_current_locale ());
-  
+    
   error = NULL;
-  source = gconf_resolve_address (argv[1], &error);
+  source = gconf_resolve_address (address, &error);
   if (error != NULL)
     {
       g_printerr ("Could not resolve address: %s\n", error->message);
       g_error_free (error);
-      return 1;
+      exit (1);
     }
 
   g_assert (source != NULL);
@@ -1310,6 +1304,24 @@ main (int argc, char **argv)
   gconf_source_free (source);
 
   g_print ("\n\n");
+}
+
+int
+main (int argc, char **argv)
+{ 
+  if (argc != 2)
+    {
+      g_printerr ("Must specify a config source address on the command line\n");
+      return 1;
+    }
+
+  setlocale (LC_ALL, "");
+
+  locales = (const char**) gconf_split_locale (gconf_current_locale ());
+
+  run_all_checks (argv[1]);
+  sync_enabled = TRUE;
+  run_all_checks (argv[1]);
   
   return 0;
 }
