@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
-"PO-Revision-Date: 2001-05-25 13:28+02:00\n"
+"POT-Creation-Date: 2001-07-23 00:39+0200\n"
+"PO-Revision-Date: 2001-07-23 00:51+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -664,7 +664,7 @@ msgid ""
 "bug, not a GConf issue. Logging out, killing oafd and gconfd, and logging "
 "back in may help. As always, check the user.* syslog for details on problems "
 "gconfd encountered."
-msgstr ""
+msgstr "Kunne ikke lagre en verdi i nøkkel '%s', siden konfigurasjonstjeneren ikke har noen skrivbare databaser. Det er to vanlige årsaker til dette problemet: 1) din konfigurasjonssti-fil inneholder ingen databaser, eller ble ikke funnet eller 2) OAF har ved en feil opprettet to gconfd-prosesser. Hvis du har to gconfd-prosesser (eller hadde to da den andre ble startet), så er dette en feil i OAF, ikke i GConf. Det kan hjelpe å logge ut, drepe oafd og gconfd, og logge inn igjen. Som alltid, sjekk user.* systemloggene for detaljer om problemer som gconfd har støtt på."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -768,7 +768,7 @@ msgid ""
 "was reported. This is not a bug in the GConf package. Do not report a GConf "
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
-msgstr ""
+msgstr "Feil under forsøk på å kontakte konfigurasjonstjeneren: OAF returnerte nil fra oaf_activate_from_id() og satt ikke et unntak som forklarer problemet. Dette er en feil i OAF-pakken; noe gikk galt i OAF, og ingen feil ble rapportert. Dette er ikke en feil i GConf-pakken. Ikke rapporter en feil for GConf med mindre du har informasjon som indikerer at det som gikk galt med OAF ble forårsaket av GConf."
 
 #: gconf/gconf.c:2194
 msgid "Failed to init GConf, exiting\n"
@@ -916,43 +916,40 @@ msgid "Failed to get object reference for ConfigServer"
 msgstr "Kunne ikke hente objektreferanse for ConfigServer"
 
 #: gconf/gconfd.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create %s: %s"
-msgstr "Kunne ikke opprette fil `%s': %s"
+msgstr "Kunne ikke opprette %s: %s"
 
 #. Bad hack alert - register the current lockholder with oafd,
 #. * since oafd seems to have forgotten about us.
 #.
 #: gconf/gconfd.c:588
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get lock for daemon: %s"
-msgstr "Kunne ikke hente IOR for klient: %s"
+msgstr "Fant ikke lås for daemon: %s"
 
 #: gconf/gconfd.c:594
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
-msgstr ""
+msgstr "Registrerer av en eksisterende tjener hos oafd, siden OAF ser ut til å ha lekket den"
 
 #: gconf/gconfd.c:603
-#, fuzzy
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register existing server."
 msgstr ""
-"OAF vet ikke om vår IID; indikerer feil i installasjon; kan ikke\n"
-"registrere; avslutter\n"
+"OAF vet ikke om vår IID; indikerer feil i installasjonen; kan ikke\n"
+"registrere eksisterende tjener."
 
 #: gconf/gconfd.c:607
-#, fuzzy
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "En annen gconfd er allerede registrert hos OAF; avslutter\n"
+msgstr "En annen gconfd er allerede registrert hos OAF så vi kan ikke registrere den eksisterende tjeneren"
 
 #: gconf/gconfd.c:612
-#, fuzzy
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr "Ukjent feil ved registrering av gconfd hos OAF; avslutter\n"
+msgstr "Ukjent feil ved registrering av eksisterende gconfd hos OAF; avslutter"
 
 #: gconf/gconfd.c:639
 msgid ""
@@ -971,9 +968,9 @@ msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr "Ukjent feil ved registrering av gconfd hos OAF; avslutter\n"
 
 #: gconf/gconfd.c:692
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to release lockfile: %s"
-msgstr "Kunne ikke slippe lås-katalogen `%s': %s"
+msgstr "Kunne ikke slippe låsfilen: %s"
 
 #: gconf/gconfd.c:700
 msgid "Exiting"
@@ -1271,19 +1268,19 @@ msgstr ""
 
 #: gconf/gconftool.c:293
 msgid "Get the short doc string for a key"
-msgstr ""
+msgstr "Hent kort doc-streng for en nøkkel"
 
 #: gconf/gconftool.c:302
 msgid "Get the long doc string for a key"
-msgstr ""
+msgstr "Hent lang doc-streng for en nøkkel"
 
 #: gconf/gconftool.c:311
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Hent navn på schema som er påført denne nøkkelen"
 
 #: gconf/gconftool.c:320
 msgid "Specify the schema name followed by the key to apply the schema name to"
-msgstr ""
+msgstr "Spesifiser schema-navn fulgt av nøkkelen som schema-navnet skal påføres"
 
 #: gconf/gconftool.c:371
 #, c-format
@@ -1510,54 +1507,52 @@ msgid "Error: %s\n"
 msgstr "Feil: %s\n"
 
 #: gconf/gconftool.c:1168
-#, fuzzy, c-format
+#, c-format
 msgid "Error setting value: %s\n"
-msgstr "Feil under setting av verdi: %s"
+msgstr "Feil under setting av verdi: %s\n"
 
 #: gconf/gconftool.c:1186
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing: %s\n"
-msgstr "Feil under synkronisering: %s"
+msgstr "Feil under synkronisering: %s\n"
 
 #: gconf/gconftool.c:1209
-#, fuzzy
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Må spesifisere en eller flere nøkler som skal hentes\n"
+msgstr "Må spesifisere en eller flere nøkler på kommandolinjen\n"
 
 #: gconf/gconftool.c:1229
-#, fuzzy, c-format
+#, c-format
 msgid "No schema known for `%s'\n"
-msgstr "Ingen slik fil `%s'\n"
+msgstr "Ingen kjente schema for `%s'\n"
 
 #: gconf/gconftool.c:1262
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
-msgstr ""
+msgstr "Ingen doc-streng lagret i schema ved '%s'\n"
 
 #: gconf/gconftool.c:1267
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting schema at '%s': %s\n"
-msgstr "Feil under setting av schema for `%s': %s"
+msgstr "Feil under henting av schema ved `%s': %s\n"
 
 #: gconf/gconftool.c:1274
-#, fuzzy, c-format
+#, c-format
 msgid "No schema stored at '%s'\n"
-msgstr "Ingen slik fil `%s'\n"
+msgstr "Ingen schema lagret i `%s'\n"
 
 #: gconf/gconftool.c:1277
 #, c-format
 msgid "Value at '%s' is not a schema\n"
-msgstr ""
+msgstr "Verdien i '%s' er ikke et schema\n"
 
 #: gconf/gconftool.c:1333
-#, fuzzy
 msgid "Must specify a schema name followed by the key name to apply it to\n"
-msgstr "Må spesifisere nøkkel (schema navn) som eneste argument\n"
+msgstr "Må spesifisere et schema-navn fulgt av nøkkelnavnet det skal påføres\n"
 
 #: gconf/gconftool.c:1340
-#, fuzzy, c-format
+#, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr "ADVARSEL: kunne ikke assosiere schema `%s' med nøkkel `%s': %s\n"
+msgstr "Feil under assosiering av schema-navn '%s' med nøkkelnavn '%s': %s\n"
 
 #: gconf/gconftool.c:1360
 msgid "Must specify key (schema name) as the only argument\n"

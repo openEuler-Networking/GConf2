@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: oaf 0.6.5\n"
-"POT-Creation-Date: 2001-07-22 14:49-0400\n"
-"PO-Revision-Date: 2001-06-25 18:55+02:00\n"
+"POT-Creation-Date: 2001-07-23 00:51+0200\n"
+"PO-Revision-Date: 2001-07-16 19:39+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian (Nynorsk)\n"
 "MIME-Version: 1.0\n"
@@ -23,21 +23,18 @@ msgid "Opened BerkeleyDB source at root %s"
 msgstr ""
 
 #: backends/bdb-backend.c:574
-#, fuzzy
 msgid "Initializing BDB backend module"
-msgstr "Initialiserer modem"
+msgstr "Initierer BDB-modulen"
 
 #: backends/dir-utils.c:108
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
-msgstr "Fann ikkje heimekatalogen til brukaren"
+msgstr "Fann ikkje %s-rotkatalogen i adressa `%s'"
 
 #: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
-#, fuzzy, c-format
+#, c-format
 msgid "Could not make directory `%s': %s"
-msgstr ""
-"Kunne ikkje laga katalog\n"
-"%1"
+msgstr "Kunne ikkje laga katalog `%s': %s"
 
 #: backends/dir-utils.c:212
 #, c-format
@@ -49,9 +46,9 @@ msgid "Unloading XML backend module."
 msgstr ""
 
 #: backends/xml-backend.c:286
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
-msgstr "Fann ikkje heimekatalogen til brukaren"
+msgstr "Fann ikkje XML-rotkatalogen i adressa `%s'"
 
 #: backends/xml-backend.c:386
 #, c-format
@@ -64,9 +61,8 @@ msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
 
 #: backends/xml-backend.c:680
-#, fuzzy
 msgid "Initializing XML backend module"
-msgstr "Initialiserer modem"
+msgstr "Initierer XML-modulen"
 
 #: backends/xml-backend.c:745
 #, c-format
@@ -92,26 +88,24 @@ msgid ""
 msgstr ""
 
 #: backends/xml-dir.c:164
-#, fuzzy, c-format
+#, c-format
 msgid "Could not stat `%s': %s"
-msgstr "Kunne ikkje starta %1."
+msgstr "Kunne ikkje køyra stat på `%s': %s"
 
 #: backends/xml-dir.c:174
-#, fuzzy, c-format
+#, c-format
 msgid "XML filename `%s' is a directory"
-msgstr "Finst alt som katalog"
+msgstr "XML-filnavn `%s' er ein katalog"
 
 #: backends/xml-dir.c:298 backends/xml-dir.c:305
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to delete `%s': %s"
-msgstr "Kunne ikkje fjerna temaet '%1'"
+msgstr "Kunne ikkje sletta `%s': %s"
 
 #: backends/xml-dir.c:346
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write file `%s': %s"
-msgstr ""
-"Kunne ikkje skriva til fil:\n"
-"%s"
+msgstr "Kunne ikkje skriva fil `%s: %s"
 
 #: backends/xml-dir.c:359
 #, fuzzy, c-format
