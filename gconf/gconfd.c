@@ -295,7 +295,7 @@ gconf_server_load_sources(void)
 
       addresses[1] = NULL;
       
-      gconf_log(GCL_INFO, _("No configuration files found, trying to use the default config source `%s'"), addresses[0]);
+      gconf_log(GCL_DEBUG, _("No configuration files found, trying to use the default config source `%s'"), addresses[0]);
     }
   
   if (addresses == NULL)
