@@ -25,7 +25,7 @@
 #include "gconfd-dbus.h"
 
 static DBusConnection *bus_conn;
-static const char *server_path[] = { "Server", NULL };
+static const char *server_path[] = { "org", "gnome", "GConf", "Server", NULL };
 
 static void              server_unregistered_func (DBusConnection *connection,
 						   void           *user_data);
@@ -142,6 +142,7 @@ server_handle_get_db (DBusConnection *connection, DBusMessage *message)
     return;
 
   server_real_handle_get_db (connection, message, address);
+  dbus_free (address);
 }
 
 static void
@@ -175,9 +176,8 @@ get_dbus_address (void)
 gboolean
 gconfd_dbus_init (void)
 {
-  DBusMessage    *message, *reply;
-  DBusError       error;
-  const char     *bus_address;
+  DBusError   error;
+  const char *bus_address;
   
   bus_address = get_dbus_address ();
   if (!bus_address) 

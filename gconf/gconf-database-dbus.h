@@ -29,7 +29,7 @@ GConfDatabaseDBus * gconf_database_dbus_get (DBusConnection *conn,
 					     const gchar *address,
 					     GError **error);
 void                gconf_database_dbus_unregister_all (void);
-const char **       gconf_database_dbus_get_path (GConfDatabaseDBus *db);
+const gchar *       gconf_database_dbus_get_path (GConfDatabaseDBus *db);
 
 
 void     gconf_database_dbus_notify_listeners (GConfDatabase    *db,

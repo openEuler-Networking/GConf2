@@ -22,12 +22,15 @@
 #include "gconfd-dbus.h"
 #include "gconf-database-dbus.h"
 
+#define DATABASE_OBJECT_PATH "/org/gnome/GConf/Database"
+
 static GHashTable *databases = NULL;
+static gint object_nr = 0;
 
 struct _GConfDatabaseDBus {
-	GConfDatabase   *db;
-	DBusConnection  *conn;
-	const char     **object_path;
+	GConfDatabase  *db;
+	DBusConnection *conn;
+	const char     *object_path;
 
 	/* Information about listeners */
 };
@@ -138,40 +141,6 @@ database_message_func (DBusConnection  *connection,
         return DBUS_HANDLER_RESULT_HANDLED;
 }
         
-static GConfValue *
-database_do_lookup (DBusConnection  *conn,
-		    DBusMessage     *message,
-		    char           **schema_name,
-		    gboolean        *value_is_default,
-		    gboolean        *value_is_writable, 
-		    GConfDatabaseDBus *db)
-{
-  const gchar *key;
-  const gchar *locale;
-  const gchar **locales = NULL;
-  gboolean     use_schema_default;
-  GConfValue  *value;
-  GError      *gerror = NULL;
-
-  if (!gconfd_dbus_get_message_args (conn, message,
-				     DBUS_TYPE_STRING, &key,
-				     DBUS_TYPE_STRING, &locale,
-				     DBUS_TYPE_BOOLEAN, &use_schema_default,
-				     0)) 
-    return NULL;
-  
-  /* FIXME: Locales! */
-  
-  value = gconf_database_query_value (db->db, key, locales, use_schema_default,
-				      schema_name, value_is_default, 
-				      value_is_writable, &gerror);
-
-  if (gconfd_dbus_set_exception (conn, message, &gerror))
-    return NULL;
-
-  return value;
-}
-
 static void
 database_handle_lookup (DBusConnection  *conn,
                         DBusMessage     *message,
@@ -179,9 +148,28 @@ database_handle_lookup (DBusConnection  *conn,
 {
   GConfValue *value;
   DBusMessage *reply;
+  gchar *key;
+  gchar *locale;
+  GConfLocaleList *locales;
+  gboolean     use_schema_default;
+  GError      *gerror = NULL;
   
-  value = database_do_lookup (conn, message, NULL, NULL, NULL, db);
-  if (!value) /* Error reply sent by database_do_lookup */
+  if (!gconfd_dbus_get_message_args (conn, message,
+				     DBUS_TYPE_STRING, &key,
+				     DBUS_TYPE_STRING, &locale,
+				     DBUS_TYPE_BOOLEAN, &use_schema_default,
+				     0))
+    return;
+  
+  locales = gconfd_locale_cache_lookup (locale);
+  dbus_free (locale);
+  
+  value = gconf_database_query_value (db->db, key, locales->list, 
+				      use_schema_default,
+				      NULL, NULL, NULL, &gerror);
+  dbus_free (key);
+
+  if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
 
   reply = dbus_message_new_method_return (message);
@@ -199,14 +187,44 @@ database_handle_lookup_ext (DBusConnection  *conn,
   gchar      *schema_name;
   gboolean    value_is_default;
   gboolean    value_is_writable;
+  DBusMessage *reply;
+  gchar *key;
+  gchar *locale;
+  GConfLocaleList *locales;
+  gboolean     use_schema_default;
+  GError      *gerror = NULL;
+  
+  if (!gconfd_dbus_get_message_args (conn, message,
+				     DBUS_TYPE_STRING, &key,
+				     DBUS_TYPE_STRING, &locale,
+				     DBUS_TYPE_BOOLEAN, &use_schema_default,
+				     0))
+    return;
+  
+  locales = gconfd_locale_cache_lookup (locale);
+  dbus_free (locale);
+  
+  value = gconf_database_query_value (db->db, key, locales->list,
+				      use_schema_default,
+				      &schema_name, &value_is_default, 
+				      &value_is_writable, &gerror);
 
-  value = database_do_lookup (conn, message, 
-			      &schema_name, 
-			      &value_is_default, &value_is_writable, db);
-  if (!value) /* Error reply sent by database_do_lookup */
+  if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
 
-  /* FIXME: Finish */
+  reply = dbus_message_new_method_return (message);
+  gconf_dbus_message_append_entry (reply,
+				   key,
+				   value,
+				   value_is_default,
+				   value_is_writable,
+				   schema_name);
+  dbus_free (key);
+  gconf_value_free (value);
+  g_free (schema_name);
+
+  dbus_connection_send (conn, reply, NULL);
+  dbus_message_unref (reply);
 }
                                                                       
 static void
@@ -218,15 +236,17 @@ database_handle_set (DBusConnection *conn,
   GConfValue *value = NULL; 
   GError *gerror = NULL;
   DBusMessage *reply;
+  DBusMessageIter iter;
 
- /* FIXME: Fetch value correctly */
-  if (!gconfd_dbus_get_message_args (conn, message, 
-				     DBUS_TYPE_STRING, &key,
-				     DBUS_TYPE_STRING, &value,
-				     0))
-    return;
- 
+  dbus_message_iter_init (message, &iter);
+
+  /* FIXME: Error handling */
+  key = dbus_message_iter_get_string (&iter);
+  value = gconf_dbus_create_gconf_value_from_message_iter (&iter);
+
   gconf_database_set (db->db, key, value, &gerror);
+  dbus_free (key);
+  gconf_value_free (value);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
@@ -253,7 +273,9 @@ database_handle_unset (DBusConnection *conn,
     return;
 
   gconf_database_unset (db->db, key, locale, &gerror);
-
+  dbus_free (key);
+  dbus_free (locale);
+  
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
  
@@ -267,8 +289,8 @@ database_handle_recursive_unset  (DBusConnection *conn,
                                   DBusMessage    *message,
                                   GConfDatabaseDBus *db)
 {
-  const gchar *key;
-  const gchar *locale;
+  gchar *key;
+  gchar *locale;
   GError      *gerror = NULL;
   guint32      unset_flags;
   DBusMessage *reply;
@@ -281,7 +303,9 @@ database_handle_recursive_unset  (DBusConnection *conn,
     return;
 
   gconf_database_recursive_unset (db->db, key, locale, unset_flags, &gerror);
-
+  dbus_free (key);
+  dbus_free (locale);
+  
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
 
@@ -296,7 +320,7 @@ database_handle_dir_exists (DBusConnection *conn,
                             GConfDatabaseDBus *db)
 {
   gboolean     exists;
-  const gchar *dir;
+  gchar *dir;
   GError      *gerror = NULL;
   DBusMessage *reply;
  
@@ -306,6 +330,7 @@ database_handle_dir_exists (DBusConnection *conn,
     return;
 
   exists = gconf_database_dir_exists (db->db, dir, &gerror);
+  dbus_free (dir);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
@@ -323,11 +348,12 @@ database_handle_get_all_entries (DBusConnection *conn,
                                  DBusMessage    *message,
                                  GConfDatabaseDBus *db)
 {
-  GSList *entries;
-  const gchar *dir;
-  const gchar *locale;
-  const gchar  **locales = NULL;
-  GError       *gerror = NULL;
+  GSList *entries, *l;
+  gchar  *dir;
+  gchar  *locale;
+  GError *gerror = NULL;
+  GConfLocaleList* locales;
+  DBusMessage *reply;
 
   if (!gconfd_dbus_get_message_args (conn, message, 
 				     DBUS_TYPE_STRING, &dir,
@@ -335,14 +361,36 @@ database_handle_get_all_entries (DBusConnection *conn,
 				     0)) 
     return;
 
+  locales = gconfd_locale_cache_lookup (locale);
+  dbus_free (locale);
+
   /* FIXME: Create locales from locale */
-  entries = gconf_database_all_entries (db->db, dir, locales, &gerror);
+  entries = gconf_database_all_entries (db->db, dir, 
+					locales->list, &gerror);
+  dbus_free (dir);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
 
-  /* FIXME: FINISH */
-  /* FIXME Free entries? */
+  reply = dbus_message_new_method_return (message);
+  
+  for (l = entries; l; l = l->next)
+    {
+      GConfEntry *entry = l->data;
+
+      gconf_dbus_message_append_entry (reply,
+				       entry->key,
+				       gconf_entry_get_value (entry),
+				       gconf_entry_get_is_default (entry),
+				       gconf_entry_get_is_writable (entry),
+				       gconf_entry_get_schema_name (entry));
+      gconf_entry_free (entry);
+    }
+  
+  dbus_connection_send (conn, reply, NULL);
+  dbus_message_unref (reply);
+
+  g_slist_free (entries);
 }
                                                                                 
 static void
@@ -351,7 +399,7 @@ database_handle_get_all_dirs (DBusConnection *conn,
                               GConfDatabaseDBus *db)
 {
   GSList *dirs, *l;
-  const gchar *dir;
+  gchar *dir;
   GError      *gerror = NULL;
   DBusMessage *reply;
 
@@ -361,6 +409,8 @@ database_handle_get_all_dirs (DBusConnection *conn,
     return;
 
   dirs = gconf_database_all_dirs (db->db, dir, &gerror);
+
+  dbus_free (dir);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
@@ -374,8 +424,11 @@ database_handle_get_all_dirs (DBusConnection *conn,
       dbus_message_append_args (message,
 				DBUS_TYPE_STRING, str,
 				0);
+      g_free (l->data);
     }
-/* FIXME: Free dirs? */
+ 
+  g_slist_free (dirs);
+  
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
 }
@@ -385,8 +438,8 @@ database_handle_set_schema (DBusConnection *conn,
                             DBusMessage    *message,
                             GConfDatabaseDBus *db)
 {
-  const gchar *key;
-  const gchar *schema_key;
+  gchar *key;
+  gchar *schema_key;
   GError      *gerror = NULL;
   DBusMessage *reply;
 
@@ -397,6 +450,8 @@ database_handle_set_schema (DBusConnection *conn,
     return;
 
   gconf_database_set_schema (db->db, key, schema_key, &gerror);
+  dbus_free (key);
+  dbus_free (schema_key);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
@@ -410,8 +465,9 @@ GConfDatabaseDBus *
 gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 			 GError **gerror)
 {
-  GConfDatabaseDBus *dbus_db;
-  GConfDatabase     *db;
+  GConfDatabaseDBus  *dbus_db;
+  GConfDatabase      *db;
+  gchar             **path;
 
   dbus_db = g_hash_table_lookup (databases, address);
   if (dbus_db)
@@ -424,14 +480,14 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
   dbus_db = g_new0 (GConfDatabaseDBus, 1);
   dbus_db->db = db;
   dbus_db->conn = conn;
-
-  /* Come up with a object_path */
-  if (!dbus_connection_register_object_path (conn, dbus_db->object_path, 
-					     &database_vtable, dbus_db)) 
-    {
-      gconf_log (GCL_ERR, _("Failed to register database object with the D-BUS bus daemon"));
-      return NULL;
-    }
+  dbus_db->object_path = g_strdup_printf ("%s/%d", 
+					  DATABASE_OBJECT_PATH, 
+					  object_nr++);
+ 
+  path = g_strsplit (dbus_db->object_path, "/", -1);
+  dbus_connection_register_object_path (conn, (const gchar**) path, 
+					&database_vtable, dbus_db);
+  g_strfreev (path);
 
   return dbus_db;
 }
@@ -441,7 +497,11 @@ database_foreach_unregister (gpointer key,
 			     GConfDatabaseDBus *db,
 			     gpointer user_data)
 {
-  dbus_connection_unregister_object_path (db->conn, db->object_path);
+  gchar **path;
+
+  path = g_strsplit (db->object_path, "/", -1);
+  dbus_connection_unregister_object_path (db->conn, (const gchar **)path);
+  g_strfreev (path);
 
   return TRUE;
 }
@@ -453,7 +513,7 @@ gconf_database_dbus_unregister_all (void)
 			       (GHRFunc) database_foreach_unregister, NULL);
 }
 
-const char **
+const char *
 gconf_database_dbus_get_path (GConfDatabaseDBus *db)
 {
   return db->object_path;
