@@ -1,3 +1,11 @@
+2001-12-17  Havoc Pennington  <hp@pobox.com>
+
+        Backport from HEAD
+	
+	* gconf/gconf-listeners.c: reference count the listeners, make a
+	copy of listener lists and ref all listeners prior to doing the
+	notifies, to minimize reentrancy screwups.
+
 2001-12-04  Havoc Pennington  <hp@redhat.com>
 
         Backport from HEAD
