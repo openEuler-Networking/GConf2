@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-01-27 12:30--500\n"
 "Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -527,7 +527,7 @@ msgstr "Рядок в лапках не закінчується лапкою"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Закодоване значення не є правильною послідовність UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Збій на запуску сервера конфігурації: %s\n"

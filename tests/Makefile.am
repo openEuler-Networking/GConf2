@@ -13,11 +13,11 @@ testunique_SOURCES=testunique.c
 
 testunique_LDADD = $(TESTLIBS)
 
-testgconf_SOURCES=testgconf.c dbus-glue.c
+testgconf_SOURCES=testgconf.c dbus-glue.c dbus-glue.h
 
 testgconf_LDADD = $(TESTLIBS)
 
-testpersistence_SOURCES=testpersistence.c dbus-glue.c
+testpersistence_SOURCES=testpersistence.c dbus-glue.c dbus-glue.h
 
 testpersistence_LDADD = $(TESTLIBS)
 
@@ -25,11 +25,11 @@ testlisteners_SOURCES=testlisteners.c
 
 testlisteners_LDADD = $(TESTLIBS)
 
-testschemas_SOURCES=testschemas.c dbus-glue.c
+testschemas_SOURCES=testschemas.c dbus-glue.c dbus-glue.h
 
 testschemas_LDADD = $(TESTLIBS)
 
-testchangeset_SOURCES=testchangeset.c dbus-glue.c
+testchangeset_SOURCES=testchangeset.c dbus-glue.c dbus-glue.h
 
 testchangeset_LDADD = $(TESTLIBS)
 
@@ -37,7 +37,7 @@ testencode_SOURCES=testencode.c
 
 testencode_LDADD = $(TESTLIBS)
 
-testdirlist_SOURCES=testdirlist.c dbus-glue.c
+testdirlist_SOURCES=testdirlist.c dbus-glue.c dbus-glue.h
 
 testdirlist_LDADD = $(TESTLIBS)
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.1.0\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-11-19 19:52+01:00\n"
 "Last-Translator: Lapo Calamandrei <l_calamandrei@neri-group.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -531,7 +531,7 @@ msgstr "La stringa quotata non termina con il simbolo di quota"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Il valore codificato non è UTF-8 valido"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Errore nell'esecuzione del server di configurazione: %s\n"

@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2001-08-19 15:21+0200\n"
 "Last-Translator: Jesús Bravo Álvarez <jba@pobox.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -522,7 +522,7 @@ msgstr "A cadea entre comiñas non remata con comiñas"
 msgid "Encoded value is not valid UTF-8"
 msgstr ""
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Erro ao acceder a(s) fonte(s) da configuración: %s\n"

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-02-07 08:25+0000\n"
 "Last-Translator: erkaN <erkaN@linux-sevenler.de>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -522,7 +522,7 @@ msgstr "Tırnaklarla belirlenen bir dizge ? işareti ile bitmez"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodlanan değer UTF-8 olarak geçersiz"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Yapılandırma sunucusuna erişilemedi: %s\n"

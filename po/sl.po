@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -519,7 +519,7 @@ msgstr "Citiran niz se ne konča z narekovajem"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Vrednost ni veljavna UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Nisem uspel pognati strežnika nastavitev: %s\n"

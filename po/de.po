@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.1.x\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-01-20 14:54+0100\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -531,7 +531,7 @@ msgstr "Zeichenkette in Anführungszeichen endet nicht mit Anführungszeichen"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodierter Wert ist kein gültiges UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Konfigurationsserver konnte nicht gestartet werden: %s\n"

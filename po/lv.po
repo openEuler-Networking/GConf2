@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-12-21 02:04+0200\n"
 "Last-Translator: Artis Trops <hornet@navigators.lv>\n"
 "Language-Team: Latvian <ll10nt@os.lv>\n"
@@ -519,7 +519,7 @@ msgstr "Citētā virkne nebeidzas ar jautājuma zīmi"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodētā vērtība nav derīgs UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Neizdevās palaist konfigurācias serveri: %s\n"

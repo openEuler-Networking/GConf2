@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-09-20 19:45+0700\n"
 "Last-Translator: Trinh Minh Thanh <tmthanh@linuxmail.org>\n"
 "Language-Team: Gnome-Vi Team <Gnomevi-list@lists.sourceforge.net>\n"
@@ -521,7 +521,7 @@ msgstr "Chuỗi trích dẫn không kết thúc bằng một ghi dấu trích d�
 msgid "Encoded value is not valid UTF-8"
 msgstr "Giá trị mã hóa không phải là UTF-8 hợp lệ"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "không chạy được máy chủ cấu hình: %s\n"

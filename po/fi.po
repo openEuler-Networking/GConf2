@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1.6\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-10-26 19:25+0300\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@hut.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -533,7 +533,7 @@ msgstr "Lainattu merkkijono ei lopu lainausmerkkiin"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Koodattu arvo ei ole kelvollista UTF-8:aa"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Asetuspalvelimen käynnistys epäonnistui: %s\n"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.2.1\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-08-06 08:26+0900\n"
 "Last-Translator: Nam SungHyun <namsh@kldp.org>\n"
 "Language-Team: Korean <gnome-kr-translation@lists.sourceforge.net>\n"
@@ -520,7 +520,7 @@ msgstr "따옴표된 문자열이 따옴표로 끝나지 않습니다"
 msgid "Encoded value is not valid UTF-8"
 msgstr "인코딩된 값이 올바른 UTF-8이 아닙니다"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "설정 서버를 실행할 수 없습니다: %s\n"

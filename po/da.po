@@ -19,7 +19,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.4\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-12-01 18:12+0100\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -533,7 +533,7 @@ msgstr "Tekst i citationstegn slutter ikke med et citationstegn"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodet værdi er ikke gyldig UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Kunne ikke opstarte konfigurationsserver: %s\n"

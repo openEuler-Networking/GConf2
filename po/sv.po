@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-01-20 01:57+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -523,7 +523,7 @@ msgstr "Citerad sträng slutar inte med ett citationstecken"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodat värde är inte giltig UTF-8"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Misslyckades med att starta konfigurationsservern: %s\n"

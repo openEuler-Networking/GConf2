@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.1.0\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2002-12-15 17:56+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -536,7 +536,7 @@ msgstr ""
 msgid "Encoded value is not valid UTF-8"
 msgstr "La valeur codée n'est pas de l'UTF-8 valide"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Impossible de lancer le serveur de configuration : %s\n"

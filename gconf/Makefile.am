@@ -139,7 +139,8 @@ libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF
 
 libgconf_2_la_LIBADD = $(DEPENDENT_LIBS) $(INTLLIBS) $(GCONF_ORBIT_LIBS)
 
-EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh 
+EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh \
+	gconf-corba.c gconf-corba.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconfd-corba.h
 
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD.mn\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-01-21 08:15+0100\n"
 "Last-Translator: Sanlig Badral <badral@chinggis.com>\n"
 "Language-Team: Mongolian <mn@li.org>\n"
@@ -524,7 +524,7 @@ msgstr "Хашилттай стринг хашилтын тэмдэгээр тө
 msgid "Encoded value is not valid UTF-8"
 msgstr "Кодлогдсон утга хүчингүй UTF-8 тай байна"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Тохируулгын сервер эхэлсэнгүй: %s\n"

@@ -1709,7 +1709,8 @@ gconf_get_lock_dir (void)
 #ifndef HAVE_ORBIT
 struct _GConfLock {
   gpointer foo;
-}
+};
+
 GConfLock*
 gconf_get_lock (const gchar *lock_directory,
                 GError     **err)

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.1\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-02-18 01:19+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
 "Language-Team: Azerbaijani Turkic <C@li.org>\n"
@@ -525,7 +525,7 @@ msgstr "Alıntı mətni bir sual isarəti ilə qurtarmır"
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodlanmış qiymət hökmlü UTF-8 deyildir"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Quraşdırma vericisi başladıla bilmədi: %s\n"

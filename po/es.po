@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.0\n"
-"POT-Creation-Date: 2003-03-17 01:30+0100\n"
+"POT-Creation-Date: 2003-03-18 11:01+0100\n"
 "PO-Revision-Date: 2003-01-07 09:35GMT\n"
 "Last-Translator: Héctor García Álvarez <hector@scouts-es.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
@@ -529,7 +529,7 @@ msgstr "La cadena entrecomillada no finaliza con una marca de comillas"
 msgid "Encoded value is not valid UTF-8"
 msgstr "El valor codificado no es UTF-8 válido"
 
-#: gconf/gconf-internals.c:1768
+#: gconf/gconf-internals.c:1769
 #, fuzzy, c-format
 msgid "Failed to activate configuration server: %s\n"
 msgstr "Ha ocurrido un error al ejecutar el servidor de configuración: %s\n"
