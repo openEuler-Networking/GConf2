@@ -513,7 +513,7 @@ gconf_engine_unref(GConfEngine* conf)
         }
       else
         {
-#if GCONF_CORBA_BROKEN
+#ifdef GCONF_CORBA_BROKEN
           /* Remove all connections associated with this GConf */
           GSList* removed;
           GSList* tmp;
@@ -638,9 +638,9 @@ gconf_engine_notify_add(GConfEngine* conf,
 
   if (db == -1)
     {
-      g_return_val_if_fail(err == NULL || *err != NULL, NULL);
+      g_return_val_if_fail(err == NULL || *err != NULL, 0);
 
-      return NULL;
+      return 0;
     }
 
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER);
@@ -652,7 +652,7 @@ gconf_engine_notify_add(GConfEngine* conf,
 			    0);
   dbus_dict_unref (properties);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -671,7 +671,7 @@ gconf_engine_notify_add(GConfEngine* conf,
       return 0;
     }
 
-  dbus_message_get_args (reply,
+  dbus_message_get_args (reply, NULL,
 			 DBUS_TYPE_UINT32, &id,
 			 0);
 
@@ -824,7 +824,7 @@ gconf_engine_get_fuller (GConfEngine *conf,
 			    DBUS_TYPE_BOOLEAN, use_schema_default,
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1014,7 +1014,7 @@ gconf_engine_get_default_from_schema (GConfEngine* conf,
 			    DBUS_TYPE_STRING, gconf_current_locale(),
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken(reply))
@@ -1113,7 +1113,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
 			    0);
   gconf_dbus_fill_message_from_gconf_value (message, value);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1140,7 +1140,6 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
 {
   int db;
   gint tries = 0;
-  guint dbus_flags;
   DBusMessage *message, *reply;
 
   g_return_val_if_fail (conf != NULL, FALSE);
@@ -1185,13 +1184,13 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
       return FALSE;
     }
 
-  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_SET);
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_UNSET);
   dbus_message_append_args (message,
 			    DBUS_TYPE_UINT32, db,
 			    DBUS_TYPE_STRING, key,
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1206,7 +1205,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
   if (gconf_handle_dbus_exception(reply, err))
     {
       dbus_message_unref (reply);
-      return NULL;
+      return FALSE;
     }
 
   g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
@@ -1291,7 +1290,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
 			    DBUS_TYPE_STRING, key,
 			    DBUS_TYPE_UINT32, dbus_flags,
 			    0);
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
 
@@ -1362,18 +1361,18 @@ gconf_engine_associate_schema (GConfEngine* conf, const gchar* key,
 
   if (db == -1)
     {
-      g_return_val_if_fail(err == NULL || *err != NULL, NULL);
+      g_return_val_if_fail(err == NULL || *err != NULL, FALSE);
 
-      return NULL;
+      return FALSE;
     }
 
-  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES);
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA);
   dbus_message_append_args (message,
 			    DBUS_TYPE_UINT32, db,
 			    DBUS_TYPE_STRING, key,
 			    DBUS_TYPE_STRING, schema_key,
 			    0);
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1494,7 +1493,7 @@ gconf_engine_all_entries(GConfEngine* conf, const gchar* dir, GError** err)
 			    DBUS_TYPE_STRING, gconf_current_locale(),
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1512,7 +1511,7 @@ gconf_engine_all_entries(GConfEngine* conf, const gchar* dir, GError** err)
       return NULL;
     }
 
-  dbus_message_get_args (reply,
+  dbus_message_get_args (reply, NULL,
 			 DBUS_TYPE_STRING_ARRAY, &keys, &keys_len,
 			 DBUS_TYPE_STRING_ARRAY, &schema_names, &schema_names_len,
 			 DBUS_TYPE_BOOLEAN_ARRAY, &is_defaults, &is_defaults_len,
@@ -1625,7 +1624,7 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
 			    DBUS_TYPE_STRING, dir,
 			    0);
   
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -1643,7 +1642,7 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
       return NULL;
     }
 
-  dbus_message_get_args (reply,
+  dbus_message_get_args (reply, NULL, 
 			 DBUS_TYPE_STRING_ARRAY, &keys, &len,
 			 0);
   i = 0;
@@ -1711,8 +1710,11 @@ gconf_engine_suggest_sync(GConfEngine* conf, GError** err)
     }
 
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_SYNC);
+  dbus_message_append_args (message,
+			    DBUS_TYPE_UINT32, db,
+			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1725,7 +1727,7 @@ gconf_engine_suggest_sync(GConfEngine* conf, GError** err)
       }
 
   if (gconf_handle_dbus_exception(reply, err))
-    g_return_val_if_fail (err == NULL || *err == NULL, FALSE);      
+    g_return_if_fail (err == NULL || *err == NULL);      
 
   dbus_message_unref (reply);
 }
@@ -1779,8 +1781,11 @@ gconf_clear_cache(GConfEngine* conf, GError** err)
     }
 
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE);
+  dbus_message_append_args (message,
+			    DBUS_TYPE_UINT32, db,
+			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1793,7 +1798,7 @@ gconf_clear_cache(GConfEngine* conf, GError** err)
       }
   
   if (gconf_handle_dbus_exception(reply, err))
-    g_return_val_if_fail (err == NULL || *err == NULL, FALSE);      
+    g_return_if_fail (err == NULL || *err == NULL);      
 
   dbus_message_unref (reply);
 }
@@ -1842,8 +1847,11 @@ gconf_synchronous_sync(GConfEngine* conf, GError** err)
     }
 
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC);
+  dbus_message_append_args (message,
+			    DBUS_TYPE_UINT32, db,
+			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken (reply))
@@ -1856,7 +1864,7 @@ gconf_synchronous_sync(GConfEngine* conf, GError** err)
       }
 
   if (gconf_handle_dbus_exception(reply, err))
-    g_return_val_if_fail (err == NULL || *err == NULL, FALSE);      
+    g_return_if_fail (err == NULL || *err == NULL);      
 
   dbus_message_unref (reply);
 }
@@ -1904,7 +1912,7 @@ gconf_engine_dir_exists(GConfEngine *conf, const gchar *dir, GError** err)
 			    DBUS_TYPE_STRING, dir,
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken(reply))
@@ -1924,7 +1932,7 @@ gconf_engine_dir_exists(GConfEngine *conf, const gchar *dir, GError** err)
       return FALSE;
     }
 
-  dbus_message_get_args (reply,
+  dbus_message_get_args (reply, NULL, 
 			 DBUS_TYPE_BOOLEAN, &exists,
 			 0);
   
@@ -1973,7 +1981,7 @@ gconf_engine_remove_dir (GConfEngine* conf,
 			    DBUS_TYPE_STRING, dir,
 			    0);
 
-  reply = dbus_connection_send_message_with_reply_and_block (dbus_conn, message, -1, NULL);
+  reply = dbus_connection_send_with_reply_and_block (dbus_conn, message, -1, NULL);
   dbus_message_unref (message);
 
   if (gconf_server_broken(reply))
@@ -2081,10 +2089,11 @@ try_to_contact_server (gboolean start_if_not_found,
 
   if (!CORBA_Object_is_nil (server, &ev))
     {
+#ifdef GCONF_CORBA_BROKEN
       ConfigServer_add_client (server,
                                gconf_get_config_listener (),
                                &ev);
-      
+#endif      
       if (ev._major != CORBA_NO_EXCEPTION)
 	{
           g_set_error (err,
@@ -2174,6 +2183,7 @@ gconf_debug_shutdown (void)
   return gconf_orb_release ();
 }
 
+#ifdef GCONF_CORBA_BROKEN
 static void notify                  (PortableServer_Servant     servant,
                                      ConfigDatabase             db,
                                      CORBA_unsigned_long        cnxn,
@@ -2387,6 +2397,7 @@ gconf_get_config_listener(void)
   
   return listener;
 }
+#endif
 
 static const char *config_listener_messages[] =
 {
@@ -2407,7 +2418,7 @@ gconf_config_listener_notify (DBusConnection *connection,
   GConfValue *value;
   GConfEntry* entry;
   
-  dbus_message_get_args (message,
+  dbus_message_get_args (message, NULL,
 			 DBUS_TYPE_UINT32, &id,
 			 DBUS_TYPE_UINT32, &cnxn_id,
 			 DBUS_TYPE_STRING, &key,

@@ -86,9 +86,13 @@ notify_func (GConfClient* client,
   
   if (gconf_entry_get_value (entry))
     s = gconf_value_to_string (gconf_entry_get_value (entry));
-
+  else
+    s = g_strdup ("(nothing)");
+      
   gconf_client_unset (client, gconf_entry_get_key (entry), NULL);
+
   printf ("key changed: %s to %s\n", gconf_entry_get_key (entry), s);
+
   g_free (s);
 }
 
@@ -108,7 +112,7 @@ main (int argc, char **argv)
   const char *address;
   char *name;
   GMainLoop *loop;
-  
+  DBusError error;
   
   address = g_getenv ("GCONF_DBUS_ADDRESS");  
   connection = dbus_connection_open (address, &result);
@@ -119,12 +123,13 @@ main (int argc, char **argv)
 		  dbus_result_to_string (result));
       return 1;
     }
-  
-  name = dbus_bus_register_client (connection, &result);
+
+  dbus_error_init (&error);
+  name = dbus_bus_register_client (connection, &error);
   if (!name)
     {
       g_printerr ("Failed to register client with the D-BUS bus daemon: %s",
-		  dbus_result_to_string (result));
+		  error.message);
       return 1;
     }
 
@@ -146,12 +151,12 @@ main (int argc, char **argv)
   
   g_main_loop_run (loop);
 
-#if 0
+  
   g_print ("foo: %s\n", gconf_client_get_string (client, "/desktop/gnome/interface/icon_theme", NULL));
 
   g_print ("foo: %d\n", gconf_client_dir_exists (client, "/desktop/gnome/interface", NULL));
 
   recurse (client, "/", 0);
-#endif  
+
   return 0;
 }

@@ -51,6 +51,7 @@
 #include <locale.h>
 #include <stdlib.h>
 #include <string.h>
+#include "dbus-glue.h"
 
 static void
 check(gboolean condition, const gchar* fmt, ...)
@@ -239,6 +240,12 @@ main (int argc, char** argv)
       fflush(stderr);
       g_error_free(err);
       err = NULL;
+      return 1;
+    }
+
+  if (!setup_dbus ())
+    {
+      g_printerr ("could not initialize D-BUS");
       return 1;
     }
   

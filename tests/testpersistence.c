@@ -52,6 +52,7 @@
 #include <math.h>
 #include <locale.h>
 #include <gconf/gconf-internals.h>
+#include "dbus-glue.h"
 
 const char *null_safe(const char *s)
 {
@@ -900,6 +901,13 @@ main (int argc, char** argv)
       fflush(stderr);
       g_error_free(err);
       err = NULL;
+      return 1;
+    }
+
+
+  if (!setup_dbus ())
+    {
+      g_printerr ("could not initialize D-BUS");
       return 1;
     }
   

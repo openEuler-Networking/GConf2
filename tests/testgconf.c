@@ -52,6 +52,7 @@
 #include <math.h>
 #include <locale.h>
 #include <gconf/gconf-internals.h>
+#include "dbus-glue.h"
 
 static void
 check(gboolean condition, const gchar* fmt, ...)
@@ -955,6 +956,11 @@ main (int argc, char** argv)
       return 1;
     }
 
+  if (!setup_dbus ())
+    {
+      g_printerr ("could not initialize D-BUS");
+      return 1;
+    }
   check_utils ();
   
   conf = gconf_engine_get_default();

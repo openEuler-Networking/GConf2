@@ -51,6 +51,7 @@
 #include <math.h>
 #include <locale.h>
 #include <gconf/gconf-internals.h>
+#include "dbus-glue.h"
 
 /* glibc printf() functions accept NULL for a %s format, but to be
    safe, check for null strings and return a printable value */
@@ -624,7 +625,7 @@ check_schema_use(GConfEngine * conf)
         }
       else if (strcmp (s, schema_key) != 0)
         {
-          fprintf (stderr, "ERROR: got wrong schema name '%s'\n", schema_key);
+          fprintf (stderr, "ERROR: got wrong schema name '%s' instead of '%s'\n", schema_key, s);
           exit (1);
         }
 
@@ -793,6 +794,12 @@ main (int argc, char** argv)
       fprintf(stderr, "Failed to init GConf: %s\n", err->message);
       g_error_free(err);
       err = NULL;
+      return 1;
+    }
+
+  if (!setup_dbus ())
+    {
+      g_printerr ("could not initialize D-BUS");
       return 1;
     }
   

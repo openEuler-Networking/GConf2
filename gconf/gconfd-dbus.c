@@ -42,7 +42,7 @@ static const char *config_database_messages[] = {
   GCONF_DBUS_CONFIG_DATABASE_UNSET,
   GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA,
   GCONF_DBUS_CONFIG_DATABASE_SYNC,
-  GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC
+  GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC,
   GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE
 };
 
@@ -55,11 +55,12 @@ typedef struct {
   char *who;
 } Listener;
 
-static Listener* listener_new     (const char *who,
-				   const char *name);
-static void      listener_destroy (Listener   *l);
-static void      add_client (DBusConnection *connection,
-			     const char     *name);
+static Listener* listener_new     (const char     *who,
+				   const char     *name);
+static void      listener_destroy (Listener       *l);
+static void      add_client       (DBusConnection *connection,
+				   const char     *name);
+
 
 static void
 gconfd_shutdown (DBusConnection *connection,
@@ -122,14 +123,14 @@ gconf_dbus_get_message_args (DBusConnection *connection,
 			     int             first_arg_type,
 			     ...)
 {
-  DBusResultCode retval;
+  gboolean retval;
   va_list var_args;
 
   va_start (var_args, first_arg_type);
-  retval = dbus_message_get_args_valist (message, first_arg_type, var_args);
+  retval = dbus_message_get_args_valist (message, NULL, first_arg_type, var_args);
   va_end (var_args);
 
-  if (retval != DBUS_RESULT_SUCCESS)
+  if (!retval)
     {
       g_warning ("malformed message of type %s\n", dbus_message_get_name (message));
       
@@ -176,7 +177,7 @@ gconfd_config_database_dir_exists (DBusConnection *connection,
 
   reply = dbus_message_new_reply (message);
   dbus_message_append_boolean (reply, retval);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -285,7 +286,7 @@ gconfd_config_database_all_entries (DBusConnection *connection,
     }
   g_slist_free(pairs);
   
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -344,7 +345,7 @@ gconfd_config_database_all_dirs (DBusConnection *connection,
   
   reply = dbus_message_new_reply (message);
   dbus_message_append_string_array (reply, (const char **)dirs, len);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
   
   g_strfreev (dirs);
@@ -403,13 +404,14 @@ gconfd_config_database_lookup (DBusConnection *connection,
 
   reply = dbus_message_new_reply (message);
   gconf_dbus_fill_message_from_gconf_value (reply, val);
-  gconf_value_free (val);
+  if (val)
+    gconf_value_free (val);
   
   dbus_message_append_string (reply, s ? s : "");
   dbus_message_append_boolean (reply, is_default);
   dbus_message_append_boolean (reply, is_writable);
   
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -457,7 +459,7 @@ gconfd_config_database_lookup_default_value (DBusConnection *connection,
   reply = dbus_message_new_reply (message);
   gconf_dbus_fill_message_from_gconf_value (reply, val);
   gconf_value_free (val);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -494,7 +496,7 @@ gconfd_config_database_remove_dir (DBusConnection *connection,
 
   /* This really sucks, but we need to ack that the removal was successful */
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 
 }
@@ -558,7 +560,7 @@ gconfd_config_database_add_listener (DBusConnection *connection,
   cnxn = gconf_database_dbus_add_listener (db, dbus_message_get_sender (message), name, dir);
   reply = dbus_message_new_reply (message);
   dbus_message_append_uint32 (reply, cnxn);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
   dbus_dict_unref (dict);  
 }
@@ -605,7 +607,7 @@ gconfd_config_database_set (DBusConnection *connection,
 
   /* This really sucks, but we need to ack that the setting was successful */
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -648,7 +650,7 @@ gconfd_config_database_recursive_unset (DBusConnection *connection,
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -678,12 +680,12 @@ gconfd_config_database_unset (DBusConnection *connection,
     }
   
   gconf_database_unset (db, key, NULL, &error);
-
+  
   if (gconf_dbus_set_exception (connection, message, error))
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -691,7 +693,6 @@ static void
 gconfd_config_database_set_schema (DBusConnection *connection,
 				   DBusMessage    *message)
 {
-  guint flags;
   int id;
   gchar *key, *schema_key;
   GConfDatabase *db;
@@ -705,7 +706,6 @@ gconfd_config_database_set_schema (DBusConnection *connection,
 				    DBUS_TYPE_UINT32, &id,
 				    DBUS_TYPE_STRING, &key,
 				    DBUS_TYPE_STRING, &schema_key,
-				    DBUS_TYPE_UINT32, &flags,
 				    0))
     return;
 
@@ -719,12 +719,12 @@ gconfd_config_database_set_schema (DBusConnection *connection,
                              *schema_key != '\0' ?
                              schema_key : NULL,
                              &error);
-
+  
   if (gconf_dbus_set_exception (connection, message, error))
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -736,7 +736,7 @@ gconfd_config_database_synchronous_sync (DBusConnection *connection,
   GConfDatabase *db;
   DBusMessage *reply;
   GError *error = NULL;
-
+  
   if (gconfd_dbus_check_in_shutdown (connection, message))
     return;
 
@@ -756,7 +756,7 @@ gconfd_config_database_synchronous_sync (DBusConnection *connection,
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -788,7 +788,7 @@ gconfd_config_database_sync (DBusConnection *connection,
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -796,7 +796,6 @@ static void
 gconfd_config_database_clear_cache (DBusConnection *connection,
 				    DBusMessage    *message)
 {
-  guint flags;
   int id;
   GConfDatabase *db;
   DBusMessage *reply;
@@ -821,7 +820,7 @@ gconfd_config_database_clear_cache (DBusConnection *connection,
     return;
 
   reply = dbus_message_new_reply (message);
-  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_connection_send (connection, reply, NULL);
   dbus_message_unref (reply);
 }
 
@@ -891,8 +890,11 @@ remove_client (DBusConnection *connection,
   char *name;
   GList *list;
   GConfDatabase *db;
+
+  if (!client_hash)
+    return;
   
-  dbus_message_get_args (message,
+  dbus_message_get_args (message, NULL, 
 			 DBUS_TYPE_STRING, &name,
 			 0);
 
@@ -1040,9 +1042,10 @@ gconfd_dbus_init (void)
   const char *dbus_address;
   DBusResultCode result;
   DBusMessageHandler *handler;
-
+  DBusError error;
   char *name;
 
+  dbus_error_init (&error);
   dbus_address = get_dbus_address ();
   if (!dbus_address)
     {
@@ -1059,17 +1062,18 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  name = dbus_bus_register_client (dbus_conn, &result);
+  name = dbus_bus_register_client (dbus_conn, &error);
   if (!name)
     {
       gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
-		 dbus_result_to_string (result));
+		 error.message);
+      dbus_error_free (&error);
       return FALSE;
     }
 
   if (dbus_bus_acquire_service (dbus_conn, "org.freedesktop.Config.Server",
 				DBUS_SERVICE_FLAG_PROHIBIT_REPLACEMENT,
-				&result) != DBUS_SERVICE_REPLY_PRIMARY_OWNER)
+				NULL) != DBUS_SERVICE_REPLY_PRIMARY_OWNER)
     {
       gconf_log (GCL_ERR, _("Failed to acquire resource"));
       return FALSE;
@@ -1141,7 +1145,7 @@ notify_listeners_cb(GConfListeners* listeners,
 
   gconf_dbus_fill_message_from_gconf_value (message, closure->value);
 
-  dbus_connection_send_message (dbus_conn, message, NULL, NULL);
+  dbus_connection_send (dbus_conn, message, NULL);
   dbus_message_unref (message);
 }
 

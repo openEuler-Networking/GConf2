@@ -92,6 +92,10 @@ gconf_dbus_create_gconf_value_from_dict (DBusDict *dict)
       if (*tmp != '\0')
 	gconf_schema_set_long_desc (schema, tmp);
 
+      dbus_dict_get_string (dict, "owner", &tmp);
+      if (*tmp != '\0')
+	gconf_schema_set_owner (schema, tmp);
+      
       dbus_dict_get_string (dict, "default_value", &tmp);
       {
 	GConfValue *val;
@@ -147,6 +151,28 @@ gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
 
 	switch (gconf_value_get_list_type (value))
 	  {
+	  case GCONF_VALUE_STRING:
+	    {
+	      char **str;
+
+	      str = g_new (char *, len + 1);
+	      str[len] = NULL;
+
+	      i = 0;
+	      while (list)
+		{
+		  GConfValue *value = list->data;
+
+		  str[i] = g_strdup (gconf_value_get_string (value));
+		    
+		  list = list->next;
+		  ++i;
+		}
+
+	      dbus_message_append_string_array (message, (const char **)str, len);
+	      g_strfreev (str);
+	      break;
+	    }
 	  case GCONF_VALUE_INT:
 	    {
 	      int *array;
@@ -168,26 +194,46 @@ gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
 	      g_free (array);
 	      break;
 	    }
-	  case GCONF_VALUE_STRING:
+	  case GCONF_VALUE_FLOAT:
 	    {
-	      char **str;
+	      double *array;
 
-	      str = g_new (char *, len + 1);
-	      str[len] = NULL;
+	      array = g_new (double, len);
 
 	      i = 0;
 	      while (list)
 		{
 		  GConfValue *value = list->data;
-
-		  str[i] = g_strdup (gconf_value_get_string (value));
+		  
+		  array[i] = gconf_value_get_float (value);
 		    
 		  list = list->next;
 		  ++i;
 		}
 
-	      dbus_message_append_string_array (message, (const char **)str, len);
-	      g_strfreev (str);
+	      dbus_message_append_double_array (message, array, len);
+	      g_free (array);
+	      break;
+	    }
+	  case GCONF_VALUE_BOOL:
+	    {
+	      unsigned char *array;
+
+	      array = g_new (unsigned char, len);
+
+	      i = 0;
+	      while (list)
+		{
+		  GConfValue *value = list->data;
+		  
+		  array[i] = gconf_value_get_bool (value);
+		    
+		  list = list->next;
+		  ++i;
+		}
+
+	      dbus_message_append_boolean_array (message, array, len);
+	      g_free (array);
 	      break;
 	    }
 	  default:
@@ -230,6 +276,8 @@ gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter)
       break;
     case DBUS_TYPE_INT32_ARRAY:
     case DBUS_TYPE_STRING_ARRAY:
+    case DBUS_TYPE_DOUBLE_ARRAY:
+    case DBUS_TYPE_BOOLEAN_ARRAY:
       type = GCONF_VALUE_LIST;
       break;
     case DBUS_TYPE_DICT:
@@ -280,6 +328,50 @@ gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter)
 	
 	switch (arg_type)
 	  {
+	  case DBUS_TYPE_BOOLEAN_ARRAY:
+	    {
+	      unsigned char *array;
+	      int len;
+
+	      dbus_message_iter_get_boolean_array (iter, &array, &len);
+
+	      for (i = 0; i < len; i++)
+		{
+		  GConfValue *value = gconf_value_new (GCONF_VALUE_BOOL);
+		  
+		  gconf_value_set_bool (value, array[i]);
+		  
+		  list = g_slist_prepend (list, value);
+		}
+	      list = g_slist_reverse (list);
+	      dbus_free (array);
+
+	      gconf_value_set_list_type (gval, GCONF_VALUE_BOOL);
+	      gconf_value_set_list_nocopy (gval, list);
+	      break;
+	    }
+	  case DBUS_TYPE_DOUBLE_ARRAY:
+	    {
+	      double *array;
+	      int len;
+
+	      dbus_message_iter_get_double_array (iter, &array, &len);
+
+	      for (i = 0; i < len; i++)
+		{
+		  GConfValue *value = gconf_value_new (GCONF_VALUE_FLOAT);
+		  
+		  gconf_value_set_float (value, array[i]);
+		  
+		  list = g_slist_prepend (list, value);
+		}
+	      list = g_slist_reverse (list);
+	      dbus_free (array);
+
+	      gconf_value_set_list_type (gval, GCONF_VALUE_FLOAT);
+	      gconf_value_set_list_nocopy (gval, list);
+	      break;
+	    }
 	  case DBUS_TYPE_INT32_ARRAY:
 	    {
 	      dbus_int32_t *array;
