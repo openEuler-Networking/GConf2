@@ -328,7 +328,7 @@ msgid ""
 "listener on gconfd restart, resulting in unreliable notification of "
 "configuration changes."
 msgstr ""
-"Toplam dinleyici (%s) 'nin kaydý tutulmasýnda hata oluþtu. gconfd restart ' ta bu dinyelici""
+"Toplam dinleyici (%s) 'nin kaydý tutulmasýnda hata oluþtu. gconfd restart ' ta bu dinyelici"
 "tekrar yüklenemeyecek. Sonuç olarak konfigurasyon deðiþikliðinde güvenilmez " 
 "bildirge belirtildi."
 
@@ -343,7 +343,7 @@ msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
 "result in a notification weirdly reappearing): %s"
 msgstr ""
-"
+
 
 #: gconf/gconf-database.c:992 gconf/gconf-sources.c:1281
 #, c-format
