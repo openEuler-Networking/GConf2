@@ -1,3 +1,7 @@
+2001-08-19  Jesus Bravo Alvarez  <jba@pobox.com>
+
+	* configure.in: Added gl (Galician) to ALL_LINGUAS.
+
 2001-08-15  Havoc Pennington  <hp@redhat.com>
 
 	* backends/xml-backend.c (x_shutdown): ditto
