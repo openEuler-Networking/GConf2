@@ -126,7 +126,7 @@ libgconf_2_la_SOURCES = \
 
 libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE)
 
-libgconf_2_la_LIBADD = $(INTLLIBS) $(DEPENDENT_LIBS)
+libgconf_2_la_LIBADD = $(DEPENDENT_LIBS) $(INTLLIBS) 
 
 EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh
 

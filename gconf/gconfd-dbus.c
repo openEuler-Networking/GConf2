@@ -24,9 +24,12 @@
 #include "gconf-dbus.h"
 #include <time.h>
 #include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 static const char *config_server_messages[] = {
   GCONF_DBUS_CONFIG_SERVER_SHUTDOWN,
+  GCONF_DBUS_CONFIG_SERVER_PING
 };
 
 static const char *config_database_messages[] = {
@@ -75,6 +78,23 @@ gconfd_shutdown (DBusConnection *connection,
   gconf_main_quit();
 }
 
+static void
+gconfd_ping (DBusConnection *connection,
+	     DBusMessage    *message)
+{
+  DBusMessage *reply;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  reply = dbus_message_new_reply (message);
+  dbus_message_append_args (reply,
+			    DBUS_TYPE_UINT32, getpid (),
+			    0);
+  dbus_connection_send (connection, reply, NULL);
+  dbus_message_unref (reply);
+}
+
 static DBusHandlerResult
 gconfd_config_server_handler (DBusMessageHandler *handler,
 			      DBusConnection     *connection,
@@ -87,7 +107,11 @@ gconfd_config_server_handler (DBusMessageHandler *handler,
       
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
-  
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_SERVER_PING))
+    {
+      add_client (connection, dbus_message_get_sender (message));      
+      gconfd_ping (connection, message);
+    }
   return DBUS_HANDLER_RESULT_ALLOW_MORE_HANDLERS;
 }
 
@@ -97,7 +121,7 @@ gconf_dbus_set_exception (DBusConnection *connection,
 			  GError        **error)
 {
   GConfError en;
-  const char *name;
+  const char *name = NULL;
   DBusMessage *reply;
   
   if (error == NULL || *error == NULL)
@@ -643,11 +667,8 @@ gconfd_config_database_remove_listener (DBusConnection *connection,
 {
   GConfDatabase *db;
   DBusMessage *reply;
-  DBusDict *dict;
-  char *dir;
   int id;
   int cnxn;
-  const char *name = NULL;
   
   if (gconfd_dbus_check_in_shutdown (connection, message))
     return;
@@ -659,12 +680,10 @@ gconfd_config_database_remove_listener (DBusConnection *connection,
     return;
   
   if (!(db = gconf_database_from_id (connection, message, id)))
-    {
-      dbus_free (dir);
       return;
-    }
 
-  gconf_database_corba_remove_listener (db, cnxn);
+
+  /* FIXME: Remove the listener */
   
   reply = dbus_message_new_reply (message);
   dbus_connection_send (connection, reply, NULL);
@@ -1143,7 +1162,7 @@ static const char *
 get_dbus_address (void)
 {
   /* FIXME: Change this when we know how to find the message bus. */
-  return g_getenv ("GCONF_DBUS_ADDRESS");
+  return g_getenv ("DBUS_ADDRESS");
 }
 
 static DBusConnection *dbus_conn = NULL;
@@ -1155,7 +1174,6 @@ gconfd_dbus_init (void)
   DBusResultCode result;
   DBusMessageHandler *handler;
   DBusError error;
-  char *name;
 
   dbus_error_init (&error);
   dbus_address = get_dbus_address ();
@@ -1174,8 +1192,7 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  name = dbus_bus_register_client (dbus_conn, &error);
-  if (!name)
+  if (!dbus_bus_register (dbus_conn, &error))
     {
       gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
 		 error.message);

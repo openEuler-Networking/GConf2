@@ -1,6 +1,7 @@
 
 /* GConf
  * Copyright (C) 1999, 2000 Red Hat Inc.
+ * Copyright (C) 2003       CodeFactory AB
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -22,6 +23,7 @@
 #include "gconf-internals.h"
 #include "gconf-backend.h"
 #include "gconf-schema.h"
+#include "gconf-dbus.h"
 #include "gconf.h"
 #include <string.h>
 #include <sys/stat.h>
@@ -2794,10 +2796,61 @@ close_fd_func (gpointer data)
     }
 }
 
-ConfigServer
-gconf_activate_server (gboolean  start_if_not_found,
-                       GError  **error)
+gboolean
+gconf_activate_server (DBusConnection *connection,
+		       gboolean        start_if_not_found,
+                       GError        **error)
 {
+  DBusMessage *message, *reply;
+
+  /* Confirm server exists */
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_SERVER_PING);
+  
+  reply = dbus_connection_send_with_reply_and_block (connection, message, -1, NULL);
+  dbus_message_unref (message);
+
+  if (!dbus_message_get_is_error (reply))
+    return TRUE;
+
+  printf ("woohoo: %d\n", start_if_not_found);
+  
+  if (start_if_not_found)
+    {
+      message = dbus_message_new (DBUS_SERVICE_DBUS,
+				  DBUS_MESSAGE_ACTIVATE_SERVICE);
+      dbus_message_append_args (message,
+				DBUS_TYPE_STRING, GCONF_DBUS_CONFIG_SERVER,
+				DBUS_TYPE_UINT32, 0,
+				0);
+
+      reply = dbus_connection_send_with_reply_and_block (connection, message, -1, NULL);
+
+      if (dbus_message_get_is_error (reply))
+	{
+	  char *error_message;
+
+	  dbus_message_get_args (reply, NULL,
+				 DBUS_TYPE_STRING, &error_message,
+				 0);
+	  g_set_error (error, GCONF_ERROR,
+		       GCONF_ERROR_NO_SERVER,
+		       _("Failed to activate configuration server: %s\n"),
+		       error_message);
+	  dbus_free (error_message);
+	  dbus_message_unref (reply);
+
+	  return FALSE;
+	}
+      else
+	{
+	  dbus_message_unref (reply);
+	  return TRUE;
+	}
+    }
+
+  return FALSE;
+
+#ifdef GCONF_CORBA_BROKEN
   ConfigServer server;
   int p[2] = { -1, -1 };
   char buf[1];
@@ -2914,6 +2967,7 @@ gconf_activate_server (gboolean  start_if_not_found,
   close (p[1]);
   
   return server;
+#endif
 }
 
 gboolean

@@ -38,7 +38,7 @@
 #include "gconf-engine.h"
 #include "gconf-sources.h"
 #include "GConfX.h"
-
+#include "gconf-dbus.h"
 gchar*       gconf_key_directory  (const gchar* key);
 const gchar* gconf_key_key        (const gchar* key);
 
@@ -202,8 +202,9 @@ GError*  gconf_compose_errors (GError* err1, GError* err2);
 
 CORBA_ORB gconf_orb_get (void);
 
-ConfigServer gconf_activate_server (gboolean  start_if_not_found,
-                                    GError  **error);
+gboolean gconf_activate_server (DBusConnection *connection,
+				gboolean        start_if_not_found,
+				GError        **error);
 
 char*     gconf_get_lock_dir (void);
 char*     gconf_get_daemon_dir (void);

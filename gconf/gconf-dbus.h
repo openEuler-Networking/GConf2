@@ -26,6 +26,7 @@
 #define GCONF_DBUS_CONFIG_SERVER "org.gnome.GConf.Server"
 
 #define GCONF_DBUS_CONFIG_SERVER_SHUTDOWN "org.gnome.GConf.Server.Shutdown"
+#define GCONF_DBUS_CONFIG_SERVER_PING "org.gnome.GConf.Server.Ping"
 
 #define GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS "org.gnome.GConf.Database.DirExists"
 #define GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS "org.gnome.GConf.Database.AllDirs"

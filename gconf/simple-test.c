@@ -99,7 +99,7 @@ notify_func (GConfClient* client,
 static gboolean
 idle_func (GConfClient *client)
 {
-  //  gconf_client_set_string (client, "/desktop/gnome/interface/icon_theme", "Anders rocks", NULL);
+  
   return FALSE;
 }
 
@@ -110,11 +110,10 @@ main (int argc, char **argv)
   DBusConnection *connection;
   DBusResultCode result;
   const char *address;
-  char *name;
   GMainLoop *loop;
   DBusError error;
   
-  address = g_getenv ("GCONF_DBUS_ADDRESS");  
+  address = g_getenv ("DBUS_ADDRESS");  
   connection = dbus_connection_open (address, &result);
 
   if (!connection)
@@ -125,8 +124,7 @@ main (int argc, char **argv)
     }
 
   dbus_error_init (&error);
-  name = dbus_bus_register_client (connection, &error);
-  if (!name)
+  if (!dbus_bus_register (connection, &error))
     {
       g_printerr ("Failed to register client with the D-BUS bus daemon: %s",
 		  error.message);
@@ -136,27 +134,14 @@ main (int argc, char **argv)
   g_type_init ();
   
   gconf_init_dbus (connection);
-  
+
   client = gconf_client_get_default ();
-  g_idle_add (idle_func, client);
 
-  gconf_client_add_dir (client, "/desktop/gnome",
-			GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
-
-  gconf_client_notify_add (client, "/desktop/gnome",
-			   notify_func, NULL, NULL, NULL);
-  loop = g_main_loop_new (NULL, FALSE);
-  
-  dbus_connection_setup_with_g_main (connection);
-  
-  g_main_loop_run (loop);
-
-  
   g_print ("foo: %s\n", gconf_client_get_string (client, "/desktop/gnome/interface/icon_theme", NULL));
 
-  g_print ("foo: %d\n", gconf_client_dir_exists (client, "/desktop/gnome/interface", NULL));
+  gconf_shutdown_daemon (NULL);
 
-  recurse (client, "/", 0);
+  g_print ("foo: %s\n", gconf_client_get_string (client, "/desktop/gnome/interface/icon_theme", NULL));  
 
   return 0;
 }

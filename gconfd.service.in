@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gnome.GConf.Server
+Exec=@LIBEXECDIR@/gconfd-2

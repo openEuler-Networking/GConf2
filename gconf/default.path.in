@@ -15,7 +15,7 @@ include "$(HOME)/.gconf.path"
 
 # Give users a default storage location, ~/.gconf
 
-xml:readwrite:$(HOME)/.gconfd
+xml:readwrite:$(HOME)/.gconf-dbus
 
 # Finally, look at the systemwide defaults
 # (commented out for now)

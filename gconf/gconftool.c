@@ -401,7 +401,7 @@ static const char *
 get_dbus_address (void)
 {
   /* FIXME: Change this when we know how to find the message bus. */
-  return g_getenv ("GCONF_DBUS_ADDRESS");
+  return g_getenv ("DBUS_ADDRESS");
 }
 
 
@@ -412,7 +412,6 @@ setup_dbus (void)
   const char *dbus_address;
   DBusError error;
   DBusResultCode result;  
-  char *name;
   
   dbus_address = get_dbus_address ();
   if (!dbus_address)
@@ -429,8 +428,7 @@ setup_dbus (void)
       return FALSE;
     }
 
-  name = dbus_bus_register_client (dbus_conn, &error);
-  if (!name)
+  if (!dbus_bus_register (dbus_conn, &error))
     {
       g_printerr (_("Failed to register client with the D-BUS bus daemon: %s"),
 		 error.message);
@@ -438,8 +436,6 @@ setup_dbus (void)
       return FALSE;
     }
 
-  dbus_free (name);
-  
   return gconf_init_dbus (dbus_conn);
 }
 
