@@ -1,5 +1,10 @@
 2001-10-04  Havoc Pennington  <hp@redhat.com>
 
+	* backends/xml-dir.c (dir_fill_cache_from_doc): fix another
+	spurious warning
+
+2001-10-04  Havoc Pennington  <hp@redhat.com>
+
 	* gconf/gconf-internals.c (open_empty_locked_file): put strerror 
 	in the error message for lock failure, just for thrills
 
