@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-02-14 17:45+0100\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -848,10 +848,6 @@ msgid ""
 "edit "
 msgstr ""
 "Ni virov nastavitev v poti virov, nastavitve ne bodo shranjene; uredite "
-
-#: gconf/gconfd.c:306
-msgid "/path"
-msgstr "/pot"
 
 #: gconf/gconfd.c:320
 #, c-format
@@ -1709,3 +1705,6 @@ msgstr "Opozorilo GConf: napaka ob izpisovanju praov v `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Za kljuè %s prièakoval `%s' dobil `%s'"
+
+#~ msgid "/path"
+#~ msgstr "/pot"

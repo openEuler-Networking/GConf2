@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-02-14 15:39+0200\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 1999-12-29 12:36+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -306,7 +306,8 @@ msgstr ""
 
 #: gconf/gconf-database.c:605
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr "Фатальна помилка: не вдалося отримати посилання на об'╓кт для ConfigDatabase"
+msgstr ""
+"Фатальна помилка: не вдалося отримати посилання на об'╓кт для ConfigDatabase"
 
 #: gconf/gconf-database.c:764
 #, c-format
@@ -576,7 +577,8 @@ msgstr ""
 #: gconf/gconf-internals.c:2362
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
-msgstr "Видалення застар╕лого блокування \"%s\" через помилку зондування сервера: %s"
+msgstr ""
+"Видалення застар╕лого блокування \"%s\" через помилку зондування сервера: %s"
 
 #: gconf/gconf-internals.c:2374
 #, c-format
@@ -848,7 +850,8 @@ msgstr ""
 #: gconf/gconfd.c:375
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
-msgstr "Отримано си╜нал %d, ядро скинуто. Будь ласка, пов╕домте про помилку в GConf."
+msgstr ""
+"Отримано си╜нал %d, ядро скинуто. Будь ласка, пов╕домте про помилку в GConf."
 
 #: gconf/gconfd.c:391
 #, c-format
@@ -1139,8 +1142,8 @@ msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
 msgstr ""
-"Доступ до бази даних конф╕╜урац╕╖ напряму, повз сервер вимага╓, щоб "
-"gconfd не був запущений."
+"Доступ до бази даних конф╕╜урац╕╖ напряму, повз сервер вимага╓, щоб gconfd "
+"не був запущений."
 
 #: gconf/gconftool.c:261
 msgid ""
@@ -1238,8 +1241,8 @@ msgstr "Параметр --break-directory ма╓ бути використаний сам.\n"
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
-"Потр╕бно вказати джерело конф╕╜урац╕╖ за допомогою параметра --config-source, "
-"якщо використову╓те параметр --direct\n"
+"Потр╕бно вказати джерело конф╕╜урац╕╖ за допомогою параметра "
+"--config-source, якщо використову╓те параметр --direct\n"
 
 #: gconf/gconftool.c:463
 #, c-format

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-02-12 09:31+0100\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-01-24 11:26CET\n"
 "Last-Translator: Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>\n"
 "Language-Team: Slovak <sk-i18n@rak.isternet.sk>\n"

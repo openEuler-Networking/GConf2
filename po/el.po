@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-02-11 22:54+0000\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-02-12 00:01:36+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -345,8 +345,7 @@ msgstr "Λήφθηκε άκυρη τιμή στην αίτηση καταχώρησης"
 # gconf/gconfd.c:519
 #: gconf/gconf-database.c:241
 #, c-format
-msgid ""
-"Couldn't make sense of CORBA value received in set request for key `%s'"
+msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Αδύνατος ο προσδιορισμός της τιμής CORBA που λήφθηκε στην αίτηση καταχώρησης "
 "για το κλειδί `%s"
@@ -997,8 +996,8 @@ msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
 msgstr ""
-"Δεν αναλύθηκαν επιτυχώς πηγαίες διευθύνσεις, αδύνατη η φόρτωση ή η αποθήκευση "
-"δεδομένων διαμόρφωσης"
+"Δεν αναλύθηκαν επιτυχώς πηγαίες διευθύνσεις, αδύνατη η φόρτωση ή η "
+"αποθήκευση δεδομένων διαμόρφωσης"
 
 # gconf/gconfd.c:930
 #: gconf/gconfd.c:349
@@ -1157,8 +1156,8 @@ msgstr ""
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
-"Αδυναμία αποκατάστασης ακροατή στη διεύθυνση '%s', αδύνατη η διεκπαιρέωση της "
-"βάσης δεδομένων"
+"Αδυναμία αποκατάστασης ακροατή στη διεύθυνση '%s', αδύνατη η διεκπαιρέωση "
+"της βάσης δεδομένων"
 
 # gconf/gconfd.c:1676
 #: gconf/gconfd.c:1679
@@ -1175,8 +1174,8 @@ msgstr "Αδύνατο το άνοιγμα αρχείου αποθηκευμένης κατάστασης `%s': %s"
 #: gconf/gconfd.c:1849
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Αποτυχία καταγραφής της πρόσθεσης ακροατή στο αρχείο καταγραφών του gconfd. "
 "Δε θα είναι δυνατό να επαναπροστεθεί ο ακροατής αν το gconfd τερματίσει ή "
@@ -1185,8 +1184,8 @@ msgstr ""
 #: gconf/gconfd.c:1854
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Αποτυχία καταγραφής της διαγραφής ακροατή στο αρχείο καταγραφών του gconfd. "
 "Είναι πιθανό να επαναπροστεθεί ο ακροατής κατά λάθος αν το gconfd τερματίσει "
@@ -1315,8 +1314,8 @@ msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
-"Καθορισμός του τύπου της τιμής της λίστας που ανατίθεται ή τον τύπο της τιμής "
-"που περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
+"Καθορισμός του τύπου της τιμής της λίστας που ανατίθεται ή τον τύπο της "
+"τιμής που περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
 
 # gconf/gconftool.c:183
 #: gconf/gconftool.c:181 gconf/gconftool.c:190 gconf/gconftool.c:199
@@ -1503,7 +1502,8 @@ msgstr "Η επιλογή --install-schema-file πρέπει να χρησιμοποιείται μόνη της.\n"
 # gconf/gconftool.c:414
 #: gconf/gconftool.c:430
 msgid "--makefile-install-rule must be used by itself.\n"
-msgstr "Η επιλογή --makefile-install-rule πρέπει να χρησιμοποιείται μόνη της.\n"
+msgstr ""
+"Η επιλογή --makefile-install-rule πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:424
 #: gconf/gconftool.c:440
@@ -1545,7 +1545,8 @@ msgid ""
 "applications are running\n"
 "(though things theoretically work if apps are running).\n"
 msgstr ""
-"Δε θα έπρεπε να εκτελείται το gconfd όταν εγκαθίστανται νέα αρχεία σχήματος.\n"
+"Δε θα έπρεπε να εκτελείται το gconfd όταν εγκαθίστανται νέα αρχεία "
+"σχήματος.\n"
 "Χρησιμοποιείστε το gconftool --shutdown για να κλείσετε το δαίμονα, "
 "ασφαλέστερα όταν δεν εκτελούνται εφαρμογές\n"
 "(αν και θεωρητικά θα έπρεπε να δουλέψει αν εκτελούνται εφαρμογές).\n"
@@ -1793,7 +1794,8 @@ msgstr ""
 # gconf/gconftool.c:1256
 #: gconf/gconftool.c:1456
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
-msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Εσωτερικό σφάλμα του gconftool, άγνωστο GConfValueType\n"
+msgstr ""
+"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Εσωτερικό σφάλμα του gconftool, άγνωστο GConfValueType\n"
 
 # gconf/gconftool.c:1304
 #: gconf/gconftool.c:1504 gconf/gconftool.c:1525 gconf/gconftool.c:1546
@@ -1807,8 +1809,8 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία γραμματικής ανάλυσης ονόματος τύπου `%s'\n"
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Το list_type μπορεί να είναι μόνο ακέραιος, κιν. υποδιαστολής, "
-"αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
+"ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Το list_type μπορεί να είναι μόνο ακέραιος, κιν. "
+"υποδιαστολής, αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
 
 #: gconf/gconftool.c:1542
 #, c-format
@@ -1835,7 +1837,8 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κενός κόμβος <applyto>"
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <%s> δεν είναι κατανοητός χαμηλότερα από το <schema>\n"
+"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <%s> δεν είναι κατανοητός χαμηλότερα από το "
+"<schema>\n"
 
 # gconf/gconftool.c:1340
 #: gconf/gconftool.c:1603
@@ -1869,7 +1872,8 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: ¶κυρος κόμβος <%s> σε ένα κόμβο <locale>\n"
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία εγκατάστασης σχήματος `%s' τοπικής ρύθμισης `%s': %s\n"
+"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία εγκατάστασης σχήματος `%s' τοπικής ρύθμισης `%s': "
+"%s\n"
 
 # gconf/gconftool.c:1488
 #: gconf/gconftool.c:1760
@@ -1893,7 +1897,8 @@ msgstr "Σχήμα `%s' επισυνάφτηκε στο κλειδί `%s'\n"
 # gconf/gconftool.c:1588
 #: gconf/gconftool.c:1869
 msgid "You must have at least one <locale> entry in a <schema>\n"
-msgstr "Πρέπει να υπάρχει τουλάχιστον μία καταχώρηση <locale> σε ένα <schema>\n"
+msgstr ""
+"Πρέπει να υπάρχει τουλάχιστον μία καταχώρηση <locale> σε ένα <schema>\n"
 
 # gconf/gconftool.c:1617
 #: gconf/gconftool.c:1898
@@ -1992,7 +1997,8 @@ msgstr "Πρέπει να καθοριστούν μερικοί κατάλογοι προς σπάσιμο\n"
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
-"directory:\n  %s\n"
+"directory:\n"
+"  %s\n"
 msgstr ""
 "Προσπάθεια ανίχνευσης ελλαττώματος στην εφαρμογή θέτοντας άσχετες τιμές για "
 "το κλειδί στον κατάλογο:\n"
@@ -2015,4 +2021,3 @@ msgstr "Προειδοποίηση GConf: αποτυχία απαρίθμησης ζευγών στο `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Αναμενόταν `%s' λήφθηκε `%s' για το κλειδί %s"
-

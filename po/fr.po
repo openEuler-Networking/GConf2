@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.12\n"
-"POT-Creation-Date: 2001-02-13 12:00+0100\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-02-13 11:04+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"

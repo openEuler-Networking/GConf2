@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.12\n"
-"POT-Creation-Date: 2001-01-28 00:23+0900\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-01-28 00:30+09:00\n"
 "Last-Translator: Takeshi Aihana <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -26,17 +26,17 @@ msgstr "root で開かれた BarkelyDB ソース %s"
 msgid "Initializing BDB backend module"
 msgstr "BarkeleyDB(BDB) バックエンドモジュールの初期化中です。"
 
-#: backends/dir-utils.c:88
+#: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "アドレス %s にある %s のルートディレクトリが見つかりませんでした。"
 
-#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "ディレクトリ '%s' を作成できませんでした: %s"
 
-#: backends/dir-utils.c:192
+#: backends/dir-utils.c:212
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr ""
@@ -105,61 +105,66 @@ msgstr "'%s' の状態を取得できませんでした: %s"
 msgid "XML filename `%s' is a directory"
 msgstr "XML ファイル名 '%s' はディレクトリです。"
 
-#: backends/xml-dir.c:293 backends/xml-dir.c:300
+#: backends/xml-dir.c:298 backends/xml-dir.c:305
 #, c-format
 msgid "Failed to delete `%s': %s"
 msgstr "'%s' の削除に失敗しました: %s"
 
-#: backends/xml-dir.c:341
+#: backends/xml-dir.c:346
 #, c-format
 msgid "Failed to write file `%s': %s"
 msgstr "ファイル '%s' への書き込みに失敗しました: %s"
 
-#: backends/xml-dir.c:357 backends/xml-dir.c:367
+#: backends/xml-dir.c:359
+#, fuzzy, c-format
+msgid "Failed to set mode on `%s': %s"
+msgstr "'%s' が開けませんでした: %s\n"
+
+#: backends/xml-dir.c:373 backends/xml-dir.c:383
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "名前 '%s' から '%s' の変更に失敗しました: %s"
 
-#: backends/xml-dir.c:373
+#: backends/xml-dir.c:389
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
 msgstr "'%s' から '%s' の復帰に失敗しました: %s"
 
-#: backends/xml-dir.c:385
+#: backends/xml-dir.c:401
 #, c-format
 msgid "Failed to delete old file `%s': %s"
 msgstr "古いファイル '%s' の削除に失敗しました: %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:790
+#: backends/xml-dir.c:806
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "'%s' の状態が取得できませんでした: %s"
 
-#: backends/xml-dir.c:934
+#: backends/xml-dir.c:950
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "'%s' が '%s' の中で重複しています。無視します。"
 
-#: backends/xml-dir.c:956
+#: backends/xml-dir.c:972
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr ""
 "XML ファイル '%s' の中に名前の無いエントリが含まれています。無視します。"
 
-#: backends/xml-dir.c:963
+#: backends/xml-dir.c:979
 #, c-format
 msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
 msgstr ""
 "XML ファイル '%s' の中のトップレベルノードが 1 つの <entry> "
 "ではありません。無視します。"
 
-#: backends/xml-dir.c:1051
+#: backends/xml-dir.c:1067
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "ファイル '%s' の作成に失敗しました: %s"
 
-#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2471
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2471
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "ファイル '%s' を閉じるのに失敗しました: %s"
@@ -854,10 +859,6 @@ msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
 msgstr "ソースパスの中に設定ファイルがありません。設定は保存されません。; "
-
-#: gconf/gconfd.c:306
-msgid "/path"
-msgstr "/path"
 
 #: gconf/gconfd.c:320
 #, c-format
@@ -1721,6 +1722,9 @@ msgstr "GConf から警告: '%s' の中のペアのリスト化に失敗: %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "'%s' を期待されたが、得られたのは '%s'(キーは'%s')です。"
+
+#~ msgid "/path"
+#~ msgstr "/path"
 
 #~ msgid "found <local_schema> with no locale setting"
 #~ msgstr "ローケル設定無しの <local_schema> を発見しました。"

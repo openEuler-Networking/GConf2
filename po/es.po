@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-02-16 23:18+0100\n"
+"POT-Creation-Date: 2001-02-05 16:04-0500\n"
 "PO-Revision-Date: 2001-01-23 16:58-04:00\n"
 "Last-Translator: Héctor García Álvarez <hector@scouts-es.org>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -821,10 +821,6 @@ msgstr ""
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
-msgstr ""
-
-#: gconf/gconfd.c:306
-msgid "/path"
 msgstr ""
 
 #: gconf/gconfd.c:320
