@@ -31,9 +31,6 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-/* FIXME: get this working again */
-#define CHECK_OWNER_USE(engine)
-
 
 gboolean
 gconf_key_check (const gchar* key, GError** err)
@@ -809,29 +806,6 @@ gconf_engine_set_pair    (GConfEngine* conf, const gchar* key,
     }  
   
   return error_checked_set(conf, key, pair, err);
-}
-
-gboolean
-gconf_engine_key_is_writable  (GConfEngine *conf,
-                               const gchar *key,
-                               GError     **err)
-{
-  gboolean is_writable = TRUE;
-  GConfValue *val;
-
-  CHECK_OWNER_USE (conf);
-  
-  /* FIXME implement IDL to allow getting only writability
-   * (not that urgent since GConfClient caches this crap
-   * anyway)
-   */
-  
-  val = gconf_engine_get_full(conf, key, NULL, TRUE,
-                              NULL, &is_writable, err);
-
-  gconf_value_free (val);
-  
-  return is_writable;
 }
 
 

@@ -22,20 +22,21 @@
 
 #include <glib.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
+G_BEGIN_DECLS
 
 #include <gconf/gconf-schema.h>
 #include <gconf/gconf-engine.h>
 #include <gconf/gconf-error.h>
 #include <gconf/gconf-enum-types.h>
 
+//typedef struct _GConfEngine GConfEngine;
+
 typedef void (*GConfNotifyFunc) (GConfEngine* conf,
                                  guint cnxn_id,
                                  GConfEntry *entry,
                                  gpointer user_data);
-  
+
+	
 /* Returns ID of the notification */
 /* returns 0 on error, 0 is an invalid ID */
 guint gconf_engine_notify_add    (GConfEngine      *conf,
@@ -43,7 +44,7 @@ guint gconf_engine_notify_add    (GConfEngine      *conf,
                                   const gchar      *namespace_section,
                                   GConfNotifyFunc   func,
                                   gpointer          user_data,
-                                  GError      **err);
+                                  GError          **err);
 
 void  gconf_engine_notify_remove (GConfEngine      *conf,
                                   guint             cnxn);
@@ -318,10 +319,6 @@ GConfValue * gconf_engine_get_full (GConfEngine *conf,
 #define GCONF_DBUS_ERROR_OVERRIDDEN "org.gnome.GConf.Error.Overriden"
 #define GCONF_DBUS_ERROR_LOCK_FAILED "org.gnome.GConf.Error.LockFailed"
 	
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-
 G_END_DECLS
 
 #endif

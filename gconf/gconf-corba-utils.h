@@ -22,6 +22,8 @@
 
 #include "GConfX.h"
 #include "gconf-internals.h"
+#include "gconf-value.h"
+#include "gconf-schema.h"
 
 GConfValue*   gconf_value_from_corba_value              (const ConfigValue  *value);
 ConfigValue*  gconf_corba_value_from_gconf_value        (const GConfValue   *value);

@@ -864,3 +864,462 @@ gconf_activate_server (gboolean  start_if_not_found,
   
   return server;
 }
+
+
+/*
+ * CORBA / GConfValue glue
+ */
+
+GConfValue* 
+gconf_value_from_corba_value(const ConfigValue* value)
+{
+  GConfValue* gval;
+  GConfValueType type = GCONF_VALUE_INVALID;
+  
+  switch (value->_d)
+    {
+    case InvalidVal:
+      return NULL;
+      break;
+    case IntVal:
+      type = GCONF_VALUE_INT;
+      break;
+    case StringVal:
+      type = GCONF_VALUE_STRING;
+      break;
+    case FloatVal:
+      type = GCONF_VALUE_FLOAT;
+      break;
+    case BoolVal:
+      type = GCONF_VALUE_BOOL;
+      break;
+    case SchemaVal:
+      type = GCONF_VALUE_SCHEMA;
+      break;
+    case ListVal:
+      type = GCONF_VALUE_LIST;
+      break;
+    case PairVal:
+      type = GCONF_VALUE_PAIR;
+      break;
+    default:
+      gconf_log(GCL_DEBUG, "Invalid type in %s", G_GNUC_FUNCTION);
+      return NULL;
+    }
+
+  g_assert(GCONF_VALUE_TYPE_VALID(type));
+  
+  gval = gconf_value_new(type);
+
+  switch (gval->type)
+    {
+    case GCONF_VALUE_INT:
+      gconf_value_set_int(gval, value->_u.int_value);
+      break;
+    case GCONF_VALUE_STRING:
+      if (!g_utf8_validate (value->_u.string_value, -1, NULL))
+        {
+          gconf_log (GCL_ERR, _("Invalid UTF-8 in string value in '%s'"),
+                     value->_u.string_value); 
+        }
+      else
+        {
+          gconf_value_set_string(gval, value->_u.string_value);
+        }
+      break;
+    case GCONF_VALUE_FLOAT:
+      gconf_value_set_float(gval, value->_u.float_value);
+      break;
+    case GCONF_VALUE_BOOL:
+      gconf_value_set_bool(gval, value->_u.bool_value);
+      break;
+    case GCONF_VALUE_SCHEMA:
+      gconf_value_set_schema_nocopy(gval, 
+                                    gconf_schema_from_corba_schema(&(value->_u.schema_value)));
+      break;
+    case GCONF_VALUE_LIST:
+      {
+        GSList* list = NULL;
+        guint i = 0;
+        
+        switch (value->_u.list_value.list_type)
+          {
+          case BIntVal:
+            gconf_value_set_list_type(gval, GCONF_VALUE_INT);
+            break;
+          case BBoolVal:
+            gconf_value_set_list_type(gval, GCONF_VALUE_BOOL);
+            break;
+          case BFloatVal:
+            gconf_value_set_list_type(gval, GCONF_VALUE_FLOAT);
+            break;
+          case BStringVal:
+            gconf_value_set_list_type(gval, GCONF_VALUE_STRING);
+            break;
+          case BInvalidVal:
+            break;
+          default:
+            g_warning("Bizarre list type in %s", G_GNUC_FUNCTION);
+            break;
+          }
+
+        if (gconf_value_get_list_type(gval) != GCONF_VALUE_INVALID)
+          {
+            i = 0;
+            while (i < value->_u.list_value.seq._length)
+              {
+                GConfValue* val;
+                
+                /* This is a bit dubious; we cast a ConfigBasicValue to ConfigValue
+                   because they have the same initial members, but by the time
+                   the CORBA and C specs kick in, not sure we are guaranteed
+                   to be able to do this.
+                */
+                val = gconf_value_from_corba_value((ConfigValue*)&value->_u.list_value.seq._buffer[i]);
+                
+                if (val == NULL)
+                  gconf_log(GCL_ERR, _("Couldn't interpret CORBA value for list element"));
+                else if (val->type != gconf_value_get_list_type(gval))
+                  gconf_log(GCL_ERR, _("Incorrect type for list element in %s"), G_GNUC_FUNCTION);
+                else
+                  list = g_slist_prepend(list, val);
+                
+                ++i;
+              }
+        
+            list = g_slist_reverse(list);
+            
+            gconf_value_set_list_nocopy(gval, list);
+          }
+        else
+          {
+            gconf_log(GCL_ERR, _("Received list from gconfd with a bad list type"));
+          }
+      }
+      break;
+    case GCONF_VALUE_PAIR:
+      {
+        g_return_val_if_fail(value->_u.pair_value._length == 2, gval);
+        
+        gconf_value_set_car_nocopy(gval,
+                                   gconf_value_from_corba_value((ConfigValue*)&value->_u.list_value.seq._buffer[0]));
+
+        gconf_value_set_cdr_nocopy(gval,
+                                   gconf_value_from_corba_value((ConfigValue*)&value->_u.list_value.seq._buffer[1]));
+      }
+      break;
+    default:
+      g_assert_not_reached();
+      break;
+    }
+  
+  return gval;
+}
+
+void          
+gconf_fill_corba_value_from_gconf_value(const GConfValue *value, 
+                                        ConfigValue      *cv)
+{
+  if (value == NULL)
+    {
+      cv->_d = InvalidVal;
+      return;
+    }
+
+  switch (value->type)
+    {
+    case GCONF_VALUE_INT:
+      cv->_d = IntVal;
+      cv->_u.int_value = gconf_value_get_int(value);
+      break;
+    case GCONF_VALUE_STRING:
+      cv->_d = StringVal;
+      cv->_u.string_value = CORBA_string_dup((char*)gconf_value_get_string(value));
+      break;
+    case GCONF_VALUE_FLOAT:
+      cv->_d = FloatVal;
+      cv->_u.float_value = gconf_value_get_float(value);
+      break;
+    case GCONF_VALUE_BOOL:
+      cv->_d = BoolVal;
+      cv->_u.bool_value = gconf_value_get_bool(value);
+      break;
+    case GCONF_VALUE_SCHEMA:
+      cv->_d = SchemaVal;
+      gconf_fill_corba_schema_from_gconf_schema (gconf_value_get_schema(value),
+                                                 &cv->_u.schema_value);
+      break;
+    case GCONF_VALUE_LIST:
+      {
+        guint n, i;
+        GSList* list;
+        
+        cv->_d = ListVal;
+
+        list = gconf_value_get_list(value);
+
+        n = g_slist_length(list);
+
+        cv->_u.list_value.seq._buffer =
+          CORBA_sequence_ConfigBasicValue_allocbuf(n);
+        cv->_u.list_value.seq._length = n;
+        cv->_u.list_value.seq._maximum = n;
+        CORBA_sequence_set_release(&cv->_u.list_value.seq, TRUE);
+        
+        switch (gconf_value_get_list_type(value))
+          {
+          case GCONF_VALUE_INT:
+            cv->_u.list_value.list_type = BIntVal;
+            break;
+
+          case GCONF_VALUE_BOOL:
+            cv->_u.list_value.list_type = BBoolVal;
+            break;
+            
+          case GCONF_VALUE_STRING:
+            cv->_u.list_value.list_type = BStringVal;
+            break;
+
+          case GCONF_VALUE_FLOAT:
+            cv->_u.list_value.list_type = BFloatVal;
+            break;
+
+          case GCONF_VALUE_SCHEMA:
+            cv->_u.list_value.list_type = BSchemaVal;
+            break;
+            
+          default:
+            cv->_u.list_value.list_type = BInvalidVal;
+            gconf_log(GCL_DEBUG, "Invalid list type in %s", G_GNUC_FUNCTION);
+            break;
+          }
+        
+        i= 0;
+        while (list != NULL)
+          {
+            /* That dubious ConfigBasicValue->ConfigValue cast again */
+            gconf_fill_corba_value_from_gconf_value((GConfValue*)list->data,
+                                                    (ConfigValue*)&cv->_u.list_value.seq._buffer[i]);
+
+            list = g_slist_next(list);
+            ++i;
+          }
+      }
+      break;
+    case GCONF_VALUE_PAIR:
+      {
+        cv->_d = PairVal;
+
+        cv->_u.pair_value._buffer =
+          CORBA_sequence_ConfigBasicValue_allocbuf(2);
+        cv->_u.pair_value._length = 2;
+        cv->_u.pair_value._maximum = 2;
+        CORBA_sequence_set_release(&cv->_u.pair_value, TRUE);
+        
+        /* dubious cast */
+        gconf_fill_corba_value_from_gconf_value (gconf_value_get_car(value),
+                                                 (ConfigValue*)&cv->_u.pair_value._buffer[0]);
+        gconf_fill_corba_value_from_gconf_value(gconf_value_get_cdr(value),
+                                                (ConfigValue*)&cv->_u.pair_value._buffer[1]);
+      }
+      break;
+      
+    case GCONF_VALUE_INVALID:
+      cv->_d = InvalidVal;
+      break;
+    default:
+      cv->_d = InvalidVal;
+      gconf_log(GCL_DEBUG, "Unknown type in %s", G_GNUC_FUNCTION);
+      break;
+    }
+}
+
+ConfigValue*  
+gconf_corba_value_from_gconf_value (const GConfValue* value)
+{
+  ConfigValue* cv;
+
+  cv = ConfigValue__alloc();
+
+  gconf_fill_corba_value_from_gconf_value(value, cv);
+
+  return cv;
+}
+
+ConfigValue*  
+gconf_invalid_corba_value ()
+{
+  ConfigValue* cv;
+
+  cv = ConfigValue__alloc();
+
+  cv->_d = InvalidVal;
+
+  return cv;
+}
+
+static ConfigValueType
+corba_type_from_gconf_type(GConfValueType type)
+{
+  switch (type)
+    {
+    case GCONF_VALUE_INT:
+      return IntVal;
+    case GCONF_VALUE_BOOL:
+      return BoolVal;
+    case GCONF_VALUE_FLOAT:
+      return FloatVal;
+    case GCONF_VALUE_INVALID:
+      return InvalidVal;
+    case GCONF_VALUE_STRING:
+      return StringVal;
+    case GCONF_VALUE_SCHEMA:
+      return SchemaVal;
+    case GCONF_VALUE_LIST:
+      return ListVal;
+    case GCONF_VALUE_PAIR:
+      return PairVal;
+    default:
+      g_assert_not_reached();
+      return InvalidVal;
+    }
+}
+
+static GConfValueType
+gconf_type_from_corba_type(ConfigValueType type)
+{
+  switch (type)
+    {
+    case InvalidVal:
+      return GCONF_VALUE_INVALID;
+    case StringVal:
+      return GCONF_VALUE_STRING;
+    case IntVal:
+      return GCONF_VALUE_INT;
+    case FloatVal:
+      return GCONF_VALUE_FLOAT;
+    case SchemaVal:
+      return GCONF_VALUE_SCHEMA;
+    case BoolVal:
+      return GCONF_VALUE_BOOL;
+    case ListVal:
+      return GCONF_VALUE_LIST;
+    case PairVal:
+      return GCONF_VALUE_PAIR;
+    default:
+      g_assert_not_reached();
+      return GCONF_VALUE_INVALID;
+    }
+}
+
+void          
+gconf_fill_corba_schema_from_gconf_schema(const GConfSchema *sc, 
+                                          ConfigSchema      *cs)
+{
+  cs->value_type = corba_type_from_gconf_type (gconf_schema_get_type (sc));
+  cs->value_list_type = corba_type_from_gconf_type (gconf_schema_get_list_type (sc));
+  cs->value_car_type = corba_type_from_gconf_type (gconf_schema_get_car_type (sc));
+  cs->value_cdr_type = corba_type_from_gconf_type (gconf_schema_get_cdr_type (sc));
+
+  cs->locale = CORBA_string_dup (gconf_schema_get_locale (sc) ? gconf_schema_get_locale (sc) : "");
+  cs->short_desc = CORBA_string_dup (gconf_schema_get_short_desc (sc) ? gconf_schema_get_short_desc (sc) : "");
+  cs->long_desc = CORBA_string_dup (gconf_schema_get_long_desc (sc) ? gconf_schema_get_long_desc (sc) : "");
+  cs->owner = CORBA_string_dup (gconf_schema_get_owner (sc) ? gconf_schema_get_owner (sc) : "");
+
+  {
+    gchar* encoded;
+    GConfValue* default_val;
+
+    default_val = gconf_schema_get_default_value (sc);
+
+    if (default_val)
+      {
+        encoded = gconf_value_encode (default_val);
+
+        g_assert (encoded != NULL);
+
+        cs->encoded_default_value = CORBA_string_dup (encoded);
+
+        g_free (encoded);
+      }
+    else
+      cs->encoded_default_value = CORBA_string_dup ("");
+  }
+}
+
+ConfigSchema* 
+gconf_corba_schema_from_gconf_schema (const GConfSchema* sc)
+{
+  ConfigSchema* cs;
+
+  cs = ConfigSchema__alloc ();
+
+  gconf_fill_corba_schema_from_gconf_schema (sc, cs);
+
+  return cs;
+}
+
+GConfSchema*  
+gconf_schema_from_corba_schema(const ConfigSchema* cs)
+{
+  GConfSchema* sc;
+  GConfValueType type = GCONF_VALUE_INVALID;
+  GConfValueType list_type = GCONF_VALUE_INVALID;
+  GConfValueType car_type = GCONF_VALUE_INVALID;
+  GConfValueType cdr_type = GCONF_VALUE_INVALID;
+
+  type = gconf_type_from_corba_type(cs->value_type);
+  list_type = gconf_type_from_corba_type(cs->value_list_type);
+  car_type = gconf_type_from_corba_type(cs->value_car_type);
+  cdr_type = gconf_type_from_corba_type(cs->value_cdr_type);
+
+  sc = gconf_schema_new();
+
+  gconf_schema_set_type(sc, type);
+  gconf_schema_set_list_type(sc, list_type);
+  gconf_schema_set_car_type(sc, car_type);
+  gconf_schema_set_cdr_type(sc, cdr_type);
+
+  if (*cs->locale != '\0')
+    {
+      if (!g_utf8_validate (cs->locale, -1, NULL))
+        gconf_log (GCL_ERR, _("Invalid UTF-8 in locale for schema"));
+      else
+        gconf_schema_set_locale(sc, cs->locale);
+    }
+
+  if (*cs->short_desc != '\0')
+    {
+      if (!g_utf8_validate (cs->short_desc, -1, NULL))
+        gconf_log (GCL_ERR, _("Invalid UTF-8 in short description for schema"));
+      else
+        gconf_schema_set_short_desc(sc, cs->short_desc);
+    }
+
+  if (*cs->long_desc != '\0')
+    {
+      if (!g_utf8_validate (cs->long_desc, -1, NULL))
+        gconf_log (GCL_ERR, _("Invalid UTF-8 in long description for schema"));
+      else
+        gconf_schema_set_long_desc(sc, cs->long_desc);
+    }
+
+  if (*cs->owner != '\0')
+    {
+      if (!g_utf8_validate (cs->owner, -1, NULL))
+        gconf_log (GCL_ERR, _("Invalid UTF-8 in owner for schema"));
+      else
+        gconf_schema_set_owner(sc, cs->owner);
+    }
+      
+  {
+    GConfValue* val;
+
+    val = gconf_value_decode(cs->encoded_default_value);
+
+    if (val)
+      gconf_schema_set_default_value_nocopy(sc, val);
+  }
+  
+  return sc;
+}

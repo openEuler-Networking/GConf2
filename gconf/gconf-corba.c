@@ -885,7 +885,6 @@ gconf_engine_get_fuller (GConfEngine *conf,
     }
 }
 
-
 GConfValue *
 gconf_engine_get_full (GConfEngine *conf,
                        const gchar *key,
@@ -1041,6 +1040,29 @@ gconf_engine_get_default_from_schema (GConfEngine* conf,
 
       return val;
     }
+}
+
+gboolean
+gconf_engine_key_is_writable  (GConfEngine *conf,
+                               const gchar *key,
+                               GError     **err)
+{
+  gboolean is_writable = TRUE;
+  GConfValue *val;
+
+  CHECK_OWNER_USE (conf);
+  
+  /* FIXME implement IDL to allow getting only writability
+   * (not that urgent since GConfClient caches this crap
+   * anyway)
+   */
+  
+  val = gconf_engine_get_full(conf, key, NULL, TRUE,
+                              NULL, &is_writable, err);
+
+  gconf_value_free (val);
+  
+  return is_writable;
 }
 
 gboolean

@@ -13,7 +13,7 @@ INCLUDES=								\
 	-DGCONF_CONFDIR=\""$(sysconfdir)/gconf/$(MAJOR_VERSION)"\"	\
 	-DGCONF_ETCDIR=\""$(sysconfdir)/gconf"\"			\
 	-DGCONF_BINDIR=\""$(bindir)"\"					\
-	-DGCONF_SERVERDIR=\""$(libexecdir)"\"           \
+	-DGCONF_SERVERDIR=\""$(libexecdir)"\"           		\
 	-DGCONF_BUILDDIR=\""$(top_builddir)"\"				\
 	-DGCONF_BACKEND_DIR=\""$(pkglibdir)/$(MAJOR_VERSION)"\"		\
 	-DVERSION=\""$(VERSION)"\"					\
@@ -30,9 +30,9 @@ else
 SANITY_CHECK=
 endif
 
-lib_LTLIBRARIES = libgconf-2.la
+lib_LTLIBRARIES = libgconf-2.la libgconf-dbus.la
 
-bin_PROGRAMS = gconftool-2 
+bin_PROGRAMS = gconftool-2 gconftool-dbus
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 if HAVE_ORBIT
@@ -47,7 +47,7 @@ built_sourcecode = 			\
 	gconfmarshal.h			\
 	gconfmarshal.c
 
-$(libgconf_2_la_OBJECTS) $(gconftool_2_OBJECTS) $(gconfd_2_OBJECTS): $(built_sourcecode)
+$(libgconf_dbus_la_OBJECTS) $(libgconf_2_la_OBJECTS) $(gconftool_2_OBJECTS) $(gconfd_2_OBJECTS): $(built_sourcecode)
 
 CLEANFILES = \
 	$(built_sourcecode)	\
@@ -74,21 +74,35 @@ gconfinclude_HEADERS = 		\
 	$(gconf_headers) 	\
 	gconf-enum-types.h
 
-# Only one client is supported, if D-BUS is enable we use that. FIXME: remove corba files here
-if HAVE_DBUS
-GCONF_IPC_SOURCE = gconf-dbus.c gconf-dbus-utils.c gconf-dbus-utils.h gconf-corba-utils.c gconf-corba-utils.h
-else
-GCONF_IPC_SOURCE = gconf-corba-utils.c gconf-corba-utils.h gconf-corba.c
-endif
+# Only one client is supported at a time, if D-BUS is enabled we use that.
+#if HAVE_DBUS
+GCONF_DBUS_SOURCE = gconf-dbus.c gconf-dbus-utils.c gconf-dbus-utils.h
+#else
+#GCONF_DBUS_SOURCE = 
+#endif
+
+# Note: Separate these variables just to be able to build both dbus
+# and corba clients for testing, remove this later to make sure we'll
+# only build the dbus client when ipc = dbus or both.
 
 if HAVE_ORBIT
-GCONFD_CORBA_SOURCE = gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconfd-corba.h gconf-corba-utils.c gconf-corba-utils.h
+GCONF_CORBA_SOURCE = gconf-corba-utils.c gconf-corba-utils.h gconf-corba.c
+else
+GCONF_CORBA_SOURCE =
+endif
+
+GCONF_IPC_SOURCE = $(GCONF_CORBA_SOURCE) $(GCONF_DBUS_SOURCE)
+
+if HAVE_ORBIT
+GCONFD_CORBA_SOURCE = gconf-database-corba.c gconf-database-corba.h \
+	gconfd-corba.c gconfd-corba.h gconf-corba-utils.c gconf-corba-utils.h
 else 
 GCONFD_CORBA_SOURCE =
 endif
 
 if HAVE_DBUS
-GCONFD_DBUS_SOURCE = gconfd-dbus.c gconfd-dbus.h gconf-database-dbus.c gconf-database-dbus.h
+GCONFD_DBUS_SOURCE = gconfd-dbus.c gconfd-dbus.h gconf-database-dbus.c \
+	gconf-database-dbus.h
 else 
 GCONFD_DBUS_SOURCE = 
 endif
@@ -100,7 +114,7 @@ GCONFD_IPC_SOURCE = $(GCONFD_CORBA_SOURCE) $(GCONFD_DBUS_SOURCE)
 gconfd_2_SOURCES = \
 	gconf-database.h	\
 	gconf-database.c	\
-	$(GCONFD_IPC_SOURCE)    \
+	$(GCONFD_IPC_SOURCE)	\
 	$(CORBA_GENERATED)      \
 	gconf-sources.h		\
 	gconfd.h		\
@@ -118,6 +132,11 @@ gconftool_2_SOURCES = \
 
 gconftool_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS) $(GCONF_IPC_LIBS) $(POPT_LIBS) libgconf-$(MAJOR_VERSION).la
 
+gconftool_dbus_SOURCES = \
+	gconftool.c
+
+gconftool_dbus_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS) $(GCONF_IPC_LIBS) $(POPT_LIBS) libgconf-dbus.la
+
 gconf_sanity_check_2_SOURCES = \
 	gconf-sanity-check.c
 
@@ -126,11 +145,9 @@ gconf_sanity_check_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_AND_GTK_
 $(CORBA_GENERATED): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
 
-libgconf_2_la_SOURCES = \
+GCONF_COMMON_SOURCE = \
 	gconf-internals.c	\
 	gconf-internals.h	\
-	$(GCONF_IPC_SOURCE)	\
-	$(CORBA_GENERATED)      \
 	gconf.h			\
 	gconf.c			\
 	gconf-backend.h		\
@@ -146,9 +163,20 @@ libgconf_2_la_SOURCES = \
 	gconf-client.c		\
 	gconf-enum-types.c
 
-libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE) -no-undefined
+libgconf_2_la_SOURCES = \
+	$(GCONF_COMMON_SOURCE)	\
+	$(GCONF_CORBA_SOURCE)	\
+	$(CORBA_GENERATED)
 
+libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE) -no-undefined
 libgconf_2_la_LIBADD = $(INTLLIBS) $(DEPENDENT_LIBS) $(GCONF_IPC_LIBS)
+
+libgconf_dbus_la_SOURCES = \
+	$(GCONF_COMMON_SOURCE)	\
+	$(GCONF_DBUS_SOURCE)
+
+libgconf_dbus_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE) -no-undefined
+libgconf_dbus_la_LIBADD = $(INTLLIBS) $(DEPENDENT_LIBS) $(GCONF_IPC_LIBS)
 
 EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh gconf-corba.c gconf-corba.h gconf-corba-utils.c gconf-corba.utils.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconf-dbus.c gconf-database-dbus.c gconf-database-dbus.h gconfd-dbus.c gconfd-dbus.h
 
