@@ -414,6 +414,7 @@ database_handle_get_all_dirs (DBusConnection *conn,
   gchar *dir;
   GError      *gerror = NULL;
   DBusMessage *reply;
+  DBusMessageIter iter;
 
   if (!gconfd_dbus_get_message_args (conn, message,
 				     DBUS_TYPE_STRING, &dir,
@@ -429,13 +430,13 @@ database_handle_get_all_dirs (DBusConnection *conn,
   
   reply = dbus_message_new_method_return (message);
   
+  dbus_message_append_iter_init (reply, &iter);
   for (l = dirs; l; l = l->next) 
     {
       gchar *str = (gchar *) l->data;
       
-      dbus_message_append_args (message,
-				DBUS_TYPE_STRING, str,
-				0);
+      dbus_message_iter_append_string (&iter, str);
+      
       g_free (l->data);
     }
  

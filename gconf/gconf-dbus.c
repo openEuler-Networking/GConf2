@@ -1612,7 +1612,7 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
     }
   g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
 
-  dbus_message_iter_init (message, &iter);
+  dbus_message_iter_init (reply, &iter);
 
   while ((key = dbus_message_iter_get_string (&iter)))
     {
