@@ -662,6 +662,10 @@ gconf_dbus_message_append_entry (DBusMessage      *message,
   dbus_message_iter_append_dict_key (&dict, "is_writable");
   dbus_message_iter_append_boolean (&dict, is_writable);
 
+  if (!schema_name) {
+    schema_name = "";
+  }
+
   dbus_message_iter_append_dict_key (&dict, "schema_name");
   dbus_message_iter_append_string (&dict, schema_name);
 }
