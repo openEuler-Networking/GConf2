@@ -48,37 +48,6 @@
  
 #define GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES 0x1
  
-#define GCONF_DBUS_ERROR_FAILED "Failed"
-#define GCONF_DBUS_ERROR_NO_PERMISSION "NoPermission"
-#define GCONF_DBUS_ERROR_BAD_ADDRESS "BadAddress"
-#define GCONF_DBUS_ERROR_BAD_KEY "BadKey"
-#define GCONF_DBUS_ERROR_PARSE_ERROR "ParseError"
-#define GCONF_DBUS_ERROR_CORRUPT "Corrupt"
-#define GCONF_DBUS_ERROR_TYPE_MISMATCH "TypeMismatch"
-#define GCONF_DBUS_ERROR_IS_DIR "IsDir"
-#define GCONF_DBUS_ERROR_IS_KEY "IsKey"
-#define GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE "NoWritableDatabase"
-#define GCONF_DBUS_ERROR_IN_SHUTDOWN "InShutdown"
-#define GCONF_DBUS_ERROR_OVERRIDDEN "Overriden"
-#define GCONF_DBUS_ERROR_LOCK_FAILED "LockFailed"
-
-#if 0
-#define GCONF_SERVICE_NAME "org.gnome.GConf"
-#define GCONF_SERVER_INTERFACE_NAME "org.gnome.GConf.Server"
-#define GCONF_DATABASE_INTERFACE_NAME "org.gnome.GConf.Database"
-
-#define FUNC_DB_LOOKUP             "Lookup"
-#define FUNC_DB_REQUEST_NOTIFY     "RequestNotify"
-#define FUNC_DB_SET                "Set"
-#define FUNC_DB_RECURSIVE_UNSET    "RecursiveUnset"
-#define FUNC_DB_DIR_EXISTS         "DirExists"
-#define FUNC_DB_GET_ALL_ENTRIES    "GetAllEntries"
-#define FUNC_DB_GET_ALL_DIRS       "GetAllDirs"
-#define FUNC_DB_SET_SCHEMA         "SetSchema"
-#define FUNC_SERVER_GET_DEFAULT_DB "GetDefaultDatabase"
-#define FUNC_SERVER_GET_DB         "GetDatabase"
-#define FUNC_SERVER_SHUTDOWN       "Shutdown"
-
 #define GCONF_DBUS_ERROR_FAILED "org.gnome.GConf.Error.Failed"
 #define GCONF_DBUS_ERROR_NO_PERMISSION "org.gnome.GConf.Error.NoPermission"
 #define GCONF_DBUS_ERROR_BAD_ADDRESS "org.gnome.GConf.Error.BadAddress"
@@ -92,6 +61,21 @@
 #define GCONF_DBUS_ERROR_IN_SHUTDOWN "org.gnome.GConf.Error.InShutdown"
 #define GCONF_DBUS_ERROR_OVERRIDDEN "org.gnome.GConf.Error.Overriden"
 #define GCONF_DBUS_ERROR_LOCK_FAILED "org.gnome.GConf.Error.LockFailed"
+
+#if 0
+#define GCONF_DBUS_ERROR_FAILED "Failed"
+#define GCONF_DBUS_ERROR_NO_PERMISSION "NoPermission"
+#define GCONF_DBUS_ERROR_BAD_ADDRESS "BadAddress"
+#define GCONF_DBUS_ERROR_BAD_KEY "BadKey"
+#define GCONF_DBUS_ERROR_PARSE_ERROR "ParseError"
+#define GCONF_DBUS_ERROR_CORRUPT "Corrupt"
+#define GCONF_DBUS_ERROR_TYPE_MISMATCH "TypeMismatch"
+#define GCONF_DBUS_ERROR_IS_DIR "IsDir"
+#define GCONF_DBUS_ERROR_IS_KEY "IsKey"
+#define GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE "NoWritableDatabase"
+#define GCONF_DBUS_ERROR_IN_SHUTDOWN "InShutdown"
+#define GCONF_DBUS_ERROR_OVERRIDDEN "Overriden"
+#define GCONF_DBUS_ERROR_LOCK_FAILED "LockFailed"
 #endif
 
 void         gconf_dbus_message_append_gconf_value      (DBusMessage      *message,
