@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.12\n"
-"POT-Creation-Date: 2001-02-05 18:32+0100\n"
-"PO-Revision-Date: 2001-02-05 18:34+0100\n"
+"POT-Creation-Date: 2001-02-13 11:05+0100\n"
+"PO-Revision-Date: 2001-02-13 11:04+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,21 +27,20 @@ msgstr "Ouverture de la source BerkeleyDB à la racine %s"
 msgid "Initializing BDB backend module"
 msgstr "Initialisation du module BDB"
 
-#: backends/dir-utils.c:88
+#: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Ne peut trouver le répertoire racine %s à l'adresse « %s »"
 
-#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Ne peut créer le répertoire « %s » : %s"
 
-#: backends/dir-utils.c:192
+#: backends/dir-utils.c:212
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
-msgstr ""
-"Ne peut lire ou écrire vers le répertoire racine %s à l'adresse « %s »"
+msgstr "Ne peut lire ou écrire vers le répertoire racine %s à l'adresse « %s »"
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
@@ -108,59 +107,64 @@ msgstr "Ne peut avoir les statistiques « %s » : %s"
 msgid "XML filename `%s' is a directory"
 msgstr "Le nom de fichier XML « %s » est un répertoire"
 
-#: backends/xml-dir.c:293 backends/xml-dir.c:300
+#: backends/xml-dir.c:298 backends/xml-dir.c:305
 #, c-format
 msgid "Failed to delete `%s': %s"
 msgstr "Impossible de supprimer « %s » : %s"
 
-#: backends/xml-dir.c:341
+#: backends/xml-dir.c:346
 #, c-format
 msgid "Failed to write file `%s': %s"
 msgstr "Impossible d'écrire le fichier « %s » : %s"
 
-#: backends/xml-dir.c:357 backends/xml-dir.c:367
+#: backends/xml-dir.c:359
+#, fuzzy, c-format
+msgid "Failed to set mode on `%s': %s"
+msgstr "Impossible d'ouvrir « %s » : %s\n"
+
+#: backends/xml-dir.c:373 backends/xml-dir.c:383
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "Impossible de renommer « %s » vers « %s » : %s"
 
-#: backends/xml-dir.c:373
+#: backends/xml-dir.c:389
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
 msgstr "Impossible de restaurer « %s » depuis « %s » : %s"
 
-#: backends/xml-dir.c:385
+#: backends/xml-dir.c:401
 #, c-format
 msgid "Failed to delete old file `%s': %s"
 msgstr "Impossible de supprimer l'ancien fichier « %s » : %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:790
+#: backends/xml-dir.c:806
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Échec de statistiques « %s » : %s"
 
-#: backends/xml-dir.c:934
+#: backends/xml-dir.c:950
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Ignore l'entrée « %s » dupliquée dans « %s »"
 
-#: backends/xml-dir.c:956
+#: backends/xml-dir.c:972
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Ignore l'entrée sans nom dans le fichier XML « %s »"
 
-#: backends/xml-dir.c:963
+#: backends/xml-dir.c:979
 #, c-format
 msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
 msgstr ""
 "Le noeud racine dans le fichier XML « %s » n'est pas une <entry>, ignore"
 
-#: backends/xml-dir.c:1051
+#: backends/xml-dir.c:1067
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Impossible de créer le fichier « %s » : %s"
 
-#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2471
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2471
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Impossible de fermer le fichier « %s » : %s"
@@ -470,7 +474,7 @@ msgstr "Aucune base de données disponible pour sauvegarder votre configuration"
 #: gconf/gconf-internals.c:85
 #, c-format
 msgid "No '/' in key `%s'"
-msgstr "Pas de '/' dans la clé « %s »"
+msgstr "Pas de « / » dans la clé « %s »"
 
 #: gconf/gconf-internals.c:249
 msgid "Couldn't interpret CORBA value for list element"
@@ -891,7 +895,7 @@ msgid ""
 msgstr ""
 "Aucunes sources de configuration d'accès en écriture correctement résolues, "
 "il est possible que quelques changements de configuration ne puissent être "
-"sauvés"
+"enregistrés"
 
 #: gconf/gconfd.c:375
 #, c-format
