@@ -1,3 +1,7 @@
+2001-09-17  Zbigniew Chyla  <cyba@gnome.pl>
+
+	* configure.in (ALL_LINGUAS): Added pl.
+
 2001-08-19  Jesus Bravo Alvarez  <jba@pobox.com>
 
 	* configure.in: Added gl (Galician) to ALL_LINGUAS.
