@@ -37,5 +37,6 @@ gboolean gconfd_dbus_set_exception            (DBusConnection  *connection,
 					       GError         **error);
 gboolean gconfd_dbus_check_in_shutdown        (DBusConnection *connection,
 					       DBusMessage    *message);
+DBusConnection *gconfd_dbus_get_connection    (void);
 
 #endif

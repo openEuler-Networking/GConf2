@@ -494,38 +494,41 @@ GConfDatabaseDBus *
 gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 			 GError **gerror)
 {
-  GConfDatabaseDBus  *dbus_db;
+  GConfDatabaseDBus  *dbus_db = NULL;
   GConfDatabase      *db;
   gchar             **path;
 
   ensure_initialized ();
- 
-  if (address) 
-    dbus_db = g_hash_table_lookup (databases, address);
+
+  db = gconfd_lookup_database (address);
+
+  if (db)
+    {
+      dbus_db = g_hash_table_lookup (databases, 
+				     gconf_database_get_persistent_name (db));
+  
+      if (dbus_db)
+	return dbus_db;
+      else
+	goto register_db;
+    }
   else 
-    dbus_db = default_db;
+    {
+      db = gconfd_obtain_database (address, gerror);
+      if (!db)
+	{
+	  gconf_log (GCL_WARNING, _("Database doesn't exist: %s"), address);
+	  return NULL;
+	}
+      goto register_db;
+    }
 
-  if (dbus_db)
-    return dbus_db;
-
-  db = gconfd_obtain_database (address, gerror);
-  if (!db) 
-    return NULL;
-
+register_db:
   dbus_db = g_new0 (GConfDatabaseDBus, 1);
   dbus_db->db = db;
   dbus_db->conn = conn;
-  if (address) 
-    {
-      dbus_db->address = g_strdup (address);
-      g_hash_table_insert (databases, dbus_db->address, dbus_db);
-    }
-  else
-    {
-      dbus_db->address = NULL;
-      default_db = dbus_db;
-    }
-
+  dbus_db->address = g_strdup (gconf_database_get_persistent_name (db));
+  g_hash_table_insert (databases, dbus_db->address, dbus_db);
   dbus_db->object_path = g_strdup_printf ("%s/%d", 
 					  DATABASE_OBJECT_PATH, 
 					  object_nr++);
@@ -577,4 +580,27 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 				      gboolean          is_default,
 				      gboolean          is_writable)
 {
+  DBusMessage *signal;
+  GConfDatabaseDBus *dbus_db = NULL;
+  
+  dbus_db = gconf_database_dbus_get (gconfd_dbus_get_connection (),
+				     gconf_database_get_persistent_name (db),
+				     NULL);
+
+  if (!dbus_db)
+    return;
+
+  signal = dbus_message_new_signal (dbus_db->object_path,
+				    GCONF_DBUS_DATABASE_INTERFACE,
+				    "Notify");
+  
+  gconf_dbus_message_append_entry (signal,
+				   key,
+				   value,
+				   is_default,
+				   is_writable,
+				   NULL);
+
+  dbus_connection_send (dbus_db->conn, signal, NULL);
+  dbus_message_unref (signal);
 }

@@ -376,7 +376,6 @@ main(int argc, char** argv)
   sigset_t empty_mask;
   gchar* logname;
   const gchar* username;
-  guint len;
   int exit_code = 0;
   GError *err;
   char *lock_dir;

@@ -355,3 +355,9 @@ gconfd_dbus_check_in_shutdown (DBusConnection *connection,
     return FALSE;
 }
 
+DBusConnection *
+gconfd_dbus_get_connection (void)
+{
+  return bus_conn;
+}
+
