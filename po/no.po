@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
-"POT-Creation-Date: 2001-10-07 19:26+0200\n"
-"PO-Revision-Date: 2001-10-07 19:39+0200\n"
+"POT-Creation-Date: 2001-10-13 17:16+0200\n"
+"PO-Revision-Date: 2001-10-13 17:18+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Kunne ikke lese fra eller skrive til XML-rotkatalogen i adressen `%s'"
 #: backends/xml-backend.c:396
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
-msgstr "Katalog/fil rettigheter for XML kildekode ved rot %s er: %o/%o"
+msgstr "skje"
 
 #: backends/xml-backend.c:680
 msgid "Initializing XML backend module"
@@ -150,7 +150,9 @@ msgstr "Oppføring uten navn i XML-fil `%s', ignorerer"
 #: backends/xml-dir.c:980
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
-msgstr "En toppnivå-node i XML-fil `%s' er <%s> i stedet for en <oppføring>, ignorerer"
+msgstr ""
+"En toppnivå-node i XML-fil `%s' er <%s> i stedet for en <oppføring>, "
+"ignorerer"
 
 #: backends/xml-dir.c:1069
 #, c-format
@@ -167,11 +169,6 @@ msgstr "Kunne ikke lukke filen `%s': %s"
 #, c-format
 msgid "Ignoring XML node with name `%s': %s"
 msgstr "Ignorerer XML-node med navn `%s': %s"
-
-#: backends/xml-entry.c:200
-#, c-format
-msgid "%s"
-msgstr "%s"
 
 #: backends/xml-entry.c:327
 #, c-format
@@ -456,231 +453,269 @@ msgstr "Ingen database tilgjengelig for lagring av din konfigurasjon"
 msgid "No '/' in key `%s'"
 msgstr "Ingen '/' i nøkkel `%s'"
 
-#: gconf/gconf-internals.c:276
+#: gconf/gconf-internals.c:225
+#, c-format
+msgid "Invalid UTF-8 in string value in '%s'"
+msgstr "Ugyldig UTF-8 i strengverdi i '%s'"
+
+#: gconf/gconf-internals.c:284
 msgid "Couldn't interpret CORBA value for list element"
 msgstr "Kunne ikke fortolke CORBA verdi for listeelement"
 
-#: gconf/gconf-internals.c:278
+#: gconf/gconf-internals.c:286
 #, c-format
 msgid "Incorrect type for list element in %s"
 msgstr "Ugyldig type for listeelement i %s"
 
-#: gconf/gconf-internals.c:291
+#: gconf/gconf-internals.c:299
 msgid "Received list from gconfd with a bad list type"
 msgstr "Mottatt liste fra gconfd med ugyldig listetype"
 
-#: gconf/gconf-internals.c:472
+#: gconf/gconf-internals.c:480
 msgid "Failed to convert object to IOR"
 msgstr "Kunne ikke konvertere objekt til IOR"
 
-#: gconf/gconf-internals.c:838
+#: gconf/gconf-internals.c:617
+msgid "Invalid UTF-8 in locale for schema"
+msgstr "Ugyldig UTF-8 i locale for schema"
+
+#: gconf/gconf-internals.c:625
+msgid "Invalid UTF-8 in short description for schema"
+msgstr "Ugyldig UTF-8 i kort beskrivelse for schema"
+
+#: gconf/gconf-internals.c:633
+msgid "Invalid UTF-8 in long description for schema"
+msgstr "Ugyldig UTF-8 i lang beskrivelse for schema"
+
+#: gconf/gconf-internals.c:641
+msgid "Invalid UTF-8 in owner for schema"
+msgstr "Ugyldig UTF-8 i eier for schema"
+
+#: gconf/gconf-internals.c:866
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Kunne ikke åpne stifilen `%s': %s\n"
 
-#: gconf/gconf-internals.c:898
+#: gconf/gconf-internals.c:926
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Legger til kilde `%s'\n"
 
-#: gconf/gconf-internals.c:910
+#: gconf/gconf-internals.c:938
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Lesefeil på fil `%s': %s\n"
 
-#: gconf/gconf-internals.c:1352
+#: gconf/gconf-internals.c:1269 gconf/gconf-internals.c:1335
+#: gconf/gconf-value.c:125 gconf/gconf-value.c:224 gconf/gconf-value.c:366
+#: gconf/gconf-value.c:1084
+msgid "Text contains invalid UTF-8"
+msgstr "Tekst inneholder ugyldig UTF-8"
+
+#: gconf/gconf-internals.c:1420
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Forventet liste, mottok %s"
 
-#: gconf/gconf-internals.c:1362
+#: gconf/gconf-internals.c:1430
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Forventet liste av %s, mottok liste av %s"
 
-#: gconf/gconf-internals.c:1501
+#: gconf/gconf-internals.c:1569
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Forventet par, mottok %s"
 
-#: gconf/gconf-internals.c:1515
+#: gconf/gconf-internals.c:1583
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "Forventet (%s,%s) par, mottok et par hvor en eller begge verdiene mangler"
 
-#: gconf/gconf-internals.c:1531
+#: gconf/gconf-internals.c:1599
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Forventet par av type (%s,%s) mottok type (%s,%s)"
 
-#: gconf/gconf-internals.c:1647
+#: gconf/gconf-internals.c:1715
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Streng i sitattegn begynner ikke med et sitattegn"
 
-#: gconf/gconf-internals.c:1709
+#: gconf/gconf-internals.c:1777
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Streng i anførselstegn slutter ikke med et sitattegn"
 
-#: gconf/gconf-internals.c:2189 gconf/gconf.c:3062
+#: gconf/gconf-internals.c:1913
+msgid "Encoded value is not valid UTF-8"
+msgstr "Kodet verdi er ikke gyldig UTF-8"
+
+#: gconf/gconf-internals.c:2263 gconf/gconf.c:3082
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA feil: %s"
 
-#: gconf/gconf-internals.c:2205
+#: gconf/gconf-internals.c:2279
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "OAF problembeskrivelse: '%s'"
 
-#: gconf/gconf-internals.c:2211
+#: gconf/gconf-internals.c:2285
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "forsøk på å fjerne ikke listet OAF objekt katalog"
 
-#: gconf/gconf-internals.c:2216
+#: gconf/gconf-internals.c:2290
 msgid "attempt to add already-listed OAF directory"
 msgstr "forsøk på å legge til allerede listet OAF katalog"
 
-#: gconf/gconf-internals.c:2223
+#: gconf/gconf-internals.c:2297
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "OAF fortolkningsfeil: %s"
 
-#: gconf/gconf-internals.c:2228
+#: gconf/gconf-internals.c:2302
 msgid "Unknown OAF error"
 msgstr "Ukjent OAF feil"
 
-#: gconf/gconf-internals.c:2361
+#: gconf/gconf-internals.c:2435
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Kunne ikke låse midlertidig fil '%s': %s"
 
-#: gconf/gconf-internals.c:2388
+#: gconf/gconf-internals.c:2462
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Kunne ikke opprette fil '%s', sannsynligvis fordi den eksisterer"
 
-#: gconf/gconf-internals.c:2434
+#: gconf/gconf-internals.c:2508
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Kunne ikke opprette eller åpne '%s'"
 
-#: gconf/gconf-internals.c:2444
+#: gconf/gconf-internals.c:2518
 #, c-format
 msgid "Failed to lock '%s': another process has the lock (%s)"
 msgstr "Klarte ikke å låse '%s': en annen prosess holder låsen (%s)"
 
-#: gconf/gconf-internals.c:2472
+#: gconf/gconf-internals.c:2546
 #, c-format
 msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
 msgstr "IOR-fil '%s' kunne ikke åpnes, ingen gconfd funnet: %s"
 
-#: gconf/gconf-internals.c:2502
+#: gconf/gconf-internals.c:2576
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr "gconftool eller en annen prosess holder låsfilen '%s'"
 
-#: gconf/gconf-internals.c:2519
+#: gconf/gconf-internals.c:2593
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr "kunne ikke kontakte ORB for å finne eksisterende objektreferanse for gconfd"
+msgstr ""
+"kunne ikke kontakte ORB for å finne eksisterende objektreferanse for gconfd"
 
-#: gconf/gconf-internals.c:2551
+#: gconf/gconf-internals.c:2625
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "kunne ikke opprette katalogen `%s': %s"
 
-#: gconf/gconf-internals.c:2610
+#: gconf/gconf-internals.c:2684
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Kunne ikke skrive til fil `%s': %s"
 
-#: gconf/gconf-internals.c:2651
+#: gconf/gconf-internals.c:2725
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "Holder ikke låsen på filen `%s', men vi burde"
 
-#: gconf/gconf-internals.c:2672
+#: gconf/gconf-internals.c:2746
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Feil under oppretting av lenke fra '%s' til '%s': %s"
 
-#: gconf/gconf-internals.c:2684
+#: gconf/gconf-internals.c:2758
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Feil under fjerning av låsfil `%s': %s"
 
-#: gconf/gconf-internals.c:2703
+#: gconf/gconf-internals.c:2777
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Feil under opprydding av fil '%s': %s"
 
-#: gconf/gconf-internals.c:2717
+#: gconf/gconf-internals.c:2791
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Feil under fjerning av låskatalogen `%s': %s"
 
-#: gconf/gconf-internals.c:2927 gconf/gconfd.c:578
+#: gconf/gconf-internals.c:3001 gconf/gconfd.c:578
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "Kunne ikke opprette %s: %s"
 
-#: gconf/gconf-internals.c:2960
+#: gconf/gconf-internals.c:3034
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-msgstr "Feil under oppretting av rør for kommunikasjon med underliggende gconf daemon: %s\n"
+msgstr ""
+"Feil under oppretting av rør for kommunikasjon med underliggende gconf "
+"daemon: %s\n"
 
-#: gconf/gconf-internals.c:2984
+#: gconf/gconf-internals.c:3058
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Feil under starting av konfigurasjonstjener: %s\n"
 
-#: gconf/gconf-internals.c:3006
+#: gconf/gconf-internals.c:3080
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
 "reachable from here - if you're logged in from two machines at once, you may "
 "need to enable TCP networking for ORBit)\n"
-msgstr "Klarte ikke å kontakte konfigurasjonstjeneren (en sannsynlig årsak er at en eksisterende konfigurasjonstjener (gconfd) kjører, men den kan ikke nås herfra - hvis du er logget inn fra to maskiner samtidig vil du kanskje måtte aktivere TCP for ORBit)\n"
+msgstr ""
+"Klarte ikke å kontakte konfigurasjonstjeneren (en sannsynlig årsak er at en "
+"eksisterende konfigurasjonstjener (gconfd) kjører, men den kan ikke nås "
+"herfra - hvis du er logget inn fra to maskiner samtidig vil du kanskje måtte "
+"aktivere TCP for ORBit)\n"
 
-#: gconf/gconf-internals.c:3643
+#: gconf/gconf-internals.c:3717
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Feil under lesing fra underrør: (%s)"
 
-#: gconf/gconf-internals.c:3708
+#: gconf/gconf-internals.c:3782
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Feil under kjøring av fork (%s)"
 
-#: gconf/gconf-internals.c:3848
+#: gconf/gconf-internals.c:3922
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Feil under skifte til katalog '%s' (%s)"
 
-#: gconf/gconf-internals.c:3858
+#: gconf/gconf-internals.c:3932
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Feil under kjøring av underprosess (%s)"
 
-#: gconf/gconf-internals.c:3867
+#: gconf/gconf-internals.c:3941
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Feil under omdirigering av utdata eller indata for underprosess (%s)"
 
-#: gconf/gconf-internals.c:3876
+#: gconf/gconf-internals.c:3950
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Feil under kjøring av fork for underprosess (%s)"
 
-#: gconf/gconf-internals.c:3884
+#: gconf/gconf-internals.c:3958
 msgid "Unknown error executing child process"
 msgstr "Ukjent feil under kjøring av underprosess"
 
-#: gconf/gconf-internals.c:3905
+#: gconf/gconf-internals.c:3979
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Klarte ikke å lese nok data fra underprosess' rør (%s)"
 
-#: gconf/gconf-internals.c:3955
+#: gconf/gconf-internals.c:4029
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Feil under oppretting av rør for kommunikasjon med underprosess (%s)"
@@ -722,7 +757,17 @@ msgid ""
 "ORBit still has its default configuration that prevents remote CORBA "
 "connections? As always, check the user.* syslog for details on problems "
 "gconfd encountered."
-msgstr "Kunne ikke lagre en verdi i nøkkel '%s', siden konfigurasjonstjeneren ikke har noen skrivbare databaser. Det er to vanlige årsaker til dette problemet: 1) din konfigurasjonssti-fil inneholder ingen databaser, eller ble ikke funnet eller 2) vi har ved en feil opprettet to gconfd-prosesser. Hvis du har to gconfd-prosesser (eller hadde to da den andre ble startet), kan hjelpe å logge ut, drepe alle instanser av gconfd, og logge inn igjen. Kanskje problemet er at du prøvde å bruke GConf fra to maskiner samtidig, og ORBit fremdeles har sin standardkonfigurasjon som ikke tillater eksterne CORBA-forbindelser? Som alltid, sjekk user.* systemloggene for detaljer om problemer som gconfd har støtt på."
+msgstr ""
+"Kunne ikke lagre en verdi i nøkkel '%s', siden konfigurasjonstjeneren ikke "
+"har noen skrivbare databaser. Det er to vanlige årsaker til dette problemet: "
+"1) din konfigurasjonssti-fil inneholder ingen databaser, eller ble ikke "
+"funnet eller 2) vi har ved en feil opprettet to gconfd-prosesser. Hvis du "
+"har to gconfd-prosesser (eller hadde to da den andre ble startet), kan "
+"hjelpe å logge ut, drepe alle instanser av gconfd, og logge inn igjen. "
+"Kanskje problemet er at du prøvde å bruke GConf fra to maskiner samtidig, og "
+"ORBit fremdeles har sin standardkonfigurasjon som ikke tillater eksterne "
+"CORBA-forbindelser? Som alltid, sjekk user.* systemloggene for detaljer om "
+"problemer som gconfd har støtt på."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -739,62 +784,62 @@ msgstr "Feil under henting av metainfo: %s"
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Nøkkel `%s' listet som schema for nøkkel `%s' lagrer type `%s'"
 
-#: gconf/gconf-value.c:82
+#: gconf/gconf-value.c:81
 #, c-format
 msgid "Didn't understand `%s' (expected integer)"
 msgstr "Forsto ikke `%s' (forventet heltall)"
 
-#: gconf/gconf-value.c:92
+#: gconf/gconf-value.c:91
 #, c-format
 msgid "Integer `%s' is too large or small"
 msgstr "Heltall `%s' er for stort eller lite"
 
-#: gconf/gconf-value.c:113
+#: gconf/gconf-value.c:112
 #, c-format
 msgid "Didn't understand `%s' (expected real number)"
 msgstr "Forsto ikke `%s' (forventet flyttall)"
 
-#: gconf/gconf-value.c:146
+#: gconf/gconf-value.c:156
 #, c-format
 msgid "Didn't understand `%s' (expected true or false)"
 msgstr "Forsto ikke `%s' (forventet sann eller usann)"
 
-#: gconf/gconf-value.c:214
+#: gconf/gconf-value.c:232
 #, c-format
 msgid "Didn't understand `%s' (list must start with a '[')"
 msgstr "Forsto ikke `%s' (listen må starte med en '[')"
 
-#: gconf/gconf-value.c:227
+#: gconf/gconf-value.c:245
 #, c-format
 msgid "Didn't understand `%s' (list must end with a ']')"
 msgstr "Forsto ikke `%s' (listen må slutte med en ']')"
 
-#: gconf/gconf-value.c:278
+#: gconf/gconf-value.c:296
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
 msgstr "Forsto ikke `%s' (ekstra \"unescaped\" ']' funnet i listen)"
 
-#: gconf/gconf-value.c:309 gconf/gconf-value.c:462
+#: gconf/gconf-value.c:327 gconf/gconf-value.c:488
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
 msgstr "Forsto ikke `%s' (ekstra etterslepende tegn)"
 
-#: gconf/gconf-value.c:348
+#: gconf/gconf-value.c:374
 #, c-format
 msgid "Didn't understand `%s' (pair must start with a '(')"
 msgstr "Forsto ikke `%s' (par må starte med en '(')"
 
-#: gconf/gconf-value.c:361
+#: gconf/gconf-value.c:387
 #, c-format
 msgid "Didn't understand `%s' (pair must end with a ')')"
 msgstr "Forsto ikke `%s' (par må slutte med en ')')"
 
-#: gconf/gconf-value.c:391 gconf/gconf-value.c:477
+#: gconf/gconf-value.c:417 gconf/gconf-value.c:503
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
 msgstr "Forsto ikke `%s' (feil antall elementer)"
 
-#: gconf/gconf-value.c:431
+#: gconf/gconf-value.c:457
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "Forsto ikke `%s' (ekstra \"unescaped\" ')' funnet inne i par)"
@@ -813,62 +858,62 @@ msgstr "Tjener kunne ikke finne adressen `%s'"
 msgid "Can't add notifications to a local configuration source"
 msgstr "Kan ikke legge til meldinger til en lokal konfigurasjonskilde"
 
-#: gconf/gconf.c:1865
+#: gconf/gconf.c:1868
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Feil under innlegging av klient i tjenerlisten, CORBA-feil: %s"
 
-#: gconf/gconf.c:2180
+#: gconf/gconf.c:2183
 msgid "Failed to init GConf, exiting\n"
 msgstr "Kunne ikke initialisere GConf, avslutter\n"
 
-#: gconf/gconf.c:2217
+#: gconf/gconf.c:2220
 msgid "Must begin with a slash (/)"
 msgstr "Må begynne med en skråstrek (/)"
 
-#: gconf/gconf.c:2239
+#: gconf/gconf.c:2242
 msgid "Can't have two slashes (/) in a row"
 msgstr "Kan ikke ha to skråstreker (/) på rad"
 
-#: gconf/gconf.c:2241
+#: gconf/gconf.c:2244
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Kan ikke ha punktum (.) rett etter en skråstrek (/)"
 
-#: gconf/gconf.c:2262
+#: gconf/gconf.c:2265
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' er et ugyldig tegn i nøkkel/katalog navn"
 
-#: gconf/gconf.c:2276
+#: gconf/gconf.c:2279
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Nøkkel/katalog kan ikke slutte med en skråstrek (/)"
 
-#: gconf/gconf.c:2517
+#: gconf/gconf.c:2520
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Feil under nedstenging av konfigurasjonstjeneren: %s"
 
-#: gconf/gconf.c:2578
+#: gconf/gconf.c:2581
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Forventet flyttall, mottok %s"
 
-#: gconf/gconf.c:2613
+#: gconf/gconf.c:2616
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Forventet heltall, mottok %s"
 
-#: gconf/gconf.c:2648
+#: gconf/gconf.c:2651
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Forventet streng, mottok %s"
 
-#: gconf/gconf.c:2685
+#: gconf/gconf.c:2688
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Forventet boolsk verdi, mottok %s"
 
-#: gconf/gconf.c:2718
+#: gconf/gconf.c:2721
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Forventet schema, mottok %s"
@@ -958,7 +1003,8 @@ msgstr "Kunne ikke hente objektreferanse for ConfigServer"
 #: gconf/gconfd.c:603
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
-msgstr "Feil under skriving av byte til pipe fd %d; klientprogrammer kan henge: %s"
+msgstr ""
+"Feil under skriving av byte til pipe fd %d; klientprogrammer kan henge: %s"
 
 #: gconf/gconfd.c:613
 #, c-format
@@ -1802,6 +1848,9 @@ msgstr "GConf advarsel: feil under listing av par i `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Forventet`%s', mottok `%s' for nøkkel %s"
+
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "No ior file in `%s'"
 #~ msgstr "Ingen ior-fil i `%s'"
