@@ -22,26 +22,19 @@
 
 #include <glib.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
+G_BEGIN_DECLS
 
 #include "gconf-error.h"
-#include "GConfX.h"
 #include "gconf-listeners.h"
 #include "gconf-sources.h"
 #include "gconf-internals.h"
-
+#include "gconf-locale.h"
+  
 typedef struct _GConfDatabase GConfDatabase;
-
+typedef struct _GConfDatabaseListener GConfDatabaseListener;
+  
 struct _GConfDatabase
 {
-  /* "inherit" from the servant,
-     must be first in struct */
-  POA_ConfigDatabase3 servant;
-
-  ConfigDatabase objref;
-  
   GConfListeners* listeners;
   GConfSources* sources;
 
@@ -50,30 +43,24 @@ struct _GConfDatabase
   guint sync_timeout;
 
   gchar *persistent_name;
+
+  gpointer corba_data;
 };
 
+typedef enum
+{
+  GCONF_DATABASE_LISTENER_CORBA,
+  GCONF_DATABASE_LISTENER_DBUS
+} GConfDatabaseListenerType;
+
+struct _GConfDatabaseListener
+{
+  GConfDatabaseListenerType type;
+  char *name;
+};
+  
 GConfDatabase* gconf_database_new     (GConfSources  *sources);
 void           gconf_database_free (GConfDatabase *db);
-
-void                gconf_database_drop_dead_listeners (GConfDatabase *db);
-
-CORBA_unsigned_long gconf_database_add_listener     (GConfDatabase       *db,
-                                                     ConfigListener       who,
-                                                     const char          *name,
-                                                     const gchar         *where);
-void                gconf_database_remove_listener  (GConfDatabase       *db,
-                                                     CORBA_unsigned_long  cnxn);
-
-CORBA_unsigned_long gconf_database_readd_listener   (GConfDatabase       *db,
-                                                     ConfigListener       who,
-                                                     const char          *name,
-                                                     const gchar         *where);
-
-void                gconf_database_notify_listeners (GConfDatabase       *db,
-                                                     const gchar         *key,
-                                                     const ConfigValue   *value,
-                                                     gboolean             is_default,
-                                                     gboolean             is_writable);
 
 
 GConfValue* gconf_database_query_value         (GConfDatabase  *db,
@@ -95,7 +82,6 @@ GConfValue* gconf_database_query_default_value (GConfDatabase  *db,
 void gconf_database_set   (GConfDatabase      *db,
                            const gchar        *key,
                            GConfValue         *value,
-                           const ConfigValue  *cvalue,
                            GError        **err);
 void gconf_database_unset (GConfDatabase      *db,
                            const gchar        *key,
@@ -136,18 +122,20 @@ void     gconf_database_clear_cache      (GConfDatabase  *db,
                                           GError    **err);
 
 
-void gconfd_locale_cache_expire (void);
-void gconfd_locale_cache_drop  (void);
+void             gconfd_locale_cache_expire (void);
+void             gconfd_locale_cache_drop   (void);
+GConfLocaleList *gconfd_locale_cache_lookup  (const gchar *locale);
 
+  
 const gchar* gconf_database_get_persistent_name (GConfDatabase *db);
 
 void gconf_database_log_listeners_to_string (GConfDatabase *db,
                                              gboolean is_default,
                                              GString *str);
 
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
+
+
+G_END_DECLS
 
 #endif
 

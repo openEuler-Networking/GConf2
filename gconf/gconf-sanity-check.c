@@ -21,6 +21,9 @@
 #include "gconf-internals.h"
 #include "gconf-sources.h"
 #include "gconf-backend.h"
+#ifdef HAVE_ORBIT
+#include "gconf-corba-utils.h"
+#endif
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -88,7 +91,7 @@ main (int argc, char** argv)
   if (!check_gconf (FALSE))
     {
       if (!offer_delete_locks ())
-        return 1;
+    return 1;
   
       if (!check_gconf (TRUE))
         return 1;
@@ -152,26 +155,26 @@ check_file_locking (void)
     }
   else
     {
-      testfile = g_build_filename (g_get_home_dir (),
-                                   ".gconf-test-locking-file",
-                                   NULL);
-      
-      /* keep the open from failing due to non-writable old file or something */
-      unlink (testfile);
+  testfile = g_build_filename (g_get_home_dir (),
+                               ".gconf-test-locking-file",
+                               NULL);
   
-      fd = open (testfile, O_WRONLY | O_CREAT, 0700);
+  /* keep the open from failing due to non-writable old file or something */
+  unlink (testfile);
+  
+  fd = open (testfile, O_WRONLY | O_CREAT, 0700);
 
-      if (fd < 0)
-        {      
-          show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
-                                     "Could not open or create the file \"%s\"; this indicates "
-                                     "that there may be a problem with your configuration, "
-                                     "as many programs will need to create files in your "
-                                     "home directory. The error was \"%s\" (errno = %d)."),
-                                   testfile, strerror (errno), errno);
-          
-          goto out;
-        }
+  if (fd < 0)
+    {      
+      show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
+                                 "Could not open or create the file \"%s\"; this indicates "
+                                 "that there may be a problem with your configuration, "
+                                 "as many programs will need to create files in your "
+                                 "home directory. The error was \"%s\" (errno = %d)."),
+                               testfile, strerror (errno), errno);
+
+      goto out;
+    }
     }
       
 
@@ -230,11 +233,11 @@ check_gconf (gboolean display_errors)
   if (addresses == NULL)
     {
       if (display_errors)
-        show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
-                                   "No configuration sources in the configuration file \"%s\"; this means that preferences and other settings can't be saved. %s%s"),
-                                 conffile,
-                                 error ? _("Error reading the file: ") : "",
-                                 error ? error->message : "");
+      show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
+                                 "No configuration sources in the configuration file \"%s\"; this means that preferences and other settings can't be saved. %s%s"),
+                               conffile,
+                               error ? _("Error reading the file: ") : "",
+                               error ? error->message : "");
 
       if (error)
         g_error_free (error);
@@ -256,9 +259,9 @@ check_gconf (gboolean display_errors)
       if (error)
         {
           if (display_errors)
-            show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
-                                       "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"),
-                                     address, conffile, error->message);
+          show_fatal_error_dialog (_("Please contact your system administrator to resolve the following problem:\n"
+                                     "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"),
+                                   address, conffile, error->message);
           g_error_free (error);
           goto out;
         }
@@ -384,7 +387,7 @@ offer_delete_locks (void)
           const char *address;
           
           address = tmp->data;
-          
+         
           gconf_blow_away_locks (address);
 
           g_free (tmp->data);
@@ -393,8 +396,10 @@ offer_delete_locks (void)
         }
 
       g_slist_free (addresses);
-      
+
+#ifdef HAVE_ORBIT
       gconf_daemon_blow_away_locks ();
+#endif
 
       return TRUE;
     }

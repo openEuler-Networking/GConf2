@@ -4,7 +4,7 @@ AC_INIT(gconf/gconf.h)
 
 AM_CONFIG_HEADER(config.h)
 
-AM_INIT_AUTOMAKE(GConf, 2.5.0)
+AM_INIT_AUTOMAKE(GConf-DBus, 2.5.0)
 
 AM_MAINTAINER_MODE
 
@@ -175,9 +175,44 @@ dnl NOTE: We need to use a separate automake conditional for this
 dnl       to make this work with the tarballs.
 AM_CONDITIONAL(ENABLE_GTK_DOC, test x$enable_gtk_doc = xyes)
 
+AC_ARG_WITH(ipc, [  --with-ipc=[orbit/dbus/both]   choose ipc mechanism to use in the daemon, [default=orbit]], with_ipc="$withval", with_ipc=orbit)
+
+if test x$with_ipc = xorbit -o x$with_ipc = xboth; then
+  PKG_CHECK_MODULES(GCONF_ORBIT, ORBit-2.0 >= 2.4.0 linc >= 0.5.0, have_orbit=yes, have_orbit=no)
+  if test x$have_orbit = xno ; then
+    AC_MSG_WARN([ORBit development libraries not found])
+    have_orbit=no
+  else
+    ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
+    AC_SUBST(ORBIT_IDL)
+  fi
+else 
+  have_orbit=no
+fi
 
 
-PKGCONFIG_MODULES='gmodule-2.0 >= 2.0.1 gobject-2.0 >= 2.0.1 ORBit-2.0 >= 2.4.0'
+if test x$with_ipc = xdbus -o x$with_ipc = xboth; then
+  PKG_CHECK_MODULES(GCONF_DBUS, dbus-glib-1 >= 0.20, have_dbus=yes, have_dbus=no)
+else
+  have_dbus=no
+fi
+
+if test x$have_orbit = xno -a x$have_dbus = xno; then
+  AC_MSG_ERROR([You need either ORBit or D-BUS for IPC])
+fi
+
+AM_CONDITIONAL(HAVE_ORBIT, test x$have_orbit = xyes)
+AM_CONDITIONAL(HAVE_DBUS, test x$have_dbus = xyes)
+
+dnl ORBit flags
+GCONF_IPC_CFLAGS="$GCONF_ORBIT_CFLAGS $GCONF_DBUS_CFLAGS"
+GCONF_IPC_LIBS="$GCONF_ORBIT_LIBS $GCONF_DBUS_LIBS"
+
+AC_SUBST(GCONF_IPC_CFLAGS)
+AC_SUBST(GCONF_IPC_LIBS)
+
+
+PKGCONFIG_MODULES='gmodule-2.0 >= 2.0.1 gobject-2.0 >= 2.0.1'
 PKGCONFIG_MODULES_WITH_XML="$PKGCONFIG_MODULES libxml-2.0"
 PKGCONFIG_MODULES_WITH_GTK=" $PKGCONFIG_MODULES gtk+-2.0 >= 2.0.0"
 PKGCONFIG_MODULES_WITH_XML_AND_GTK=" $PKGCONFIG_MODULES gtk+-2.0 libxml-2.0"
@@ -199,9 +234,6 @@ AC_SUBST(DEPENDENT_WITH_GTK_CFLAGS)
 AC_SUBST(DEPENDENT_WITH_XML_AND_GTK_LIBS)
 AC_SUBST(DEPENDENT_WITH_XML_AND_GTK_CFLAGS)
 
-
-ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
-AC_SUBST(ORBIT_IDL)
 
 AC_CHECK_LIB(popt, poptGetArg, POPT_LIBS=-lpopt,
 	[AC_CHECK_HEADER(popt.h, , AC_MSG_ERROR([[

@@ -37,6 +37,7 @@
 #include "gconf-value.h"
 #include "gconf-engine.h"
 #include "gconf-sources.h"
+
 #include "GConfX.h"
 
 gchar*       gconf_key_directory  (const gchar* key);
@@ -64,9 +65,6 @@ void          gconf_fill_corba_schema_from_gconf_schema (const GConfSchema  *sc,
 ConfigSchema* gconf_corba_schema_from_gconf_schema      (const GConfSchema  *sc);
 GConfSchema*  gconf_schema_from_corba_schema            (const ConfigSchema *cs);
 
-gchar* gconf_object_to_string (CORBA_Object obj,
-                               GError **err);
-
 const gchar*   gconf_value_type_to_string   (GConfValueType  type);
 GConfValueType gconf_value_type_from_string (const gchar    *str);
 
@@ -78,7 +76,6 @@ GSList*       gconf_load_source_path (const gchar* filename, GError** err);
 void     gconf_shutdown_daemon (GError **err);
 gboolean gconf_ping_daemon     (void);
 gboolean gconf_spawn_daemon    (GError **err);
-int      gconf_orb_release     (void);
 
 /* Returns 0 on failure (or if the string is "0" of course) */
 gulong       gconf_string_to_gulong (const gchar *str);
@@ -140,9 +137,22 @@ void   gconf_unquote_string_inplace (gchar        *str,
 
 GConfValue* gconf_value_decode (const gchar *encoded);
 gchar*      gconf_value_encode (GConfValue  *val);
+GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
+ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
+void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
+                                                      ConfigValue       *dest);
+ConfigValue* gconf_invalid_corba_value               (void);
+
 
 /* FIXME is this used? */
 gchar* gconf_quote_percents (const gchar* src);
+gchar* gconf_object_to_string (CORBA_Object obj,
+                               GError **err);
+gboolean gconf_CORBA_Object_equal (gconstpointer a,
+                                   gconstpointer b);
+guint    gconf_CORBA_Object_hash  (gconstpointer key);
+
+
 
 /*
  * List/pair conversion stuff
@@ -180,18 +190,6 @@ void gconf_nanosleep (gulong useconds);
 
 typedef struct _GConfLock GConfLock;
 
-GConfLock* gconf_get_lock     (const gchar  *lock_directory,
-                               GError      **err);
-gboolean   gconf_release_lock (GConfLock    *lock,
-                               GError      **err);
-GConfLock* gconf_get_lock_or_current_holder (const gchar  *lock_directory,
-                                             ConfigServer *current_server,
-                                             GError      **err);
-ConfigServer gconf_get_current_lock_holder  (const gchar *lock_directory,
-                                             GString     *failure_log);
-
-void gconf_daemon_blow_away_locks (void);
-
 GError*  gconf_error_new  (GConfError en,
                            const gchar* format, ...) G_GNUC_PRINTF (2, 3);
 
@@ -201,8 +199,6 @@ void     gconf_set_error  (GError** err,
 
 /* merge two errors into a single message */
 GError*  gconf_compose_errors (GError* err1, GError* err2);
-
-CORBA_ORB gconf_orb_get (void);
 
 ConfigServer gconf_activate_server (gboolean  start_if_not_found,
                                     GError  **error);
@@ -227,11 +223,6 @@ gboolean gconf_engine_recursive_unset (GConfEngine      *engine,
                                        const char       *key,
                                        GConfUnsetFlags   flags,
                                        GError          **err);
-
-gboolean gconf_CORBA_Object_equal (gconstpointer a,
-                                   gconstpointer b);
-guint    gconf_CORBA_Object_hash  (gconstpointer key);
-
 
 /* FIXME move to public eventually */
 gboolean    gconf_entry_equal (const GConfEntry *a,

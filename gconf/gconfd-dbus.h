@@ -1,5 +1,5 @@
 /* GConf
- * Copyright (C) 1999, 2000 Red Hat Inc.
+ * Copyright (C) 2003  CodeFactory AB
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,33 +17,21 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef GCONF_GCONFD_H
-#define GCONF_GCONFD_H
+#ifndef GCONF_GCONFD_DBUS_H
+#define GCONF_GCONFD_DBUS_H
 
-#include <glib.h>
-
-G_BEGIN_DECLS
-
-#include "gconf-error.h"
+#include <dbus/dbus-glib.h>
 #include "gconf-database.h"
 
+gboolean gconfd_dbus_init                     (void);
+gboolean gconfd_dbus_check_in_shutdown        (DBusConnection   *connection,
+					       DBusMessage      *message);
+guint    gconfd_dbus_client_count             (void);
+void     gconf_database_dbus_notify_listeners (GConfDatabase    *db,
+					       const gchar      *key,
+					       const GConfValue *value,
+					       gboolean          is_default,
+					       gboolean          is_writable);
 
-void gconfd_need_log_cleanup (void);
-
-/* This list should not be freed */
-GList *        gconfd_get_database_list (void);
-
-GConfDatabase *gconfd_lookup_database   (const gchar  *address);
-GConfDatabase* gconfd_obtain_database   (const gchar  *address,
-					 GError      **err);
-
-void gconf_main_quit (void);
-
-gboolean gconfd_in_shutdown (void);
-
-G_END_DECLS
 
 #endif
-
-
-

@@ -420,7 +420,7 @@ ltable_insert(LTable* lt, const gchar* where, Listener* l)
 
 #ifdef DEBUG_LISTENERS
   g_print ("Added %u at %s, spewing:\n",
-	   l->cnxn, where);
+         l->cnxn, where);
   ltable_spew(lt);
 #endif
 }

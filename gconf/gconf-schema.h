@@ -29,7 +29,7 @@
 extern "C" {
 #endif /* __cplusplus */
 
-/*
+/* 
  *  A "schema" is a value that describes a key-value pair.
  *  It might include the type of the pair, documentation describing 
  *  the pair, the name of the application creating the pair, 

@@ -342,7 +342,7 @@ gconf_client_real_unreturned_error (GConfClient* client, GError* error)
             return;
           
           g_printerr (_("GConf Error: %s\n"),
-                      error->message);
+                   error->message);
         }
     }
 }
@@ -360,7 +360,7 @@ gconf_client_real_error            (GConfClient* client, GError* error)
       else
         {
           g_printerr (_("GConf Error: %s\n"),
-                      error->message);
+                   error->message);
         }
     }
 }
@@ -894,7 +894,7 @@ cache_pairs_in_dir(GConfClient* client, const gchar* dir)
   if (error != NULL)
     {
       g_printerr (_("GConf warning: failure listing pairs in `%s': %s"),
-                  dir, error->message);
+              dir, error->message);
       g_error_free(error);
       error = NULL;
     }
