@@ -1,3 +1,8 @@
+2003-06-24  Mohammad DAMT  <mdamt@bisnisweb.com>
+
+	* po/id.po: Added Indonesian translation
+	* configure.in: Added "id" to ALL_LINGUAS
+
 2003-06-02  Havoc Pennington  <hp@redhat.com>
 
 	* NEWS: update
