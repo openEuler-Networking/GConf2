@@ -1,3 +1,11 @@
+2005-01-17  Mark McLoughlin  <mark@skynet.ie>
+
+	Fix double free with gconf_client_clear_cache()
+
+	* gconf/gconf-client.c: (clear_cache_foreach): don't
+	free the key explicitly - the key is owned by the
+	GConfEntry.
+
 Tue Nov 16 12:24:26 2004  Jonathan Blandford  <jrb@redhat.com>
 
 	* doc/gconf/gconf-docs.sgml: add a title/name instead of [Insert
