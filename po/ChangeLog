@@ -1,3 +1,85 @@
+2004-03-23  Takeshi AIHANA <aihana@gnome.gr.jp>
+
+	* ja.po: Fixed wrong translations for gconftool-2.
+
+2004-03-22  Baris Cicek <baris@teamforce.name.tr>
+
+	* tr.po:  Updated Turkish Translation from Gurkan ASLAN.
+	
+2004-03-22  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+        * pa.po: Punjabi translation by 
+        Amanpreet Singh Alam <amanlinux@netscape.net>.
+
+2004-03-21  Vincent van Adrighem  <adrighem@gnome.org>
+
+	* nl.po: Translation updated by Daniel van Eeden.
+
+2004-03-21  Robert Sedak  <robert.sedak@sk.htnet.hr>
+
+        * hr.po: Updated Croatian translation.
+
+2004-03-20  Telsa Gwynne <hobbit@aloss.ukuu.org.uk>
+
+	* cy.po: Updated Welsh translation. (typo hunt)
+
+2004-03-16  Gareth Owen  <gowen72@yahoo.com>
+
+	* en_GB.po: Added British translation
+
+2004-03-16  Maxim Dziumanenko <mvd@mylinux.com.ua>
+
+	* uk.po: Updated Ukrainian translation.
+
+2004-03-16  Nikos Charonitakis  <frolix68@yahoo.gr>
+
+	* el.po: Updated Greek translation.
+
+2004-03-15  Gustavo Noronha Silva  <kov@debian.org>
+
+	* pt_BR.po: updated translation, by
+	  Medina - debian <afmedina@uol.com.br>
+
+2004-03-13  Robert Sedak  <robert.sedak@sk.htnet.hr>
+
+	* hr.po: Updated Croatian translation.
+
+2004-03-11  Dafydd Harries  <daf@muse.19inch.net>
+
+	* cy.po: Updated Welsh translation from Rhys Jones.
+
+2004-03-09  Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>
+
+	* sk.po: Updated Slovak translation.
+
+2004-03-08 Alastair McKinstry <mckinstry@computer.org>
+	
+	* ga.po: Updated Irish translation.
+
+2004-03-08  Ales Nyakhaychyk  <nab@mail.by>
+
+	* be.po: Updated Belarusian translation.
+
+2004-03-07  Funda Wang  <fundawang@linux.net.cn>
+
+	* zh_CN.po: Updated Simplified Chinese translation.
+
+2004-03-02 Dinesh Nadarajah <dinesh_list@sbcglobal.net>
+
+	* ta.po: Started Tamil Translation.
+
+2004-03-01  Laurent Dhima  <laurenti@alblinux.net>
+
+	* sq.po: Updated Albanian translation.
+
+2004-02-26  Takeshi AIHANA <aihana@gnome.gr.jp>
+
+	* ja.po: Updated Japanese translation.
+
+2004-02-26  Christian Neumair  <chris@gnome-de.org>
+
+	* de.po: Fixed ugly string order bug.
+
 2004-02-24  Laurent Dhima  <laurenti@alblinux.net>
 
 	* sq.po: Fixed Albanian translation.

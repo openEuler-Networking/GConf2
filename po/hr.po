@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2004-02-01 16:55+CET\n"
+"PO-Revision-Date: 2004-03-22 22:49+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Ne mogu stvoriti mapu `%s': %s"
 #: backends/dir-utils.c:212
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
-msgstr "Ne mogu čitati iz ili pisati u %s korjensku mapu na adresi `%s'"
+msgstr "Ne mogu čitati iz ili pisati u %s korijensku mapu na adresi `%s'"
 
 #: backends/xml-backend.c:236
 msgid "Unloading XML backend module."
@@ -41,7 +41,7 @@ msgstr "Ne mogu naći XML početnu mapu na adresi `%s'"
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
-msgstr "Ne mogu čitati iz ili pisati u XML korjensku mapu na adresi \"%s\""
+msgstr "Ne mogu čitati iz ili pisati u XML korijensku mapu na adresi \"%s\""
 
 #: backends/xml-backend.c:453
 #, c-format
@@ -78,7 +78,7 @@ msgstr "Pokrećem pozadinski XML modul"
 #: backends/xml-backend.c:877
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "Nisam uspio otpusiti ključeve XML mape \"%s\": %s"
+msgstr "Nisam uspio otpustiti ključeve XML mape \"%s\": %s"
 
 #: backends/xml-cache.c:286
 msgid "Failed to sync XML cache contents to disk"
@@ -90,8 +90,8 @@ msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr ""
-"Ne mogu maknuri mapu `%s' iz XML pozadinskog međuspreminka, zbog toga što "
-"bilo uspješno sinkronirano s diskom"
+"Ne mogu maknuti mapu `%s' iz XML pozadinskog međuspreminka, zbog toga što "
+"bilo uspješno sinkronizirano s diskom"
 
 #: backends/xml-dir.c:171
 #, c-format
@@ -462,7 +462,7 @@ msgstr "Greška kod čitanja datoteke `%s': %s\n"
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
-msgstr "Tekst sadrži neuspravni UTF-8"
+msgstr "Tekst sadrži neispravni UTF-8"
 
 #: gconf/gconf-internals.c:853
 #, c-format
@@ -609,9 +609,9 @@ msgid ""
 "in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
 "Stupite u vezu s vašim administratorom radi razrješenja sljedećeg problema:\n"
-"Nije moguće otvoriti ili napraviti datoteku „%s“; to znači da možda postoji "
-"problem sa vašim podešavanjima, s obzirom da mnogi programi trebaju "
-"napraviti  datoteke u vašem osobnom direktoriju. Greška je bila „%s“ (errno "
+"Nije moguće otvoriti ili napraviti datoteku \"%s\"; to znači da možda "
+"postoji problem sa vašim podešavanjima, s obzirom da mnogi programi trebaju "
+"napraviti  datoteke u vašem osobnom direktoriju. Greška je bi \"%s\" (errno "
 "= %d)."
 
 #: gconf/gconf-sanity-check.c:183
@@ -626,11 +626,11 @@ msgid ""
 "%d)."
 msgstr ""
 "Stupite u vezu s vašim administratorom radi razrješenja sljedećeg problema:\n"
-"Nije moguće zaključati datoteku „%s“; to znači da možda postoji problem u "
+"Nije moguće zaključati datoteku \"%s\"; to znači da možda postoji problem u "
 "postavkama vašeg sustava. Ukoliko se vaš osobni direktorij montira preko NFS-"
 "a, moguće je da ili klijent ili poslužitelj nisu ispravno podešeni. "
 "Pogledajte uputstva za rpc.statd i rpc.lockd. Česti uzrok ove greške je da "
-"je onemogućen program „nfslock“. Greška je bila „%s“ (errno = %d)."
+"je onemogućen program \"nfslock\". Greška je bila \"%s\" (errno = %d)."
 
 #: gconf/gconf-sanity-check.c:200
 #, c-format
@@ -638,7 +638,7 @@ msgid "Can't remove file %s: %s\n"
 msgstr "Ne mogu premjestiti datoteku %s: %s\n"
 
 #: gconf/gconf-sanity-check.c:236
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "No configuration sources in the configuration file \"%s\"; this means that "
@@ -646,7 +646,7 @@ msgid ""
 msgstr ""
 "Stupite u vezu sa vašim administratorom radi razrješenja sljedećeg "
 "problema:\n"
-"Nema izvora podešavanja u datoteci sa postavkama „%s“; to znači da se "
+"Nema izvora podešavanja u datoteci sa postavkama \"%\"; to znači da se "
 "postavke i ostala podešavanja ne mogu sačuvati. %s%s"
 
 #: gconf/gconf-sanity-check.c:239
@@ -661,7 +661,7 @@ msgid ""
 msgstr ""
 "Stupite u vezu sa vašim administratorom radi razrješenja sljedećeg "
 "problema:\n"
-"Nije moguće pronaći adresu „%s“  iz datoteke sa postavkama „%s“: %s"
+"Nije moguće pronaći adresu \"%s\"  iz datoteke sa postavkama \"%s\": %s"
 
 #: gconf/gconf-sanity-check.c:323
 msgid ""
@@ -722,7 +722,7 @@ msgstr "Nisam uspio učitati izvor \"%s\": %s"
 #: gconf/gconf-sources.c:346
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
-msgstr "Riješena adresa \"%s\" u zapisivajućem izvoru postavki na mjestu %d"
+msgstr "Riješena adresa \"%s\" u zapisujućem izvoru postavki na mjestu %d"
 
 #: gconf/gconf-sources.c:352
 #, c-format
@@ -736,7 +736,7 @@ msgstr ""
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
-"Riješena adresa \"%s\" u djelomično zapisivajući izvor postavki na mjestu %d"
+"Riješena adresa \"%s\" u djelomično zapisujući izvor postavki na mjestu %d"
 
 #: gconf/gconf-sources.c:368
 msgid ""
@@ -749,7 +749,7 @@ msgstr ""
 #: gconf/gconf-sources.c:584
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
-msgstr "Shema `%s' određena za `%s' sprem vrijednost koja nije shema"
+msgstr "Shema `%s' određena za `%s' sprema vrijednost koja nije shema"
 
 #: gconf/gconf-sources.c:642
 msgid "The '/' name can only be a directory, not a key"
@@ -765,7 +765,7 @@ msgstr ""
 "putanje vaših postavki"
 
 #: gconf/gconf-sources.c:692
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writable databases. There are some common causes of this problem: 1) your "
@@ -784,7 +784,7 @@ msgid ""
 "home directory, and it must own a lockfile in ~/.gconfd and also lockfiles "
 "in individual storage locations such as ~/.gconf"
 msgstr ""
-"Ne može se spremiti vrijednost ključa „%s“, jer poslužitelj za podešavanja "
+"Ne može se spremiti vrijednost ključa \"%\", jer poslužitelj za podešavanja "
 "nema baza u koje može pisati. Postoji nekoliko uobičajenih uzroka ovog "
 "problema: 1) vaša datoteka sa putanjom podešavanja %s/path ne sadrži nijednu "
 "bazu ili nije nađena, 2) nekako smo pogrešno pokrenuli dva gconfd procesa, "
@@ -797,7 +797,7 @@ msgstr ""
 "imate zaostalih zaključavanja, uklonite ~/.gconf*/*lock. Možda je problem u "
 "tome da ste pokušali koristiti GKonf sa dva računala istovremeno, a ORBit-"
 "ova uobičajena podešavanja onemogućavaju udaljeni CORBA pristup — stavite "
-"„ORBIIOPIPv4=1“ u /etc/orbitrc. Kao i uvijek, provjerite user.* sustavski "
+"\"ORBIIOPIPv4=1\" u /etc/orbitrc. Kao i uvijek, provjerite user.* sustavski "
 "dnevnik za detalje o problemima na koje je gconfd naišao. Može postojati "
 "samo jedan gconfd za svaki osobni direktorij, i mora imati datoteku za "
 "zaključavanje u ~/.gconfd i datoteke za zaključavanje u pojedinačnim "
@@ -1285,12 +1285,12 @@ msgstr "Dohvatite dugački dokumentacijski niz znakova za ključ"
 
 #: gconf/gconftool.c:391
 msgid "Get the name of the schema applied to this key"
-msgstr "Dohvatite ime sheme primjenjenu na ovaj ključ"
+msgstr "Dohvatite ime sheme primijenjenu na ovaj ključ"
 
 #: gconf/gconftool.c:400
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
-"Odredite ime sheme za sljedeći ključ na koji se treba primjeniti ime sheme"
+"Odredite ime sheme za sljedeći ključ na koji se treba primijeniti ime sheme"
 
 #: gconf/gconftool.c:409
 msgid "Remove any schema name applied to the given keys"
@@ -1298,7 +1298,7 @@ msgstr "Ukloni bilo koje ime sheme primjenjenu na zadane ključeve"
 
 #: gconf/gconftool.c:418
 msgid "Get the name of the default source"
-msgstr "Dohvatite ime uobučajenog izvora"
+msgstr "Dohvatite ime uobičajenog izvora"
 
 #: gconf/gconftool.c:427
 msgid "Print version"
@@ -1399,11 +1399,11 @@ msgstr "Greška kod isključivanja: %s\n"
 
 #: gconf/gconftool.c:1120
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr "Morate odrediti jedanu ili više mapa za rekurzivni ispis.\n"
+msgstr "Morate odrediti jednu ili više mapa za rekurzivni ispis.\n"
 
 #: gconf/gconftool.c:1172
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Morate odrediti jedanu ili više mapa za ispisivanje.\n"
+msgstr "Morate odrediti jednu ili više mapa za ispisivanje.\n"
 
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
 #, c-format
@@ -1635,8 +1635,8 @@ msgstr "Greška kod sinkronizacije: %s"
 #: gconf/gconftool.c:2283
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
-"Morate odrediti jedanu ili više mapa iz koje će biti dohvaćeno ključ/"
-"vrijednost para .\n"
+"Morate odrediti jednu ili više mapa iz koje će biti dohvaćeno ključ/"
+"vrijednost para.\n"
 
 #: gconf/gconftool.c:2297
 msgid "Must specify one or more keys to unset.\n"
@@ -1659,7 +1659,7 @@ msgstr "Greška tijekom rekurzivnog micanja postavki \"%s\": %s\n"
 
 #: gconf/gconftool.c:2362
 msgid "Must specify one or more directories to get subdirs from.\n"
-msgstr "Morate odrediti jedanu ili više mapa za dohvaćanje podmapa.\n"
+msgstr "Morate odrediti jednu ili više mapa za dohvaćanje podmapa.\n"
 
 #: gconf/gconftool.c:2396
 #, c-format
@@ -1738,7 +1738,7 @@ msgstr "UPOZORENJE: Ne mogu postaviti uobičajenu vrijednost za shemu\n"
 
 #: gconf/gconftool.c:2993
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
-msgstr "UPOZORENJE: interna greška gconftool-a, napoznati GConfValueType\n"
+msgstr "UPOZORENJE: interna greška gconftool-a, nepoznati GConfValueType\n"
 
 #: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
 #: gconf/gconftool.c:3104
@@ -1779,7 +1779,7 @@ msgstr "UPOZORENJE: ne razumijem čvor <%s> ispod <schema>\n"
 
 #: gconf/gconftool.c:3154
 msgid "WARNING: no <list_type> specified for schema of type list\n"
-msgstr "UPOZORENJE: nije određen <list_type> za dhemu popisa vrste\n"
+msgstr "UPOZORENJE: nije određen <list_type> za shemu popisa vrste\n"
 
 #: gconf/gconftool.c:3160
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
@@ -1838,7 +1838,7 @@ msgstr "Deinstalirana shema `%s' s mjesta `%s'\n"
 
 #: gconf/gconftool.c:3524
 msgid "WARNING: no key specified for schema\n"
-msgstr "UPOZORENJE: nije odrežena vrsta za shemu\n"
+msgstr "UPOZORENJE: nije određena vrsta za shemu\n"
 
 #: gconf/gconftool.c:3565
 #, c-format
@@ -1908,7 +1908,7 @@ msgid ""
 "Trying to break your application by setting bad values for key:\n"
 "  %s\n"
 msgstr ""
-"Pokušavam prekinuti vaš program postavljajući neispravne vrijendosti za "
+"Pokušavam prekinuti vaš program postavljajući neispravne vrijednosti za "
 "ključ:\n"
 "  %s\n"
 
@@ -1923,17 +1923,15 @@ msgid ""
 "directory:\n"
 "  %s\n"
 msgstr ""
-"Pokušavam prekinuti vaš program postavljajući neispravne vrijendosti za "
+"Pokušavam prekinuti vaš program postavljajući neispravne vrijednosti za "
 "ključeve u mapi:\n"
 "  %s\n"
 
-#, fuzzy
 #~ msgid "Cannot find directory %s\n"
 #~ msgstr "Ne mogu naći mapu %s\n"
 
-#, fuzzy
 #~ msgid "Error saving GConf tree to '%s': %s\n"
-#~ msgstr "Greška kod spremanja stabla za Gconf u '%s': %s\n"
+#~ msgstr "Greška kod spremanja stabla GConf-a u \"%s\": %s\n"
 
 #~ msgid "Usage: %s <dir>\n"
 #~ msgstr "Uporaba: %s <mapa>\n"
@@ -1968,7 +1966,7 @@ msgstr ""
 #~ msgstr "Primljen je zahtijev za otpuštanje svih podataka"
 
 #~ msgid "Received request to sync synchronously"
-#~ msgstr "Primljen je zahtijev za sinkronizirano sinkroniziranje"
+#~ msgstr "Primljen je zahtjev za sinkronizirano sinkroniziranje"
 
 #~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
 #~ msgstr ""
@@ -2063,7 +2061,7 @@ msgstr ""
 #~ msgstr "Greška CORBA-e: %s"
 
 #~ msgid "Shutdown request received"
-#~ msgstr "Primljen je zahtijev za isključivanje"
+#~ msgstr "Primljen je zahtjev za isključivanje"
 
 #~ msgid "Failed to get object reference for ConfigServer"
 #~ msgstr "Nisam uspio dohvatiti referentni objekt za ConfigServer"
@@ -2111,7 +2109,7 @@ msgstr ""
 #~ "Unable to restore a listener on address '%s', couldn't resolve the "
 #~ "database"
 #~ msgstr ""
-#~ "Ne mozu obnoviti slušatelja na adresi '%s', ne mogu riješiti baru podataka"
+#~ "Ne mogu obnoviti slušatelja na adresi '%s', ne mogu riješiti baru podataka"
 
 #~ msgid "Error reading saved state file: %s"
 #~ msgstr "Greška kod čitanja spremljene statusne datoteke: %s"

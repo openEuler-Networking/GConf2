@@ -1,23 +1,25 @@
 # translation of gconf.HEAD.po to Slovak
 # translation of sk.po to Slovak
 # GConf Slovak translation.
-# Copyright (C) 2001,2002, 2003 Free Software Foundation, Inc.
-# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2001,2002.
+# Copyright (C) 2001,2002, 2003, 2004 Free Software Foundation, Inc.
+# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2001,2002, 2004.
 # Stanislav Višňovský <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
 # Stanislav Visnovsky <visnov@suse.cz>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNOME gconf.HEAD\n"
+"Project-Id-Version: gconf.HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-09-09 17:51+0200\n"
-"Last-Translator: Stanislav Visnovsky <visnov@suse.cz>\n"
+"PO-Revision-Date: 2004-03-09 17:53+0100\n"
+"Last-Translator: Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.2\n"
+"X-Generator: KBabel 1.3\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -64,7 +66,6 @@ msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Chyba pri synchronizácii vyrovnávacej pamäti pre modul XML: %s"
 
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -88,7 +89,7 @@ msgid "Initializing XML backend module"
 msgstr "Inicializujem XML modul"
 
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Zlyhalo uvoľnenie zámku na priečinku XML \"%s\": %s"
 
@@ -366,9 +367,9 @@ msgid "Error checking existence of `%s': %s"
 msgstr "Chyba pri kontrole existencie `%s': %s"
 
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Chyba pri odstraňovaní priečinku `%s': %s"
+msgstr "Chyba pri odstraňovaní priečinku \"%s\": %s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -969,13 +970,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
 "Nenájdené žiadne konfiguračné súbory v zdrojovej ceste, konfigurácia nebude "
-"uložená ani upravená"
+"uložená. Upravte %s"
 
 #: gconf/gconfd.c:182
 #, c-format
@@ -1033,9 +1034,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Vlastník %s nie je aktuálny používateľ"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Neplatné práva %o na priečinku %s"
+msgstr "Neplatné práva %lo na priečinku %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1410,15 +1411,13 @@ msgid "Shutdown error: %s\n"
 msgstr "Chyba pri ukončovaní: %s\n"
 
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr ""
 "Musíte zadať jeden alebo viac priečinkov, ktoré chcete rekurzívne vypísať.\n"
 
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Musíte uviesť jeden alebo viac priečinkov, ktoré chcete vypísať.\n"
+msgstr "Musíte zadať jeden alebo viac priečinkov, ktoré chcete vypísať.\n"
 
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
 #, c-format
@@ -1640,7 +1639,6 @@ msgid "Error syncing: %s"
 msgstr "Chyba pri synchronizácii: %s"
 
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
 "Musíte zadať jeden alebo viac priečinkov, z ktorých chcete páry kľúč/"
@@ -1666,7 +1664,6 @@ msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "Nepodarilo sa zrušiť hodnoty v '%s': %s\n"
 
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
 "Musíte zadať jeden alebo viac priečinkov, z ktorých chcete podpriečinky.\n"
@@ -1934,13 +1931,31 @@ msgstr ""
 "priečinku:\n"
 "  %s\n"
 
-#, fuzzy
 #~ msgid "Cannot find directory %s\n"
-#~ msgstr "Nie je možné vytvoriť priečinok '%s': %s"
+#~ msgstr "Nie je možné nájsť priečinok %s\n"
 
-#, fuzzy
 #~ msgid "Error saving GConf tree to '%s': %s\n"
-#~ msgstr "Chyba pri získavaní schémy z '%s': %s\n"
+#~ msgstr "Chyba pri ukladaní stromu GConf do '%s': %s\n"
+
+#~ msgid "Usage: %s <dir>\n"
+#~ msgstr "Použitie: %s <dir>\n"
+
+#~ msgid ""
+#~ "Usage: %s <dir>\n"
+#~ "  Merges a markup backend filesystem hierarchy like:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  to:\n"
+#~ "    dir/%%gconf-tree.xml\n"
+#~ msgstr ""
+#~ "Použitie: %s <dir>\n"
+#~ "  Spojí XML hierarchie systémov súborov, ako:\n"
+#~ "    dir/%%gconf.xml\n"
+#~ "        subdir1/%%gconf.xml\n"
+#~ "        subdir2/%%gconf.xml\n"
+#~ "  do:\n"
+#~ "    dir/%%gconf-tree.xml\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Zachytená neplatná hodnota v požiadavke"
@@ -2135,16 +2150,3 @@ msgstr ""
 #~ "Some client removed itself from the GConf server when it hadn't been "
 #~ "added."
 #~ msgstr "Niektorý klient sa odstránil z GConf serveru keď tam nebol pridaný."
-
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u položiek zostalo v keši po vyčistení už synchronizovaných položiek "
-#~ "starších ako %u sekúnd"
-
-#~ msgid "%s"
-#~ msgstr "%s"
-
-#~ msgid "/path"
-#~ msgstr "/cesta"

@@ -1,18 +1,18 @@
-# Irish (gaeilge) translation for GConf.pot
-# Copyright (C) 2000,2004 Free Software Foundation, Inc.
-# Alastair McKinstry <mckinstry@computer.org>, 2000.
+# Tamil Translation of GConf.
+# Dinesh Nadarajah (C) 2004
+# This file is distributed under the same license as the PACKAGE package.
+# Dinesh Nadarajah <dinesh_list@sbcglobal.net>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf.pot HEAD\n"
+"Project-Id-Version: Tamil Gconf \n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2004-03-08  18:23+0000\n"
-"Last-Translator:  Alastair McKinstry <mckinstry@computer.org>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2004-03-02 18:16-0600\n"
+"Last-Translator: Dinesh Nadarajah <dinesh_list@sbcglobal.net>\n"
+"Language-Team: Tamil <tamillinux-user@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
-"Report-Msgid-Bugs-To: \n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -22,7 +22,7 @@ msgstr ""
 #: backends/dir-utils.c:124 backends/xml-backend.c:332
 #, c-format
 msgid "Could not make directory `%s': %s"
-msgstr "Teip ag cruthaigh eolaire '%s': %s"
+msgstr "`%s' அடைவு உருவாக்க முடியவில்லை: %s"
 
 #: backends/dir-utils.c:212
 #, c-format
@@ -68,7 +68,7 @@ msgstr ""
 #: backends/xml-backend.c:788
 #, c-format
 msgid "Could not remove file %s: %s\n"
-msgstr "Teip ag scr;ios comhad %s: %s\n"
+msgstr "%s கோப்பு கழட்ட முடியவில்லை: %s\n"
 
 #: backends/xml-backend.c:809
 msgid "Initializing XML backend module"
@@ -93,42 +93,42 @@ msgstr ""
 #: backends/xml-dir.c:171
 #, c-format
 msgid "Could not stat `%s': %s"
-msgstr "Teip ag 'stat' '%s': %s"
+msgstr "`%s' stat செய்யமுடியவில்லை: %s"
 
 #: backends/xml-dir.c:181
 #, c-format
 msgid "XML filename `%s' is a directory"
-msgstr "Is eolaire an t-ainm comhad '%s'"
+msgstr "XML கோப்பு பெயர் `%s' ஓர் அடைவு"
 
 #: backends/xml-dir.c:416 backends/xml-dir.c:425
 #, c-format
 msgid "Failed to delete \"%s\": %s"
-msgstr "Teip ag dealaigh \"%s\": %s"
+msgstr "\"%s\" அழிக்க முடியவில்லை: %s"
 
 #: backends/xml-dir.c:471
 #, c-format
 msgid "Failed to write file `%s': %s"
-msgstr "Teip ag scríobh comhad '%s': %s"
+msgstr "`%s' எழுதுவது நொடிப்படைந்தது: %s"
 
 #: backends/xml-dir.c:484
 #, c-format
 msgid "Failed to set mode on `%s': %s"
-msgstr ""
+msgstr "`%s' இன் முறைமை அமைப்பு நொடிப்படைந்தது: %s"
 
 #: backends/xml-dir.c:494
 #, c-format
 msgid "Failed to write XML data to `%s': %s"
-msgstr "Teip ag scríobh sonraí XML do '%s': %s"
+msgstr "XML தரவுகளை `%s' க்கு எழுத முடியவில்லை: %s"
 
 #: backends/xml-dir.c:504 backends/xml-dir.c:1279
 #, c-format
 msgid "Failed to close file `%s': %s"
-msgstr "Teip ag dúnadh comhad '%s': %s"
+msgstr "`%s' கோப்பு மூட முடியவில்லை: %s"
 
 #: backends/xml-dir.c:520 backends/xml-dir.c:530
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
-msgstr "Teip ag athainmigh '%s' do '%s': %s"
+msgstr "`%s' இலிருந்து `%s' க்கு பெயர் மாற்ற முடியவில்லை: %s"
 
 #: backends/xml-dir.c:536
 #, c-format
@@ -138,13 +138,13 @@ msgstr ""
 #: backends/xml-dir.c:548
 #, c-format
 msgid "Failed to delete old file `%s': %s"
-msgstr "Teip ag dealaigh sean-comhad '%s': %s"
+msgstr "பழைய கோப்பு `%s' அழிக்க முடியவில்லை: %s"
 
 #. These are all fatal errors
 #: backends/xml-dir.c:978
 #, c-format
 msgid "Failed to stat `%s': %s"
-msgstr "Teip ag stat() '%s': %s"
+msgstr ""
 
 #: backends/xml-dir.c:1152
 #, c-format
@@ -164,12 +164,12 @@ msgstr ""
 #: backends/xml-dir.c:1255
 #, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "Teip ag deánamh eolaire \"%s\": %s"
+msgstr "\"%s\" அடைவு படைக்க முடியவில்லை: %s"
 
 #: backends/xml-dir.c:1271
 #, c-format
 msgid "Failed to create file `%s': %s"
-msgstr "Teip ag cruthaigh comhad '%s': %s"
+msgstr "'%s' கோப்பு படைக்க முடியவில்லை: %s"
 
 #: backends/xml-dir.c:1370
 #, c-format
@@ -223,7 +223,7 @@ msgstr ""
 #: backends/xml-entry.c:1086
 #, c-format
 msgid "Bad XML node: %s"
-msgstr "Droch nód XML: %s"
+msgstr ""
 
 #: backends/xml-entry.c:1094
 #, c-format
@@ -269,12 +269,12 @@ msgstr ""
 #: gconf/gconf-backend.c:167
 #, c-format
 msgid "No such file `%s'\n"
-msgstr "Níl aon comhad '%s'\n"
+msgstr "`%s' கோப்பு கிரையாது\n"
 
 #: gconf/gconf-backend.c:195
 #, c-format
 msgid "Bad address `%s'"
-msgstr "Droch seoladh '%s'"
+msgstr "கெட்ட முகவரி `%s'"
 
 #: gconf/gconf-backend.c:220
 msgid "GConf won't work without dynamic module support (gmodule)"
@@ -283,7 +283,7 @@ msgstr ""
 #: gconf/gconf-backend.c:230
 #, c-format
 msgid "Error opening module `%s': %s\n"
-msgstr "Teip ag oscailt modúil '%s': %s\n"
+msgstr "`%s' தொகுதி திறக்கும்போது பிழை: %s\n"
 
 #: gconf/gconf-backend.c:262
 #, c-format
@@ -297,7 +297,7 @@ msgstr ""
 #: gconf/gconf-client.c:344 gconf/gconf-client.c:362
 #, c-format
 msgid "GConf Error: %s\n"
-msgstr "Earráid GConf: %s\n"
+msgstr "GConf பிழை: %s\n"
 
 #: gconf/gconf-client.c:896
 #, c-format
@@ -317,17 +317,17 @@ msgstr ""
 #: gconf/gconf-database.c:241 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
-msgstr "Teip ag tógtha luach do '%s': %s"
+msgstr ""
 
 #: gconf/gconf-database.c:287
 #, c-format
 msgid "Error setting value for `%s': %s"
-msgstr ""
+msgstr "`%s' மதிப்பு அமைக்கும் போது பிழை: %s"
 
 #: gconf/gconf-database.c:342
 #, c-format
 msgid "Error unsetting `%s': %s"
-msgstr ""
+msgstr "`%s' மதிப்பு அழிக்கும்போது பிழை: %s"
 
 #: gconf/gconf-database.c:371
 #, c-format
@@ -337,12 +337,12 @@ msgstr ""
 #: gconf/gconf-database.c:418
 #, c-format
 msgid "Error unsetting \"%s\": %s"
-msgstr ""
+msgstr "\"%s\" மதிப்பு அழிக்கும்போது பிழை: %s"
 
 #: gconf/gconf-database.c:450
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
-msgstr ""
+msgstr "\"%s\" க்கு புதிய மதிப்பு பெறும்போது பிழை: %s"
 
 #: gconf/gconf-database.c:496
 #, c-format
@@ -352,7 +352,7 @@ msgstr ""
 #: gconf/gconf-database.c:520
 #, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr ""
+msgstr "\"%s\" அடைவு கழட்டும்போது பிழை: %s"
 
 #: gconf/gconf-database.c:547
 #, c-format
@@ -371,11 +371,11 @@ msgstr ""
 
 #: gconf/gconf-error.c:25
 msgid "Success"
-msgstr ""
+msgstr "வெற்றிகரம்"
 
 #: gconf/gconf-error.c:26
 msgid "Failed"
-msgstr ""
+msgstr "நொடிப்படைந்தது"
 
 #: gconf/gconf-error.c:27
 msgid "Configuration server couldn't be contacted"
@@ -383,7 +383,7 @@ msgstr ""
 
 #: gconf/gconf-error.c:28
 msgid "Permission denied"
-msgstr ""
+msgstr "அனுமதி மறுக்கப்பட்டது"
 
 #: gconf/gconf-error.c:29
 msgid "Couldn't resolve address for configuration source"
@@ -395,7 +395,7 @@ msgstr ""
 
 #: gconf/gconf-error.c:31
 msgid "Parse error"
-msgstr ""
+msgstr "அலகிடும் பிழை"
 
 #: gconf/gconf-error.c:32
 msgid "Corrupt data in configuration source database"
@@ -436,33 +436,33 @@ msgstr ""
 #: gconf/gconf-internals.c:67
 #, c-format
 msgid "No '/' in key \"%s\""
-msgstr "Ná '/' san eochar \"%s\""
+msgstr "\"%s\" விசையில் '/' இல்லை"
 
 #: gconf/gconf-internals.c:337
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
-msgstr "Teip ag oscailt comhaad san slí '%s': %s\n"
+msgstr ""
 
 #: gconf/gconf-internals.c:386
 #, c-format
 msgid "Adding source `%s'\n"
-msgstr "Ag suimigh foinse '%s'\n"
+msgstr "`%s' மூலம் சேர்க்கப்படுகின்றது\n"
 
 #: gconf/gconf-internals.c:398
 #, c-format
 msgid "Read error on file `%s': %s\n"
-msgstr "Teip ag leámh comhad '%s': %s\n"
+msgstr "`%s' கோப்பில் வாசிப்பு பிழை: %s\n"
 
 #: gconf/gconf-internals.c:702 gconf/gconf-internals.c:768
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
-msgstr "Tá UTF-8 neamhbháilí san teacs"
+msgstr "உரையில் தவரதலான UTF-8 வரியுருகள் உல்லன"
 
 #: gconf/gconf-internals.c:853
 #, c-format
 msgid "Expected list, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது பட்டியல், கிடைத்தது %s"
 
 #: gconf/gconf-internals.c:863
 #, c-format
@@ -472,7 +472,7 @@ msgstr ""
 #: gconf/gconf-internals.c:991
 #, c-format
 msgid "Expected pair, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது ஜோடி, கிடைத்தது %s"
 
 #: gconf/gconf-internals.c:1005
 #, c-format
@@ -528,7 +528,7 @@ msgstr ""
 #: gconf/gconf-internals.c:2023
 #, c-format
 msgid "Failed to create or open '%s'"
-msgstr "Teip ag cruthaigh nó oscailt '%s'"
+msgstr "'%s' படைக்கவோ திறக்கவோ முடியவில்லை"
 
 #: gconf/gconf-internals.c:2033
 #, c-format
@@ -545,32 +545,32 @@ msgstr ""
 #: gconf/gconf-internals.c:2138
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
-msgstr "Teip ag ceangal '%s' do '%s': %s"
+msgstr "இதனை '%s' இதட்கு '%s' இணைக்க முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2150
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
-msgstr ""
+msgstr "பூட்டுதல் கோப்பு `%s' கழட்ட முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2169
 #, c-format
 msgid "Failed to clean up file '%s': %s"
-msgstr "Téip ag glan comhad '%s': %s"
+msgstr "'%s' கோப்பு சுத்தம் செய்ய முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2183
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
-msgstr "Teip ag scríos an t-eolaire glasal '%s': %s"
+msgstr "பூட்டுதல் அடைவு `%s' கழட்ட முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2220
 #, c-format
 msgid "couldn't create directory `%s': %s"
-msgstr "Teip ag cruthaigh eolaire '%s': %s"
+msgstr "`%s' அடைவு படைக்க முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2279
 #, c-format
 msgid "Can't write to file `%s': %s"
-msgstr "Teip ag scríobh do comhad '%s': %s"
+msgstr "`%s' கோப்புக்கு எழுத முடியவில்லை: %s"
 
 #: gconf/gconf-internals.c:2323
 #, c-format
@@ -579,7 +579,7 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:84
 msgid "Help options"
-msgstr "Roghnachais Cúidiú"
+msgstr "உதவி தேர்வுகள்"
 
 #: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:506
 #, c-format
@@ -612,7 +612,7 @@ msgstr ""
 #: gconf/gconf-sanity-check.c:200
 #, c-format
 msgid "Can't remove file %s: %s\n"
-msgstr "Teip ag scríosadh comhad %s: %s\n"
+msgstr "%s கோப்பு கழட்டமுடியவில்லை: %s\n"
 
 #: gconf/gconf-sanity-check.c:236
 #, c-format
@@ -624,7 +624,7 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:239
 msgid "Error reading the file: "
-msgstr "Earráid ag leámh comhad: "
+msgstr "கோப்பு வாசிக்கும் போது பிழை:"
 
 #: gconf/gconf-sanity-check.c:262
 #, c-format
@@ -648,16 +648,16 @@ msgstr ""
 
 #: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
-msgstr "_Éirigh As"
+msgstr "_விலகு"
 
 #: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
-msgstr ""
+msgstr "_தொடர்ந்து"
 
 #: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
-msgstr ""
+msgstr "%s தொடருக (ஆ/இ)?"
 
 #: gconf/gconf-schema.c:221 gconf/gconf-schema.c:229 gconf/gconf-schema.c:237
 #: gconf/gconf-schema.c:245
@@ -678,7 +678,7 @@ msgstr ""
 #: gconf/gconf-sources.c:319
 #, c-format
 msgid "Failed to load source \"%s\": %s"
-msgstr "Teip ag lódáil buncód \"%s\": %s"
+msgstr "\"%s\" மூலம் ஏற்ற முடியவில்லை: %s"
 
 #: gconf/gconf-sources.c:346
 #, c-format
@@ -817,20 +817,20 @@ msgstr ""
 #: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
-msgstr "Is NULL an eochar \"%s\""
+msgstr "விசை \"%s\" NULL ஆனது"
 
 #: gconf/gconf.c:51
 #, c-format
 msgid "\"%s\": %s"
-msgstr "\"%s: %s"
+msgstr "\"%s\": %s"
 
 #: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
-msgstr ""
+msgstr "ஒரு சாய்வுகோடுடன் (/) தொடங்க வேண்டும்"
 
 #: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
-msgstr ""
+msgstr "ஒரே வரிசையில் இரண்டு சாய்வுகோடுகள் (/) இருக்க முடியாது"
 
 #: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
@@ -853,27 +853,27 @@ msgstr ""
 #: gconf/gconf.c:408
 #, c-format
 msgid "Expected float, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது மிதவை, கிடைத்தது %s"
 
 #: gconf/gconf.c:443
 #, c-format
 msgid "Expected int, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது முழுஎண், கிடைத்தது %s"
 
 #: gconf/gconf.c:478
 #, c-format
 msgid "Expected string, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது சரம், கிடைத்தது %s"
 
 #: gconf/gconf.c:512
 #, c-format
 msgid "Expected bool, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது பூலியன், கிடைத்தது %s"
 
 #: gconf/gconf.c:545
 #, c-format
 msgid "Expected schema, got %s"
-msgstr ""
+msgstr "எதிபார்த்தது schema, கிடைத்தது %s"
 
 #: gconf/gconfd.c:147
 msgid ""
@@ -933,12 +933,12 @@ msgstr ""
 #: gconf/gconfd.c:341
 #, c-format
 msgid "Failed to open %s: %s"
-msgstr "Teip ag oscailt %s: %s"
+msgstr ""
 
 #: gconf/gconfd.c:348
 #, c-format
 msgid "Failed to stat %s: %s"
-msgstr "Teip ag 'stat' %s: %s"
+msgstr ""
 
 #: gconf/gconfd.c:357
 #, c-format
@@ -955,12 +955,12 @@ msgstr ""
 #: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr "ag tosnú (leagan %s), pid %u úsáideoir '%s'"
+msgstr ""
 
 #: gconf/gconfd.c:484
 #, c-format
 msgid "Failed to create %s: %s"
-msgstr "Teip ag cruthaigh %s: %s"
+msgstr "%s படைக்க முடியவில்லை: %s"
 
 #: gconf/gconfd.c:492
 #, c-format
@@ -984,7 +984,7 @@ msgstr ""
 
 #: gconf/gconfd.c:592
 msgid "Exiting"
-msgstr "Ag éirigh as"
+msgstr "வெளியேறுகின்றது"
 
 #: gconf/gconfd.c:635
 msgid "GConf server is not in use, shutting down."
@@ -1106,7 +1106,7 @@ msgstr ""
 
 #: gconf/gconftool.c:284 gconf/gconftool.c:293
 msgid "DESCRIPTION"
-msgstr ""
+msgstr "விவரம்"
 
 #: gconf/gconftool.c:292
 msgid "Specify a several-line description to go in a schema."
@@ -1118,7 +1118,7 @@ msgstr ""
 
 #: gconf/gconftool.c:302
 msgid "OWNER"
-msgstr "ÚINEAR"
+msgstr "சொந்தக்காரர்"
 
 #: gconf/gconftool.c:310
 msgid "Specify a schema file to be installed"
@@ -1126,7 +1126,7 @@ msgstr ""
 
 #: gconf/gconftool.c:311
 msgid "FILENAME"
-msgstr "AINMCOMHAD"
+msgstr "கோப்புப்பெய்ர்"
 
 #: gconf/gconftool.c:319
 msgid "Specify a configuration source to use rather than the default path"
@@ -1134,7 +1134,7 @@ msgstr ""
 
 #: gconf/gconftool.c:320
 msgid "SOURCE"
-msgstr "FOINSE"
+msgstr "மூலம்"
 
 #: gconf/gconftool.c:328
 msgid ""
@@ -1190,11 +1190,11 @@ msgstr ""
 
 #: gconf/gconftool.c:418
 msgid "Get the name of the default source"
-msgstr ""
+msgstr "மூலத்தின் கொடாநிலை பெயரைப் பெறுக"
 
 #: gconf/gconftool.c:427
 msgid "Print version"
-msgstr "Taispeán leagan"
+msgstr "பதிப்பு அச்சிடுக"
 
 #: gconf/gconftool.c:524
 msgid "Can't get and set/unset simultaneously\n"
@@ -1255,7 +1255,7 @@ msgstr ""
 #: gconf/gconftool.c:714
 #, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "Teip ag tosaigh GConf: %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:743
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
@@ -1278,7 +1278,7 @@ msgstr ""
 #: gconf/gconftool.c:1077
 #, c-format
 msgid "Shutdown error: %s\n"
-msgstr ""
+msgstr "பணிநிறுத்தம் பிழை: %s\n"
 
 #: gconf/gconftool.c:1120
 msgid "Must specify one or more directories to recursively list.\n"
@@ -1309,27 +1309,27 @@ msgstr ""
 #: gconf/gconftool.c:1586
 #, c-format
 msgid "Type: %s\n"
-msgstr "Saghas: %s\n"
+msgstr "வகை: %s\n"
 
 #: gconf/gconftool.c:1587
 #, c-format
 msgid "List Type: %s\n"
-msgstr "Saghas Líosta: %s\n"
+msgstr "பட்டியல் வகை: %s\n"
 
 #: gconf/gconftool.c:1588
 #, c-format
 msgid "Car Type: %s\n"
-msgstr "Saghas 'Car': %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:1589
 #, c-format
 msgid "Cdr Type: %s\n"
-msgstr "Saghas 'Cdr': %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:1594
 #, c-format
 msgid "Default Value: %s\n"
-msgstr ""
+msgstr "கொடாநிலை மதிப்பு: %s\n"
 
 #: gconf/gconftool.c:1594 gconf/gconftool.c:1596 gconf/gconftool.c:1597
 #: gconf/gconftool.c:1598
@@ -1339,17 +1339,17 @@ msgstr ""
 #: gconf/gconftool.c:1596
 #, c-format
 msgid "Owner: %s\n"
-msgstr "Úinéar: %s\n"
+msgstr "சொந்தக்காரர்: %s\n"
 
 #: gconf/gconftool.c:1597
 #, c-format
 msgid "Short Desc: %s\n"
-msgstr "Tuarascail: %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:1598
 #, c-format
 msgid "Long Desc: %s\n"
-msgstr "Tuarascail fhada: %s\n"
+msgstr ""
 
 #: gconf/gconftool.c:1607 gconf/gconftool.c:1831 gconf/gconftool.c:1865
 #: gconf/gconftool.c:1910 gconf/gconftool.c:2055
@@ -1393,12 +1393,12 @@ msgstr ""
 #: gconf/gconftool.c:1765
 #, c-format
 msgid "Error: %s\n"
-msgstr "Earráid: %s\n"
+msgstr "பிழை: %s\n"
 
 #: gconf/gconftool.c:1778 gconf/gconftool.c:2806
 #, c-format
 msgid "Error setting value: %s\n"
-msgstr ""
+msgstr "மதிப்பு அமைக்குபோது பிழை: %s\n"
 
 #: gconf/gconftool.c:1796
 #, c-format
@@ -1500,7 +1500,7 @@ msgstr ""
 #: gconf/gconftool.c:2254
 #, c-format
 msgid "Error setting value: %s"
-msgstr ""
+msgstr "மதிப்பு அமைக்குபோது பிழை: %s"
 
 #: gconf/gconftool.c:2268
 #, c-format
@@ -1708,12 +1708,12 @@ msgstr ""
 #: gconf/gconftool.c:3596
 #, c-format
 msgid "Failed to open `%s': %s\n"
-msgstr ""
+msgstr "'%s' திறக்க முடியவில்லை: %s\n"
 
 #: gconf/gconftool.c:3603
 #, c-format
 msgid "Document `%s' is empty?\n"
-msgstr "Is Capéis '`%s' folamh?\n"
+msgstr "`%s' வெற்றான ஆவணம்?\n"
 
 #: gconf/gconftool.c:3615
 #, c-format
@@ -1781,19 +1781,16 @@ msgid ""
 msgstr ""
 
 #~ msgid "Cannot find directory %s\n"
-#~ msgstr "Teip ag cuardaigh eolaire %s\n"
-
-#~ msgid "Error saving GConf tree to '%s': %s\n"
-#~ msgstr "Teip ag sábhail crann Gconf do '%s': %s\n"
+#~ msgstr "அடைவு %s காணவில்லை\n"
 
 #~ msgid "Usage: %s <dir>\n"
-#~ msgstr "Úsáid: %s <eolaire>\n"
+#~ msgstr "பயன்படுத்துதல்: %s <அடைவு>\n"
 
 #~ msgid "none"
-#~ msgstr "tada"
+#~ msgstr "வெற்று"
 
 #~ msgid "CORBA error: %s"
-#~ msgstr "Earraidh CORBA: %s"
+#~ msgstr "CORBA பிழை: %s"
 
-#~ msgid "%s"
-#~ msgstr "%s"
+#~ msgid "Shutdown request received"
+#~ msgstr "நிறுத்தல் வேண்டுதல் கிடைத்தது"

@@ -6,26 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf HEAD\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2003-07-27 14:40+0300\n"
+"PO-Revision-Date: 2003-12-11 08:46EET\n"
 "Last-Translator: Ales Nyakhaychyk <nab@mail.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 0.9.6\n"
+"X-Generator: KBabel 0.9.5\n"
 
 # backends/dir-utils.c:108
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
-msgstr "Не атрымалася адшукаць каранёвую тэчку %s у адрэсе \"%s\""
+msgstr "Немагчыма адшукаць каранёвую тэчку %s у адрасе \"%s\""
 
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
 #: backends/dir-utils.c:124 backends/xml-backend.c:332
 #, c-format
 msgid "Could not make directory `%s': %s"
-msgstr "Не атрымалася стварыць тэчку \"%s\": %s"
+msgstr "Немагчыма стварыць тэчку \"%s\": %s"
 
 # backends/dir-utils.c:212
 #: backends/dir-utils.c:212
@@ -65,13 +65,12 @@ msgstr "Памылка сынхранізацыі кэшу каталёга мо
 
 # backends/xml-backend.c:651
 #: backends/xml-backend.c:684
-#, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
-"Апэрацыя выдаленьня каталёга больш ня падтрымліваецца, проста выдаліце ўсе "
-"значэньні з каталёга"
+"Выдаленьня тэчкі больш не падтрымліваецца, проста выдаліце ўсе значэньні з "
+"тэчкі"
 
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
 #: backends/xml-backend.c:770
@@ -92,9 +91,9 @@ msgstr "Ініцыялізацыя модулю паслужніка XML"
 
 # backends/xml-backend.c:786
 #: backends/xml-backend.c:877
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "Збой пад час блякаваньня XML-каталёга \"%s\": %s"
+msgstr "Немагчыма атрымаць замок для XML-тэчкі \"%s\": %s"
 
 # backends/xml-cache.c:248
 #: backends/xml-cache.c:286
@@ -429,9 +428,9 @@ msgstr "Памылка праверкі існаваньня \"%s\": %s"
 
 # gconf/gconf-database.c:1509
 #: gconf/gconf-database.c:520
-#, fuzzy, c-format
+#, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Памылка выдаленьня каталёга \"%s\": %s"
+msgstr "Памылка выдаленьня тэчкі \"%s\": %s"
 
 # gconf/gconf-database.c:1536
 #: gconf/gconf-database.c:547
@@ -749,13 +748,13 @@ msgid ""
 "that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = "
 "%d)."
 msgstr ""
-"Зьвяжыцеся са сваім сыстэмным адміністратарам для вырашэньня наступнае "
-"праблемы:\n"
-"Неатрымалася заблякаваць файл \"%s\"; Гэта азначае, што магчыма існуе "
-"праблема з канфігурацыяй вашае апэрацыйнае сыстэмы. Калі ў вас ёсьць "
-"замантаваны праз NFS хатні каталёг, магчыма, альбо паслужнік, альбо кліент "
-"скафігураваны памылковы.Паглядзіце дакумэнтацыю на rpc.statd і rpc.lockd. "
-"Агульным выпадкам гэтае памылкі можа быць што, паслуга \"nfslock\" была "
+"Калі ласка, зьвяжыцеся са сваім сыстэмным адміністратарам для вырашэньня "
+"наступнае праблемы:\n"
+"Немагчыма замкнуць файл \"%s\"; гэта азначае, што магчыма існуе праблема з "
+"наладкамі вашае апэрацыйнае сыстэмы. Калі ў вас ёсьць замантаваная праз NFS "
+"свойская тэчка, магчыма, альбо паслужнік, альбо кліент наладжаны ня так, як "
+"патрэбна. Паглядзіце дакумэнтацыю на rpc.statd і rpc.lockd. Агульным "
+"выпадкам гэтае памылкі можа быць тое, што паслуга \"nfslock\" была "
 "адключана. Адбылася памылка - \"%s\" (errno = %d)."
 
 # gconf/gconf-internals.c:2569
@@ -1134,13 +1133,13 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:169
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
 msgstr ""
-"Няма крыніцаў канфігурацыі на шляху крыніцаў, канфігурацыя ня была захавана; "
-"рэдагаваць "
+"Адсутнічаюць крыніцы наладкі ў шляху крыніц, наладкі ня будуць захаваны; "
+"рэдагаваць %s"
 
 # gconf/gconfd.c:313
 #: gconf/gconfd.c:182
@@ -1207,9 +1206,9 @@ msgid "Owner of %s is not the current user"
 msgstr "Бягучы карыстальнік не з'яўляецца ўладальнікам %s"
 
 #: gconf/gconfd.c:365
-#, fuzzy, c-format
+#, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr "Дрэнныя правы %o на тэчку %s"
+msgstr "Дрэнныя правы %lo на тэчку %s"
 
 # gconf/gconfd.c:531
 #. openlog() does not copy logname - what total brokenness.
@@ -1217,7 +1216,7 @@ msgstr "Дрэнныя правы %o на тэчку %s"
 #: gconf/gconfd.c:445
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr "запуск (версыя %s), pid %u карыстальнік \"%s\""
+msgstr "запуск (вэрсыя %s), pid %u карыстальнік \"%s\""
 
 # gconf/gconf-internals.c:2842 gconf/gconfd.c:583
 #: gconf/gconfd.c:484
@@ -1659,16 +1658,13 @@ msgstr "Памылка выключэньня: %s\n"
 
 # gconf/gconftool.c:894
 #: gconf/gconftool.c:1120
-#, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr ""
-"Патрабуецца указаць адзін ці болей каталёгаў для рэкурсыўнага сьпіса.\n"
+msgstr "Неабходна задаць адну ці болей тэчак для рэкурсыўнага сьпіса.\n"
 
 # gconf/gconftool.c:1607
 #: gconf/gconftool.c:1172
-#, fuzzy
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Павінена быць задана адна ці больш тэчак для звалкі.\n"
+msgstr "Неабходна задаць адну ці больш тэчак для звалкі.\n"
 
 # gconf/gconftool.c:928
 #: gconf/gconftool.c:1214 gconf/gconftool.c:1479
@@ -1945,11 +1941,9 @@ msgstr "Памылка сынхранізацыі: %s"
 
 # gconf/gconftool.c:1593
 #: gconf/gconftool.c:2283
-#, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
-"Патрабуецца указываць адзін ці болей каталёгаў для атрыманьня пар ключ/"
-"значэньне.\n"
+"Неабходна задаць адну ці болей тэчак для атрыманьня пар ключ/значэньне.\n"
 
 # gconf/gconftool.c:1607
 #: gconf/gconftool.c:2297
@@ -1976,11 +1970,8 @@ msgstr "Збой пад час рэкурсыўнага выдаленьня \"%
 
 # gconf/gconftool.c:1670
 #: gconf/gconftool.c:2362
-#, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
-msgstr ""
-"Патрабуецца указываць адзін ці болей каталёгаў для атрыманьня з іх "
-"падкаталёгаў.\n"
+msgstr "Неабходна задаць адну ці болей тэчак для атрыманьня з іх падтэчак.\n"
 
 # gconf/gconftool.c:1704
 #: gconf/gconftool.c:2396
@@ -2303,7 +2294,7 @@ msgstr ""
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
 #, fuzzy
 #~ msgid "Cannot find directory %s\n"
-#~ msgstr "Не атрымалася стварыць тэчку \"%s\": %s"
+#~ msgstr "Немагчыма стварыць тэчку \"%s\": %s"
 
 # gconf/gconftool.c:1341
 #, fuzzy
@@ -2554,74 +2545,3 @@ msgstr ""
 #~ msgstr ""
 #~ "Пэўны кліент выдаліў сябе з паслужніка GConf, але ня бу раней даданы да "
 #~ "яго!"
-
-# backends/xml-cache.c:305
-#~ msgid ""
-#~ "%u items remain in the cache after cleaning already-synced items older "
-#~ "than %u seconds"
-#~ msgstr ""
-#~ "%u элемэнтаў застаецца ў кэшы пасьля ачысткі ад ужо сынхранізаваных "
-#~ "элемэнтаў старэйшых за %u сэкундаў"
-
-# gconf/gconftool.c:2415
-#~ msgid "%s"
-#~ msgstr "%s"
-
-# gconf/gconfd.c:300
-#~ msgid "/path"
-#~ msgstr "/path"
-
-# gconf/gconftool.c:495
-#~ msgid "--dir-exists option must be used by itself.\n"
-#~ msgstr "парамэтар --dir-exists мусіць выкарыстоўвацца сам.\n"
-
-# gconf/gconftool.c:505
-#~ msgid "--install-schema-file must be used by itself.\n"
-#~ msgstr "парамэтар --install-schema-file мусіць выкарыстоўвацца сам.\n"
-
-# gconf/gconftool.c:516
-#~ msgid "--makefile-install-rule must be used by itself.\n"
-#~ msgstr "парамэтар --makefile-install-rule мусіць выкарыстоўвацца сам.\n"
-
-# gconf/gconftool.c:516
-#~ msgid "--makefile-uninstall-rule must be used by itself.\n"
-#~ msgstr "--makefile-install-rule мусіць быць выкарыстоўвацца сам.\n"
-
-# gconf/gconftool.c:527
-#~ msgid "--break-key must be used by itself.\n"
-#~ msgstr "--break-key мусіць быць выкарыстоўвацца сам.\n"
-
-# gconf/gconftool.c:538
-#~ msgid "--break-directory must be used by itself.\n"
-#~ msgstr "парамэтар --break-directory павінны быць выкарыстаны сам.\n"
-
-# backends/bdb-backend.c:215
-#~ msgid "Unloading BerkeleyDB (BDB) backend module."
-#~ msgstr "Выгрузка модулю паслужніка BerkeleyDB (BDB)."
-
-# backends/bdb-backend.c:238
-#~ msgid "Opened BerkeleyDB source at root %s"
-#~ msgstr "Адчынена крыніца BerkeleyDB з каранём %s"
-
-# backends/bdb-backend.c:578
-#~ msgid "Initializing BDB backend module"
-#~ msgstr "Ініцыялізацыя модулю паслужніка BDB"
-
-# backends/dir-utils.c:108
-#~ msgid "Couldn't find the root directory in the address \"%s\""
-#~ msgstr "Ня атрымалася адшукаць каранёвы каталёг на адрэсе '%s'"
-
-# gconf/gconftool.c:2282
-#~ msgid "WARNING: node <%s> not understood below <schemalist>\n"
-#~ msgstr "УВАГА: вузел <%s> ня зразуметы пад <schemalist>\n"
-
-#~ msgid "Multiple segmentation faults occurred; can't display error dialog\n"
-#~ msgstr ""
-#~ "Шматлікія сыстэмныя памылкі; немагчыма паказаць дыялёг з памылкамі\n"
-
-#~ msgid ""
-#~ "Segmentation fault!\n"
-#~ "Cannot display crash dialog: %s\n"
-#~ msgstr ""
-#~ "Памылка сэгментацыі!\n"
-#~ "Немагчыма адлюстраваць дыялёг памылкі: %s\n"

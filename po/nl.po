@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf cvs\n"
 "POT-Creation-Date: 2003-12-05 00:37+0100\n"
-"PO-Revision-Date: 2004-01-20 16:57+0100\n"
+"PO-Revision-Date: 2004-03-21 11:20+0100\n"
 "Last-Translator: Daniel van Eeden <daniel_e@dds.nl>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -1415,7 +1415,7 @@ msgid ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
 msgstr ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is gezet, schema's worden niet "
-"gedeÃÂ¯nstalleerd\n"
+"gedeïnstalleerd\n"
 
 #: gconf/gconftool.c:763
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
@@ -1626,7 +1626,7 @@ msgstr "Moet een sleutel (schemanaam) specificeren als het enige argument\n"
 #: gconf/gconftool.c:2104
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr "Fout bij associÃÂ«ren schema `%s' met sleutel `%s': %s\n"
+msgstr "Fout bij associëren schema `%s' met sleutel `%s': %s\n"
 
 #: gconf/gconftool.c:2122
 msgid "Must specify keys to unapply schema from\n"
@@ -1871,12 +1871,12 @@ msgstr "Schema `%s' voor locale `%s' geïnstalleerd\n"
 #: gconf/gconftool.c:3478
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
-msgstr "WAARSCHUWING: fout bij deÃÂ¯nstalleren schema `%s' locale `%s': %s\n"
+msgstr "WAARSCHUWING: fout bij deïnstalleren schema `%s' locale `%s': %s\n"
 
 #: gconf/gconftool.c:3486
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
-msgstr "Schema `%s' voor locale `%s' gedeÃÂ¯nstalleerd\n"
+msgstr "Schema `%s' voor locale `%s' gedeïnstalleerd\n"
 
 #: gconf/gconftool.c:3524
 msgid "WARNING: no key specified for schema\n"
@@ -1925,7 +1925,7 @@ msgstr "U moet enkele te installeren schemabestanden specificeren\n"
 
 #: gconf/gconftool.c:3704
 msgid "Must specify some schema files to uninstall\n"
-msgstr "U moet enkele te deÃÂ¯nstalleren schemabestanden specificeren\n"
+msgstr "U moet enkele te deïnstalleren schemabestanden specificeren\n"
 
 #: gconf/gconftool.c:3741
 #, c-format
