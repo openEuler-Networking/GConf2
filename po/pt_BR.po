@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.4.0.1\n"
-"POT-Creation-Date: 2003-09-29 12:03-0400\n"
-"PO-Revision-Date: 2003-09-29 12:00-0400\n"
+"POT-Creation-Date: 2003-09-29 12:13-0400\n"
+"PO-Revision-Date: 2003-09-29 12:13-0400\n"
 "Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -1720,11 +1720,11 @@ msgstr "Erro ao desligar: %s\n"
 #: gconf/gconftool.c:1120
 msgid "Must specify one or more dirs to recursively list.\n"
 msgstr ""
-"Devem ser especificados um ou mais diretórios para listar recursivamente.\n"
+"É necessário especificar um ou mais diretórios para listar recursivamente.\n"
 
 #: gconf/gconftool.c:1170
 msgid "Must specify one or more dirs to dump.\n"
-msgstr "Devem ser especificados um ou mais diretórios para descarregar.\n"
+msgstr "É necessário especificar um ou mais diretórios para descarregar.\n"
 
 #: gconf/gconftool.c:1211 gconf/gconftool.c:1469
 #, c-format
@@ -1742,7 +1742,7 @@ msgstr "Falha ao criar o servidor de configuração (gconfd): %s\n"
 
 #: gconf/gconftool.c:1541
 msgid "Must specify a key or keys to get\n"
-msgstr "Devem ser especificadas uma chave ou chaves para ler\n"
+msgstr "É necessário especificar uma chave ou chaves para ler\n"
 
 #: gconf/gconftool.c:1576
 #, c-format
@@ -1808,7 +1808,7 @@ msgstr "Não é possível entender tipo `%s'\n"
 
 #: gconf/gconftool.c:1668
 msgid "Must specify alternating keys/values as arguments\n"
-msgstr "Devem ser especificados chaves/valores alternados como argumentos\n"
+msgstr "É necessário especificar chaves/valores alternados como argumentos\n"
 
 #: gconf/gconftool.c:1688
 #, c-format
@@ -1848,11 +1848,11 @@ msgstr "Erro ao sincronizar: %s\n"
 
 #: gconf/gconftool.c:1801
 msgid "Must specify a key or keys to get type\n"
-msgstr "Devem ser especificadas uma ou mais chaves para digitar\n"
+msgstr "É necessário especificar uma ou mais chaves para digitar\n"
 
 #: gconf/gconftool.c:1845
 msgid "Must specify a key to lookup size of.\n"
-msgstr "Deve especificar uma chave para pesquisar o tamanho.\n"
+msgstr "É necessário especificar uma chave para pesquisar o tamanho.\n"
 
 #: gconf/gconftool.c:1870 gconf/gconftool.c:1915
 #, c-format
@@ -1862,11 +1862,12 @@ msgstr "A chave %s não é uma lista\n"
 #: gconf/gconftool.c:1890
 msgid "Must specify a key from which to get list element.\n"
 msgstr ""
-"Deve especificar uma chave a partir da qual obter um elemento da lista.\n"
+"É necessário especificar uma chave a partir da qual obter um elemento da "
+"lista.\n"
 
 #: gconf/gconftool.c:1921
 msgid "Must specify list index.\n"
-msgstr "Deve especificar o índice da lista\n"
+msgstr "É necessário especificar o índice da lista\n"
 
 #: gconf/gconftool.c:1928
 msgid "List index must be non-negative.\n"
@@ -1878,7 +1879,7 @@ msgstr "O índice da lista está fora dos limites.\n"
 
 #: gconf/gconftool.c:1963
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Devem ser especificadas uma chave ou chaves na linha de comando\n"
+msgstr "É necessário especificar uma chave ou chaves na linha de comando\n"
 
 #: gconf/gconftool.c:1983
 #, c-format
@@ -1908,8 +1909,8 @@ msgstr "Valor em '%s' não é um schema\n"
 #: gconf/gconftool.c:2087
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr ""
-"Deve ser especificado um nome de schema seguido por um nome de chave onde "
-"aplicá-lo\n"
+"É necessárior especificar um nome de schema seguido por um nome de chave "
+"onde aplicá-lo\n"
 
 #: gconf/gconftool.c:2094
 #, c-format
@@ -1918,7 +1919,7 @@ msgstr "Erro ao associar nome de schema '%s' com nome de chave '%s': %s\n"
 
 #: gconf/gconftool.c:2112
 msgid "Must specify keys to unapply schema from\n"
-msgstr "Deve especificar uma chave para remover o schema\n"
+msgstr "É necessário especificar uma chave para remover o schema\n"
 
 #: gconf/gconftool.c:2122
 #, c-format
@@ -2198,11 +2199,11 @@ msgstr "Erro ao sincronizar dados de configuração: %s"
 
 #: gconf/gconftool.c:3662
 msgid "Must specify some schema files to install\n"
-msgstr "Devem ser especificados alguns arquivos de schema a instalar\n"
+msgstr "É necessário especificar alguns arquivos de schema a instalar\n"
 
 #: gconf/gconftool.c:3694
 msgid "Must specify some schema files to uninstall\n"
-msgstr "Deve especificar alguns arquivos de schema para desinstalar\n"
+msgstr "É necessário especificar alguns arquivos de schema para desinstalar\n"
 
 #: gconf/gconftool.c:3731
 #, c-format
@@ -2220,7 +2221,7 @@ msgstr "Falha ao limpar chave de quebra %s: %s\n"
 
 #: gconf/gconftool.c:3877
 msgid "Must specify some keys to break\n"
-msgstr "Devem ser especificadas algumas chaves para serem quebradas\n"
+msgstr "É necessário especificar algumas chaves para serem quebradas\n"
 
 #: gconf/gconftool.c:3883
 #, c-format
@@ -2233,7 +2234,7 @@ msgstr ""
 
 #: gconf/gconftool.c:3901
 msgid "Must specify some directories to break\n"
-msgstr "Devem ser especificados alguns diretórios para serem quebrados\n"
+msgstr "É necessário especificar alguns diretórios para serem quebrados\n"
 
 #: gconf/gconftool.c:3920
 #, c-format
