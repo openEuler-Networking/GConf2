@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "POT-Creation-Date: 2002-11-06 04:59+0100\n"
-"PO-Revision-Date: 2002-12-13 15:48+EDT\n"
+"PO-Revision-Date: 2003-01-14 11:02+EDT\n"
 "Last-Translator: Ge'ez Frontier Foundation <locales@geez.org>\n"
 "Language-Team: Amharic <locales@geez.org>\n"
 "MIME-Version: 1.0\n"
@@ -279,7 +279,7 @@ msgstr ""
 #: gconf/gconf-backend.c:167
 #, c-format
 msgid "No such file `%s'\n"
-msgstr ""
+msgstr "ፋይሉን `%s' የለም\n"
 
 #: gconf/gconf-backend.c:195
 #, c-format
@@ -696,7 +696,7 @@ msgstr "ምንም"
 
 #: gconf/gconf-sanity-check.c:39 gconf/gconftool.c:73
 msgid "Help options"
-msgstr ""
+msgstr "የመረጃ መርጫዎች"
 
 #: gconf/gconf-sanity-check.c:74 gconf/gconftool.c:423
 #, c-format
@@ -1472,12 +1472,12 @@ msgstr ""
 #: gconf/gconftool.c:1071
 #, c-format
 msgid "Type: %s\n"
-msgstr "ዓይነት: %s\n"
+msgstr "ዓይነት፦ %s\n"
 
 #: gconf/gconftool.c:1072
 #, c-format
 msgid "List Type: %s\n"
-msgstr ""
+msgstr "የዝርዝር ዓይነት፦ %s\n"
 
 #: gconf/gconftool.c:1073
 #, c-format
@@ -1492,7 +1492,7 @@ msgstr ""
 #: gconf/gconftool.c:1079
 #, c-format
 msgid "Default Value: %s\n"
-msgstr ""
+msgstr "የነበረው ዕሴት፦ %s\n"
 
 #: gconf/gconftool.c:1079 gconf/gconftool.c:1081 gconf/gconftool.c:1082
 #: gconf/gconftool.c:1083
