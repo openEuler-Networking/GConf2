@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1\n"
-"POT-Creation-Date: 2001-12-27 06:16-0500\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-27 16:48+0100\n"
 "Last-Translator: Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -75,8 +75,8 @@ msgstr "Fout bij het loslaten van de vergrendeling op XML dir `%s': %s"
 #: backends/xml-cache.c:119
 msgid "Unsynced directory deletions when shutting down XML backend"
 msgstr ""
-"Ongesynchronizeerde verwijderde directories tijdens het afsluiten van het XML "
-"backend"
+"Ongesynchronizeerde verwijderde directories tijdens het afsluiten van het "
+"XML backend"
 
 #: backends/xml-cache.c:229
 #, c-format
@@ -91,8 +91,8 @@ msgstr ""
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
-"%u items remain in the cache after cleaning already-synced items older than "
-"%u seconds"
+"%u items remain in the cache after cleaning already-synced items older than %"
+"u seconds"
 msgstr ""
 "%u items achtergebleven in de cache na het schoonmaken van de al "
 "gesynchronizeerde items ouder dan %u seconden"
@@ -296,8 +296,7 @@ msgstr "Ongeldige waarde ontvangen in instel verzoek"
 
 #: gconf/gconf-database.c:240
 #, c-format
-msgid ""
-"Couldn't make sense of CORBA value received in set request for key `%s'"
+msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Kon geen wijs maken uit de CORBA waarde die ontvangen werd in een instel "
 "verzoek voor sleutel `%s'"
@@ -608,8 +607,8 @@ msgstr "Fout bij maken of openen van bestand `%s'"
 #: gconf/gconf-internals.c:2520
 #, c-format
 msgid ""
-"Failed to lock '%s': probably another process has the lock, or your operating "
-"system has NFS file locking misconfigured (%s)"
+"Failed to lock '%s': probably another process has the lock, or your "
+"operating system has NFS file locking misconfigured (%s)"
 msgstr ""
 "Kon '%s' niet vastzetten: Waarschijnlijk heeft een ander het bestand "
 "vastgelegd, of uw besturingssysteem heeft problemen met NFS-locking (%s)."
@@ -675,12 +674,12 @@ msgstr "Fout bij maken `%s': %s"
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr "Kon geen pijp aanleggen om te communiceren met de gconf deamon: %s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Kan de configuratieserver niet starten: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -688,50 +687,50 @@ msgid ""
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
 "Kon geen contact krijgen met de configuratieserver (waarschijnlijk draait er "
-"nog een configuratieserver (gconfd), maar is die niet bereikbaar vanaf hier - "
-"als u ingelogd bent vanaf twee verschillende machines, dan dient u de "
-"tcp-netwerkmogelijkheden van Orbit in te schakelen)\n"
+"nog een configuratieserver (gconfd), maar is die niet bereikbaar vanaf hier "
+"- als u ingelogd bent vanaf twee verschillende machines, dan dient u de tcp-"
+"netwerkmogelijkheden van Orbit in te schakelen)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Kon niet lezen uit de pijp van kindproces (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Kon niet forken (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Kon niet wisselen naar werkmap '%s' (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Kan kindproces niet starten (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Kon de invoer of uitvoer van kindproces niet aanpassen (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Kon kindproces niet forken (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Onbekende fout bij starten kindproces"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Kon niet genoeg gegevens inlezen uit pijp van kindproces (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Kon geen pijp maken om te communiceren met kindproces (%s)"
@@ -777,10 +776,10 @@ msgstr ""
 "geen beschrijfbare databank heeft. Er zijn twee grote oorzaken voor dit "
 "probleem: 1) Uw configuratiepad werd niet gevonden of bevat geen databanken "
 "of 2) op de een of andere manier hebben we per ongeluk twee gconfd processen "
-"gestart. Als u twee gconfd processen heeft, kunt u het beste uitloggen, gconf "
-"vernietigen, en weer inloggen. Misschien is de oorzaak dat u gconf probeerde "
-"te grbuiken vanaf twee verschillende computers. U moet daarvoor Orbit "
-"toestemming geven."
+"gestart. Als u twee gconfd processen heeft, kunt u het beste uitloggen, "
+"gconf vernietigen, en weer inloggen. Misschien is de oorzaak dat u gconf "
+"probeerde te grbuiken vanaf twee verschillende computers. U moet daarvoor "
+"Orbit toestemming geven."
 
 #: gconf/gconf-sources.c:1198
 #, c-format
@@ -943,16 +942,16 @@ msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
 msgstr ""
-"gconfd gecompileerd met debug informatie; bezig met proberen laden van "
-"gconf.path uit de broncode directory"
+"gconfd gecompileerd met debug informatie; bezig met proberen laden van gconf."
+"path uit de broncode directory"
 
 #: gconf/gconfd.c:297
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
 msgstr ""
-"Geen configuratie bestanden gevonden, terugval op standaard configuratie bron "
-"`%s'"
+"Geen configuratie bestanden gevonden, terugval op standaard configuratie "
+"bron `%s'"
 
 #: gconf/gconfd.c:306
 msgid ""
@@ -977,8 +976,8 @@ msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
 msgstr ""
-"Geen configuratie bron adressen konden worden gevonden, kan configuratie data "
-"niet\n"
+"Geen configuratie bron adressen konden worden gevonden, kan configuratie "
+"data niet\n"
 "laden en opslaan"
 
 #: gconf/gconfd.c:349
@@ -986,7 +985,8 @@ msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
 msgstr ""
-"Geen schrijfbare configuratie bronnen konden worden gevonden, misschien niet\n"
+"Geen schrijfbare configuratie bronnen konden worden gevonden, misschien "
+"niet\n"
 "in staat om sommige wijzingen op te slaan"
 
 #: gconf/gconfd.c:375
@@ -1022,8 +1022,8 @@ msgstr "Fout bij het verkrijgen van object referentie voor ConfigServer"
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
-"Kon byte niet doorsturen naar fd %s waardoot programma misschien vastloopt: "
-"%s"
+"Kon byte niet doorsturen naar fd %s waardoot programma misschien vastloopt: %"
+"s"
 
 #: gconf/gconfd.c:615
 #, c-format
@@ -1121,8 +1121,8 @@ msgstr "Fout bij openen opslag status bestand '%s': %s"
 #: gconf/gconfd.c:2010
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to re-"
+"add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Fout bij het loggen van toevoeging van luisteraars aan het gconfd log "
 "bestand; kan luisteraar niet opnieuw toevoegen als gconfd stopt (%s)"
@@ -1130,8 +1130,8 @@ msgstr ""
 #: gconf/gconfd.c:2015
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-add "
-"the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously re-"
+"add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Fout bij het loggen van het verwijderen van de luisteraar naar gconfd log "
 "bestand; misschien word de luisteraar foutief opnieuw toegevoegd als gconfd "
@@ -1181,8 +1181,8 @@ msgstr "Druk de waarde van een sleutel af op de standaard uitvoer."
 
 #: gconf/gconftool.c:95
 msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
-"--type."
+"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
+"type."
 msgstr ""
 "Stel een schema in en synchronizeer. Gebruik met --short-desc, --long-desc, "
 "--owner, en --type."
@@ -1309,8 +1309,8 @@ msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
 msgstr ""
-"Benader de configuratie databank direct, de server omzeilend. Gconfd mag niet "
-"draaien."
+"Benader de configuratie databank direct, de server omzeilend. Gconfd mag "
+"niet draaien."
 
 #: gconf/gconftool.c:267
 msgid ""
@@ -1319,8 +1319,8 @@ msgid ""
 "config source or set to the empty string to use the default."
 msgstr ""
 "Installeert schema bestanden op de opdrachtregel in de databank. De "
-"GCONF_CONFIG_SOURCE omgevingsvariabele moet ingesteld staan op een "
-"niet-standaard configuratie bron of naar een lege tekenreeks om de "
+"GCONF_CONFIG_SOURCE omgevingsvariabele moet ingesteld staan op een niet-"
+"standaard configuratie bron of naar een lege tekenreeks om de "
 "standaardwaarde te gebruiken."
 
 #: gconf/gconftool.c:276
@@ -1336,8 +1336,8 @@ msgid ""
 "Torture-test an application by setting and unsetting a bunch of keys inside "
 "the directories on the command line."
 msgstr ""
-"Martelings-test voor een applicatie d.m.v. het instellen en uitzetten van een "
-"groep sleutels binnen de directories op de opdrachtregel."
+"Martelings-test voor een applicatie d.m.v. het instellen en uitzetten van "
+"een groep sleutels binnen de directories op de opdrachtregel."
 
 #: gconf/gconftool.c:294
 msgid "Get the short doc string for a key"
@@ -1352,8 +1352,7 @@ msgid "Get the name of the schema applied to this key"
 msgstr "Zoek de naam van het schema op voor deze sleutel"
 
 #: gconf/gconftool.c:321
-msgid ""
-"Specify the schema name followed by the key to apply the schema name to"
+msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
 "Geef de schemanaam gevolgd door de sleutel om het schema op toe te passen"
 
@@ -1368,8 +1367,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Fout bij optie %s: %s.\n"
-"Start '%s --help' om een volledige lijst van beschikbare opdrachtregel opties "
-"te zien.\n"
+"Start '%s --help' om een volledige lijst van beschikbare opdrachtregel "
+"opties te zien.\n"
 
 #: gconf/gconftool.c:394
 msgid "Can't get and set/unset simultaneously\n"
@@ -1389,19 +1388,19 @@ msgstr "Kan --all-dirs niet met --get of --set gebruiken\n"
 
 #: gconf/gconftool.c:427
 msgid ""
-"--recursive-list should not be used with --get, --set, --unset, "
-"--all-entries, or --all-dirs\n"
+"--recursive-list should not be used with --get, --set, --unset, --all-"
+"entries, or --all-dirs\n"
 msgstr ""
-"--recursive-list moet niet gebruikt worden met --get, --set, --unset, "
-"--all-entries of --all-dirs\n"
+"--recursive-list moet niet gebruikt worden met --get, --set, --unset, --all-"
+"entries of --all-dirs\n"
 
 #: gconf/gconftool.c:437
 msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, "
-"--all-dirs\n"
+"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
+"all-dirs\n"
 msgstr ""
-"--set_schema moet niet gebruikt worden met --get, --set, --unset, "
-"--all-entries of --all-dirs\n"
+"--set_schema moet niet gebruikt worden met --get, --set, --unset, --all-"
+"entries of --all-dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
@@ -1439,8 +1438,8 @@ msgstr "--break-directory moet gebruikt worden door zichzelf.\n"
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
-"Je moet een configuratie bron specificeren met --config-source als je "
-"--direct gebruikt\n"
+"Je moet een configuratie bron specificeren met --config-source als je --"
+"direct gebruikt\n"
 
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
@@ -1722,22 +1721,22 @@ msgstr "WAARSCHUWING: fout bij ontleden type naam `%s'\n"
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"WAARSCHUWING: list_type kan alleen int, float, string of bool zijn en niet "
-"`%s'\n"
+"WAARSCHUWING: list_type kan alleen int, float, string of bool zijn en niet `%"
+"s'\n"
 
 #: gconf/gconftool.c:1806
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"WAARSCHUWING: car_type kan alleen int, float, string of bool zijn en niet "
-"`%s'\n"
+"WAARSCHUWING: car_type kan alleen int, float, string of bool zijn en niet `%"
+"s'\n"
 
 #: gconf/gconftool.c:1827
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
-"WAARSCHUWING: cdr_type kan alleen int, float, string of bool zijn en niet "
-"`%s'\n"
+"WAARSCHUWING: cdr_type kan alleen int, float, string of bool zijn en niet `%"
+"s'\n"
 
 #: gconf/gconftool.c:1855
 msgid "WARNING: empty <applyto> node"
@@ -1862,8 +1861,8 @@ msgid ""
 "Trying to break your application by setting bad values for key:\n"
 "  %s\n"
 msgstr ""
-"Probeer je applicatie te breken d.m.v. het instellen van slechte waarden voor "
-"een sleutel:\n"
+"Probeer je applicatie te breken d.m.v. het instellen van slechte waarden "
+"voor een sleutel:\n"
 "  %s\n"
 
 #: gconf/gconftool.c:2468
@@ -1874,10 +1873,11 @@ msgstr "Moet enkele te breken directories specificeren\n"
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
-"directory:\n  %s\n"
+"directory:\n"
+"  %s\n"
 msgstr ""
-"Probeer je applicatie te breken d.m.v. het instellen van slechte waarden voor "
-"sleutels in directory:\n"
+"Probeer je applicatie te breken d.m.v. het instellen van slechte waarden "
+"voor sleutels in directory:\n"
 "  %s\n"
 
 #: wrappers/gtk/gconf-client.c:287 wrappers/gtk/gconf-client.c:304

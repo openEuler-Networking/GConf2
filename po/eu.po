@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf-1-0 1.0.7\n"
-"POT-Creation-Date: 2002-01-02 14:11+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-05-25 13:35+0200\n"
 "Last-Translator: Josu Waliño <josu@elhuyar.com>\n"
 "Language-Team: Euskara\n"
@@ -663,12 +663,12 @@ msgstr "Huts egin du %s sortzean: %s "
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, fuzzy, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Huts egin du konfigurazio-iturburu hauek atzitzean: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -676,46 +676,46 @@ msgid ""
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, fuzzy, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Huts egin du blokeatutako fitxategi hau askatzean: %s "
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, fuzzy, c-format
 msgid "Failed to fork (%s)"
 msgstr "Huts egin du %s sortzean: %s "
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, fuzzy, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Huts egin du `%s' direktorio blokeatua askatzean: %s "
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, fuzzy, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Huts egin du `%s' fitxategi zaharra ezabatzean: %s "
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, fuzzy, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Huts egin du `%s' iturburua kargatzean: %s "
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr ""
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr ""

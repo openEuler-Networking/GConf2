@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.4.1\n"
-"POT-Creation-Date: 2001-12-07 00:31+0000\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-07 00:32+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <none@none.org>\n"
@@ -31,7 +31,7 @@ msgstr "A inicializar módulo de suporte BDB"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Directório raíz %s não encontrado no endereço `%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1053
+#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1050
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Impossível criar directório `%s': %s"
@@ -134,34 +134,34 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Falha ao apagar ficheiro antigo `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:806
+#: backends/xml-dir.c:803
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Falha no estado `%s': %s"
 
-#: backends/xml-dir.c:950
+#: backends/xml-dir.c:947
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Entrada duplicada `%s' em `%s', a ignorar"
 
-#: backends/xml-dir.c:972
+#: backends/xml-dir.c:969
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Entrada sem nome no ficheiro XML `%s', a ignorar"
 
-#: backends/xml-dir.c:980
+#: backends/xml-dir.c:977
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Um nó de nível superior no ficheiro XML `%s' é <%s> em vez de <entry>, a "
 "ignorar"
 
-#: backends/xml-dir.c:1069
+#: backends/xml-dir.c:1066
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Falha ao criar ficheiro `%s': %s"
 
-#: backends/xml-dir.c:1077
+#: backends/xml-dir.c:1074
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Falha ao fechar ficheiro `%s': %s"
@@ -343,7 +343,7 @@ msgstr ""
 "Falha ao registar no ficheiro log remoção do listener (inofensivo, poderá "
 "resultar em a notificação surgir novamente): %s"
 
-#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1328
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Erro ao obter (get) valor para `%s': %s"
@@ -602,8 +602,9 @@ msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
 "operating system has NFS file locking misconfigured (%s)"
 msgstr ""
-"Falha ao obter exclusividade de '%s': provavelmente outro processo tem a exclusividade "
-"ou o seu sistema operativo tem a exclusividade de ficheiro NFS mal configurada (%s)"
+"Falha ao obter exclusividade de '%s': provavelmente outro processo tem a "
+"exclusividade ou o seu sistema operativo tem a exclusividade de ficheiro NFS "
+"mal configurada (%s)"
 
 #: gconf/gconf-internals.c:2548
 #, c-format
@@ -667,12 +668,12 @@ msgstr "Falha ao criar %s: %s"
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr "Falha ao criar canal (pipe) para comunicar com deamon gconf: %s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Falha ao lançar servidor de configuração: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -684,46 +685,46 @@ msgstr ""
 "alcançavel daqui - se estiver ligado a duas máquinas simultaneamente, poderá "
 "ter de activar redes TCP para o ORBit)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Falha na leitura de canal (pipe) filho (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Falha no fork (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Falha ao mudar para directório '%s' (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Falha ao executar processo filho (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Falha ao redireccionar saída ou entrada de processo filho (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Falha no fork de processo filho (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Erro desconhecido ao executar processo filho"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Insuficiencia de dados lidos de canal (pipe) pid do filho (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Falha ao criar canal (pipe) para comunicar com processo filho (%s)"
@@ -733,16 +734,16 @@ msgstr "Falha ao criar canal (pipe) para comunicar com processo filho (%s)"
 msgid "Failed to load source `%s': %s"
 msgstr "Falha ao carregar fonte `%s': %s"
 
-#: gconf/gconf-sources.c:510
+#: gconf/gconf-sources.c:544
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Esquema `%s' especificado para `%s' armazena um valor não-esquema"
 
-#: gconf/gconf-sources.c:567
+#: gconf/gconf-sources.c:601
 msgid "The '/' name can only be a directory, not a key"
 msgstr "O nome '/' apenas pode ser um directório, não uma chave"
 
-#: gconf/gconf-sources.c:596
+#: gconf/gconf-sources.c:630
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -751,7 +752,7 @@ msgstr ""
 "Valor para `%s' definido numa fonte apenas de leitura no início do seu "
 "cominho de configuração."
 
-#: gconf/gconf-sources.c:608
+#: gconf/gconf-sources.c:642
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -776,17 +777,17 @@ msgstr ""
 "que impede ligações CORBA remotas? Como sempre, verifique o user.* syslog "
 "fopara detalhes sobre o problema encontrado pelo gconfd."
 
-#: gconf/gconf-sources.c:1164
+#: gconf/gconf-sources.c:1198
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Erro ao procurar metainfo: %s"
 
-#: gconf/gconf-sources.c:1233
+#: gconf/gconf-sources.c:1267
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Erro ao obter metainfo: %s"
 
-#: gconf/gconf-sources.c:1257
+#: gconf/gconf-sources.c:1291
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
@@ -1429,7 +1430,8 @@ msgstr ""
 
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
-msgstr "Deve utilizar --direct quando utiliza uma fonte de configuração não-defeito\n"
+msgstr ""
+"Deve utilizar --direct quando utiliza uma fonte de configuração não-defeito\n"
 
 #: gconf/gconftool.c:531
 #, c-format

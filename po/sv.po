@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2001-12-06 02:39+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-06 02:43+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -35,7 +35,7 @@ msgstr "Initierar BDB-backendmodulen"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Kunde inte hitta %s-rotkatalogen i adressen \"%s\""
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1053
+#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1050
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Kunde inte skapa katalogen \"%s\": %s"
@@ -136,33 +136,33 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Misslyckades med att ta bort den gamla filen \"%s\": %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:806
+#: backends/xml-dir.c:803
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Misslyckades med att ta status på \"%s\": %s"
 
-#: backends/xml-dir.c:950
+#: backends/xml-dir.c:947
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Dubbla \"%s\"-poster i \"%s\", ignorerar"
 
-#: backends/xml-dir.c:972
+#: backends/xml-dir.c:969
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Post utan namn i XML-filen \"%s\", ignorerar"
 
-#: backends/xml-dir.c:980
+#: backends/xml-dir.c:977
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Översta noden i XML-filen \"%s\" är <%s> istället för <entry>, ignorerar"
 
-#: backends/xml-dir.c:1069
+#: backends/xml-dir.c:1066
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Misslyckades med att skapa filen \"%s\": %s"
 
-#: backends/xml-dir.c:1077
+#: backends/xml-dir.c:1074
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Misslyckades med att stänga filen \"%s\": %s"
@@ -343,7 +343,7 @@ msgstr ""
 "Misslyckades med att logga borttagningen av lyssnare i loggfilen (troligtvis "
 "ofarligt, men kan resultera i att ett meddelande plötsligt återkommer): %s"
 
-#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1328
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fel vid hämtning av värde för \"%s\": %s"
@@ -667,12 +667,12 @@ msgstr ""
 "Misslyckades med att skapa rör för kommunikation med startad gconf-demon: %"
 "s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Misslyckades med att starta konfigurationsservern: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -684,47 +684,47 @@ msgstr ""
 "men att den inte är nåbar härifrån - om du är inloggad från två maskiner "
 "samtidigt kan du behöva aktivera TCP-nätverksstöd för ORBit)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Misslyckades med att läsa från barnrör (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Misslyckades med att grena (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Misslyckades med att byta till katalogen \"%s\" (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Misslyckades med att köra barnprocess (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr ""
 "Misslyckades med att omdirigera utdata eller indata till barnprocess (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Misslyckades med att grena barnprocess (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Okänt fel vid körning av barnprocess"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Misslyckades med att läsa tillräckligt med pid-barnrör (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Misslyckades med att skapa rör för kommunikation med barnprocess (%s)"
@@ -734,16 +734,16 @@ msgstr "Misslyckades med att skapa rör för kommunikation med barnprocess (%s)"
 msgid "Failed to load source `%s': %s"
 msgstr "Misslyckades med att läsa in källan \"%s\": %s"
 
-#: gconf/gconf-sources.c:510
+#: gconf/gconf-sources.c:544
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Schemat \"%s\" som är angivet för \"%s\" lagrar ett icke-schema-värde"
 
-#: gconf/gconf-sources.c:567
+#: gconf/gconf-sources.c:601
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Namnet \"/\" kan bara vara en katalog, inte en nyckel"
 
-#: gconf/gconf-sources.c:596
+#: gconf/gconf-sources.c:630
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -752,7 +752,7 @@ msgstr ""
 "Värdet för \"%s\" är satt i en skrivskyddad källa i början på din "
 "konfigurationssökväg."
 
-#: gconf/gconf-sources.c:608
+#: gconf/gconf-sources.c:642
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -777,17 +777,17 @@ msgstr ""
 "fjärranslutningar? Som alltid, kontrollera user.*-systemloggen för detaljer "
 "om problem om problem som gconfd har stött på."
 
-#: gconf/gconf-sources.c:1164
+#: gconf/gconf-sources.c:1198
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Fel vid sökning av metainformation: %s"
 
-#: gconf/gconf-sources.c:1233
+#: gconf/gconf-sources.c:1267
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Fel vid hämtning av metainformation: %s"
 
-#: gconf/gconf-sources.c:1257
+#: gconf/gconf-sources.c:1291
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

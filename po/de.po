@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.x\n"
-"POT-Creation-Date: 2002-01-09 22:22+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2002-01-06 20:14GMT\n"
 "Last-Translator: Manuel Borchers <webmaster@matronix.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -690,12 +690,12 @@ msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Erzeugen der Pipe zur Kommunikation mit dem gconf-Dämon fehlgeschlagen:  %s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Konfigurationsserver konnte nicht gestartet werden: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -707,46 +707,46 @@ msgstr ""
 "hier erreichbar ist - wenn Sie von zwei Maschinen angemeldet sind, müssen "
 "Sie ggf. TCP-networking für ORBit aktivieren)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Lesen von Pipe des Kindprozesses fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Abspalten fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Ändern des Verzeichnisses '%s' fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Ausführen des Kindprozesses fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Umleiten der Aus- oder Eingabe des Kindprozesses fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Abspalten des Kindprozesses fehlgeschlagen (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Unbekannter Fehler beim Ausführen des Kindprozesses"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Nicht genug Daten von der Kind-PID-Pipe gelesen (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr ""

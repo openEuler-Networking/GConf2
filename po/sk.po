@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-12-11 15:43+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-07 21:12CET\n"
 "Last-Translator: Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -32,7 +32,7 @@ msgstr "Inicializujem BDB modul"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Nie je možné nájsť koreňový priečinok pre %s na adrese `%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1053
+#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1050
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Nie je možné vytvoriť priečinok '%s': %s"
@@ -137,33 +137,33 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "Nepodarilo sa odstrániť starý súbor `%s': %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:806
+#: backends/xml-dir.c:803
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Nepodarilo sa zistiť stav `%s': %s"
 
-#: backends/xml-dir.c:950
+#: backends/xml-dir.c:947
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Duplikovaná položka `%s' v `%s', ignorujem"
 
-#: backends/xml-dir.c:972
+#: backends/xml-dir.c:969
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Položka bez mena v súbore XML `%s', ignorujem"
 
-#: backends/xml-dir.c:980
+#: backends/xml-dir.c:977
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Uzol na najvyššej úrovni v súbore XML `%s' je <%s> a nie <entry>, ignorujem"
 
-#: backends/xml-dir.c:1069
+#: backends/xml-dir.c:1066
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Nepodarilo sa vytvoriť súbor `%s': %s"
 
-#: backends/xml-dir.c:1077
+#: backends/xml-dir.c:1074
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Nepodarilo sa zavrieť súbor `%s': %s"
@@ -341,7 +341,7 @@ msgstr ""
 "Nepodarilo sa zaznamenať odstránenie listenera do súboru so záznamom (asi "
 "neškodné, ale môže sa objaviť divné opakovanie upozornení): %s"
 
-#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1328
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Chyba pri získavaní hodnoty pre `%s': %s"
@@ -665,12 +665,12 @@ msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Nepodarilo sa vytvoriť rúru pre komunikáciu s potomkami démona gconf: %s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Nepodarilo sa spustiť konfiguračný server: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -682,46 +682,46 @@ msgstr ""
 "dostupný - ak ste prihlásený na dvoj počítačoch naraz, možno budete musieť "
 "povoliť sieť TCP pre ORBit)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Nepodarilo sa čítať z rúry potomka (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Nepodarilo sa vytvoriť proces (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Nepodarilo sa prejsť do priečinku '%s' (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Nepodarilo sa spustiť potomka (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Nepodarilo sa presmerovať výstup alebo vstup potomka (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Nepodarilo sa spustiť potomka (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Neznáma chyba počas spustenia potomka"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Nepodarilo sa prečítať dosť dát z rúry potomka (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "Nepodarilo sa vytvoriť rúru pre komunikáciu s potomkom (%s)"
@@ -731,16 +731,16 @@ msgstr "Nepodarilo sa vytvoriť rúru pre komunikáciu s potomkom (%s)"
 msgid "Failed to load source `%s': %s"
 msgstr "Nepodarilo sa načítať zdroj `%s': %s"
 
-#: gconf/gconf-sources.c:510
+#: gconf/gconf-sources.c:544
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Schéme `%s' uvedená pre `%s' udržiava hodnotu, ktorá nie je schéma"
 
-#: gconf/gconf-sources.c:567
+#: gconf/gconf-sources.c:601
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Meno '/' môže byť iba pre priečinok, nie pre kľúč"
 
-#: gconf/gconf-sources.c:596
+#: gconf/gconf-sources.c:630
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -749,7 +749,7 @@ msgstr ""
 "Hodnota pre `%s' nastavená v zdroji určenom iba pre čítanie pred vašou "
 "konfiguračnou cestou."
 
-#: gconf/gconf-sources.c:608
+#: gconf/gconf-sources.c:642
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -773,17 +773,17 @@ msgstr ""
 "stále štandardné nastavenie, ktoré bráni vzdialeným spojeniam CORBA. Ako "
 "obvykle, skontrolujte súbor so záznamom user.* pre detaily o chybe."
 
-#: gconf/gconf-sources.c:1164
+#: gconf/gconf-sources.c:1198
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Chyba pri hľadaní meta-informácií: %s"
 
-#: gconf/gconf-sources.c:1233
+#: gconf/gconf-sources.c:1267
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Chyba pri získavaní meta-informácií: %s"
 
-#: gconf/gconf-sources.c:1257
+#: gconf/gconf-sources.c:1291
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

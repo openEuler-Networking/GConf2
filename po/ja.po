@@ -2,11 +2,10 @@
 # Copyright (C) 2000,2001 Free Software Foundation, Inc.
 # Takeshi Aihana <aihana@gnome.gr.jp>, 2000, 2001.
 # 
-#, no-wrap
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.7\n"
-"POT-Creation-Date: 2001-12-10 16:32+0900\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-10 16:29+0900\n"
 "Last-Translator: Takeshi Aihana <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -32,7 +31,7 @@ msgstr "BarkeleyDB (BDB) バックエンドモジュールの初期化中です"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "アドレス %s にある %s のルートディレクトリが見つかりませんでした"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1053
+#: backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1050
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "ディレクトリ '%s' を作成できませんでした: %s"
@@ -136,34 +135,34 @@ msgid "Failed to delete old file `%s': %s"
 msgstr "古いファイル '%s' の削除に失敗しました: %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:806
+#: backends/xml-dir.c:803
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "'%s' の状態が取得できませんでした: %s"
 
-#: backends/xml-dir.c:950
+#: backends/xml-dir.c:947
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "'%s' が '%s' の中で重複しています。無視します"
 
-#: backends/xml-dir.c:972
+#: backends/xml-dir.c:969
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "XML ファイル '%s' の中に名前の無いエントリが含まれています。無視します"
 
-#: backends/xml-dir.c:980
+#: backends/xml-dir.c:977
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "XML ファイル '%s' の中のトップレベルノードが 1 つの <entry> ではなく <%s> で"
 "す。無視します"
 
-#: backends/xml-dir.c:1069
+#: backends/xml-dir.c:1066
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "ファイル '%s' の作成に失敗しました: %s"
 
-#: backends/xml-dir.c:1077
+#: backends/xml-dir.c:1074
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "ファイル '%s' を閉じるのに失敗しました: %s"
@@ -347,7 +346,7 @@ msgstr ""
 "ログファイルへリスナーのログ移動に失敗しました (殆ど実害はありません、再度お"
 "かしな通知があるかもしれませんせんが): %s"
 
-#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1294
+#: gconf/gconf-database.c:1169 gconf/gconf-sources.c:1328
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "'%s' の値の取得でエラー: %s"
@@ -675,12 +674,12 @@ msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "子プロセスの gconf デーモンと通信するためのパイプの作成に失敗しました: %s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "設定サーバの起動に失敗しました: %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -691,46 +690,46 @@ msgstr ""
 "あるが、ここからは通信できない - 一度に二つのマシンからログインしている場合"
 "は、ORBit の TCP ネットワークを可能にする必要があります)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "子プロセスのパイプ (%s) からの読み込みに失敗しました"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Fork (%s) に失敗しました"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "ディレクトリ '%s' への移動に失敗しました (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "子プロセス (%s) の実行に失敗しました"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "子プロセス (%s) の入出力リダイレクトに失敗しました"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "子プロセス (%s) の Fork に失敗しました"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "子プロセスを実行中に不明なエラー"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "子プロセス PID パイプ (%s) からデータを十分に読めません"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr "子プロセス (%s) と通信するためのパイプの作成に失敗しました"
@@ -740,23 +739,23 @@ msgstr "子プロセス (%s) と通信するためのパイプの作成に失敗しました"
 msgid "Failed to load source `%s': %s"
 msgstr "ファイル '%s' の読み込みに失敗しました: %s"
 
-#: gconf/gconf-sources.c:510
+#: gconf/gconf-sources.c:544
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "スキーマ '%s' はスキーマでは無い値 '%s' を保存するよう指定されました"
 
-#: gconf/gconf-sources.c:567
+#: gconf/gconf-sources.c:601
 msgid "The '/' name can only be a directory, not a key"
 msgstr "名前 '/' はディレクトリの場合だけで、キーには使えません"
 
-#: gconf/gconf-sources.c:596
+#: gconf/gconf-sources.c:630
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path."
 msgstr "'%s' の値は設定パスの前に読み込み専用でセットします"
 
-#: gconf/gconf-sources.c:608
+#: gconf/gconf-sources.c:642
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -780,17 +779,17 @@ msgstr ""
 "になってますか？ 常に、gconfd で発生した問題の詳細については users.* シスログ"
 "を確認してみて下さい。"
 
-#: gconf/gconf-sources.c:1164
+#: gconf/gconf-sources.c:1198
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "メタ情報の検索中にエラー: %s"
 
-#: gconf/gconf-sources.c:1233
+#: gconf/gconf-sources.c:1267
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "メタ情報の取得中にエラー: %s"
 
-#: gconf/gconf-sources.c:1257
+#: gconf/gconf-sources.c:1291
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

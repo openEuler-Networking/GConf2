@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.7\n"
-"POT-Creation-Date: 2002-01-05 20:51+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2002-01-05 20:51+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -157,7 +157,8 @@ msgstr "Ignore l'entrée sans nom dans le fichier XML « %s »"
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
-"Un noeud racine dans le fichier XML « %s » est <%s> au lieu de <entry>, ignore"
+"Un noeud racine dans le fichier XML « %s » est <%s> au lieu de <entry>, "
+"ignore"
 
 #: backends/xml-dir.c:1066
 #, c-format
@@ -614,8 +615,8 @@ msgid ""
 "operating system has NFS file locking misconfigured (%s)"
 msgstr ""
 "Impossible de verrouiller « %s » : un autre process a probablement le "
-"verrou, ou votre système d'exploitation a le vérouillage de fichier "
-"NFS mal configuré (%s)"
+"verrou, ou votre système d'exploitation a le vérouillage de fichier NFS mal "
+"configuré (%s)"
 
 #: gconf/gconf-internals.c:2548
 #, c-format
@@ -681,12 +682,12 @@ msgstr ""
 "Impossible de créer un tube pour communiquer avec les démons gconf créés : %"
 "s\n"
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Impossible de lancer le serveur de configuration : %s\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -699,46 +700,46 @@ msgstr ""
 "connecté depuis deux machines à la fois, vous pouvez avoir besoin d'activer "
 "le réseau TCP/IP pour ORBit)\n"
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr "Impossible de lire depuis le tube fils (%s)"
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr "Impossible de cloner (%s)"
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Impossible de changer de répertoire « %s » (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Impossible d'exécuter le processus fils (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr "Impossible de rediriger la sortie ou l'entrée du processus fils (%s)"
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Impossible de cloner le processus enfant (%s)"
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr "Erreur inconnue à l'exécution du processus enfant"
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr "Impossible de lire suffisemment de donnée depuis le tube fils pid (%s)"
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr ""
@@ -1461,8 +1462,8 @@ msgstr ""
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
 msgstr ""
-"Vous devez utiliser --direct quand vous utilisez une source de "
-"configuration personnalisée\n"
+"Vous devez utiliser --direct quand vous utilisez une source de configuration "
+"personnalisée\n"
 
 #: gconf/gconftool.c:531
 #, c-format

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.6.5\n"
-"POT-Creation-Date: 2002-01-16 00:37+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-12-30 22:27+0100\n"
 "Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: Norwegian/Nynorsk <nn@li.org>\n"
@@ -654,12 +654,12 @@ msgstr "Klarte ikkje å opprette %s: %s"
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 
-#: gconf/gconf-internals.c:3060
+#: gconf/gconf-internals.c:3064
 #, fuzzy, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "filene for systemoppsettet.\n"
 
-#: gconf/gconf-internals.c:3084
+#: gconf/gconf-internals.c:3088
 msgid ""
 "Failed to contact configuration server (a likely cause of this is that you "
 "have an existing configuration server (gconfd) running, but it isn't "
@@ -667,46 +667,46 @@ msgid ""
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
 
-#: gconf/gconf-internals.c:3720
+#: gconf/gconf-internals.c:3724
 #, c-format
 msgid "Failed to read from child pipe (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:3785
+#: gconf/gconf-internals.c:3789
 #, c-format
 msgid "Failed to fork (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:3925
+#: gconf/gconf-internals.c:3929
 #, c-format
 msgid "Failed to change to directory '%s' (%s)"
 msgstr "Klarte ikkje å skifte katalog til «%s» (%s)"
 
-#: gconf/gconf-internals.c:3935
+#: gconf/gconf-internals.c:3939
 #, c-format
 msgid "Failed to execute child process (%s)"
 msgstr "Klarte ikkje å starte barnprosess (%s)"
 
-#: gconf/gconf-internals.c:3944
+#: gconf/gconf-internals.c:3948
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:3953
+#: gconf/gconf-internals.c:3957
 #, fuzzy, c-format
 msgid "Failed to fork child process (%s)"
 msgstr "Kunne ikkje lasta %1."
 
-#: gconf/gconf-internals.c:3961
+#: gconf/gconf-internals.c:3965
 msgid "Unknown error executing child process"
 msgstr ""
 
-#: gconf/gconf-internals.c:3982
+#: gconf/gconf-internals.c:3986
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:4032
+#: gconf/gconf-internals.c:4036
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
 msgstr ""

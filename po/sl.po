@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2002-01-26 22:16+0100\n"
+"POT-Creation-Date: 2002-02-04 18:21-0500\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -592,10 +592,13 @@ msgid "Failed to create or open '%s'"
 msgstr "Nisem uspel ustvariti ali odpreti '%s'"
 
 #: gconf/gconf-internals.c:2520
+#, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
 "operating system has NFS file locking misconfigured (%s)"
-msgstr "Nisem uspel zakleniti '%s': verjetno ima kljuèavnico drug proces ali pa ima va¹ operacijski sistem nepravilno nastavljeno zaklepanje datotek NFS (%s)"
+msgstr ""
+"Nisem uspel zakleniti '%s': verjetno ima kljuèavnico drug proces ali pa ima "
+"va¹ operacijski sistem nepravilno nastavljeno zaklepanje datotek NFS (%s)"
 
 #: gconf/gconf-internals.c:2548
 #, c-format
@@ -1415,7 +1418,8 @@ msgstr "Ob uporabi --direct morate navesti vir nastavitev z --config-source\n"
 
 #: gconf/gconftool.c:525
 msgid "You should use --direct when using a non-default configuration source\n"
-msgstr "Kadar uporabljate neprivzet vir nastavitev, bi morali uporabljati --direct\n"
+msgstr ""
+"Kadar uporabljate neprivzet vir nastavitev, bi morali uporabljati --direct\n"
 
 #: gconf/gconftool.c:531
 #, c-format
