@@ -6,6 +6,7 @@ INCLUDES=								\
 	-I$(top_srcdir)							\
 	-I$(top_builddir)						\
 	$(DEPENDENT_WITH_XML_AND_GTK_CFLAGS) 				\
+	$(GCONF_ORBIT_CFLAGS)						\
 	-DG_LOG_DOMAIN=\"GConf\"					\
 	-DGCONF_LOCALE_DIR=\""$(gconflocaledir)"\"			\
         -DGCONF_SRCDIR=\""$(absolute_top_srcdir)"\"			\
@@ -34,15 +35,15 @@ bin_PROGRAMS = gconftool-2
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 if HAVE_ORBIT
-CORBA_BUILT = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
+CORBA_GENERATED = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 else
-CORBA_BUILT =
+CORBA_GENERATED =
 endif
 
 noinst_PROGRAMS = simple-test
 ## not BUILT_SOURCES which seems to make a mess. fix with automake 1.5?
 built_sourcecode = 			\
-	$(CORBA_BUILT)			\
+	$(CORBA_GENERATED)		\
 	gconfmarshal.h			\
 	gconfmarshal.c
 
@@ -74,9 +75,11 @@ gconfinclude_HEADERS = 		\
 	gconf-enum-types.h
 
 if HAVE_ORBIT
-CORBA_SOURCE = gconf-database-corba.c gconfd-database-corba.h gconfd-corba.c gconfd-corba.h
+GCONF_CORBA_SOURCE = gconf-corba.c gconf-corba.h
+GCONFD_CORBA_SOURCE = gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconfd-corba.h
 else
-CORBA_SOURCE =
+GCONF_CORBA_SOURCE =
+GCONFD_CORBA_SOURCE =
 endif
 
 ## This is broken I know, I'm going to break the server/client up and have a library later
@@ -84,14 +87,15 @@ endif
 gconfd_2_SOURCES = \
 	gconf-database.h	\
 	gconf-database.c	\
-	$(CORBA_SOURCE)		\
+	$(GCONFD_CORBA_SOURCE)	\
+	$(CORBA_GENERATED)	\
 	gconf-sources.h		\
 	gconfd.h		\
 	gconfd.c		\
 	gconfd-dbus.h		\
 	gconfd-dbus.c
 
-gconfd_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
+gconfd_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la 
 
 simple_test_SOURCES = \
 	simple-test.c
@@ -112,6 +116,7 @@ $(CORBA_GENERATED): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
 
 libgconf_2_la_SOURCES = \
+	$(GCONF_CORBA_SOURCE)	\
 	gconf-internals.c	\
 	gconf-internals.h	\
 	gconf-backend.h		\
@@ -132,9 +137,9 @@ libgconf_2_la_SOURCES = \
 
 libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE)
 
-libgconf_2_la_LIBADD = $(DEPENDENT_LIBS) $(INTLLIBS) 
+libgconf_2_la_LIBADD = $(DEPENDENT_LIBS) $(INTLLIBS) $(GCONF_ORBIT_LIBS)
 
-EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh
+EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh 
 
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)

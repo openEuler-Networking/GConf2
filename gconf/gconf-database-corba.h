@@ -21,6 +21,7 @@
 #define GCONF_GCONF_DATABASE_CORBA_H
 
 #include "gconf-database.h"
+#include "GConfX.h"
 
 typedef struct _GConfDatabaseCorba  GConfDatabaseCorba;
 

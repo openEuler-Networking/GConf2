@@ -251,7 +251,6 @@ lookup_engine_by_database (int db)
     return NULL;
 }
 
-/* FIXME: Don't assume this */
 static gboolean daemon_running = FALSE;
 
 static void

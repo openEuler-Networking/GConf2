@@ -183,18 +183,20 @@ if test x$enable_orbit = xyes; then
     if test x$have_orbit = xno; then
 	AC_MSG_ERROR([ORBit explicitly required, and ORBit development libraries not found])
     fi
-    ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
-    AC_SUBST(ORBIT_IDL)
-    AC_DEFINE(HAVE_ORBIT,1,ORBit support in the daemon)
 fi
 
 if test x$enable_orbit = xno; then
    have_orbit=no;
 fi
 
+if test x$have_orbit = xyes; then
+    ORBIT_IDL="`$PKG_CONFIG --variable=orbit_idl ORBit-2.0`"
+    AC_SUBST(ORBIT_IDL)
+    AC_DEFINE(HAVE_ORBIT,1,ORBit support in the daemon)
+fi
 AM_CONDITIONAL(HAVE_ORBIT, test x$have_orbit = xyes)
 
-dnl GLib flags
+dnl ORBit flags
 AC_SUBST(GCONF_ORBIT_CFLAGS)
 AC_SUBST(GCONF_ORBIT_LIBS)
 

@@ -189,6 +189,7 @@ gconf_dbus_set_exception (DBusConnection *connection,
   
   return TRUE;
 }
+
 static GConfDatabase *
 gconf_database_from_id (DBusConnection *connection,
 			DBusMessage    *message,
@@ -198,7 +199,12 @@ gconf_database_from_id (DBusConnection *connection,
     return gconfd_lookup_database (NULL);
   else
     {
-      /* FIXME: Send error message */
+      DBusMessage *reply;
+
+      reply = dbus_message_new_error_reply (message, GCONF_DBUS_ERROR_FAILED,
+					    _("The database could not be accessed."));
+      dbus_connection_send (connection, reply, NULL);
+      dbus_message_unref (reply);
       return NULL;
     }
 }
@@ -219,9 +225,13 @@ gconf_dbus_get_message_args (DBusConnection *connection,
 
   if (!retval)
     {
-      g_warning ("malformed message of type %s\n", dbus_message_get_name (message));
+      DBusMessage *reply;
       
-      /* FIXME: Send error message */
+      reply = dbus_message_new_error_reply (message, GCONF_DBUS_ERROR_FAILED,
+					    _("Got a malformed message."));
+      dbus_connection_send (connection, reply, NULL);
+      dbus_message_unref (reply);
+      
       return FALSE;      
     }
 
@@ -1233,7 +1243,13 @@ gconfd_dbus_check_in_shutdown (DBusConnection *connection,
 {
   if (gconfd_in_shutdown ())
     {
-      /* FIXME: Send back an error */
+      DBusMessage *reply;
+      
+      reply = dbus_message_new_error_reply (message, GCONF_DBUS_ERROR_IN_SHUTDOWN,
+					    _("The GConf daemon is currently shutting down."));
+      dbus_connection_send (connection, reply, NULL);  
+      dbus_message_unref (reply);
+      
       return TRUE;
     }
   else
@@ -1264,7 +1280,7 @@ notify_listeners_cb(GConfListeners* listeners,
   message = dbus_message_new (l->who, GCONF_DBUS_CONFIG_LISTENER_NOTIFY);
 
   dbus_message_append_args (message,
-			    DBUS_TYPE_UINT32, 0, /* FIXME: Use the correct database id */
+			    DBUS_TYPE_UINT32, 0, /* We only support the default database for now */
 			    DBUS_TYPE_UINT32, cnxn_id,
 			    DBUS_TYPE_STRING, all_above_key,
 			    DBUS_TYPE_BOOLEAN, closure->is_default,
