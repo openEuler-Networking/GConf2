@@ -244,6 +244,8 @@ doc/gconf/Makefile
 examples/Makefile
 tests/Makefile
 standard-schemas/Makefile
+gconf.pc
+gconfgtk.pc
 ],
 chmod +x gconf-config)
 

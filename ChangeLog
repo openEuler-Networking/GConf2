@@ -1,3 +1,9 @@
+2001-03-23  Martin Baulig  <baulig@suse.de>
+
+	* gconf.pc.in, gconfgtk.pc.in: New files.
+
+	* Makefile.am: Create .pc files and install them.
+
 2001-03-13  Ramiro Estrugo  <ramiro@eazel.com>
 
 	* backends/xml-entry.c:
