@@ -113,7 +113,8 @@ static void         unregister_engine           (GConfEngine  *conf);
 static GConfEngine *lookup_engine               (const gchar  *address);
 static GConfEngine *lookup_engine_by_database   (const gchar  *db);
 static gboolean     gconf_handle_dbus_exception (DBusMessage  *message,
-						 GError      **err);
+						 DBusError    *derr,
+						 GError      **gerr);
 static gboolean     gconf_server_broken         (DBusMessage  *message);
 static void         gconf_detach_config_server  (void);
 
@@ -172,7 +173,7 @@ gconf_server_broken (DBusMessage *message)
   /* A server that doesn't reply is a broken server. */
   if (!message)
     {
-      /* XXX: should listen to the signal instead, daemon_running = FALSE; */
+      /* FIXME: should listen to the signal instead, daemon_running = FALSE; */
       return TRUE;
     }
   
@@ -183,7 +184,7 @@ gconf_server_broken (DBusMessage *message)
   
   if (g_str_has_prefix (name, "org.freedesktop.DBus.Error"))
     {
-      /* XXX: listen to signal... daemon_running = FALSE; */
+      /* FIXME: listen to signal... daemon_running = FALSE; */
       return TRUE;
     }
   else if (strcmp (name, GCONF_DBUS_ERROR_IN_SHUTDOWN) != 0)
@@ -194,44 +195,62 @@ gconf_server_broken (DBusMessage *message)
 
 /* Returns TRUE if there was an error and sets err. */
 static gboolean
-gconf_handle_dbus_exception (DBusMessage *message, GError** err)
+gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **gerr)
 {
   char *error_string;
   const char *name;
-  
+
+  if (message == NULL)
+    {
+      if (derr && dbus_error_is_set (derr))
+	{
+	  if (gerr)
+	    {
+	      /* FIXME: what error num should we use here? and what string */
+	      
+	      *gerr = gconf_error_new (GCONF_ERROR_NO_SERVER, _("error: %s"),
+				       derr->message);
+	    }
+	}
+      else 
+	{
+	  /* FIXME: set gerr here? */
+	}
+      
+      return TRUE;
+    }
+    
   if (dbus_message_get_type (message) != DBUS_MESSAGE_TYPE_ERROR)
     return FALSE;
 
   name = dbus_message_get_member (message);
 
-  d(g_print ("*** got error: %s\n", name));
-  
   dbus_message_get_args (message, NULL,
 			 DBUS_TYPE_STRING, &error_string,
 			 0);
   
   if (g_str_has_prefix (name, "org.freedesktop.DBus.Error"))
     {
-      if (err)
-	*err = gconf_error_new (GCONF_ERROR_NO_SERVER, _("D-BUS error: %s"),
+      if (gerr)
+	*gerr = gconf_error_new (GCONF_ERROR_NO_SERVER, _("D-BUS error: %s"),
 				error_string);
     }
-  else if (g_str_has_prefix (name, "org.GConf.Error"))
+  else if (g_str_has_prefix (name, "org.gnome.GConf.Error"))
     {
-      if (err)
+      if (gerr)
 	{
 	  GConfError en;
 	  
 	  en = dbus_error_name_to_gconf_errno (name);
 
-	  *err = gconf_error_new (en, error_string);
+	  *gerr = gconf_error_new (en, error_string);
 	}
     }
   else
     {
-      if (err)
-	*err = gconf_error_new (GCONF_ERROR_FAILED, _("Unknown error %s: %s"),
-				name, error_string);
+      if (gerr)
+	*gerr = gconf_error_new (GCONF_ERROR_FAILED, _("Unknown error %s: %s"),
+				 name, error_string);
     }
   
   return TRUE;
@@ -366,7 +385,7 @@ gconf_engine_connect (GConfEngine *conf,
  RETRY:
       
   cs = gconf_get_config_server (start_if_not_found, err);
-      
+
   if (cs == NULL)
     return FALSE; /* Error should already be set */
 
@@ -406,7 +425,9 @@ gconf_engine_connect (GConfEngine *conf,
         }
     }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  d(g_print ("got db reply, %p, %s\n", reply, error.message));
+  
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -417,6 +438,10 @@ gconf_engine_connect (GConfEngine *conf,
 			 NULL,
 			 DBUS_TYPE_STRING, &db,
 			 DBUS_TYPE_INVALID);
+
+  
+  d(g_print ("db = %s\n", db));
+ 
   
   if (db == NULL)
     {
@@ -427,7 +452,7 @@ gconf_engine_connect (GConfEngine *conf,
       
       return FALSE;
     }
-  
+
   gconf_engine_set_database (conf, db);
   
   return TRUE;
@@ -792,7 +817,7 @@ gconf_engine_get_fuller (GConfEngine *conf,
 	goto RETRY;
       }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -807,7 +832,7 @@ gconf_engine_get_fuller (GConfEngine *conf,
       d(g_print ("* try to get value\n"));
 
       success = gconf_dbus_get_entry_values_from_message_iter (&iter,
-							       NULL, //key,
+							       NULL, /*key*/
 							       &val,
 							       &is_default,
 							       &is_writable,
@@ -1011,7 +1036,7 @@ gconf_engine_set (GConfEngine* conf, const gchar* key,
 	goto RETRY;
       }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1098,7 +1123,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
         }
     }
   
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1208,7 +1233,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
         }
     }
 
- if (gconf_handle_dbus_exception (reply, err))
+ if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1298,7 +1323,7 @@ gconf_engine_associate_schema  (GConfEngine* conf, const gchar* key,
         }
     }
 
- if (gconf_handle_dbus_exception (reply, err))
+ if (gconf_handle_dbus_exception (reply, &error,err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1424,7 +1449,7 @@ gconf_engine_all_entries (GConfEngine* conf, const gchar* dir, GError** err)
         }
     }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1572,7 +1597,7 @@ gconf_engine_all_dirs(GConfEngine* conf, const gchar* dir, GError** err)
         }
     }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1758,7 +1783,7 @@ gconf_engine_dir_exists (GConfEngine *conf, const gchar *dir, GError** err)
         }
     }
 
-  if (gconf_handle_dbus_exception (reply, err))
+  if (gconf_handle_dbus_exception (reply, &error, err))
     {
       if (reply)
 	dbus_message_unref (reply);
@@ -1869,7 +1894,7 @@ gconf_activate_service (gboolean  start_if_not_found,
   
   if (dbus_bus_service_exists (connection, GCONF_DBUS_SERVICE, &error))
     {
-      g_print ("* activate_service, already active\n");
+      d(g_print ("* activate_service, already active\n"));
       return TRUE;
     }
   
