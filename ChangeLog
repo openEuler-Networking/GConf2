@@ -1,3 +1,8 @@
+2002-01-23  Havoc Pennington  <hp@pobox.com>
+
+	* gconf/gconf-internals.c (gconf_activate_server): try to use
+	gconfd-2 if it exists
+
 2002-01-04  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* configure,in (ALL_LINGUAS): Added "eu".
