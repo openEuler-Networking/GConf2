@@ -19,6 +19,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#include <config.h>
+
 #include <popt.h>
 #include "gconf.h"
 #include "gconf-dbus-utils.h"
@@ -375,8 +377,13 @@ ensure_dbus_connection (void)
 {
   if (global_conn != NULL)
     return TRUE;
-  
+ 
+#ifdef USE_SYSTEM_BUS
+  global_conn = dbus_bus_get (DBUS_BUS_SYSTEM, NULL);
+#else
   global_conn = dbus_bus_get (DBUS_BUS_SESSION, NULL);
+#endif
+
   dbus_connection_setup_with_g_main (global_conn, NULL);
   
   if (global_conn == NULL)

@@ -17,6 +17,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#include <config.h>
+
 #include <dbus/dbus-glib.h>
 #include <string.h>
 #include "gconf-database-dbus.h"
@@ -180,7 +182,12 @@ gconfd_dbus_init (void)
   DBusError   error;
 
   dbus_error_init (&error);
+  
+#ifdef USE_SYSTEM_BUS
+  bus_conn = dbus_bus_get (DBUS_BUS_SYSTEM, &error);
+#else
   bus_conn = dbus_bus_get (DBUS_BUS_SESSION, &error);
+#endif
 
   if (!bus_conn) 
     {
