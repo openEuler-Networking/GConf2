@@ -45,9 +45,17 @@
 #define GCONF_DBUS_DATABASE_GET_ALL_ENTRIES "AllEntries"
 #define GCONF_DBUS_DATABASE_GET_ALL_DIRS "AllDirs"
 #define GCONF_DBUS_DATABASE_SET_SCHEMA "SetSchema"
+
+#define GCONF_DBUS_DATABASE_ADD_NOTIFY "AddNotify"
+#define GCONF_DBUS_DATABASE_REMOVE_NOTIFY "RemoveNotify"
  
 #define GCONF_DBUS_LISTENER_NOTIFY "Notify"
- 
+
+#define GCONF_DBUS_CLIENT_SERVICE "org.gnome.GConf.ClientService"
+#define GCONF_DBUS_CLIENT_OBJECT "/org/gnome/GConf/Client"
+#define GCONF_DBUS_CLIENT_INTERFACE "org.gnome.GConf.Client"
+
+
 #define GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES 0x1
  
 #define GCONF_DBUS_ERROR_FAILED "org.gnome.GConf.Error.Failed"

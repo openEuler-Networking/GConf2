@@ -1,3 +1,4 @@
+/* -*- mode: C; c-file-style: "gnu" -*- */
 /* GConf
  * Copyright (C) 2003 Imendio HB
  *
@@ -17,6 +18,8 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#include <config.h>
+#include <string.h>
 #include "gconfd.h"
 #include "gconf-dbus-utils.h"
 #include "gconfd-dbus.h"
@@ -29,20 +32,36 @@ static GConfDatabaseDBus *default_db = NULL;
 static gint object_nr = 0;
 
 struct _GConfDatabaseDBus {
-	GConfDatabase  *db;
-	DBusConnection *conn;
-
-	char     *address;
-	char     *object_path;
-
-	/* Information about listeners */
+  GConfDatabase  *db;
+  DBusConnection *conn;
+  
+  char     *address;
+  char     *object_path;
+  
+  /* Information about clients that want notification. */
+  GHashTable *notifications;
 };
+
+typedef struct {
+  char  *namespace_section;
+  GList *clients;
+} NotificationData;
+
+
 static void           database_unregistered_func (DBusConnection  *connection,
                                                   GConfDatabaseDBus *db);
 static DBusHandlerResult
 database_message_func                            (DBusConnection  *connection,
                                                   DBusMessage     *message,
                                                   GConfDatabaseDBus *db);
+static DBusHandlerResult
+database_filter_func                             (DBusConnection  *connection,
+						  DBusMessage     *message,
+						  GConfDatabaseDBus *db);
+static DBusHandlerResult
+database_handle_service_deleted                  (DBusConnection  *connection,
+						  DBusMessage     *message,
+						  GConfDatabaseDBus *db);
 static void           database_handle_lookup     (DBusConnection  *conn,
                                                   DBusMessage     *message,
                                                   GConfDatabaseDBus *db);
@@ -71,6 +90,17 @@ database_handle_get_all_dirs                     (DBusConnection  *conn,
                                                   DBusMessage     *message,
                                                   GConfDatabaseDBus *db);
 static void           database_handle_set_schema (DBusConnection  *conn,
+                                                  DBusMessage     *message,
+                                                  GConfDatabaseDBus *db);
+static void           database_handle_add_notify (DBusConnection  *conn,
+                                                  DBusMessage     *message,
+                                                  GConfDatabaseDBus *db);
+static gboolean
+database_remove_notification_data                (GConfDatabaseDBus *db,
+						  NotificationData *notification,
+						  const char       *client);
+static void
+database_handle_remove_notify                    (DBusConnection  *conn,
                                                   DBusMessage     *message,
                                                   GConfDatabaseDBus *db);
 static void           ensure_initialized         (void);
@@ -143,13 +173,79 @@ database_message_func (DBusConnection  *connection,
 					GCONF_DBUS_DATABASE_INTERFACE,
 					GCONF_DBUS_DATABASE_SET_SCHEMA)) {
     database_handle_set_schema (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_ADD_NOTIFY)) {
+	  database_handle_add_notify (connection, message, db);
+  }
+  else if (dbus_message_is_method_call (message,
+					GCONF_DBUS_DATABASE_INTERFACE,
+					GCONF_DBUS_DATABASE_REMOVE_NOTIFY)) {
+	  database_handle_remove_notify (connection, message, db);
   } else {
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
   }
 
   return DBUS_HANDLER_RESULT_HANDLED;
 }
-        
+
+static void
+get_all_notifications_func (gpointer key,
+			    gpointer value,
+			    gpointer user_data)
+{
+  GList **list = user_data;
+  
+  *list = g_list_prepend (*list, value);
+}
+
+static DBusHandlerResult
+database_filter_func (DBusConnection  *connection,
+		      DBusMessage     *message,
+		      GConfDatabaseDBus *db)
+{
+  if (dbus_message_is_signal (message,
+			      DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
+                              "ServiceDeleted"))
+    return database_handle_service_deleted (connection, message, db);
+
+  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+
+static DBusHandlerResult
+database_handle_service_deleted (DBusConnection *connection,
+				 DBusMessage *message,
+				 GConfDatabaseDBus *db)
+{  
+  DBusMessageIter iter;
+  char *service;
+  GList *notifications = NULL, *l;
+  NotificationData *notification;
+  
+  /* FIXME: This might be a bit too slow to do like this. We could add a hash
+   * table that maps client base service names to notification data, instead of
+   * going through the entire list of notifications and clients.
+   */
+  dbus_message_iter_init (message, &iter);
+  service = dbus_message_iter_get_string (&iter);
+
+  g_hash_table_foreach (db->notifications, get_all_notifications_func,
+			&notifications);
+  
+  for (l = notifications; l; l = l->next)
+    {
+      notification = l->data;
+      
+      database_remove_notification_data (db, notification, service);
+    }
+  
+  g_list_free (notifications);
+  dbus_free (service);
+
+  return DBUS_HANDLER_RESULT_HANDLED;
+}
+    
 static void
 database_handle_lookup (DBusConnection  *conn,
                         DBusMessage     *message,
@@ -471,6 +567,104 @@ database_handle_set_schema (DBusConnection *conn,
 }
 
 static void
+database_handle_add_notify (DBusConnection    *conn,
+                            DBusMessage       *message,
+                            GConfDatabaseDBus *db)
+{
+  gchar *namespace_section;
+  DBusMessage *reply;
+  const char *sender;
+  NotificationData *notification;
+
+  if (!gconfd_dbus_get_message_args (conn, message,
+				     DBUS_TYPE_STRING, &namespace_section,
+				     0)) 
+    return;
+
+  sender = dbus_message_get_sender (message);
+  
+  notification = g_hash_table_lookup (db->notifications, namespace_section);
+
+  if (notification == NULL)
+    {
+      notification = g_new0 (NotificationData, 1);
+      notification->namespace_section = g_strdup (namespace_section);
+
+      g_hash_table_insert (db->notifications,
+			   notification->namespace_section, notification);
+    }
+  
+  notification->clients = g_list_prepend (notification->clients,
+					  g_strdup (sender));
+  
+  dbus_free (namespace_section);
+
+  reply = dbus_message_new_method_return (message);
+  dbus_connection_send (conn, reply, NULL);
+  dbus_message_unref (reply);
+}
+
+static gboolean
+database_remove_notification_data (GConfDatabaseDBus *db,
+				   NotificationData *notification,
+				   const char *client)
+{
+  GList *element;
+  
+  element = g_list_find_custom (notification->clients, client,
+			     (GCompareFunc)strcmp);
+  if (element == NULL)
+    return FALSE;
+  
+  notification->clients = g_list_remove_link (notification->clients, element);
+  if (notification->clients == NULL)
+    {
+      g_hash_table_remove (db->notifications,
+			   notification->namespace_section);
+
+      g_free (notification->namespace_section);
+      g_free (notification);
+    }
+  
+  g_free (element->data);
+  g_list_free_1 (element);
+
+  return TRUE;
+}
+
+static void
+database_handle_remove_notify (DBusConnection    *conn,
+			       DBusMessage       *message,
+			       GConfDatabaseDBus *db)
+{
+  gchar *namespace_section;
+  DBusMessage *reply;
+  const char *sender;
+  NotificationData *notification;
+  
+  if (!gconfd_dbus_get_message_args (conn, message,
+				     DBUS_TYPE_STRING, &namespace_section,
+				     0)) 
+    return;
+
+  sender = dbus_message_get_sender (message);
+  
+  notification = g_hash_table_lookup (db->notifications, namespace_section);
+  dbus_free (namespace_section);
+
+  /* Notification can be NULL if the client and server get out of sync. */
+  if (notification == NULL || !database_remove_notification_data (db, notification, sender))
+    {
+      gconf_log (GCL_DEBUG, _("Notification on %s doesn't exist"),
+                 namespace_section);
+    }
+  
+  reply = dbus_message_new_method_return (message);
+  dbus_connection_send (conn, reply, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
 database_removed (GConfDatabaseDBus *dbus_db)
 {
   /* FIXME: Free stuff */
@@ -540,6 +734,12 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 
   g_strfreev (path);
 
+  dbus_db->notifications = g_hash_table_new (g_str_hash, g_str_equal);
+ 
+  dbus_connection_add_filter (conn,
+			      (DBusHandleMessageFunction)database_filter_func,
+			      dbus_db, NULL);
+  
   return dbus_db;
 }
 
@@ -578,8 +778,11 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 				      gboolean          is_default,
 				      gboolean          is_writable)
 {
-  DBusMessage *signal;
   GConfDatabaseDBus *dbus_db = NULL;
+  char *dir, *sep;
+  GList *l;
+  NotificationData *notification;
+  DBusMessage *message;
   
   if (db == default_db->db)
     dbus_db = default_db;
@@ -589,17 +792,51 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
   if (!dbus_db)
     return;
 
-  signal = dbus_message_new_signal (dbus_db->object_path,
-				    GCONF_DBUS_DATABASE_INTERFACE,
-				    "Notify");
-  
-  gconf_dbus_message_append_entry (signal,
-				   key,
-				   value,
-				   is_default,
-				   is_writable,
-				   NULL);
+  dir = g_strdup (key);
 
-  dbus_connection_send (dbus_db->conn, signal, NULL);
-  dbus_message_unref (signal);
+  /* Lookup the key in the namespace hierarchy, start with the full key and then
+   * remove the leaf, lookup again, remove the leaf, and so on until a match is
+   * found. Notify the clients (identified by their base service) that
+   * correspond to the found namespace.
+  */ 
+  while (1)
+    {
+      notification = g_hash_table_lookup (dbus_db->notifications, dir);
+
+      if (notification)
+	{
+	  for (l = notification->clients; l; l = l->next)
+	    {
+	      const char *base_service = l->data;
+	      
+	      message = dbus_message_new_method_call (base_service,
+						      GCONF_DBUS_CLIENT_OBJECT,
+						      GCONF_DBUS_CLIENT_INTERFACE,
+						      "Notify");
+
+	      dbus_message_append_args (message,
+					DBUS_TYPE_STRING, dbus_db->object_path,
+					DBUS_TYPE_STRING, dir,
+					DBUS_TYPE_INVALID);
+	      
+	      gconf_dbus_message_append_entry (message,
+					       key,
+					       value,
+					       is_default,
+					       is_writable,
+					       NULL);
+	      
+	      dbus_connection_send (dbus_db->conn, message, NULL);
+	      dbus_message_unref (message);
+	    }
+	}
+      
+      sep = strrchr (dir, '/');
+      if (sep == dir)
+	break;
+      
+      *sep = '\0';
+    }
+
+  g_free (dir);
 }
