@@ -30,9 +30,9 @@ else
 SANITY_CHECK=
 endif
 
-lib_LTLIBRARIES = libgconf-2.la #libgconf-dbus.la
+lib_LTLIBRARIES = libgconf-2.la
 
-bin_PROGRAMS = gconftool-2 #gconftool-dbus
+bin_PROGRAMS = gconftool-2
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 if HAVE_ORBIT
@@ -54,7 +54,8 @@ CLEANFILES = \
 	stamp-gconfmarshal.h	\
 	stamp-gconfmarshal.c	\
 	stamp-gconfmarshal.h    \
-	stamp-gconfmarshal.c
+	stamp-gconfmarshal.c	\
+	gconf.service
 
 dist-hook:
 	cd $(distdir) ; rm -f $(CLEANFILES)
@@ -154,7 +155,14 @@ libgconf_2_la_SOURCES = \
 libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE) -no-undefined
 libgconf_2_la_LIBADD = $(INTLLIBS) $(DEPENDENT_LIBS) $(GCONF_IPC_LIBS)
 
-EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh gconf-corba.c gconf-corba.h gconf-corba-utils.c gconf-corba-utils.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconf-dbus.c gconf-database-dbus.c gconf-database-dbus.h gconfd-dbus.c gconfd-dbus.h
+servicedir       = $(DBUS_SERVICE_DIR)
+service_in_files = gconf.service.in
+service_DATA     = gconf.service
+
+%.service: %.service.in
+	sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@
+
+EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh gconf-corba.c gconf-corba.h gconf-corba-utils.c gconf-corba-utils.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconf-dbus.c gconf-database-dbus.c gconf-database-dbus.h gconfd-dbus.c gconfd-dbus.h gconf.service.in gconf.service
 
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)
