@@ -2156,9 +2156,9 @@ gconf_handle_oaf_exception(CORBA_Environment* ev, GError** err)
       break;
     case CORBA_SYSTEM_EXCEPTION:
       if (err)
-        *err = gconf_error_new(GCONF_ERROR_NO_SERVER, _("CORBA error: %s"),
-                               CORBA_exception_id(ev));
-      CORBA_exception_free(ev);
+        *err = gconf_error_new (GCONF_ERROR_NO_SERVER, _("CORBA error: %s"),
+                                CORBA_exception_id (ev));
+      CORBA_exception_free (ev);
       return TRUE;
       break;
 
@@ -2171,21 +2171,21 @@ gconf_handle_oaf_exception(CORBA_Environment* ev, GError** err)
             OAF_GeneralError* ge = CORBA_exception_value(ev);
 
             if (err)
-              *err = gconf_error_new(GCONF_ERROR_OAF_ERROR,
-                                     _("OAF problem description: '%s'"),
-                                     ge->description);
+              *err = gconf_error_new (GCONF_ERROR_OAF_ERROR,
+                                      _("OAF problem description: '%s'"),
+                                      ge->description);
           }
-        else if (strcmp(id,"IDL:OAF/ActivationContext/NotListed:1.0" ) == 0)
+        else if (strcmp (id,"IDL:OAF/ActivationContext/NotListed:1.0" ) == 0)
           {
             if (err)
               *err = gconf_error_new(GCONF_ERROR_OAF_ERROR, _("attempt to remove not-listed OAF object directory"));
           }
-        else if (strcmp(id,"IDL:OAF/ActivationContext/AlreadyListed:1.0" ) == 0)
+        else if (strcmp (id,"IDL:OAF/ActivationContext/AlreadyListed:1.0" ) == 0)
           {
             if (err)
               *err = gconf_error_new(GCONF_ERROR_OAF_ERROR, _("attempt to add already-listed OAF directory")); 
           }
-        else if (strcmp(id,"IDL:OAF/ActivationContext/ParseFailed:1.0") == 0)
+        else if (strcmp (id,"IDL:OAF/ActivationContext/ParseFailed:1.0") == 0)
           {
             OAF_ActivationContext_ParseFailed* pe = CORBA_exception_value(ev);
             
@@ -2250,16 +2250,20 @@ gconf_lock_destroy(GConfLock* lock)
 }
 
 GConfLock*
-gconf_get_lock(const gchar* lock_directory,
-               GError** err)
+gconf_get_lock_or_current_holder (const gchar*  lock_directory,
+                                  ConfigServer* current_server,
+                                  GError**      err)
 {
   GConfLock* lock;
   gboolean got_it = FALSE;
   gboolean error_occurred = FALSE;
   gboolean stale = FALSE;
   gchar* iorfile;
+  ConfigServer server;
   
   g_return_val_if_fail(lock_directory != NULL, NULL);
+
+  server = CORBA_OBJECT_NIL;
   
   lock = g_new(GConfLock, 1);
 
@@ -2327,7 +2331,6 @@ gconf_get_lock(const gchar* lock_directory,
                 }
               else
                 {
-                  ConfigServer server;
                   CORBA_ORB orb;
                   CORBA_Environment ev;
 
@@ -2399,11 +2402,25 @@ gconf_get_lock(const gchar* lock_directory,
  out:
 
   if (error_occurred)
-    {
+    {      
       g_assert(!got_it);
 
       g_free(iorfile);
       gconf_lock_destroy(lock);
+      
+      if (server != CORBA_OBJECT_NIL)
+        {
+          if (current_server)
+            *current_server = server;
+          else
+            {
+              CORBA_Environment ev;
+              CORBA_exception_init (&ev);
+              CORBA_Object_release (server, &ev);
+              CORBA_exception_free (&ev);
+            }
+        }
+
       return NULL;
     }
 
@@ -2480,6 +2497,13 @@ gconf_get_lock(const gchar* lock_directory,
   
   g_free(iorfile);
   return lock;
+}
+
+GConfLock*
+gconf_get_lock(const gchar* lock_directory,
+               GError** err)
+{
+  return gconf_get_lock_or_current_holder (lock_directory, NULL, err);
 }
 
 gboolean

@@ -1,3 +1,32 @@
+2001-07-16  Havoc Pennington  <hp@redhat.com>
+
+	* gconf/gconfd.c (main): add super-lame hack to 
+	pass currently-running gconfd to oafd if oafd has lamely leaked it
+	due to lame-assness
+
+	* gconf/gconf-internals.c (gconf_get_lock): fix leak of object
+	reference belonging to server that held the lock
+	(gconf_get_lock_or_current_holder): add function to get current
+	owner of a lock
+
+	* gconf/GConf.idl: add subclass of ConfigDatabase for some
+	exciting new hacky functions. 
+
+	So an extensible IDL interface would probably have simply passed
+	XML messages. But then what's the point of an IDL interface, if
+	it's just going to be parse_string() get_string()?  Hmm. Cosmic
+	question. ;-)
+
+	* gconf/gconf.c (try_to_contact_server): make the error on
+	OAF-did-not-set-exception really, really verbose, and explicitly
+	say "do not file a GConf bug report." But with fixed OAF this 
+	shouldn't happen anymore anyhow.
+
+	* gconf/gconf-sources.c (gconf_sources_set_value): lengthy verbose
+	error message about possible causes of lack of a config database.
+	But my lame-ass hack above should keep this from happening so
+	much.
+	
 2001-07-14  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Added "nn" to ALL_LINGUAS.
