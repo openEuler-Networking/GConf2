@@ -1,3 +1,8 @@
+2003-07-30  Frederic Crozat  <fcrozat@mandrakesoft.com>
+
+	* standard-schemas/desktop.schemas:
+	Specify list/pair list type in schema.
+
 2002-09-09  jacob berkman  <jacob@ximian.com>
 
 	* gconf/GConf.idl:

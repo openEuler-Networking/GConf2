@@ -3,6 +3,7 @@
     <schema>
     <key>/schemas/desktop/standard/recent-document-entry</key>
     <type>list</type>
+    <list_type>string</list_type>
     <locale name="C">
        <short>An entry in the /desktop/standard/recent-documents directory</short>
 
@@ -27,6 +28,8 @@
     <schema>
     <key>/schemas/desktop/standard/save-location-entry</key>
     <type>pair</type>
+    <car_type>string</car_type>
+    <cdr_type>string</cdr_type>
     <locale name="C">
        <short>An entry in the /desktop/standard/save-locations directory</short>
 
