@@ -6,21 +6,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf HEAD\n"
-"POT-Creation-Date: 2003-12-05 00:37+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-06-16 21:18+0200\n"
 "PO-Revision-Date: 2003-06-22 22:15+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Tidak dapat menemukan direktori root %s pada alamat `%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Tidak dapat membuat direktori baru `%s': %s"
@@ -29,6 +29,33 @@ msgstr "Tidak dapat membuat direktori baru `%s': %s"
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr "Tidak dapat membaca dan menulisi direktori root %s pada alamat `%s'"
+
+#: backends/gconf-merge-tree.c:78
+#, fuzzy, c-format
+msgid "Cannot find directory %s\n"
+msgstr "Tidak dapat membuat direktori baru `%s': %s"
+
+#: backends/gconf-merge-tree.c:94
+#, fuzzy, c-format
+msgid "Error saving GConf tree to '%s': %s\n"
+msgstr "Error mengambil skema pada `%s': %s\n"
+
+#: backends/gconf-merge-tree.c:120
+#, c-format
+msgid "Usage: %s <dir>\n"
+msgstr ""
+
+#: backends/gconf-merge-tree.c:126
+#, c-format
+msgid ""
+"Usage: %s <dir>\n"
+"  Merges a markup backend filesystem hierarchy like:\n"
+"    dir/%%gconf.xml\n"
+"        subdir1/%%gconf.xml\n"
+"        subdir2/%%gconf.xml\n"
+"  to:\n"
+"    dir/%%gconf-tree.xml\n"
+msgstr ""
 
 #: backends/xml-backend.c:236
 msgid "Unloading XML backend module."
@@ -39,24 +66,24 @@ msgstr "Sedang lakukan unload modul backend XML"
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Tidak dapat menemukan direktori root XML pada alamat `%s'"
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
 "Tidak dapat membaca atau menulisi direktori root XML pada alamat \"%s\""
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Hak akses direktori/file pada sumber XML di root %s adalah %o/%o"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Error saat melakukan sinkronisasi cache direktori backend XML: %s"
 
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 #, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
@@ -65,23 +92,23 @@ msgstr ""
 "Operasi penghapusan direktori tidak lagi dapat dilakukan. Hapus saja semua "
 "nilai pada direktori untuk melakukan hal tersebut"
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr ""
 "Tidak dapat membuka kunci direktori untuk %s saat ingin menghapus kunci "
 "tersebut: %s\n"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Tidak dapat menghapus file %s:%s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "Sedang lakukan inisialisasi modul backend XML"
 
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, fuzzy, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Gagal saat menyerahkan kunci pada direktori XML \"%s\": %s"
@@ -323,62 +350,62 @@ msgstr "Peringatan GConf: ada kegagalan mendaftarkan pasangan pada `%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Seharusnya: `%s', Ditemukan: %s pada key %s "
 
-#: gconf/gconf-database.c:173
+#: gconf/gconf-database.c:152
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Gagal saat melakukan sinkronisasi dari satu atau lebih sumber: %s"
 
-#: gconf/gconf-database.c:241 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Error saat mengambil nilai untuk `%s': %s"
 
-#: gconf/gconf-database.c:287
+#: gconf/gconf-database.c:266
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Error saat melakukan set nilai `%s': %s"
 
-#: gconf/gconf-database.c:342
+#: gconf/gconf-database.c:321
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Error saat melakukan unset `%s': %s"
 
-#: gconf/gconf-database.c:371
+#: gconf/gconf-database.c:350
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Error saat mengambil nilai awal untuk `%s': %s "
 
-#: gconf/gconf-database.c:418
+#: gconf/gconf-database.c:397
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Error saat melakukan unset \"%s\": %s"
 
-#: gconf/gconf-database.c:450
+#: gconf/gconf-database.c:429
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Error saat mengambil nilai baru untuk \"%s\": %s"
 
-#: gconf/gconf-database.c:496
+#: gconf/gconf-database.c:475
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Error saat melakukan pemeriksaan keberadaan `%s': %s"
 
-#: gconf/gconf-database.c:520
+#: gconf/gconf-database.c:499
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Error saat menghapus dir `%s': %s"
 
-#: gconf/gconf-database.c:547
+#: gconf/gconf-database.c:526
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Gagal saat mengambil semua isi `%s': %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:552
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Error saat mendaftarkan dir pada `%s': %s"
 
-#: gconf/gconf-database.c:594
+#: gconf/gconf-database.c:573
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Error saat melakukan seting skema untuk `%s': %s"
@@ -447,106 +474,106 @@ msgstr "Gagal memperoleh kunci"
 msgid "No database available to save your configuration"
 msgstr "Tidak ada database yang tersedia untuk menyimpan konfigurasi ini"
 
-#: gconf/gconf-internals.c:67
+#: gconf/gconf-internals.c:71
 #, c-format
 msgid "No '/' in key \"%s\""
 msgstr "TIdak ada '/' pada key \"%s\""
 
-#: gconf/gconf-internals.c:337
+#: gconf/gconf-internals.c:341
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Tidak dapat membua file path `%s': %s\n"
 
-#: gconf/gconf-internals.c:386
+#: gconf/gconf-internals.c:390
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Menambahkan sumber `%s'\n"
 
-#: gconf/gconf-internals.c:398
+#: gconf/gconf-internals.c:402
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Ada error saat membaca file `%s': %s\n"
 
-#: gconf/gconf-internals.c:702 gconf/gconf-internals.c:768
+#: gconf/gconf-internals.c:706 gconf/gconf-internals.c:772
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "Teks berisi kode UTF-8 yang salah"
 
-#: gconf/gconf-internals.c:853
+#: gconf/gconf-internals.c:857
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Diharapkan: daftar, didapat: %s"
 
-#: gconf/gconf-internals.c:863
+#: gconf/gconf-internals.c:867
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Diharapkan daftar dari %s, didapat daftar dari %s"
 
-#: gconf/gconf-internals.c:991
+#: gconf/gconf-internals.c:995
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Diharapkan pasangan, didapat %s"
 
-#: gconf/gconf-internals.c:1005
+#: gconf/gconf-internals.c:1009
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "Diharapkan pasangan (%s,%s), didapat pasangan dengan salah satu atau kedua "
 "nilainya tidak ada"
 
-#: gconf/gconf-internals.c:1021
+#: gconf/gconf-internals.c:1025
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Diharapkan pasangan tipe (%s,%s) tapi didapat tipe (%s,%s)"
 
-#: gconf/gconf-internals.c:1137
+#: gconf/gconf-internals.c:1141
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "String berkutip tidak dimulai dengan tanda kutip"
 
-#: gconf/gconf-internals.c:1199
+#: gconf/gconf-internals.c:1203
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "String berkutip tidak diakhiri dengan tanda kutip"
 
-#: gconf/gconf-internals.c:1335
+#: gconf/gconf-internals.c:1339
 msgid "Encoded value is not valid UTF-8"
 msgstr "Nilai terenkode bukan dalam UTF-8 yang benar"
 
-#: gconf/gconf-internals.c:1837
+#: gconf/gconf-internals.c:1841
 #, c-format
 msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
 msgstr "File IOR '%s' tidak dapat dibuka sempurna, tidak ada gconfd: %s"
 
-#: gconf/gconf-internals.c:1867
+#: gconf/gconf-internals.c:1871
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr "gconftool atau proses non-gconf lain menguasai kunci file '%s'"
 
-#: gconf/gconf-internals.c:1884
+#: gconf/gconf-internals.c:1888
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
 msgstr "tidak dapat menghubungi ORB untuk mendapatkan rujukan obyek gconfd"
 
-#: gconf/gconf-internals.c:1894
+#: gconf/gconf-internals.c:1898
 #, c-format
 msgid "Failed to convert IOR '%s' to an object reference"
 msgstr "Gagal mengkonversi IOR '%s' ke rujukan obyek"
 
-#: gconf/gconf-internals.c:1949
+#: gconf/gconf-internals.c:1953
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Tidak dapat mengunci file sementara '%s': %s"
 
-#: gconf/gconf-internals.c:1976
+#: gconf/gconf-internals.c:1980
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Tidak dapat membuat file '%s', mungkin sudah ada sebelumnya"
 
-#: gconf/gconf-internals.c:2023
+#: gconf/gconf-internals.c:2027
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Gagal saat membuat atau membuka '%s'"
 
-#: gconf/gconf-internals.c:2033
+#: gconf/gconf-internals.c:2037
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -555,42 +582,42 @@ msgstr ""
 "Gagal mengunci '%s': mungkin ada proses lain yang sedang menguncinya, atau "
 "sistem operasinya mengaktifkan penguncian file yang tidak benar (%s)"
 
-#: gconf/gconf-internals.c:2117
+#: gconf/gconf-internals.c:2121
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "Tidak dapat menguasai kunci pada file `%s'"
 
-#: gconf/gconf-internals.c:2138
+#: gconf/gconf-internals.c:2142
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Gagal saat melakukan link '%s' ke '%s': %s"
 
-#: gconf/gconf-internals.c:2150
+#: gconf/gconf-internals.c:2154
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Gagal membuang kunci file `%s': %s"
 
-#: gconf/gconf-internals.c:2169
+#: gconf/gconf-internals.c:2173
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Gagal membersihkan file '%s': %s"
 
-#: gconf/gconf-internals.c:2183
+#: gconf/gconf-internals.c:2187
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Gagal membuang kunci direktori `%s': %s"
 
-#: gconf/gconf-internals.c:2220
+#: gconf/gconf-internals.c:2224
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "tidak dapat membuat direktori `%s': %s"
 
-#: gconf/gconf-internals.c:2279
+#: gconf/gconf-internals.c:2283
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Tidak dapat menulis ke file `%s': %s"
 
-#: gconf/gconf-internals.c:2323
+#: gconf/gconf-internals.c:2327
 #, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Gagal membuang link kunci file %s: %s\n"
@@ -723,22 +750,22 @@ msgid ""
 msgstr ""
 "Pasangan tipe terdapat pada skema namun tidak terdapat tipe elemen car/cdr"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Gagal melakukan load sumber \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Alamat \"%s\" ke sumber konfigurasi yang dapat ditulis pada posisi %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "Alamat \"%s\" ke sumber konfigurasi hanya-baca pada posisi %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -746,7 +773,7 @@ msgstr ""
 "Alamat \"%s\" pada sumber konfigurasi yang dapat ditulisi sebagian pada "
 "posisi %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -754,23 +781,23 @@ msgstr ""
 "Tidak ada alamat yang dapat ditulisi. Tidak mungkin dapat untuk menyimpan "
 "setingan konfigurasi"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Skema `%s' diberikan untuk `%s' menyimpan nilai non-skema"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Nama '/' hanya dapat berupa direktori, bukan key"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
 msgstr "Nilai `%s' diset pada sumber hanya-baca pada awal path konfigurasi"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -809,17 +836,17 @@ msgstr ""
 "dan juga kunci file pada tiap-tiap lokasi penyimpanan sebagai misal pada ~/."
 "gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Ada kesalahan saat mencari metainfo: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Ada kesalahan saat mendapatkan metainfo: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
@@ -952,7 +979,7 @@ msgstr "Harusnya bertipe boolean, tetapi didapat %s"
 msgid "Expected schema, got %s"
 msgstr "Harusnya bertipe skema, tetapi didapat %s"
 
-#: gconf/gconfd.c:147
+#: gconf/gconfd.c:148
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -960,7 +987,7 @@ msgstr ""
 "gconfd dikompilasi dengan informasi debug. Sekarang sedang mencoba mengambil "
 "gconf.path dari direktori sumber"
 
-#: gconf/gconfd.c:161
+#: gconf/gconfd.c:162
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -971,7 +998,7 @@ msgstr ""
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:169
+#: gconf/gconfd.c:170
 #, fuzzy, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
@@ -980,12 +1007,12 @@ msgstr ""
 "Tidak ada sumber konfigurasi pada path sumber, konfigurasi tidak akan "
 "disimpan; edit"
 
-#: gconf/gconfd.c:182
+#: gconf/gconfd.c:183
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "Error saat membua sumber konfigurasi: %s"
 
-#: gconf/gconfd.c:194
+#: gconf/gconfd.c:195
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -993,7 +1020,7 @@ msgstr ""
 "Tidak ada alamat konfigurasi sumber yang berhasil didapatkan, akibatnya data "
 "konfigurasi tidak dapat dibuka atau disimpan"
 
-#: gconf/gconfd.c:211
+#: gconf/gconfd.c:212
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1001,12 +1028,12 @@ msgstr ""
 "Tidak ada sumber konfigurasi yang dapat ditulisi yang berhasil didapatkan "
 "akibatnya tidak dapat menyimpan perubahan konfigurasi"
 
-#: gconf/gconfd.c:237
+#: gconf/gconfd.c:238
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "Sinyal %d diterima, core disimpan. Silakan laporkan sebagai bug GConf"
 
-#: gconf/gconfd.c:255
+#: gconf/gconfd.c:256
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
@@ -1014,69 +1041,69 @@ msgstr ""
 "Sinyal %d diterima, gconf dimatikan dengan abnormal. Silakan laporkan bug "
 "Gconf"
 
-#: gconf/gconfd.c:272
+#: gconf/gconfd.c:273
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "Sinyal %d diterima, gconf dimatikan normal"
 
-#: gconf/gconfd.c:341
+#: gconf/gconfd.c:342
 #, c-format
 msgid "Failed to open %s: %s"
 msgstr "Gagal untuk membuka %s: %s"
 
-#: gconf/gconfd.c:348
+#: gconf/gconfd.c:349
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Gagal melakukan stat %s: %s"
 
-#: gconf/gconfd.c:357
+#: gconf/gconfd.c:358
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr "Pemilik %s bukanlah pengguna saat ini"
 
-#: gconf/gconfd.c:365
+#: gconf/gconfd.c:366
 #, fuzzy, c-format
 msgid "Bad permissions %lo on directory %s"
 msgstr "Hak akses %o tidak dapat diterima pada direktori %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:445
+#: gconf/gconfd.c:446
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "dijalankan (versi %s), pid %u pengguna '%s'"
 
-#: gconf/gconfd.c:484
+#: gconf/gconfd.c:485
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "Gagal membuat %s: %s"
 
-#: gconf/gconfd.c:492
+#: gconf/gconfd.c:493
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr "Direktori %s ada masalah, gconf tidak dapat menggunakannya"
 
-#: gconf/gconfd.c:528
+#: gconf/gconfd.c:529
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 "Gagal menuliskan byte ke pipa fd %d akibatnya program klien bisa hang: %s"
 
-#: gconf/gconfd.c:542
+#: gconf/gconfd.c:543
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "Gagal saat mengambil kunci daemon, keluar: %s"
 
-#: gconf/gconfd.c:584
+#: gconf/gconfd.c:585
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "Error melepaskan kuncil file: %s"
 
-#: gconf/gconfd.c:592
+#: gconf/gconfd.c:593
 msgid "Exiting"
 msgstr "Keluar"
 
-#: gconf/gconfd.c:635
+#: gconf/gconfd.c:636
 msgid "GConf server is not in use, shutting down."
 msgstr "Server GConf tidak digunakan, matikan saja."
 
@@ -1535,7 +1562,7 @@ msgstr "Tipe car dan cdr dasar harus diberikan saat mengeset pasangan\n"
 msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2807
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Error memberikan nilai: %s\n"
@@ -1722,7 +1749,7 @@ msgstr "AWAS: Gagal mendeteksi string pada `%s'\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "AWAS: Gagal mendeteksi nilai boolean pada `%s'\n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3332
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "AWAS: gagal menjodohkan skema `%s' dengan key `%s': %s\n"
@@ -1942,14 +1969,6 @@ msgstr ""
 "Sedang mencoba menjebol aplikasi dengan memberikan nilai yang salah untuk "
 "key padadirektori:\n"
 "  %s\n"
-
-#, fuzzy
-#~ msgid "Cannot find directory %s\n"
-#~ msgstr "Tidak dapat membuat direktori baru `%s': %s"
-
-#, fuzzy
-#~ msgid "Error saving GConf tree to '%s': %s\n"
-#~ msgstr "Error mengambil skema pada `%s': %s\n"
 
 #~ msgid "Received invalid value in set request"
 #~ msgstr "Nilai tidak benar yang diterima pada permintaan set"

@@ -211,7 +211,6 @@ impl_ConfigDatabase_set(PortableServer_Servant servant,
                         CORBA_Environment * ev)
 {
   GConfDatabase *db = DB_FROM_SERVANT (servant);
-  gchar* str;
   GConfValue* val;
   GError* error = NULL;
 
@@ -231,17 +230,18 @@ impl_ConfigDatabase_set(PortableServer_Servant servant,
       gconf_log(GCL_ERR, _("Couldn't make sense of CORBA value received in set request for key `%s'"), key);
       return;
     }
-      
-  str = gconf_value_to_string(val);
 
 #if 0
-  /* reduce traffice to the logfile */
-  gconf_log(GCL_DEBUG, "Received request to set key `%s' to `%s'", key, str);
-#endif
-  
-  g_free(str);
+  {
+    gchar* str = gconf_value_to_string(val);
+ 
+    /* reduce traffice to the logfile */
+    gconf_log(GCL_DEBUG, "Received request to set key `%s' to `%s'", key, str);
 
-  
+    g_free(str);
+  }
+#endif
+
   gconf_database_set(db, key, val, &error);
 
   gconf_corba_set_exception(&error, ev);

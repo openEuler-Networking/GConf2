@@ -332,16 +332,6 @@ This function does not work. Don't use it.
 @setting: 
 
 
-<!-- ##### FUNCTION gconf_handle_oaf_exception ##### -->
-<para>
-
-</para>
-
-@ev: 
-@err: 
-@Returns: 
-
-
 <!-- ##### FUNCTION gconf_engine_get_full ##### -->
 <para>
 This function is basically for internal use.

@@ -1354,7 +1354,7 @@ gconf_engine_unset (GConfEngine* conf, const gchar* key, GError** err)
   
   dbus_message_append_args (message,
 			    DBUS_TYPE_STRING, key,
-			    DBUS_TYPE_STRING, gconf_current_locale (),
+			    DBUS_TYPE_STRING, "",
 			    DBUS_TYPE_INVALID);
 
   dbus_error_init (&error);
@@ -1447,7 +1447,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
   
   dbus_message_append_args (message,
 			    DBUS_TYPE_STRING, key,
-			    DBUS_TYPE_STRING, gconf_current_locale (),
+			    DBUS_TYPE_STRING, "",
 			    DBUS_TYPE_UINT32, dbus_flags,
 			    DBUS_TYPE_INVALID);
 
@@ -2076,7 +2076,7 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
       service_running = FALSE;
             
       d(g_print ("****** Disconnected!\n"));
-      return DBUS_HANDLER_RESULT_HANDLED;      
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;      
     }
   else if (dbus_message_is_signal (message,
 				   DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
@@ -2096,7 +2096,7 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
       
       dbus_free (service);
       
-      return DBUS_HANDLER_RESULT_HANDLED;      
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;      
     }
   else if (dbus_message_is_signal (message,
 				   DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
@@ -2121,7 +2121,7 @@ gconf_dbus_message_filter (DBusConnection    *dbus_conn,
       
       dbus_free (service);
 
-      return DBUS_HANDLER_RESULT_HANDLED;      
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
   
   return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -2150,7 +2150,7 @@ gconf_debug_shutdown (void)
 {
   gconf_detach_config_server ();
 
-  return 1;
+  return 0;
 }
 
 static DBusHandlerResult

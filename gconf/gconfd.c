@@ -44,6 +44,7 @@
 
 #ifdef HAVE_DBUS
 #include "gconfd-dbus.h"
+#include "gconf-database-dbus.h"
 #endif
 
 #include <stdio.h>

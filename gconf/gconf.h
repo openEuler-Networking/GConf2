@@ -29,8 +29,6 @@ G_BEGIN_DECLS
 #include <gconf/gconf-error.h>
 #include <gconf/gconf-enum-types.h>
 
-//typedef struct _GConfEngine GConfEngine;
-
 typedef void (*GConfNotifyFunc) (GConfEngine* conf,
                                  guint cnxn_id,
                                  GConfEntry *entry,

@@ -190,14 +190,6 @@ gconfd_dbus_init (void)
       return FALSE;
     }
 
-  if (!dbus_bus_register (bus_conn, &error))
-    {
-      gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
-		 error.message);
-      dbus_error_free (&error);
-      return FALSE;
-    }
-  
   /* Add filter for ServiceDeleted so we get notified when the clients go away. */
   dbus_bus_add_match (bus_conn, SERVICE_DELETED_RULE, NULL);
 

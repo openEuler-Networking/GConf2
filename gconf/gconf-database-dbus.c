@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu" -*- */
 /* GConf
- * Copyright (C) 2003 Imendio HB
+ * Copyright (C) 2003, 2004 Imendio HB
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -116,7 +116,6 @@ database_vtable = {
 static void
 database_unregistered_func (DBusConnection *connection, GConfDatabaseDBus *db)
 {
-  /* FIXME: What to do here? */
 }
 
 static DBusHandlerResult
@@ -256,8 +255,8 @@ database_handle_lookup (DBusConnection  *conn,
   gchar *key;
   gchar *locale;
   GConfLocaleList *locales;
-  gboolean     use_schema_default;
-  GError      *gerror = NULL;
+  gboolean use_schema_default;
+  GError *gerror = NULL;
   
   if (!gconfd_dbus_get_message_args (conn, message,
 				     DBUS_TYPE_STRING, &key,
@@ -276,12 +275,16 @@ database_handle_lookup (DBusConnection  *conn,
   dbus_free (key);
 
   if (gconfd_dbus_set_exception (conn, message, &gerror))
-    return;
+    goto fail;
 
   reply = dbus_message_new_method_return (message);
   gconf_dbus_message_append_gconf_value (reply, value);
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
+  
+ fail:
+  if (value)
+    gconf_value_free (value);
 }
 
 static void 
@@ -290,15 +293,15 @@ database_handle_lookup_ext (DBusConnection  *conn,
 			    GConfDatabaseDBus *db)
 {
   GConfValue *value;
-  gchar      *schema_name;
-  gboolean    value_is_default;
-  gboolean    value_is_writable;
+  gchar *schema_name;
+  gboolean value_is_default;
+  gboolean value_is_writable;
   DBusMessage *reply;
   gchar *key;
   gchar *locale;
   GConfLocaleList *locales;
-  gboolean     use_schema_default;
-  GError      *gerror = NULL;
+  gboolean use_schema_default;
+  GError *gerror = NULL;
   
   if (!gconfd_dbus_get_message_args (conn, message,
 				     DBUS_TYPE_STRING, &key,
@@ -316,8 +319,8 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				      &value_is_writable, &gerror);
   
   if (gconfd_dbus_set_exception (conn, message, &gerror))
-    return;
-
+    goto fail;
+  
   reply = dbus_message_new_method_return (message);
   gconf_dbus_message_append_entry (reply,
 				   key,
@@ -326,14 +329,18 @@ database_handle_lookup_ext (DBusConnection  *conn,
 				   value_is_writable,
 				   schema_name);
   
-  dbus_free (key);
-  gconf_value_free (value);
-  g_free (schema_name);
-  
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
+
+ fail:
+  dbus_free (key);
+  
+  if (value)
+    gconf_value_free (value);
+  
+  g_free (schema_name);
 }
-                                                                      
+
 static void
 database_handle_set (DBusConnection *conn,
                      DBusMessage    *message,
@@ -379,6 +386,12 @@ database_handle_unset (DBusConnection *conn,
 				     0))
     return;
 
+  if (locale[0] == '\0')
+    {
+      dbus_free (locale);
+      locale = NULL;
+    }
+  
   gconf_database_unset (db->db, key, locale, &gerror);
   dbus_free (key);
   dbus_free (locale);
@@ -409,6 +422,12 @@ database_handle_recursive_unset  (DBusConnection *conn,
 				     0))
     return;
 
+  if (locale[0] == '\0')
+    {
+      dbus_free (locale);
+      locale = NULL;
+    }
+  
   gconf_database_recursive_unset (db->db, key, locale, unset_flags, &gerror);
   dbus_free (key);
   dbus_free (locale);
@@ -785,6 +804,7 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
   GList *l;
   NotificationData *notification;
   DBusMessage *message;
+  gboolean last;
   
   if (db == default_db->db)
     dbus_db = default_db;
@@ -800,7 +820,8 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
    * remove the leaf, lookup again, remove the leaf, and so on until a match is
    * found. Notify the clients (identified by their base service) that
    * correspond to the found namespace.
-  */ 
+   */
+  last = FALSE;
   while (1)
     {
       notification = g_hash_table_lookup (dbus_db->notifications, dir);
@@ -832,12 +853,20 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 	      dbus_message_unref (message);
 	    }
 	}
-      
-      sep = strrchr (dir, '/');
-      if (sep == dir)
+
+      if (last)
 	break;
       
-      *sep = '\0';
+      sep = strrchr (dir, '/');
+
+      /* Special case to catch notifications on the root. */
+      if (sep == dir)
+	{
+	  last = TRUE;
+	  sep[1] = '\0';
+	}
+      else
+	*sep = '\0';
     }
 
   g_free (dir);
