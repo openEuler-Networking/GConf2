@@ -73,9 +73,13 @@ gconfinclude_HEADERS = 		\
 gconfd_2_SOURCES = \
 	gconf-database.h	\
 	gconf-database.c	\
+	gconf-database-corba.h	\
+	gconf-database-corba.c	\
 	gconf-sources.h		\
 	gconfd.h		\
-	gconfd.c
+	gconfd.c		\
+	gconfd-corba.h		\
+	gconfd-corba.c
 
 gconfd_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 

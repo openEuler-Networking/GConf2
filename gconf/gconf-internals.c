@@ -2755,7 +2755,7 @@ gconf_orb_release (void)
 char*
 gconf_get_daemon_dir (void)
 {
-  return g_strconcat (g_get_home_dir (), "/.gconfd", NULL);
+  return g_strconcat (g_get_home_dir (), "/.gconfd-dbus", NULL);
 }
 
 char*

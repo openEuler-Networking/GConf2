@@ -36,12 +36,6 @@ typedef struct _GConfDatabase GConfDatabase;
 
 struct _GConfDatabase
 {
-  /* "inherit" from the servant,
-     must be first in struct */
-  POA_ConfigDatabase3 servant;
-
-  ConfigDatabase objref;
-  
   GConfListeners* listeners;
   GConfSources* sources;
 
@@ -50,30 +44,12 @@ struct _GConfDatabase
   guint sync_timeout;
 
   gchar *persistent_name;
+
+  gpointer corba_data;
 };
 
 GConfDatabase* gconf_database_new     (GConfSources  *sources);
 void           gconf_database_free (GConfDatabase *db);
-
-void                gconf_database_drop_dead_listeners (GConfDatabase *db);
-
-CORBA_unsigned_long gconf_database_add_listener     (GConfDatabase       *db,
-                                                     ConfigListener       who,
-                                                     const char          *name,
-                                                     const gchar         *where);
-void                gconf_database_remove_listener  (GConfDatabase       *db,
-                                                     CORBA_unsigned_long  cnxn);
-
-CORBA_unsigned_long gconf_database_readd_listener   (GConfDatabase       *db,
-                                                     ConfigListener       who,
-                                                     const char          *name,
-                                                     const gchar         *where);
-
-void                gconf_database_notify_listeners (GConfDatabase       *db,
-                                                     const gchar         *key,
-                                                     const ConfigValue   *value,
-                                                     gboolean             is_default,
-                                                     gboolean             is_writable);
 
 
 GConfValue* gconf_database_query_value         (GConfDatabase  *db,
