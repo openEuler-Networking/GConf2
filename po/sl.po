@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-08-17 18:18+0200\n"
+"POT-Creation-Date: 2001-11-02 01:07+0100\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Incialliziram ozadni BerkeleyDB modul"
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Nisem mogel najti korenskega imenika %s na naslovu `%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
+#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1053
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Nisem mogel ustvariti imenika '%s': %s"
@@ -146,17 +146,16 @@ msgstr "Podvojitev vnosa  `%s' v  `%s', prezrto"
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Vnos brez imena v datoteki XML  `%s', prezrto"
 
-#: backends/xml-dir.c:979
-#, c-format
-msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
-msgstr "Vrhnje vozli¹èe v datoteki XML  `%s' ni <entry>, prezrto"
+#: backends/xml-dir.c:980
+msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
+msgstr "Vrhnje vozli¹èe v datoteki XML `%s' je <%s>, namesto <entry>, prezrto"
 
-#: backends/xml-dir.c:1067
+#: backends/xml-dir.c:1069
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Nisem uspel ustvariti datoteke  `%s': %s"
 
-#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2494
+#: backends/xml-dir.c:1077
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Nisem uspel zapreti datoteke  `%s': %s"
@@ -167,17 +166,13 @@ msgstr "Nisem uspel zapreti datoteke  `%s': %s"
 msgid "Ignoring XML node with name `%s': %s"
 msgstr "Ignoriram vozli¹èe XML z imenom  `%s': %s"
 
-#: backends/xml-entry.c:200
-#, c-format
-msgid "%s"
-msgstr "%s"
-
 #: backends/xml-entry.c:327
 #, c-format
 msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Ignoriram ime sheme `%s', neveljavno: %s"
 
 #: backends/xml-entry.c:375
+#, c-format
 msgid "Ignoring XML node `%s': %s"
 msgstr "Ignoriram vozli¹èe XML `%s': %s"
 
@@ -450,184 +445,264 @@ msgstr "Nisem uspel zakleniti"
 msgid "No database available to save your configuration"
 msgstr "Zbirka podatkov za shranitev va¹ih nastavitev ni na voljo"
 
-#: gconf/gconf-internals.c:87
+#: gconf/gconf-internals.c:114
 #, c-format
 msgid "No '/' in key `%s'"
 msgstr "Ni znaka '/' v kljuèu `%s'"
 
-#: gconf/gconf-internals.c:251
+#: gconf/gconf-internals.c:227
+#, c-format
+msgid "Invalid UTF-8 in string value in '%s'"
+msgstr ""
+
+#: gconf/gconf-internals.c:286
 msgid "Couldn't interpret CORBA value for list element"
 msgstr "Nisem mogel interpretirati vrednosti CORBA za element seznama"
 
-#: gconf/gconf-internals.c:253
+#: gconf/gconf-internals.c:288
 #, c-format
 msgid "Incorrect type for list element in %s"
 msgstr "Nepravilna vrsta elementa seznama v %s"
 
-#: gconf/gconf-internals.c:266
+#: gconf/gconf-internals.c:301
 msgid "Received list from gconfd with a bad list type"
 msgstr "Sprejel seznam od gconfd s slabim tipom seznama"
 
-#: gconf/gconf-internals.c:447
+#: gconf/gconf-internals.c:482
 msgid "Failed to convert object to IOR"
 msgstr "Nisem uspel preoblikovati predmeta v IOR"
 
-#: gconf/gconf-internals.c:813
+#: gconf/gconf-internals.c:619
+msgid "Invalid UTF-8 in locale for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:627
+msgid "Invalid UTF-8 in short description for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:635
+msgid "Invalid UTF-8 in long description for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:643
+msgid "Invalid UTF-8 in owner for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:868
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Nisem mogel odpreti datoteke poti `%s': %s\n"
 
-#: gconf/gconf-internals.c:873
+#: gconf/gconf-internals.c:928
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Dodajam vir `%s'\n"
 
-#: gconf/gconf-internals.c:885
+#: gconf/gconf-internals.c:940
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Napaka ob branju datoteke `%s': %s\n"
 
-#: gconf/gconf-internals.c:1327
+#: gconf/gconf-internals.c:1271 gconf/gconf-internals.c:1337
+#: gconf/gconf-value.c:125 gconf/gconf-value.c:224 gconf/gconf-value.c:366
+#: gconf/gconf-value.c:1084
+msgid "Text contains invalid UTF-8"
+msgstr ""
+
+#: gconf/gconf-internals.c:1422
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Prièakoval seznam, dobil %s"
 
-#: gconf/gconf-internals.c:1337
+#: gconf/gconf-internals.c:1432
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Prièakoval seznam z %s, dobil seznam z %s"
 
-#: gconf/gconf-internals.c:1476
+#: gconf/gconf-internals.c:1571
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Prièakoval par, dobil %s"
 
-#: gconf/gconf-internals.c:1490
+#: gconf/gconf-internals.c:1585
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "Prièakoval par (%s,%s), dobil par z manjkajoèo eno ali mankajoèima obema "
 "vrednostima"
 
-#: gconf/gconf-internals.c:1506
+#: gconf/gconf-internals.c:1601
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Prièakoval par vrste (%s,%s), dobil vrsto (%s,%s)"
 
-#: gconf/gconf-internals.c:1622
+#: gconf/gconf-internals.c:1717
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Citiran niz se ne zaène z narekovajem"
 
-#: gconf/gconf-internals.c:1684
+#: gconf/gconf-internals.c:1779
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Citiran niz se ne konèa z narekovajem"
 
-#: gconf/gconf-internals.c:2164 gconf/gconf.c:3092
+#: gconf/gconf-internals.c:1915
+msgid "Encoded value is not valid UTF-8"
+msgstr ""
+
+#: gconf/gconf-internals.c:2265 gconf/gconf.c:3082
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Napaka CORBA: %s"
 
-#: gconf/gconf-internals.c:2180
+#: gconf/gconf-internals.c:2281
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "Opis problema OAF: '%s'"
 
-#: gconf/gconf-internals.c:2186
+#: gconf/gconf-internals.c:2287
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "poskus odstranitve imenika OAF, ki ni v seznamu"
 
-#: gconf/gconf-internals.c:2191
+#: gconf/gconf-internals.c:2292
 msgid "attempt to add already-listed OAF directory"
 msgstr "poskus dodajanja imenika OAF, ki je ¾e v seznamu"
 
-#: gconf/gconf-internals.c:2198
+#: gconf/gconf-internals.c:2299
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "Napaka ob razèljenjevanju OAF: %s"
 
-#: gconf/gconf-internals.c:2203
+#: gconf/gconf-internals.c:2304
 msgid "Unknown OAF error"
 msgstr "Neznana napaka OAF"
 
-#: gconf/gconf-internals.c:2290
+#: gconf/gconf-internals.c:2437
+msgid "Could not lock temporary file '%s': %s"
+msgstr "Nisem mogel zakleniti zaèasne datoteke '%s': %s"
+
+#: gconf/gconf-internals.c:2464
 #, c-format
-msgid "No ior file in `%s'"
-msgstr "Ni datoteke ior v `%s'"
+msgid "Could not create file '%s', probably because it already exists"
+msgstr "Nisem mogel ustvariti datoteke '%s', ker verjetno ¾e obstaja"
 
-#: gconf/gconf-internals.c:2321
+#: gconf/gconf-internals.c:2510
+msgid "Failed to create or open '%s'"
+msgstr "Nisem uspel ustvariti ali odpreti '%s'"
+
+#: gconf/gconf-internals.c:2520
 #, c-format
-msgid "gconfd taking lock `%s' from some other process"
-msgstr "gconfd prevzema kljuèavnico `%s' od nekega drugega procesa"
+msgid "Failed to lock '%s': another process has the lock (%s)"
+msgstr "Nisem uspel zakleniti '%s': kljuèavnico ima drug proces (%s)"
 
-#: gconf/gconf-internals.c:2332
+#: gconf/gconf-internals.c:2548
 #, c-format
-msgid "Another program has lock `%s'"
-msgstr "Drug program ima kljuèavnico nad `%s'"
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr "Datoteka IOR '%s' ni bila uspe¹no odprta, gconfd ni bil najden: %s"
 
-#: gconf/gconf-internals.c:2351
-msgid "couldn't contact ORB to ping existing gconfd"
-msgstr "nisem uspel dostopati do ORB-a za ping obstojeèega gconfd-ja"
-
-#: gconf/gconf-internals.c:2359
+#: gconf/gconf-internals.c:2578
 #, c-format
-msgid ""
-"Removing stale lock `%s' because IOR couldn't be converted to object "
-"reference, IOR `%s'"
-msgstr ""
-"Odstranjujem kljuèavnico `%s', ker IOR ni mogel biti preoblikovan v sklic "
-"predmeta , IOR `%s'"
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr "gconftool ali drug proces, ki ni gconfd, ima kljuèavnico nad datoteko '%s'"
 
-#: gconf/gconf-internals.c:2371
-#, c-format
-msgid "Removing stale lock `%s' because of error pinging server: %s"
-msgstr ""
-"Odstranjujem kljuèavnico `%s', ker se je zgodila napaka ob pinganju "
-"stre¾nika: %s"
+#: gconf/gconf-internals.c:2595
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr "nisem uspel dostopati do ORB-a za razvozlanje obstojeèe reference predmeta gconfd"
 
-#: gconf/gconf-internals.c:2383
-#, c-format
-msgid "GConf configuration daemon (gconfd) has lock `%s'"
-msgstr "Nastavitveni daemon GConf (gconfd) ima kljuèavnico  `%s'"
-
-#: gconf/gconf-internals.c:2397
+#: gconf/gconf-internals.c:2627
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "nisem mogel ustvariti imenika `%s': %s"
 
-#: gconf/gconf-internals.c:2446
-#, c-format
-msgid "Can't create lock `%s': %s"
-msgstr "Ne morem ustvariti kljuèavnice `%s': %s"
-
-#: gconf/gconf-internals.c:2482
+#: gconf/gconf-internals.c:2686
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Ne morem pisati v datoteko `%s': %s"
 
-#: gconf/gconf-internals.c:2532
+#: gconf/gconf-internals.c:2727
 #, c-format
-msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
-msgstr ""
-"Ne morem odpreti kljuèavniène datoteke `%s'; predvidevam, da ni na¹a: %s"
+msgid "We didn't have the lock on file `%s', but we should have"
+msgstr "Nismo imeli kljuèavnice na datoteki `%s', a bi jo morali imeti"
 
-#: gconf/gconf-internals.c:2549
-#, c-format
-msgid "Corrupt lock file `%s', removing anyway"
-msgstr "Po¹kodovana kljuèavnièna datoteka `%s', vseeno odstranjujem"
+#: gconf/gconf-internals.c:2748
+msgid "Failed to link '%s' to '%s': %s"
+msgstr "Nisem uspel pvezati '%s' na '%s': %s"
 
-#: gconf/gconf-internals.c:2559
+#: gconf/gconf-internals.c:2760
+msgid "Failed to remove lock file `%s': %s"
+msgstr "Nisem uspel odstraniti kljuèavniène datoteke `%s': %s"
+
+#: gconf/gconf-internals.c:2779
+msgid "Failed to clean up file '%s': %s"
+msgstr "Nisem uspel poèistiti datoteke %s': %s"
+
+#: gconf/gconf-internals.c:2793
+msgid "Failed to remove lock directory `%s': %s"
+msgstr "Nisem uspel odstraniti kljuèavniènega imenika `%s': %s"
+
+#: gconf/gconf-internals.c:3003 gconf/gconfd.c:580
 #, c-format
+msgid "Failed to create %s: %s"
+msgstr "Nisem uspel ustvariti datoteke `%s': %s"
+
+#: gconf/gconf-internals.c:3036
+#, c-format
+msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+msgstr "Nisem uspel ustvariti pipe za komunikacijo z odcepljenim daemonom gconf: %s\n"
+
+#: gconf/gconf-internals.c:3060
+msgid "Failed to launch configuration server: %s\n"
+msgstr "Nisem uspel pognati stre¾nika nastavitev: %s\n"
+
+#: gconf/gconf-internals.c:3084
 msgid ""
-"Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
-"took our lock"
+"Failed to contact configuration server (a likely cause of this is that you "
+"have an existing configuration server (gconfd) running, but it isn't "
+"reachable from here - if you're logged in from two machines at once, you may "
+"need to enable TCP networking for ORBit)\n"
 msgstr ""
-"Nisem uspel ustvariti kljuèavniène datoteke `%s' (pid lastnika %u, na¹ pid %"
-"u, predvidam, da je nekdo vzel na¹o kljuèavnico)"
 
-#: gconf/gconf-internals.c:2576
-#, c-format
-msgid "Failed to release lock directory `%s': %s"
+#: gconf/gconf-internals.c:3720
+#, fuzzy, c-format
+msgid "Failed to read from child pipe (%s)"
+msgstr "Nisem uspel sprostiti kljuèavniène datoteke: %s"
+
+#: gconf/gconf-internals.c:3785
+#, fuzzy, c-format
+msgid "Failed to fork (%s)"
+msgstr "Nisem uspel ustvariti datoteke `%s': %s"
+
+#: gconf/gconf-internals.c:3925
+#, fuzzy, c-format
+msgid "Failed to change to directory '%s' (%s)"
 msgstr "Nisem uspel sprostiti kljuèavniènega imenika `%s': %s"
+
+#: gconf/gconf-internals.c:3935
+#, fuzzy, c-format
+msgid "Failed to execute child process (%s)"
+msgstr "Nisem uspel zbrisati stare datoteke `%s': %s"
+
+#: gconf/gconf-internals.c:3944
+#, c-format
+msgid "Failed to redirect output or input of child process (%s)"
+msgstr ""
+
+#: gconf/gconf-internals.c:3953
+#, fuzzy, c-format
+msgid "Failed to fork child process (%s)"
+msgstr "Nisem uspel nalo¾iti vira `%s': %s"
+
+#: gconf/gconf-internals.c:3961
+msgid "Unknown error executing child process"
+msgstr ""
+
+#: gconf/gconf-internals.c:3982
+#, c-format
+msgid "Failed to read enough data from child pid pipe (%s)"
+msgstr ""
+
+#: gconf/gconf-internals.c:4032
+#, c-format
+msgid "Failed to create pipe for communicating with child process (%s)"
+msgstr ""
 
 #: gconf/gconf-sources.c:320
 #, c-format
@@ -653,15 +728,17 @@ msgstr ""
 "nastavitvene poti. "
 
 #: gconf/gconf-sources.c:608
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writeable databases. There are two common causes of this problem: 1) your "
 "configuration path file doesn't contain any databases or wasn't found or 2) "
-"OAF mistakenly created two gconfd processes. If you have two gconfd "
-"processes (or had two at the time the second was launched), then it's an OAF "
-"bug, not a GConf issue. Logging out, killing oafd and gconfd, and logging "
-"back in may help. As always, check the user.* syslog for details on problems "
+"somehow we mistakenly created two gconfd processes. If you have two gconfd "
+"processes (or had two at the time the second was launched), logging out, "
+"killing all copies of gconfd, and logging back in may help. Perhaps the "
+"problem is that you attempted to use GConf from two machines at once, and "
+"ORBit still has its default configuration that prevents remote CORBA "
+"connections? As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
 "Nisem mogel shraniti vrednosti pri kljuèu '%s', saj stre¾nik nastavitev nima "
@@ -689,62 +766,62 @@ msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
 "Kljuè `%s' naveden kot shema za kljuè  `%s' v resnici vsebuje tip  `%s'"
 
-#: gconf/gconf-value.c:82
+#: gconf/gconf-value.c:81
 #, c-format
 msgid "Didn't understand `%s' (expected integer)"
 msgstr "Nisem razumel  `%s' (prièakoval celo ¹tevilo)"
 
-#: gconf/gconf-value.c:92
+#: gconf/gconf-value.c:91
 #, c-format
 msgid "Integer `%s' is too large or small"
 msgstr "Celo ¹tevilo  `%s' je preveliko ali premajhno"
 
-#: gconf/gconf-value.c:113
+#: gconf/gconf-value.c:112
 #, c-format
 msgid "Didn't understand `%s' (expected real number)"
 msgstr "Nisem razumel `%s' (prièakoval realno ¹tevilo)"
 
-#: gconf/gconf-value.c:146
+#: gconf/gconf-value.c:156
 #, c-format
 msgid "Didn't understand `%s' (expected true or false)"
 msgstr "Nisem razumel `%s' (prièakoval resnièno ali neresnièno)"
 
-#: gconf/gconf-value.c:214
+#: gconf/gconf-value.c:232
 #, c-format
 msgid "Didn't understand `%s' (list must start with a '[')"
 msgstr "Nisem razumel `%s' (seznam se mora zaèeti z '[')"
 
-#: gconf/gconf-value.c:227
+#: gconf/gconf-value.c:245
 #, c-format
 msgid "Didn't understand `%s' (list must end with a ']')"
 msgstr "Nisem razumel `%s' (seznam se mora konèati z ']')"
 
-#: gconf/gconf-value.c:278
+#: gconf/gconf-value.c:296
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
 msgstr "Nisem razumel `%s' (dodaten neube¾en ']' najden znotraj seznama)"
 
-#: gconf/gconf-value.c:309 gconf/gconf-value.c:462
+#: gconf/gconf-value.c:327 gconf/gconf-value.c:488
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
 msgstr "Nisem razumel `%s' (dodatni znaki na koncu)"
 
-#: gconf/gconf-value.c:348
+#: gconf/gconf-value.c:374
 #, c-format
 msgid "Didn't understand `%s' (pair must start with a '(')"
 msgstr "Nisem ratumel `%s' (par se mora zaèeti z '(')"
 
-#: gconf/gconf-value.c:361
+#: gconf/gconf-value.c:387
 #, c-format
 msgid "Didn't understand `%s' (pair must end with a ')')"
 msgstr "Nisem razumel `%s' (par se mora konèati z ')')"
 
-#: gconf/gconf-value.c:391 gconf/gconf-value.c:477
+#: gconf/gconf-value.c:417 gconf/gconf-value.c:503
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
 msgstr "Nisem razumel `%s' (napaèno ¹tevilo elementov)"
 
-#: gconf/gconf-value.c:431
+#: gconf/gconf-value.c:457
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "Nisem razumel `%s' (dodaten neube¾en ')' najden znotraj para)"
@@ -754,95 +831,80 @@ msgstr "Nisem razumel `%s' (dodaten neube¾en ')' najden znotraj para)"
 msgid "`%s': %s"
 msgstr "`%s': %s"
 
-#: gconf/gconf.c:289
+#: gconf/gconf.c:287
 #, c-format
 msgid "Server couldn't resolve the address `%s'"
 msgstr "Stre¾nik ni mogel razvozlati naslova `%s'"
 
-#: gconf/gconf.c:574
+#: gconf/gconf.c:572
 msgid "Can't add notifications to a local configuration source"
 msgstr "Krajevnemu viru nastavitev ne  morem dodati obve¹èanj"
 
-#: gconf/gconf.c:1870
+#: gconf/gconf.c:1868
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr "Dodajanje odjemalca v seznam stre¾nika ni uspelo, napaka CORBA: %s"
 
-#: gconf/gconf.c:1887
-msgid ""
-"Error contacting configuration server: OAF returned nil from "
-"oaf_activate_from_id() and did not set an exception explaining the problem. "
-"This is a bug in the OAF package; something went wrong in OAF, and no error "
-"was reported. This is not a bug in the GConf package. Do not report a GConf "
-"bug unless you have information indicating what went wrong with OAF that was "
-"caused by GConf."
-msgstr ""
-"Napaka ob vzpostavljanju povezave z nastavitvenim stre¾nikom: bonobo-activation je vrnil "
-"nil iz oaf_activate_from_id() in ni nastavil izjeme, ki bi razlo¾ila "
-"problem. To je hro¹è v paketu OAF; v OAF je ¹lo nekaj narobe, a ni bila "
-"sporoèena nobena napaka. To ni hro¹è v paketu GConf. Ne oddajte poroèila o "
-"hro¹èu v GConf v kolikor nimate podatkov, da je GConf povzroèil napako v OAF."
-
-#: gconf/gconf.c:2198
+#: gconf/gconf.c:2183
 msgid "Failed to init GConf, exiting\n"
 msgstr "Nisem uspel inicializirati GConf, konèujem\n"
 
-#: gconf/gconf.c:2235
+#: gconf/gconf.c:2220
 msgid "Must begin with a slash (/)"
 msgstr "Mora se zaèeti s po¹evnico (/)"
 
-#: gconf/gconf.c:2257
+#: gconf/gconf.c:2242
 msgid "Can't have two slashes (/) in a row"
 msgstr "Ne more imeti dveh po¹evnic (/) zapored"
 
-#: gconf/gconf.c:2259
+#: gconf/gconf.c:2244
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Ne more imeti pike (.) takoj za po¹evnico (/)"
 
-#: gconf/gconf.c:2280
+#: gconf/gconf.c:2265
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "znak '%c' je neveljaven v imenu kljuèev/imenikov"
 
-#: gconf/gconf.c:2294
+#: gconf/gconf.c:2279
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Kljuè/imenik se ne sme konèati s po¹evnico (/)"
 
-#: gconf/gconf.c:2547
+#: gconf/gconf.c:2520
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Napaka ob ustavljanju stre¾nika nastavitev: %s"
 
-#: gconf/gconf.c:2608
+#: gconf/gconf.c:2581
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Prièakoval ¹tevilo s plavajoèo vejico, dobil %s"
 
-#: gconf/gconf.c:2643
+#: gconf/gconf.c:2616
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Prièakoval celo ¹tevilo, dobil %s"
 
-#: gconf/gconf.c:2678
+#: gconf/gconf.c:2651
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Prièakoval niz, dobil %s"
 
-#: gconf/gconf.c:2715
+#: gconf/gconf.c:2688
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Prièakoval booleanovo vrednost, dobil %s"
 
-#: gconf/gconf.c:2748
+#: gconf/gconf.c:2721
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Prièakoval shemo, dobil %s"
 
-#: gconf/gconfd.c:248
+#: gconf/gconfd.c:247
 msgid "Shutdown request received"
 msgstr "Prejet je bil zahtevek za ustavitev"
 
-#: gconf/gconfd.c:280
+#: gconf/gconfd.c:279
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -850,7 +912,7 @@ msgstr ""
 "gconfd preveden z razhro¹èvenjem; posku¹am nalo¾iti gconf.path iz imenika z "
 "izvorno kodo"
 
-#: gconf/gconfd.c:298
+#: gconf/gconfd.c:297
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -858,23 +920,23 @@ msgstr ""
 "Datoteke z nastavitvami niso bile najdene, posku¹am uporabiti privzet vir "
 "nastavitev `%s'"
 
-#: gconf/gconfd.c:307
+#: gconf/gconfd.c:306
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
 msgstr ""
 "Ni virov nastavitev v poti virov, nastavitve ne bodo shranjene; uredite "
 
-#: gconf/gconfd.c:307
+#: gconf/gconfd.c:306
 msgid "/path"
 msgstr "/pot"
 
-#: gconf/gconfd.c:321
+#: gconf/gconfd.c:320
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "Napaka ob nalaganju nekaterih virov nastavitev: %s"
 
-#: gconf/gconfd.c:333
+#: gconf/gconfd.c:332
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -882,7 +944,7 @@ msgstr ""
 "Noben naslov virov nastavitev ni bil uspte¹no razvozlan, ne morem nalagati "
 "ali shranjevati podatkov o nastavitvah"
 
-#: gconf/gconfd.c:350
+#: gconf/gconfd.c:349
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -890,13 +952,13 @@ msgstr ""
 "Noben pisljiv naslov virov nastavitev ni bil uspte¹no razvozlan, ne morem "
 "shranjevati podatkov o nastavitvah"
 
-#: gconf/gconfd.c:376
+#: gconf/gconfd.c:375
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr ""
 "Prejel signal %d, izpisujem pomnilnik. Prosimo poroèajte o hro¹èu v GConf."
 
-#: gconf/gconfd.c:392
+#: gconf/gconfd.c:391
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
@@ -904,105 +966,51 @@ msgstr ""
 "Prejel singal %d, neobièajno se ustavljam. Prosimo poroèajte o hro¹èu v "
 "GConf."
 
-#: gconf/gconfd.c:409
+#: gconf/gconfd.c:408
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "Prejel signal %d, ustavljam se po pravilih"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:513
+#: gconf/gconfd.c:526
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "prièenjam (razlièica %s), pid %u uporabnik '%s'"
 
-#: gconf/gconfd.c:540
-msgid ""
-"Failed to init Object Activation Framework: please mail bug report to OAF "
-"maintainers"
-msgstr ""
-"Nisem uspel inicializirati Okolja za aktivacijo predmetov (OAF): prosimo "
-"po¹ljite poroèilo o napaki vzdr¾evalcem OAF-a"
-
-#: gconf/gconfd.c:560
+#: gconf/gconfd.c:567
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Nisem uspel dobiti sklica predmeta za ConfigDatabase"
 
-#: gconf/gconfd.c:573
+#: gconf/gconfd.c:605
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Nisem uspel ustvariti datoteke `%s': %s"
+msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
+msgstr ""
 
-#. Bad hack alert - register the current lockholder with oafd,
-#. * since oafd seems to have forgotten about us.
-#.
-#: gconf/gconfd.c:588
-#, c-format
-msgid "Failed to get lock for daemon: %s"
+#: gconf/gconfd.c:615
+#, fuzzy, c-format
+msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "Nisem uspel dobiti kljuèavnice za daemona: %s"
 
-#: gconf/gconfd.c:594
-msgid ""
-"Registering existing server with oafd, since OAF appears to have leaked it"
-msgstr ""
-"Registriram obstojeè stre¾nik pri oafd-ju, ker izgleda, da ga je OAF izgubil"
-
-#: gconf/gconfd.c:603
-msgid ""
-"OAF doesn't know about our IID; indicates broken installation; can't "
-"register existing server."
-msgstr ""
-"OAF ne ve za na¹ IID; to ka¾e na po¹kodovano namestitev; ne mroem "
-"registrirati obstojeèega stre¾nika."
-
-#: gconf/gconfd.c:607
-msgid ""
-"Another gconfd already registered with OAF, so we can't register the "
-"existing server"
-msgstr ""
-"Drug gconfd je ¾e registrian pri OAF-u, zato obstojeèega stre¾nika ne moremo "
-"registrirati"
-
-#: gconf/gconfd.c:612
-msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr ""
-"Neznana napaka ob registriranju obstojeèega gconfd-ja pri OAF-u; konèujem"
-
-#: gconf/gconfd.c:639
-msgid ""
-"OAF doesn't know about our IID; indicates broken installation; can't "
-"register; exiting\n"
-msgstr ""
-"OAF ne ve za na¹ IID; kar ka¾e na po¹kodovano namestitev; ne mroem se "
-"registrirati; konèujem\n"
-
-#: gconf/gconfd.c:643
-msgid "Another gconfd already registered with OAF; exiting\n"
-msgstr "Drug gconfd je ¾e registrian pri OAF-u; konèujem\n"
-
-#: gconf/gconfd.c:648
-msgid "Unknown error registering gconfd with OAF; exiting\n"
-msgstr "Neznana napaka ob registriranju gconfd-ja pri OAF-u; konèujem\n"
-
-#: gconf/gconfd.c:692
-#, c-format
-msgid "Failed to release lockfile: %s"
+#: gconf/gconfd.c:657
+#, fuzzy, c-format
+msgid "Error releasing lockfile: %s"
 msgstr "Nisem uspel sprostiti kljuèavniène datoteke: %s"
 
-#: gconf/gconfd.c:700
+#: gconf/gconfd.c:665
 msgid "Exiting"
 msgstr "Konèujem"
 
-#: gconf/gconfd.c:725
+#: gconf/gconfd.c:690
 msgid "GConf server is not in use, shutting down."
 msgstr "Stre¾nik GConf ni v uporabi, konèujem."
 
-#: gconf/gconfd.c:1084
+#: gconf/gconfd.c:1049
 #, c-format
 msgid "Returning exception: %s"
 msgstr "Vraèam izjemo: %s"
 
-#: gconf/gconfd.c:1184
+#: gconf/gconfd.c:1149
 #, c-format
 msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
@@ -1011,7 +1019,7 @@ msgstr ""
 "Nisem uspel odpreti dnevni¹ke datoteke gconf; poslu¹alci ne bodo bili "
 "obnovljeni po ustavitvi gconfd-ja (%s)"
 
-#: gconf/gconfd.c:1219
+#: gconf/gconfd.c:1184
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
@@ -1019,33 +1027,33 @@ msgstr ""
 "Nisem uspel zapreti dnevni¹ke datoteke gconfd-ja; podatki morda niso "
 "pravilno shranjeni (%s)"
 
-#: gconf/gconfd.c:1288
+#: gconf/gconfd.c:1253
 #, c-format
 msgid "Could not open saved state file '%s' for writing: %s"
 msgstr "Za pisanje nisem uspel odpreti datoteke s shranjenim stanjem '%s': %s"
 
-#: gconf/gconfd.c:1302
+#: gconf/gconfd.c:1267
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr "Nisem mogel zapisati datoteke shranjenega stanja '%s' fd: %d: %s"
 
-#: gconf/gconfd.c:1311
+#: gconf/gconfd.c:1276
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
 msgstr "Nisem uspel zapreti nove datoteke shranjenega stanja '%s': %s"
 
-#: gconf/gconfd.c:1325
+#: gconf/gconfd.c:1290
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr "Nisem mogel odmakniti stare datoteke shranjenega stanja '%s': %s"
 
-#: gconf/gconfd.c:1335
+#: gconf/gconfd.c:1300
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr ""
 "Nisem uspel premakniti nove datoteke shranjenega stanja na ustrezno mesto: %s"
 
-#: gconf/gconfd.c:1344
+#: gconf/gconfd.c:1309
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
@@ -1053,7 +1061,7 @@ msgstr ""
 "Nisem uspel obnoviti izvorne datoteke shranjenega stanja, ki je bila "
 "premaknjena v '%s': %s"
 
-#: gconf/gconfd.c:1819
+#: gconf/gconfd.c:1784
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
@@ -1061,17 +1069,17 @@ msgstr ""
 "Nisem mogel obnoviti poslu¹alca na naslovu '%s', nisem mogel razvozlati "
 "zbirke podatkov"
 
-#: gconf/gconfd.c:1865
+#: gconf/gconfd.c:1830
 #, c-format
 msgid "Error reading saved state file: %s"
 msgstr "Napaka ob branju datoteke s shranjenim stanjem: %s"
 
-#: gconf/gconfd.c:1918
+#: gconf/gconfd.c:1883
 #, c-format
 msgid "Unable to open saved state file '%s': %s"
 msgstr "Ne morem odpreti datoteke s shranjenim stanjem '%s': %s"
 
-#: gconf/gconfd.c:2035
+#: gconf/gconfd.c:2000
 #, c-format
 msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to re-"
@@ -1080,7 +1088,7 @@ msgstr ""
 "V dnevnik nisem uspel zapisati dodajanja poslu¹alca; ob novem zagonu gconfd-"
 "ja poslu¹alca poslu¹alca ne bo mo¾no dodati (%s)"
 
-#: gconf/gconfd.c:2040
+#: gconf/gconfd.c:2005
 #, c-format
 msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously re-"
@@ -1089,29 +1097,29 @@ msgstr ""
 "V dnevnik nisem uspel zapisati odstranitve poslu¹alca; lahko se napaèno doda "
 "poslu¹alca ob novem zagonu gconfd-ja: (%s)"
 
-#: gconf/gconfd.c:2063 gconf/gconfd.c:2228
+#: gconf/gconfd.c:2028 gconf/gconfd.c:2193
 #, c-format
 msgid "Failed to get IOR for client: %s"
 msgstr "Nisem uspel dobiti IOR za odjemalca: %s"
 
-#: gconf/gconfd.c:2078
+#: gconf/gconfd.c:2043
 #, c-format
 msgid "Failed to open saved state file: %s"
 msgstr "Nisem uspel odpreti datoteke s shranjenim stanjem: %s"
 
-#: gconf/gconfd.c:2091
+#: gconf/gconfd.c:2056
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr ""
 "Nisem uspel zapisati dodajanja odjemalca v datoteko s shranjenim stanjem: %s"
 
-#: gconf/gconfd.c:2099
+#: gconf/gconfd.c:2064
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
 "Nisem uspel zapisati dodajanja odjemalca v datoteko s shranjenim stanjem: %s"
 
-#: gconf/gconfd.c:2189
+#: gconf/gconfd.c:2154
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr "Nek odjemalec se je odstranil z GConf stre¾nika, èeprav ni bil dodan."
@@ -1334,14 +1342,16 @@ msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
 msgstr ""
-"--recursive-list ne bi smela biti uprorabljena z --get, --set, --unset, --all-entries ali --all-dirs\n"
+"--recursive-list ne bi smela biti uprorabljena z --get, --set, --unset, --"
+"all-entries ali --all-dirs\n"
 
 #: gconf/gconftool.c:437
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
 msgstr ""
-"--set_schema ne bi smela biti uporabljena z --get, --set, --unset, --all-entries ali --all-dirs\n"
+"--set_schema ne bi smela biti uporabljena z --get, --set, --unset, --all-"
+"entries ali --all-dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
@@ -1387,284 +1397,269 @@ msgstr "Ob uporabi --direct morate navesti vir nastavitev z --config-source\n"
 msgid "Failed to init GConf: %s\n"
 msgstr "Nisem uspel inicializirati GConf-a: %s\n"
 
-#: gconf/gconftool.c:550
+#: gconf/gconftool.c:560
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "Nastaviti morate okoljsko spremenljivko GCONF_CONFIG_SOURCE\n"
 
-#. Eventually you should be able to run gconfd as long as
-#. you're installing to a different database from the one
-#. it's using, but I don't trust the locking right now.
-#: gconf/gconftool.c:565
-msgid ""
-"Shouldn't run gconfd while installing new schema files.\n"
-"Use gconftool --shutdown to shut down the daemon, most safely while no "
-"applications are running\n"
-"(though things theoretically work if apps are running).\n"
-msgstr ""
-"Med name¹èanjem novih datotek shem ne smete teèi gconfd.\n"
-"Uporabite gconftool --shutdown za ustavitev daemona (najbolj varno kadar "
-"programi ne teèejo)\n"
-"(dasiravno bi moralo teoretièno delovati tudi med tekom programov).\n"
-
-#: gconf/gconftool.c:587
+#: gconf/gconftool.c:589
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
 msgstr "Nisem uspel dostopati do vira(ov) nastavitev: %s\n"
 
-#: gconf/gconftool.c:798
+#: gconf/gconftool.c:790
 #, c-format
 msgid "Shutdown error: %s\n"
 msgstr "Napaka ob ustavljanju: %s\n"
 
-#: gconf/gconftool.c:841
+#: gconf/gconftool.c:833
 msgid "Must specify one or more dirs to recursively list.\n"
 msgstr "Naveden mora biti en ali veè imenikov za rekurziven izpis.\n"
 
-#: gconf/gconftool.c:875
+#: gconf/gconftool.c:867
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "Napaka ob izpisu vnosov v `%s': %s\n"
 
-#: gconf/gconftool.c:893
+#: gconf/gconftool.c:885
 msgid "(no value set)"
 msgstr "(vrednost ni nastavljena)"
 
-#: gconf/gconftool.c:948
+#: gconf/gconftool.c:940
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "Nisem uspel pognati stre¾nika nastavitev (gconfd): %s\n"
 
-#: gconf/gconftool.c:962
+#: gconf/gconftool.c:954
 msgid "Must specify a key or keys to get\n"
 msgstr "Navedenii morajo biti kljuè ali kljuèi, ki naj se prebrejo\n"
 
-#: gconf/gconftool.c:997
+#: gconf/gconftool.c:989
 #, c-format
 msgid "Type: %s\n"
 msgstr "Vrsta: %s\n"
 
-#: gconf/gconftool.c:998
+#: gconf/gconftool.c:990
 #, c-format
 msgid "List Type: %s\n"
 msgstr "Vrsta seznama: %s\n"
 
-#: gconf/gconftool.c:999
+#: gconf/gconftool.c:991
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Vrsta \"car\"-a: %s\n"
 
-#: gconf/gconftool.c:1000
+#: gconf/gconftool.c:992
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Vrsta \"cdr\"-a: %s\n"
 
-#: gconf/gconftool.c:1005
+#: gconf/gconftool.c:997
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "Privzeta vrednost: %s\n"
 
-#: gconf/gconftool.c:1005 gconf/gconftool.c:1007 gconf/gconftool.c:1008
-#: gconf/gconftool.c:1009
+#: gconf/gconftool.c:997 gconf/gconftool.c:999 gconf/gconftool.c:1000
+#: gconf/gconftool.c:1001
 msgid "Unset"
 msgstr "Odnastavi"
 
-#: gconf/gconftool.c:1007
+#: gconf/gconftool.c:999
 #, c-format
 msgid "Owner: %s\n"
 msgstr "Lastnik: %s\n"
 
-#: gconf/gconftool.c:1008
+#: gconf/gconftool.c:1000
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "Kratek opis: %s\n"
 
-#: gconf/gconftool.c:1009
+#: gconf/gconftool.c:1001
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "Dolg opis: %s\n"
 
-#: gconf/gconftool.c:1018 gconf/gconftool.c:1312
+#: gconf/gconftool.c:1010 gconf/gconftool.c:1304
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "Za `%s' vrednost ni nastavljena\n"
 
-#: gconf/gconftool.c:1022 gconf/gconftool.c:1316
+#: gconf/gconftool.c:1014 gconf/gconftool.c:1308
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "Nisem uspel prebrati vrednosti za `%s':%s\n"
 
-#: gconf/gconftool.c:1065 gconf/gconftool.c:1077
+#: gconf/gconftool.c:1057 gconf/gconftool.c:1069
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "Ne razumem vrste `%s'\n"
 
-#: gconf/gconftool.c:1089
+#: gconf/gconftool.c:1081
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "Kot argumenti morajo biti navedeni pari kljuè/vrednost\n"
 
-#: gconf/gconftool.c:1109
+#: gconf/gconftool.c:1101
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "Zak ljuè `%s' vrednost ni nastavljena\n"
 
-#: gconf/gconftool.c:1137
+#: gconf/gconftool.c:1129
 msgid "Cannot set schema as value\n"
 msgstr "Ne morem nastaviti sheme kot vrednosti\n"
 
-#: gconf/gconftool.c:1147
+#: gconf/gconftool.c:1139
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Kadar nastavljate seznam morate navesti osnovno vrsto seznama\n"
 
-#: gconf/gconftool.c:1161
+#: gconf/gconftool.c:1153
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Kadar nastavljate par morate navesti osnovni vrsti za car in cdr\n"
 
-#: gconf/gconftool.c:1176
+#: gconf/gconftool.c:1168
 #, c-format
 msgid "Error: %s\n"
 msgstr "Napaka %s\n"
 
-#: gconf/gconftool.c:1189
+#: gconf/gconftool.c:1181
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Napaka ob nastavljanju vrednosti: %s\n"
 
-#: gconf/gconftool.c:1207
+#: gconf/gconftool.c:1199
 #, c-format
 msgid "Error syncing: %s\n"
 msgstr "Napaka ob usklajevanju: %s\n"
 
-#: gconf/gconftool.c:1230
+#: gconf/gconftool.c:1222
 msgid "Must specify a key or keys on the command line\n"
 msgstr "Kljuè ali kljuèi morajo biti navedeni v ukazni vrstici\n"
 
-#: gconf/gconftool.c:1250
+#: gconf/gconftool.c:1242
 #, c-format
 msgid "No schema known for `%s'\n"
 msgstr "Shema za `%s' ni znana\n"
 
-#: gconf/gconftool.c:1283
+#: gconf/gconftool.c:1275
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
 msgstr "Niz dokumentacije ni shranjen za shemo pri '%s'\n"
 
-#: gconf/gconftool.c:1288
+#: gconf/gconftool.c:1280
 #, c-format
 msgid "Error getting schema at '%s': %s\n"
 msgstr "Napaka ob dobivanju sheme pri '%s': %s\n"
 
-#: gconf/gconftool.c:1295
+#: gconf/gconftool.c:1287
 #, c-format
 msgid "No schema stored at '%s'\n"
 msgstr "Shema pri `%s' ni shranjena\n"
 
-#: gconf/gconftool.c:1298
+#: gconf/gconftool.c:1290
 #, c-format
 msgid "Value at '%s' is not a schema\n"
 msgstr "Vrednost pri '%s' ni shema\n"
 
-#: gconf/gconftool.c:1354
+#: gconf/gconftool.c:1346
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr ""
 "Navesti morate ime sheme, ki mu sledi ime kljuèa na katerem naj se shema "
 "uveljavi\n"
 
-#: gconf/gconftool.c:1361
+#: gconf/gconftool.c:1353
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "Napaka pri povezovanju sheme '%s' s kljuèem  '%s': %s\n"
 
-#: gconf/gconftool.c:1381
+#: gconf/gconftool.c:1373
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "Navesti morate kljuè (ime shema) kot edini argument\n"
 
-#: gconf/gconftool.c:1423
+#: gconf/gconftool.c:1415
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr "Vrsta seznama mora biti osnovna vrsta: niz, int, float ali bool\n"
 
-#: gconf/gconftool.c:1443
+#: gconf/gconftool.c:1435
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr "Vrsta car mora biti osnovna vrsta: niz, int, float ali bool\n"
 
-#: gconf/gconftool.c:1463
+#: gconf/gconftool.c:1455
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr "Vrsta cdr mora biti osnovna vrsta: niz, int, float ali bool\n"
 
-#: gconf/gconftool.c:1478
+#: gconf/gconftool.c:1470
 #, c-format
 msgid "Error setting value: %s"
 msgstr "Napaka ob nastavljanju vrednosti: %s"
 
-#: gconf/gconftool.c:1492
+#: gconf/gconftool.c:1484
 #, c-format
 msgid "Error syncing: %s"
 msgstr "Napaka ob usklajevanju: %s"
 
-#: gconf/gconftool.c:1507
+#: gconf/gconftool.c:1499
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
 "Navesti morate enega ali veè imenikov iz katerih naj se preberejo pari kljuè/"
 "vrednost.\n"
 
-#: gconf/gconftool.c:1521
+#: gconf/gconftool.c:1513
 msgid "Must specify one or more keys to unset.\n"
 msgstr "Navesti morate enega ali veè kljuèov za odnastavitev.\n"
 
-#: gconf/gconftool.c:1532
+#: gconf/gconftool.c:1524
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "Napaka ob odnastavljanju `%s': %s\n"
 
-#: gconf/gconftool.c:1555
+#: gconf/gconftool.c:1547
 msgid "Must specify one or more dirs to get subdirs from.\n"
 msgstr ""
 "Navesti morate enega ali veè imenikov iz katerih naj se preberejo "
 "podimeniki.\n"
 
-#: gconf/gconftool.c:1589
+#: gconf/gconftool.c:1581
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "Napaka ob izpisovanju imenikov: %s\n"
 
-#: gconf/gconftool.c:1631
+#: gconf/gconftool.c:1623
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "OPOZORILO: neveljavna ali pogre¹ana vrsta za shemo (%s)\n"
 
-#: gconf/gconftool.c:1640
+#: gconf/gconftool.c:1632
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr ""
 "OPOZORILO: neveljaven ali pogre¹an list_type (vrsta seznama) za shemo (%s)\n"
 
-#: gconf/gconftool.c:1651 gconf/gconftool.c:1681 gconf/gconftool.c:1710
+#: gconf/gconftool.c:1643 gconf/gconftool.c:1673 gconf/gconftool.c:1702
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "OPOZORILO: Nisem uspel razèleniti privzete vrednosti `%s' za shemo (%s)\n"
 
-#: gconf/gconftool.c:1669
+#: gconf/gconftool.c:1661
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "OPOZORILO: neveljaven ali pogre¹an car_type ali cdr_type za shemo (%s)\n"
 
-#: gconf/gconftool.c:1694
+#: gconf/gconftool.c:1686
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "OPOZORILO: Ne morete nastaviti privzete vrednosti za shemo\n"
 
-#: gconf/gconftool.c:1723
+#: gconf/gconftool.c:1715
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "OPOZORILO: notranja napaka gconftool, neznan GConfValueType\n"
 
-#: gconf/gconftool.c:1770 gconf/gconftool.c:1791 gconf/gconftool.c:1812
-#: gconf/gconftool.c:1833
+#: gconf/gconftool.c:1762 gconf/gconftool.c:1783 gconf/gconftool.c:1804
+#: gconf/gconftool.c:1825
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "OPOZORILO: nisem uspel razèleniti imena vrste '%s'\n"
 
-#: gconf/gconftool.c:1787
+#: gconf/gconftool.c:1779
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -1672,86 +1667,86 @@ msgstr ""
 "OPOZORILO: list_type (vrsta seznama) je lahko le int, float, niz ali bool in "
 "ne '%s'\n"
 
-#: gconf/gconftool.c:1808
+#: gconf/gconftool.c:1800
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr "OPOZORILO: car_type je lahko le int, float, niz ali bool in ne '%s'\n"
 
-#: gconf/gconftool.c:1829
+#: gconf/gconftool.c:1821
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr "OPOZORILO: cdr_type je lahko le int, float, niz ali bool in ne '%s'\n"
 
-#: gconf/gconftool.c:1857
+#: gconf/gconftool.c:1849
 msgid "WARNING: empty <applyto> node"
 msgstr "OPOZORILO: prazno vozli¹èe <applyto>"
 
-#: gconf/gconftool.c:1860 gconf/gconftool.c:2123
+#: gconf/gconftool.c:1852 gconf/gconftool.c:2115
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "OPOZORILO: vozli¹èe <%s> ni bilo razumljeno pod <schema>\n"
 
-#: gconf/gconftool.c:1870
+#: gconf/gconftool.c:1862
 msgid "WARNING: no key specified for schema\n"
 msgstr "OPOZORILO: kljuè za shemo ni naveden\n"
 
-#: gconf/gconftool.c:1903
+#: gconf/gconftool.c:1895
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "OPOZORILO: vozli¹èe <locale> nima atributa `name=\"locale\"', prezrto\n"
 
-#: gconf/gconftool.c:1909
+#: gconf/gconftool.c:1901
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr "OPOZORILO: veè vozli¹è <locale> za locale `%s, prezrti vsi za prvim\n"
 
-#: gconf/gconftool.c:1990
+#: gconf/gconftool.c:1982
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "OPOZORILO: Neveljavno vozli¹èe <%s> v vozli¹èu <locale>\n"
 
-#: gconf/gconftool.c:2019
+#: gconf/gconftool.c:2011
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
 "OPOZORILO: nisem uspel namestiti definicij locale `%2$s' sheme `%1$s': %3$s\n"
 
-#: gconf/gconftool.c:2027
+#: gconf/gconftool.c:2019
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Namestil shemo `%s' za definicije locale  `%s'\n"
 
-#: gconf/gconftool.c:2049
+#: gconf/gconftool.c:2041
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "OPOZORILO: nisem uspel povezati sheme  `%s' s kljuèem `%s': %s\n"
 
-#: gconf/gconftool.c:2057
+#: gconf/gconftool.c:2049
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Pripel shemo `%s' h kljuèu  `%s'\n"
 
-#: gconf/gconftool.c:2136
+#: gconf/gconftool.c:2128
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "V <schema> morate imeti vsaj en vnos <locale>\n"
 
-#: gconf/gconftool.c:2165
+#: gconf/gconftool.c:2157
 #, c-format
 msgid "WARNING: node <%s> not understood below <schemalist>\n"
 msgstr "OPOZORILO: vozli¹èe <%s> ni razumljeno pod <schemalist>\n"
 
-#: gconf/gconftool.c:2187
+#: gconf/gconftool.c:2179
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Nisem uspel odpreti `%s': %s\n"
 
-#: gconf/gconftool.c:2194
+#: gconf/gconftool.c:2186
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Dokument  `%s' je prazen?\n"
 
-#: gconf/gconftool.c:2206
+#: gconf/gconftool.c:2198
 #, c-format
 msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
@@ -1760,26 +1755,26 @@ msgstr ""
 "Dokument `%s' ima napaèno vrsto korenskega vozli¹èa (<%s>, moral bi biti "
 "<gconfschemafile>)\n"
 
-#: gconf/gconftool.c:2219
+#: gconf/gconftool.c:2211
 #, c-format
 msgid "Document `%s' has no top level <gconfschemafile> node\n"
 msgstr "Dokument `%s' nima vrhnjega vozli¹èa <gconfschemafile>\n"
 
-#: gconf/gconftool.c:2233
+#: gconf/gconftool.c:2225
 #, c-format
 msgid "WARNING: node <%s> below <gconfschemafile> not understood\n"
 msgstr "OPOZORILO: vozli¹èe <%s> pod <gconfschemafile> ni razumljeno\n"
 
-#: gconf/gconftool.c:2244 gconf/gconftool.c:2276
+#: gconf/gconftool.c:2236 gconf/gconftool.c:2268
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Napaka ob usklajevanju podatkov nastavitev: %s"
 
-#: gconf/gconftool.c:2260
+#: gconf/gconftool.c:2252
 msgid "Must specify some schema files to install\n"
 msgstr "Navedene morajo biti datoteke shem, ki naj se namestijo\n"
 
-#: gconf/gconftool.c:2297
+#: gconf/gconftool.c:2289
 #, c-format
 msgid ""
 "\n"
@@ -1788,16 +1783,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:2317
+#: gconf/gconftool.c:2309
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Nisem uspel odnastaviti problematiènega kljuèa %s: %s\n"
 
-#: gconf/gconftool.c:2443
+#: gconf/gconftool.c:2435
 msgid "Must specify some keys to break\n"
 msgstr "Navesti morate kljuèe, ki naj postanejo problematièni\n"
 
-#: gconf/gconftool.c:2449
+#: gconf/gconftool.c:2441
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -1806,11 +1801,11 @@ msgstr ""
 "Posku¹am zlomiti va¹ program z nastavljanjem slabih vrednosti za kljuè:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:2467
+#: gconf/gconftool.c:2459
 msgid "Must specify some directories to break\n"
 msgstr "Navesti morate imenike, ki naj postanejo problematièni\n"
 
-#: gconf/gconftool.c:2486
+#: gconf/gconftool.c:2478
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -1835,6 +1830,120 @@ msgstr "Opozorilo GConf: napaka ob izpisovanju praov v `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Za kljuè %s prièakoval `%s' dobil `%s'"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "No ior file in `%s'"
+#~ msgstr "Ni datoteke ior v `%s'"
+
+#~ msgid "gconfd taking lock `%s' from some other process"
+#~ msgstr "gconfd prevzema kljuèavnico `%s' od nekega drugega procesa"
+
+#~ msgid "Another program has lock `%s'"
+#~ msgstr "Drug program ima kljuèavnico nad `%s'"
+
+#~ msgid ""
+#~ "Removing stale lock `%s' because IOR couldn't be converted to object "
+#~ "reference, IOR `%s'"
+#~ msgstr ""
+#~ "Odstranjujem kljuèavnico `%s', ker IOR ni mogel biti preoblikovan v sklic "
+#~ "predmeta , IOR `%s'"
+
+#~ msgid "Removing stale lock `%s' because of error pinging server: %s"
+#~ msgstr ""
+#~ "Odstranjujem kljuèavnico `%s', ker se je zgodila napaka ob pinganju "
+#~ "stre¾nika: %s"
+
+#~ msgid "GConf configuration daemon (gconfd) has lock `%s'"
+#~ msgstr "Nastavitveni daemon GConf (gconfd) ima kljuèavnico  `%s'"
+
+#~ msgid "Can't create lock `%s': %s"
+#~ msgstr "Ne morem ustvariti kljuèavnice `%s': %s"
+
+#~ msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
+#~ msgstr ""
+#~ "Ne morem odpreti kljuèavniène datoteke `%s'; predvidevam, da ni na¹a: %s"
+
+#~ msgid "Corrupt lock file `%s', removing anyway"
+#~ msgstr "Po¹kodovana kljuèavnièna datoteka `%s', vseeno odstranjujem"
+
+#~ msgid ""
+#~ "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming "
+#~ "someone took our lock"
+#~ msgstr ""
+#~ "Nisem uspel ustvariti kljuèavniène datoteke `%s' (pid lastnika %u, na¹ "
+#~ "pid %u, predvidam, da je nekdo vzel na¹o kljuèavnico)"
+
+#~ msgid ""
+#~ "Error contacting configuration server: OAF returned nil from "
+#~ "oaf_activate_from_id() and did not set an exception explaining the "
+#~ "problem. This is a bug in the OAF package; something went wrong in OAF, "
+#~ "and no error was reported. This is not a bug in the GConf package. Do not "
+#~ "report a GConf bug unless you have information indicating what went wrong "
+#~ "with OAF that was caused by GConf."
+#~ msgstr ""
+#~ "Napaka ob vzpostavljanju povezave z nastavitvenim stre¾nikom: bonobo-"
+#~ "activation je vrnil nil iz oaf_activate_from_id() in ni nastavil izjeme, "
+#~ "ki bi razlo¾ila problem. To je hro¹è v paketu OAF; v OAF je ¹lo nekaj "
+#~ "narobe, a ni bila sporoèena nobena napaka. To ni hro¹è v paketu GConf. Ne "
+#~ "oddajte poroèila o hro¹èu v GConf v kolikor nimate podatkov, da je GConf "
+#~ "povzroèil napako v OAF."
+
+#~ msgid ""
+#~ "Failed to init Object Activation Framework: please mail bug report to OAF "
+#~ "maintainers"
+#~ msgstr ""
+#~ "Nisem uspel inicializirati Okolja za aktivacijo predmetov (OAF): prosimo "
+#~ "po¹ljite poroèilo o napaki vzdr¾evalcem OAF-a"
+
+#~ msgid ""
+#~ "Registering existing server with oafd, since OAF appears to have leaked it"
+#~ msgstr ""
+#~ "Registriram obstojeè stre¾nik pri oafd-ju, ker izgleda, da ga je OAF "
+#~ "izgubil"
+
+#~ msgid ""
+#~ "OAF doesn't know about our IID; indicates broken installation; can't "
+#~ "register existing server."
+#~ msgstr ""
+#~ "OAF ne ve za na¹ IID; to ka¾e na po¹kodovano namestitev; ne mroem "
+#~ "registrirati obstojeèega stre¾nika."
+
+#~ msgid ""
+#~ "Another gconfd already registered with OAF, so we can't register the "
+#~ "existing server"
+#~ msgstr ""
+#~ "Drug gconfd je ¾e registrian pri OAF-u, zato obstojeèega stre¾nika ne "
+#~ "moremo registrirati"
+
+#~ msgid "Unknown error registering existing gconfd with OAF; exiting"
+#~ msgstr ""
+#~ "Neznana napaka ob registriranju obstojeèega gconfd-ja pri OAF-u; konèujem"
+
+#~ msgid ""
+#~ "OAF doesn't know about our IID; indicates broken installation; can't "
+#~ "register; exiting\n"
+#~ msgstr ""
+#~ "OAF ne ve za na¹ IID; kar ka¾e na po¹kodovano namestitev; ne mroem se "
+#~ "registrirati; konèujem\n"
+
+#~ msgid "Another gconfd already registered with OAF; exiting\n"
+#~ msgstr "Drug gconfd je ¾e registrian pri OAF-u; konèujem\n"
+
+#~ msgid "Unknown error registering gconfd with OAF; exiting\n"
+#~ msgstr "Neznana napaka ob registriranju gconfd-ja pri OAF-u; konèujem\n"
+
+#~ msgid ""
+#~ "Shouldn't run gconfd while installing new schema files.\n"
+#~ "Use gconftool --shutdown to shut down the daemon, most safely while no "
+#~ "applications are running\n"
+#~ "(though things theoretically work if apps are running).\n"
+#~ msgstr ""
+#~ "Med name¹èanjem novih datotek shem ne smete teèi gconfd.\n"
+#~ "Uporabite gconftool --shutdown za ustavitev daemona (najbolj varno kadar "
+#~ "programi ne teèejo)\n"
+#~ "(dasiravno bi moralo teoretièno delovati tudi med tekom programov).\n"
 
 #~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
 #~ msgstr "Ignoriram vozli¹èe XML `%s', razen za mo¾no ime sheme: %s"
