@@ -1,14 +1,14 @@
 # French translation of GConf.
-# Copyright (C) 2000-2002 Free Software Foundation, Inc.
+# Copyright (C) 2000-2003 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@ldsol.com>, 2000.
-# maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2002.
+# maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2003.
 # Sun G11n <gnome_int_l10n@ireland.sun.com>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.1.0\n"
-"POT-Creation-Date: 2003-01-12 13:13-0500\n"
-"PO-Revision-Date: 2002-12-15 17:56+0100\n"
+"Project-Id-Version: GConf 2.2.0\n"
+"POT-Creation-Date: 2003-04-27 14:44+0200\n"
+"PO-Revision-Date: 2003-04-27 14:06+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,8 @@ msgstr "Impossible de créer le répertoire « %s » : %s"
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr ""
-"Impossible de lire ou écrire dans le répertoire racine %s à l'adresse « %s »"
+"Impossible de lire ou d'écrire dans le répertoire racine %s à l'adresse « %"
+"s »"
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
@@ -87,22 +88,22 @@ msgstr "Initialisation du module XML"
 #: backends/xml-backend.c:790
 #, c-format
 msgid "Failed to give up lock on XML dir \"%s\": %s"
-msgstr "Échec au déverrouillage du répertoire XML « %s » : %s"
+msgstr "Le déverrouillage du répertoire XML « %s » a échoué : %s"
 
-#: backends/xml-cache.c:257
+#: backends/xml-cache.c:260
 msgid "Failed to sync XML cache contents to disk"
-msgstr "Échec à la synchronisation du contenu du cache XML sur le disque"
+msgstr "La synchronisation du contenu du cache XML sur le disque a échoué"
 
-#: backends/xml-cache.c:287
+#: backends/xml-cache.c:290
 #, c-format
 msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr ""
-"Impossible de supprimer le répertoire « %s » depuis le cache XML, parce "
-"qu'il n'a pas été convenablement synchronisé sur le disque"
+"Impossible de supprimer le répertoire « %s » depuis le cache XML parce qu'il "
+"n'a pas été convenablement synchronisé sur le disque"
 
-#: backends/xml-cache.c:314
+#: backends/xml-cache.c:317
 #, c-format
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
@@ -119,90 +120,90 @@ msgstr "Ne peut avoir les statistiques « %s » : %s"
 #: backends/xml-dir.c:181
 #, c-format
 msgid "XML filename `%s' is a directory"
-msgstr "Le nom de fichier XML « %s » est un répertoire"
+msgstr "Le nom du fichier XML « %s » est un répertoire"
 
 #: backends/xml-dir.c:372 backends/xml-dir.c:381
 #, c-format
 msgid "Failed to delete \"%s\": %s"
-msgstr "Impossible de supprimer « %s » : %s"
+msgstr "La suppression de « %s » a échoué : %s"
 
 #: backends/xml-dir.c:427
 #, c-format
 msgid "Failed to write file `%s': %s"
-msgstr "Impossible d'écrire le fichier « %s » : %s"
+msgstr "L'écriture du fichier « %s » a échoué : %s"
 
 #: backends/xml-dir.c:440
 #, c-format
 msgid "Failed to set mode on `%s': %s"
-msgstr "Impossible de définir le mode « %s » : %s"
+msgstr "La définition du mode sur « %s » a échoué : %s"
 
 #: backends/xml-dir.c:450
 #, c-format
 msgid "Failed to write XML data to `%s': %s"
-msgstr "Impossible d'écrire les données XML vers « %s » : %s"
+msgstr "L'écrire des données XML vers « %s » a échoué : %s"
 
-#: backends/xml-dir.c:460 backends/xml-dir.c:1236
+#: backends/xml-dir.c:460 backends/xml-dir.c:1235
 #, c-format
 msgid "Failed to close file `%s': %s"
-msgstr "Impossible de fermer le fichier « %s » : %s"
+msgstr "La fermeture du fichier « %s » a échoué : %s"
 
 #: backends/xml-dir.c:476 backends/xml-dir.c:486
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
-msgstr "Impossible de renommer « %s » vers « %s » : %s"
+msgstr "Le renommage de « %s » en « %s » a échoué : %s"
 
 #: backends/xml-dir.c:492
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
-msgstr "Impossible de restaurer « %s » depuis « %s » : %s"
+msgstr "La restauration de « %s » depuis « %s » a échoué : %s"
 
 #: backends/xml-dir.c:504
 #, c-format
 msgid "Failed to delete old file `%s': %s"
-msgstr "Impossible de supprimer l'ancien fichier « %s » : %s"
+msgstr "La suppression de l'ancien fichier « %s » a échoué : %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:935
+#: backends/xml-dir.c:934
 #, c-format
 msgid "Failed to stat `%s': %s"
-msgstr "Échec de statistiques « %s » : %s"
+msgstr "L'analyse de « %s » a échoué : %s"
 
-#: backends/xml-dir.c:959
+#: backends/xml-dir.c:958
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: backends/xml-dir.c:1109
+#: backends/xml-dir.c:1108
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Ignore l'entrée « %s » dupliquée dans « %s »"
 
-#: backends/xml-dir.c:1131
+#: backends/xml-dir.c:1130
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Ignore l'entrée sans nom dans le fichier XML « %s »"
 
-#: backends/xml-dir.c:1139
+#: backends/xml-dir.c:1138
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
 msgstr ""
 "Un noeud racine dans le fichier XML « %s » est <%s> au lieu de <entry>, "
 "ignore"
 
-#: backends/xml-dir.c:1212
+#: backends/xml-dir.c:1211
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "Ne peut créer le répertoire « %s » : %s"
 
-#: backends/xml-dir.c:1228
+#: backends/xml-dir.c:1227
 #, c-format
 msgid "Failed to create file `%s': %s"
-msgstr "Impossible de créer le fichier « %s » : %s"
+msgstr "La création du fichier « %s » a échoué : %s"
 
-#: backends/xml-dir.c:1327
+#: backends/xml-dir.c:1326
 #, c-format
 msgid "Failed to parse XML file \"%s\""
-msgstr "Impossible d'analyser le fichier XML « %s »"
+msgstr "L'analyse du fichier XML « %s » a échoué"
 
 #. There was an error
 #: backends/xml-entry.c:154
@@ -213,7 +214,7 @@ msgstr "Ignore le noeud XML nommé « %s » : %s"
 #: backends/xml-entry.c:332
 #, c-format
 msgid "Ignoring schema name `%s', invalid: %s"
-msgstr "Ignore le nom de schéma « %s », non valide : %s"
+msgstr "Ignore le nom du schéma « %s », non valide : %s"
 
 #: backends/xml-entry.c:380
 #, c-format
@@ -223,7 +224,7 @@ msgstr "Ignore le noeud XML « %s » : %s"
 #: backends/xml-entry.c:732
 #, c-format
 msgid "Failed reading default value for schema: %s"
-msgstr "Échec lors de la lecture de la valeur par défaut du schéma : %s"
+msgstr "La lecture de la valeur par défaut du schéma a échoué : %s"
 
 #: backends/xml-entry.c:952
 #, c-format
@@ -327,7 +328,7 @@ msgstr "Impossible de trouver le module pour « %s »"
 
 #: gconf/gconf-backend.c:299
 msgid "Failed to shut down backend"
-msgstr "Impossible d'arrêter le module"
+msgstr "L'arrêt du module a échoué"
 
 #: gconf/gconf-client.c:342 gconf/gconf-client.c:360
 #, c-format
@@ -367,13 +368,13 @@ msgstr "Réception de la demande de synchronisation synchrone"
 #: gconf/gconf-database.c:826
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
-"Erreur fatale : impossible d'obtenir la référence de l'objet pour "
-"ConfigDatabase"
+"Erreur fatale : l'obtention de la référence de l'objet pour ConfigDatabase a "
+"échoué"
 
 #: gconf/gconf-database.c:988
 #, c-format
 msgid "Failed to sync one or more sources: %s"
-msgstr "Impossible de synchroniser une ou plusieurs sources : %s"
+msgstr "La synchronisation de une ou plusieurs sources a échoué : %s"
 
 #: gconf/gconf-database.c:1080
 #, c-format
@@ -382,7 +383,7 @@ msgid ""
 "listener on gconfd restart, resulting in unreliable notification of "
 "configuration changes."
 msgstr ""
-"Impossible de consigner l'addition de l'auditeur %s (%s) ; il sera "
+"La consignation de l'addition de l'auditeur %s (%s) a échoué ; il sera "
 "impossible de restorer cet auditeur au redémarrage de gconfd, ce qui se "
 "traduira par une notification non sûre de changements de configuration."
 
@@ -397,9 +398,9 @@ msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
 "result in a notification weirdly reappearing): %s"
 msgstr ""
-"Impossible de consigner la suppression de l'auditeur dans le fichier journal "
-"(généralement sans problème, mais peut entraîner la réapparition d'une "
-"notification génante) : %s"
+"La consignation de la suppression de l'auditeur dans le fichier de "
+"journalisation a échoué (généralement sans problème, mais peut entraîner la "
+"réapparition d'une notification génante) : %s"
 
 #: gconf/gconf-database.c:1243 gconf/gconf-sources.c:1541
 #, c-format
@@ -444,7 +445,7 @@ msgstr "Erreur durant la suppression du répertoire « %s » : %s"
 #: gconf/gconf-database.c:1544
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
-msgstr "Impossible d'obtenir toutes les entrées dans « %s » : %s"
+msgstr "L'obtention de toutes les entrées dans « %s » a échoué : %s"
 
 #: gconf/gconf-database.c:1570
 #, c-format
@@ -515,7 +516,7 @@ msgstr "Opération non autorisé sans serveur de configuration"
 
 #: gconf/gconf-error.c:39
 msgid "Failed to get a lock"
-msgstr "Impossible d'obtenir un verrou"
+msgstr "L'obtention d'un verrou a échoué"
 
 #: gconf/gconf-error.c:40
 msgid "No database available to save your configuration"
@@ -546,7 +547,7 @@ msgstr "Réception d'une liste depuis gconfd avec un type de liste incorrect"
 
 #: gconf/gconf-internals.c:454
 msgid "Failed to convert object to IOR"
-msgstr "Impossible de convertir l'objet vers IOR"
+msgstr "La convertion de l'objet vers IOR a échoué"
 
 #: gconf/gconf-internals.c:591
 msgid "Invalid UTF-8 in locale for schema"
@@ -639,7 +640,7 @@ msgstr ""
 #: gconf/gconf-internals.c:2360
 #, c-format
 msgid "Failed to create or open '%s'"
-msgstr "Impossible de créer ou d'ouvrir « %s »"
+msgstr "La création ou l'ouverture de « %s » a échoué"
 
 #: gconf/gconf-internals.c:2370
 #, c-format
@@ -647,7 +648,7 @@ msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
 "operating system has NFS file locking misconfigured (%s)"
 msgstr ""
-"Impossible de verrouiller « %s » : un autre processus l'a probablement "
+"Le verrouillage de « %s » a échoué : un autre processus l'a probablement "
 "verrouillé ou le verrouillage de fichiers NFS est mal configuré dans votre "
 "système d'exploitation (%s)"
 
@@ -655,7 +656,8 @@ msgstr ""
 #, c-format
 msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
 msgstr ""
-"Le fichier IOR « %s » n'a pas été ouvert avec succès, aucun gconfd situé : %s"
+"Le fichier IOR « %s » n'a pas été ouvert avec succès, aucun gconfd "
+"localisé : %s"
 
 #: gconf/gconf-internals.c:2430
 #, c-format
@@ -671,7 +673,7 @@ msgstr ""
 #: gconf/gconf-internals.c:2457
 #, c-format
 msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "Impossible de convertir l'IOR « %s » vers une référence d'objet"
+msgstr "La convertion de l'IOR « %s » vers une référence d'objet a échoué"
 
 #: gconf/gconf-internals.c:2507
 #, c-format
@@ -692,27 +694,27 @@ msgstr ""
 #: gconf/gconf-internals.c:2628
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
-msgstr "Impossible de lier « %s » à « %s » : %s"
+msgstr "Le lien de « %s » vers « %s » a échoué : %s"
 
 #: gconf/gconf-internals.c:2640
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
-msgstr "Impossible de supprimer le verrou de fichier « %s » : %s"
+msgstr "La suppression du verrou du fichier « %s » a échoué : %s"
 
 #: gconf/gconf-internals.c:2659
 #, c-format
 msgid "Failed to clean up file '%s': %s"
-msgstr "Impossible de nettoyer le fichier « %s » : %s"
+msgstr "Le nettoyage du fichier « %s » a échoué : %s"
 
 #: gconf/gconf-internals.c:2673
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
-msgstr "Impossible de supprimer le verrou de répertoire « %s » : %s"
+msgstr "La suppression du verrou du répertoire « %s » a échoué : %s"
 
 #: gconf/gconf-internals.c:2816 gconf/gconfd.c:596
 #, c-format
 msgid "Failed to create %s: %s"
-msgstr "Impossible de créer %s : %s"
+msgstr "La création de %s a échoué : %s"
 
 #: gconf/gconf-internals.c:2838
 #, c-format
@@ -723,13 +725,13 @@ msgstr "Erreur de ping du serveur : %s"
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
-"Impossible de créer un tube pour communiquer avec les démons gconf créés : %"
+"La création du tube pour communiquer avec les démons gconf créés a échoué : %"
 "s\n"
 
 #: gconf/gconf-internals.c:2883
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
-msgstr "Impossible de lancer le serveur de configuration : %s\n"
+msgstr "Le lancement de serveur de configuration a échoué : %s\n"
 
 #: gconf/gconf-internals.c:2908
 #, c-format
@@ -739,7 +741,7 @@ msgid ""
 "to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
 "(Details - %s)"
 msgstr ""
-"Échec du contact du serveur de configuration ; causes possibles : vous "
+"Le contact du serveur de configuration a échoué ; causes possibles : vous "
 "n'avez pas activé le réseau TCP/IP pour ORBit ou des verrous NFS non valides "
 "existent suite à un blocage du système. Voir http://www.gnome.org/projects/"
 "gconf/ pour plus d'informations. (Détails - %s)"
@@ -839,21 +841,21 @@ msgstr "Le schéma contient de l'UTF-8 non valide"
 msgid ""
 "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
-"Le schéma spécifie une liste de type mais ne spécifie pas le type de la "
-"liste d'éléments"
+"Le schéma spécifie un type « list » mais ne spécifie pas le type des "
+"éléments de la liste"
 
 #: gconf/gconf-schema.c:264
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
 msgstr ""
-"Le schéma spécifie une liste de paire mais ne spécifie pas le type des "
+"Le schéma spécifie un type « pair » mais ne spécifie pas le type des "
 "éléments car/cdr"
 
 #: gconf/gconf-sources.c:319
 #, c-format
 msgid "Failed to load source \"%s\": %s"
-msgstr "Impossible de charger la source « %s » : %s"
+msgstr "Le chargement de la source « %s » a échoué : %s"
 
 #: gconf/gconf-sources.c:346
 #, c-format
@@ -1202,19 +1204,19 @@ msgstr "démarrage (version %s), pid %u utilisateur « %s »"
 
 #: gconf/gconfd.c:583
 msgid "Failed to get object reference for ConfigServer"
-msgstr "Impossible d'obtenir la référence de l'objet pour ConfigServer"
+msgstr "L'obtention de la référence de l'objet pour ConfigServer a échoué"
 
 #: gconf/gconfd.c:621
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
-"Impossible d'écrire un octet dans le tube fd %d, le programme client s'est "
+"L'écriture d'un octet dans le tube fd %d a échoué, le programme client s'est "
 "peut-être bloqué : %s"
 
 #: gconf/gconfd.c:631
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
-msgstr "Impossible d'obtenir le verrou pour le démon, sortie : %s"
+msgstr "L'obtention du verrou pour le démon a échoué, sortie : %s"
 
 #: gconf/gconfd.c:669
 #, c-format
@@ -1240,16 +1242,16 @@ msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
 "gconfd shutdown (%s)"
 msgstr ""
-"Impossible d'ouvrir le fichier journal de gconfd ; impossible de restorer "
-"les auditeurs aprés l'arrêt de gconfd (%s)"
+"L'ouverture du fichier de journalisation de gconfd a échoué ; il sera "
+"impossible de restorer les auditeurs aprés l'arrêt de gconfd (%s)"
 
 #: gconf/gconfd.c:1204
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
-"Impossible de fermer le fichier journal de gconfd ; des données peuvent ne "
-"pas avoir été correctement enregistrées (%s)"
+"La fermeture du fichier de journalisation de gconfd a échoué ; des données "
+"peuvent ne pas avoir été correctement enregistrées (%s)"
 
 #: gconf/gconfd.c:1273
 #, c-format
@@ -1265,7 +1267,7 @@ msgstr "Impossible d'écrire le fichier d'état enregistré « %s » fd : %d�
 #: gconf/gconfd.c:1296
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
-msgstr "Impossible de fermer le nouveau fichier d'état enregistré « %s » : %s"
+msgstr "La fermeture du nouveau fichier d'état enregistré « %s » a échoué : %s"
 
 #: gconf/gconfd.c:1310
 #, c-format
@@ -1276,15 +1278,15 @@ msgstr "Impossible de déplacer l'ancien fichier d'état enregistré « %s »�
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr ""
-"Impossible de déplacer le nouveau fichier d'état enregistré à la place : %s"
+"Le déplacement du nouveau fichier d'état enregistré à la place a échoué : %s"
 
 #: gconf/gconfd.c:1329
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr ""
-"Impossible de restorer le fichier d'état original enregistré qui a été "
-"déplacé vers « %s » : %s"
+"La restoration du fichier d'état original enregistré qui a été déplacé vers "
+"« %s » a échoué : %s"
 
 #: gconf/gconfd.c:1800
 #, c-format
@@ -1310,9 +1312,9 @@ msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to re-"
 "add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
-"Impossible de consigner l'addition d'un auditeur dans fichier journal de "
-"gconfd ; il ne sera pas possible de rajouter l'auditeur si gconfd quitte ou "
-"s'arrête (%s)"
+"La consignation de l'addition d'un auditeur dans le fichier de "
+"journalisation de gconfd a échoué ; il ne sera pas possible de rajouter "
+"l'auditeur si gconfd quitte ou s'arrête (%s)"
 
 #: gconf/gconfd.c:2023
 #, c-format
@@ -1320,31 +1322,33 @@ msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously re-"
 "add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
-"Impossible de consigner la suppression de l'auditeur dans fichier journal de "
-"gconfd ; il est possible que l'auditeur soit rajouter par erreur si gconfd "
-"quitte ou s'arrête (%s)"
+"La consignation de la suppression de l'auditeur dans le fichier de "
+"journalisation de gconfd a échoué ; il est possible que l'auditeur soit "
+"rajouté par erreur si gconfd quitte ou s'arrête (%s)"
 
 #: gconf/gconfd.c:2046 gconf/gconfd.c:2220
 #, c-format
 msgid "Failed to get IOR for client: %s"
-msgstr "Impossible d'obtenir l'IOR pour le client : %s"
+msgstr "L'obtention de l'IOR pour le client a échoué : %s"
 
 #: gconf/gconfd.c:2061
 #, c-format
 msgid "Failed to open saved state file: %s"
-msgstr "Impossible d'ouvrir le fichier d'état enregistré : %s"
+msgstr "L'ouverture du fichier d'état enregistré a échoué : %s"
 
 #: gconf/gconfd.c:2074
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr ""
-"Impossible d'écrire l'ajout du client dans le fichier d'état enregistré : %s"
+"L'écriture de l'ajout du client dans le fichier d'état enregistré a échoué : "
+"%s"
 
 #: gconf/gconfd.c:2082
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
-"Impossible de vider l'ajout du client dans le fichier d'état enregistré : %s"
+"L'effacement de l'ajout du client dans le fichier d'état enregistré a "
+"échoué : %s"
 
 #: gconf/gconfd.c:2181
 msgid ""
@@ -1505,7 +1509,7 @@ msgid ""
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
 "config source or set to the empty string to use the default."
 msgstr ""
-"Installe cerrectement les fichiers de schéma de la ligne de commande dans la "
+"Installe correctement les fichiers de schéma de la ligne de commande dans la "
 "base de données. La variable d'environnement GCONF_CONFIG_SOURCE ne doit pas "
 "être définie sur la source de configuration par défaut ou doit être définie "
 "sur une chaîne vide pour utiliser la valeur par défaut."
@@ -1636,7 +1640,7 @@ msgstr ""
 #: gconf/gconftool.c:579
 #, c-format
 msgid "Failed to init GConf: %s\n"
-msgstr "Echec d'initialisation de GConf : %s\n"
+msgstr "L'initialisation de GConf a échoué : %s\n"
 
 #: gconf/gconftool.c:608
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
@@ -1651,7 +1655,7 @@ msgstr "Vous devez définir la variable d'environnement GCONF_CONFIG_SOURCE\n"
 #: gconf/gconftool.c:650
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
-msgstr "Impossible d'accéder a(ux) source(s) de configuration : %s\n"
+msgstr "L'accès a(ux) source(s) de configuration a échoué : %s\n"
 
 #: gconf/gconftool.c:872
 #, c-format
@@ -1675,7 +1679,7 @@ msgstr "(aucune valeur définie)"
 #: gconf/gconftool.c:1022
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
-msgstr "Impossible d'engendrer le serveur de configuration (gconfd) : %s\n"
+msgstr "L'engendrement du serveur de configuration (gconfd) a échoué : %s\n"
 
 #: gconf/gconftool.c:1036
 msgid "Must specify a key or keys to get\n"
@@ -1734,7 +1738,7 @@ msgstr "Aucune valeur définie pour « %s »\n"
 #: gconf/gconftool.c:1096 gconf/gconftool.c:1390
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
-msgstr "Impossible d'obtenir une valeur pour « %s » : %s\n"
+msgstr "L'obtenion de la valeur pour « %s » a échoué : %s\n"
 
 #: gconf/gconftool.c:1139 gconf/gconftool.c:1151
 #, c-format
@@ -1906,8 +1910,8 @@ msgstr "AVERTISSEMENT : list_type non valide ou manquant pour le schéma (%s)\n
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
-"AVERTISSEMENT : Échec d'analyse de la valeur par défaut « %s » pour le "
-"schéma (%s)\n"
+"AVERTISSEMENT : L'analyse de la valeur par défaut « %s » pour le schéma (%s) "
+"a échoué\n"
 
 #: gconf/gconftool.c:1805
 #, c-format
@@ -1930,7 +1934,7 @@ msgstr "AVERTISSEMENT : erreur interne gconftool, GConfValueType inconnu\n"
 #: gconf/gconftool.c:1969
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
-msgstr "AVERTISSEMENT : impossible d'analyser le nom du type « %s »\n"
+msgstr "AVERTISSEMENT : l'analyse du nom du type « %s » a échoué\n"
 
 #: gconf/gconftool.c:1923
 #, c-format
@@ -2005,8 +2009,8 @@ msgstr "AVERTISSEMENT : noeud <%s> non valide dans un noeud <locale>\n"
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
-"AVERTISSEMENT : impossible d'installer le schéma « %s » pour la langue « %"
-"s » : %s\n"
+"AVERTISSEMENT : l'installation du schéma « %s » pour la langue « %s » a "
+"échoué : %s\n"
 
 #: gconf/gconftool.c:2182
 #, c-format
@@ -2017,8 +2021,8 @@ msgstr "Schéma « %s » installé pour la langue « %s »\n"
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr ""
-"AVERTISSEMENT : impossible d'associer le schéma « %s » avec la clé « %s » : %"
-"s\n"
+"AVERTISSEMENT : l'association du schéma « %s » avec la clé « %s » a échoué : "
+"%s\n"
 
 #: gconf/gconftool.c:2212
 #, c-format
@@ -2037,7 +2041,7 @@ msgstr "AVERTISSEMENT : le noeud <%s> n'est pas compris sous <schemalist>\n"
 #: gconf/gconftool.c:2345
 #, c-format
 msgid "Failed to open `%s': %s\n"
-msgstr "Impossible d'ouvrir « %s » : %s\n"
+msgstr "L'ouverture de « %s » a échoué : %s\n"
 
 #: gconf/gconftool.c:2352
 #, c-format
@@ -2085,7 +2089,7 @@ msgstr ""
 #: gconf/gconftool.c:2475
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
-msgstr "Échec de l'annulation de la clé de rupture %s : %s\n"
+msgstr "L'annulation de la clé de rupture %s a échoué : %s\n"
 
 #: gconf/gconftool.c:2601
 msgid "Must specify some keys to break\n"
