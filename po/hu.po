@@ -4,17 +4,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.6\n"
-"POT-Creation-Date: 2001-02-01 18:05+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2001-02-07 18:56+0100\n"
+"PO-Revision-Date: 2001-02-07 19:01+01:00\n"
 "Last-Translator: Gabor Laszlo Kiss <docy@levele.com>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"Language-Team: Hungarian <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso8859-2\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: backends/bdb-backend.c:211
 msgid "Unloading BerkeleyDB (BDB) backend module."
-msgstr "Nincs betöltve a BerkeleyDB (BDB) háttér modul."
+msgstr "BerkeleyDB (BDB) backend-modul eltávolítása."
 
 #: backends/bdb-backend.c:234
 #, c-format
@@ -23,19 +23,19 @@ msgstr "BerkeleyDB forrás nyitva van a gyökérben %s"
 
 #: backends/bdb-backend.c:574
 msgid "Initializing BDB backend module"
-msgstr "BDB háttér modul indítása"
+msgstr "BDB backend-modul indítása"
 
-#: backends/dir-utils.c:88
+#: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Nem található a %s gyökér könyvtár a `%s' címen"
 
-#: backends/dir-utils.c:104 backends/xml-backend.c:301 backends/xml-dir.c:1035
+#: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Nem lehet a könyvtárat létrehozni `%s': %s"
 
-#: backends/dir-utils.c:192
+#: backends/dir-utils.c:212
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr "Nem tudok olvasni vagy irni a %s gyökér könyvtárban a `%s' címen"
@@ -98,58 +98,63 @@ msgstr "Nem sikerült a `%s' fájl adatait lekérdezni: %s"
 msgid "XML filename `%s' is a directory"
 msgstr "XML `%s' fájlnév egy könyvtár"
 
-#: backends/xml-dir.c:293 backends/xml-dir.c:300
+#: backends/xml-dir.c:298 backends/xml-dir.c:305
 #, c-format
 msgid "Failed to delete `%s': %s"
 msgstr "Sikertelen `%s' törlése: %s"
 
-#: backends/xml-dir.c:341
+#: backends/xml-dir.c:346
 #, c-format
 msgid "Failed to write file `%s': %s"
 msgstr "Nem tudom írni `%s' fájlt: %s"
 
-#: backends/xml-dir.c:357 backends/xml-dir.c:367
+#: backends/xml-dir.c:359
+#, fuzzy, c-format
+msgid "Failed to set mode on `%s': %s"
+msgstr "Sikertelen `%s' törlése: %s"
+
+#: backends/xml-dir.c:373 backends/xml-dir.c:383
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "Sikertelen átnevezés `%s'-rõl `%s'-re: %s"
 
-#: backends/xml-dir.c:373
+#: backends/xml-dir.c:389
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
 msgstr "Sikertelen visszaállítás `%s'-re `%s'-rõl: %s"
 
-#: backends/xml-dir.c:385
+#: backends/xml-dir.c:401
 #, c-format
 msgid "Failed to delete old file `%s': %s"
 msgstr "Sikertelen a régi `%s' fájl törlése: %s"
 
 #. These are all fatal errors
-#: backends/xml-dir.c:790
+#: backends/xml-dir.c:806
 #, c-format
 msgid "Failed to stat `%s': %s"
 msgstr "Sikertelen adat lekérdezés a `%s'-rõl: %s"
 
-#: backends/xml-dir.c:934
+#: backends/xml-dir.c:950
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
 msgstr "Kettõs bejegyzés `%s' a `%s'-ben, elvetem"
 
-#: backends/xml-dir.c:956
+#: backends/xml-dir.c:972
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
 msgstr "Név nélküli bejegyzés az XML `%s' fájlban, elvetem"
 
-#: backends/xml-dir.c:963
+#: backends/xml-dir.c:979
 #, c-format
 msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
 msgstr "Felsõ szintû node az XML `%s' fájlban nem <bejegyezés>, elvetem"
 
-#: backends/xml-dir.c:1051
+#: backends/xml-dir.c:1067
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Sikertelen a `%s' fájl létrehozása: %s"
 
-#: backends/xml-dir.c:1059 gconf/gconf-internals.c:2471
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2471
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Sikertelen a `%s' fájl bezárása: %s"
