@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
-"POT-Creation-Date: 2001-08-11 19:47+0200\n"
+"POT-Creation-Date: 2001-08-15 18:01-0400\n"
 "PO-Revision-Date: 2001-08-11 19:47+02:00\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -91,8 +91,8 @@ msgstr ""
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
-"%u items remain in the cache after cleaning already-synced items older than "
-"%u seconds"
+"%u items remain in the cache after cleaning already-synced items older than %"
+"u seconds"
 msgstr ""
 "%u punkter er i bufferen efter fjerning af allerede synkroniserede punkter "
 "ældre end %u sekunder"
@@ -163,7 +163,7 @@ msgstr "Topniveau-punkt i XML-filen '%s' er ikke <entry>, ignorerer"
 msgid "Failed to create file `%s': %s"
 msgstr "Kunne ikke oprette filen '%s': %s"
 
-#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2489
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2494
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "Kunne ikke lukke filen '%s': %s"
@@ -184,84 +184,81 @@ msgstr "%s"
 msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "ignorerer skemanavn '%s', ugyldigt: %s"
 
-#. FIXME for nodes with no value stored, but containing a schema name,
-#. * we improperly log an error here
-#.
-#: backends/xml-entry.c:373
-#, c-format
-msgid "Ignoring XML node `%s', except for possible schema name: %s"
-msgstr "Ignorerer XML-elementet '%s', bortset fra muligt skemanavn: %s"
+#: backends/xml-entry.c:375
+#, fuzzy, c-format
+msgid "Ignoring XML node `%s': %s"
+msgstr "Ignorerer XML-element med navnet '%s': %s"
 
-#: backends/xml-entry.c:724
+#: backends/xml-entry.c:726
 #, c-format
 msgid "Failed reading default value for schema: %s"
 msgstr "Kunne ikke læse standardværdi for skema: %s"
 
-#: backends/xml-entry.c:938
+#: backends/xml-entry.c:940
 #, c-format
 msgid "No \"type\" attribute for <%s> node"
 msgstr "Ingen \"type\"-egenskab for <%s>-element"
 
-#: backends/xml-entry.c:952
+#: backends/xml-entry.c:954
 #, c-format
 msgid "A node has unknown \"type\" attribute `%s', ignoring"
 msgstr "Et element har en ukendt \"type\"-egenskab '%s', ignorerer"
 
-#: backends/xml-entry.c:967
+#: backends/xml-entry.c:969
 msgid "No \"value\" attribute for node"
 msgstr "Ingen \"værdi\"-egenskab for element"
 
-#: backends/xml-entry.c:1015 backends/xml-entry.c:1091
+#: backends/xml-entry.c:1017 backends/xml-entry.c:1093
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
 msgstr "Forstod ikke XML-elementet <%s> inde i et XML-listeelement"
 
-#: backends/xml-entry.c:1049
+#: backends/xml-entry.c:1051
 msgid "Invalid type (list, pair, or unknown) in a list node"
 msgstr "Ugyldig type (liste, par, eller ukendt) i et listeelement"
 
-#: backends/xml-entry.c:1072
+#: backends/xml-entry.c:1074
 #, c-format
 msgid "Bad XML node: %s"
 msgstr "Ugyldigt XML-element: %s"
 
-#: backends/xml-entry.c:1080
+#: backends/xml-entry.c:1082
 #, c-format
 msgid "List contains a badly-typed node (%s, should be %s)"
 msgstr "Listen indeholder et forkert stavet element (%s, skulle være %s)"
 
-#: backends/xml-entry.c:1132
+#: backends/xml-entry.c:1134
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
 msgstr "Ignorerer ugyldig car fra XML-par: %s"
 
-#: backends/xml-entry.c:1141 backends/xml-entry.c:1164
+#: backends/xml-entry.c:1143 backends/xml-entry.c:1166
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
 msgstr "fortolker XML-fil: lister og par kan ikke placeres inde i et par"
 
-#: backends/xml-entry.c:1154
+#: backends/xml-entry.c:1156
 #, c-format
 msgid "Ignoring bad cdr from XML pair: %s"
 msgstr "Ignorerer ugyldig cdr fra XML-par: %s"
 
-#: backends/xml-entry.c:1173
+#: backends/xml-entry.c:1175
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML pair node"
 msgstr "Forstod ikke XML-element <%s> inde i et XML-parelement"
 
-#: backends/xml-entry.c:1191
+#: backends/xml-entry.c:1193
 msgid "Didn't find car and cdr for XML pair node"
 msgstr "Fandt ikke car og cdr for XML-parelement"
 
-#: backends/xml-entry.c:1197
+#: backends/xml-entry.c:1199
 msgid "Missing cdr from pair of values in XML file"
 msgstr "Manglende cdr fra værdipar i XML-fil"
 
-#: backends/xml-entry.c:1204
+#: backends/xml-entry.c:1206
 msgid "Missing car from pair of values in XML file"
 msgstr "Manglende car fra værdipar i XML-fil"
 
-#: backends/xml-entry.c:1209
+#: backends/xml-entry.c:1211
 msgid "Missing both car and cdr values from pair in XML file"
 msgstr "Mangler både car- og cdr-værdier fra par i XML-fil"
 
@@ -486,96 +483,96 @@ msgstr "Kunne ikke konvertere objekt til IOR"
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Kunne ikke åbne sti-fil '%s': %s\n"
 
-#: gconf/gconf-internals.c:868
+#: gconf/gconf-internals.c:873
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Tilføjer kilde '%s'\n"
 
-#: gconf/gconf-internals.c:880
+#: gconf/gconf-internals.c:885
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Læsefejl på fil '%s': %s\n"
 
-#: gconf/gconf-internals.c:1322
+#: gconf/gconf-internals.c:1327
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Forventede liste, fik %s"
 
-#: gconf/gconf-internals.c:1332
+#: gconf/gconf-internals.c:1337
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Forventede liste af %s, fik liste af %s"
 
-#: gconf/gconf-internals.c:1471
+#: gconf/gconf-internals.c:1476
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Forventede par, fik %s"
 
-#: gconf/gconf-internals.c:1485
+#: gconf/gconf-internals.c:1490
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr "Forventede (%s,%s) par, fik par hvor én eller begge værdier manglede"
 
-#: gconf/gconf-internals.c:1501
+#: gconf/gconf-internals.c:1506
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Forventede par af typen (%s,%s) fik typen (%s,%s)"
 
-#: gconf/gconf-internals.c:1617
+#: gconf/gconf-internals.c:1622
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Tekst i citationstegn begynder ikke med et citationstegn"
 
-#: gconf/gconf-internals.c:1679
+#: gconf/gconf-internals.c:1684
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Tekst i citationstegn slutter ikke med et citationstegn"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
+#: gconf/gconf-internals.c:2164 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA-fejl: %s"
 
-#: gconf/gconf-internals.c:2175
+#: gconf/gconf-internals.c:2180
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "OAF-problembeskrivelse: %s"
 
-#: gconf/gconf-internals.c:2181
+#: gconf/gconf-internals.c:2186
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "forsøg på at fjerne ikke-listet OAF-objektmappe"
 
-#: gconf/gconf-internals.c:2186
+#: gconf/gconf-internals.c:2191
 msgid "attempt to add already-listed OAF directory"
 msgstr "forsøg på at tilføje allerede listet OAF-mappe"
 
-#: gconf/gconf-internals.c:2193
+#: gconf/gconf-internals.c:2198
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "OAF-fortolkningsfejl: %s"
 
-#: gconf/gconf-internals.c:2198
+#: gconf/gconf-internals.c:2203
 msgid "Unknown OAF error"
 msgstr "Ukendt OAF-fejl"
 
-#: gconf/gconf-internals.c:2285
+#: gconf/gconf-internals.c:2290
 #, c-format
 msgid "No ior file in `%s'"
 msgstr "Ingen IOR-fil i '%s'"
 
-#: gconf/gconf-internals.c:2316
+#: gconf/gconf-internals.c:2321
 #, c-format
 msgid "gconfd taking lock `%s' from some other process"
 msgstr "gconfd overtager låsen '%s' fra en anden proces"
 
-#: gconf/gconf-internals.c:2327
+#: gconf/gconf-internals.c:2332
 #, c-format
 msgid "Another program has lock `%s'"
 msgstr "Et andet program har låsen '%s'"
 
-#: gconf/gconf-internals.c:2346
+#: gconf/gconf-internals.c:2351
 msgid "couldn't contact ORB to ping existing gconfd"
 msgstr "kunne ikke kontakte ORB for at pinge eksisterende gconfd"
 
-#: gconf/gconf-internals.c:2354
+#: gconf/gconf-internals.c:2359
 #, c-format
 msgid ""
 "Removing stale lock `%s' because IOR couldn't be converted to object "
@@ -584,42 +581,42 @@ msgstr ""
 "Fjerner udgået lås '%s' fordi IOR ikke kunne konverteres til "
 "objektreference, IOR '%s'"
 
-#: gconf/gconf-internals.c:2366
+#: gconf/gconf-internals.c:2371
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
 msgstr "Fjerner udgået lås '%s' pga. fejl under pingning af server: %s"
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2383
 #, c-format
 msgid "GConf configuration daemon (gconfd) has lock `%s'"
 msgstr "GConf-konfigurationsdæmon (gconfd) har lås '%s'"
 
-#: gconf/gconf-internals.c:2392
+#: gconf/gconf-internals.c:2397
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "kunne ikke oprette kataloget '%s': %s"
 
-#: gconf/gconf-internals.c:2441
+#: gconf/gconf-internals.c:2446
 #, c-format
 msgid "Can't create lock `%s': %s"
 msgstr "Kan ikke oprette lås '%s': %s"
 
-#: gconf/gconf-internals.c:2477
+#: gconf/gconf-internals.c:2482
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Kan ikke skrive til filen '%s': %s"
 
-#: gconf/gconf-internals.c:2527
+#: gconf/gconf-internals.c:2532
 #, c-format
 msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
 msgstr "Kan ikke åbne låsefil '%s'; antager det ikke er vores: %s"
 
-#: gconf/gconf-internals.c:2544
+#: gconf/gconf-internals.c:2549
 #, c-format
 msgid "Corrupt lock file `%s', removing anyway"
 msgstr "Ødelagt låsefil '%s', fjerner alligevel"
 
-#: gconf/gconf-internals.c:2554
+#: gconf/gconf-internals.c:2559
 #, c-format
 msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
@@ -628,7 +625,7 @@ msgstr ""
 "Oprettede ikke låsefilen '%s' (skabers pid %u, vores pid %u; antager at en "
 "anden har overtaget vores lås"
 
-#: gconf/gconf-internals.c:2571
+#: gconf/gconf-internals.c:2576
 #, c-format
 msgid "Failed to release lock directory `%s': %s"
 msgstr "Kunne ikke frigive låsekatalog '%s': %s"
@@ -871,6 +868,10 @@ msgstr ""
 "Ingen konfigurationskilder i kildestien, konfigurationen vil ikke blive "
 "gemt; redigér"
 
+#: gconf/gconfd.c:307
+msgid "/path"
+msgstr ""
+
 #: gconf/gconfd.c:321
 #, c-format
 msgid "Error loading some config sources: %s"
@@ -1071,8 +1072,8 @@ msgstr "Kunne ikke åbne tilstandsgemningsfilen '%s': %s"
 #: gconf/gconfd.c:2035
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to "
-"re-add the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to re-"
+"add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Kunne ikke logge tilføjelse af lytter til gconfd-logfilen; vil ikke kunne "
 "tilføje lytteren hvis gconfd afslutter eller lukker ned (%s)"
@@ -1080,8 +1081,8 @@ msgstr ""
 #: gconf/gconfd.c:2040
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously "
-"re-add the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously re-"
+"add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Kunne ikke logge fjernelse af lytter i gconfd-logfilen; kan medføre at "
 "lytter tilføjes igen hvis gconfd afsluttes eller maskinen lukkes ned (%s)."
@@ -1126,11 +1127,11 @@ msgstr "Udskriv værdien for en nøgle til standard-ud."
 
 #: gconf/gconftool.c:95
 msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
-"--type."
+"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
+"type."
 msgstr ""
-"Sæt et skema og synkroniser. Benyttes med --short-desc, --long-desc, "
-"--owner, og --type."
+"Sæt et skema og synkroniser. Benyttes med --short-desc, --long-desc, --"
+"owner, og --type."
 
 #: gconf/gconftool.c:105
 msgid "Unset the keys on the command line"
@@ -1329,19 +1330,19 @@ msgstr "Kan ikke bruge --all-dirs med --get eller --set\n"
 
 #: gconf/gconftool.c:427
 msgid ""
-"--recursive-list should not be used with --get, --set, --unset, "
-"--all-entries, or --all-dirs\n"
+"--recursive-list should not be used with --get, --set, --unset, --all-"
+"entries, or --all-dirs\n"
 msgstr ""
 "--recursive-list kan ikke bruges med --get, --set, --unset, --all-entries "
 "eller --all-dirs\n"
 
 #: gconf/gconftool.c:437
 msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, "
-"--all-dirs\n"
+"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
+"all-dirs\n"
 msgstr ""
-"--set_schema kan ikke bruges med --get, --set, --unset, --all-entries, "
-"--all-dirs\n"
+"--set_schema kan ikke bruges med --get, --set, --unset, --all-entries, --all-"
+"dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
@@ -1379,8 +1380,8 @@ msgstr "--break-directory skal bruges alene.\n"
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
-"Du skal angive en konfigurationskilde med --config-source når du bruger "
-"--direct\n"
+"Du skal angive en konfigurationskilde med --config-source når du bruger --"
+"direct\n"
 
 #: gconf/gconftool.c:525
 #, c-format
@@ -1839,13 +1840,16 @@ msgstr "GConf-advarsel: fejl ved listning af par i '%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Forventede '%s', fik '%s' for nøglen %s"
 
+#~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
+#~ msgstr "Ignorerer XML-elementet '%s', bortset fra muligt skemanavn: %s"
+
 #~ msgid ""
 #~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the problem. "
-#~ "Please file an OAF bug report."
+#~ "oaf_activate_from_id() and did not set an exception explaining the "
+#~ "problem. Please file an OAF bug report."
 #~ msgstr ""
-#~ "Fejl under forsøg på at kontakte konfigurationsserveren: OAF returnerede nul "
-#~ "fra oaf_activate_from_id() og satte ikke en undtagelse som forklarede "
+#~ "Fejl under forsøg på at kontakte konfigurationsserveren: OAF returnerede "
+#~ "nul fra oaf_activate_from_id() og satte ikke en undtagelse som forklarede "
 #~ "problemet. Udfyld venligst en fejlrapport for OAF."
 
 #~ msgid "GConf was built with debugging features enabled"
@@ -1862,25 +1866,26 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "(Tekst i nærheden var '%s')\n"
 
 #~ msgid ""
-#~ "Text ended in the middle of an entity, or entity name too long to be valid "
-#~ "('&' should begin an entity such as '&quot;')"
+#~ "Text ended in the middle of an entity, or entity name too long to be "
+#~ "valid ('&' should begin an entity such as '&quot;')"
 #~ msgstr ""
 #~ "Teksten sluttede midt i en entitet eller entitetens navn overskred gyldig "
 #~ "længde ('&' bør være begyndelsen på en entitet såsom '&quot;')"
 
 #~ msgid ""
-#~ "Unknown entity '%s' ('&' must begin entities &amp; &quot; &lt; &gt; &apos;)"
+#~ "Unknown entity '%s' ('&' must begin entities &amp; &quot; &lt; &gt; "
+#~ "&apos;)"
 #~ msgstr ""
-#~ "Ukendt entitet '%s' ('&' skal være begyndelsen på entiteterne &amp; &quot; "
-#~ "&lt; &gt; &apos;)"
+#~ "Ukendt entitet '%s' ('&' skal være begyndelsen på entiteterne &amp; "
+#~ "&quot; &lt; &gt; &apos;)"
 
 #~ msgid ""
 #~ "Markup text ended in the middle of a character reference, just after '&#'"
 #~ msgstr "Mærket tekst sluttede midt i en tegnreference, lige efter '&#'"
 
 #~ msgid ""
-#~ "Character reference contained non-digit '%s' ('&#' should begin a reference "
-#~ "to a unicode character, such as '&#2342;')"
+#~ "Character reference contained non-digit '%s' ('&#' should begin a "
+#~ "reference to a unicode character, such as '&#2342;')"
 #~ msgstr ""
 #~ "Tegnreferencen indeholdt ikke-tal '%s' ('&#' skal være begyndelsen på en "
 #~ "reference til et UCS tegn, såsom '&#2342;')"
@@ -1889,8 +1894,8 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "Text ended in the middle of an character reference ('&#' should begin a "
 #~ "character reference such as '&#2342;')"
 #~ msgstr ""
-#~ "Tekst sluttede i midten af en tegnreference ('&#' skal være begyndelsen på "
-#~ "en tegnreference såsom '&#2342;')"
+#~ "Tekst sluttede i midten af en tegnreference ('&#' skal være begyndelsen "
+#~ "på en tegnreference såsom '&#2342;')"
 
 #~ msgid ""
 #~ "Couldn't parse character reference '%s' ('&#' must begin a character "
@@ -1903,8 +1908,8 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "Character code %#lx is not allowed in XML documents or is not a valid "
 #~ "Unicode character"
 #~ msgstr ""
-#~ "Tegnkoden %#lx er ikke tilladt i XML-dokumenter eller den er ikke et gyldigt "
-#~ "UCS tegn"
+#~ "Tegnkoden %#lx er ikke tilladt i XML-dokumenter eller den er ikke et "
+#~ "gyldigt UCS tegn"
 
 #~ msgid ""
 #~ "Document ended just after an '&', '&' should begin an entity or character "
@@ -1914,13 +1919,13 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "tegnreference."
 
 #~ msgid ""
-#~ "'<' or '>' character not allowed here; only allowed around tags, for example "
-#~ "<bold> or <paragraph>. Elsewhere, encode these characters as the entities "
-#~ "&lt; and &gt;"
+#~ "'<' or '>' character not allowed here; only allowed around tags, for "
+#~ "example <bold> or <paragraph>. Elsewhere, encode these characters as the "
+#~ "entities &lt; and &gt;"
 #~ msgstr ""
-#~ "'<' eller '>' tegnene er ikke tilladt her; kun tilladt omkring mærker, for "
-#~ "eksempel <bold> eller <paragraph>. Andre steder skal disse tegn kodes som "
-#~ "entiteterne &lt; og &gt;"
+#~ "'<' eller '>' tegnene er ikke tilladt her; kun tilladt omkring mærker, "
+#~ "for eksempel <bold> eller <paragraph>. Andre steder skal disse tegn kodes "
+#~ "som entiteterne &lt; og &gt;"
 
 #~ msgid "Character '%s' is not valid at the start of an attribute name"
 #~ msgstr "Tegn '%s' er ikke gyldigt ved starten af et attributnavn"
@@ -1938,21 +1943,22 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "'='-tegnet efter attributten skal være direkte efterfulgt af et '\"'-tegn"
 
 #~ msgid ""
-#~ "Character '%c' found inside an attribute value; perhaps your attribute value "
-#~ "is missing the closing quotation mark '\"'"
+#~ "Character '%c' found inside an attribute value; perhaps your attribute "
+#~ "value is missing the closing quotation mark '\"'"
 #~ msgstr ""
-#~ "Tegnet '%c' fundet inde i en attributværdi; måske mangler din attributværdi "
-#~ "det afsluttende anførelsestegn '\"'"
+#~ "Tegnet '%c' fundet inde i en attributværdi; måske mangler din "
+#~ "attributværdi det afsluttende anførelsestegn '\"'"
 
 #~ msgid ""
 #~ "Ran out of text before a quote mark ('\"') was seen at the end of an "
 #~ "attribute value"
 #~ msgstr ""
-#~ "Udløb for tekst, før et anførelsestegn ('\"') blev fundet ved slutningen af "
-#~ "en attributværdi"
+#~ "Udløb for tekst, før et anførelsestegn ('\"') blev fundet ved slutningen "
+#~ "af en attributværdi"
 
 #~ msgid ""
-#~ "Text ends immediately after an attribute value, before the element was closed"
+#~ "Text ends immediately after an attribute value, before the element was "
+#~ "closed"
 #~ msgstr ""
 #~ "Teksten slutter lige efter en attributværdi, før elementet blev lukket"
 
@@ -1978,8 +1984,8 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ "Element ended just after '/', no '>' seen; empty elements should end with "
 #~ "'/>'"
 #~ msgstr ""
-#~ "Element sluttede lige efter '/', ingen '>' sét; tomme elementer bør slutte "
-#~ "med '/>'"
+#~ "Element sluttede lige efter '/', ingen '>' sét; tomme elementer bør "
+#~ "slutte med '/>'"
 
 #~ msgid "Close tag not found at end of element"
 #~ msgstr "Mærke for lukning blev ikke fundet ved slutningen af elementet"
@@ -2005,8 +2011,8 @@ msgstr "Forventede '%s', fik '%s' for nøglen %s"
 #~ msgstr "Lukke-mærket '%s' er ikke lig åbnings-mærket '%s'"
 
 #~ msgid ""
-#~ "Invalid UTF-8 character at byte %d in marked-up text. Some text before the "
-#~ "bad character was '%s'"
+#~ "Invalid UTF-8 character at byte %d in marked-up text. Some text before "
+#~ "the bad character was '%s'"
 #~ msgstr ""
 #~ "Ugyldigt UTF-8-tegn ved byte %d i kodet tekst. Noget af teksten før det "
 #~ "ugyldige tegn var '%s'"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.3\n"
-"POT-Creation-Date: 2001-08-13 12:16+0200\n"
+"POT-Creation-Date: 2001-08-15 18:01-0400\n"
 "PO-Revision-Date: 2001-08-13 22:14+300\n"
 "Last-Translator: Nilgün Belma Bugüner <nilgun@fide.org>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -88,7 +88,8 @@ msgstr ""
 msgid ""
 "%u items remain in the cache after cleaning already-synced items older than %"
 "u seconds"
-msgstr "%u öðe arabellekte kaldý. %u saniyeden daha eski eþzamanlý öðeler silindi."
+msgstr ""
+"%u öðe arabellekte kaldý. %u saniyeden daha eski eþzamanlý öðeler silindi."
 
 #: backends/xml-dir.c:164
 #, c-format
@@ -156,7 +157,7 @@ msgstr "`%s' XML dosyasýndaki ilk düðüm bir <entry> deðil, yoksayýlýyor"
 msgid "Failed to create file `%s': %s"
 msgstr "`%s' dosyasý oluþturulamadý: %s"
 
-#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2489
+#: backends/xml-dir.c:1075 gconf/gconf-internals.c:2494
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "`%s' dosyasý kapatýlamadý: %s"
@@ -177,86 +178,84 @@ msgstr "%s"
 msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "`%s' þema ismi yoksayýlýyor, geçersiz: %s"
 
-#. FIXME for nodes with no value stored, but containing a schema name,
-#. * we improperly log an error here
-#.
-#: backends/xml-entry.c:373
-#, c-format
-msgid "Ignoring XML node `%s', except for possible schema name: %s"
-msgstr "Bir þema isminden baþka bir þey içermeyen `%s' XML düðümü yoksayýlýyor: %s"
+#: backends/xml-entry.c:375
+#, fuzzy, c-format
+msgid "Ignoring XML node `%s': %s"
+msgstr "`%s' adlý XML düðümü yoksayýlýyor: %s"
 
-#: backends/xml-entry.c:724
+#: backends/xml-entry.c:726
 #, c-format
 msgid "Failed reading default value for schema: %s"
 msgstr "Þema için verilen öntanýmlý deðer okunamadý: %s"
 
-#: backends/xml-entry.c:938
+#: backends/xml-entry.c:940
 #, c-format
 msgid "No \"type\" attribute for <%s> node"
 msgstr "<%s> düðümü için \"type\" deðeri belirtilmemiþ"
 
-#: backends/xml-entry.c:952
+#: backends/xml-entry.c:954
 #, c-format
 msgid "A node has unknown \"type\" attribute `%s', ignoring"
 msgstr "Bilinmeyen `%s' \"type\" deðerine sahip düðüm yoksayýldý"
 
-#: backends/xml-entry.c:967
+#: backends/xml-entry.c:969
 msgid "No \"value\" attribute for node"
 msgstr "Düðümde \"value\" için bir þey verilmemiþ"
 
-#: backends/xml-entry.c:1015 backends/xml-entry.c:1091
+#: backends/xml-entry.c:1017 backends/xml-entry.c:1093
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
 msgstr "Bir XML liste düðümü içindeki <%s> XML düðümü anlaþýlamadý"
 
-#: backends/xml-entry.c:1049
+#: backends/xml-entry.c:1051
 msgid "Invalid type (list, pair, or unknown) in a list node"
-msgstr "Bir liste düðümü içindeki tür (liste, deðer çifti ya da  her neyse) geçersiz"
+msgstr ""
+"Bir liste düðümü içindeki tür (liste, deðer çifti ya da  her neyse) geçersiz"
 
-#: backends/xml-entry.c:1072
+#: backends/xml-entry.c:1074
 #, c-format
 msgid "Bad XML node: %s"
 msgstr "Kötü biçimlendirilmiþ XML düðümü: %s"
 
-#: backends/xml-entry.c:1080
+#: backends/xml-entry.c:1082
 #, c-format
 msgid "List contains a badly-typed node (%s, should be %s)"
 msgstr "Liste yanlýþ türde düðüm içeriyor ( %s, %s olmalýydý)"
 
-#: backends/xml-entry.c:1132
+#: backends/xml-entry.c:1134
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
 msgstr "XML çiftindeki hatalý `car' yoksayýlýyor: %s"
 
-#: backends/xml-entry.c:1141 backends/xml-entry.c:1164
+#: backends/xml-entry.c:1143 backends/xml-entry.c:1166
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
 msgstr ""
 "XML dosyasý okunurken hata: listeler ve çiftler bir baþka çiftin içine "
 "yerleþtirilemez"
 
-#: backends/xml-entry.c:1154
+#: backends/xml-entry.c:1156
 #, c-format
 msgid "Ignoring bad cdr from XML pair: %s"
 msgstr "XML çiftinde hatalý `cdr' yoksayýldý: %s"
 
-#: backends/xml-entry.c:1173
+#: backends/xml-entry.c:1175
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML pair node"
 msgstr "Bir XML çiftindeki <%s> XML düðümü anlaþýlamadý"
 
-#: backends/xml-entry.c:1191
+#: backends/xml-entry.c:1193
 msgid "Didn't find car and cdr for XML pair node"
 msgstr "XML çifti düðümü için `car' ve `cdr' bulunamadý"
 
-#: backends/xml-entry.c:1197
+#: backends/xml-entry.c:1199
 msgid "Missing cdr from pair of values in XML file"
 msgstr "XML dosyasýndaki deðer çiftlerinden `cdr' eksik"
 
-#: backends/xml-entry.c:1204
+#: backends/xml-entry.c:1206
 msgid "Missing car from pair of values in XML file"
 msgstr "XML dosyasýndaki deðer çiftlerinden `car' eksik"
 
-#: backends/xml-entry.c:1209
+#: backends/xml-entry.c:1211
 msgid "Missing both car and cdr values from pair in XML file"
 msgstr "XML dosyasýndaki deðer çiftlerinde `car' ve `cdr'  ikisi de eksik"
 
@@ -480,138 +479,139 @@ msgstr "Nesne IOR'a dönüþtürülemedi"
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Dizin dosyasý `%s' açýlamadý: %s\n"
 
-#: gconf/gconf-internals.c:868
+#: gconf/gconf-internals.c:873
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "`%s' kaynaðýnýn eklenmesi\n"
 
-#: gconf/gconf-internals.c:880
+#: gconf/gconf-internals.c:885
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "`%s' dosyasýnda okuma hatasý: %s\n"
 
-#: gconf/gconf-internals.c:1322
+#: gconf/gconf-internals.c:1327
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Liste beklerken, %s alýndý"
 
-#: gconf/gconf-internals.c:1332
+#: gconf/gconf-internals.c:1337
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "%s listesi beklenirken, %s listesi alýndý"
 
-#: gconf/gconf-internals.c:1471
+#: gconf/gconf-internals.c:1476
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Çift beklenirken, %s alýndý"
 
-#: gconf/gconf-internals.c:1485
+#: gconf/gconf-internals.c:1490
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr "(%s,%s) çifti beklenirken , bir ya da iki deðeri eksik bir çift alýndý"
 
-#: gconf/gconf-internals.c:1501
+#: gconf/gconf-internals.c:1506
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "(%s,%s) çifti beklenirken, (%s,%s) çifti alýndý"
 
-#: gconf/gconf-internals.c:1617
+#: gconf/gconf-internals.c:1622
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Týrnaklarla belirlenen bir dizge ? iþareti ile baþlamaz"
 
-#: gconf/gconf-internals.c:1679
+#: gconf/gconf-internals.c:1684
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Týrnaklarla belirlenen bir dizge ? iþareti ile bitmez"
 
-#: gconf/gconf-internals.c:2159 gconf/gconf.c:3092
+#: gconf/gconf-internals.c:2164 gconf/gconf.c:3092
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA hatasý: %s"
 
-#: gconf/gconf-internals.c:2175
+#: gconf/gconf-internals.c:2180
 #, c-format
 msgid "OAF problem description: '%s'"
 msgstr "OAF sorun tanýmý: %s"
 
-#: gconf/gconf-internals.c:2181
+#: gconf/gconf-internals.c:2186
 msgid "attempt to remove not-listed OAF object directory"
 msgstr "listelenmemiþ OAF nesne dizini silinmeye çalýþýlýyor"
 
-#: gconf/gconf-internals.c:2186
+#: gconf/gconf-internals.c:2191
 msgid "attempt to add already-listed OAF directory"
 msgstr "zaten listede olan OAF dizini eklenmeye çalýþýlýyor"
 
-#: gconf/gconf-internals.c:2193
+#: gconf/gconf-internals.c:2198
 #, c-format
 msgid "OAF parse error: %s"
 msgstr "OAF ayrýþtýrma hatasý: %s"
 
-#: gconf/gconf-internals.c:2198
+#: gconf/gconf-internals.c:2203
 msgid "Unknown OAF error"
 msgstr "Bilinmeyen OAF hatasý"
 
-#: gconf/gconf-internals.c:2285
+#: gconf/gconf-internals.c:2290
 #, c-format
 msgid "No ior file in `%s'"
 msgstr "`%s' içinde IOR dosyasý yok"
 
-#: gconf/gconf-internals.c:2316
+#: gconf/gconf-internals.c:2321
 #, c-format
 msgid "gconfd taking lock `%s' from some other process"
 msgstr "gconfd `%s' kilidini diðer süreçlerden alýyor"
 
-#: gconf/gconf-internals.c:2327
+#: gconf/gconf-internals.c:2332
 #, c-format
 msgid "Another program has lock `%s'"
 msgstr "`%s' kilidi baþka bir uygulamaya ait"
 
-#: gconf/gconf-internals.c:2346
+#: gconf/gconf-internals.c:2351
 msgid "couldn't contact ORB to ping existing gconfd"
 msgstr "var olan gconfd'yi doðrulamak için ORB'ye baðlanýlamadý"
 
-#: gconf/gconf-internals.c:2354
+#: gconf/gconf-internals.c:2359
 #, c-format
 msgid ""
 "Removing stale lock `%s' because IOR couldn't be converted to object "
 "reference, IOR `%s'"
-msgstr "IOR nesne baþvurusuna dönüþtürülemediðinden kilit `%s' kaldýrýlýyor, IOR `%s'"
+msgstr ""
+"IOR nesne baþvurusuna dönüþtürülemediðinden kilit `%s' kaldýrýlýyor, IOR `%s'"
 
-#: gconf/gconf-internals.c:2366
+#: gconf/gconf-internals.c:2371
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
 msgstr "Sunucuya eriþim sorunlarýndan dolayý `%s' kilidi kaldýrýlýyor: %s"
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2383
 #, c-format
 msgid "GConf configuration daemon (gconfd) has lock `%s'"
 msgstr "GConf ardalan uygulamasý ( gconfd ) `%s' kilidine sahip"
 
-#: gconf/gconf-internals.c:2392
+#: gconf/gconf-internals.c:2397
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "`%s' dizini oluþturulamadý: %s"
 
-#: gconf/gconf-internals.c:2441
+#: gconf/gconf-internals.c:2446
 #, c-format
 msgid "Can't create lock `%s': %s"
 msgstr "`%s' kilidi oluþturulamadý: %s"
 
-#: gconf/gconf-internals.c:2477
+#: gconf/gconf-internals.c:2482
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "`%s' dosyasýna yazýlamadý: %s"
 
-#: gconf/gconf-internals.c:2527
+#: gconf/gconf-internals.c:2532
 #, c-format
 msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
 msgstr "`%s' kilit dosyasý açýlamadý; bizim ki olmayabilir: %s"
 
-#: gconf/gconf-internals.c:2544
+#: gconf/gconf-internals.c:2549
 #, c-format
 msgid "Corrupt lock file `%s', removing anyway"
 msgstr "Bozuk kilit dosyasý `%s' siliniyor"
 
-#: gconf/gconf-internals.c:2554
+#: gconf/gconf-internals.c:2559
 #, c-format
 msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
@@ -620,7 +620,7 @@ msgstr ""
 "`%s' kilit dosyasý oluþturulamadý ( \"yaratýcý\" pid %u, bizim pid %u; "
 "birisi bizim kilidi aldý galiba"
 
-#: gconf/gconf-internals.c:2571
+#: gconf/gconf-internals.c:2576
 #, c-format
 msgid "Failed to release lock directory `%s': %s"
 msgstr "`%s' kilit dizini býrakýlamadý: %s"
@@ -663,11 +663,12 @@ msgstr ""
 "Yapýlandýrma sunucusu yazýlabilir veritabanlarýna sahip olmadýðýndan '%s'de "
 "bir deðer saklanamýyor. Bu sorun iki sebepten ortaya çýkabilir: 1) "
 "Yapýlandýrma dosya yolu dosyanýz herhangi bir veritabaný içermiyordur ya da "
-"yoktur veya 2) OAF yanlýþlýkla iki gconfd süreci oluþturmuþtur. Eðer iki gconfd "
-"süreciniz varsa (veya ikincisi çalýþtýrýldýðýnda zaten iki süreç varsa) bu bir OAF "
-"hatasýdýr, hata GConf'a ait deðildir. Gconfd ve oafd'yi öldürmek üzere bir çýkýþ ve "
-"tekrar giriþ yardýmcý olabilir. GConfd tarafýndan saptanan sorunlar hakkýndaki "
-"ayrýntýlarý görmek için user.* sistem günlük dosyasýna bakýnýz."
+"yoktur veya 2) OAF yanlýþlýkla iki gconfd süreci oluþturmuþtur. Eðer iki "
+"gconfd süreciniz varsa (veya ikincisi çalýþtýrýldýðýnda zaten iki süreç "
+"varsa) bu bir OAF hatasýdýr, hata GConf'a ait deðildir. Gconfd ve oafd'yi "
+"öldürmek üzere bir çýkýþ ve tekrar giriþ yardýmcý olabilir. GConfd "
+"tarafýndan saptanan sorunlar hakkýndaki ayrýntýlarý görmek için user.* "
+"sistem günlük dosyasýna bakýnýz."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -774,12 +775,12 @@ msgid ""
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
 msgstr ""
-"Yapýlandýrma sunucusuna baðlanýrken hata: OAF oaf_activate_from_id() iþlevinden "
-"boþ döndü ve sorunu açýklayacak bir olaðandýþýlýk belirlenemedi. Bu OAF "
-"paketinin bir hatasýdýr; OAF'da bir þeyler yanlýþ gitmiþ ve hata raporlanmamýþtýr. "
-"Bu GConf paketinin bir hatasý deðildir. GConf'un çalýþmasý sýrasýnda OAF ile ilgili "
-"yanlýþ giden þeyleri belirten bir bilgiye sahip olmadýðýnýz takdirde bir GConf hata "
-"raporu göndermeyin."
+"Yapýlandýrma sunucusuna baðlanýrken hata: OAF oaf_activate_from_id() "
+"iþlevinden boþ döndü ve sorunu açýklayacak bir olaðandýþýlýk belirlenemedi. "
+"Bu OAF paketinin bir hatasýdýr; OAF'da bir þeyler yanlýþ gitmiþ ve hata "
+"raporlanmamýþtýr. Bu GConf paketinin bir hatasý deðildir. GConf'un çalýþmasý "
+"sýrasýnda OAF ile ilgili yanlýþ giden þeyleri belirten bir bilgiye sahip "
+"olmadýðýnýz takdirde bir GConf hata raporu göndermeyin."
 
 #: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
@@ -850,7 +851,8 @@ msgstr ""
 
 #: gconf/gconfd.c:298
 #, c-format
-msgid "No configuration files found, trying to use the default config source `%s'"
+msgid ""
+"No configuration files found, trying to use the default config source `%s'"
 msgstr ""
 "Yapýlandýrma dosyalarý bulunamadý, öntanýmlý yapýlandýrma kaynaðý `%s' "
 "deneniyor"
@@ -897,7 +899,8 @@ msgstr ""
 
 #: gconf/gconfd.c:392
 #, c-format
-msgid "Received signal %d, shutting down abnormally. Please file a GConf bug report."
+msgid ""
+"Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr ""
 "%d sinyali alýndý, olaðandýþý kapanma (GConf çöktü). Lütfen bir hata raporu "
 "gönderin"
@@ -938,7 +941,8 @@ msgid "Failed to get lock for daemon: %s"
 msgstr "Artalan uygulama için kilit alýnamadý: %s"
 
 #: gconf/gconfd.c:594
-msgid "Registering existing server with oafd, since OAF appears to have leaked it"
+msgid ""
+"Registering existing server with oafd, since OAF appears to have leaked it"
 msgstr "Kaçak göründüðü için mevcut sunucu OAF ile kaydediliyor"
 
 #: gconf/gconfd.c:603
@@ -953,7 +957,8 @@ msgstr ""
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "Baþka bir gconfd OAF'ta zaten kayýtlý; bu durumda mevcut sunucu kaydedilemez"
+msgstr ""
+"Baþka bir gconfd OAF'ta zaten kayýtlý; bu durumda mevcut sunucu kaydedilemez"
 
 #: gconf/gconfd.c:612
 msgid "Unknown error registering existing gconfd with OAF; exiting"
@@ -1004,8 +1009,10 @@ msgstr ""
 
 #: gconf/gconfd.c:1219
 #, c-format
-msgid "Failed to close gconfd logfile; data may not have been properly saved (%s)"
-msgstr "gconfd günlük dosyasý kapatýlamadý; veri gereði gibi kaydedilemeyecek (%s)"
+msgid ""
+"Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgstr ""
+"gconfd günlük dosyasý kapatýlamadý; veri gereði gibi kaydedilemeyecek (%s)"
 
 #: gconf/gconfd.c:1288
 #, c-format
@@ -1034,12 +1041,14 @@ msgstr "Yeni durum kayýt dosyasý yerine taþýnamadý: %s"
 
 #: gconf/gconfd.c:1344
 #, c-format
-msgid "Failed to restore original saved state file that had been moved to '%s': %s"
+msgid ""
+"Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr "'%s' e taþýnmýþ olan durum kayýt dosyasý özgün haline getirilemedi: %s"
 
 #: gconf/gconfd.c:1819
 #, c-format
-msgid "Unable to restore a listener on address '%s', couldn't resolve the database"
+msgid ""
+"Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
 "'%s' adresindeki bir dinleyici eski haline getirilemedi, veritabaný "
 "çözümlenemedi"
@@ -1090,10 +1099,12 @@ msgstr "Durum kayýt dosyasýna istemci eklenmesi kaydedilemedi: %s"
 #: gconf/gconfd.c:2099
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
-msgstr "Durum kayýt dosyasýndan istemci eklenmesinin temizlenmesi baþarýsýz: %s"
+msgstr ""
+"Durum kayýt dosyasýndan istemci eklenmesinin temizlenmesi baþarýsýz: %s"
 
 #: gconf/gconfd.c:2189
-msgid "Some client removed itself from the GConf server when it hadn't been added."
+msgid ""
+"Some client removed itself from the GConf server when it hadn't been added."
 msgstr "GConf sunucusu eklemediði sýrada tek bir istemci sunucudan silindi."
 
 #: gconf/gconftool.c:68
@@ -1102,7 +1113,8 @@ msgstr "Yardým seçenekleri"
 
 #: gconf/gconftool.c:77
 msgid "Set a key to a value and sync. Use with --type."
-msgstr "Bir anahtara bir deðer ve eþzamanlama belirtilir. --type ile kullanýlýr."
+msgstr ""
+"Bir anahtara bir deðer ve eþzamanlama belirtilir. --type ile kullanýlýr."
 
 #: gconf/gconftool.c:86
 msgid "Print the value of a key to standard output."
@@ -1279,7 +1291,8 @@ msgstr "Bu anahtara uygulanan þemanýn ismi alýnýr"
 
 #: gconf/gconftool.c:321
 msgid "Specify the schema name followed by the key to apply the schema name to"
-msgstr "Þema ismine uygulanacak anahtar tarafýndan izlenen þema ismi belirtilir"
+msgstr ""
+"Þema ismine uygulanacak anahtar tarafýndan izlenen þema ismi belirtilir"
 
 #: gconf/gconftool.c:330
 msgid "Get the name of the default source"
@@ -1316,8 +1329,8 @@ msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
 msgstr ""
-"--recursive-list seçeneði ile --get, --set, --unset, --all-entries ya da --all-dirs "
-"birlikte kullanýlamaz.\n"
+"--recursive-list seçeneði ile --get, --set, --unset, --all-entries ya da --"
+"all-dirs birlikte kullanýlamaz.\n"
 
 #: gconf/gconftool.c:437
 msgid ""
@@ -1360,7 +1373,8 @@ msgid "--break-directory must be used by itself.\n"
 msgstr "--break-directory seçeneði tek baþýna kullanýlabilir.\n"
 
 #: gconf/gconftool.c:519
-msgid "You must specify a config source with --config-source when using --direct\n"
+msgid ""
+"You must specify a config source with --config-source when using --direct\n"
 msgstr ""
 "--direct seçeneðini kullanýrken --config-source seçeneði ile bir "
 "yapýlandýrma kaynaðý belirtmelisiniz\n"
@@ -1499,7 +1513,8 @@ msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Bir listeyi ayarlarken bir temel liste türü belirtmelisiniz\n"
 
 #: gconf/gconftool.c:1161
-msgid "When setting a pair you must specify a primitive car-type and cdr-type\n"
+msgid ""
+"When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Bir çifti ayarlarken bir temel car türü ve cdr türü belirtmelisiniz\n"
 
 #: gconf/gconftool.c:1176
@@ -1629,7 +1644,8 @@ msgstr "UYARI: öntanýmlý `%s' deðeri þema (%s) için ayrýþtýrýlamadý\n"
 #: gconf/gconftool.c:1669
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
-msgstr "UYARI: þema (%s) için car_type ya da cdr_type geçersiz ya da verilmemiþ\n"
+msgstr ""
+"UYARI: þema (%s) için car_type ya da cdr_type geçersiz ya da verilmemiþ\n"
 
 #: gconf/gconftool.c:1694
 msgid "WARNING: You cannot set a default value for a schema\n"
@@ -1647,7 +1663,8 @@ msgstr "UYARI: Tür ismi `%s' ayrýþtýrýlamadý\n"
 
 #: gconf/gconftool.c:1787
 #, c-format
-msgid "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
+msgid ""
+"WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "UYARI: list_type sadece tamsayý, gerçek sayý, dizge ya da mantýksal deðer "
 "olabilir, %s deðil\n"
@@ -1687,7 +1704,8 @@ msgstr ""
 
 #: gconf/gconftool.c:1909
 #, c-format
-msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
+msgid ""
+"WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 "UYARI: `%s' konumu için çok sayýda <locale> düðümü, ilkinden sonrakiler "
 "yoksayýldý\n"
@@ -1741,7 +1759,8 @@ msgstr "Belge %s boþ mu?\n"
 msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
 "<gconfschemafile>)\n"
-msgstr "Belge %s kök düðümde yanlýþ tür içeriyor (<%s>, <gconfschemafile> olmalý)\n"
+msgstr ""
+"Belge %s kök düðümde yanlýþ tür içeriyor (<%s>, <gconfschemafile> olmalý)\n"
 
 #: gconf/gconftool.c:2219
 #, c-format
@@ -1819,3 +1838,6 @@ msgstr "GConf uyarýsý: `%s' içindeki çiftlerin listelenmesi baþarýsýz oldu: %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "`%s' olmalýydý, `%s' alýndý (%s anahtarý için)"
 
+#~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
+#~ msgstr ""
+#~ "Bir þema isminden baþka bir þey içermeyen `%s' XML düðümü yoksayýlýyor: %s"
