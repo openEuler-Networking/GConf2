@@ -3,12 +3,14 @@
 # $Id$
 #
 %define ver      @VERSION@
-%define rel      1
+%define rel      0_cvs_0
 %define	prefix   %{_prefix}
 %define name	 @PACKAGE@
 %define sysconfdir	/etc
 
 Summary: Gnome Config System
+Distribution:	GNOME
+Vendor:		CVS
 Name: %name
 Version: %ver
 Release: %rel
@@ -96,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/*.0
 %{prefix}/lib/*.1
 %{prefix}/lib/*.so
-%{prefix}/pkgconfig/*
+%{prefix}/lib/pkgconfig/*
 %{prefix}/lib/GConf/1/*.so
 %{prefix}/share/locale/*/LC_MESSAGES/*.mo
 %{prefix}/share/oaf/*.oafinfo
