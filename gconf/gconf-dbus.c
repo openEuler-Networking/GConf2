@@ -36,17 +36,20 @@
 #include <unistd.h>
 #include <dbus/dbus.h>
 
-#define d(x) 
+#define d(x)
 
 /* Maximum number of times to try re-spawning the server if it's down. */
 #define MAX_RETRIES 1
+
+#define BUS_RULE    "type='signal',sender='org.freedesktop.DBus',interface='org.freedesktop.DBus'"
+#define NOTIFY_RULE "type='signal',interface='org.gnome.GConf.Database'"
 
 struct _GConfEngine {
   guint refcount;
 
   gchar *database;
 
-  /* Unused for now. */
+  GHashTable *notify_paths;
   GHashTable *notify_ids;
 
   /* If non-NULL, this is a local engine;
@@ -83,41 +86,59 @@ struct _GConfCnxn {
   gpointer user_data;
 };
 
+
 static DBusConnection *connection;
 
 /* Object path for D-BUS GConf server */
 static const gchar    *server = NULL;
 
+static gboolean        service_running = FALSE;
 static GConfEngine    *default_engine = NULL;
-
 static GHashTable     *engines_by_db = NULL;
 static GHashTable     *engines_by_address = NULL;
 
 
 static gboolean     ensure_dbus_connection      (void);
-static gboolean     gconf_activate_service      (gboolean      start_if_not_found,
-						 GError      **err);
-static const gchar *gconf_get_config_server     (gboolean      start_if_not_found,
-						 GError      **err);
-static void         gconf_engine_detach         (GConfEngine  *conf);
-static gboolean     gconf_engine_connect        (GConfEngine  *conf,
-						 gboolean      start_if_not_found,
-						 GError      **err);
-static void         gconf_engine_set_database   (GConfEngine  *conf,
-						 const gchar  *db);
-static const gchar *gconf_engine_get_database   (GConfEngine  *conf,
-						 gboolean      start_if_not_found,
-						 GError      **err);
-static void         register_engine             (GConfEngine  *conf);
-static void         unregister_engine           (GConfEngine  *conf);
-static GConfEngine *lookup_engine               (const gchar  *address);
-static GConfEngine *lookup_engine_by_database   (const gchar  *db);
-static gboolean     gconf_handle_dbus_exception (DBusMessage  *message,
-						 DBusError    *derr,
-						 GError      **gerr);
-static gboolean     gconf_server_broken         (DBusMessage  *message);
+static gboolean     gconf_activate_service      (gboolean          start_if_not_found,
+						 GError          **err);
+static const gchar *gconf_get_config_server     (gboolean          start_if_not_found,
+						 GError          **err);
+static void         gconf_engine_detach         (GConfEngine      *conf);
+static gboolean     gconf_engine_connect        (GConfEngine      *conf,
+						 gboolean          start_if_not_found,
+						 GError          **err);
+static void         gconf_engine_set_database   (GConfEngine      *conf,
+						 const gchar      *db);
+static const gchar *gconf_engine_get_database   (GConfEngine      *conf,
+						 gboolean          start_if_not_found,
+						 GError          **err);
+static void         register_engine             (GConfEngine      *conf);
+static void         unregister_engine           (GConfEngine      *conf);
+static GConfCnxn *  gconf_cnxn_new              (GConfEngine      *conf,
+						 const gchar      *namespace_section,
+						 GConfNotifyFunc   func,
+						 gpointer          user_data);
+static void         gconf_cnxn_destroy          (GConfCnxn        *cnxn);
+static void         gconf_cnxn_notify           (GConfCnxn        *cnxn,
+						 GConfEntry       *entry);
+static DBusHandlerResult
+gconf_dbus_notify_filter                        (DBusConnection   *dbus_conn,
+						 DBusMessage      *message,
+						 gpointer          user_data);
+static DBusHandlerResult
+gconf_dbus_message_filter                       (DBusConnection   *dbus_conn,
+						 DBusMessage      *message,
+						 gpointer          user_data);
+static GConfEngine *lookup_engine               (const gchar      *address);
+/*static GConfEngine *lookup_engine_by_database   (const gchar      *db);*/
+static gboolean     gconf_handle_dbus_exception (DBusMessage      *message,
+						 DBusError        *derr,
+						 GError          **gerr);
+static gboolean     gconf_server_broken         (DBusMessage      *message);
 static void         gconf_detach_config_server  (void);
-
+static DBusHandlerResult handle_notify          (DBusConnection   *connection,
+						 DBusMessage      *message,
+						 GConfCnxn        *cnxn);
 
 
 #define CHECK_OWNER_USE(engine)   \
@@ -278,9 +299,11 @@ gconf_engine_blank (gboolean remote)
     {
       conf->database = NULL;
 
-      /* FIXME: add this when we add add/remove notify. */
-      conf->notify_ids = NULL; /*g_hash_table_new ();*/
+      conf->notify_paths = g_hash_table_new_full (g_str_hash, g_str_equal,
+						g_free, (GDestroyNotify)gconf_cnxn_destroy);
 
+      conf->notify_ids = g_hash_table_new (g_int_hash, g_int_equal);
+      
       conf->local_sources = NULL;
       conf->is_local = FALSE;
       conf->is_default = TRUE;
@@ -289,6 +312,7 @@ gconf_engine_blank (gboolean remote)
     {
       conf->database = NULL;
       conf->notify_ids = NULL;
+      conf->notify_paths = NULL;
       conf->local_sources = NULL;
       conf->is_local = TRUE;
       conf->is_default = FALSE;
@@ -325,6 +349,7 @@ gconf_engine_pop_owner_usage  (GConfEngine *engine,
   engine->owner_use_count -= 1;
 }
 
+#if 0
 static GConfEngine *
 lookup_engine_by_database (const gchar *db)
 {
@@ -333,6 +358,7 @@ lookup_engine_by_database (const gchar *db)
   else
     return NULL;
 }
+#endif
 
 static void
 database_hash_value_destroy (gpointer value)
@@ -520,6 +546,48 @@ lookup_engine (const gchar *address)
 
 
 /*
+ * Connection maintenance
+ */
+
+static GConfCnxn *
+gconf_cnxn_new (GConfEngine *conf,
+		const gchar *namespace_section,
+		GConfNotifyFunc func,
+		gpointer user_data)
+{
+  GConfCnxn *cnxn;
+  static guint next_id = 1;
+  
+  cnxn = g_new0 (GConfCnxn, 1);
+
+  cnxn->namespace_section = g_strdup (namespace_section);
+  cnxn->conf = conf;
+  cnxn->client_id = next_id;
+  cnxn->func = func;
+  cnxn->user_data = user_data;
+
+  ++next_id;
+
+  return cnxn;
+}
+
+static void      
+gconf_cnxn_destroy (GConfCnxn* cnxn)
+{
+  g_free (cnxn->namespace_section);
+  g_free (cnxn);
+}
+
+static void       
+gconf_cnxn_notify (GConfCnxn* cnxn,
+		   GConfEntry *entry)
+{
+  (*cnxn->func) (cnxn->conf, cnxn->client_id,
+		 entry,
+		 cnxn->user_data);
+}
+
+/*
  *  Public Interface
  */
 
@@ -652,6 +720,8 @@ gconf_engine_unref(GConfEngine* conf)
 
           if (conf->notify_ids)
 	    g_hash_table_destroy (conf->notify_ids);
+          if (conf->notify_paths)
+	    g_hash_table_destroy (conf->notify_paths);
         }
       
       if (conf == default_engine)
@@ -688,6 +758,9 @@ gconf_engine_notify_add (GConfEngine* conf,
 			 gpointer user_data,
 			 GError** err)
 {
+  const gchar *db;
+  GConfCnxn *cnxn;
+  
   g_return_val_if_fail (!gconf_engine_is_local (conf), 0);
 
   CHECK_OWNER_USE (conf);
@@ -701,16 +774,95 @@ gconf_engine_notify_add (GConfEngine* conf,
       return 0;
     }
 
-  g_warning ("notify_add not implemented yet");
+  db = gconf_engine_get_database (conf, TRUE, err);
   
-  return 0;
+  if (db == NULL)
+    {
+      g_return_val_if_fail(err == NULL || *err != NULL, 0);
+      
+      return 0;
+    }
+  
+  /*add_listener (conf, db, namespace_section, err);*/
+
+  // koko
+  cnxn = gconf_cnxn_new (conf, namespace_section, func, user_data);
+
+  dbus_connection_add_filter (connection, gconf_dbus_notify_filter,
+			      cnxn, NULL);
+  
+  g_hash_table_insert (conf->notify_paths, g_strdup (namespace_section), cnxn);
+  g_hash_table_insert (conf->notify_ids, &cnxn->client_id, cnxn);
+  
+  return cnxn->client_id;
 }
 
 void         
 gconf_engine_notify_remove (GConfEngine* conf,
 			    guint client_id)
 {
-  g_warning ("notify_remove not implemented yet");
+  GConfCnxn *cnxn;
+  const gchar *db;
+  
+  CHECK_OWNER_USE (conf);
+  
+  if (gconf_engine_is_local(conf))
+    return;
+
+  db = gconf_engine_get_database (conf, TRUE, NULL);
+  
+  if (db == NULL)
+    return;
+  
+  cnxn = g_hash_table_lookup (conf->notify_ids, &client_id);
+
+  g_return_if_fail (cnxn != NULL);
+  
+  /*remove_listener (conf, db, namespace_section, err);*/
+
+  dbus_connection_remove_filter (connection, gconf_dbus_notify_filter, cnxn);
+  
+  g_hash_table_remove (conf->notify_ids, cnxn->namespace_section);
+  g_hash_table_remove (conf->notify_ids, &client_id);
+
+  gconf_cnxn_destroy (cnxn);
+}
+
+/* Handle a fake notify for testing... */
+static void
+fake_notify (GConfEngine *conf, const gchar *key, GConfValue *value)
+{
+  GConfCnxn *cnxn;
+  GConfEntry *entry;
+  gchar *path, *sep;
+
+  return;
+  
+  d(g_print ("Got fake notify on %s\n", key));
+
+  path = g_strdup (key);
+
+  while ((sep = strrchr (path, '/')))
+    {
+      if (sep == path)
+	break;
+      
+      *sep = '\0';
+
+      cnxn = g_hash_table_lookup (conf->notify_paths, path);
+
+      d(g_print ("try %s\n", path));
+      
+      if (cnxn)
+	{
+	  /* FIXME: might need _nocopy when moving this to real notify */
+	  entry = gconf_entry_new (g_strdup (key), value);
+	  gconf_cnxn_notify (cnxn, entry);
+	  gconf_entry_free (entry);  
+	}
+    }
+
+  g_free (path);
 }
 
 GConfValue *
@@ -852,8 +1004,6 @@ gconf_engine_get_fuller (GConfEngine *conf,
 	  d(g_print ("FIXME: Couldn't get value\n"));
 	}
 
-      g_print ("got value: %p, %s\n", val, val ? gconf_value_to_string (val) : "?");
-      
       if (is_default_p)
 	*is_default_p = !!is_default;
 
@@ -873,6 +1023,9 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       dbus_message_unref (reply);
 
+      /* FIXME: remove this, just for testing notify by trigging it here... */
+      fake_notify (conf, key, val);
+      
       return val;
     }
 }
@@ -1833,75 +1986,103 @@ gconf_engine_remove_dir (GConfEngine* conf,
     }
 }
 
+/* Temporary solution until we have add/remove notify on the server.  So we have
+ * one global (per connection) filter function for handling ServiceDeleted, etc,
+ * and one per notify added so handle notification.
+ */
+static DBusHandlerResult
+gconf_dbus_message_filter (DBusConnection    *dbus_conn,
+			   DBusMessage       *message,
+			   gpointer           user_data)
+{
+  d(g_print ("message to filter: %s, from %s\n",
+	   dbus_message_get_member (message),
+	   dbus_message_get_sender (message)));
+  
+  if (dbus_message_get_type (message) != DBUS_MESSAGE_TYPE_SIGNAL)
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+
+  if (dbus_message_is_signal (message,
+                              DBUS_INTERFACE_ORG_FREEDESKTOP_LOCAL,
+                              "Disconnected"))
+    {
+      dbus_connection_unref (connection);
+      connection = NULL;
+      service_running = FALSE;
+
+      d(g_print ("****** Disconnected!\n"));
+      return DBUS_HANDLER_RESULT_HANDLED;      
+    }
+  
+  if (dbus_message_is_signal (message,
+			      DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
+                              "ServiceDeleted"))
+    {
+      service_running = FALSE;
+      
+      /* FIXME: Re-add notifications when we have add/remove notify on the server. */
+      d(g_print ("* Service deleted, sender: %s, member: %s, interface: %s, dest: %s\n",
+	       dbus_message_get_sender (message),
+	       dbus_message_get_member (message),
+	       dbus_message_get_interface (message),
+	       dbus_message_get_destination (message)));
+
+      return DBUS_HANDLER_RESULT_HANDLED;      
+    }
+
+  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+
+static DBusHandlerResult
+gconf_dbus_notify_filter (DBusConnection    *dbus_conn,
+			  DBusMessage       *message,
+			  gpointer           user_data)
+{
+  GConfCnxn *cnxn = user_data;
+
+  d(g_print ("notify to filter: %s, from %s\n",
+	   dbus_message_get_member (message),
+	   dbus_message_get_sender (message)));
+  
+  if (dbus_message_get_type (message) != DBUS_MESSAGE_TYPE_SIGNAL)
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+  
+  if (dbus_message_is_signal (message,
+			      GCONF_DBUS_DATABASE_INTERFACE,
+			      "Notify"))
+    {
+      if (cnxn)
+	return handle_notify (connection, message, cnxn);
+    }
+  
+  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+  
 static gboolean
 ensure_dbus_connection (void)
 {
-  const gchar *dbus_address;
   DBusError error;
   GError *gerror = NULL;
-  /* DBusMessageHandler *handler; */
   
   if (connection)
     return TRUE;
 
-  /* FIXME: Need to figure out how to handle the bus address. The typical case
-     will most likely be to use the session bus. */
-  dbus_address = g_getenv ("DBUS_ADDRESS");
-
-#if 0 
-  if (!dbus_address)
-    {
-      g_warning ("Failed to get the D-BUS bus daemon address.\n");
-      return FALSE;
-    }
-#endif
-
   dbus_error_init (&error);
 
   connection = dbus_bus_get_with_g_main (DBUS_BUS_SESSION, &gerror);
-  /* dbus_connection_open (dbus_address, &error); */
   if (!connection)
     {
       g_warning ("Failed to connect to the D-BUS bus daemon: %s\n.",
 		  gerror->message);
-     /* dbus_error_free (&error); */
-      return FALSE;
-    }
-/*
-  if (!dbus_bus_register (connection, &error))
-    {
-      g_warning ("Failed to register client with the D-BUS bus daemon: %s",
-		  error.message);
-      dbus_error_free (&error);
-
-      dbus_connection_disconnect (connection);
-      dbus_connection_unref (connection);
-
-      connection = NULL;
-
       return FALSE;
     }
 
-  dbus_connection_setup_with_g_main (connection, NULL);
-*/
+  dbus_bus_add_match (connection, BUS_RULE, NULL);
+  dbus_bus_add_match (connection, NOTIFY_RULE, NULL);
 
-  /* FIXME */
-  /*handler = dbus_message_handler_new (gconf_database_handler, NULL, NULL);
-  dbus_connection_register_handler (connection, handler, config_listener_messages,
-				    G_N_ELEMENTS (config_listener_messages));
-  */
+  dbus_connection_add_filter (connection, gconf_dbus_message_filter,
+			      NULL, NULL);
 
-  /*dbus_bool_t
-dbus_connection_add_filter (DBusConnection            *connection,
-                            DBusHandleMessageFunction  function,
-                            void                      *user_data,
-                            DBusFreeFunction           free_data_function)
-
-  
-  handler = dbus_message_handler_new (gconf_server_message_handler, NULL, NULL);
-  dbus_connection_register_handler (connection, handler, lifecycle_messages,
-				    G_N_ELEMENTS (lifecycle_messages));
-  */
   return TRUE;
 }
 
@@ -2002,19 +2183,15 @@ gconf_get_config_server (gboolean start_if_not_found, GError** err)
 {
   g_return_val_if_fail(err == NULL || *err == NULL, server);
 
-  /* FIXME: check if we're connected and reconnect if not */
-
-  d(g_print ("* get_config_server %s\n", server));
-  
-  if (server != NULL)
-    return server;
+  if (service_running)
+    return GCONF_DBUS_SERVER_OBJECT;
 
   if (!gconf_activate_service (start_if_not_found, err))
     return NULL;
 
-  server = GCONF_DBUS_SERVER_OBJECT;
+  service_running = TRUE;
 
-  return server; /* return what we have, NULL or not */
+  return GCONF_DBUS_SERVER_OBJECT;
 }
 
 static void
@@ -2043,89 +2220,65 @@ gconf_debug_shutdown (void)
 }
 
 static DBusHandlerResult
-notify_handler (DBusConnection *connection,
-		DBusMessage *message,
-		gpointer user_data)
+handle_notify (DBusConnection *connection,
+	       DBusMessage *message,
+	       GConfCnxn *cnxn)
 {
-  GConfEngine *conf;
-  gchar *db;
-  gchar *key;
-  /*guint cnxn_id;*/
-  int id;
+  gchar *key, *schema_name;
   gboolean is_default, is_writable;
-  GConfCnxn* cnxn;
+  GConfEngine* conf;
   DBusMessageIter iter;
   GConfValue *value;
   GConfEntry* entry;
+  gchar *path, *sep;
+  gboolean match = FALSE;
 
+  g_return_val_if_fail (cnxn, DBUS_HANDLER_RESULT_NOT_YET_HANDLED);
+  
+  conf = cnxn->conf;
+  
   dbus_message_iter_init (message, &iter);
 
-  /* what's the message format here? 
-  
-  while (1)
+  gconf_dbus_get_entry_values_from_message_iter (&iter,
+						 &key,
+						 &value,
+						 &is_default,
+						 &is_writable,
+						 &schema_name);
+
+  d(g_print ("Got notify on %s\n", key));
+
+  path = g_strdup (key);
+
+  while ((sep = strrchr (path, '/')))
     {
-
-
-    if (!dbus_message_iter_next (&iter))
+      if (sep == path)
 	break;
-    }
-  */
+      
+      *sep = '\0';
 
-  db = NULL;
-  
-  id = 0;
-  key = NULL;
-  is_default = FALSE;
-  is_writable = FALSE;
-  
-  value = NULL; /*gconf_dbus_create_gconf_value_from_message (iter);*/
-  
-  conf = lookup_engine_by_database (db);
+      d(g_print ("try %s\n", path));
+      
+      if (g_hash_table_lookup (conf->notify_paths, path))
+	{
+	  /* FIXME: might need _nocopy when moving this to real notify */
+	  entry = gconf_entry_new (g_strdup (key), value);
+	  gconf_cnxn_notify (cnxn, entry);
+	  gconf_entry_free (entry);
 
-  cnxn = NULL; /*ctable_lookup_by_server_id(conf->ctable, cnxn_id);*/
-  
-  if (cnxn == NULL)
-    {
-#ifdef GCONF_ENABLE_DEBUG
-      g_warning("Client received notify for unknown connection ID %u",
-                (guint)cnxn_id);
-#endif
-      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+	  match = TRUE;
+	  break;
+	}
     }
 
-  entry = gconf_entry_new_nocopy (g_strdup (key), value);
-  gconf_entry_set_is_default (entry, is_default);
-  gconf_entry_set_is_writable (entry, is_writable);
+  g_free (path);
+
+  if (!match)
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
   
-  /*gconf_cnxn_notify(cnxn, entry);*/
-
-  gconf_entry_free (entry);
-
   return DBUS_HANDLER_RESULT_HANDLED;
 }
 
-#if 0
-static void
-ping (...)
-{
-  /* This one is easy :-) */
-  
-  return;
-}
-
-static const gchar *
-gconf_get_config_listener (void)
-{  
-  if (listener == NULL)
-    {
-      /* FIXME: do something */
-
-      listener = NULL;
-    }
-  
-  return listener;
-}
-#endif
 
 /*
  * Daemon control
@@ -2159,15 +2312,14 @@ gconf_shutdown_daemon (GError** err)
   dbus_connection_flush (connection);
 }
 
+/* FIXME: Do we really need to ping the dbus service? */
 gboolean
 gconf_ping_daemon (void)
 {
   const gchar *cs;
 
-
-  
   /* ignore error, since whole point is to see if server is reachable */
-  cs = gconf_get_config_server(FALSE, NULL); 
+  cs = gconf_get_config_server (FALSE, NULL); 
 
   if (cs == NULL)
     return FALSE;
@@ -2180,7 +2332,7 @@ gconf_spawn_daemon (GError** err)
 {
   const gchar *cs;
 
-  cs = gconf_get_config_server(TRUE, err);
+  cs = gconf_get_config_server (TRUE, err);
 
   if (cs == NULL)
     {
