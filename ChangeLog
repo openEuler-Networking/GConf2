@@ -1,3 +1,7 @@
+2001-03-12  Timur Bakeyev  <timur@gnu.org>
+
+	* Makefile.am: Made warning printing a bit nicer.
+	
 2001-03-11  Havoc Pennington  <hp@redhat.com>
 
 	* configure.in: 1.0.0, woo-hoo!
