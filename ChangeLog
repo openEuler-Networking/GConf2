@@ -1,3 +1,8 @@
+2004-08-19  J.H.M. Dassen (Ray) <jdassen@debian.org>
+
+	Backport from HEAD:
+	* doc/Makefile.am: Add FAQ and DTD to distribution.
+
 2004-08-10  Mark McLoughlin  <mark@skynet.ie>
 
 	* gconf/gconftool.c: (main): set the umask for
