@@ -632,7 +632,7 @@ msgstr ""
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr ""
-"gconftool oder ein anderer nicht-gconfd Prozess hat die Sperrdatei '%s' 
+"gconftool oder ein anderer nicht-gconfd Prozess hat die Sperrdatei '%s' "
 "erstellt"
 
 #: gconf/gconf-internals.c:2595
