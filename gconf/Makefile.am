@@ -33,7 +33,11 @@ lib_LTLIBRARIES = libgconf-2.la
 bin_PROGRAMS = gconftool-2 
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
+if HAVE_ORBIT
 CORBA_SOURCECODE = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
+else
+CORBA_SOURCECODE =
+endif
 
 noinst_PROGRAMS = simple-test
 ## not BUILT_SOURCES which seems to make a mess. fix with automake 1.5?

@@ -18,7 +18,6 @@
  */
 
 #include <popt.h>
-#include "GConfX.h"
 #include "gconf.h"
 #include "gconf-dbus.h"
 #include "gconf-internals.h"
@@ -117,7 +116,7 @@ static GConfEngine *default_engine = NULL;
 
 static GConfCnxn* gconf_cnxn_new     (GConfEngine         *conf,
                                       const gchar         *namespace_section,
-                                      CORBA_unsigned_long  server_id,
+                                      guint                server_id,
                                       GConfNotifyFunc      func,
                                       gpointer             user_data);
 static void       gconf_cnxn_destroy (GConfCnxn           *cnxn);
@@ -127,10 +126,6 @@ static void       gconf_cnxn_notify  (GConfCnxn           *cnxn,
 
 static gboolean   gconf_get_config_server    (gboolean     start_if_not_found,
 					      GError **err);
-
-/* Forget our current server object reference, so the next call to
-   gconf_get_config_server will have to try to respawn the server */
-static ConfigListener gconf_get_config_listener  (void);
 
 static void     gconf_engine_detach       (GConfEngine  *conf);
 static gboolean gconf_engine_connect      (GConfEngine  *conf,
@@ -536,9 +531,6 @@ gconf_engine_unref(GConfEngine* conf)
           /* Remove all connections associated with this GConf */
           GSList* removed;
           GSList* tmp;
-          CORBA_Environment ev;
-      
-          CORBA_exception_init(&ev);
 
           /* FIXME CnxnTable only has entries for this GConfEngine now,
            * it used to be global and shared among GConfEngine objects.
@@ -2124,7 +2116,7 @@ gconf_engine_key_is_writable  (GConfEngine *conf,
 static GConfCnxn* 
 gconf_cnxn_new(GConfEngine* conf,
                const gchar* namespace_section,
-               CORBA_unsigned_long server_id,
+               guint server_id,
                GConfNotifyFunc func,
                gpointer user_data)
 {
@@ -2161,12 +2153,6 @@ gconf_cnxn_notify(GConfCnxn* cnxn,
                 cnxn->user_data);
 }
 
-/*
- *  CORBA glue
- */
-
-static ConfigServer   server = CORBA_OBJECT_NIL;
-
 /* errors in here should be GCONF_ERROR_NO_SERVER */
 static gboolean
 try_to_contact_server (gboolean start_if_not_found,
@@ -2176,36 +2162,10 @@ try_to_contact_server (gboolean start_if_not_found,
   daemon_running = gconf_activate_server (dbus_conn, start_if_not_found,
 					  err);
 
-#ifdef GCONF_CORBA_BROKEN  
-  /* Try to ping server, by adding ourselves as a client */
-  CORBA_exception_init (&ev);   
-
-
-  if (!CORBA_Object_is_nil (server, &ev))
-    {
-      ConfigServer_add_client (server,
-                               gconf_get_config_listener (),
-                               &ev);
-      if (ev._major != CORBA_NO_EXCEPTION)
-	{
-          g_set_error (err,
-                       GCONF_ERROR,
-                       GCONF_ERROR_NO_SERVER,
-                       _("Adding client to server's list failed, CORBA error: %s"),
-                       CORBA_exception_id (&ev));
-
-	  CORBA_Object_release (server, &ev);
-	  server = CORBA_OBJECT_NIL;
-          CORBA_exception_free(&ev);
-	}
-    }
-
 #ifdef GCONF_ENABLE_DEBUG      
   if (!daemon_running && start_if_not_found)
     g_return_val_if_fail (err == NULL || *err != NULL, daemon_running);
 #endif
-
-#endif      
   
   return daemon_running;
 }
@@ -2215,8 +2175,6 @@ try_to_contact_server (gboolean start_if_not_found,
 static gboolean
 gconf_get_config_server(gboolean start_if_not_found, GError** err)
 {
-  gboolean retval;
-  
   g_return_val_if_fail(err == NULL || *err == NULL, daemon_running);
 
   if (daemon_running)
@@ -2227,36 +2185,9 @@ gconf_get_config_server(gboolean start_if_not_found, GError** err)
   return daemon_running; /* return what we have */
 }
 
-ConfigListener listener = CORBA_OBJECT_NIL;
-
 void
 gconf_detach_config_server(void)
 {  
-  CORBA_Environment ev;
-
-  CORBA_exception_init(&ev);
-
-  if (listener != CORBA_OBJECT_NIL)
-    {
-      CORBA_Object_release(listener, &ev);
-      listener = CORBA_OBJECT_NIL;
-    }
-
-  if (server != CORBA_OBJECT_NIL)
-    {
-      CORBA_Object_release(server, &ev);
-
-      if (ev._major != CORBA_NO_EXCEPTION)
-        {
-          g_warning("Exception releasing gconfd server object: %s",
-                    CORBA_exception_id(&ev));
-        }
-
-      server = CORBA_OBJECT_NIL;
-    }
-
-  CORBA_exception_free(&ev);
-
   if (engines_by_db != NULL)
     {
       g_hash_table_destroy (engines_by_db);
@@ -2276,224 +2207,8 @@ gconf_debug_shutdown (void)
 {
   gconf_detach_config_server ();
 
-  return gconf_orb_release ();
+  return 1;
 }
-
-#ifdef GCONF_CORBA_BROKEN
-static void notify                  (PortableServer_Servant     servant,
-                                     ConfigDatabase             db,
-                                     CORBA_unsigned_long        cnxn,
-                                     const CORBA_char          *key,
-                                     const ConfigValue         *value,
-                                     CORBA_boolean              is_default,
-                                     CORBA_boolean              is_writable,
-                                     CORBA_Environment         *ev);
-static void ping                    (PortableServer_Servant     _servant,
-                                     CORBA_Environment         *ev);
-static void update_listener         (PortableServer_Servant     _servant,
-                                     ConfigDatabase             db,
-                                     const CORBA_char          *address,
-                                     const CORBA_unsigned_long  old_cnxn,
-                                     const CORBA_char          *key,
-                                     const CORBA_unsigned_long  new_cnxn,
-                                     CORBA_Environment         *ev);
-static void invalidate_cached_values(PortableServer_Servant     _servant,
-                                     ConfigDatabase             database,
-                                     const ConfigListener_KeyList *keys,
-                                     CORBA_Environment         *ev);
-static void drop_all_caches         (PortableServer_Servant     _servant,
-                                     CORBA_Environment         *ev);
-
-
-
-static PortableServer_ServantBase__epv base_epv = {
-  NULL,
-  NULL,
-  NULL
-};
-
-static POA_ConfigListener__epv listener_epv = {
-  NULL,
-  notify,
-  ping,
-  update_listener,
-  invalidate_cached_values,
-  drop_all_caches
-};
-
-static POA_ConfigListener__vepv poa_listener_vepv = { &base_epv, &listener_epv };
-static POA_ConfigListener poa_listener_servant = { NULL, &poa_listener_vepv };
-
-static void 
-notify(PortableServer_Servant servant,
-       ConfigDatabase db,
-       CORBA_unsigned_long server_id,
-       const CORBA_char* key,
-       const ConfigValue* value,
-       CORBA_boolean is_default,
-       CORBA_boolean is_writable,
-       CORBA_Environment *ev)
-{
-  GConfCnxn* cnxn;
-  GConfValue* gvalue;
-  GConfEngine* conf;
-  GConfEntry* entry;
-  
-  conf = lookup_engine_by_database (db);
-
-  if (conf == NULL)
-    {
-#ifdef GCONF_ENABLE_DEBUG
-      g_warning ("Client received notify for unknown database object");
-#endif
-      return;
-    }
-  
-  cnxn = ctable_lookup_by_server_id(conf->ctable, server_id);
-  
-  if (cnxn == NULL)
-    {
-#ifdef GCONF_ENABLE_DEBUG
-      g_warning("Client received notify for unknown connection ID %u",
-                (guint)server_id);
-#endif
-      return;
-    }
-
-  gvalue = gconf_value_from_corba_value(value);
-
-  entry = gconf_entry_new_nocopy (g_strdup (key),
-                                  gvalue);
-  gconf_entry_set_is_default (entry, is_default);
-  gconf_entry_set_is_writable (entry, is_writable);
-  
-  gconf_cnxn_notify(cnxn, entry);
-
-  gconf_entry_free (entry);
-}
-
-static void
-ping (PortableServer_Servant _servant, CORBA_Environment * ev)
-{
-  /* This one is easy :-) */
-  
-  return;
-}
-
-static void
-update_listener (PortableServer_Servant _servant,
-                 ConfigDatabase             db,
-                 const CORBA_char          *address,
-                 const CORBA_unsigned_long  old_cnxn_id,
-                 const CORBA_char          *key,
-                 const CORBA_unsigned_long  new_cnxn_id,
-                 CORBA_Environment         *ev_ignored)
-{
-  GConfCnxn* cnxn;
-  GConfEngine* conf;
-  CORBA_Environment ev;
-  
-  conf = lookup_engine_by_database (db);
-
-  /* See if we have an old engine with a now-invalid object
-     reference, and update its reference. */
-  if (conf == NULL)
-    {
-      CORBA_exception_init (&ev);
-      
-      if (strcmp (address, "def") == 0)
-        conf = default_engine;
-      else
-        conf = lookup_engine (address);
-
-      if (conf)
-        gconf_engine_set_database (conf,
-                                   CORBA_Object_duplicate (db, &ev));
-    }
-  
-  if (conf == NULL)
-    {
-#ifdef GCONF_ENABLE_DEBUG
-      g_warning("Client received listener update for unknown database "
-                "(this is not a big deal, this warning only appears if GConf is compiled with debugging)");
-#endif
-      return;
-    }
-  
-  cnxn = ctable_lookup_by_server_id (conf->ctable, old_cnxn_id);
-  
-  if (cnxn == NULL)
-    {
-#ifdef GCONF_ENABLE_DEBUG
-      g_warning("Client received listener update for unknown listener ID %u "
-                "(this is not a big deal, this warning only appears if GConf is compiled with debugging)",
-                (guint)old_cnxn_id);
-#endif
-      return;
-    }
-  
-  ctable_reinstall (conf->ctable, cnxn, old_cnxn_id, new_cnxn_id);
-}
-
-static void
-invalidate_cached_values (PortableServer_Servant     _servant,
-                          ConfigDatabase             database,
-                          const ConfigListener_KeyList *keys,
-                          CORBA_Environment         *ev)
-{
-#if 0
-  g_warning ("FIXME process %d received request to invalidate some cached GConf values from the server, but right now we don't know how to do that (not implemented).", (int) getpid());
-#endif
-}
-
-static void
-drop_all_caches (PortableServer_Servant     _servant,
-                 CORBA_Environment         *ev)
-{
-#if 0
-  g_warning ("FIXME process %d received request to invalidate all cached GConf values from the server, but right now we don't know how to do that (not implemented).", (int) getpid());
-#endif
-}
-
-static ConfigListener 
-gconf_get_config_listener(void)
-{  
-  if (listener == CORBA_OBJECT_NIL)
-    {
-      CORBA_Environment ev;
-      PortableServer_POA poa;
-      PortableServer_POAManager poa_mgr;
-
-      CORBA_exception_init (&ev);
-      POA_ConfigListener__init (&poa_listener_servant, &ev);
-      
-      g_assert (ev._major == CORBA_NO_EXCEPTION);
-
-      poa =
-        (PortableServer_POA) CORBA_ORB_resolve_initial_references (gconf_orb_get (),
-                                                                   "RootPOA", &ev);
-
-      g_assert (ev._major == CORBA_NO_EXCEPTION);
-
-      poa_mgr = PortableServer_POA__get_the_POAManager (poa, &ev);
-      PortableServer_POAManager_activate (poa_mgr, &ev);
-
-      g_assert (ev._major == CORBA_NO_EXCEPTION);
-
-      listener = PortableServer_POA_servant_to_reference(poa,
-                                                         &poa_listener_servant,
-                                                         &ev);
-
-      CORBA_Object_release ((CORBA_Object) poa_mgr, &ev);
-      CORBA_Object_release ((CORBA_Object) poa, &ev);
-
-      g_assert (listener != CORBA_OBJECT_NIL);
-      g_assert (ev._major == CORBA_NO_EXCEPTION);
-    }
-  
-  return listener;
-}
-#endif
 
 static const char *config_listener_messages[] =
 {
@@ -2623,6 +2338,9 @@ gconf_lifecycle_handler (DBusMessageHandler *handler,
 
       if (strcmp (name, GCONF_DBUS_CONFIG_SERVER) == 0)
 	{
+	  /* Ping the server so we'll be added to the list */
+	  gconf_ping_daemon ();
+	  
 	  restore_listeners ();
 	  daemon_running = TRUE;
 	}
@@ -3122,12 +2840,9 @@ void
 gconf_shutdown_daemon (GError** err)
 {
   DBusMessage *message;
+  gboolean retval;
   
-#ifdef GCONF_CORBA_BROKEN
-  CORBA_Environment ev;
-  ConfigServer cs;
-
-  cs = gconf_get_config_server (FALSE, err); /* Don't want to spawn it if it's already down */
+  retval = gconf_get_config_server (FALSE, err);
 
   if (err && *err && (*err)->code == GCONF_ERROR_NO_SERVER)
     {
@@ -3135,30 +2850,13 @@ gconf_shutdown_daemon (GError** err)
       g_error_free (*err);
       *err = NULL;
     }
-  
-  if (cs == CORBA_OBJECT_NIL)
-    {      
-      
-      return;
-    }
 
-  CORBA_exception_init (&ev);
-#endif
+  if (!retval)
+    return;
   
   message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_SERVER_SHUTDOWN);
   dbus_connection_send (dbus_conn, message, NULL);
   dbus_connection_flush (dbus_conn);
-  
-#if GCONF_CORBA_BROKEN
-  if (ev._major != CORBA_NO_EXCEPTION)
-    {
-      if (err)
-        *err = gconf_error_new (GCONF_ERROR_FAILED, _("Failure shutting down config server: %s"),
-                                CORBA_exception_id (&ev));
-
-      CORBA_exception_free(&ev);
-    }
-#endif
 }
 
 gboolean
@@ -3614,62 +3312,6 @@ gconf_engine_set_pair    (GConfEngine* conf, const gchar* key,
   return error_checked_set(conf, key, pair, err);
 }
 
-/* CORBA Util */
-
-/* Set GConfError from an exception, free exception, etc. */
-
-static GConfError
-corba_errno_to_gconf_errno(ConfigErrorType corba_err)
-{
-  switch (corba_err)
-    {
-    case ConfigFailed:
-      return GCONF_ERROR_FAILED;
-      break;
-    case ConfigNoPermission:
-      return GCONF_ERROR_NO_PERMISSION;
-      break;
-    case ConfigBadAddress:
-      return GCONF_ERROR_BAD_ADDRESS;
-      break;
-    case ConfigBadKey:
-      return GCONF_ERROR_BAD_KEY;
-      break;
-    case ConfigParseError:
-      return GCONF_ERROR_PARSE_ERROR;
-      break;
-    case ConfigCorrupt:
-      return GCONF_ERROR_CORRUPT;
-      break;
-    case ConfigTypeMismatch:
-      return GCONF_ERROR_TYPE_MISMATCH;
-      break;
-    case ConfigIsDir:
-      return GCONF_ERROR_IS_DIR;
-      break;
-    case ConfigIsKey:
-      return GCONF_ERROR_IS_KEY;
-      break;
-    case ConfigOverridden:
-      return GCONF_ERROR_OVERRIDDEN;
-      break;
-    case ConfigLockFailed:
-      return GCONF_ERROR_LOCK_FAILED;
-      break;
-    case ConfigNoWritableDatabase:
-      return GCONF_ERROR_NO_WRITABLE_DATABASE;
-      break;
-    case ConfigInShutdown:
-      return GCONF_ERROR_IN_SHUTDOWN;
-      break;
-    default:
-      g_assert_not_reached();
-      return GCONF_ERROR_SUCCESS; /* warnings */
-      break;
-    }
-}
-
-
 static GConfError
 dbus_error_name_to_gconf_errno (const char *name)
 {
@@ -3775,42 +3417,6 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *dbus_error,
     }
   
   return TRUE;
-}
-
-static gboolean
-gconf_handle_corba_exception(CORBA_Environment* ev, GError** err)
-{
-  switch (ev->_major)
-    {
-    case CORBA_NO_EXCEPTION:
-      CORBA_exception_free (ev);
-      return FALSE;
-      break;
-    case CORBA_SYSTEM_EXCEPTION:
-      if (err)
-        *err = gconf_error_new (GCONF_ERROR_NO_SERVER, _("CORBA error: %s"),
-                                CORBA_exception_id (ev));
-      CORBA_exception_free (ev);
-      return TRUE;
-      break;
-    case CORBA_USER_EXCEPTION:
-      {        
-        ConfigException* ce;
-
-        ce = CORBA_exception_value (ev);
-
-        if (err)
-          *err = gconf_error_new (corba_errno_to_gconf_errno (ce->err_no),
-                                  ce->message);
-        CORBA_exception_free (ev);
-        return TRUE;
-      }
-      break;
-    default:
-      g_assert_not_reached();
-      return TRUE;
-      break;
-    }
 }
 
 /*

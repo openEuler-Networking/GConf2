@@ -652,7 +652,6 @@ gconfd_config_database_add_listener (DBusConnection *connection,
   dbus_dict_get_string (dict, "name", &name);
 
   cnxn = gconf_database_dbus_add_listener (db, dbus_message_get_sender (message), name, dir);
-  printf ("added listener from %s, %s. Result is %d\n", dbus_message_get_sender (message), dir, cnxn);
   
   reply = dbus_message_new_reply (message);
   dbus_message_append_uint32 (reply, cnxn);
@@ -683,7 +682,7 @@ gconfd_config_database_remove_listener (DBusConnection *connection,
       return;
 
 
-  /* FIXME: Remove the listener */
+  gconf_listeners_remove (db->listeners, cnxn);
   
   reply = dbus_message_new_reply (message);
   dbus_connection_send (connection, reply, NULL);
@@ -725,6 +724,7 @@ gconfd_config_database_set (DBusConnection *connection,
   dbus_message_iter_unref (iter);
 
   gconf_database_set (db, key, value, &error);
+  dbus_free (key);
   gconf_value_free (value);
   
   if (gconf_dbus_set_exception (connection, message, &error))
@@ -990,7 +990,6 @@ remove_listener_predicate (const gchar* location,
 
   if (strcmp (l->who, name) == 0)
     {
-      printf ("removing listener!\n");
       return FALSE;
     }
   else

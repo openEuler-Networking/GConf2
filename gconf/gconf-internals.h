@@ -37,8 +37,8 @@
 #include "gconf-value.h"
 #include "gconf-engine.h"
 #include "gconf-sources.h"
-#include "GConfX.h"
 #include "gconf-dbus.h"
+
 gchar*       gconf_key_directory  (const gchar* key);
 const gchar* gconf_key_key        (const gchar* key);
 
@@ -52,20 +52,6 @@ enum {
 
 gboolean gconf_file_test   (const gchar* filename, int test);
 gboolean gconf_file_exists (const gchar* filename);
-
-GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
-ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
-void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
-                                                      ConfigValue       *dest);
-ConfigValue* gconf_invalid_corba_value               (void);
-
-void          gconf_fill_corba_schema_from_gconf_schema (const GConfSchema  *sc,
-                                                         ConfigSchema       *dest);
-ConfigSchema* gconf_corba_schema_from_gconf_schema      (const GConfSchema  *sc);
-GConfSchema*  gconf_schema_from_corba_schema            (const ConfigSchema *cs);
-
-gchar* gconf_object_to_string (CORBA_Object obj,
-                               GError **err);
 
 const gchar*   gconf_value_type_to_string   (GConfValueType  type);
 GConfValueType gconf_value_type_from_string (const gchar    *str);
@@ -173,9 +159,6 @@ gboolean     gconf_in_daemon_mode  (void);
 void         gconf_set_daemon_ior  (const gchar *ior);
 const gchar* gconf_get_daemon_ior  (void);
 
-/* Returns TRUE if there was an error, frees exception, sets err */
-gboolean gconf_handle_oaf_exception (CORBA_Environment* ev, GError** err);
-
 void gconf_nanosleep (gulong useconds);
 
 typedef struct _GConfLock GConfLock;
@@ -184,12 +167,13 @@ GConfLock* gconf_get_lock     (const gchar  *lock_directory,
                                GError      **err);
 gboolean   gconf_release_lock (GConfLock    *lock,
                                GError      **err);
+#if 0
 GConfLock* gconf_get_lock_or_current_holder (const gchar  *lock_directory,
                                              ConfigServer *current_server,
                                              GError      **err);
 ConfigServer gconf_get_current_lock_holder  (const gchar *lock_directory,
                                              GString     *failure_log);
-
+#endif
 GError*  gconf_error_new  (GConfError en,
                            const gchar* format, ...) G_GNUC_PRINTF (2, 3);
 
@@ -199,8 +183,6 @@ void     gconf_set_error  (GError** err,
 
 /* merge two errors into a single message */
 GError*  gconf_compose_errors (GError* err1, GError* err2);
-
-CORBA_ORB gconf_orb_get (void);
 
 gboolean gconf_activate_server (DBusConnection *connection,
 				gboolean        start_if_not_found,

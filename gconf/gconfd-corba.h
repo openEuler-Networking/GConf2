@@ -27,6 +27,23 @@ gboolean gconfd_corba_init (void);
 
 PortableServer_POA gconf_corba_get_poa ();
 
+GConfValue*  gconf_value_from_corba_value            (const ConfigValue *value);
+ConfigValue* gconf_corba_value_from_gconf_value      (const GConfValue  *value);
+void         gconf_fill_corba_value_from_gconf_value (const GConfValue  *value,
+                                                      ConfigValue       *dest);
+ConfigValue* gconf_invalid_corba_value               (void);
+
+void          gconf_fill_corba_schema_from_gconf_schema (const GConfSchema  *sc,
+                                                         ConfigSchema       *dest);
+ConfigSchema* gconf_corba_schema_from_gconf_schema      (const GConfSchema  *sc);
+GConfSchema*  gconf_schema_from_corba_schema            (const ConfigSchema *cs);
+
+gchar* gconf_object_to_string (CORBA_Object obj,
+                               GError **err);
+
+CORBA_ORB gconf_orb_get (void);
+
+
 void gconfd_corba_logfile_save (void);
 void gconfd_corba_logfile_read (void);
 void gconfd_corba_log_client_add (const ConfigListener client);
