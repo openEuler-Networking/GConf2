@@ -8,15 +8,15 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 2.3.3\n"
-"POT-Creation-Date: 2003-09-10 15:15-0400\n"
-"PO-Revision-Date: 2003-07-22 13:04+0200\n"
+"Project-Id-Version: GConf 2.4.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-09-30 17:14+0200\n"
+"PO-Revision-Date: 2003-09-10 15:15+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
@@ -1102,73 +1102,73 @@ msgstr ""
 "Zu einer lokalen Konfigurationsquelle konnten keine Benachrichtigungen "
 "hinzugefügt werden"
 
-#: gconf/gconf.c:2078
+#: gconf/gconf.c:2097
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr ""
 "Der Client konnte auf Grund eines CORBA-Fehlers nicht zur Serverliste "
 "hinzugefügt werden: %s"
 
-#: gconf/gconf.c:2433
+#: gconf/gconf.c:2452
 msgid "Must begin with a slash (/)"
 msgstr "Muss mit einem Schrägstrich beginnen (/)"
 
-#: gconf/gconf.c:2455
+#: gconf/gconf.c:2474
 msgid "Can't have two slashes (/) in a row"
 msgstr "Zwei Schrägstriche (/) sind in einer Zeile nicht zulässig"
 
-#: gconf/gconf.c:2457
+#: gconf/gconf.c:2476
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr ""
 "Ein Punkt (.) ist unmittelbar nach einem Schrägstrich (/) nicht zulässig"
 
-#: gconf/gconf.c:2476
+#: gconf/gconf.c:2495
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr ""
 "»%c« ist ein kein ASCII-Zeichen und daher in Schlüsselnamen nicht zulässig"
 
-#: gconf/gconf.c:2486
+#: gconf/gconf.c:2505
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "Das Zeichen »%c« ist in Schlüssel- und Verzeichnisnamen nicht zulässig"
 
-#: gconf/gconf.c:2500
+#: gconf/gconf.c:2519
 msgid "Key/directory may not end with a slash (/)"
 msgstr ""
 "Schlüssel und Verzeichnisse dürfen nicht auf einen Schrägstrich (/) enden"
 
-#: gconf/gconf.c:2869
+#: gconf/gconf.c:2888
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Fehler beim Herunterfahren des Konfigurationsservers: %s"
 
-#: gconf/gconf.c:2930
+#: gconf/gconf.c:2949
 #, c-format
 msgid "Expected float, got %s"
 msgstr "»float« erwartet, jedoch »%s« erhalten"
 
-#: gconf/gconf.c:2965
+#: gconf/gconf.c:2984
 #, c-format
 msgid "Expected int, got %s"
 msgstr "»int« erwartet, jedoch »%s« erhalten"
 
-#: gconf/gconf.c:3000
+#: gconf/gconf.c:3019
 #, c-format
 msgid "Expected string, got %s"
 msgstr "»string« erwartet, jedoch »%s« erhalten"
 
-#: gconf/gconf.c:3034
+#: gconf/gconf.c:3053
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "»bool« erwartet, jedoch »%s« erhalten"
 
-#: gconf/gconf.c:3067
+#: gconf/gconf.c:3086
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "»schema« erwartet, jedoch »%s« erhalten"
 
-#: gconf/gconf.c:3424
+#: gconf/gconf.c:3443
 #, c-format
 msgid "CORBA error: %s"
 msgstr "CORBA-Fehler: %s"
@@ -1871,7 +1871,7 @@ msgstr "Kurzbeschr.: %s\n"
 #: gconf/gconftool.c:1588
 #, c-format
 msgid "Long Desc: %s\n"
-msgstr "Lange Beschr.: %s\n"
+msgstr "Ausführliche Beschr.: %s\n"
 
 #: gconf/gconftool.c:1597 gconf/gconftool.c:1821 gconf/gconftool.c:1855
 #: gconf/gconftool.c:1900 gconf/gconftool.c:2045
