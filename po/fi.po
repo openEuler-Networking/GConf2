@@ -1,17 +1,18 @@
-# gconf fi.po
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# Pauli Virtanen <pauli.virtanen@saunalahti.fi>, 2000.
+# gconf Finnish translation
+# Suomennos: http://gnome-fi.sourceforge.net/
 #
-# GNOME Finnish Translation Team: http://gnome-fi.sourceforge.net/
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Pauli Virtanen <pauli.virtanen@saunalahti.fi>, 2000-2001.
+#
 #
 # I've left car and cdr as is, because translating them
 # could cause confusion.
-#
+#  
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 0.9\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
-"PO-Revision-Date: 2000-12-09 22:00+02:00\n"
+"POT-Creation-Date: 2001-08-16 22:01+0300\n"
+"PO-Revision-Date: 2001-08-16 19:50+0300\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@saunalahti.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -94,8 +95,8 @@ msgstr ""
 #: backends/xml-cache.c:256
 #, c-format
 msgid ""
-"%u items remain in the cache after cleaning already-synced items older than %"
-"u seconds"
+"%u items remain in the cache after cleaning already-synced items older than "
+"%u seconds"
 msgstr ""
 "%u kohdetta on jäljellä välimuistissa %u sekuntia vanhempien jo "
 "synkronoitujen kohteiden poiston jälkeen"
@@ -121,9 +122,9 @@ msgid "Failed to write file `%s': %s"
 msgstr "Tiedoston '%s' kirjoittaminen epäonnistui: %s"
 
 #: backends/xml-dir.c:359
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set mode on `%s': %s"
-msgstr "Tiedoston '%s' avaaminen epäonnistui: %s\n"
+msgstr "Tiedoston '%s' oikeuksien asettaminen epäonnistui: %s"
 
 #: backends/xml-dir.c:373 backends/xml-dir.c:383
 #, c-format
@@ -188,9 +189,9 @@ msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Virheellinen kaavaimen nimi '%s' jää huomiotta: %s"
 
 #: backends/xml-entry.c:375
-#, fuzzy, c-format
+#, c-format
 msgid "Ignoring XML node `%s': %s"
-msgstr "'%s'-niminen XML-solmu jää huomiotta: %s"
+msgstr "XML-solmu '%s' jää huomiotta: %s"
 
 #: backends/xml-entry.c:726
 #, c-format
@@ -297,7 +298,7 @@ msgstr "Taustamoduulin sammutus epäonnistui"
 
 #: gconf/gconf-database.c:232
 msgid "Received invalid value in set request"
-msgstr "Asetuspyyntöön vastaanotettiin virheellinen arvo."
+msgstr "Vastaanotti asetuspyynnössä virheellisen arvon"
 
 #: gconf/gconf-database.c:240
 #, c-format
@@ -306,11 +307,11 @@ msgstr "Avaimen '%s' asetuspyynnöstä saatu CORBA-arvo ei ole järkevä"
 
 #: gconf/gconf-database.c:518
 msgid "Received request to drop all cached data"
-msgstr "Pyyntö kaiken välivarastoidun tiedon hylkäämiseen vastaanotettu"
+msgstr "Vastaanotti kaiken välivarastoidun tiedon hylkäämispyynnön"
 
 #: gconf/gconf-database.c:535
 msgid "Received request to sync synchronously"
-msgstr "Synkronointipyyntö vastaanotettu"
+msgstr "Vastaanotti synkronointipyynnön"
 
 #: gconf/gconf-database.c:770
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
@@ -476,7 +477,7 @@ msgstr "Vääräntyyppinen luettelon osa %s"
 
 #: gconf/gconf-internals.c:266
 msgid "Received list from gconfd with a bad list type"
-msgstr "Vääräntyyppinen luettelo vastaanotettu gconfd:ltä"
+msgstr "Vastaanotti gconfd:ltä väärän tyyppisen luettelon"
 
 #: gconf/gconf-internals.c:447
 msgid "Failed to convert object to IOR"
@@ -585,18 +586,19 @@ msgid ""
 "Removing stale lock `%s' because IOR couldn't be converted to object "
 "reference, IOR `%s'"
 msgstr ""
-"Poistetaan tyhjä lukitus '%s', koska IOR:ia ei voitu muuntaa "
+"Poistaa tyhjän lukituksen '%s', koska ei voinut muuntaa IOR:ia "
 "olioviittaukseksi. IOR '%s'"
 
 #: gconf/gconf-internals.c:2371
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
-msgstr "Poistetaan tyhjä lukitus '%s' ping:in epäonnistuttua palvelimeen: %s"
+msgstr ""
+"Poistaa tyhjän lukituksen '%s', koska palvelimen pingaus epäonnistui: %s"
 
 #: gconf/gconf-internals.c:2383
 #, c-format
 msgid "GConf configuration daemon (gconfd) has lock `%s'"
-msgstr "GConf asetusdemoni (gconfd) omistaa lukituksen '%s'"
+msgstr "GConf asetusdaemon (gconfd) omistaa lukituksen '%s'"
 
 #: gconf/gconf-internals.c:2397
 #, c-format
@@ -616,13 +618,12 @@ msgstr "Tiedostoon '%s' ei voi kirjoittaa: %s"
 #: gconf/gconf-internals.c:2532
 #, c-format
 msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
-msgstr ""
-"Lukitustiedostoa '%s' ei voi avata; oletetaan ettei se kuulu meille: %s"
+msgstr "Lukitustiedostoa '%s' ei voi avata; olettaa ettei se kuulu meille: %s"
 
 #: gconf/gconf-internals.c:2549
 #, c-format
 msgid "Corrupt lock file `%s', removing anyway"
-msgstr "Virheellinen lukitustiedosto '%s': poistetaan"
+msgstr "Virheellinen lukitustiedosto '%s': poistaa silti"
 
 #: gconf/gconf-internals.c:2559
 #, c-format
@@ -630,7 +631,7 @@ msgid ""
 "Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
 "took our lock"
 msgstr ""
-"Lukitustiedostoa '%s' ei luotu. (luojan pid %u, oma pid %u; oletetaan jonkin "
+"Lukitustiedostoa '%s' ei luotu. (luojan pid %u, oma pid %u; olettaa jonkin "
 "vieneen lukituksen)"
 
 #: gconf/gconf-internals.c:2576
@@ -674,6 +675,14 @@ msgid ""
 "back in may help. As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
+"Ei voi tallentaa arvoa avaimelle \"%s\", koska asetuspalvelimella ei ole "
+"tietokantoja, joihin voisi kirjoittaa. Tähän ongelmaan on kaksi yleistä "
+"syytä: 1) asetuspolkusi ei sisällä tietokantoja tai sitä ei ole tai 2) OAF "
+"loi vahingossa kaksi gconfd-prosessia. Jos sinulla on kaksi gconfd-prosessia "
+"(tai oli kaksi kun toinen käynnistyi), silloin on kyse viasta OAF:ssa, eikä "
+"GConfissa. Ulos kirjautuminen, oafd:n ja gconfd:n sulkeminen ja takaisin "
+"sisään kirjautuminen voi auttaa. Kuten aina lue user.* syslogeista "
+"lisätietoja gconfd:n ongelmista."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -782,10 +791,15 @@ msgid ""
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
 msgstr ""
+"Virhe ottaessa yhteyttä asetuspalvelimeen: OAF palautti tyhjän funktiosta "
+"oaf_activate_from_id() ja ei tehnyt virheen selittävää keskeytystä. Tämä on "
+"virhe OAF:ssa: jokin toimi väärin siinä, eikä se ilmoittanut virhettä. Tämä "
+"ei ole GConfin vika. Älä ilmoita GConfin viasta, paitsi jos tiedät, että "
+"vika on GConfin OAF:ssa aiheuttama."
 
 #: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
-msgstr "GConfin käynnistyminen epäonnistui, lopetetaan\n"
+msgstr "GConfin käynnistyminen epäonnistui, lopettaa\n"
 
 #: gconf/gconf.c:2235
 msgid "Must begin with a slash (/)"
@@ -840,7 +854,7 @@ msgstr "Odotettiin kaavainta, mutta saatiin %s"
 
 #: gconf/gconfd.c:248
 msgid "Shutdown request received"
-msgstr "Sammutuspyyntö vastaanotettu"
+msgstr "Vastaanotti sammutuspyynnön"
 
 #: gconf/gconfd.c:280
 msgid ""
@@ -862,10 +876,6 @@ msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit "
 msgstr "Ei asetuslähteitä lähdehakemistossa: asetuksia ei tallenneta. Muokkaa "
-
-#: gconf/gconfd.c:307
-msgid "/path"
-msgstr ""
 
 #: gconf/gconfd.c:321
 #, c-format
@@ -892,7 +902,7 @@ msgstr ""
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr ""
-"Signaali %d vastaanotettu, core-tiedosto kirjoitetaan. Tee ilmoitus GConfin "
+"Vastaanotti signaalin %d, kirjoittaa core-tiedoston. Tee ilmoitus GConfin "
 "virheestä."
 
 #: gconf/gconfd.c:392
@@ -900,13 +910,13 @@ msgstr ""
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr ""
-"Signaali %d vastaanotettu: sammutetaan epänormaalisti. Tee ilmoitus GConfin "
+"Vastaanotti signaalin %d: sammuu epänormaalisti. Tee ilmoitus GConfin "
 "virheestä."
 
 #: gconf/gconfd.c:409
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
-msgstr "Signaali %d vastaanotettu: sammutetaan siististi"
+msgstr "Vastaanotti signaalin %d: sammuu siististi"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -928,51 +938,53 @@ msgid "Failed to get object reference for ConfigServer"
 msgstr "Olioon ConfigServer ei saatu viittausta"
 
 #: gconf/gconfd.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create %s: %s"
-msgstr "Tiedoston '%s' luominen epäonnistui: %s"
+msgstr "Hakemiston '%s' luominen epäonnistui: %s"
 
 #. Bad hack alert - register the current lockholder with oafd,
 #. * since oafd seems to have forgotten about us.
 #.
 #: gconf/gconfd.c:588
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get lock for daemon: %s"
-msgstr "Asiakkaan IOR:n saaminen epäonnistui: '%s'"
+msgstr "Daemonin lukon saaminen epäonnistui: %s"
 
 #: gconf/gconfd.c:594
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
 msgstr ""
+"Rekisteröi olemassaolevan palvelimen oafd:hen, sillä OAF näyttää vuotaneen "
+"sen"
 
 #: gconf/gconfd.c:603
-#, fuzzy
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register existing server."
 msgstr ""
-"OAF ei tunne IID:tämme, joten asennus on virheellinen. Ei voitu "
-"rekisteröityä: poistutaan\n"
+"OAF ei tunne IID:tämme, joten asennus on virheellinen. Ei voi rekisteröidä "
+"olemassaolevaa palvelinta."
 
 #: gconf/gconfd.c:607
-#, fuzzy
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "Toinen gconfd on jo rekisteröitynyt OAF:iin: poistutaan\n"
+msgstr ""
+"Toinen gconfd on jo rekisteröitynyt OAF:iin, joten olemassaolevaa palvelinta "
+"ei voi rekisteröidä"
 
 #: gconf/gconfd.c:612
-#, fuzzy
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr "Tuntematon virhe rekisteröitäessä gconfd:tä OAF:iin: poistutaan\n"
+msgstr ""
+"Tuntematon virhe rekisteröidessä olemassaolevaa gconfd:tä OAF:iin: poistuu"
 
 #: gconf/gconfd.c:639
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register; exiting\n"
 msgstr ""
-"OAF ei tunne IID:tämme, joten asennus on virheellinen. Ei voitu "
-"rekisteröityä: poistutaan\n"
+"OAF ei tunne IID:tämme, joten asennus on virheellinen. Ei voinut "
+"rekisteröityä: poistuu\n"
 
 #: gconf/gconfd.c:643
 msgid "Another gconfd already registered with OAF; exiting\n"
@@ -983,22 +995,22 @@ msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr "Tuntematon virhe rekisteröitäessä gconfd:tä OAF:iin: poistutaan\n"
 
 #: gconf/gconfd.c:692
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to release lockfile: %s"
-msgstr "Lukitushakemiston '%s' palauttaminen epäonnistui: %s"
+msgstr "Lukitustiedoston vapauttaminen epäonnistui: %s"
 
 #: gconf/gconfd.c:700
 msgid "Exiting"
-msgstr "Poistutaan"
+msgstr "Poistuu"
 
 #: gconf/gconfd.c:725
 msgid "GConf server is not in use, shutting down."
-msgstr "GConf-palvelin ei ole käytössä: sammutetaan"
+msgstr "GConf-palvelin ei ole käytössä: sammuu"
 
 #: gconf/gconfd.c:1084
 #, c-format
 msgid "Returning exception: %s"
-msgstr "Palautetaan poikkeus: %s"
+msgstr "Palauttaa poikkeuksen: %s"
 
 #: gconf/gconfd.c:1184
 #, c-format
@@ -1071,8 +1083,8 @@ msgstr "Tilatiedoston '%s' avaaminen ei onnistu: %s"
 #: gconf/gconfd.c:2035
 #, c-format
 msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log addition of listener to gconfd logfile; won't be able to "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Kuuntelijan lisäämisen kirjaaminen gconfd:n lokitiedostoon epäonnistui: sitä "
 "ei voi lisätä uudestaan, kun gconfd lopetetaan tai sammuu (%s)"
@@ -1080,8 +1092,8 @@ msgstr ""
 #: gconf/gconfd.c:2040
 #, c-format
 msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
+"Failed to log removal of listener to gconfd logfile; might erroneously "
+"re-add the listener if gconfd exits or shuts down (%s)"
 msgstr ""
 "Kuuntelijan poiston kirjaaminen gconfd:n lokitiedostoon epäonnistui; se "
 "saattaa virheellisesti tulla lisätyksi uudestaan, kun gconfd lopetetaan tai "
@@ -1127,11 +1139,11 @@ msgstr "Tulosta avaimen arvo stdout:iin"
 
 #: gconf/gconftool.c:95
 msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
-"type."
+"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
+"--type."
 msgstr ""
-"Aseta kaavain ja synkronoi. Käytä asetusten --short-desc, --long-desc, --"
-"owner ja --type kanssa."
+"Aseta kaavain ja synkronoi. Käytä asetusten --short-desc, --long-desc, "
+"--owner ja --type kanssa."
 
 #: gconf/gconftool.c:105
 msgid "Unset the keys on the command line"
@@ -1282,23 +1294,24 @@ msgstr ""
 
 #: gconf/gconftool.c:294
 msgid "Get the short doc string for a key"
-msgstr ""
+msgstr "Hae lyhyt avaimen dokumenttimerkkijono"
 
 #: gconf/gconftool.c:303
 msgid "Get the long doc string for a key"
-msgstr ""
+msgstr "Hae pitkä avaimen dokumenttimerkkijono"
 
 #: gconf/gconftool.c:312
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Hae tähän avaimeen sovelletun kaavaimen nimi"
 
 #: gconf/gconftool.c:321
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
+"Anna kaavaimen ja sen jälkeen sen avaimen nimi, johon kaavain sovelletaan"
 
 #: gconf/gconftool.c:330
 msgid "Get the name of the default source"
-msgstr ""
+msgstr "Hae oletuslähteen nimi"
 
 #: gconf/gconftool.c:382
 #, c-format
@@ -1319,10 +1332,10 @@ msgid "Can't set and get/unset simultaneously\n"
 msgstr "Ei voi asettaa ja hakea tai poistaa samanaikaisesti\n"
 
 #: gconf/gconftool.c:409
-#, fuzzy
 msgid "Can't use --all-entries with --get or --set\n"
 msgstr ""
-"--all-dirs -valitsinta ei voi käyttää --get tai --set -valitsinten kanssa\n"
+"--all-entries -valitsinta ei voi käyttää --get tai --set -valitsinten "
+"kanssa\n"
 
 #: gconf/gconftool.c:417
 msgid "Can't use --all-dirs with --get or --set\n"
@@ -1330,21 +1343,20 @@ msgstr ""
 "--all-dirs -valitsinta ei voi käyttää --get tai --set -valitsinten kanssa\n"
 
 #: gconf/gconftool.c:427
-#, fuzzy
 msgid ""
-"--recursive-list should not be used with --get, --set, --unset, --all-"
-"entries, or --all-dirs\n"
+"--recursive-list should not be used with --get, --set, --unset, "
+"--all-entries, or --all-dirs\n"
 msgstr ""
-"--recursive-list asetusta ei pitäisi käyttää --get, --set, --unset,\n"
-"--all-pairs tai --all-dirs asetusten kanssa\n"
+"--recursive-list valitsinta ei pitäisi käyttää --get, --set, --unset,\n"
+"--all-entries tai --all-dirs valitsinten kanssa\n"
 
 #: gconf/gconftool.c:437
-#, fuzzy
 msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
-"all-dirs\n"
+"--set_schema should not be used with --get, --set, --unset, --all-entries, "
+"--all-dirs\n"
 msgstr ""
-"--set_schema asetusta ei pitäisi käyttää --get, --set, --unset, --all-pairs\n"
+"--set_schema asetusta ei pitäisi käyttää --get, --set, --unset, "
+"--all-entries\n"
 "tai --all-dirs asetusten kanssa\n"
 
 #: gconf/gconftool.c:443
@@ -1429,9 +1441,9 @@ msgstr ""
 "rekursiivisesti.\n"
 
 #: gconf/gconftool.c:875
-#, fuzzy, c-format
+#, c-format
 msgid "Failure listing entries in `%s': %s\n"
-msgstr "Hakemiston '%s' parien luettelointi epäonnistui: %s"
+msgstr "Hakemiston '%s' kohtien luettelointi epäonnistui: %s\n"
 
 #: gconf/gconftool.c:893
 msgid "(no value set)"
@@ -1469,7 +1481,7 @@ msgstr "Cdr:n tyyppi: %s\n"
 #: gconf/gconftool.c:1005
 #, c-format
 msgid "Default Value: %s\n"
-msgstr ""
+msgstr "Oletusarvo: %s\n"
 
 #: gconf/gconftool.c:1005 gconf/gconftool.c:1007 gconf/gconftool.c:1008
 #: gconf/gconftool.c:1009
@@ -1537,54 +1549,52 @@ msgid "Error: %s\n"
 msgstr "Virhe: %s\n"
 
 #: gconf/gconftool.c:1189
-#, fuzzy, c-format
+#, c-format
 msgid "Error setting value: %s\n"
-msgstr "Virhe arvoa asettaessa: %s"
+msgstr "Virhe asettaessa arvoa: %s\n"
 
 #: gconf/gconftool.c:1207
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing: %s\n"
-msgstr "Virhe synkronoidessa: %s"
+msgstr "Virhe synkronoidessa: %s\n"
 
 #: gconf/gconftool.c:1230
-#, fuzzy
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Täytyy määritellä haettavat avaimet\n"
+msgstr "Avain tai avaimet täytyy määritellä komentorivillä\n"
 
 #: gconf/gconftool.c:1250
-#, fuzzy, c-format
+#, c-format
 msgid "No schema known for `%s'\n"
-msgstr "Tiedostoa '%s' ei löydy\n"
+msgstr "Kohdalla '%s' ei ole kaavainta\n"
 
 #: gconf/gconftool.c:1283
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
-msgstr ""
+msgstr "Kohdan '%s' kaavaimessa ei ole dokumenttimerkkijonoa\n"
 
 #: gconf/gconftool.c:1288
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting schema at '%s': %s\n"
-msgstr "Virhe avaimen '%s' kaavainta asettaessa: %s"
+msgstr "Virhe kaavaimen haussa kohdasta '%s': %s\n"
 
 #: gconf/gconftool.c:1295
-#, fuzzy, c-format
+#, c-format
 msgid "No schema stored at '%s'\n"
-msgstr "Tiedostoa '%s' ei löydy\n"
+msgstr "Kaavainta ei ole kohdassa '%s'\n"
 
 #: gconf/gconftool.c:1298
 #, c-format
 msgid "Value at '%s' is not a schema\n"
-msgstr ""
+msgstr "Arvo kohdassa '%s' ei ole kaavain\n"
 
 #: gconf/gconftool.c:1354
-#, fuzzy
 msgid "Must specify a schema name followed by the key name to apply it to\n"
-msgstr "Arvo (kaavaimen nimi) täytyy olla ainoa parametri\n"
+msgstr "Kaavaimen ja sen jälkeen sitä soveltavan avaimen nimi täytyy antaa\n"
 
 #: gconf/gconftool.c:1361
-#, fuzzy, c-format
+#, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr "VAROITUS: kaavaimen '%s' kytkentä avaimeen '%s' epäonnistui: %s\n"
+msgstr "Virhe kytkiessä kaavaimen nimeä '%s' avaimen nimeen '%s': %s\n"
 
 #: gconf/gconftool.c:1381
 msgid "Must specify key (schema name) as the only argument\n"
@@ -1843,29 +1853,25 @@ msgstr "GConf-varoitus: Hakemiston '%s' parien luetteloiminen epäonnistui: %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Odotettiin tyyppiä '%s', saatiin tyyppi '%s' avaimelle %s"
 
+#~ msgid "/path"
+#~ msgstr "/polku"
+
 #~ msgid "Ignoring XML node `%s', except for possible schema name: %s"
 #~ msgstr ""
 #~ "XML-solmu '%s' jää huomiotta, paitsi mahdollisena kaavaimen nimenä: %s"
 
 #~ msgid "Can't use --all-pairs with --get or --set\n"
 #~ msgstr ""
-#~ "--all-pairs -valitsinta ei voi käyttää --get tai --set -valitsinten "
-#~ "kanssa\n"
+#~ "--all-pairs -valitsinta ei voi käyttää --get tai --set -valitsinten kanssa\n"
 
 #~ msgid "Unable to store a value at key '%s'"
 #~ msgstr "Avaimen '%s' arvon tallentaminen ei onnistu"
 
 #~ msgid ""
 #~ "Error contacting configuration server: OAF returned nil from "
-#~ "oaf_activate_from_id() and did not set an exception explaining the "
-#~ "problem. Please file an OAF bug report."
+#~ "oaf_activate_from_id() and did not set an exception explaining the problem. "
+#~ "Please file an OAF bug report."
 #~ msgstr ""
 #~ "Virhe yhdistäessä asetuspalvelimeen: OAF palautti tyhjän arvon funktiosta "
-#~ "oaf_activate_from_id() ja ei asettanut ongelmaa selittävää "
-#~ "virhekeskeytystä. Olkaa hyvä, ja tehkää OAF:ista virheilmoitus."
-
-#~ msgid "GConf was built with debugging features enabled"
-#~ msgstr "GConf on käännetty virheenetsintäominaisuuksineen"
-
-#~ msgid "found <local_schema> with no locale setting"
-#~ msgstr "löydettiin <local_schema> ilman localeasetusta"
+#~ "oaf_activate_from_id() ja ei asettanut ongelmaa selittävää virhekeskeytystä. "
+#~ "Olkaa hyvä, ja tehkää OAF:ista virheilmoitus."
