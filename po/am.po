@@ -5,7 +5,6 @@
 #
 #
 msgid ""
-msgstr ""
 "Project-Id-Version: gconf\n"
 "POT-Creation-Date: 2002-11-06 04:59+0100\n"
 "PO-Revision-Date: 2002-11-06 09:40+EDT\n"
@@ -14,7 +13,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
 
 #: backends/bdb-backend.c:215
 msgid "Unloading BerkeleyDB (BDB) backend module."
@@ -1252,7 +1250,8 @@ msgstr ""
 
 #: gconf/gconftool.c:201 gconf/gconftool.c:210 gconf/gconftool.c:219
 msgid "int|bool|float|string"
-msgstr  "int|bool|float|string"
+msgstr "int|bool|float|string"
+
 
 #: gconf/gconftool.c:209
 msgid ""
@@ -1300,7 +1299,7 @@ msgstr ""
 
 #: gconf/gconftool.c:264
 msgid "SOURCE"
-msgstr ""
+msgstr "ምንጭ"
 
 #: gconf/gconftool.c:272
 msgid ""
