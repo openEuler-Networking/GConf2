@@ -21,7 +21,8 @@
 #include "gconf-internals.h"
 #include "gconf-locale.h"
 #include "gconfd.h"
-#include "gconf-dbus.h"
+#include "gconf.h"
+#include "gconf-dbus-utils.h"
 #include <time.h>
 #include <string.h>
 #include <sys/types.h>
