@@ -251,8 +251,12 @@ database_handle_set (DBusConnection *conn,
 
   /* FIXME: Error handling */
   key = dbus_message_iter_get_string (&iter);
+  if (!dbus_message_iter_next (&iter)) 
+    {
+      /* FIXME: Do something */
+    }
   value = gconf_dbus_create_gconf_value_from_message_iter (&iter);
-
+  
   gconf_database_set (db->db, key, value, &gerror);
   dbus_free (key);
   gconf_value_free (value);

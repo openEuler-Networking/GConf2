@@ -36,7 +36,7 @@
 #include <unistd.h>
 #include <dbus/dbus.h>
 
-#define d(x) x
+#define d(x) 
 
 /* Maximum number of times to try re-spawning the server if it's down. */
 #define MAX_RETRIES 1
