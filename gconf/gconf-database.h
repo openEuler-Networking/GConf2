@@ -22,9 +22,7 @@
 
 #include <glib.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
+G_BEGIN_DECLS
 
 #include "gconf-error.h"
 #include "gconf-listeners.h"
@@ -33,7 +31,8 @@ extern "C" {
 #include "gconf-locale.h"
   
 typedef struct _GConfDatabase GConfDatabase;
-
+typedef struct _GConfDatabaseListener GConfDatabaseListener;
+  
 struct _GConfDatabase
 {
   GConfListeners* listeners;
@@ -48,6 +47,18 @@ struct _GConfDatabase
   gpointer corba_data;
 };
 
+typedef enum
+{
+  GCONF_DATABASE_LISTENER_CORBA,
+  GCONF_DATABASE_LISTENER_DBUS
+} GConfDatabaseListenerType;
+
+struct _GConfDatabaseListener
+{
+  GConfDatabaseListenerType type;
+  char *name;
+};
+  
 GConfDatabase* gconf_database_new     (GConfSources  *sources);
 void           gconf_database_free (GConfDatabase *db);
 
@@ -124,9 +135,7 @@ void gconf_database_log_listeners_to_string (GConfDatabase *db,
 
 
 
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
+G_END_DECLS
 
 #endif
 

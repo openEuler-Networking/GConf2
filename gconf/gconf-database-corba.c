@@ -35,8 +35,9 @@
 typedef struct _Listener Listener;
 
 struct _Listener {
+  GConfDatabaseListener parent;
+
   ConfigListener obj;
-  char *name;
 };
 
 typedef struct
@@ -879,10 +880,10 @@ gconf_database_corba_readd_listener   (GConfDatabase       *db,
   cnxn = gconf_listeners_add (db->listeners, where, l,
                               (GFreeFunc)listener_destroy);
 
-  if (l->name == NULL)
-    l->name = g_strdup_printf ("%u", cnxn);
+  if (l->parent.name == NULL)
+    l->parent.name = g_strdup_printf ("%u", cnxn);
   
-  gconf_log (GCL_DEBUG, "Added listener %s (%u)", l->name, cnxn);
+  gconf_log (GCL_DEBUG, "Added listener %s (%u)", l->parent.name, cnxn);
   
   return cnxn;
 }
@@ -947,7 +948,7 @@ gconf_database_corba_remove_listener (GConfDatabase       *db,
   else
     {
       gconf_log (GCL_DEBUG, "Name of listener %u is %s",
-                 (guint) cnxn, l->name);
+                 (guint) cnxn, l->parent.name);
     }
   
   err = NULL;
@@ -984,6 +985,9 @@ notify_listeners_cb(GConfListeners* listeners,
 {
   Listener* l = listener_data;
   ListenerNotifyClosure* closure = user_data;
+
+  if (l->parent.type != GCONF_DATABASE_LISTENER_CORBA)
+    return;
   
   ConfigListener_notify(l->obj,
                         ((CorbaData *)closure->db->corba_data)->objref,
@@ -997,7 +1001,7 @@ notify_listeners_cb(GConfListeners* listeners,
   if(closure->ev._major != CORBA_NO_EXCEPTION) 
     {
       gconf_log (GCL_DEBUG, "Failed to notify listener %s (%u), removing: %s", 
-                 l->name, cnxn_id, CORBA_exception_id (&closure->ev));
+                 l->parent.name, cnxn_id, CORBA_exception_id (&closure->ev));
       CORBA_exception_free (&closure->ev);
       
       /* Dead listeners need to be forgotten */
@@ -1006,7 +1010,7 @@ notify_listeners_cb(GConfListeners* listeners,
   else
     {
       gconf_log (GCL_DEBUG, "Notified listener %s (%u) of change to key `%s'",
-                 l->name, cnxn_id, all_above_key);
+                 l->parent.name, cnxn_id, all_above_key);
     }
 }
 
@@ -1074,7 +1078,7 @@ client_alive_predicate (const gchar* location,
     }
 
   if (result)
-    gconf_log (GCL_DEBUG, "Dropping dead listener %s (%u), appears to be nonexistent", l->name, cnxn_id);
+    gconf_log (GCL_DEBUG, "Dropping dead listener %s (%u), appears to be nonexistent", l->parent.name, cnxn_id);
   
   return result;
 }
@@ -1110,7 +1114,7 @@ listener_save_foreach (const gchar* location,
   gchar *ior;
   gchar *s;
 
-  gconf_log (GCL_DEBUG, "Saving listener %s (%u) to log file", l->name,
+  gconf_log (GCL_DEBUG, "Saving listener %s (%u) to log file", l->parent.name,
              (guint) cnxn_id);
   
   s = g_strdup_printf ("ADD %u %s ", cnxn_id, fd->db_name);
@@ -1181,7 +1185,8 @@ listener_new (ConfigListener obj,
   l = g_new0 (Listener, 1);
 
   l->obj = CORBA_Object_duplicate (obj, &ev);
-  l->name = g_strdup (name);
+  l->parent.type = GCONF_DATABASE_LISTENER_CORBA;
+  l->parent.name = g_strdup (name);
   
   return l;
 }
@@ -1193,7 +1198,7 @@ listener_destroy (Listener* l)
 
   CORBA_exception_init (&ev);
   CORBA_Object_release (l->obj, &ev);
-  g_free (l->name);
+  g_free (l->parent.name);
   g_free (l);
 }
 

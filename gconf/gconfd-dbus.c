@@ -22,18 +22,32 @@
 #include "gconf-locale.h"
 #include "gconfd.h"
 #include "gconf-dbus.h"
+#include <time.h>
 
 static const char *config_database_messages[] = {
   GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS,
   GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS,
   GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES,
   GCONF_DBUS_CONFIG_DATABASE_LOOKUP,
+  GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE,
+  GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR,
+  GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER,
+  GCONF_DBUS_CONFIG_DATABASE_SET,
 };
 
 static const char *config_server_messages[] =
 {
   GCONF_DBUS_CONFIG_SERVER_SHUTDOWN
 };
+
+typedef struct {
+  GConfDatabaseListener parent;
+  char *who;
+} Listener;
+
+static Listener* listener_new     (const char *who,
+				   const char *name);
+static void      listener_destroy (Listener   *l);
 
 static void
 gconfd_shutdown (DBusConnection *connection,
@@ -228,11 +242,13 @@ gconfd_config_database_all_entries (DBusConnection *connection,
     }
   
   reply = dbus_message_new_reply (message);
-  dbus_message_append_string_array (reply, (const char **)keys, len);
-  dbus_message_append_string_array (reply, (const char **)schema_names, len);
-
-  dbus_message_append_boolean_array (reply, is_defaults, len);
-  dbus_message_append_boolean_array (reply, is_writables, len);
+  
+  dbus_message_append_args (reply,
+			    DBUS_TYPE_STRING_ARRAY, (const char **)keys, len,
+			    DBUS_TYPE_STRING_ARRAY, (const char **)schema_names, len,
+			    DBUS_TYPE_BOOLEAN_ARRAY, (const char **)is_defaults, len,
+			    DBUS_TYPE_BOOLEAN_ARRAY, (const char **)is_writables, len,			    
+			    0);
   
   g_strfreev (keys);
   g_strfreev (schema_names);
@@ -247,7 +263,7 @@ gconfd_config_database_all_entries (DBusConnection *connection,
       GConfEntry *p = tmp->data;
 
       gconf_dbus_fill_message_from_gconf_value (reply, gconf_entry_get_value (p));
-      
+
       g_assert(p != NULL);
       g_assert(p->key != NULL);
 
@@ -259,8 +275,6 @@ gconfd_config_database_all_entries (DBusConnection *connection,
   
   dbus_connection_send_message (connection, reply, NULL, NULL);
   dbus_message_unref (reply);
-  
-  printf ("all entries, wee\n");
 }
 
 static void
@@ -377,11 +391,208 @@ gconfd_config_database_lookup (DBusConnection *connection,
 
   reply = dbus_message_new_reply (message);
   gconf_dbus_fill_message_from_gconf_value (reply, val);
-
+  gconf_value_free (val);
+  
   dbus_message_append_string (reply, s ? s : "");
   dbus_message_append_boolean (reply, is_default);
   dbus_message_append_boolean (reply, is_writable);
   
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_lookup_default_value (DBusConnection *connection,
+					     DBusMessage    *message)
+{
+  char *key, *locale;
+  int id;
+  GConfDatabase *db;
+  GConfLocaleList* locale_list;
+  GConfValue *val;
+  GError* error = NULL;
+  DBusMessage *reply;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    DBUS_TYPE_STRING, &locale,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      dbus_free (locale);
+      return;
+    }
+
+  locale_list = gconfd_locale_cache_lookup(locale);
+  
+  val = gconf_database_query_default_value(db, key,
+                                           locale_list->list,
+                                           NULL,
+                                           &error);
+
+  gconf_locale_list_unref(locale_list);
+
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;  
+
+  reply = dbus_message_new_reply (message);
+  gconf_dbus_fill_message_from_gconf_value (reply, val);
+  gconf_value_free (val);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+}
+
+static void
+gconfd_config_database_remove_dir (DBusConnection *connection,
+				   DBusMessage    *message)
+{
+  GError* error = NULL;
+  GConfDatabase *db;
+  DBusMessage *reply;
+  char *dir;
+  int id;
+
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &dir,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (dir);
+      return;
+    }
+  
+  gconf_database_remove_dir(db, dir, &error);
+  dbus_free (dir);
+
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;  
+
+  /* This really sucks, but we need to ack that the removal was successful */
+  reply = dbus_message_new_reply (message);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+
+}
+
+static guint
+gconf_database_dbus_add_listener (GConfDatabase *db,
+				  const char    *who,
+				  const char    *name,
+				  const char    *where)
+{
+  guint cnxn;
+  Listener *l;
+  
+  db->last_access = time(NULL);
+  
+  l = listener_new (who, name);
+
+  cnxn = gconf_listeners_add (db->listeners, where, l,
+			      (GFreeFunc)listener_destroy);
+
+  if (l->parent.name == NULL)
+    l->parent.name = g_strdup_printf ("%u", cnxn);
+
+  gconf_log (GCL_DEBUG, "Added listener %s (%u)", l->parent.name, cnxn);
+  
+  return cnxn;
+}
+
+
+static void
+gconfd_config_database_add_listener (DBusConnection *connection,
+				     DBusMessage    *message)
+{
+  GConfDatabase *db;
+  DBusMessage *reply;
+  DBusDict *dict;
+  char *dir;
+  int id;
+  int cnxn;
+  const char *name = NULL;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &dir,
+				    DBUS_TYPE_DICT, &dict,
+				    0))
+    return;
+  
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (dir);
+      dbus_dict_unref (dict);
+      return;
+    }
+
+  dbus_dict_get_string (dict, "name", &name);
+
+  cnxn = gconf_database_dbus_add_listener (db, dbus_message_get_sender (message), name, dir);
+  reply = dbus_message_new_reply (message);
+  dbus_message_append_uint32 (reply, cnxn);
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+  dbus_dict_unref (dict);  
+}
+
+static void
+gconfd_config_database_set (DBusConnection *connection,
+			    DBusMessage    *message)
+{
+  GConfDatabase *db;
+  DBusMessage *reply;
+  char *key;
+  int id;
+  GConfValue *value;
+  DBusMessageIter *iter;
+  GError *error = NULL;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      return;
+    }  
+  
+  iter = dbus_message_get_args_iter (message);
+  dbus_message_iter_next (iter);
+  dbus_message_iter_next (iter);
+  
+  value = gconf_dbus_create_gconf_value_from_message (iter);
+  dbus_message_iter_unref (iter);
+
+  gconf_database_set (db, key, value, &error);
+  gconf_value_free (value);
+  
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  /* This really sucks, but we need to ack that the setting was successful */
+  reply = dbus_message_new_reply (message);
   dbus_connection_send_message (connection, reply, NULL, NULL);
   dbus_message_unref (reply);
 }
@@ -410,6 +621,26 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_LOOKUP))
     {
       gconfd_config_database_lookup (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE))
+    {
+      gconfd_config_database_lookup_default_value (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR))
+    {
+      gconfd_config_database_remove_dir (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER))
+    {
+      gconfd_config_database_add_listener (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET))
+    {
+      gconfd_config_database_set (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   
@@ -491,4 +722,43 @@ gconfd_dbus_check_in_shutdown (DBusConnection *connection,
   else
     return FALSE;
 }
+
+void
+gconf_database_dbus_notify_listeners (GConfDatabase    *db,
+				      const gchar      *key,
+				      const GConfValue *value,
+				      gboolean          is_default,
+				      gboolean          is_writable)
+{
+  if (l->parent.type != GCONF_DATABASE_LISTENER_CORBA)
+    return;
+
+}
+
+/*
+ * The listener object
+ */
+
+static Listener* 
+listener_new (const char *who,
+              const char *name)
+{
+  Listener* l;
+  l = g_new0 (Listener, 1);
+
+  l->who = g_strdup (who);
+  l->parent.name = g_strdup (name);
+  l->parent.type = GCONF_DATABASE_LISTENER_DBUS;
+  
+  return l;
+}
+
+static void      
+listener_destroy (Listener* l)
+{  
+  g_free (l->parent.name);
+  g_free (l->who);
+  g_free (l);
+}
+
 

@@ -31,7 +31,12 @@
 #define GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS "org.freedesktop.Config.Database.AllDirs"
 #define GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES "org.freedesktop.Config.Database.AllEntries"
 #define GCONF_DBUS_CONFIG_DATABASE_LOOKUP "org.freedesktop.Config.Database.Lookup"
+#define GCONF_DBUS_CONFIG_DATABASE_SET "org.freedesktop.Config.Database.Set"
+#define GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR "org.freedesktop.Config.Database.RemoveDir"
+#define GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE "org.freedesktop.Config.Database.LookupDefaultValue"
+#define GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER "org.freedesktop.Config.Database.AddListener"
 
+#define GCONF_DBUS_CONFIG_LISTENER_NOTIFY "org.freedesktop.Config.Listener.Notify"
 
 GConfValue *gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter);
 void gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,

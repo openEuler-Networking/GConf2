@@ -285,7 +285,8 @@ gconf_database_set   (GConfDatabase      *db,
   else
     {
       gconf_database_schedule_sync(db);
-      
+
+
       gconf_database_corba_notify_listeners(db, key, value,
 					    /* Can't possibly be the default,
 					       since we just set it,
@@ -294,6 +295,15 @@ gconf_database_set   (GConfDatabase      *db,
 					    */
 					    FALSE,
 					    TRUE);
+      gconf_database_dbus_notify_listeners(db, key, value,
+					    /* Can't possibly be the default,
+					       since we just set it,
+					       and must be writable since
+					       setting it succeeded.
+					    */
+					    FALSE,
+					    TRUE);
+      
     }
 }
 
@@ -353,7 +363,8 @@ gconf_database_unset (GConfDatabase      *db,
       gconf_database_schedule_sync(db);
 
       gconf_database_corba_notify_listeners(db, key, def_value, TRUE, is_writable);
-
+      gconf_database_dbus_notify_listeners(db, key, def_value, TRUE, is_writable);
+      
       if (def_value != NULL)
 	gconf_value_free(def_value);
     }
@@ -428,6 +439,8 @@ gconf_database_recursive_unset (GConfDatabase      *db,
       gconf_database_schedule_sync (db);
 
       gconf_database_corba_notify_listeners (db, notify_key, new_value,
+					     is_default, is_writable);
+      gconf_database_dbus_notify_listeners (db, notify_key, new_value,
 					     is_default, is_writable);
       
       gconf_value_free (new_value);
