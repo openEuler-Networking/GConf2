@@ -70,7 +70,7 @@ msgstr "╤н╕ц╕ал╕зац╕я серверного модуля XML"
 #: backends/xml-backend.c:745
 #, c-format
 msgid "Failed to give up lock on XML dir `%s': %s"
-msgstr ""
+msgstr "Не вдалося в╕дмовитсь в╕д блокування каталогу XML \"%s\": %s"
 
 #: backends/xml-cache.c:119
 msgid "Unsynced directory deletions when shutting down XML backend"
@@ -384,19 +384,19 @@ msgstr "Омилка отримання схеми для \"%s\": %s"
 
 #: gconf/gconf-error.c:25
 msgid "Success"
-msgstr ""
+msgstr "Усп╕шно"
 
 #: gconf/gconf-error.c:26
 msgid "Failed"
-msgstr ""
+msgstr "Зб╕й"
 
 #: gconf/gconf-error.c:27
 msgid "Configuration server couldn't be contacted"
-msgstr ""
+msgstr "Не вдалося з'╓днатися з конф╕╜урац╕йним сервером"
 
 #: gconf/gconf-error.c:28
 msgid "Permission denied"
-msgstr ""
+msgstr "В╕дмовлено у правах"
 
 #: gconf/gconf-error.c:29
 msgid "Couldn't resolve address for configuration source"
@@ -404,7 +404,7 @@ msgstr ""
 
 #: gconf/gconf-error.c:30
 msgid "Bad key or directory name"
-msgstr ""
+msgstr "Нев╕рний ключ чи назва каталогу"
 
 #: gconf/gconf-error.c:31
 msgid "Parse error"
@@ -412,39 +412,39 @@ msgstr "Помилка анал╕зу"
 
 #: gconf/gconf-error.c:32
 msgid "Corrupt data in configuration source database"
-msgstr ""
+msgstr "З╕псован╕ дан╕ у баз╕ даних джерела конф╕╜урау╕╖"
 
 #: gconf/gconf-error.c:33
 msgid "Type mismatch"
-msgstr ""
+msgstr "Нев╕дпов╕дн╕сть типу"
 
 #: gconf/gconf-error.c:34
 msgid "Key operation on directory"
-msgstr ""
+msgstr "Д╕я ключа на каталог"
 
 #: gconf/gconf-error.c:35
 msgid "Directory operation on key"
-msgstr ""
+msgstr "Д╕я каталогу на ключ"
 
 #: gconf/gconf-error.c:36
 msgid "Can't overwrite existing read-only value"
-msgstr ""
+msgstr "Неможливо переписати значення лише для зчитування"
 
 #: gconf/gconf-error.c:37
 msgid "Object Activation Framework error"
-msgstr ""
+msgstr "Помилка OAF"
 
 #: gconf/gconf-error.c:38
 msgid "Operation not allowed without configuration server"
-msgstr ""
+msgstr "Операц╕я не доступна без конф╕╜урац╕йного сервера"
 
 #: gconf/gconf-error.c:39
 msgid "Failed to get a lock"
-msgstr ""
+msgstr "Не вдалося заблокувати"
 
 #: gconf/gconf-error.c:40
 msgid "No database available to save your configuration"
-msgstr ""
+msgstr "Нема╓ доступних баз даних для запису вашо╖ конф╕╜урац╕╖"
 
 #: gconf/gconf-internals.c:85
 #, c-format
@@ -466,7 +466,7 @@ msgstr "В╕д gconfd отримано список з поганим типом списку"
 
 #: gconf/gconf-internals.c:445
 msgid "Failed to convert object to IOR"
-msgstr ""
+msgstr "Не вдалося перетворити об'╓кт в IOR"
 
 #: gconf/gconf-internals.c:811
 #, c-format
@@ -553,7 +553,7 @@ msgstr "Нев╕рний файл ior в \"%s\""
 #: gconf/gconf-internals.c:2311
 #, c-format
 msgid "gconfd taking lock `%s' from some other process"
-msgstr "gconfd заблокував \"%s\" в╕д деяких ╕нших процес╕в"
+msgstr "gconfd блоку╓ \"%s\" в╕д деяких ╕нших процес╕в"
 
 #: gconf/gconf-internals.c:2322
 #, c-format
