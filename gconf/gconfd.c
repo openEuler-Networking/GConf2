@@ -440,7 +440,7 @@ main(int argc, char** argv)
   
   chdir ("/");
 
-  umask(0);
+  umask (022);
 
   gconf_set_daemon_mode(TRUE);
   
