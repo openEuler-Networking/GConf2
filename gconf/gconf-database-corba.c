@@ -242,7 +242,7 @@ impl_ConfigDatabase_set(PortableServer_Servant servant,
   g_free(str);
 
   
-  gconf_database_set(db, key, val, value, &error);
+  gconf_database_set(db, key, val, &error);
 
   gconf_corba_set_exception(&error, ev);
 
@@ -1037,7 +1037,7 @@ notify_listeners_cb(GConfListeners* listeners,
 void
 gconf_database_corba_notify_listeners (GConfDatabase       *db,
 				       const gchar         *key,
-				       const ConfigValue   *value,
+				       const GConfValue    *value,
 				       gboolean             is_default,
 				       gboolean             is_writable)
 {
@@ -1047,7 +1047,7 @@ gconf_database_corba_notify_listeners (GConfDatabase       *db,
   g_return_if_fail(db != NULL);
 
   closure.db = db;
-  closure.value = value;
+  closure.value = gconf_corba_value_from_gconf_value (value);
   closure.is_default = is_default;
   closure.is_writable = is_writable;
   closure.dead = NULL;
@@ -1069,6 +1069,8 @@ gconf_database_corba_notify_listeners (GConfDatabase       *db,
 
       tmp = g_slist_next(tmp);
     }
+
+  CORBA_free (closure.value);
 }
 
 static gboolean

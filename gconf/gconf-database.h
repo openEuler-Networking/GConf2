@@ -27,7 +27,6 @@ extern "C" {
 #endif /* __cplusplus */
 
 #include "gconf-error.h"
-#include "GConfX.h"
 #include "gconf-listeners.h"
 #include "gconf-sources.h"
 #include "gconf-internals.h"
@@ -71,7 +70,6 @@ GConfValue* gconf_database_query_default_value (GConfDatabase  *db,
 void gconf_database_set   (GConfDatabase      *db,
                            const gchar        *key,
                            GConfValue         *value,
-                           const ConfigValue  *cvalue,
                            GError        **err);
 void gconf_database_unset (GConfDatabase      *db,
                            const gchar        *key,

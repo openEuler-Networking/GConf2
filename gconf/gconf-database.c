@@ -261,7 +261,6 @@ void
 gconf_database_set   (GConfDatabase      *db,
                       const gchar        *key,
                       GConfValue         *value,
-                      const ConfigValue  *cvalue,
                       GError        **err)
 {
   GError *error = NULL;
@@ -291,7 +290,7 @@ gconf_database_set   (GConfDatabase      *db,
     {
       gconf_database_schedule_sync(db);
       
-      gconf_database_corba_notify_listeners(db, key, cvalue,
+      gconf_database_corba_notify_listeners(db, key, value,
 					    /* Can't possibly be the default,
 					       since we just set it,
 					       and must be writable since
@@ -308,7 +307,6 @@ gconf_database_unset (GConfDatabase      *db,
                       const gchar        *locale,
                       GError        **err)
 {
-  ConfigValue* val;
   GError* error = NULL;
   
   g_return_if_fail(err == NULL || *err == NULL);
@@ -355,21 +353,13 @@ gconf_database_unset (GConfDatabase      *db,
         gconf_log(GCL_ERR, _("Error getting default value for `%s': %s"),
                   key, (*err)->message);
 
-      if (def_value != NULL)
-        {
-          val = gconf_corba_value_from_gconf_value(def_value);
-          gconf_value_free(def_value);
-        }
-      else
-        {
-          val = gconf_invalid_corba_value ();
-        }
           
       gconf_database_schedule_sync(db);
 
-      gconf_database_corba_notify_listeners(db, key, val, TRUE, is_writable);
-      
-      CORBA_free(val);
+      gconf_database_corba_notify_listeners(db, key, def_value, TRUE, is_writable);
+
+      if (def_value != NULL)
+	gconf_value_free(def_value);
     }
 }
 
@@ -380,7 +370,6 @@ gconf_database_recursive_unset (GConfDatabase      *db,
                                 GConfUnsetFlags     flags,
                                 GError            **err)
 {
-  ConfigValue* val;
   GError* error = NULL;
   GSList *notifies;
   GSList *tmp;
@@ -440,22 +429,12 @@ gconf_database_recursive_unset (GConfDatabase      *db,
       g_propagate_error (err, error);
       error = NULL;
       
-      if (new_value != NULL)
-        {
-          val = gconf_corba_value_from_gconf_value (new_value);
-          gconf_value_free (new_value);
-        }
-      else
-        {
-          val = gconf_invalid_corba_value ();
-        }
-          
       gconf_database_schedule_sync (db);
 
-      gconf_database_corba_notify_listeners (db, notify_key, val,
+      gconf_database_corba_notify_listeners (db, notify_key, new_value,
 					     is_default, is_writable);
       
-      CORBA_free (val);
+      gconf_value_free (new_value);
       g_free (notify_key);
       
       tmp = tmp->next;

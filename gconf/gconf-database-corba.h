@@ -45,7 +45,7 @@ CORBA_unsigned_long gconf_database_corba_readd_listener   (GConfDatabase       *
 
 void                gconf_database_corba_notify_listeners (GConfDatabase       *db,
 							   const gchar         *key,
-							   const ConfigValue   *value,
+							   const GConfValue    *value,
 							   gboolean             is_default,
 							   gboolean             is_writable);
 
