@@ -1,3 +1,13 @@
+2001-08-07  Marco Pesenti Gritti  <mpeseng@tin.it>
+
+	* Makefile.am: Setup a default gconf source on make install
+	* galeon.spec.in: Distribute also the path file and
+	the directories for the default source
+	* gconf/Makefile.am: install the default path as "path" instead
+	of "path.example". Add GCONF_ETCDIR define.
+	* gconf/gconftool.c: Add --get-default-source option
+	* gconf/gconf.m4.in: Add GCONF_SCHEMA_CONFIG_SOURCE macro
+	
 2001-07-28  Yanko Kaneti  <yaneti@declera.com>
 
 	* gconf/gconftool.c (main): s/all-pairs/all-entries/ in the error
