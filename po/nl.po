@@ -1022,7 +1022,7 @@ msgstr "Fout bij het verkrijgen van object referentie voor ConfigServer"
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
-"Kon byte niet doorsturen naar fd %s waardoot programma misschien vastloopt: %"
+"Kon byte niet doorsturen naar fd %d waardoot programma misschien vastloopt: %"
 "s"
 
 #: gconf/gconfd.c:615
