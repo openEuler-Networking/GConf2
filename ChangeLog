@@ -1,3 +1,8 @@
+2003-03-20  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+	* configure.in: Added 'hi' for Hindi and 
+	'ml' for Malayalam in ALL_LINGUAS
+
 2003-03-04  Mark McLoughlin  <mark@skynet.ie>
 
 	Fixes weird bug where a directory appears to not exist when
