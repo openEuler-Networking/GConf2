@@ -490,7 +490,7 @@ msgstr "`%s' kaynaðýný ekliyorum\n"
 #: gconf/gconf-internals.c:878
 #, c-format
 msgid "Read error on file `%s': %s\n"
-msgstr "`%s' dosyasýnda okuma hatasý oldu\n"
+msgstr "`%s' dosyasýnda okuma hatasý oldu: %s\n"
 
 #: gconf/gconf-internals.c:1321
 #, c-format
@@ -559,7 +559,7 @@ msgid "No ior file in `%s'"
 msgstr "`%s' için ior dosyasý yok"
 
 #: gconf/gconf-internals.c:2311
-#, c-format
+#, fuzzy, c-format
 msgid "gconfd taking lock `%s' from some other process"
 msgstr "baþka bir iþlemden gconfd sunucusu kilitleme aldý"
 

@@ -1,3 +1,8 @@
+2001-03-09  Pablo Saratxaga  <pablo@mandrakesoft.com>
+
+	* az.po: Added Azer file
+	* cs.po,sl.po,tr.po,uk.po: correctear headers and/or syntax errors
+
 2001-03-07  Christian Meyer  <chrisime@gnome.org>
 
 	* de.po: Cleaned up the file a bit, resulting in a quicker update for

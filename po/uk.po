@@ -96,7 +96,7 @@ msgid "Could not stat `%s': %s"
 msgstr "Не вдалося отримати ╕нформац╕ю про \"%s\": %s"
 
 #: backends/xml-dir.c:174
-#, c-format
+#, fuzzy, c-format
 msgid "XML filename `%s' is a directory"
 msgstr "Назва XML-файлу -- каталог"
 
