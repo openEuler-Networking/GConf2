@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-02-05 23:33+0200\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@hut.fi>\n"
 "Language-Team: Gnome Finnish Translation Team <gnome-fi-laatu@lists."
@@ -416,7 +416,7 @@ msgstr ""
 "harmitonta, mutta saattaa aiheuttaa ilmoituksen kummallisen "
 "uudelleenilmaantumisen): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Avaimen \"%s\" arvon haku epäonnistui: %s"
@@ -726,12 +726,12 @@ msgstr "Lukitushakemiston \"%s\" poisto epäonnistui: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Lukitustiedoston \"%s\" poisto epäonnistui: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Tiedoston \"%s\" tilatietojen lukeminen epäonnistui: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Palvelimen ping-virhe: %s"
@@ -893,29 +893,29 @@ msgid ""
 msgstr ""
 "Kaavain määrittelee parityypin, muttei sen alkioiden elementtien tyyppejä"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Lähteen \"%s\" lataaminen epäonnistui: %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Kirjoitettavan asetuslähteen osoite \"%s\" kohdassa %d selvisi"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "Kirjoitussuojatun asetuslähteen osoite \"%s\" kohdassa %d selvisi"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 "Osittain kirjoitettavan asetuslähteen osoite \"%s\" kohdassa %d selvisi"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -923,18 +923,18 @@ msgstr ""
 "Mikään selvinneistä osoitteista ei ollut kirjoitettava: asetusten "
 "tallentaminen ei ole mahdollista"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr ""
 "Arvolle \"%2$s\" määritelty kaavain \"%1$s\" sisältää arvon, joka ei ole "
 "kaavain"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Nimi \"/\" voi olla vain hakemisto, ei avain"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -942,7 +942,7 @@ msgid ""
 msgstr ""
 "Avaimen \"%s\" arvo on asetettu vain-luku-lähteessä asetuspolkusi alussa."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -981,17 +981,17 @@ msgstr ""
 "omistaa ~/.gconfd:ssa oleva lukitustiedosto sekä yksittäisen tietojen "
 "lukitustiedostot ~/.gconf:ssa."
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Metainfon etsintä epäonnistui: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Metainfon haku epäonnistui: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

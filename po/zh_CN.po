@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-16 18:38+0200\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-03-20 21:56+0800\n"
 "Last-Translator: LoneStar <lone@auvtech.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -739,13 +739,13 @@ msgstr "无法删除锁定目录“%s”：%s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "取消锁定文件 %s 失败：%s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "查看 %s 失败：%s"
 
 # SUN NEW TRANSLATION
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "服务器 ping 错误：%s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-03-23 19:53+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -413,7 +413,7 @@ msgstr ""
 "ログファイルへリスナーのログ移動に失敗しました (殆ど実害はありません、再度お"
 "かしな通知があるかもしれませんせんが): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "'%s' の値の取得でエラー: %s"
@@ -723,12 +723,12 @@ msgstr "ロックディレクトリ '%s' の解放に失敗しました: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "ロックファイル %s のロック解除に失敗しました: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "%s の状態取得に失敗しました: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "サーバの Ping エラー: %s"
@@ -895,31 +895,31 @@ msgstr ""
 "スキーマで型ペアを指定していますが、car/cdr アイテムの型が指定されていませ"
 "ん。"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "ソース \"%s\" の読み込みに失敗しました: %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "アドレス \"%s\" (%d 行目の変更可能な設定ソースに対する) を解決しました。"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "アドレス \"%s\" (%d 行目の読み込み専用の設定ソースに対する) を解決しました。"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 "アドレス \"%s' (%d 行目の一部変更可能な設定ソースに対する) を解決しました。"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -927,23 +927,23 @@ msgstr ""
 "解決された変更可能なアドレスがありません。設定を保存するこは不可能になりま"
 "す。"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "スキーマ '%s' はスキーマでは無い値 '%s' を保存するよう指定されました。"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "名前 '/' はディレクトリの場合だけで、キーには使えません。"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
 msgstr "'%s' の値は設定パスの前で読み込み専用ソースの中にセットします。"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -981,17 +981,17 @@ msgstr ""
 "'~/.gconfd' の中にロックファイルを作成するか、'~/.gconf' のようなプライベート"
 "な格納場所にロックファイルを作成する必要があります。"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "メタ情報の検索中にエラー: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "メタ情報の取得中にエラー: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

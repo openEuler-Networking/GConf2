@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-02-10 21:53+0100\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -417,7 +417,7 @@ msgstr ""
 "Kunne ikke logge fjernelse af lytter til logfil (højst sandsynligt harmløst, "
 "kan resultere i at en ændringsunderrettelse genindtræffer på mystisk vis): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fejl ved forespørgsel af værdien af '%s': %s"
@@ -721,12 +721,12 @@ msgstr "Kunne ikke frigive låsemappen '%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Kunne ikke fjerne låsefilen '%s': %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Kunne ikke få oplysninger om '%s': %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Serverpingfejl: %s"
@@ -884,25 +884,25 @@ msgid ""
 msgstr ""
 "Skema angiver typen par, men angiver ikke typen af car-/cdr-elementerne"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Kunne ikke indlæse kilden \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Bestemte adressen \"%s\" til en skrivbar konfigureringskilde ved position %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Bestemte adressen \"%s\" til en skrivebeskyttet konfigureringskilde ved "
 "position %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -910,7 +910,7 @@ msgstr ""
 "Bestemte adressen \"%s\" til en delvist skrivbar konfigureringskilde ved "
 "position %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -918,16 +918,16 @@ msgstr ""
 "Ingen af de fundne adresser er skrivbare; gemning af "
 "konfigurationsindstillinger vil ikke være muligt"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Skemaet '%s' angivet for '%s' lagrer en ikke-skemaværdi"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Navnet '/' kan kun være en mappe, ikke en nøgle"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -936,7 +936,7 @@ msgstr ""
 "Værdi for `%s' sat i en skrivebeskyttet kilde i begyndelsen af din "
 "konfigurationssti."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -973,17 +973,17 @@ msgstr ""
 "hjemmemappe, og den skal eje en låsefil i ~/.gconfd og også låsefiler i de "
 "individuelle lagringssteder som ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Fejl ved søgning af metainfo: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Fejl ved hentning af metainfo: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Nøglen `%s' listet som skema for nøglen '%s' lagrer faktisk typen '%s'"

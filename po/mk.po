@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2003-06-15 21:59+0000\n"
 "Last-Translator: Vladislav Bidikov <bidikovi@mail.com.mk>\n"
 "Language-Team: Macedonian <lug@lists.linux.net.mk>\n"
@@ -410,7 +410,7 @@ msgstr ""
 "безопасно, може да резултира во забелешка која чудно повторно ќе се "
 "појавува): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Грешка во земањето вредност за `%s': %s"
@@ -718,12 +718,12 @@ msgstr "Не успеав да го отстранам лок директори
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Не успеав да ја одврзам лок датотеката %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Не успеав да проценам %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Сервер пинг грешка: %s"
@@ -890,28 +890,28 @@ msgid ""
 "elements"
 msgstr "Шема определува тип на парови но не определува тип на car/cdr елементи"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Не успеав да го вчитам кодот \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Разрешена адреса \"%s\" до пишлив конфиг код на позиција %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "Разрешена адреса \"%s\" до само-читај конфиг код на позиција %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr "Разрешена адреса \"%s\" до делумно пишлив конфиг код на позиција %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -919,16 +919,16 @@ msgstr ""
 "Ниедна од разрешените адреси не е пишлива, зачувувањето на конфигурациски "
 "поставки е неможно"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Шемата %s' определена за `%s' содржи не-шема вредност"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "'/' името може да биде само директориум, не клуч"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -937,7 +937,7 @@ msgstr ""
 "Вредноста за `%s' е поставена во само-читај код на почетокот на Вашата "
 "конфигурациска патека"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -975,17 +975,17 @@ msgstr ""
 "gconfd по домашен директориум, и мора да поседува локдатотека во ~/.gconfd и "
 "исто локдатотеки во во посебни локации за сместување како ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Грешка наоѓајќи метаинформација: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Грешка земајќи метаинфо: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -396,7 +396,7 @@ msgstr ""
 "V dnevnik nisem uspel zapisati odstranitve poslušalca (verjetno ni "
 "škodljivo, lahko pa povzroči ponavljanje obvestil): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Napaka ob branju vrednosti za `%s': %s"
@@ -704,12 +704,12 @@ msgstr "Nisem uspel odstraniti ključavničnega imenika `%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nisem uspel odstraniti (unlink) ključavnične datoteke %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Nisem uspel izvesti ukaza stat nad %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Napaka ob pinganju strežnika: %s"
@@ -867,28 +867,28 @@ msgid ""
 "elements"
 msgstr "Shema navede vrsto par, a ne navede vrste car/cdr "
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Nisem uspel naložiti vira \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Razvozlal sem naslov \"%s\" v pisljiv vir nastavitev na mestu %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "Razvozlal sem naslov \"%s\" v le-berljiv vir nastavitev na mestu %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr "Razvozlal sem naslov \"%s\" v delno pisljiv vir nastavitev na mestu %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -896,16 +896,16 @@ msgstr ""
 "Noben od razvozlanih naslovov ni pisljiv; shranjevanje nastavitev ne bo "
 "mogoče"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Shema `%s' navedena za `%s' vsebuje ne-shematsko vrednost"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Ime '/' je lahko le imenik, ne ključ"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -914,7 +914,7 @@ msgstr ""
 "Vrednost za `%s' nastavljena v le-berljivem viru v ospredju vaše "
 "nastavitvene poti. "
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -951,17 +951,17 @@ msgstr ""
 "gconfd na uporabiški imenik in mora imeti ključavnično datoteko v ~/.gconfd "
 "in ključavnične datoteke v posameznih hranilnih lokacijah kot je ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Napaka ob iskanju metapodatkov: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Napaka ob branju metapodatkov: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-02-10 22:22+0100\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -398,7 +398,7 @@ msgstr ""
 "فشل تسجيل حذف المستمع في ملف التسجيل (هذا غير مضر، ربما تكون النتيجة تذكيرا "
 "يظهر مرة اخرى: %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "خطأ تلقي قيمة لـ `%s': %s "
@@ -701,12 +701,12 @@ msgstr "فشل حذف دليل القفل `%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "فشل إلغاء وصلة ملف القفل %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "فشل احصاء %s:·%s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "خطأ بينج للخادم : %s"
@@ -860,51 +860,51 @@ msgid ""
 "elements"
 msgstr "السيمة تبين النوع زوج لكنها لا تبين نوع أجزاء car/cdr"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "فشل تحميل المصدر \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "حل العنوان \"%s\" لمصدر اعداد مفتوح للكتابة عند الموقع %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "حل العنوان \"%s\" لمصدر اعداد مفتوح للقراءة فقط عند الموقع %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr "حل العنوان \"%s\" لمصدر إعداد مفتوح جزئيا للكتابة عند الموقع %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
 msgstr ""
 "لا احد من العناوين المحلة مفتوحة للكتابة، لن يكون حفظ تنصيبات الاعدادات ممكنا"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "السيمة `%s' المخصصة لـ  `%s' تخزن قيمة غير السيمة"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "الاسم '/' لا يمكن ان يكون اﻻ مجلدا، لا مفتاحا"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
 msgstr "القيمة لـ `%s' مثبتة لمصدر مفتوح للقراءة فقط عند واجهة مسار اعداداتك"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -937,17 +937,17 @@ msgstr ""
 "واحد لكل دليل منزلي، ويجب أن تملك ملف قفل في ~/.gconfd و ملفات قفل في "
 "مواقعخزن شخصية مثل ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "خطأ عثور على المعلومات العامة: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "خطأ تلقي المعلومات العامة: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "المفتاح `%s' مسرد كسيمة للمفتاح `%s' يخزن حاليا النوع `%s' "

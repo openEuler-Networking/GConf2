@@ -1,3 +1,21 @@
+2.6.2
+===
+
+ Fixes:
+
+ - Get rid of duplicate '/' with AM_GCONF_SOURCE_2 (Daniel Elstner)
+ - Don't create a directory for docs if we're not installing them (Julio M. Merino Vidal)
+ - Fix a bug with the markup backend on 64-bit (Joe Marcus Clarke)
+ - Fix a leak (Kjartan)
+ - Return an error for incorrect source addresses (Mark)
+
+ Translators:
+
+ - Gisela Carbonell (ca)
+ - Christian Neumair (de)
+ - Christophe Merlet (RedFox) (fr)
+ - LoneStar (zh_CN)
+
 2.6.1
 ===
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-01-21 16:38+0300\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -414,7 +414,7 @@ msgstr ""
 "Произошёл сбой при регистрации удаления слухача (в большинстве случаев "
 "безвредный, в результате может возобновится уведомление): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Произошла ошибка получения значения для \"%s\": %s"
@@ -724,12 +724,12 @@ msgstr "Произошёл сбой при удалении блокировки
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Произошёл сбой при удалении файла блокировки \"%s\": %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Произошёл сбой при выполнении операции stat для \"%s\": %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Произошла ошибка проверки доступности сервера: %s"
@@ -894,26 +894,26 @@ msgid ""
 "elements"
 msgstr "Схема определяет тип пары, но не определяет типы для ключа/значения"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Не удалось загрузить источник \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Обнаружен разрешённый адрес \"%s\" к записываемому источнику конфигурации в "
 "позиции %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Обнаружен разрешённый адрес \"%s\" к источнику конфигурации только-для-"
 "чтения в позиции %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -921,7 +921,7 @@ msgstr ""
 "Обнаружен разрешённый адрес \"%s\" к частично записываемому источнику "
 "конфигурации в позиции %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -929,17 +929,17 @@ msgstr ""
 "Ни один из разрешённых адресов не является записываемым; сохранение "
 "конфигурационных установок невозможно"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr ""
 "Схема \"%s\", указанная для \"%s\", хранит значение, не являющееся схемой"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Имя \"/\" может быть только каталогом, а не ключом"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -948,7 +948,7 @@ msgstr ""
 "Значение для \"%s\" установлено в источнике только-для-чтения в начале пути "
 "конфигурации"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -985,17 +985,17 @@ msgstr ""
 "каталог, и он должен владеть блокировкой в ~/.gconfd и блокировками в "
 "индивидуальных хранилищах как ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Произошла ошибка поиска метаинформации: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Произошла ошибка получения метаинформации: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

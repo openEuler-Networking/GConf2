@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2003-06-22 22:15+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
@@ -402,7 +402,7 @@ msgstr ""
 "Gagal mencatat saat menghapus pendengar (biasanya tidak apa-apa, hanya saja "
 "pemberitahuan bisa muncul lebih dari sekali): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Error saat mengambil nilai untuk `%s': %s"
@@ -707,12 +707,12 @@ msgstr "Gagal membuang kunci direktori `%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Gagal membuang link kunci file %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Gagal melakukan stat %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Error ping pada server: %s"
@@ -872,22 +872,22 @@ msgid ""
 msgstr ""
 "Pasangan tipe terdapat pada skema namun tidak terdapat tipe elemen car/cdr"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Gagal melakukan load sumber \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Alamat \"%s\" ke sumber konfigurasi yang dapat ditulis pada posisi %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "Alamat \"%s\" ke sumber konfigurasi hanya-baca pada posisi %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -895,7 +895,7 @@ msgstr ""
 "Alamat \"%s\" pada sumber konfigurasi yang dapat ditulisi sebagian pada "
 "posisi %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -903,23 +903,23 @@ msgstr ""
 "Tidak ada alamat yang dapat ditulisi. Tidak mungkin dapat untuk menyimpan "
 "setingan konfigurasi"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Skema `%s' diberikan untuk `%s' menyimpan nilai non-skema"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Nama '/' hanya dapat berupa direktori, bukan key"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
 msgstr "Nilai `%s' diset pada sumber hanya-baca pada awal path konfigurasi"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -958,17 +958,17 @@ msgstr ""
 "dan juga kunci file pada tiap-tiap lokasi penyimpanan sebagai misal pada ~/."
 "gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Ada kesalahan saat mencari metainfo: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Ada kesalahan saat mendapatkan metainfo: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

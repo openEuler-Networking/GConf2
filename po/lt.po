@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2003-12-31 10:32+0200\n"
 "Last-Translator: Žygimantas Beručka <uid0@tuxfamily.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -411,7 +411,7 @@ msgstr ""
 "Nepavyko užregistruoti klausytojo išmetimo žurnale (greičiausiai nieko "
 "baisaus, bet galima tikėtis pasikartojančių informacinių pranešimų): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Nepavyko gauti „%s“ reikšmių: %s"
@@ -717,12 +717,12 @@ msgstr "Nepavyko pašalinti rezervavimo katalogo „%s“: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nepavyko atsieti rezervavimo bylos %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Nepavyko pasiekti %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Serverio testavimo klaida: %s"
@@ -886,24 +886,24 @@ msgid ""
 "elements"
 msgstr "Schema aprašo poros tipą, tačiau ji neaprašo car/cdr elementų tipo"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Nepavyko paleisti pradinės bylos „%s“: %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Atpažintas adresas „%s“ skirtas rašomam nustatymų šaltiniui pozicijoje %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Atpažintas adresas „%s“ skirtas nekeičiamam nustatymų šaltiniui pozicijoje %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -911,7 +911,7 @@ msgstr ""
 "Atpažintas adresas „%s“ skirtas dalinai rašomam nustatymų šaltiniui "
 "pozicijoje %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -919,16 +919,16 @@ msgstr ""
 "Nei vienas iš atpažintų adresų nėra rašomas; Išsaugoti nustatymų bus "
 "neįmanoma"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Schema „%s“ skirta „%s“ saugo schemai nepriimtinas reikšmes"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Ženklas „/“ gali būti tik katalogo varde, jis netinka raktui"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -937,7 +937,7 @@ msgstr ""
 "„%s“ reikšmė yra nustatyta nekeičiamame šaltinyje Jūsų nustatymo kelio "
 "pradžioje"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -977,17 +977,17 @@ msgstr ""
 "bylą, esančią tarp ~/.gconfd bei kitas rezervavimo bylas nepriklausomų "
 "saugyklų saugojimo vietose (pvz. tarp ~/.gconf)"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Nepavyko rasti meta informacijos: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Nepavyko gauti meta informacijos: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Raštas „%s“, pažymėtas kaip rakto „%s“ schema, realiai saugo „%s“ tipą"

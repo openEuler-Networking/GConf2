@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2003-10-26 22:46+0100\n"
 "Last-Translator: Gnome PL Team <translators@gnome.pl>\n"
 "Language-Team: GNOME PL Team <translation-team-pl@lists.sourceforge.net>\n"
@@ -411,7 +411,7 @@ msgstr ""
 "Nie można zapisać w dzienniku usunięcia nasłuchiwacza (może to spowodować "
 "dziwne ponawianie powiadomień): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Błąd przy pobieraniu wartości dla \"%s\": %s"
@@ -718,12 +718,12 @@ msgstr "Nie można usunąć katalogu blokady \"%s\": %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nie można usunąć pliku blokady %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Nie można uzyskać informacji o %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Brak odpowiedzi serwera przy sprawdzeniu aktywności: %s"
@@ -890,24 +890,24 @@ msgstr ""
 "Schemat określa typ jako parę, lecz nie określa typu pierwszego/drugiego "
 "elementu"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Nie można wczytać źródła \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Uzyskano adres \"%s\" do zapisywalnego źródła konfiguracji na pozycji %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Uzyskano adres \"%s\" do źródła konfiguracji tylko do odczytu na pozycji %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -915,7 +915,7 @@ msgstr ""
 "Uzyskano adres \"%s\" do częściowo zapisywalnego źródła konfiguracji na "
 "pozycji %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -923,17 +923,17 @@ msgstr ""
 "Żaden z uzyskanych adresów nie jest zapisywalny; zapisywanie zmian w "
 "konfiguracji nie będzie możliwe"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr ""
 "Schemat \"%s\" podany dla \"%s\" przechowuje wartość nie należącą do schematu"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Nazwa \"/\" może dotyczyć tylko katalogu, nie klucza"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -942,7 +942,7 @@ msgstr ""
 "Wartość \"%s\" jest ustawiona w źródle tylko od odczytu na początku ścieżki "
 "konfiguracji."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -983,17 +983,17 @@ msgstr ""
 "gconfd oraz pliki blokad powiązane z miejscami przechowywania konfiguracji, "
 "np. ~/.gconf."
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Błąd przy wyszukiwaniu metainformacji: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Błąd przy pobieraniu metainformacji: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-03-29 18:42+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -402,7 +402,7 @@ msgstr ""
 "Nisam uspio zabilježiti micanje slušatelja u datoteku (najvjerojatnije "
 "bezopasno, može prouzročiti da se obavijest čudno ponavlja): %s "
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Greška kod dohvaćanja vrijednosti za `%s': %s"
@@ -707,12 +707,12 @@ msgstr "Nisam uspio ukloniti mapu `%s' s zaključanim datotekama: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nisam uspio maknuti vezu na datoteku zaključanja %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Nisam uspio zapisati stanja %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Greška kod ping-anja poslužitelja: %s "
@@ -874,31 +874,31 @@ msgid ""
 "elements"
 msgstr "Shema navodi par ali ne navodi vrstu car/cdr elemenata"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Nisam uspio učitati izvor \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "Riješena adresa \"%s\" u zapisujućem izvoru postavki na mjestu %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Riješena adresa \"%s\" u izvoru postavki koji se može samo čitati na mjestu %"
 "d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 "Riješena adresa \"%s\" u djelomično zapisujući izvor postavki na mjestu %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -906,16 +906,16 @@ msgstr ""
 "Niti jedna od riješenih adresa se ne može pisati, neće biti moguće spremanje "
 "konfiguracijskih postavki"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Shema `%s' određena za `%s' sprema vrijednost koja nije shema"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Ime '/' može biti samo mapa, a ne ključ"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -924,7 +924,7 @@ msgstr ""
 "Vrijednost za `%s' postavljena u izvoru koji se može samo čitati na početku "
 "putanje vaših postavki"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, fuzzy, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -963,17 +963,17 @@ msgstr ""
 "zaključavanje u ~/.gconfd i datoteke za zaključavanje u pojedinačnim "
 "mjestima za pohranu kao što je ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Greška kod pronalaženja meta informacija: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Greška kod dohvaćanja meta informacije: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Tipka `%s' ispisana kao shema za ključ `%s' ustvari sadrži vrstu `%s'"

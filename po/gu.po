@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf-gnome-2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-02-29 20:47+0530\n"
 "Last-Translator: Nirav, Ankit, Ankur, Atit, Bhavin, Kartik, Khushbu, Sweta. "
 "<magnet@magnet-i.com>\n"
@@ -398,7 +398,7 @@ msgstr ""
 "સાંભળનારની બાદબાકી વિશે નોંધપત્રમાંં નોંધ કરવામાં નિષ્ફળ (મોટેભાગે બિનનુકસાનકર્તા પણ કદાચ "
 "વિચિત્ર દેખાતી નોંધણીમાં પરિણમે): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "`%s' માટે કિંમત મેળવવામાં ભૂલ: %s"
@@ -701,12 +701,12 @@ msgstr "તાળા માટેની ડિરેકટરી `%s'ને દ�
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "તાળા માટેની ફાઇલ %sનું જોડાણ તોડવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "%s કહેવામાં નિષ્ફળ: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "સર્વર પીંગ ભૂલ: %s"
@@ -859,23 +859,23 @@ msgid ""
 "elements"
 msgstr "યોજના પ્રકારની જોડીને સ્પષ્ટ કરે છે પરંતુ car/cdrના પ્રકારને સ્પષ્ટ કરતી નથી"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "\"%s\" સ્ત્રોત લાવવામાં નિષ્ફળઃ  %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "\"%s\" સરનામા પરથી જગ્યા %d પર લખી શકાય તેવા રૂપરેખાંકિત સ્ત્રોત પર તારી શકાયુ"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "\"%s\" સરનામા પરથી જગ્યા %d પર ફકત વાંચી શકાય તેવા રૂપરેખાંકિત સ્ત્રોત પર તારી શકાયુ"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -883,22 +883,22 @@ msgstr ""
 "\"%s\" સરનામાં પરથી જગ્યા %d પર અપૂર્ણ રીતે લખી શકાય તેવા રૂપરેખાંકિત સ્ત્રોત પર તારી "
 "શકાયુ"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
 msgstr "મેળવેલા એક પણ સરનામા પર લખી શકાતુ નથી; રૂપરેખાની ગોઠવણીનો સંગ્રહ કરવો શક્ય નથી"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "યોજના `%s' માટે સ્પષ્ટ કરેલ `%s' યોજનામાં ન હોય તેવી કિંમતનો સંગ્રહ કરે છે"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "'/' નામ ફકત ડિરેકટરી હોઇ શકે, કી નહિ"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -906,7 +906,7 @@ msgid ""
 msgstr ""
 "તમારી રૂપરેખાના પથની આગળ ફકત વાંચી શકાય તેવા સ્ત્રોતમાં સુયોજિત કરાયેલ `%s' માટેની કિંમત"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -942,17 +942,17 @@ msgstr ""
 "શકે છે, અને તેની પાસે તાળા માટેની એક ફાઇલ ~/.gconfd માં અને એકલવાયા સંગ્રહ સ્થાનો જેમ કે "
 "~/.gconfમાં પણ હોવી જોઇએ. "
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "જાણકારી માટેની માહિતી શોધવામાં ભૂલ: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "જાણકારી માટેની માહિતી મેળવવામાં ભૂલ: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "`%s' કી માટે યોજનામાં મૂકાયેલી `%s' કી ખરેખર `%s' પ્રકારનો સંગ્રહ કરે છે"

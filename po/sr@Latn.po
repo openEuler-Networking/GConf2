@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2003-12-30 12:38+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -405,7 +405,7 @@ msgstr ""
 "Nije uspeo da zapiše uklanjanje osluškivača u dnevnik (najverovatnije "
 "nebitno, može proizvesti neočekivanu pojavu obaveštavanja): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Greška pri čitanju vrednosti za „%s“: %s"
@@ -711,12 +711,12 @@ msgstr "Nije uspeo da ukloni direktorijum za zaključavanje „%s“: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nije uspeo da ukloni datoteku za zaključavanje „%s“: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Ne može da dobije podatke o „%s“: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Greška pri pingovanju servera: %s"
@@ -873,13 +873,13 @@ msgid ""
 "elements"
 msgstr "Shema navodi par za tip, ali ne navodi tip prvog i drugog člana para"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Nije uspeo da učita izvor „%s“: %s"
 
 # bug: config -> configuration
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
@@ -887,14 +887,14 @@ msgstr ""
 "poziciji %d"
 
 # bug: config -> configuration
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Adresa „%s“ pokazuje na izvor podešavanja koji se može samo čitati, na "
 "poziciji %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -902,7 +902,7 @@ msgstr ""
 "Adresa „%s“ pokazuje na izvor podešavanja u koji je delimično moguće "
 "upisivati, na poziciji %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -910,16 +910,16 @@ msgstr ""
 "Ni na jednu od prosleđenih adresa se ne može upisivati; neće biti moguće "
 "sačuvati podešavanja"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Data shema „%s“ za „%s“ čuva vrednost koja nije za shemu"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Ime „/“ može predstavljati samo kategoriju, a ne i ključ"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -928,7 +928,7 @@ msgstr ""
 "Vrednost za „%s“ je postavljena u neupisivom izvoru na početku putanje vaših "
 "podešavanja"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -967,17 +967,17 @@ msgstr ""
 "i datoteke za zaključavanje u pojedinačnim mestima za smeštanje kao što je "
 "~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Greška pri pronalaženju metapodataka: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Greška pri dobavljanju metapodataka: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "Ključ „%s“, označen kao shema za ključ „%s“, zapravo smešta tip „%s“"

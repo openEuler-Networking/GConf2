@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-01-06 00:59+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -406,7 +406,7 @@ msgstr ""
 "Misslyckades med att logga borttagningen av lyssnare i loggfilen (troligtvis "
 "ofarligt, men kan resultera i att ett meddelande plötsligt återkommer): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fel vid hämtning av värde för \"%s\": %s"
@@ -713,12 +713,12 @@ msgstr "Misslyckades med att ta bort låskatalogen \"%s\": %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Misslyckades med att avlänka låsfilen %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Misslyckades med att ta status på %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Serverpingfel: %s"
@@ -878,25 +878,25 @@ msgid ""
 "elements"
 msgstr "Schemat anger typen par men anger inte typen av car-/cdr-element"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Misslyckades med att läsa in källan \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Slog upp adressen \"%s\" till en skrivbar konfigurationskälla på position %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Slog upp adressen \"%s\" till en skrivskyddad konfigurationskälla på "
 "position %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -904,7 +904,7 @@ msgstr ""
 "Slog upp adressen \"%s\" till en delvis skrivbar konfigurationskälla på "
 "position %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -912,16 +912,16 @@ msgstr ""
 "Inga av de uppslagna adresserna är skrivbara; att spara "
 "konfigurationsinställningar kommer inte att vara möjligt"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Schemat \"%s\" som är angivet för \"%s\" lagrar ett icke-schema-värde"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Namnet \"/\" kan bara vara en katalog, inte en nyckel"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -930,7 +930,7 @@ msgstr ""
 "Värdet för \"%s\" är satt i en skrivskyddad källa i början på din "
 "konfigurationssökväg"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -967,17 +967,17 @@ msgstr ""
 "finnas en gconfd per hemkatalog, och den måste ha en låsfil i ~/.gconfd och "
 "även låsfiler i individuella lagringsplatser som ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Fel vid sökning av metainformation: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Fel vid hämtning av metainformation: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

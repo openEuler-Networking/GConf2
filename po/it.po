@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-04-14 11:06+0200\n"
 "Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -419,7 +419,7 @@ msgstr ""
 "Errore durante la registrazione della rimozione del listener(probabilmente "
 "innocuo, può causare duplicazione delle notifiche): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Errore nell'acquisizione del valore per \"%s\": %s"
@@ -727,12 +727,12 @@ msgstr "Errore nella cancellazione della directory di lock \"%s\": %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Errore nella cancellazione del file di lock %s: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Errore nel fare lo stat di %s: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Errore eseguendo il ping al server: %s"
@@ -898,26 +898,26 @@ msgid ""
 "elements"
 msgstr "Lo schema specifica il tipo coppia, ma non indica il tipo di car/cdr"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Errore nel caricamento della fonte \"%s\": %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "L'indirizzo \"%s\" è stato risolto ad una fonte di configurazione scrivibile "
 "in posizione %d"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "L'indirizzo \"%s\" è stato risolta ad una fonte di configurazione in sola "
 "lettura in posizione %d"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -925,7 +925,7 @@ msgstr ""
 "L'indirizzo \"%s\" è stato risolta ad una fonte di configurazione "
 "parzialmente scrivibile in posizione %d"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -933,16 +933,16 @@ msgstr ""
 "Nessuno degli indirizzi risolti è scrivibile; non sarà possibile salvare le "
 "impostazioni di configurazione"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Lo schema `%s' specificato per `%s' contiene un valore non-schema"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Il nome '/' può essere solo una directory, non una chiave"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -951,7 +951,7 @@ msgstr ""
 "Valore per `%s' impostato in una fonte in sola lettura all'apice del "
 "percorso della configurazione"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -990,17 +990,17 @@ msgstr ""
 "home, deve avere un file di lock ~/gconfd ed ulteriori file di lock in "
 "posizioni di immagazzinamento dati individuali come ~/.gconf"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Errore nella ricerca delle metainfo: %s\""
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Errore nell'acquisizione delle metainfo: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

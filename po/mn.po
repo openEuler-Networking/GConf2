@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-01-07 01:05+0100\n"
 "Last-Translator: Sanlig Badral <Badral@openmn.org>\n"
 "Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
@@ -406,7 +406,7 @@ msgstr ""
 "Сонсогч устгалт протоколл файлд тэмдэглэгдсэнгүй (магад гэм хоргүй, шинээр "
 "сонордуулга харуулж болох юм): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "»%s«-н утгыг хүлээн авч байхад алдаа: %s"
@@ -713,12 +713,12 @@ msgstr "»%s« түгжээ лавлах устгагдсанүй: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Түгжээ файл »%s« таслаж чадсангүй: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "»%s« stat() шинжлэгдэж чадахгүй: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Серверийн ping хийж байхад алдаа: %s"
@@ -876,44 +876,44 @@ msgid ""
 msgstr ""
 "Схем хос төрөл гэж тодорхойлсон боловч car/cdr элементийн төрлийг өгсөнгүй."
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "»%s« эхийг ачаалахад алдаа: %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "»%s« хаяг %d байрлал дахь бичих боломжтой тохируулгын эх рүү холбоно"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "»%s« хаяг %d байрлал дахь зөвхөн уншигдах тохируулгын эх рүү холбоно"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 "»%s« хаяг %d байрлал дахь хагас бичих боломжтой тохируулгын эх рүү холбоно"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
 msgstr "Ямар ч шууд хаяг бичигдэх боломжгүй; Тохируулгыг хадгалах боломжгүй"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "»%s« схем »%s« схем-биш утга хадгалахын тулд өгөгдсөн"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "»/« нэр түлхүүр биш зөвхөн лавлах байх боломжтой. "
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -921,7 +921,7 @@ msgid ""
 msgstr ""
 "»%s« -н утга таны тохируулгын замын өмнөх зөвхөн уншигдах эхэд тогтоогдсон."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -959,17 +959,17 @@ msgstr ""
 "доторхи түгжээ файлыг эзэмшдэг харин түгжээ файлыг хадгалах өөр боломжит "
 "байрлал байдаг. Ж.нь ~/.gconf."
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Мита мэдээллийг хайж байхад алдаа: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Мита мэдээллийг тодруулж байхад алдаа: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""

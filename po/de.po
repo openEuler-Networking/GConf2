@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.5.90\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-14 16:38+0200\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-05-14 16:38+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -750,12 +750,12 @@ msgstr "Das Sperrverzeichnis »%s« konnte nicht entfernt werden: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Die Verknüpfung der Sperrdatei »%s« konnte nicht gelöscht werden: %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "%s konnte nicht mit stat() untersucht werden: %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Fehler beim Pingen des Servers: %s"
@@ -2170,8 +2170,8 @@ msgstr ""
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
-"WARNUNG: Der Vorgabewert »%s« für das Schema (%s) konnte nicht "
-"verarbeitet werden\n"
+"WARNUNG: Der Vorgabewert »%s« für das Schema (%s) konnte nicht verarbeitet "
+"werden\n"
 
 #: gconf/gconftool.c:2940
 #, c-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-24 18:51+0200\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2004-04-24 18:47+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -741,12 +741,12 @@ msgstr "La suppression du verrou du répertoire « %s » a échoué : %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "La suppression du verrou du fichier « %s » a échoué : %s\n"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "L'analyse de %s a échoué : %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Erreur de ping du serveur : %s"

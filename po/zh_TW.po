@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2002-06-11 15:49+1000\n"
 "Last-Translator: Ben Wu <hpwu@redhat.com>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -387,7 +387,7 @@ msgstr ""
 "紀錄移除 listener 至紀錄檔失敗 (這是無傷大雅的，但也許 會導致奇怪的提示再度出"
 "現)： %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "取得 `%s' 的數值發生錯誤： %s"
@@ -690,12 +690,12 @@ msgstr "移除鎖定目錄 `%s' 失敗： %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "移除鎖定檔 `%s' 失敗： %s"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, fuzzy, c-format
 msgid "Failed to stat %s: %s"
 msgstr "無法 stat `%s'： %s"
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, c-format
 msgid "Server ping error: %s"
 msgstr "伺服器 ping 時發生錯誤： %s"
@@ -838,50 +838,50 @@ msgid ""
 "elements"
 msgstr ""
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "載入原始檔 \"%s\" 失敗： %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr "解析 \"%s\" 位址到 %d 位置的一個可寫入的設定原始檔"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr "解析 \"%s\" 位址到 %d 位置的一個只能讀取的設定原始檔"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr "解析 \"%s\" 位址到 %d 位置的一個可部份寫入的設定原始檔"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
 msgstr "所有已解析的位址都無法被讀取； 導致將無法儲存組態設定"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "`%s' 概要指定給 `%s'，儲存了一個非概要的數值"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "'/' 名稱只能當作是一個目錄而不是一支金鑰"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
 msgstr "`%s' 的數值設定在您的組態設定路徑之前的一個只能讀取的原始檔"
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -913,17 +913,17 @@ msgstr ""
 "查 user.* syslog 的詳細情況。 每一個家目錄只能有一個 gconfd，而且它必須擁有一"
 "個鎖定檔在 ~/.gconfd，以及在每一個存放位置（例如 ~/.gconf） 都有鎖定檔"
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "尋找 metainfo 發生錯誤： %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "取得 metainfo 發生錯誤： %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "`%s' 金鑰列出為 `%s' 金鑰的概要，實際上儲存 `%s' 類型"

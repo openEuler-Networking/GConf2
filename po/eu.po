@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf-1-0 1.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
+"POT-Creation-Date: 2004-06-14 17:24+0100\n"
 "PO-Revision-Date: 2001-05-25 13:35+0200\n"
 "Last-Translator: Unmantained\n"
 "Language-Team: Euskara\n"
@@ -397,7 +397,7 @@ msgstr ""
 "Huts egin du entzungailua egunkari-fitxategira aldatu dela erregistratzean "
 "(ez du kalterik eragingo, baina jakinarazpenetan okerrak egon daitezke): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Errorea `%s'(r)en balioa lortzean: %s "
@@ -707,12 +707,12 @@ msgstr "Huts egin du `%s' blokeo-direktorioa kentzean: %s "
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Huts egin du `%s' blokeo-fitxategia kentzean: %s"
 
-#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
 #, fuzzy, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Huts egin du `%s'(e)tik datuak lortzean: %s "
 
-#: gconf/gconf-internals.c:2885
+#: gconf/gconf-internals.c:2884
 #, fuzzy, c-format
 msgid "Server ping error: %s"
 msgstr "Errorea ixtean: %s\n"
@@ -844,44 +844,44 @@ msgid ""
 "elements"
 msgstr ""
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, fuzzy, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Huts egin du `%s' iturburua kargatzean: %s "
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr ""
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
 msgstr ""
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr ""
 "`%2$s'(r)entzat zehaztutako `%1$s' eskemak eskemakoa ez den balio bat dauka"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "'/' izena direktorioa besterik ezin da izan, ez gakoa"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, fuzzy, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -890,7 +890,7 @@ msgstr ""
 "`%s'(r)en balioa, zure konfigurazioaren bide-izenaren aurrealdean "
 "irakurtzeko bakarrik den iturburu batean ezarrita."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, fuzzy, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -921,17 +921,17 @@ msgstr ""
 "konexioak eragotziko ditu. Beti bezala, egiaztatu user.* syslog aurkitutako "
 "gconfd arazoen xehetasunak lortzeko."
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Errorea metainfo bilatzean: %s "
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Errorea metainfo lortzean: %s "
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "`%s' gakoa, `%s' gakoarentzat eskema gisa zerrendatua, `%s' motakoa da"
