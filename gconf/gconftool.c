@@ -1479,7 +1479,7 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->key = g_strdup(tmp);
-                  free(tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "owner") == 0)
@@ -1488,7 +1488,7 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->owner = g_strdup(tmp);
-                  free(tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "type") == 0)
@@ -1497,10 +1497,10 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->type = gconf_value_type_from_string(tmp);
-                  free(tmp);
                   if (info->type == GCONF_VALUE_INVALID)
                     fprintf(stderr, _("WARNING: failed to parse type name `%s'\n"),
                             tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "list_type") == 0)
@@ -1509,7 +1509,6 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->list_type = gconf_value_type_from_string(tmp);
-                  free(tmp);
                   if (info->list_type != GCONF_VALUE_INT &&
 		      info->list_type != GCONF_VALUE_FLOAT &&
 		      info->list_type != GCONF_VALUE_STRING &&
@@ -1522,6 +1521,7 @@ extract_global_info(xmlNodePtr node,
                   else if (info->list_type == GCONF_VALUE_INVALID)
                     fprintf(stderr, _("WARNING: failed to parse type name `%s'\n"),
                             tmp);
+    		  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "car_type") == 0)
@@ -1530,7 +1530,6 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->car_type = gconf_value_type_from_string(tmp);
-                  free(tmp);
                   if (info->car_type != GCONF_VALUE_INT &&
 		      info->car_type != GCONF_VALUE_FLOAT &&
 		      info->car_type != GCONF_VALUE_STRING &&
@@ -1543,6 +1542,7 @@ extract_global_info(xmlNodePtr node,
                   else if (info->car_type == GCONF_VALUE_INVALID)
                     fprintf(stderr, _("WARNING: failed to parse type name `%s'\n"),
                             tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "cdr_type") == 0)
@@ -1551,7 +1551,6 @@ extract_global_info(xmlNodePtr node,
               if (tmp)
                 {
                   info->cdr_type = gconf_value_type_from_string(tmp);
-                  free(tmp);
                   if (info->cdr_type != GCONF_VALUE_INT &&
 		      info->cdr_type != GCONF_VALUE_FLOAT &&
 		      info->cdr_type != GCONF_VALUE_STRING &&
@@ -1564,6 +1563,7 @@ extract_global_info(xmlNodePtr node,
                   else if (info->cdr_type == GCONF_VALUE_INVALID)
                     fprintf(stderr, _("WARNING: failed to parse type name `%s'\n"),
                             tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "default") == 0)
@@ -1639,7 +1639,7 @@ process_locale_info(xmlNodePtr node, SchemaInfo* info)
     {
       fprintf(stderr, _("WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"),
               name);
-      free(name);
+      xmlFree(name);
       return 1;
     }
   
@@ -1647,7 +1647,7 @@ process_locale_info(xmlNodePtr node, SchemaInfo* info)
 
   gconf_schema_set_locale(schema, name);
 
-  free(name);
+  xmlFree(name);
 
   /* Fill in the global info */
   if (info->global_default != NULL)
@@ -1689,7 +1689,7 @@ process_locale_info(xmlNodePtr node, SchemaInfo* info)
                   if (val != NULL)
                     gconf_schema_set_default_value_nocopy(schema, val);
 
-                  free(tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "short") == 0)
@@ -1701,7 +1701,7 @@ process_locale_info(xmlNodePtr node, SchemaInfo* info)
               if (tmp != NULL)
                 {
                   gconf_schema_set_short_desc(schema, tmp);
-                  free(tmp);
+                  xmlFree(tmp);
                 }
             }
           else if (strcmp(iter->name, "long") == 0)
@@ -1713,7 +1713,7 @@ process_locale_info(xmlNodePtr node, SchemaInfo* info)
               if (tmp != NULL)
                 {
                   gconf_schema_set_long_desc(schema, tmp);
-                  free(tmp);
+                  xmlFree(tmp);
                 }
             }
           else

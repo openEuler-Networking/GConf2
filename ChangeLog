@@ -1,3 +1,8 @@
+2001-03-13  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* backends/xml-entry.c: Fix to use xmlFree() instead of free().
+	* gconf/gconftool.c: Same here.
+	
 2001-03-12  Timur Bakeyev  <timur@gnu.org>
 
 	* Makefile.am: Made warning printing a bit nicer.
