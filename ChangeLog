@@ -1,3 +1,7 @@
+2001-07-14  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Added "nn" to ALL_LINGUAS.
+	
 2001-06-20  Peter Williams  <peterw@ximian.com>
 
 	* configure.in (ACLOCAL): Save flags to aclocal -- life
