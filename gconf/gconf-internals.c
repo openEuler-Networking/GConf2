@@ -2431,8 +2431,8 @@ open_empty_locked_file (const gchar *directory,
       g_set_error (err,
                    GCONF_ERROR,
                    GCONF_ERROR_LOCK_FAILED,
-                   _("Failed to lock '%s': another process has the lock"),
-                   filename);
+                   _("Failed to lock '%s': another process has the lock (%s)"),
+                   filename, strerror (errno));
       close (fd);
       return -1;
     }

@@ -1,3 +1,8 @@
+2001-10-04  Havoc Pennington  <hp@redhat.com>
+
+	* gconf/gconf-internals.c (open_empty_locked_file): put strerror 
+	in the error message for lock failure, just for thrills
+
 2001-10-01  Michael Meeks  <michael@ximian.com>
 
 	* gconf/gconf.c (ctable_remove_by_client_id): remove unused.
