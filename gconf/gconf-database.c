@@ -446,10 +446,12 @@ gconf_database_recursive_unset (GConfDatabase      *db,
                                               &error);
 
       if (error)
-        gconf_log (GCL_ERR, _("Error getting new value for \"%s\": %s"),
-                   notify_key, error->message);
-      g_propagate_error (err, error);
-      error = NULL;
+        {
+          gconf_log (GCL_ERR, _("Error getting new value for \"%s\": %s"),
+		     notify_key, error->message);
+	  g_propagate_error (err, error);
+	  error = NULL;
+	}
       
       gconf_database_schedule_sync (db);
 

@@ -1028,10 +1028,19 @@ gconf_engine_get_fuller (GConfEngine *conf,
 							       &is_default,
 							       &is_writable,
 							       &schema_name);
+
+      dbus_message_unref (reply);
+
       if (!success)
 	{
-	  /* FIXME: handle this */
-	  d(g_print ("FIXME: Couldn't get value\n"));
+	  if (err)
+	    g_set_error (err, GCONF_ERROR,
+			 GCONF_ERROR_FAILED,
+			 _("Couldn't get value"));
+
+	  g_free (schema_name);
+
+	  return NULL;
 	}
 
       if (is_default_p)
@@ -1042,16 +1051,14 @@ gconf_engine_get_fuller (GConfEngine *conf,
 
       if (schema_name && schema_name[0] != '/')
 	{
-	  dbus_free (schema_name);
+	  g_free (schema_name);
 	  schema_name = NULL;
 	}
 
       if (schema_name_p)
-	*schema_name_p = g_strdup (schema_name);
-
-      dbus_free (schema_name);
-
-      dbus_message_unref (reply);
+	*schema_name_p = schema_name;
+      else 
+	g_free (schema_name);
 
       return val;
     }
@@ -1674,8 +1681,8 @@ gconf_engine_all_entries (GConfEngine* conf, const gchar* dir, GError** err)
 
       entries = g_slist_prepend (entries, entry);
 
-      dbus_free (key);
-      dbus_free (schema_name);
+      g_free (key);
+      g_free (schema_name);
 
       if (!dbus_message_iter_next (&iter))
 	break;
@@ -2292,13 +2299,21 @@ handle_notify (DBusConnection *connection,
   
   dbus_message_iter_init (message, &iter);
 
-  gconf_dbus_get_entry_values_from_message_iter (&iter,
-						 &key,
-						 &value,
-						 &is_default,
-						 &is_writable,
-						 &schema_name);
+  if (!gconf_dbus_get_entry_values_from_message_iter (&iter,
+						      &key,
+						      &value,
+						      &is_default,
+						      &is_writable,
+						      &schema_name))
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 
+  if (value == NULL)
+    {
+      g_free (key);
+      g_free (schema_name);
+      return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+  
   d(g_print ("Got notify on %s\n", key));
 
   dir = g_strdup (key);
@@ -2341,6 +2356,9 @@ handle_notify (DBusConnection *connection,
   gconf_value_free (value);
   g_free (dir);
 
+  g_free (key);
+  g_free (schema_name);
+  
   if (!match)
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
   

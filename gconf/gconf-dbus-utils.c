@@ -49,11 +49,12 @@ gconf_value_from_dict (DBusMessageIter *iter,
     {
     case DBUS_TYPE_STRING:
       {
-	const char *str;
+	gchar *str;
 	value = gconf_value_new (GCONF_VALUE_STRING);
 
 	str = dbus_message_iter_get_string (&dict);
 	gconf_value_set_string (value, str);
+	dbus_free (str);
 
 	return value;
       }
@@ -116,7 +117,12 @@ set_dict_value_from_gconf_value (DBusMessageIter *dict,
     case GCONF_VALUE_BOOL:
       dbus_message_iter_append_boolean (dict, gconf_value_get_bool (value));
       break;
-      /* FIXME: Add list and pair types */
+
+      /* Note: This is only used for setting the values in a pair, and lists and
+       * pairs are not allowed inside a pair.
+       */
+    case GCONF_VALUE_PAIR:
+    case GCONF_VALUE_LIST:
     default:
       g_assert_not_reached ();
     }
@@ -413,7 +419,7 @@ gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter,
     case GCONF_VALUE_PAIR:
       {
 	DBusMessageIter dict;
-	
+
 	dbus_message_iter_append_dict (iter, &dict);
 
 	set_dict_value_from_gconf_value (&dict, "car", gconf_value_get_car (value));
@@ -606,7 +612,7 @@ gconf_dbus_message_append_entry (DBusMessage      *message,
 				 const gchar      *schema_name)
 {
   DBusMessageIter iter, dict;
-  
+
   dbus_message_append_iter_init (message, &iter);
   dbus_message_iter_append_dict (&iter, &dict);
   
@@ -615,7 +621,7 @@ gconf_dbus_message_append_entry (DBusMessage      *message,
 
   dbus_message_iter_append_dict_key (&dict, "value");
   gconf_dbus_message_iter_append_gconf_value (&dict, value);
-
+  
   dbus_message_iter_append_dict_key (&dict, "is_default");
   dbus_message_iter_append_boolean (&dict, is_default);
 
@@ -650,6 +656,7 @@ check_next_dict_key (DBusMessageIter *dict, const gchar *key)
 }
 #endif
 
+/* Note: The returned key and schema_name must be freed with g_free. */
 gboolean
 gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
 					       gchar           **key,
@@ -659,6 +666,7 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
 					       gchar           **schema_name)
 {
   DBusMessageIter dict;
+  gchar *str;
 
   if (dbus_message_iter_get_arg_type (iter) != DBUS_TYPE_DICT)
     return FALSE;
@@ -677,7 +685,11 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
       if (strcmp (name, "key") == 0)
 	{
 	  if (key)
-	    *key = dbus_message_iter_get_string (&dict);
+	    {
+	      str = dbus_message_iter_get_string (&dict);
+	      *key = g_strdup (str);
+	      dbus_free (str);
+	    }
 	}
       else if (strcmp (name, "value") == 0)
 	{
@@ -697,10 +709,16 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
       else if (strcmp (name, "schema_name") == 0) 
 	{
 	  if (schema_name)
-	    *schema_name = dbus_message_iter_get_string (&dict);
+	    {
+	      str = dbus_message_iter_get_string (&dict);
+	      *schema_name = g_strdup (str);
+	      dbus_free (str);
+	    }
 	}
       else
 	g_assert_not_reached ();
+
+      dbus_free (name);
       
       if (!dbus_message_iter_next (&dict))
 	break;
