@@ -1,4 +1,9 @@
-2001-10-06  Carlos Perelló Marín <carlos@gnome-db.org>
+2001-10-07  Sami Pesonen  <spesonen@dlc.fi>
+
+	* fi.po: Updated Finnish translation by
+	Pauli Virtanen  <pauli.virtanen@saunalahti.fi>.
+
+2001-10-06  Carlos Perells Marmn <carlos@gnome-db.org>
 
 	* es.po: Copied from HEAD && review && updated.
 
@@ -14,7 +19,7 @@
 
 	* pl.po: Added Polish translation.
 
-2001-08-15  Carlos Perelló Marín <carlos@gnome-db.org>
+2001-08-15  Carlos Perells Marmn <carlos@gnome-db.org>
 
 	* es.po: Fixed the header.
 
@@ -478,7 +483,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norb$Bdc(Bk  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin Norb$(Bdc(Bk  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
