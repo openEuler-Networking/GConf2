@@ -1,3 +1,11 @@
+2002-03-10  Havoc Pennington  <hp@pobox.com>
+
+	* gconf/gconf-sources.c (gconf_sources_query_metainfo): fix from
+	HEAD, replace a "mi" with "this_mi"
+
+	* backends/xml-backend.c (query_metainfo): fix from HEAD, use
+	relative key to look up metainfo
+
 2002-02-05  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in (ALL_LINGUAS): zh_CN.GB2312 -> zh_CN

@@ -1212,7 +1212,7 @@ gconf_sources_query_metainfo (GConfSources* sources,
                   gconf_meta_info_get_schema(this_mi) != NULL)
                 {
                   gconf_meta_info_set_schema(mi,
-                                             gconf_meta_info_get_schema(mi));
+                                             gconf_meta_info_get_schema(this_mi));
                 }
 
               if (gconf_meta_info_get_mod_user(mi) == NULL &&

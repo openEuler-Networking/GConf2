@@ -505,7 +505,13 @@ query_metainfo  (GConfSource* source, const gchar* key,
       parent = NULL;
       
       if (dir != NULL)
-        return dir_get_metainfo(dir, key, err);
+        {
+          const gchar* relative_key;
+      
+          relative_key = gconf_key_key (key);
+
+          return dir_get_metainfo (dir, relative_key, err);
+        }
     }
 
   /* No metainfo found */
