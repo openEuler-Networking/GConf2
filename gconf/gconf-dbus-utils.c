@@ -156,27 +156,26 @@ set_dict_value_from_gconf_value (DBusMessageIter *dict,
     case GCONF_VALUE_BOOL:
       dbus_message_iter_append_boolean (dict, gconf_value_get_bool (value));
       break;
+      /* FIXME: Add list and pair types */
     default:
       g_assert_not_reached ();
     }
 }
 
 void
-gconf_dbus_message_append_gconf_schema (DBusMessage       *message,
-					const GConfSchema *schema)
+gconf_dbus_message_iter_append_gconf_schema (DBusMessageIter *iter,
+					     const GConfSchema *schema)
 {
-  DBusMessageIter iter, dict;
+  DBusMessageIter dict;
   GConfValue *default_val;
 
- dbus_message_append_iter_init (message, &iter);
-  
   if (!schema)
     {
-      dbus_message_iter_append_nil (&iter);
+      dbus_message_iter_append_nil (iter);
       return;
     }
   
-  dbus_message_iter_append_dict (&iter, &dict);
+  dbus_message_iter_append_dict (iter, &dict);
 
   dbus_message_iter_append_dict_key (&dict, "type");
   dbus_message_iter_append_int32 (&dict, gconf_schema_get_type (schema));
@@ -320,29 +319,36 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
   DBusMessageIter iter;
   
   dbus_message_append_iter_init (message, &iter);
-  
+ 
+  gconf_dbus_message_iter_append_gconf_value (&iter, value);
+}
+
+void
+gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter, 
+					    const GConfValue *value)
+{
   if (!value)
     {
-      dbus_message_iter_append_nil (&iter);
+      dbus_message_iter_append_nil (iter);
       return;
     }
 
   switch (value->type)
     {
     case GCONF_VALUE_INT:
-      dbus_message_iter_append_int32 (&iter, gconf_value_get_int (value));
+      dbus_message_iter_append_int32 (iter, gconf_value_get_int (value));
       break;
     case GCONF_VALUE_STRING:
-      dbus_message_iter_append_string (&iter, gconf_value_get_string (value));
+      dbus_message_iter_append_string (iter, gconf_value_get_string (value));
       break;
     case GCONF_VALUE_FLOAT:
-      dbus_message_iter_append_double (&iter, gconf_value_get_float (value));
+      dbus_message_iter_append_double (iter, gconf_value_get_float (value));
       break;
     case GCONF_VALUE_BOOL:
-      dbus_message_iter_append_boolean (&iter, gconf_value_get_bool (value));
+      dbus_message_iter_append_boolean (iter, gconf_value_get_bool (value));
       break;
     case GCONF_VALUE_INVALID:
-      dbus_message_iter_append_nil (&iter);
+      dbus_message_iter_append_nil (iter);
       break;
     case GCONF_VALUE_LIST:
       {
@@ -372,7 +378,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 		  ++i;
 		}
 
-	      dbus_message_iter_append_string_array (&iter, str, len);
+	      dbus_message_iter_append_string_array (iter, str, len);
 	      g_free (str);
 	      break;
 	    }
@@ -393,7 +399,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 		  ++i;
 		}
 
-	      dbus_message_iter_append_int32_array (&iter, array, len);
+	      dbus_message_iter_append_int32_array (iter, array, len);
 	      g_free (array);
 	      break;
 	    }
@@ -414,7 +420,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 		  ++i;
 		}
 
-	      dbus_message_iter_append_double_array (&iter, array, len);
+	      dbus_message_iter_append_double_array (iter, array, len);
 	      g_free (array);
 	      break;
 	    }
@@ -435,7 +441,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 		  ++i;
 		}
 
-	      dbus_message_iter_append_boolean_array (&iter, array, len);
+	      dbus_message_iter_append_boolean_array (iter, array, len);
 	      g_free (array);
 	      break;
 	    }
@@ -448,7 +454,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
       {
 	DBusMessageIter dict;
 	
-	dbus_message_iter_append_dict (&iter, &dict);
+	dbus_message_iter_append_dict (iter, &dict);
 
 	set_dict_value_from_gconf_value (&dict, "car", gconf_value_get_car (value));
 	set_dict_value_from_gconf_value (&dict, "cdr", gconf_value_get_cdr (value));
@@ -456,7 +462,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 	break;
       }
     case GCONF_VALUE_SCHEMA:
-      gconf_dbus_message_append_gconf_schema (message, gconf_value_get_schema (value));
+      gconf_dbus_message_iter_append_gconf_schema (iter, gconf_value_get_schema (value));
       break;
 
     default:
@@ -465,7 +471,7 @@ gconf_dbus_message_append_gconf_value (DBusMessage      *message,
 }
 
 GConfValue *
-gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter)
+gconf_dbus_create_gconf_value_from_message_iter (DBusMessageIter *iter)
 {
   int arg_type;
   GConfValue *gval;
@@ -631,6 +637,101 @@ gconf_dbus_create_gconf_value_from_message (DBusMessageIter *iter)
   return gval;
 }
 
+void
+gconf_dbus_message_append_entry (DBusMessage      *message,
+				 const gchar      *key,
+				 const GConfValue *value,
+				 gboolean          is_default,
+				 gboolean          is_writable,
+				 const gchar      *schema_name)
+{
+  DBusMessageIter iter, dict;
+  
+  dbus_message_append_iter_init (message, &iter);
+  dbus_message_iter_append_dict (&iter, &dict);
+  
+  dbus_message_iter_append_dict_key (&dict, "key");
+  dbus_message_iter_append_string (&dict, key);
+
+  dbus_message_iter_append_dict_key (&dict, "value");
+  gconf_dbus_message_iter_append_gconf_value (&dict, value);
+
+  dbus_message_iter_append_dict_key (&dict, "is_default");
+  dbus_message_iter_append_boolean (&dict, is_default);
+
+  dbus_message_iter_append_dict_key (&dict, "is_writable");
+  dbus_message_iter_append_boolean (&dict, is_writable);
+
+  dbus_message_iter_append_dict_key (&dict, "schema_name");
+  dbus_message_iter_append_string (&dict, schema_name);
+}
+
+static gboolean
+check_next_dict_key (DBusMessageIter *dict, const gchar *key)
+{
+  gchar *name;
+  gboolean ret_val = FALSE;
+  
+  name = dbus_message_iter_get_dict_key (&dict);
+  if (!name)
+    return FALSE;
+  
+  if (strcmp (name, key) == 0) {
+    ret_val = TRUE;
+  }
+
+  g_free (name);
+  return ret_val;
+}
+
+gboolean
+gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
+					       const gchar     **key,
+					       GConfValue      **value,
+					       gboolean         *is_default,
+					       gboolean         *is_writable,
+					       const gchar     **schema_name)
+{
+  DBusMessageIter dict;
+
+  g_return_val_if_fail (key != NULL, FALSE);
+  g_return_val_if_fail (value != NULL, FALSE);
+  
+  dbus_message_iter_init_dict_iterator (iter, &dict);
+
+  while (1) 
+    {
+      gchar *name;
+
+      name = dbus_message_iter_get_dict_key (&dict);
+      if (!name)
+	return FALSE;
+	
+      if (strcmp (name, "key") == 0) 
+	*key = dbus_message_iter_get_string (&dict);
+      else if (strcmp (name, "value") == 0) 
+	*value = gconf_dbus_create_gconf_value_from_message_iter (&dict);
+      else if (strcmp (name, "is_default") == 0) 
+	{
+	  if (is_default)
+	    *is_default = dbus_message_iter_get_boolean (&dict);
+	}
+      else if (strcmp (name, "is_writable") == 0)
+	{
+	  if (is_writable)
+	    *is_writable = dbus_message_iter_get_boolean (&dict);
+	}
+      else if (strcmp (name, "schema_name") == 0) 
+	{
+	  if (schema_name)
+	    *schema_name = dbus_message_iter_get_string (&dict);
+	}
+      else
+	g_assert_not_reached ();
+    }
+
+  return TRUE;
+}
 /*
 Set    (Array<string> keys,
         v1, v2, v3, ...);

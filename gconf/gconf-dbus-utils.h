@@ -96,7 +96,21 @@
 
 void         gconf_dbus_message_append_gconf_value      (DBusMessage      *message,
 							 const GConfValue *value);
-GConfValue * gconf_dbus_create_gconf_value_from_message (DBusMessageIter  *iter);
+void         gconf_dbus_message_iter_append_gconf_value (DBusMessageIter *iter, 
+							 const GConfValue *value);
+GConfValue * gconf_dbus_create_gconf_value_from_message_iter (DBusMessageIter  *iter);
 
+void         gconf_dbus_message_append_entry            (DBusMessage      *message,
+							 const gchar      *key,
+							 const GConfValue *value,
+							 gboolean          is_default,
+							 gboolean          is_writable,
+							 const gchar      *schema_name);
+gboolean gconf_dbus_get_entry_values_from_message_iter  (DBusMessageIter  *iter,
+							 const gchar     **key,
+							 GConfValue      **value,
+							 gboolean         *is_default,
+							 gboolean         *is_writable,
+							 const gchar     **schema_name);
 
 #endif/* GCONF_DBUS_UTILS_H */
