@@ -834,7 +834,7 @@ msgid "Didn't understand `%s' (list must end with a ']')"
 msgstr "Niezrozumia³a warto¶æ \"%s\" (lista musi siê koñczyæ znakiem \"]\")"
 
 #: gconf/gconf-value.c:296
-#, c-format
+#, fuzzy, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
 msgstr "Niezrozumia³a warto¶æ \"%s\" (dodatkowy znak \"%]\" wewn±trz listy)"
 

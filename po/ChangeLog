@@ -1,3 +1,9 @@
+2003-05-11  Abel Cheung  <maddog@linux.org.hk>
+
+	* POTFILES.skip: New file.
+	* POTFILES.in: Add gconf/gconf-sanity-check.c,gconf/gconf-schema.c
+	* pl.po: Marked wrong entry as fuzzy (msgfmt check failed).
+
 2002-05-23  Christian Rose  <menthos@menthos.com>
 
 	* sv.po: Updated Swedish translation.
