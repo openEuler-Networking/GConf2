@@ -384,10 +384,10 @@ ensure_dbus_connection (void)
   global_conn = dbus_bus_get (DBUS_BUS_SESSION, NULL);
 #endif
 
-  dbus_connection_setup_with_g_main (global_conn, NULL);
-  
   if (global_conn == NULL)
     return FALSE;
+
+  dbus_connection_setup_with_g_main (global_conn, NULL);
 
   dbus_bus_add_match (global_conn, BUS_RULE, NULL);
   dbus_bus_add_match (global_conn, NOTIFY_RULE, NULL);
