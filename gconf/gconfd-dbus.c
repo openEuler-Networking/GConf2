@@ -23,9 +23,14 @@
 #include "gconfd.h"
 #include "gconf-dbus.h"
 #include <time.h>
+#include <string.h>
+
+static const char *config_server_messages[] = {
+  GCONF_DBUS_CONFIG_SERVER_SHUTDOWN,
+};
 
 static const char *config_database_messages[] = {
-  GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS,
+  GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS, 
   GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS,
   GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES,
   GCONF_DBUS_CONFIG_DATABASE_LOOKUP,
@@ -41,9 +46,8 @@ static const char *config_database_messages[] = {
   GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE
 };
 
-static const char *config_server_messages[] =
-{
-  GCONF_DBUS_CONFIG_SERVER_SHUTDOWN
+static const char *lifecycle_messages[] = {
+  DBUS_MESSAGE_SERVICE_DELETED,
 };
 
 typedef struct {
@@ -54,6 +58,8 @@ typedef struct {
 static Listener* listener_new     (const char *who,
 				   const char *name);
 static void      listener_destroy (Listener   *l);
+static void      add_client (DBusConnection *connection,
+			     const char     *name);
 
 static void
 gconfd_shutdown (DBusConnection *connection,
@@ -650,11 +656,9 @@ static void
 gconfd_config_database_unset (DBusConnection *connection,
 			      DBusMessage    *message)
 {
-  guint flags;
   int id;
   gchar *key;
   GConfDatabase *db;
-  GConfUnsetFlags gconf_flags;
   DBusMessage *reply;
   GError *error = NULL;
   
@@ -728,7 +732,6 @@ static void
 gconfd_config_database_synchronous_sync (DBusConnection *connection,
 					 DBusMessage    *message)
 {
-  guint flags;
   int id;
   GConfDatabase *db;
   DBusMessage *reply;
@@ -761,7 +764,6 @@ static void
 gconfd_config_database_sync (DBusConnection *connection,
 			     DBusMessage    *message)
 {
-  guint flags;
   int id;
   GConfDatabase *db;
   DBusMessage *reply;
@@ -823,6 +825,112 @@ gconfd_config_database_clear_cache (DBusConnection *connection,
   dbus_message_unref (reply);
 }
 
+static GHashTable *client_hash = NULL;
+
+static void
+add_client (DBusConnection *connection,
+	    const char     *name)
+{
+  char *tmp;
+  
+  if (!client_hash)
+    client_hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+
+  /* Check if client is in the hash already */
+  if (g_hash_table_lookup (client_hash, name))
+    return;
+
+  tmp = g_strdup (name);
+  g_hash_table_insert (client_hash, tmp, tmp);
+
+  gconf_log (GCL_DEBUG, "Added a new client");  
+}
+
+guint
+gconfd_dbus_client_count (void)
+{
+  return g_hash_table_size (client_hash);
+}
+
+static gboolean
+remove_listener_predicate (const gchar* location,
+			   guint        cnxn_id,
+			   gpointer     listener_data,
+			   gpointer     user_data)
+{
+  Listener *l = listener_data;
+  const char *name = user_data;
+  
+  if (l->parent.type != GCONF_DATABASE_LISTENER_DBUS)
+    return TRUE;
+
+  if (strcmp (l->who, name) == 0)
+    {
+      printf ("removing listener!\n");
+      return FALSE;
+    }
+  else
+    return TRUE;
+}
+
+static void
+remove_listeners (GConfDatabase *db, const char *name)
+{
+  if (db->listeners)
+    {
+      gconf_listeners_remove_if (db->listeners,
+                                 remove_listener_predicate,
+                                 (gpointer)name);
+    }
+}
+
+static void
+remove_client (DBusConnection *connection,
+	       DBusMessage    *message)
+{
+  char *name;
+  GList *list;
+  GConfDatabase *db;
+  
+  dbus_message_get_args (message,
+			 DBUS_TYPE_STRING, &name,
+			 0);
+
+  /* Check if we know the client */
+  if (g_hash_table_lookup (client_hash, name) == NULL)
+    {
+      dbus_free (name);
+      return;
+    }
+
+  /* Now clean up after it */
+  list = gconfd_get_database_list ();
+  while (list)
+    {
+      db = list->data;
+      remove_listeners (db, name);
+      list = list->next;
+    }
+
+  /* Clean up the default database */
+  db = gconfd_lookup_database (NULL);
+  remove_listeners (db, name);
+  g_hash_table_remove (client_hash, name);
+  dbus_free (name);
+}
+
+static DBusHandlerResult
+gconfd_lifecycle_handler (DBusMessageHandler *handler,
+			  DBusConnection     *connection,
+			  DBusMessage        *message,
+			  void               *user_data)
+{
+  if (dbus_message_name_is (message, DBUS_MESSAGE_SERVICE_DELETED))
+    remove_client (connection, message);
+
+  return DBUS_HANDLER_RESULT_ALLOW_MORE_HANDLERS;
+}
+
 static DBusHandlerResult
 gconfd_config_database_handler (DBusMessageHandler *handler,
 				DBusConnection     *connection,
@@ -831,71 +939,85 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
 {
   if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS))
     {
+      add_client (connection, dbus_message_get_sender (message));
       gconfd_config_database_dir_exists (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_all_dirs (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_all_entries (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_LOOKUP))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_lookup (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_lookup_default_value (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_remove_dir (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_add_listener (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_set (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_recursive_unset (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_UNSET))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_unset (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_set_schema (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SYNC))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_sync (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_synchronous_sync (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   else if (dbus_message_name_is (message, GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE))
     {
+      add_client (connection, dbus_message_get_sender (message));      
       gconfd_config_database_clear_cache (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
@@ -964,6 +1086,11 @@ gconfd_dbus_init (void)
   handler = dbus_message_handler_new (gconfd_config_database_handler, NULL, NULL);
   dbus_connection_register_handler (dbus_conn, handler, config_database_messages,
 				    G_N_ELEMENTS (config_database_messages));
+
+  /* Add the lifecycle handler */
+  handler = dbus_message_handler_new (gconfd_lifecycle_handler, NULL, NULL);
+  dbus_connection_register_handler (dbus_conn, handler, lifecycle_messages,
+				    G_N_ELEMENTS (lifecycle_messages));
   
   return TRUE;
 }

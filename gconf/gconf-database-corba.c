@@ -1061,6 +1061,9 @@ client_alive_predicate (const gchar* location,
   Listener *l = listener_data;
   CORBA_Environment ev;
   CORBA_boolean result;
+
+  if (l->parent.type != GCONF_DATABASE_LISTENER_CORBA)
+    return TRUE;
   
   CORBA_exception_init (&ev);
   

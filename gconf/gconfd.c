@@ -533,7 +533,8 @@ periodic_cleanup_timeout(gpointer data)
   gconfd_corba_drop_old_clients ();
   drop_old_databases ();
 
-  if (no_databases_in_use () && gconfd_corba_client_count () == 0)
+  if (no_databases_in_use () && gconfd_corba_client_count () == 0 &&
+      gconfd_dbus_client_count () == 0)
     {
       gconf_log (GCL_INFO, _("GConf server is not in use, shutting down."));
       gconf_main_quit ();

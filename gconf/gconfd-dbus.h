@@ -26,13 +26,12 @@
 gboolean gconfd_dbus_init                     (void);
 gboolean gconfd_dbus_check_in_shutdown        (DBusConnection   *connection,
 					       DBusMessage      *message);
-
+guint    gconfd_dbus_client_count             (void);
 void     gconf_database_dbus_notify_listeners (GConfDatabase    *db,
 					       const gchar      *key,
 					       const GConfValue *value,
 					       gboolean          is_default,
 					       gboolean          is_writable);
-
 
 
 #endif
