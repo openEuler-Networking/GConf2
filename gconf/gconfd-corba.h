@@ -43,6 +43,12 @@ gchar* gconf_object_to_string (CORBA_Object obj,
 
 CORBA_ORB gconf_orb_get (void);
 
+gboolean gconfd_logfile_change_listener (GConfDatabase *db,
+                                         gboolean add,
+                                         guint connection_id,
+                                         ConfigListener listener,
+                                         const gchar *where,
+                                         GError **err);
 
 void gconfd_corba_logfile_save (void);
 void gconfd_corba_logfile_read (void);

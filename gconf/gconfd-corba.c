@@ -2296,3 +2296,111 @@ gconf_orb_release (void)
 }
 
 
+GConfLock*
+gconf_get_lock (const gchar *lock_directory,
+                GError     **err)
+{
+  return gconf_get_lock_or_current_holder (lock_directory, NULL, err);
+}
+
+gboolean
+gconf_release_lock (GConfLock *lock,
+                    GError   **err)
+{
+  gboolean retval;
+  char *uniquefile;
+  
+  retval = FALSE;
+  uniquefile = NULL;
+  
+  /* A paranoia check to avoid disaster if e.g.
+   * some random client code opened and closed the
+   * lockfile (maybe Nautilus checking its MIME type or
+   * something)
+   */
+  if (lock->lock_fd < 0 ||
+      file_locked_by_someone_else (lock->lock_fd))
+    {
+      g_set_error (err,
+                   GCONF_ERROR,
+                   GCONF_ERROR_FAILED,
+                   _("We didn't have the lock on file `%s', but we should have"),
+                   lock->iorfile);
+      goto out;
+    }
+
+  /* To avoid annoying .nfs3435314513453145 files on unlink, which keep us
+   * from removing the lock directory, we don't want to hold the
+   * lockfile open after removing all links to it. But we can't
+   * close it then unlink, because then we would be unlinking without
+   * holding the lock. So, we create a unique filename and link it too
+   * the locked file, then unlink the locked file, then drop our locks
+   * and close file descriptors, then unlink the unique filename
+   */
+  
+  uniquefile = unique_filename (lock->lock_directory);
+
+  if (link (lock->iorfile, uniquefile) < 0)
+    {
+      g_set_error (err,
+                   GCONF_ERROR,
+                   GCONF_ERROR_FAILED,
+                   _("Failed to link '%s' to '%s': %s"),
+                   uniquefile, lock->iorfile, g_strerror (errno));
+
+      goto out;
+    }
+  
+  /* Note that we unlink while still holding the lock to avoid races */
+  if (unlink (lock->iorfile) < 0)
+    {
+      g_set_error (err,
+                   GCONF_ERROR,
+                   GCONF_ERROR_FAILED,
+                   _("Failed to remove lock file `%s': %s"),
+                   lock->iorfile,
+                   g_strerror (errno));
+      goto out;
+    }
+
+  /* Now drop our lock */
+  if (lock->lock_fd >= 0)
+    {
+      close (lock->lock_fd);
+      lock->lock_fd = -1;
+    }
+
+  /* Now remove the temporary link we used to avoid .nfs351453 garbage */
+  if (unlink (uniquefile) < 0)
+    {
+      g_set_error (err,
+                   GCONF_ERROR,
+                   GCONF_ERROR_FAILED,
+                   _("Failed to clean up file '%s': %s"),
+                   uniquefile, g_strerror (errno));
+
+      goto out;
+    }
+
+  /* And finally clean up the directory - this would have failed if
+   * we had .nfs323423423 junk
+   */
+  if (rmdir (lock->lock_directory) < 0)
+    {
+      g_set_error (err,
+                   GCONF_ERROR,
+                   GCONF_ERROR_FAILED,
+                   _("Failed to remove lock directory `%s': %s"),
+                   lock->lock_directory,
+                   g_strerror (errno));
+      goto out;
+    }
+
+  retval = TRUE;
+  
+ out:
+
+  g_free (uniquefile);
+  gconf_lock_destroy (lock);
+  return retval;
+}

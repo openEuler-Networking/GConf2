@@ -34,15 +34,15 @@ bin_PROGRAMS = gconftool-2
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 if HAVE_ORBIT
-CORBA_SOURCECODE = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
+CORBA_BUILT = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 else
-CORBA_SOURCECODE =
+CORBA_BUILT =
 endif
 
 noinst_PROGRAMS = simple-test
 ## not BUILT_SOURCES which seems to make a mess. fix with automake 1.5?
 built_sourcecode = 			\
-	$(CORBA_SOURCECODE)		\
+	$(CORBA_BUILT)			\
 	gconfmarshal.h			\
 	gconfmarshal.c
 
@@ -73,18 +73,21 @@ gconfinclude_HEADERS = 		\
 	$(gconf_headers) 	\
 	gconf-enum-types.h
 
+if HAVE_ORBIT
+CORBA_SOURCE = gconf-database-corba.c gconfd-database-corba.h gconfd-corba.c gconfd-corba.h
+else
+CORBA_SOURCE =
+endif
+
 ## This is broken I know, I'm going to break the server/client up and have a library later
 
 gconfd_2_SOURCES = \
 	gconf-database.h	\
 	gconf-database.c	\
-	gconf-database-corba.h	\
-	gconf-database-corba.c	\
+	$(CORBA_SOURCE)		\
 	gconf-sources.h		\
 	gconfd.h		\
 	gconfd.c		\
-	gconfd-corba.h		\
-	gconfd-corba.c		\
 	gconfd-dbus.h		\
 	gconfd-dbus.c
 
@@ -105,7 +108,7 @@ gconf_sanity_check_2_SOURCES = \
 
 gconf_sanity_check_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_AND_GTK_LIBS) $(POPT_LIBS) libgconf-$(MAJOR_VERSION).la
 
-$(CORBA_SOURCECODE): $(srcdir)/GConfX.idl $(ORBIT_IDL)
+$(CORBA_GENERATED): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
 
 libgconf_2_la_SOURCES = \
@@ -125,8 +128,7 @@ libgconf_2_la_SOURCES = \
 	gconf-value.c		\
 	gconf.c			\
 	gconf-client.c		\
-	gconf-enum-types.c	\
-	$(CORBA_SOURCECODE)
+	gconf-enum-types.c	
 
 libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE)
 

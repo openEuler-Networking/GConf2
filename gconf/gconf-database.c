@@ -21,14 +21,16 @@
 #include "gconf-listeners.h"
 #include "gconf-sources.h"
 #include "gconf-locale.h"
-#include "gconf-database-corba.h"
+
 #include "gconfd-dbus.h"
 #include "gconfd.h"
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
 #include <stdlib.h>
-
+#ifdef HAVE_ORBIT
+#include "gconf-database-corba.h"
+#endif
 /* This makes hash table safer when debugging */
 #ifndef GCONF_ENABLE_DEBUG
 #define safe_g_hash_table_insert g_hash_table_insert
@@ -75,7 +77,9 @@ gconf_database_new (GConfSources  *sources)
 
   db->persistent_name = NULL;
 
+#ifdef HAVE_ORBIT
   gconf_database_corba_init (db);
+#endif
   
   return db;
 }
@@ -83,7 +87,9 @@ gconf_database_new (GConfSources  *sources)
 void
 gconf_database_free (GConfDatabase *db)
 {
+#ifdef HAVE_ORBIT
   gconf_database_corba_deinit (db);
+#endif
   
   if (db->listeners != NULL)
     {
@@ -287,7 +293,7 @@ gconf_database_set   (GConfDatabase      *db,
     {
       gconf_database_schedule_sync(db);
 
-
+#ifdef HAVE_ORBIT
       gconf_database_corba_notify_listeners(db, key, value,
 					    /* Can't possibly be the default,
 					       since we just set it,
@@ -296,6 +302,7 @@ gconf_database_set   (GConfDatabase      *db,
 					    */
 					    FALSE,
 					    TRUE);
+#endif
       gconf_database_dbus_notify_listeners(db, key, value,
 					    /* Can't possibly be the default,
 					       since we just set it,
@@ -363,7 +370,9 @@ gconf_database_unset (GConfDatabase      *db,
           
       gconf_database_schedule_sync(db);
 
+#ifdef HAVE_ORBIT
       gconf_database_corba_notify_listeners(db, key, def_value, TRUE, is_writable);
+#endif
       gconf_database_dbus_notify_listeners(db, key, def_value, TRUE, is_writable);
       
       if (def_value != NULL)
@@ -438,8 +447,10 @@ gconf_database_recursive_unset (GConfDatabase      *db,
       
       gconf_database_schedule_sync (db);
 
+#ifdef HAVE_ORBIT
       gconf_database_corba_notify_listeners (db, notify_key, new_value,
 					     is_default, is_writable);
+#endif
       gconf_database_dbus_notify_listeners (db, notify_key, new_value,
 					     is_default, is_writable);
 

@@ -36,8 +36,10 @@
 #include "gconfd.h"
 #include "gconf-database.h"
 
+#ifdef HAVE_ORBIT
 #include "gconfd-corba.h"
 #include "gconf-database-corba.h"
+#endif
 
 #include "gconfd-dbus.h"
 
@@ -418,9 +420,11 @@ main(int argc, char** argv)
 
   init_databases ();
 
+#ifdef HAVE_ORBIT
   if (!gconfd_corba_init ())
     return 1;
-
+#endif
+  
   if (!gconfd_dbus_init ())
     return 1;
   
@@ -473,8 +477,10 @@ main(int argc, char** argv)
       return 1;
     }  
 
+#ifdef HAVE_ORBIT
   /* Read saved log file, if any */
   gconfd_corba_logfile_read ();
+#endif
   
   gconf_main ();
 
@@ -486,10 +492,12 @@ main(int argc, char** argv)
    */
   enter_shutdown ();
 
+#ifdef HAVE_ORBIT
   /* Save current state in logfile (may compress the logfile a good
    * bit)
    */
   gconfd_corba_logfile_save ();
+#endif
   
   shutdown_databases ();
 
@@ -525,16 +533,30 @@ static GSList* main_loops = NULL;
 static guint timeout_id = 0;
 static gboolean need_log_cleanup = FALSE;
 
+static gint
+get_client_count (void)
+{
+  int client_count = 0;
+
+#ifdef HAVE_ORBIT
+  client_count += gconfd_corba_client_count ();
+#endif
+  client_count += gconfd_dbus_client_count ();
+
+  return client_count;
+}
+
 static gboolean
 periodic_cleanup_timeout(gpointer data)
 {  
   gconf_log (GCL_DEBUG, "Performing periodic cleanup, expiring cache cruft");
-  
+
+#ifdef HAVE_ORBIT
   gconfd_corba_drop_old_clients ();
+#endif
   drop_old_databases ();
 
-  if (no_databases_in_use () && gconfd_corba_client_count () == 0 &&
-      gconfd_dbus_client_count () == 0)
+  if (no_databases_in_use () && get_client_count () == 0)
     {
       gconf_log (GCL_INFO, _("GConf server is not in use, shutting down."));
       gconf_main_quit ();
@@ -549,10 +571,12 @@ periodic_cleanup_timeout(gpointer data)
       gconf_log (GCL_DEBUG, "No log file saving needed in periodic cleanup handler");
       return TRUE;
     }
-  
+
+#ifdef HAVE_ORBIT
   /* Compress the running state file */
   gconfd_corba_logfile_save ();
-
+#endif
+  
   need_log_cleanup = FALSE;
   
   return TRUE;
@@ -737,6 +761,7 @@ drop_old_databases(void)
   
   now = time(NULL);
 
+#ifdef HAVE_ORBIT
   gconf_database_corba_drop_dead_listeners (default_db);
   
   tmp_list = db_list;
@@ -756,7 +781,8 @@ drop_old_databases(void)
       
       tmp_list = g_list_next (tmp_list);
     }
-
+#endif
+  
   tmp_list = dead;
   while (tmp_list)
     {

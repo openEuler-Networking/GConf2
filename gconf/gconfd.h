@@ -25,20 +25,8 @@
 G_BEGIN_DECLS
 
 #include "gconf-error.h"
-#include "GConfX.h"
 #include "gconf-database.h"
 
-/* return TRUE if the exception was set, clear err if needed */
-gboolean gconf_set_exception (GError** err, CORBA_Environment* ev);
-
-gboolean gconfd_logfile_change_listener (GConfDatabase *db,
-                                         gboolean add,
-                                         guint connection_id,
-                                         ConfigListener listener,
-                                         const gchar *where,
-                                         GError **err);
-
-gboolean gconfd_check_in_shutdown (CORBA_Environment *ev);
 
 void gconfd_need_log_cleanup (void);
 
