@@ -1,3 +1,27 @@
+2.6.1
+===
+
+ Fixes:
+
+ - add a --enable-gtk=yes/no/auto configure arg (Julio Merino, Mark)
+ - fix basic example app to not crash (Elijah Newren)
+ - don't try and create a dir if it already exists (Ryan Lovett, Mark)
+ - only ever create the $(HOME)/.gconfd/ dir in the daemon (Colin Walters)
+ - add quotes around AM_GCONF_SOURCE_2 (Frédéric L. W. Meunier)
+ - handle <entry> with only <schema_name> correctly in --load (Mark)
+ - fix the order in which local-defaults.path gets included (Mark)
+ - fix minor inefficiency when not printing debugging messages (Mark)
+
+ Translators:
+
+ - Adam Weinberger (en_CA)
+ - Robert Sedak (hr)
+ - Samúel Jón Gunnarsson (is)
+ - Alessio Frusciante (it)
+ - Takeshi AIHANA (ja)
+ - Amanpreet Singh Alam (pa)
+ - Gurkan Aslan (tr)
+
 2.5.1
 ===
 

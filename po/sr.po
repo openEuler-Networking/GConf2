@@ -8,21 +8,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.2\n"
-"POT-Creation-Date: 2004-02-24 16:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2003-12-30 12:38+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Не може да пронађе %s корену категорију на адреси „%s“"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Не може да направи категорију „%s“: %s"
@@ -75,46 +75,46 @@ msgstr "Гаси део нижег нивоа за рад са XML-ом."
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Не може да пронађе XML корену категорију на адреси „%s“"
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "Не може да чита из или да пише у XML корену категорију на адреси „%s“"
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Овлашћења за директоријум/датотеку извора XML-а у корену %s су: %o/%o"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Грешка при усклађивању и освежавању кеша категорије за XML део: %s"
 
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
 "Уклањање категорија више није подржано, само уклоните све вредности из ње"
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr ""
 "Не може да отвори категорију за закључавање за „%s“ како би уклонио "
 "закључавања: %s\n"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Не може да уклони датотеку „%s“: %s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "Учитава део нижег нивоа за рад са XML-ом"
 
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Не могу да одбацим катанац за XML категорију „%s“: %s"
@@ -351,36 +351,36 @@ msgstr "ГКонф упозорење: грешка при проласку кр
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Очекивао је „%s“, добио је „%s“ за кључ „%s“"
 
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "Примио је неисправну вредност у захтеву за постављање"
 
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Не може да разгонетне примљену CORBA вредност у захтеву за постављање кључа "
 "„%s“"
 
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "Примио је захтев да одбаци све неснимљене податке"
 
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr "Примио је захтев да истовремено допуњује и снима"
 
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Неповратна грешка: није успео да добије референцу објекта за ConfigDatabase"
 
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Није успео да усклади са једним или више извора: %s"
 
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
@@ -391,12 +391,12 @@ msgstr ""
 "ослушкивач при поновном покретању gconfd-а, што ће произвести непоуздано "
 "обавештавање о измени подешавања."
 
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Не постоји ослушкивач са ID-ом %lu"
 
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -405,57 +405,57 @@ msgstr ""
 "Није успео да запише уклањање ослушкивача у дневник (највероватније небитно, "
 "може произвести неочекивану појаву обавештавања): %s"
 
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Грешка при читању вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Грешка при постављању вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Грешка при уклањању вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Грешка при читању уобичајене вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Грешка при уклањању вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Грешка при читању нове вредности за „%s“: %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Грешка при провери да ли постоји „%s“: %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Грешка при уклањању категорије „%s“: %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Није успео да добави све уносе из „%s“: %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Грешка при читању категорије у „%s“: %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Грешка при постављању схеме за „%s“: %s"
@@ -711,27 +711,27 @@ msgstr "Није успео да уклони директоријум за за
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Није успео да уклони датотеку за закључавање „%s“: %s\n"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Не може да образује %s: %s"
+msgid "Failed to stat %s: %s"
+msgstr "Не може да добије податке о „%s“: %s"
 
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Грешка при пинговању сервера: %s"
 
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr "Није успео да образује цев за везу са покренутим gconf процесом: %s\n"
 
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Није успео да покрене сервер за подешавања: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -744,7 +744,7 @@ msgstr ""
 "услед пада система. Погледајте http://www.gnome.org/projects/gconf/ за више "
 "података. (Детаљи — %s)"
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "ништа"
 
@@ -1203,11 +1203,6 @@ msgstr "Примио је сигнал %d, гаси уобичајено"
 msgid "Failed to open %s: %s"
 msgstr "Не може да отвори „%s“: %s"
 
-#: gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Не може да добије податке о „%s“: %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
@@ -1228,6 +1223,11 @@ msgstr "покреће (издање %s), PID %u корисник „%s“"
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Није успео да добије референцу на објекат за ConfigServer"
+
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Не може да образује %s: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -1829,7 +1829,7 @@ msgstr "Када постављате пар, морате навести осн
 msgid "Error: %s\n"
 msgstr "Грешка: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Грешка при постављању вредности: %s\n"
@@ -2023,49 +2023,49 @@ msgstr "УПОЗОРЕЊЕ: није успео да прочита текст �
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "УПОЗОРЕЊЕ: није успео да прочита истинитосну вредност „%s“\n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "УПОЗОРЕЊЕ: није успео да примени схему „%s“ на кључ „%s“: %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "УПОЗОРЕЊЕ: неисправан или непостојећи тип схеме (%s)\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "УПОЗОРЕЊЕ: неисправан или непостојећи тип листе за схему (%s)\n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "УПОЗОРЕЊЕ: Није успео да обради уобичајену вредност „%s“ за схему (%s)\n"
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "УПОЗОРЕЊЕ: неисправан или непостојећи тип првог или другог члана за схему (%"
 "s)\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "УПОЗОРЕЊЕ: Није успео да постави уобичајену вредност за схему\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "УПОЗОРЕЊЕ: унутрашња грешка gconftool-а, непознат GConfValueType\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "УПОЗОРЕЊЕ: није успео да прочита име типа „%s“\n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2073,137 +2073,137 @@ msgstr ""
 "УПОЗОРЕЊЕ: тип листе може бити само цео број, децимални број, текст или "
 "истинитосна вредност, а не „%s“\n"
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "УПОЗОРЕЊЕ: тип првог члана може бити само цео број, децимални број, текст "
 "или истинитосна вредност, а не „%s“\n"
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "УПОЗОРЕЊЕ: тип другог члана може бити само цео број, децимални број, текст "
 "или истинитосна вредност, а не „%s“\n"
 
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "УПОЗОРЕЊЕ: празна <applyto> ознака"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "УПОЗОРЕЊЕ: не разуме ознаку <%s>  испод <schema>\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "УПОЗОРЕЊЕ: <list_type> није наведен за схему типа листе\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "УПОЗОРЕЊЕ: <car_type> није наведен за схему типа пар\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "УПОЗОРЕЊЕ: <cdr_type> није наведен за схему типа пар\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "УПОЗОРЕЊЕ: <locale> ознака не садржи атрибут „name=\"locale\"“, занемарује\n"
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 "УПОЗОРЕЊЕ: <locale> ознака за локалитет „%s“, прво занемарује све претходно\n"
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "УПОЗОРЕЊЕ: Неисправна ознака <%s> у <locale> ознаци\n"
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Прикачио је схему „%s“ уз кључ „%s“\n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Морате имати барем једну ставку <locale> у <schema> ознаци\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "УПОЗОРЕЊЕ: није успео да постави локалитет „%s“ за схему „%s“: %s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Поставио је схему „%s“ за локалитет „%s“\n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "УПОЗОРЕЊЕ: није успео да уклони локалитет „%s“ за схему „%s“: %s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Уклонио је схему „%s“ за локалитет „%s“\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "УПОЗОРЕЊЕ: кључ није наведен за схему\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "УПОЗОРЕЊЕ: не разуме чвор <%s> испод <%s>\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Не може да отвори „%s“: %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Документ „%s“ је празан?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "Документ „%s“ садржи неисправан тип кореног члана (<%s>, треба да буде <%"
 "s>)\n"
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "Документ „%s“ не садржи почетну ознаку <%s>\n"
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "УПОЗОРЕЊЕ: не разуме ознаку <%s> унутар <%s>\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Грешка при усклађивању података о подешавањима: %s"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "Обавезно је навести неке датотеке схема за постављање\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Обавезно је навести неке датотеке схема за уклањање\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2212,16 +2212,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Није успео да уклони вредност кључа за кварење %s: %s\n"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "Обавезно је навести неки кључ за кварење\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2230,11 +2230,11 @@ msgstr ""
 "Покушава да поквари ваш програм постављањем неисправних вредности кључа:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "Обавезно је навести неку категорију за кварење\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

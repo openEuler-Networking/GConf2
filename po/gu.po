@@ -5,9 +5,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf-gnome-2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 02:41+0100\n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2004-02-29 20:47+0530\n"
-"Last-Translator: Nirav, Ankit, Ankur, Atit, Bhavin, Kartik, Khushbu, Sweta. <magnet@magnet-i.com>\n"
+"Last-Translator: Nirav, Ankit, Ankur, Atit, Bhavin, Kartik, Khushbu, Sweta. "
+"<magnet@magnet-i.com>\n"
 "Language-Team: MagNet <magnet@magnet-i.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "%s રુટ ડિરેક્ટરી '%s' સરનામામાં મળી નહિ"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "'%s' ડિરેક્ટરી બનાવી શકાઇ નહિ: %s"
@@ -71,45 +72,44 @@ msgstr "XML બેકેન્ડ મોડ્યુલને લાવવાન
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "'%s' સરનામામાં XML રુટ ડિરેક્ટરી શોધી શકાઇ નથી"
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "\"%s\" સરનામામાં XML રુટ ડિરેક્ટરીમાં લખી કે વાંચી શકાતું નથી"
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "રુટ %s આગળ XML સ્ત્રોત માટેની ડિરેક્ટરી/ફાઇલની પરવાનગી: %o/%o છે"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "XML બેકેન્ડ ડિરેક્ટરીને કૅશનો સુમેળ કરવામાં ભૂલ: %s"
 
-#: backends/xml-backend.c:684
-
+#: backends/xml-backend.c:680
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
 "ડિરેક્ટરી દૂર કરવા માટેની પ્રક્રિયા માટે આધાર નથી, ડિરેક્ટરીમાંથી બધી કિંમતો કાઢી નાખો"
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr "તાળા દૂર કરવા માટે %s માટેની તાળાની ડિરેક્ટરીને ખોલી શકાઇ નહિ: %s\n"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "%s ફાઇલ દૂર કરી શકાઇ નહિ: %s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "XML બેકેન્ડ મોડ્યુલ શરુ કરી રહ્યા છે"
 
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "XML ડિરેક્ટરી \"%s\" પરનું તાળુ દૂર કરવામાં નિષ્ફળ: %s"
@@ -124,8 +124,8 @@ msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr ""
-"XML બેકેન્ડ કૅશમાંથી ડિરેક્ટરી `%s' દૂર કરવામાં અસમર્થ કારણકે તેનો ડિસ્ક સાથે સફળતાપૂર્વક"
-"સુમેળ થયો નથી"
+"XML બેકેન્ડ કૅશમાંથી ડિરેક્ટરી `%s' દૂર કરવામાં અસમર્થ કારણકે તેનો ડિસ્ક સાથે સફળતાપૂર્વકસુમેળ "
+"થયો નથી"
 
 #: backends/xml-dir.c:171
 #, c-format
@@ -347,50 +347,49 @@ msgstr "જીકોન્ફ ચેતવણી: `%s'માં જોડીઓ�
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "ઇચ્છનીય `%s'ને `%s' માટે કી %s મળ્યું"
 
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "સુયોજિત કરવાની વિનંતીમાં અયોગ્ય કિંમત મળી હતી"
 
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "કી `%s' માટે સુયોજિત કરવાની મળેલી વિનંતીમાં મળેલી CORBA કિંમતનો કોઇ અર્થ નીકળતો નથી"
 
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "કૅશ કરેલી બધી માહિતીને દૂર કરવા માટેની વિનંતી મળી હતી"
 
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr "સુમેળ કરવા માટે એકસાથે વિનંતીઓ મળી હતી"
 
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "ઘાતક ભૂલ: રૂપરેખાંકિત ડેટાબેઝ માટે વસ્તુનો ઉલ્લેખ મેળવવામાં નિષ્ફળ"
 
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "એક અથવા વધારે સ્રોતને સુમેળ કરવામાં નિષ્ફળ: %s"
 
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
 "listener on gconfd restart, resulting in unreliable notification of "
 "configuration changes."
 msgstr ""
-"%s સાંભળનારના ઉમેરાની નોંધણી કરવામાં નિષ્ફળ (%s);gconfdને ફરીથી શરુ"
-"કરતી વખતે આ સાંભળનારનો ફરીથી સંગ્રહ કરી શકાશે નહિ જે રૂપરેખાના બદલાવની અવિશ્વસનીય"
-"નોંધણીમાં પરિણમશે."
+"%s સાંભળનારના ઉમેરાની નોંધણી કરવામાં નિષ્ફળ (%s);gconfdને ફરીથી શરુકરતી વખતે આ "
+"સાંભળનારનો ફરીથી સંગ્રહ કરી શકાશે નહિ જે રૂપરેખાના બદલાવની અવિશ્વસનીયનોંધણીમાં પરિણમશે."
 
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "સાંભળનારની ઓળખ %lu અસ્તિત્વમાં નથી"
 
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -399,57 +398,57 @@ msgstr ""
 "સાંભળનારની બાદબાકી વિશે નોંધપત્રમાંં નોંધ કરવામાં નિષ્ફળ (મોટેભાગે બિનનુકસાનકર્તા પણ કદાચ "
 "વિચિત્ર દેખાતી નોંધણીમાં પરિણમે): %s"
 
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "`%s' માટે કિંમત મેળવવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "`%s' માટે કિંમત સુયોજિત કરવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "`%s'ને અસુયોજિત કરવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "`%s' માટે મૂળભૂત કિંમત મેળવવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "\"%s\"ને અસુયોજિત કરવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "\"%s\" માટે નવી કિંમત મેળવવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "`%s' નું અસ્તિત્વ ચકાસવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "ડિરેક્ટરી \"%s\" દૂર કરવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "`%s'માંના દરેક પ્રવેશને મેળવવામાં નિષ્ફળ: %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "`%s'માંની ડિરેક્ટરીઓની યાદી બનાવવામાં ભૂલ: %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "`%s' માટે યોજના ગોઠવવામાં ભૂલ: %s"
@@ -702,27 +701,27 @@ msgstr "તાળા માટેની ડિરેકટરી `%s'ને દ�
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "તાળા માટેની ફાઇલ %sનું જોડાણ તોડવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "%sને બનાવવામાં નિષ્ફળ: %s"
+msgid "Failed to stat %s: %s"
+msgstr "%s કહેવામાં નિષ્ફળ: %s"
 
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "સર્વર પીંગ ભૂલ: %s"
 
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr "ઉત્પન્ન કરાયેલી જીકોન્ફ ડીમન સાથે સંપર્ક કરવા માટે પાઇપ બનાવવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "રૂપરેખા માટેના સર્વરને શરૂ કરવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -734,7 +733,7 @@ msgstr ""
 "ORBit માટે TCP/IP નેટવર્કીંગને સક્રિય કરવુ અથવા સીસ્ટમના ભંગાણને લીધે NFS પર જૂનુ તાળું હશે. "
 "વધારે માહિતી માટે http://www.gnome.org/projects/gconf/ જુઓ. (વિગતો - %s)"
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "કંઇ નહિ"
 
@@ -1130,8 +1129,8 @@ msgstr ""
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s"
-msgstr "સ્ત્રોતના પથમાંં રૂપરેખાનો કોઇ સ્ત્રોત નથી, રૂપરેખાનો સંગ્રહ થઈ શકશે નહિ;"
-"%sમાં ફેરફાર કરો"
+msgstr ""
+"સ્ત્રોતના પથમાંં રૂપરેખાનો કોઇ સ્ત્રોત નથી, રૂપરેખાનો સંગ્રહ થઈ શકશે નહિ;%sમાં ફેરફાર કરો"
 
 #: gconf/gconfd.c:317
 #, c-format
@@ -1176,19 +1175,14 @@ msgstr "%d સંકેત મળ્યો, ચોક્કસપણે બં�
 msgid "Failed to open %s: %s"
 msgstr "%s ખોલવામાં નિષ્ફળ: %s"
 
-#: gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "%s કહેવામાં નિષ્ફળ: %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr "%s નો માલિક વર્તમાન વપરાશકર્તા નથી"
 
 #: gconf/gconfd.c:504
-#, c-format
-msgid "Bad permissions  on directory %s"
+#, fuzzy, c-format
+msgid "Bad permissions %lo on directory %s"
 msgstr "ખરાબ પરવાનગીઓ %s ડિરેકટરી પર"
 
 #. openlog() does not copy logname - what total brokenness.
@@ -1201,6 +1195,11 @@ msgstr "(આવૃત્તિ %s) શરૂ કરી રહ્યા છે, p
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr "રૂપરેખા સર્વર માટે વસ્તુનો સંદર્ભ મેળવવામાં નિષ્ફળ"
+
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "%sને બનાવવામાં નિષ્ફળ: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -1249,7 +1248,8 @@ msgstr ""
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
-"gconfd નોંધણી માટેની ફાઇલ બંધ કરવામાં નિષ્ફળ; માહિતીનો સંગ્રહ બરાબર કરાયો નહિ હોય (%s)"
+"gconfd નોંધણી માટેની ફાઇલ બંધ કરવામાં નિષ્ફળ; માહિતીનો સંગ્રહ બરાબર કરાયો નહિ હોય (%"
+"s)"
 
 #: gconf/gconfd.c:1327
 #, c-format
@@ -1597,7 +1597,6 @@ msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "--દરેક-ડિરેકટરીઓને --મેળવો અથવા --સુયોજિત કરો સાથે વાપરી શકાતું નથી\n"
 
 #: gconf/gconftool.c:576
-
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
@@ -1606,7 +1605,6 @@ msgstr ""
 "દરેક-ડિરેકટરીઓસાથે વાપરવું જોઇએ નહિ\n"
 
 #: gconf/gconftool.c:589
-
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
@@ -1615,12 +1613,10 @@ msgstr ""
 "દરેક-ડિરેકટરીઓસાથે વાપરવું જોઇએ નહિ\n"
 
 #: gconf/gconftool.c:595
-
 msgid "Value type is only relevant when setting a value\n"
 msgstr "કિંમત સુયોજિત કરતી વખતે જ કિંમતનો પ્રકાર એ મુદ્દાની વાત છે\n"
 
 #: gconf/gconftool.c:601
-
 msgid "Must specify a type when setting a value\n"
 msgstr "કિંમત સુયોજિત કરતી વખતે પ્રકાર સ્પષ્ટ કરવા જરૂરી છે\n"
 
@@ -1785,7 +1781,7 @@ msgstr "જોડીને સુયોજિત કરતી વખતે ત�
 msgid "Error: %s\n"
 msgstr "ભૂલ: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "કિંમત સુયોજિત કરવામાં ભૂલ : %s\n"
@@ -1967,46 +1963,46 @@ msgstr "ચેતવણી: શબ્દમાળાની કિંમત `%s'�
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "ચેતવણી: બુલિયન કિંમત `%s'નો પદચ્છેદ કરવામાં નિષ્ફળ \n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "ચેતવણી: યોજના '%s' ને કી '%s' સાથે સાંકળવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "ચેતવણી: યોજના (%s) માટે અયોગ્ય અથવા ખૂટતા પ્રકાર \n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "ચેતવણી: યોજના (%s) માટે અયોગ્ય અથવા ખૂટતા યાદીનો પ્રકાર \n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "ચેતવણી: મૂળભૂત કિંમત `%s' માટે યોજના (%s) નો પદચ્છેદ કરવામાં નિષ્ફળ\n"
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "ચેતવણી: યોજના (%s) માટેના અયોગ્ય અથવા ખૂટતા car અથવા cdr પ્રકાર\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "ચેતવણી: યોજના માટે તમે મૂળભૂત કિંમત સુયોજિત ન કરી શકો\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "ચેતવણી: gconftool ની આંતરિક ભૂલ, અજાણીતો GConfValueType\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "ચેતવણી: પ્રકારના નામ `%s'નો પદચ્છેદ કરવામાં નિષ્ફળ \n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2014,138 +2010,134 @@ msgstr ""
 "ચેતવણી: યાદીનો પ્રકાર ફકત પૂર્ણાંક, અપૂર્ણાંક, શબ્દમાળા અથવા બુલિયન હોઇ શકે પણ `%s' "
 "નહિ\n"
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ચેતવણી: car નો પ્રકાર ફકત પૂર્ણાંક, અપૂર્ણાંક, શબ્દમાળા અથવા બુલિયન હોઇ શકે પણ `%s' "
 "નહિ\n"
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ચેતવણી: cdr નો પ્રકાર ફકત પૂર્ણાંક, અપૂર્ણાંક, શબ્દમાળા અથવા બુલિયન હોઇ શકે પણ `%s' "
 "નહિ\n"
 
-#: gconf/gconftool.c:3140
-
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "ચેતવણી: ખાલી <ને અમલમાં મૂકો> નાેડ"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "ચેતવણી: નાેડ <%s>ને  <યોજના>ની નીચે સમજી શકાયી નહિ\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "ચેતવણી: યાદીના પ્રકારની યોજના માટે કાેઇ <યાદી પ્રકાર> સ્પષ્ટ કરાયો નથી.\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "ચેતવણી: જોડીના પ્રકારની યોજના માટે કાેઇ <car પ્રકાર> સ્પષ્ટ કરાયો નથી.\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "ચેતવણી: જોડીના પ્રકારની યોજના માટે કાેઇ <cdr પ્રકાર> સ્પષ્ટ કરાયો નથી\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
-"ચેતવણી: <locale> નોડ પાસે કાેઇ `name=\"locale\"' લાક્ષણિકતા નથી, અવગણી "
-"રહ્યા છે\n"
+"ચેતવણી: <locale> નોડ પાસે કાેઇ `name=\"locale\"' લાક્ષણિકતા નથી, અવગણી રહ્યા છે\n"
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
-msgstr ""
-"ચેતવણી: લાૅકેલ `%s' માટે ઘણા બધા <locale> નોડ, આગળના બધાને અવગણી રહ્યા છે\n"
+msgstr "ચેતવણી: લાૅકેલ `%s' માટે ઘણા બધા <locale> નોડ, આગળના બધાને અવગણી રહ્યા છે\n"
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "ચેતવણી: <%s> નોડ એ <locale>માં અયોગ્ય છે\n"
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "કી `%s' સાથે યોજના `%s' ના સંકળાઈ હતી\n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "<locale>માં <યોજના>નો ઓછામાં ઓછો એક દાખલાે હોવો જરૂરી છે\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "ચેતવણી: લોકેલ `%s' યોજના `%s'ની સ્થાપના કરવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "લોકેલ `%s' માટે `%s' યોજનાની સ્થાપના કરી \n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "ચેતવણી: લોકેલ `%s' યોજના `%s' ને અસ્થાપિત કરવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "લોકેલ `%s'માંથી યોજના `%s'ને અસ્થાપિત કરી\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "ચેતવણી: યોજના માટે કોઇ કી સ્પષ્ટ કરાઇ નથી\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "ચેતવણી: <%s>ની નીચે નોડ <%s>ને સમજી શકાયો નહિ\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "'%s' ખોલવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "શું દસ્તાવેજ '%s' ખાલી છે?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
-msgstr ""
-"દસ્તાવેજ '%s'નો રૂટ નાેડનો પ્રકાર ખોટો છે (<%s>, એ <%s> હોવું જોઇએ)\n"
+msgstr "દસ્તાવેજ '%s'નો રૂટ નાેડનો પ્રકાર ખોટો છે (<%s>, એ <%s> હોવું જોઇએ)\n"
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "દસ્તાવેજ '%s' માટે કોઇ ઉપલા સ્તરનો <%s> નોડ નથી\n"
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "ચેતવણી: <%s>ની નીચેનો નોડ <%s>ને સમજી શકાયો નહિ\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "રુપરેખાની માહિતીને સુમેળ કરવામાં ભૂલ: %s"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "સ્થાપિત કરવા માટે અમુક યોજના માટેની ફાઇલ સ્પષ્ટ કરવી જરૂરી છે\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 msgid "Must specify some schema files to uninstall\n"
 msgstr "અસ્થાપિત કરવા માટે અમુક યોજના માટેની ફાઇલ સ્પષ્ટ કરવી જરૂરી છે\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2154,16 +2146,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "તોડવા માટેની કી %s ને અસુયોજિત કરવામાં નિષ્ફળ: %s\n"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "તોડવા માટે અમુક કી સ્પષ્ટ કરવી જરૂરી છે\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2172,11 +2164,11 @@ msgstr ""
 "કી માટે ખરાબ કિંમત આપીને તમારો કાર્યક્રમ તોડવાનો પ્રયત્ન કરે છે:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "તોડવા માટે અમુક ડિરેકટરીઓ સ્પષ્ટ કરવી જરૂરી છે\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

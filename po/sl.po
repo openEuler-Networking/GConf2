@@ -5,21 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2004-02-24 16:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2001-02-12 20:02+0100\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Nisem mogel najti korenskega imenika %s na naslovu `%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Nisem mogel ustvariti imenika '%s': %s"
@@ -65,23 +65,23 @@ msgstr "Sproščam ozadni modul XML."
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Nisem mogel najti korenskega imenika XML na naslovu `%s'"
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "Ne morem brati iz ali pisati v korenski imenik XML na naslovu \"%s\""
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Dovoljenja imenika/datoteke za vir XML na korenu %s so: %o/%o"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Napaka ob usklajevanju medpomnilnika imenikov XML: %s"
 
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 #, fuzzy
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
@@ -90,22 +90,22 @@ msgstr ""
 "Operacija odstranjevanja imenika ni več podprta. Preprosto odstranite vse "
 "vrednosti v imeniku"
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr ""
 "Nisem mogel odpreti imenika ključavnic za %s za odstranitev ključavnic:: %s\n"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Ne morem zbrisati datoteke %s: %s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "Inicializiram ozadni XML modul"
 
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, fuzzy, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Nisem uspel sprostiti ključavnice v imeniku XML \"%s\": %s"
@@ -343,35 +343,35 @@ msgstr "Opozorilo GConf: napaka ob izpisovanju praov v `%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Za ključ %s pričakoval `%s' dobil `%s'"
 
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "Prejel sem neveljavno vrednost v zahtevku \"set\""
 
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 "Nisem mogel najti smisla vredosti CORBA prejete v zahtevku \"set\" za ključ `"
 "%s'"
 
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "Prejel zahtevek za opustitev vseh predpomnjenih podatkov"
 
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr "Prejel zahtevek za usklajeno (sinhrono) uskladitev"
 
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "Usodna napaka: nisem uspel dobiti sklica predmeta za ConfigDatabase"
 
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Nisem uspel uskladiti enega ali več virov: %s"
 
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
@@ -382,12 +382,12 @@ msgstr ""
 "gconfd-ja poslušalca ne bom mogel obnoviti, kar bo povzročilo nezanesljivo "
 "obveščanje o spremembah nastavitev."
 
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Poslušalec z ID %lu ne obstaja"
 
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -396,57 +396,57 @@ msgstr ""
 "V dnevnik nisem uspel zapisati odstranitve poslušalca (verjetno ni "
 "škodljivo, lahko pa povzroči ponavljanje obvestil): %s"
 
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Napaka ob branju vrednosti za `%s': %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Napaka ob nastavljanju vrednosti za `%s': %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Napaka ob odnastavljanju `%s': %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Napaka ob branju privzete vrednosti za `%s': %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Napaka ob odnastavljanju \"%s\": %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Napaka ob branju nove vrednosti za \"%s\": %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Napaka ob preverjanju obstoja `%s': %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Napaka ob odstranjevanju imenika `%s': %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Nisem uspel prebrati vseh vnosov v %s': %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Napaka ob izpisu seznama imenikov v %s': %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Napaka ob nastavljanju sheme za %s': %s"
@@ -704,28 +704,28 @@ msgstr "Nisem uspel odstraniti ključavničnega imenika `%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Nisem uspel odstraniti (unlink) ključavnične datoteke %s: %s\n"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Nisem uspel ustvariti %s: %s"
+msgid "Failed to stat %s: %s"
+msgstr "Nisem uspel izvesti ukaza stat nad %s: %s"
 
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Napaka ob pinganju strežnika: %s"
 
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Nisem uspel ustvariti pipe za komunikacijo z odcepljenim daemonom gconf: %s\n"
 
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Nisem uspel pognati strežnika nastavitev: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -738,7 +738,7 @@ msgstr ""
 "NFS zaradi sesutja sistema. Za podatke poglejte http://www.gnome.org/"
 "projects/gconf/ (podrobnosti - %s)"
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "brez"
 
@@ -1188,11 +1188,6 @@ msgstr "Prejel signal %d, ustavljam se po pravilih"
 msgid "Failed to open %s: %s"
 msgstr "Nisem uspel odpreti %s: %s"
 
-#: gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Nisem uspel izvesti ukaza stat nad %s: %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
@@ -1213,6 +1208,11 @@ msgstr "pričenjam (različica %s), pid %u uporabnik '%s'"
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Nisem uspel dobiti sklica predmeta za ConfigServer"
+
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Nisem uspel ustvariti %s: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -1807,7 +1807,7 @@ msgstr "Kadar nastavljate par morate navesti osnovni vrsti za car in cdr\n"
 msgid "Error: %s\n"
 msgstr "Napaka %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Napaka ob nastavljanju vrednosti: %s\n"
@@ -1996,49 +1996,49 @@ msgstr "OPOZORILO: nisem uspel razčleniti vrednost niza `%s'\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "OPOZORILO: nisem uspel razčleniti booleanovo vrednost `%s'\n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "OPOZORILO: nisem uspel povezati sheme `%s' s ključem  `%s': %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "OPOZORILO: neveljavna ali pogrešana vrsta za shemo (%s)\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr ""
 "OPOZORILO: neveljaven ali pogrešan list_type (vrsta seznama) za shemo (%s)\n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "OPOZORILO: Nisem uspel razčleniti privzete vrednosti `%s' za shemo (%s)\n"
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "OPOZORILO: neveljaven ali pogrešan car_type ali cdr_type za shemo (%s)\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "OPOZORILO: Ne morete nastaviti privzete vrednosti za shemo\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "OPOZORILO: notranja napaka gconftool, neznan GConfValueType\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "OPOZORILO: nisem uspel razčleniti imena vrste '%s'\n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2046,135 +2046,135 @@ msgstr ""
 "OPOZORILO: list_type (vrsta seznama) je lahko le int, float, niz ali bool in "
 "ne '%s'\n"
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr "OPOZORILO: car_type je lahko le int, float, niz ali bool in ne '%s'\n"
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr "OPOZORILO: cdr_type je lahko le int, float, niz ali bool in ne '%s'\n"
 
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "OPOZORILO: prazno vozlišče <applyto>"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "OPOZORILO: vozlišče <%s> ni bilo razumljeno pod <schema>\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "OPOZORILO: za shemo vrste seznam ni bil naveden <list_type>\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "OPOZORILO: za shemo vrste par ni bil naveden <car_type>\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "OPOZORILO: za shemo vrste par ni bil naveden <cdr_type>\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "OPOZORILO: vozlišče <locale> nima lastnosti `name=\"locale\"', preziram\n"
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr "OPOZORILO: več vozlišč <locale> za locale `%s, prezrti vsi za prvim\n"
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "OPOZORILO: Neveljavno vozlišče <%s> v vozlišču <locale>\n"
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Pripel shemo `%s' h ključu  `%s'\n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "V <schema> morate imeti vsaj en vnos <locale>\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
 "OPOZORILO: nisem uspel namestiti definicij locale `%2$s' sheme `%1$s': %3$s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Namestil shemo `%s' za definicije locale  `%s'\n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr ""
 "OPOZORILO: nisem uspel odnamestiti definicij locale `%2$s' sheme `%1$s': %3"
 "$s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Odnamestil sem shemo `%s' iz definicije locale `%s'\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "OPOZORILO: ključ za shemo ni naveden\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "OPOZORILO: vozlišče <%s> ni bilo razumljeno pod <%s>\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Nisem uspel odpreti `%s': %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Dokument  `%s' je prazen?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "Dokument `%s' ima napačno vrsto korenskega vozlišča (<%s>, moral bi biti <%"
 "s>)\n"
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "Dokument `%s' nima vrhnjega vozlišča <%s>\n"
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "OPOZORILO: vozlišče <%s> pod <%s> ni bilo razumljeno\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Napaka ob usklajevanju podatkov nastavitev: %s"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "Navedene morajo biti datoteke shem, ki naj se namestijo\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Navedene morajo biti datoteke shem, ki naj se odnamestijo\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2183,16 +2183,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Nisem uspel odnastaviti problematičnega ključa %s: %s\n"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "Navesti morate ključe, ki naj postanejo problematični\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2201,11 +2201,11 @@ msgstr ""
 "Poskušam zlomiti vaš program z nastavljanjem slabih vrednosti za ključ:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "Navesti morate imenike, ki naj postanejo problematični\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

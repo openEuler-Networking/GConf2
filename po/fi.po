@@ -13,7 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 1.1.6\n"
-"POT-Creation-Date: 2004-02-24 16:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2004-02-05 23:33+0200\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@hut.fi>\n"
 "Language-Team: Gnome Finnish Translation Team <gnome-fi-laatu@lists."
@@ -21,14 +22,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "%s-juurihakemisto ei löytynyt osoitteesta \"%s\""
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Hakemiston \"%s\" luonti epäonnistui: %s"
@@ -83,7 +83,7 @@ msgstr "XML-taustamoduuli poistuu muistista."
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "XML-juurihakemistoa ei löytynyt osoitteesta \"%s\""
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
@@ -91,17 +91,17 @@ msgstr ""
 "XML-juurihakemistosta osoitteessa \"%s\" ei voi lukea eikä sinne voi "
 "kirjoittaa"
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "XML-lähteen hakemiston tai tiedoston oikeudet juuressa %s ovat: %o/%o"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Virhe XML-taustamoduulin hakemistovälimuistin synkronoinnissa: %s"
 
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -109,22 +109,22 @@ msgstr ""
 "Hakemiston poistotoiminto ei ole enää tuettu: poista vain kaikki hakemiston "
 "sisältämät arvot"
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr ""
 "\"%s\":n lukitushakemiston avaaminen lukkojen poistamiseksi epäonnistui: %s\n"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Tiedoston \"%s\" poisto epäonnistui: %s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "XML-taustamoduuli käynnistyy"
 
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "XML-hakemiston \"%s\" lukituksen luovutus epäonnistui: %s"
@@ -364,33 +364,33 @@ msgstr "GConf-varoitus: Hakemiston \"%s\" parien luettelointi epäonnistui: %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Odotettu: \"%s\", saatu: \"%s\", avain: %s"
 
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "Virheellisen arvo sisältävä asetuspyyntö saapui"
 
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr "Avaimen \"%s\" asetuspyynnössä ollut CORBA-arvo ei ole järkevä"
 
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "Kaiken välivarastoidun tiedon hylkäämispyyntö saapui"
 
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr "Synkronointipyyntö saapui"
 
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr "Vakava virhe: objektiin ConfigDatabase ei saatu viittausta"
 
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Yhden tai useamman lähteen synkronointi epäonnistui: %s"
 
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
@@ -401,12 +401,12 @@ msgstr ""
 "voi palautua, kun gconfd:n käynnistyy uudestaan, mikä tekee asetusten "
 "muutoksista ilmoittamisen epäluotettavaksi."
 
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Kuuntelija ID %lu ei ole olemassa"
 
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -416,57 +416,57 @@ msgstr ""
 "harmitonta, mutta saattaa aiheuttaa ilmoituksen kummallisen "
 "uudelleenilmaantumisen): %s"
 
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Avaimen \"%s\" arvon haku epäonnistui: %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Avaimen \"%s\" arvon asetus epäonnistui: %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Avaimen \"%s\" poisto epäonnistui: %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Avaimen \"%s\" oletusarvon haku epäonnistui: %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Avaimen \"%s\" poisto epäonnistui: %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Avaimen \"%s\" uuden arvon haku epäonnistui: %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Hakemiston \"%s\" olemassaolon tarkistus epäonnistui: %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Hakemiston \"%s\" poisto epäonnistui: %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Kaikkien hakemiston \"%s\" merkintöjen saaminen epäonnistui: %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Hakemiston \"%s\" hakemistojen luettelointi epäonnistui: %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Avaimen \"%s\" kaavaimen asetus epäonnistui: %s"
@@ -726,29 +726,29 @@ msgstr "Lukitushakemiston \"%s\" poisto epäonnistui: %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Lukitustiedoston \"%s\" poisto epäonnistui: %s\n"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Hakemiston \"%s\" luominen epäonnistui: %s"
+msgid "Failed to stat %s: %s"
+msgstr "Tiedoston \"%s\" tilatietojen lukeminen epäonnistui: %s"
 
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Palvelimen ping-virhe: %s"
 
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Putken luonti käynnistyneen gconfd-demonin kanssa viestimiseksi epäonnistui: "
 "%s\n"
 
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Asetuspalvelimen käynnistys epäonnistui: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -761,7 +761,7 @@ msgstr ""
 "lukituksia on jäänyt järjestelmän kaaduttua. Katso lisää osoitteesta http://"
 "www.gnome.org/projects/gconf/. (Lisätiedot - %s)"
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "ei mikään"
 
@@ -1225,11 +1225,6 @@ msgstr "Signaali %d saapui: ohjelma sammuu siististi"
 msgid "Failed to open %s: %s"
 msgstr "Tiedoston \"%s\" avaaminen epäonnistui: %s"
 
-#: gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Tiedoston \"%s\" tilatietojen lukeminen epäonnistui: %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
@@ -1250,6 +1245,11 @@ msgstr "käynnistyy (versio %s), pid %u, käyttäjä \"%s\""
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Viittauksen saaminen olioon ConfigServer epäonnistui"
+
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Hakemiston \"%s\" luominen epäonnistui: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -1854,7 +1854,7 @@ msgstr "Paria asettaessa car sekä cdr täytyy määritellä perustyyppisiksi.\n
 msgid "Error: %s\n"
 msgstr "Virhe: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Avaimen asettaminen epäonnistui: %s\n"
@@ -2040,91 +2040,91 @@ msgstr "VAROITUS: Merkkijonoarvon \"%s\" jäsennys epäonnistui\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "VAROITUS: Totuusarvon \"%s\" jäsennys epäonnistui\n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "VAROITUS: kaavaimen \"%s\" kytkentä avaimeen \"%s\" epäonnistui: %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "VAROITUS: kaavaimen (%s) tyyppi on virheellinen tai puuttuu\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "VAROITUS: kaavaimen (%s) list_type puuttuu tai on virheellinen\n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "VAROITUS: Kaavaimen (%s) oletusarvon \"%s\" jäsennys epäonnistui\n"
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "VAROITUS: parin (%s) car_type tai cdr_type puuttuu tai on virheellinen\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "VAROITUS: Kaavaimen oletusarvoa ei voi asettaa\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "VAROITUS: gconftool:in sisäinen virhe: tuntematon GConfValueType\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "VAROITUS: tyypin \"%s\" nimen jäsennys epäonnistui\n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr "VAROITUS: list_type voi olla int, float, string tai bool, ei \"%s\"\n"
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr "VAROITUS: car_type voi olla int, float, string tai bool, ei \"%s\"\n"
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr "VAROITUS: cdr_type voi olla int, float, string tai bool, ei \"%s\"\n"
 
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "VAROITUS: tyhjä <applyto>-solmu"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "VAROITUS: solmu <%s> ei ole järkevä <schema>:n jälkeen\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr ""
 "VAROITUS: tyyppiluettelon kaavaimelle ei ole määritelty <list_type>:ä\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "VAROITUS: parityypin kaavaimelle ei ole määritelty <car_type>:ä\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "VAROITUS: parityypin kaavaimelle ei ole määritelty <cdr_type>:ä\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "VAROITUS: <locale>-solmulla ei ole 'name=\"locale\"'-ominaisuutta: se jää "
 "huomiotta\n"
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -2132,93 +2132,93 @@ msgstr ""
 "VAROITUS: useita <locale>-solmuja maa-asetustolle \"%s\": vain ensimmäinen "
 "on merkitsevä\n"
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "VAROITUS: Virheellinen solmu <%s> solmussa <locale>\n"
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Kaavain \"%s\" kytkeytyi avaimeen \"%s\"\n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Jokaisessa <schema>:ssa täytyy olla vähintään yksi <locale>-merkintä\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
 "VAROITUS: kaavaimen \"%s\" (maa-asetusto \"%s\") asennus epäonnistui: %s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Kaavain \"%s\" asentui maa-asetustolla \"%s\"\n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr ""
 "VAROITUS: kaavaimen \"%s\" (maa-asetusto \"%s\") asennuksen purku "
 "epäonnistui: %s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Kaavaimen \"%s\" asennus purettiin maa-asetustosta \"%s\"\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "VAROITUS: kaavaimelle ei ole määritelty avainta\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "VAROITUS: solmu <%s> ei ole järkevä <%s>:n jälkeen\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Tiedoston \"%s\" avaaminen epäonnistui: %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Asiakirja \"%s\" on tyhjä?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "Asiakirjalla \"%s\" on vääräntyyppinen juurisolmu (<%s>, kun pitäisi olla <%"
 "s>)\n"
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "Asiakirjalla \"%s\" ei ole päätason <%s>-solmua\n"
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "VAROITUS: solmu <%s> solmun <%s> jälkeen ei ole järkevä\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Asetustietojen synkronointivirhe: %s"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "Asennettavat kaavaintiedostot täytyy määritellä\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Kaavaintiedostot, joiden asennus puretaan, täytyy määritellä\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2227,16 +2227,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Rikkomisavaimen %s poisto epäonnistui: %s\n"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "Rikottavat avaimet täytyy määritellä\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2245,11 +2245,11 @@ msgstr ""
 "Yritetään rikkoa sovellus asettamalla virheellisiä arvoja avaimelle:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "Rikottavat hakemistot täytyy määritellä\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

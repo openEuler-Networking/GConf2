@@ -5,21 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2004-02-24 16:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2002-11-26 01:44+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@lists.sourceforge.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: backends/dir-utils.c:108
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Tak menjumpai direktori pangkal %s pada  alamat '%s'"
 
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Tak dapat mencipta direktori '%s': '%s'"
@@ -66,45 +66,45 @@ msgstr "Nyahmuat module backend XML"
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Tak menjumpai direktori pangkal %s pada  alamat '%s'"
 
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, fuzzy, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr ""
 "Tak dapat membaca atau menulis ke direktori pangkal XML pada alamat `%s'"
 
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Keizinan direktori/fail bagi sumber XML pada pangkal %s adalah: %o/%o"
 
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, fuzzy, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Ralat membuka direktori %s': %s"
 
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
 
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, fuzzy, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr "Tak dapat mencipta direktori '%s': '%s'"
 
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, fuzzy, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Tak dapat membuang fail %s: %s\n"
 
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "Meninitialisasi modul backend XML"
 
 # libgnorba/orbitgtk.c:171
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, fuzzy, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Gagal menulis fail cecikut CORBA ke `%s': %s\n"
@@ -344,33 +344,33 @@ msgstr "Amaran GConf: gagal menyenarai pasangan pada `%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Dijangka `%s', dapat `%s' bagi kekunci %s"
 
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "Menerima nilai tidak sah pada set permintaan"
 
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
 
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "Menerima permintaan untuk menggugurkan data dicache"
 
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr ""
 
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, fuzzy, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Gagal resolv atau menlanjutkan '%s'"
 
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
@@ -378,69 +378,69 @@ msgid ""
 "configuration changes."
 msgstr ""
 
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "ID pendengar %lu  tidak wujud"
 
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
 "result in a notification weirdly reappearing): %s"
 msgstr ""
 
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Ralat mendapatkan nilai bagi '%s': %s"
 
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Ralat menetapkan nilai bagi '%s': %s"
 
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Ralat mengosongkan '%s': %s"
 
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Ralat mendapatkan nilai default bagi '%s': %s"
 
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Ralat mengosongkan \"%s\": %s"
 
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Ralat mendapatkan nilai baru bagi \"%s\": %s"
 
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Ralat memeriksa kewujudan bagi '%s': %s"
 
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Ralat membuang dir '%s': %s"
 
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Gagal mendapatkan semua kemasukan pada '%s': %s"
 
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Ralat menyenaraikan dir pada '%s': %s"
 
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Ralat menetapkan skema bagti '%s': %s"
@@ -698,27 +698,27 @@ msgstr "Gagal membuang kunci direktori '%s': %s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Gagal membuang fail kunci '%s': %s"
 
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
-#, c-format
-msgid "Failed to create %s: %s"
-msgstr "Gagal mencipta  %s: %s"
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
+#, fuzzy, c-format
+msgid "Failed to stat %s: %s"
+msgstr "Gagal stat '%s': %s"
 
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Ralat ping pelayan: %s"
 
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr "Gagal mencipta paip untuk berkomunikasi dengan deamon gconf: %s\n"
 
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Gagal melancarkan pelayan konfigurasi: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -727,7 +727,7 @@ msgid ""
 "(Details - %s)"
 msgstr ""
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "tiada"
 
@@ -1124,11 +1124,6 @@ msgstr ""
 msgid "Failed to open %s: %s"
 msgstr "Gagal membuka '%s': %s\n"
 
-#: gconf/gconfd.c:487
-#, fuzzy, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Gagal stat '%s': %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
@@ -1149,6 +1144,11 @@ msgstr "memulakan (versi %s), pid %u pengguna '%s'"
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr ""
+
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Gagal mencipta  %s: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -1708,7 +1708,7 @@ msgstr ""
 msgid "Error: %s\n"
 msgstr "Ralat: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Ralat menetapkan nilai: %s\n"
@@ -1904,178 +1904,178 @@ msgstr "AMARAN: gagal untuk menghantar jenis nama '%s'\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "AMARAN: gagal untuk menghantar jenis nama '%s'\n"
 
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "AMARAN: gagal mengkaitkan skema '%s' dengan kekunci '%s': %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "AMARAN: jenis tidak sah atau hilang bagi skema (%s)\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "AMARAN: list_type tidak sah atau hilang bagi skema (%s)\n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "AMARAN: car_type atau  cdr_type tak sah atau hilang bagi skema (%s)\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "AMARAN: Anda tak boleh menetapkan nilai default bagi skema\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "AMARAN: ralat dalaman gconftool, GConfValueType tak dikenali\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "AMARAN: gagal untuk menghantar jenis nama '%s'\n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "AMARAN: nod <applyto> kosong"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "AMARAN: node <%s> tak difahami di bawah <schema>\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "AMARAN: tiaka <list_type> dinyatakan untuk senarai jenis skema\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 #, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "AMARAN: tiaka kekunci dinyatakan untuk skema\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 #, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "AMARAN: tiaka kekunci dinyatakan untuk skema\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr ""
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Skema dilampirkan '%s' ke kekunci '%s' \n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr ""
 "Anda mesti ada sekurang-kurangnya satu kemasukan <locale> pada <schema>\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "AMARAN: gagal memasang skema lokaliti '%s' '%s': %s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Skema dipasang '%s' bagi lokaliti '%s'\n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, fuzzy, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "AMARAN: gagal memasang skema lokaliti '%s' '%s': %s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, fuzzy, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Skema dipasang '%s' bagi lokaliti '%s'\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "AMARAN: tiaka kekunci dinyatakan untuk skema\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "AMARAN: node <%s> tak difahami di bawah <schema>\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Gagal membuka '%s': %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Fail '%s' adalah kosong?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr ""
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, fuzzy, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "AMARAN: node <%s> tak difahami di bawah <schema>\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, fuzzy, c-format
 msgid "Error syncing config data: %s"
 msgstr "Ralat menghantar pangkalan data aksi"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "Mesti nyatakan fail skema untuk dipasang\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 #, fuzzy
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Mesti nyatakan fail skema untuk dipasang\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2084,27 +2084,27 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, fuzzy, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Gagal mencipta fail %s': %s"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "Anda mesti nyatakan sesuatu kunci untuk dipecahkan\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
 "  %s\n"
 msgstr ""
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "Tuan mesti nyatakan direktori untuk dipecahi\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "

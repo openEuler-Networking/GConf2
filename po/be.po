@@ -5,14 +5,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf HEAD\n"
-"POT-Creation-Date: 2004-02-24 16:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-04-19 13:11+0100\n"
 "PO-Revision-Date: 2003-12-11 08:46EET\n"
 "Last-Translator: Ales Nyakhaychyk <nab@mail.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 0.9.5\n"
 
 # backends/dir-utils.c:108
@@ -22,7 +22,7 @@ msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr "Немагчыма адшукаць каранёвую тэчку %s у адрасе \"%s\""
 
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
-#: backends/dir-utils.c:124 backends/xml-backend.c:332
+#: backends/dir-utils.c:124 backends/xml-backend.c:340
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "Немагчыма стварыць тэчку \"%s\": %s"
@@ -74,26 +74,26 @@ msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "Неатрымалася адшукаць каранёвы каталёг XML на адрэсе '%s'"
 
 # backends/xml-backend.c:414
-#: backends/xml-backend.c:443
+#: backends/xml-backend.c:439
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "Немагчыма чытаць ці пісаць у каранёвы каталёг XML на адрэсе \"%s\""
 
 # backends/xml-backend.c:424
-#: backends/xml-backend.c:453
+#: backends/xml-backend.c:449
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "Правы каталёга/файла крыніцы XML з каранём %s: %o/%o"
 
 # backends/xml-backend.c:584
-#: backends/xml-backend.c:619
+#: backends/xml-backend.c:615
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
 msgstr "Памылка сынхранізацыі кэшу каталёга модуля паслужніка XML: %s"
 
 # backends/xml-backend.c:651
-#: backends/xml-backend.c:684
+#: backends/xml-backend.c:680
 msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
@@ -102,24 +102,24 @@ msgstr ""
 "тэчкі"
 
 # backends/dir-utils.c:124 backends/xml-backend.c:304 backends/xml-dir.c:1176
-#: backends/xml-backend.c:770
+#: backends/xml-backend.c:766
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr "Немагчыма патрапіць у тэчку з замкамі %s каб выдаліць замок: %s\n"
 
 # gconf/gconf-internals.c:2569
-#: backends/xml-backend.c:788
+#: backends/xml-backend.c:784
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "Немагчыма выдаліць файл %s: %s\n"
 
 # backends/xml-backend.c:718
-#: backends/xml-backend.c:809
+#: backends/xml-backend.c:805
 msgid "Initializing XML backend module"
 msgstr "Ініцыялізацыя модулю паслужніка XML"
 
 # backends/xml-backend.c:786
-#: backends/xml-backend.c:877
+#: backends/xml-backend.c:873
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "Немагчыма атрымаць замок для XML-тэчкі \"%s\": %s"
@@ -408,12 +408,12 @@ msgid "Expected `%s' got `%s' for key %s"
 msgstr "Чакалася \"%s\", атрымана \"%s\" для ключа %s"
 
 # gconf/gconf-database.c:233
-#: gconf/gconf-database.c:234
+#: gconf/gconf-database.c:211
 msgid "Received invalid value in set request"
 msgstr "Атрымана нядапушчальнае значэньне ў запыце усталёўкі"
 
 # gconf/gconf-database.c:241
-#: gconf/gconf-database.c:242
+#: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
@@ -421,30 +421,30 @@ msgstr ""
 "усталёўкі ключа \"%s\""
 
 # gconf/gconf-database.c:522
-#: gconf/gconf-database.c:524
+#: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
 msgstr "Атрыманы запыт на скіданьне ўсіх кэшаваных даньняў"
 
 # gconf/gconf-database.c:539
-#: gconf/gconf-database.c:541
+#: gconf/gconf-database.c:519
 msgid "Received request to sync synchronously"
 msgstr "Атрыманы запыт на сынхронную сынхранізацыю"
 
 # gconf/gconf-database.c:823
-#: gconf/gconf-database.c:826
+#: gconf/gconf-database.c:804
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Фатальная памылка: Збой пад час атрыманьня спасылкі на аб'ект для "
 "ConfigDatabase"
 
 # gconf/gconf-database.c:985
-#: gconf/gconf-database.c:988
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Збой пад час сынхранізацыі адной ці болей крыніц: %s"
 
 # gconf/gconf-database.c:1076
-#: gconf/gconf-database.c:1080
+#: gconf/gconf-database.c:1058
 #, c-format
 msgid ""
 "Failed to log addition of listener %s (%s);will not be able to restore this "
@@ -456,13 +456,13 @@ msgstr ""
 "зьменах у наладках."
 
 # gconf/gconf-database.c:1103
-#: gconf/gconf-database.c:1114
+#: gconf/gconf-database.c:1092
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "ID слухача %lu ня йснуе"
 
 # gconf/gconf-database.c:1117
-#: gconf/gconf-database.c:1128
+#: gconf/gconf-database.c:1106
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -472,67 +472,67 @@ msgstr ""
 "бязшкодны, у выніку можа аднавіцца нагадваьне): %s"
 
 # gconf/gconf-database.c:1235 gconf/gconf-sources.c:1540
-#: gconf/gconf-database.c:1246 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Памылка атрыманьня значэньня для \"%s\": %s"
 
 # gconf/gconf-database.c:1282
-#: gconf/gconf-database.c:1293
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Памылка ўсталяваньня значэньня для \"%s\": %s"
 
 # gconf/gconf-database.c:1325
-#: gconf/gconf-database.c:1336
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Памылка выдаленьня значэньня \"%s\": %s"
 
 # gconf/gconf-database.c:1354
-#: gconf/gconf-database.c:1365
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Памылка атрыманьня дапомнага значэньня для \"%s\": %s"
 
 # gconf/gconf-database.c:1405
-#: gconf/gconf-database.c:1416
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Памылка выдаленьня значэньня \"%s\": %s"
 
 # gconf/gconf-database.c:1437
-#: gconf/gconf-database.c:1448
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Памылка атрыманьня новага значэньня для \"%s\": %s"
 
 # gconf/gconf-database.c:1485
-#: gconf/gconf-database.c:1496
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Памылка праверкі існаваньня \"%s\": %s"
 
 # gconf/gconf-database.c:1509
-#: gconf/gconf-database.c:1520
+#: gconf/gconf-database.c:1498
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Памылка выдаленьня тэчкі \"%s\": %s"
 
 # gconf/gconf-database.c:1536
-#: gconf/gconf-database.c:1547
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Збой пад час атрыманьня ўсіх запісаў у \"%s\": %s"
 
 # gconf/gconf-database.c:1562
-#: gconf/gconf-database.c:1573
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Памылка пералічэньня каталёгаў у \"%s\": %s"
 
 # gconf/gconf-database.c:1583
-#: gconf/gconf-database.c:1594
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Памылка ўсталяваньня схемы для \"%s\": %s"
@@ -843,32 +843,32 @@ msgstr "Збой пад час выдаленьня блякаваньня ка�
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Немагчыма выдаліць (unlink) файл-замок %s: %s\n"
 
-# gconf/gconf-internals.c:2842 gconf/gconfd.c:583
-#: gconf/gconf-internals.c:2856 gconf/gconfd.c:639
+# backends/xml-dir.c:929
+#: gconf/gconf-internals.c:2863 gconf/gconfd.c:487
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Збой пад час стварэньня %s: %s"
+msgid "Failed to stat %s: %s"
+msgstr "Немагчыма выканаць stat для %s: %s"
 
 # gconf/gconftool.c:851
-#: gconf/gconf-internals.c:2878
+#: gconf/gconf-internals.c:2885
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Памылка праверкі даступнасьці паслужніка: %s"
 
 # gconf/gconf-internals.c:2875
-#: gconf/gconf-internals.c:2899
+#: gconf/gconf-internals.c:2909
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Збой пад час стварэньня канала для сувязі з народжаным дэманам gconfd: %s\n"
 
 # gconf/gconf-internals.c:2899
-#: gconf/gconf-internals.c:2923
+#: gconf/gconf-internals.c:2933
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Збой пад час запуска паслужніка наладак: %s\n"
 
-#: gconf/gconf-internals.c:2948
+#: gconf/gconf-internals.c:2958
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -881,7 +881,7 @@ msgstr ""
 "старыя блякаваньні NFS з-за крушэньня сыстэмы. Для атрыманьня зьвестак "
 "глядзіце http://www.gnome.org/projects/gconf/ . (Падрабязна - %s)"
 
-#: gconf/gconf-internals.c:2949
+#: gconf/gconf-internals.c:2959
 msgid "none"
 msgstr "няма"
 
@@ -1404,12 +1404,6 @@ msgstr "Атрыманы сыгнал %d, нармальнае выключэн�
 msgid "Failed to open %s: %s"
 msgstr "Немагчыма адкрыць %s: %s"
 
-# backends/xml-dir.c:929
-#: gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Немагчыма выканаць stat для %s: %s"
-
 #: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
@@ -1432,6 +1426,12 @@ msgstr "запуск (вэрсыя %s), pid %u карыстальнік \"%s\""
 #: gconf/gconfd.c:626
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Збой пад час атрыманьня спасылкі на аб'ект для ConfigServer"
+
+# gconf/gconf-internals.c:2842 gconf/gconfd.c:583
+#: gconf/gconfd.c:639
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Збой пад час стварэньня %s: %s"
 
 #: gconf/gconfd.c:646
 #, c-format
@@ -2144,7 +2144,7 @@ msgid "Error: %s\n"
 msgstr "Памылка: %s\n"
 
 # gconf/gconftool.c:1242
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2806
+#: gconf/gconftool.c:1778 gconf/gconftool.c:2808
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Памылка ўсталяваньня значэньня: %s\n"
@@ -2373,57 +2373,57 @@ msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "УВАГА! Немагчыма разабраць лягічаскае значэньне \"%s\"\n"
 
 # gconf/gconftool.c:2164
-#: gconf/gconftool.c:2796 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2789 gconf/gconftool.c:3333
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "УВАГА: ня атрымалася асацыяваць схему \"%s\" з ключом \"%s\": %s\n"
 
 # gconf/gconftool.c:1746
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2902
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "УВАГА: недапушчальны ці памылковы тып для схемы (%s)\n"
 
 # gconf/gconftool.c:1755
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2911
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "УВАГА: недапушчальны ці памылковы тып сьпіса для схемы (%s)\n"
 
 # gconf/gconftool.c:1766 gconf/gconftool.c:1796 gconf/gconftool.c:1825
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2922 gconf/gconftool.c:2952 gconf/gconftool.c:2981
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "УВАГА: ня атрымалася разабраць зыходнае значэньне '%s' для схемы (%s)\n"
 
 # gconf/gconftool.c:1784
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2940
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "УВАГА: недапушчальны ці памылковы тып ключа ці значэньня для схемы (%s)\n"
 
 # gconf/gconftool.c:1809
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2965
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "УВАГА: Вы ня можаце ўсталяваць дапомнае значэньне для схемы\n"
 
 # gconf/gconftool.c:1838
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:2994
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "УВАГА: нутраная памылка gconftool, невядомы тып GConfValueType\n"
 
 # gconf/gconftool.c:1885 gconf/gconftool.c:1906 gconf/gconftool.c:1927
 # gconf/gconftool.c:1948
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3042 gconf/gconftool.c:3063 gconf/gconftool.c:3084
+#: gconf/gconftool.c:3105
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "УВАГА: збой пад час разбору назвы тыпа \"%s\"\n"
 
 # gconf/gconftool.c:1902
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3059
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2432,7 +2432,7 @@ msgstr ""
 "значэньнем і ня можа быць \"%s\"\n"
 
 # gconf/gconftool.c:1923
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3080
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
@@ -2440,7 +2440,7 @@ msgstr ""
 "значэньнем і ня можа быць \"%s\"\n"
 
 # gconf/gconftool.c:1944
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3101
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
@@ -2448,38 +2448,38 @@ msgstr ""
 "ці лягічным значэньнем і ня можа быць \"%s\"\n"
 
 # gconf/gconftool.c:1972
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3141
 msgid "WARNING: empty <applyto> node"
 msgstr "УВАГА: пусты вузел <applyto>"
 
 # gconf/gconftool.c:1975 gconf/gconftool.c:2238
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3144 gconf/gconftool.c:3406
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "УВАГА: вузел <%s> незразуметы пад <schema>\n"
 
 # gconf/gconftool.c:1985
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3155
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "УВАГА: непазначаны <list_type> ключ для схемы зь відам сьпіса\n"
 
 # gconf/gconftool.c:1985
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3161
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "УВАГА: непазначаны ключ <car_type> для схемы зь відам пары\n"
 
 # gconf/gconftool.c:1985
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3167
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "УВАГА: непазначаны ключ <cdr_type> для схемы зь відам пары\n"
 
 # gconf/gconftool.c:2018
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3196
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr "УВАГА: вузел <locale> ня мае довада `name=\"locale\"', незаўважаюцца\n"
 
 # gconf/gconftool.c:2024
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3202
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -2488,71 +2488,71 @@ msgstr ""
 "пасьля першага\n"
 
 # gconf/gconftool.c:2105
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3300
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "УВАГА: Недапушчальны вузел <%s> у вузле <locale>\n"
 
 # gconf/gconftool.c:2172
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3341
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Далучана схема \"%s\" да ключа \"%s\"\n"
 
 # gconf/gconftool.c:2251
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3415
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Павінны існаваць хаця б адзін запіс <locale> у <schema>\n"
 
 # gconf/gconftool.c:2134
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3447
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "УВАГА: немагчыма ўсталяваць схему \"%s\" мясцовасьці \"%s\": %s\n"
 
 # gconf/gconftool.c:2142
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Усталявана схема \"%s\" для мясцовасьці \"%s\"\n"
 
 # gconf/gconftool.c:2134
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3479
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "УВАГА: немагчыма выдаліць схему \"%s\" мясцовасьці \"%s\": %s\n"
 
 # gconf/gconftool.c:2142
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3487
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Выдаленая схема \"%s\" для мясцовасьці \"%s\"\n"
 
 # gconf/gconftool.c:1985
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3525
 msgid "WARNING: no key specified for schema\n"
 msgstr "УВАГА: ня указаны ключ для схемы\n"
 
 # gconf/gconftool.c:1975 gconf/gconftool.c:2238
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3566
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "УВАГА! запіс <%s> незразумелы ніжэй <%s>\n"
 
 # gconf/gconftool.c:2305
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3597
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Збой пад час адкрыцьця `%s': %s\n"
 
 # gconf/gconftool.c:2312
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Дакумэнт \"%s\" пусты?\n"
 
 # gconf/gconftool.c:2324
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3616
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
@@ -2560,35 +2560,35 @@ msgstr ""
 "s>)\n"
 
 # gconf/gconftool.c:2337
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3629
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "Дакумэнт \"%s\" ня мае запісу верхняга ўзроўню <%s>\n"
 
 # gconf/gconftool.c:2351
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3643
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "УВАГА! запіс <%s> ніжэй <%s> незразумелы\n"
 
 # gconf/gconftool.c:2362 gconf/gconftool.c:2394
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3654 gconf/gconftool.c:3689 gconf/gconftool.c:3721
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Памылка сынхранізацыі канфігурацыйных даньняў: %s"
 
 # gconf/gconftool.c:2378
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3673
 msgid "Must specify some schema files to install\n"
 msgstr "Неабходна указаць некалькі файлаў схемы для усталёўкі\n"
 
 # gconf/gconftool.c:2378
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3705
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Неабходна указаць некалькі файлаў схемы для выдаленьня\n"
 
 # gconf/gconftool.c:2415
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3742
 #, c-format
 msgid ""
 "\n"
@@ -2598,18 +2598,18 @@ msgstr ""
 "%s\n"
 
 # gconf/gconftool.c:2435
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3762
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Збой пад час усталёўкі ключа перарываньня %s: %s\n"
 
 # gconf/gconftool.c:2561
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3888
 msgid "Must specify some keys to break\n"
 msgstr "Патрабуецца указаць пэўныя ключы для перарываньня\n"
 
 # gconf/gconftool.c:2567
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3894
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2620,12 +2620,12 @@ msgstr ""
 "  %s\n"
 
 # gconf/gconftool.c:2585
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3912
 msgid "Must specify some directories to break\n"
 msgstr "Патрабуецца указаць пэўныя каталёгі для перарываньня\n"
 
 # gconf/gconftool.c:2604
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3931
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
