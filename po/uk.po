@@ -1591,7 +1591,7 @@ msgstr ""
 #: gconf/gconftool.c:2048
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
-msgstr ""
+msgstr "Зб╕й зняття ключа авар╕╖ %s: %s\n"
 
 #: gconf/gconftool.c:2174
 msgid "Must specify some keys to break\n"
