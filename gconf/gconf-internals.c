@@ -36,6 +36,10 @@
 #include <time.h>
 #include <math.h>
 
+#ifdef HAVE_ORBIT
+#include "GConfX.h"
+#include "gconf-corba-utils.h"
+#endif
 
 gboolean gconf_log_debug_messages = FALSE;
 

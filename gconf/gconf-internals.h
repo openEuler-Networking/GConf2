@@ -172,13 +172,6 @@ void     gconf_set_error  (GError** err,
 /* merge two errors into a single message */
 GError*  gconf_compose_errors (GError* err1, GError* err2);
 
-char*     gconf_get_lock_dir (void);
-char*     gconf_get_daemon_dir (void);
-
-gboolean  gconf_release_lock (GConfLock *lock,
-			      GError   **err);
-
-
 gboolean gconf_schema_validate (const GConfSchema  *sc,
                                 GError            **err);
 gboolean gconf_value_validate  (const GConfValue   *value,
@@ -211,6 +204,7 @@ void gconf_value_set_string_nocopy (GConfValue *value,
 void _gconf_init_i18n (void);
 
 gboolean gconf_use_local_locks (void);
+
 
 #endif /* GCONF_ENABLE_INTERNALS */
 

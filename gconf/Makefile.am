@@ -2,6 +2,10 @@ NULL=
 
 GCONFD_BINARY_NAME=gconfd-2
 
+if HAVE_DBUS
+DBUS_API_SUBJECT_TO_CHANGE=-DDBUS_API_SUBJECT_TO_CHANGE=\"1\"
+endif
+
 INCLUDES=								\
 	-I$(top_srcdir)							\
 	-I$(top_builddir)						\
@@ -19,7 +23,7 @@ INCLUDES=								\
 	-DVERSION=\""$(VERSION)"\"					\
 	-DGCONF_ENABLE_INTERNALS=1					\
 	-DGCONFD=\""$(GCONFD_BINARY_NAME)"\"				\
-	-DDBUS_API_SUBJECT_TO_CHANGE=\"1\"				\
+	$(DBUS_API_SUBJECT_TO_CHANGE)					\
 	$(NULL)
 
 EFENCE=
@@ -36,9 +40,9 @@ bin_PROGRAMS = gconftool-2
 libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
 
 if HAVE_ORBIT
-CORBA_GENERATED = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
+CORBA_SOURCECODE = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 else
-CORBA_GENERATED =
+CORBA_SOURCECODE = 
 endif
 
 ## not BUILT_SOURCES which seems to make a mess. fix with automake 1.5?
@@ -47,7 +51,7 @@ built_sourcecode = 			\
 	gconfmarshal.h			\
 	gconfmarshal.c
 
-$(libgconf_dbus_la_OBJECTS) $(libgconf_2_la_OBJECTS) $(gconftool_2_OBJECTS) $(gconfd_2_OBJECTS): $(built_sourcecode)
+$(libgconf_2_la_OBJECTS) $(gconftool_2_OBJECTS) $(gconfd_2_OBJECTS): $(built_sourcecode)
 
 CLEANFILES = \
 	$(built_sourcecode)	\
@@ -77,35 +81,34 @@ gconfinclude_HEADERS = 		\
 
 # Only one client is supported at a time, if D-BUS is enabled we use that.
 if HAVE_DBUS
-GCONF_IPC_SOURCE = gconf-dbus.c gconf-dbus-utils.c gconf-dbus-utils.h
+gconf_ipc_sources = gconf-dbus.c gconf-dbus-utils.c gconf-dbus-utils.h
 else
-GCONF_IPC_SOURCE = gconf-corba-utils.c gconf-corba-utils.h gconf-corba.c \
-	$(CORBA_GENERATED)
+gconf_ipc_sources = gconf-corba-utils.c gconf-corba-utils.h gconf-corba.c 
 endif
 
 if HAVE_ORBIT
-GCONFD_CORBA_SOURCE = gconf-database-corba.c gconf-database-corba.h \
+gconfd_corba_sources = gconf-database-corba.c gconf-database-corba.h \
 	gconfd-corba.c gconfd-corba.h gconf-corba-utils.c gconf-corba-utils.h \
-	$(CORBA_GENERATED)
+	$(CORBA_SOURCECODE)
 else 
-GCONFD_CORBA_SOURCE =
+gconfd_corba_sources =
 endif
 
 if HAVE_DBUS
-GCONFD_DBUS_SOURCE = gconfd-dbus.c gconfd-dbus.h gconf-database-dbus.c \
+gconfd_dbus_sources = gconfd-dbus.c gconfd-dbus.h gconf-database-dbus.c \
 	gconf-database-dbus.h gconf-dbus-utils.c gconf-dbus-utils.h
 else 
-GCONFD_DBUS_SOURCE = 
+gconfd_dbus_sources = 
 endif
 
-GCONFD_IPC_SOURCE = $(GCONFD_CORBA_SOURCE) $(GCONFD_DBUS_SOURCE)
+gconfd_ipc_sources = $(gconfd_corba_sources) $(gconfd_dbus_sources)
 
 ## This is broken I know, I'm going to break the server/client up and have a library later
 
 gconfd_2_SOURCES = \
 	gconf-database.h	\
 	gconf-database.c	\
-	$(GCONFD_IPC_SOURCE)	\
+	$(gconfd_ipc_sources)	\
 	gconf-sources.h		\
 	gconfd.h		\
 	gconfd.c
@@ -127,10 +130,10 @@ gconf_sanity_check_2_SOURCES = \
 
 gconf_sanity_check_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_AND_GTK_LIBS) $(POPT_LIBS) $(GCONF_IPC_LIBS) libgconf-$(MAJOR_VERSION).la
 
-$(CORBA_GENERATED): $(srcdir)/GConfX.idl $(ORBIT_IDL)
+$(CORBA_SOURCECODE): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
 
-GCONF_COMMON_SOURCE = \
+libgconf_2_la_SOURCES = \
 	gconf-internals.c	\
 	gconf-internals.h	\
 	gconf.h			\
@@ -146,23 +149,23 @@ GCONF_COMMON_SOURCE = \
 	gconf-sources.c		\
 	gconf-value.c		\
 	gconf-client.c		\
-	gconf-enum-types.c
-
-libgconf_2_la_SOURCES = \
-	$(GCONF_COMMON_SOURCE)	\
-	$(GCONF_IPC_SOURCE)
+	gconf-enum-types.c	\
+	$(CORBA_SOURCECODE)	\
+	$(gconf_ipc_sources)
 
 libgconf_2_la_LDFLAGS = -version-info $(GCONF_CURRENT):$(GCONF_REVISION):$(GCONF_AGE) -no-undefined
 libgconf_2_la_LIBADD = $(INTLLIBS) $(DEPENDENT_LIBS) $(GCONF_IPC_LIBS)
 
+if HAVE_DBUS
 servicedir       = $(DBUS_SERVICE_DIR)
 service_in_files = gconf.service.in
 service_DATA     = gconf.service
 
 %.service: %.service.in
 	sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@
+endif
 
-EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh gconf-corba.c gconf-corba.h gconf-corba-utils.c gconf-corba-utils.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconf-dbus.c gconf-database-dbus.c gconf-database-dbus.h gconfd-dbus.c gconfd-dbus.h gconf.service.in gconf.service
+EXTRA_DIST=GConfX.idl default.path.in gconfmarshal.list regenerate-enum-header.sh regenerate-enum-footer.sh gconf-corba.c gconf-corba.h gconf-corba-utils.c gconf-corba-utils.h gconf-database-corba.c gconf-database-corba.h gconfd-corba.c gconf-dbus.c gconf-database-dbus.c gconf-database-dbus.h gconfd-dbus.c gconfd-dbus.h gconf.service.in
 
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysconfdir)/gconf/$(MAJOR_VERSION)

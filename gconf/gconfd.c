@@ -323,7 +323,7 @@ log_handler (const gchar   *log_domain,
   gconf_log (pri, "%s", message);
 }
 
-#ifdef HAVE_CORBA
+#ifdef HAVE_ORBIT
 /* From ORBit2 */
 /* There is a DOS attack if another user creates
  * the given directory and keeps us from creating
