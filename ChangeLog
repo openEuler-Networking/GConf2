@@ -1,5 +1,9 @@
 2001-10-29  Havoc Pennington  <hp@redhat.com>
 
+	* configure.in: bump version to 1.0.7
+
+2001-10-29  Havoc Pennington  <hp@redhat.com>
+
         Un-fubar this.
 	
 	* gconf/gconf-internals.c (g_utf8_skip, g_utf8_validate):
