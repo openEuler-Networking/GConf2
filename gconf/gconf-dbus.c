@@ -376,7 +376,8 @@ ensure_dbus_connection (void)
   if (global_conn != NULL)
     return TRUE;
   
-  global_conn = dbus_g_connection_get_connection (dbus_g_bus_get (DBUS_BUS_SESSION, NULL));
+  global_conn = dbus_bus_get (DBUS_BUS_SESSION, NULL);
+  dbus_connection_setup_with_g_main (global_conn, NULL);
   
   if (global_conn == NULL)
     return FALSE;

@@ -707,7 +707,6 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 {
   GConfDatabaseDBus  *dbus_db = NULL;
   GConfDatabase      *db;
-  gchar             **path;
 
   ensure_initialized ();
 
@@ -749,11 +748,8 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 					  DATABASE_OBJECT_PATH, 
 					  object_nr++);
 
-  path = g_strsplit (dbus_db->object_path + 1, "/", -1);
-  dbus_connection_register_object_path (conn, (const gchar**) path, 
+  dbus_connection_register_object_path (conn, dbus_db->object_path,
 					&database_vtable, dbus_db);
-
-  g_strfreev (path);
 
   dbus_db->notifications = g_hash_table_new (g_str_hash, g_str_equal);
  
@@ -771,9 +767,7 @@ database_foreach_unregister (gpointer key,
 {
   gchar **path;
 
-  path = g_strsplit (db->object_path + 1, "/", -1);
-  dbus_connection_unregister_object_path (db->conn, (const gchar **)path);
-  g_strfreev (path);
+  dbus_connection_unregister_object_path (db->conn, db->object_path);
 
   return TRUE;
 }
