@@ -31,6 +31,7 @@
 #include <dirent.h>
 #include <limits.h>
 #include <time.h>
+#include <stdio.h>
 
 typedef struct
 {

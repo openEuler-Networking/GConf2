@@ -763,15 +763,17 @@ drop_old_databases(void)
 
 #ifdef HAVE_ORBIT
   gconf_database_corba_drop_dead_listeners (default_db);
+#endif
   
   tmp_list = db_list;
   while (tmp_list)
     {
       GConfDatabase* db = tmp_list->data;
 
+#ifdef HAVE_ORBIT
       /* Drop any listeners whose clients are gone. */
       gconf_database_corba_drop_dead_listeners (db);
-      
+#endif
       if (db->listeners &&                             /* not already hibernating */
           gconf_listeners_count(db->listeners) == 0 && /* Can hibernate */
           (now - db->last_access) > (60*20))           /* 20 minutes without access */
@@ -781,7 +783,7 @@ drop_old_databases(void)
       
       tmp_list = g_list_next (tmp_list);
     }
-#endif
+
   
   tmp_list = dead;
   while (tmp_list)

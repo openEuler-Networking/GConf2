@@ -986,14 +986,14 @@ remove_listener_predicate (const gchar* location,
   const char *name = user_data;
   
   if (l->parent.type != GCONF_DATABASE_LISTENER_DBUS)
-    return TRUE;
+    return FALSE;
 
   if (strcmp (l->who, name) == 0)
     {
-      return FALSE;
+      return TRUE;
     }
   else
-    return TRUE;
+    return FALSE;
 }
 
 static void
@@ -1292,7 +1292,6 @@ gconf_database_dbus_notify_listeners (GConfDatabase    *db,
   closure.is_writable = is_writable;
 
   gconf_listeners_notify (db->listeners, key, notify_listeners_cb, &closure);
-  
 }
 
 /*
