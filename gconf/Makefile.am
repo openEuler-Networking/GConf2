@@ -109,6 +109,8 @@ libgconf_2_la_SOURCES = \
 	gconf-backend.h		\
 	gconf-backend.c		\
 	gconf-changeset.c	\
+	gconf-dbus.c		\
+	gconf-dbus.h		\
 	gconf-error.c		\
 	gconf-listeners.c	\
 	gconf-locale.h  	\

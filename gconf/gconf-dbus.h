@@ -17,22 +17,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef GCONF_GCONFD_DBUS_H
-#define GCONF_GCONFD_DBUS_H
+#ifndef GCONF_GCONF_DBUS_H
+#define GCONF_GCONF_DBUS_H
 
 #include <dbus/dbus-glib.h>
+#include "gconf.h"
 
-#define GCONFD_CONFIG_SERVER_SHUTDOWN "org.freedesktop.Config.Server.Shutdown"
-
-#define GCONFD_CONFIG_DATABASE_DIR_EXISTS "org.freedesktop.Config.Database.DirExists"
-#define GCONFD_CONFIG_DATABASE_ALL_DIRS "org.freedesktop.Config.Database.AllDirs"
-#define GCONFD_CONFIG_DATABASE_ALL_ENTRIES "org.freedesktop.Config.Database.AllEntries"
-
-#define GCONFD_CONFIG_DATABASE_LOOKUP "org.freedesktop.Config.Database.Lookup"
-
-gboolean gconfd_dbus_init (void);
-gboolean gconfd_dbus_check_in_shutdown (DBusConnection *connection,
-					DBusMessage    *message);
-
+void gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
+					       const GConfValue *value);
 
 #endif

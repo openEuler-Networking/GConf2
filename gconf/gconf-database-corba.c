@@ -32,8 +32,6 @@
  * Forward decls
  */
 
-static GConfLocaleList* locale_cache_lookup(const gchar* locale);
-
 typedef struct _Listener Listener;
 
 struct _Listener {
@@ -105,7 +103,7 @@ impl_ConfigDatabase_lookup_with_locale(PortableServer_Servant servant,
   if (gconfd_corba_check_in_shutdown (ev))
     return gconf_invalid_corba_value ();
   
-  locale_list = locale_cache_lookup(locale);
+  locale_list = gconfd_locale_cache_lookup(locale);
   
   val = gconf_database_query_value(db, key, locale_list->list,
                                    use_schema_default,
@@ -164,7 +162,7 @@ impl_ConfigDatabase_lookup_default_value(PortableServer_Servant servant,
   if (gconfd_corba_check_in_shutdown (ev))
     return gconf_invalid_corba_value ();
   
-  locale_list = locale_cache_lookup(locale);
+  locale_list = gconfd_locale_cache_lookup(locale);
   
   val = gconf_database_query_default_value(db, key,
                                            locale_list->list,
@@ -346,7 +344,7 @@ impl_ConfigDatabase_all_entries(PortableServer_Servant servant,
   if (gconfd_corba_check_in_shutdown (ev))
     return;
   
-  locale_list = locale_cache_lookup(locale);
+  locale_list = gconfd_locale_cache_lookup(locale);
   
   pairs = gconf_database_all_entries(db, dir, locale_list->list, &error);
   
@@ -558,7 +556,7 @@ impl_ConfigDatabase2_lookup_with_schema_name(PortableServer_Servant servant,
   if (gconfd_corba_check_in_shutdown (ev))
     return gconf_invalid_corba_value ();
   
-  locale_list = locale_cache_lookup(locale);
+  locale_list = gconfd_locale_cache_lookup(locale);
 
   s = NULL;
   val = gconf_database_query_value(db, key, locale_list->list,
@@ -624,7 +622,7 @@ impl_ConfigDatabase2_all_entries_with_schema_name(PortableServer_Servant servant
   if (gconfd_corba_check_in_shutdown (ev))
     return;
   
-  locale_list = locale_cache_lookup(locale);
+  locale_list = gconfd_locale_cache_lookup(locale);
   
   pairs = gconf_database_all_entries(db, dir, locale_list->list, &error);
   
@@ -788,28 +786,6 @@ static POA_ConfigDatabase3__epv server3_epv = {
 };
 
 static POA_ConfigDatabase3__vepv poa_server_vepv = { &base_epv, &server_epv, &server2_epv, &server3_epv };
-
-/*
- * Locale hash
- */
-
-static GConfLocaleCache* locale_cache = NULL;
-
-static GConfLocaleList*
-locale_cache_lookup(const gchar* locale)
-{
-  GConfLocaleList* locale_list;
-  
-  if (locale_cache == NULL)
-    locale_cache = gconf_locale_cache_new();
-
-  locale_list = gconf_locale_cache_get_list(locale_cache, locale);
-
-  g_assert(locale_list != NULL);
-  g_assert(locale_list->list != NULL);
-  
-  return locale_list;
-}
 
 
 void
@@ -992,7 +968,7 @@ typedef struct _ListenerNotifyClosure ListenerNotifyClosure;
 
 struct _ListenerNotifyClosure {
   GConfDatabase* db;
-  const ConfigValue* value;
+  ConfigValue* value;
   gboolean is_default;
   gboolean is_writable;
   GSList* dead;

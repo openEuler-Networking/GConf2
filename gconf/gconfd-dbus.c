@@ -19,11 +19,15 @@
 
 #include "gconfd-dbus.h"
 #include "gconf-internals.h"
+#include "gconf-locale.h"
 #include "gconfd.h"
+#include "gconf-dbus.h"
 
 static const char *config_database_messages[] = {
   GCONFD_CONFIG_DATABASE_DIR_EXISTS,
-  GCONFD_CONFIG_DATABASE_ALL_DIRS
+  GCONFD_CONFIG_DATABASE_ALL_DIRS,
+  GCONFD_CONFIG_DATABASE_ALL_ENTRIES,
+  GCONFD_CONFIG_DATABASE_LOOKUP,
 };
 
 static const char *config_server_messages[] =
@@ -149,6 +153,115 @@ gconfd_config_database_dir_exists (DBusConnection *connection,
 }
 
 static void
+gconfd_config_database_all_entries (DBusConnection *connection,
+				    DBusMessage    *message)
+{
+  char *dir;
+  int id;
+  GConfDatabase *db;
+  GConfLocaleList* locale_list;  
+  DBusMessage *reply;
+  GSList *pairs, *tmp;
+  int i, len;
+  GError* error = NULL;
+  char *locale;
+  char **keys;
+  char **schema_names;
+  unsigned char *is_defaults;
+  unsigned char *is_writables;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+  
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &dir,
+				    DBUS_TYPE_STRING, &locale,				    
+				    0))
+    return;
+  
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (dir);
+      return;
+    }
+
+  locale_list = gconfd_locale_cache_lookup (locale);
+  pairs = gconf_database_all_entries(db, dir, locale_list->list, &error);
+
+  dbus_free (dir);
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;
+
+  len = g_slist_length(pairs);
+
+  keys = g_new (char *, len + 1);
+  keys[len] = NULL;
+
+  schema_names = g_new (char *, len + 1);
+  schema_names[len] = NULL;
+
+  is_defaults = g_new (unsigned char, len);
+  is_writables = g_new (unsigned char, len);  
+    
+  tmp = pairs;
+  i = 0;
+  while (tmp != NULL)
+    {
+      GConfEntry *p = tmp->data;
+
+      g_assert(p != NULL);
+      g_assert(p->key != NULL);
+
+      schema_names[i] = g_strdup (gconf_entry_get_schema_name (p));
+      if (!schema_names[i])
+	schema_names[i] = g_strdup ("");
+      
+      keys[i] = g_strdup (p->key);
+      is_defaults[i] = gconf_entry_get_is_default (p);
+      is_writables[i] = gconf_entry_get_is_writable (p);
+      ++i;
+
+      tmp = tmp->next;
+    }
+  
+  reply = dbus_message_new_reply (message);
+  dbus_message_append_string_array (reply, (const char **)keys, len);
+  dbus_message_append_string_array (reply, (const char **)schema_names, len);
+
+  dbus_message_append_boolean_array (reply, is_defaults, len);
+  dbus_message_append_boolean_array (reply, is_writables, len);
+  
+  g_strfreev (keys);
+  g_strfreev (schema_names);
+  g_free (is_defaults);
+  g_free (is_writables);
+
+  /* Now append the message values */
+  tmp = pairs;
+  i = 0;
+  while (tmp != NULL)
+    {
+      GConfEntry *p = tmp->data;
+
+      gconf_dbus_fill_message_from_gconf_value (reply, gconf_entry_get_value (p));
+      
+      g_assert(p != NULL);
+      g_assert(p->key != NULL);
+
+      gconf_entry_free (p);
+      
+      tmp = tmp->next;
+    }
+  g_slist_free(pairs);
+  
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
+  
+  printf ("all entries, wee\n");
+}
+
+static void
 gconfd_config_database_all_dirs (DBusConnection *connection,
 				 DBusMessage    *message)
 {
@@ -176,10 +289,8 @@ gconfd_config_database_all_dirs (DBusConnection *connection,
       return;
     }
 
-  printf ("woohoo, all dirs!!!\n");
-  
   subdirs = gconf_database_all_dirs (db, dir, &error);
-  printf ("subdirs is: %p\n", subdirs);
+  dbus_free (dir);
   if (gconf_dbus_set_exception (connection, message, error))
     return;  
 
@@ -194,7 +305,6 @@ gconfd_config_database_all_dirs (DBusConnection *connection,
     {
       gchar *subdir = tmp->data;
 
-      printf ("adding: %s\n", subdir);
       dirs[i] = subdir;
 
       ++i;
@@ -205,11 +315,73 @@ gconfd_config_database_all_dirs (DBusConnection *connection,
   g_slist_free (subdirs);
   
   reply = dbus_message_new_reply (message);
-  dbus_message_append_string_array (reply, dirs, len);
+  dbus_message_append_string_array (reply, (const char **)dirs, len);
   dbus_connection_send_message (connection, reply, NULL, NULL);
   dbus_message_unref (reply);
   
   g_strfreev (dirs);
+}
+
+static void
+gconfd_config_database_lookup (DBusConnection *connection,
+			       DBusMessage    *message)
+{
+  char *key;
+  char *locale;
+  gboolean use_schema_default;
+  int id;
+  GConfDatabase *db;
+  GConfLocaleList* locale_list;
+  GConfValue *val;
+  char *s;
+  gboolean is_default = FALSE;
+  gboolean is_writable = TRUE;
+  GError* error = NULL;
+  DBusMessage *reply;
+  
+  if (gconfd_dbus_check_in_shutdown (connection, message))
+    return;
+
+  if (!gconf_dbus_get_message_args (connection, message,
+				    DBUS_TYPE_UINT32, &id,
+				    DBUS_TYPE_STRING, &key,
+				    DBUS_TYPE_STRING, &locale,
+				    DBUS_TYPE_BOOLEAN, &use_schema_default,
+				    0))
+    return;
+
+  if (!(db = gconf_database_from_id (connection, message, id)))
+    {
+      dbus_free (key);
+      dbus_free (locale);
+      return;
+    }
+
+  locale_list = gconfd_locale_cache_lookup (locale);
+
+  s = NULL;  
+  val = gconf_database_query_value (db, key, locale_list->list,
+				    use_schema_default,
+				    &s,
+				    &is_default,
+				    &is_writable,
+				    &error);
+
+  gconf_log (GCL_DEBUG, "In lookup_with_schema_name returning schema name '%s' error '%s'",
+             s, error ? error->message : "none");
+  
+  if (gconf_dbus_set_exception (connection, message, error))
+    return;  
+
+  reply = dbus_message_new_reply (message);
+  gconf_dbus_fill_message_from_gconf_value (reply, val);
+
+  dbus_message_append_string (reply, s ? s : "");
+  dbus_message_append_boolean (reply, is_default);
+  dbus_message_append_boolean (reply, is_writable);
+  
+  dbus_connection_send_message (connection, reply, NULL, NULL);
+  dbus_message_unref (reply);
 }
 
 static DBusHandlerResult
@@ -226,6 +398,16 @@ gconfd_config_database_handler (DBusMessageHandler *handler,
   else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_ALL_DIRS))
     {
       gconfd_config_database_all_dirs (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_ALL_ENTRIES))
+    {
+      gconfd_config_database_all_entries (connection, message);
+      return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
+    }
+  else if (dbus_message_name_is (message, GCONFD_CONFIG_DATABASE_LOOKUP))
+    {
+      gconfd_config_database_lookup (connection, message);
       return DBUS_HANDLER_RESULT_REMOVE_MESSAGE;
     }
   
@@ -307,3 +489,4 @@ gconfd_dbus_check_in_shutdown (DBusConnection *connection,
   else
     return FALSE;
 }
+

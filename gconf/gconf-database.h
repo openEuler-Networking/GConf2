@@ -30,7 +30,8 @@ extern "C" {
 #include "gconf-listeners.h"
 #include "gconf-sources.h"
 #include "gconf-internals.h"
-
+#include "gconf-locale.h"
+  
 typedef struct _GConfDatabase GConfDatabase;
 
 struct _GConfDatabase
@@ -110,14 +111,18 @@ void     gconf_database_clear_cache      (GConfDatabase  *db,
                                           GError    **err);
 
 
-void gconfd_locale_cache_expire (void);
-void gconfd_locale_cache_drop  (void);
+void             gconfd_locale_cache_expire (void);
+void             gconfd_locale_cache_drop   (void);
+GConfLocaleList *gconfd_locale_cache_lookup  (const gchar *locale);
 
+  
 const gchar* gconf_database_get_persistent_name (GConfDatabase *db);
 
 void gconf_database_log_listeners_to_string (GConfDatabase *db,
                                              gboolean is_default,
                                              GString *str);
+
+
 
 #ifdef __cplusplus
 }

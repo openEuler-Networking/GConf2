@@ -54,10 +54,6 @@ safe_g_hash_table_insert(GHashTable* ht, gpointer key, gpointer value)
  * Forward decls
  */
 
-static GConfLocaleList* locale_cache_lookup(const gchar* locale);
-
-
-
 static void gconf_database_really_sync(GConfDatabase* db);
 
 GConfDatabase*
@@ -630,14 +626,15 @@ gconf_database_get_persistent_name (GConfDatabase *db)
   return db->persistent_name;
 }
 
+
 /*
  * Locale hash
  */
 
 static GConfLocaleCache* locale_cache = NULL;
 
-static GConfLocaleList*
-locale_cache_lookup(const gchar* locale)
+GConfLocaleList *
+gconfd_locale_cache_lookup(const gchar* locale)
 {
   GConfLocaleList* locale_list;
   
@@ -651,6 +648,7 @@ locale_cache_lookup(const gchar* locale)
   
   return locale_list;
 }
+
 
 void
 gconfd_locale_cache_expire(void)
@@ -668,4 +666,3 @@ gconfd_locale_cache_drop(void)
       locale_cache = NULL;
     }
 }
-
