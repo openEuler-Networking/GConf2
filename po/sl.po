@@ -1,6 +1,5 @@
-# Slovenian translation file for gconf.
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# Andraz Tori <andraz.tori1@guest.arnes.si> 2000
+# Slovenian translation file for gconf. Copyright (C) 2000 Free Software
+# Foundation, Inc. Andraz Tori <andraz.tori1@guest.arnes.si> 2000
 #
 msgid ""
 msgstr ""
@@ -961,7 +960,7 @@ msgstr "Drug gconfd je ¾e registrian pri OAF-u, zato obstojeèega stre¾nika ne mo
 
 #: gconf/gconfd.c:612
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr "Neznana napaka ob registriranju obstojeèega gconfd-ja pri OAF-u; konèujem\n"
+msgstr "Neznana napaka ob registriranju obstojeèega gconfd-ja pri OAF-u; konèujem"
 
 #: gconf/gconfd.c:639
 msgid ""
