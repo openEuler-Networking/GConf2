@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 2.5.90\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-19 13:11+0100\n"
-"PO-Revision-Date: 2004-02-24 16:00+0100\n"
+"POT-Creation-Date: 2004-05-14 16:38+0200\n"
+"PO-Revision-Date: 2004-05-14 16:38+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -432,7 +432,7 @@ msgstr ""
 "werden(dies ist wahrscheinlich harmlos, könnte jedoch zu einer erneut "
 "erscheinenden Benachrichtung führen): %s"
 
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1541
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Fehler beim Abrufen des Wertes für »%s«: %s"
@@ -926,26 +926,26 @@ msgid ""
 "elements"
 msgstr "Schema gibt den Typ Paar, jedoch nicht den Typ der car/cdr-Elemente an"
 
-#: gconf/gconf-sources.c:319
+#: gconf/gconf-sources.c:328
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "Fehler beim Laden der Quelle »%s«: %s"
 
-#: gconf/gconf-sources.c:346
+#: gconf/gconf-sources.c:368
 #, c-format
 msgid "Resolved address \"%s\" to a writable config source at position %d"
 msgstr ""
 "Die Adresse »%s« wurde an der Position %d zu einer schreibbaren "
 "Konfigurationsquelle aufgelöst"
 
-#: gconf/gconf-sources.c:352
+#: gconf/gconf-sources.c:374
 #, c-format
 msgid "Resolved address \"%s\" to a read-only config source at position %d"
 msgstr ""
 "Die Adresse »%s« wurde an der Position %d zu einer nur lesbaren "
 "Konfigurationsquelle aufgelöst"
 
-#: gconf/gconf-sources.c:359
+#: gconf/gconf-sources.c:381
 #, c-format
 msgid ""
 "Resolved address \"%s\" to a partially writable config source at position %d"
@@ -953,7 +953,7 @@ msgstr ""
 "Die Adresse »%s« wurde an der Position %d zu einer teilweise schreibbaren "
 "Konfigurationsquelle aufgelöst"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:390
 msgid ""
 "None of the resolved addresses are writable; saving configuration settings "
 "will not be possible"
@@ -961,16 +961,16 @@ msgstr ""
 "Keine der aufgelösten Adressen sind schreibbar; die "
 "Konfigurationseinstellungen können nicht gespeichert werden"
 
-#: gconf/gconf-sources.c:584
+#: gconf/gconf-sources.c:606
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "Das Schema »%s«, angegeben für »%s«, speichert einen nicht-Schema-Wert"
 
-#: gconf/gconf-sources.c:642
+#: gconf/gconf-sources.c:664
 msgid "The '/' name can only be a directory, not a key"
 msgstr "Der Name »/« kann nur ein Verzeichnis sein, kein Schlüssel"
 
-#: gconf/gconf-sources.c:680
+#: gconf/gconf-sources.c:702
 #, c-format
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
@@ -979,7 +979,7 @@ msgstr ""
 "Der Wert für »%s« wird in einer nur lesbaren Quelle am Anfang Ihres "
 "Konfigurationspfades zugewiesen."
 
-#: gconf/gconf-sources.c:692
+#: gconf/gconf-sources.c:714
 #, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
@@ -1020,17 +1020,17 @@ msgstr ""
 "gconfd besitzen, aber auch Sperrdateien an individuellen Speicherorten, wie "
 "z.B. ~/.gconf."
 
-#: gconf/gconf-sources.c:1414
+#: gconf/gconf-sources.c:1436
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "Fehler beim Suchen der Meta-Informationen: %s"
 
-#: gconf/gconf-sources.c:1483
+#: gconf/gconf-sources.c:1505
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "Fehler beim Ermitteln der Meta-Informationen: %s"
 
-#: gconf/gconf-sources.c:1507
+#: gconf/gconf-sources.c:1529
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
@@ -2171,7 +2171,7 @@ msgstr ""
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "WARNUNG: Der Vorgabewert »%s« für das Schema (%s) konnte nicht "
-"verarbeitetwerden\n"
+"verarbeitet werden\n"
 
 #: gconf/gconftool.c:2940
 #, c-format
