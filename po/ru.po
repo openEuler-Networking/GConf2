@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2004-01-21 16:38+0300\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -359,62 +359,62 @@ msgstr ""
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Ожидалось \"%s\", но получено \"%s\" для ключа \"%s\""
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Произошёл сбой при синхронизации одного или более источников: %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Произошла ошибка получения значения для \"%s\": %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Произошла ошибка получения значения для \"%s\": %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Произошла ошибка удаления значения \"%s\": %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Произошла ошибка получения значения по умолчанию для \"%s\": %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Произошла ошибка удаления значения \"%s\": %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Произошла ошибка получения нового значения для \"%s\": %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Произошла ошибка проверки существования \"%s\": %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Произошла ошибка удаления каталога \"%s\": %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Произошёл сбой при получении всех записей в \"%s\": %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Произошла ошибка перечисления каталогов в \"%s\": %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Произошла ошибка установки схемы для \"%s\": %s"

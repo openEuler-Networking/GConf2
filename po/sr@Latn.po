@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2003-12-30 12:38+0100\n"
 "Last-Translator: Danilo Šegan <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -351,62 +351,62 @@ msgstr "GKonf upozorenje: greška pri prolasku kroz parove u „%s“: %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Očekivao je „%s“, dobio je „%s“ za ključ „%s“"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Nije uspeo da uskladi sa jednim ili više izvora: %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Greška pri čitanju vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Greška pri postavljanju vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Greška pri uklanjanju vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Greška pri čitanju uobičajene vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Greška pri uklanjanju vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Greška pri čitanju nove vrednosti za „%s“: %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Greška pri proveri da li postoji „%s“: %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Greška pri uklanjanju kategorije „%s“: %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Nije uspeo da dobavi sve unose iz „%s“: %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Greška pri čitanju kategorije u „%s“: %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Greška pri postavljanju sheme za „%s“: %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2003-01-14 18:48+0200\n"
 "Last-Translator: Alexander Shopov <al_shopov@yahoo.com>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
@@ -344,62 +344,62 @@ msgstr "GConf предупреждение: неуспех при изброяв
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Очаквах \"%s\", а получих \"%s\" за ключа %s"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Не успях да синхронизирам един или повече източници: %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Грешка при получаване на стойност за \"%s\": %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Грешка при задаване на стойност за \"%s\": %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Грешка при премахване на стойността на \"%s\": %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Грешка при получаване на подразбираща се стойност на \"%s\": %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Грешка при премахване на стойността на \"%s\": %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Грешка при получаване на нова стойност на \"%s\": %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Грешка при проверка дали \"%s\" съществува: %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Грешка при изтриване на директория \"%s\": %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Не успях да получа всички записи в \"%s\": %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Грешка при показването на директории в \"%s\": %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Грешка при установяване на схема за \"%s\": %s"

@@ -423,7 +423,7 @@ main(int argc, char** argv)
   
   umask (022);
   
-  //gconf_set_daemon_mode(TRUE);
+  gconf_set_daemon_mode(TRUE);
 
   /* Logs */
   username = g_get_user_name();

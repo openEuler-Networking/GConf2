@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD.mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2003-06-15 21:59+0000\n"
 "Last-Translator: Vladislav Bidikov <bidikovi@mail.com.mk>\n"
 "Language-Team: Macedonian <lug@lists.linux.net.mk>\n"
@@ -356,62 +356,62 @@ msgstr "GConf предупредување: неуспешно листање п
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Очекувано `%s' добиено `%s' за клуч %s"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Не успеав да синхронизирам еден или повеќе сорсови: %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Грешка во земањето вредност за `%s': %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Грешка местењето вредност за `%s': %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Грешка при одсетирање `%s': %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Грешка земајќи преддефинирана вредност за `%s': %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Грешка одсетирајќи \"%s\": %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Грешка земајќи нова вредност за \"%s\": %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Грешка проверувајќи пшостоење на `%s': %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Грешка одстранувајќи директориум `%s': %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Не успеав да ги земам сите влезови во `%s': %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Грешка листајќи ги директориумите во `%s': %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Грешка местејќи ја схемата за `%s': %s"

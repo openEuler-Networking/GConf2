@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2002-06-11 15:49+1000\n"
 "Last-Translator: Ben Wu <hpwu@redhat.com>\n"
 "Language-Team: traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -337,62 +337,62 @@ msgstr "GConf 警告： 列出在 `%s' 中的 pair 失敗： %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "預期的 `%s' 有 `%s' 給金鑰 %s"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "同步化一個或更多的原始資料失敗： %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "取得 `%s' 的數值發生錯誤： %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "設定 `%s' 的數值發生錯誤： %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "解除設定 `%s' 發生錯誤： %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "取得 `%s' 的預設值發生錯誤： %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "解除設定 \"%s\" 發生錯誤： %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "取得 \"%s\" 的新數值發生錯誤： %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "檢查 `%s' 的存在發生錯誤： %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "移除 `%s' 目錄發生錯誤： %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "取得在 `%s' 中的所有紀錄失敗： %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "列出在 `%s' 中的目錄發生錯誤： %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "為 `%s' 設定概要時發生錯誤： %s"

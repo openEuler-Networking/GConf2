@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.gnome-2-2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2003-6-12 12:30+0600\n"
 "Last-Translator: Muhammad Mahmudur Rahman Khan  <mrk_ju@yahoo.com>\n"
 "Language-Team: Bengali <gnome-translation@bengalinux.org>\n"
@@ -342,62 +342,62 @@ msgstr "GConf সতর্কীকরণ: '%s'এ জোড়গুলোকে  
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "'%s' প্রত্যাশিত ছিল, কিন্তু %s কী'র জন্য পেয়েছে '%s'"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "এক বা একাধিক উত্‍সকে সিঙ্ক করতে পারেনি:%s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "'%s'এর জন্য মান পাওয়াতে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "'%s'এর মান নির্ধারণে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "'%s'এর মান সরানোতে ত্রুটি:%s "
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "'%s'এর ডিফল্ট মান পাওয়াতে ত্রুটি :%s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "\"%s\" মান সরানোতে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "\"%s\"এর জন্য নতুন মান পাওয়াতে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "'%s' আছে কিনা সেই ত্রুটি পরীক্ষা:%s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "\"%s\" ডিরেকটরি  অপসারণে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "'%s'এর সকল এন্ট্রি পায়নি:%s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "'%s'এর ডিরেকটরিগুলোকে তালিকাবদ্ধ করানোতে ত্রুটি:%s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "'%s' এর জন্য স্কীমার মানসমূহ নির্ধারণে ত্রুটি:%s"

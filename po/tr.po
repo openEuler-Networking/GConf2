@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-16 21:18+0200\n"
+"POT-Creation-Date: 2004-08-24 15:38+0200\n"
 "PO-Revision-Date: 2004-03-22 15:16+0200\n"
 "Last-Translator: Gurkan Aslan <gurkan@iaslan.com>\n"
 "Language-Team: Türkçe <tr@li.org>\n"
@@ -356,62 +356,62 @@ msgstr "GConf uyarısı: `%s' içindeki çiftlerin listelenmesi başarısız old
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "`%3$s' anahtarı için `%1$s' bekleniyordu `%2$s' alındı"
 
-#: gconf/gconf-database.c:152
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Bir ya da daha fazla kaynağı eşzamanlanamadı: %s"
 
-#: gconf/gconf-database.c:220 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "`%s' için değer alınırken hata: %s"
 
-#: gconf/gconf-database.c:266
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "`%s' için değer belirtilirken hata: %s"
 
-#: gconf/gconf-database.c:321
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "`%s': Kaldırılırken hata %s"
 
-#: gconf/gconf-database.c:350
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "`%s' için öntanımlı değer alınırken hata: %s"
 
-#: gconf/gconf-database.c:397
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "\"%s\" Kaldırılırken hata: %s"
 
-#: gconf/gconf-database.c:429
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "\"%s\" için yeni değer alınırken hata: %s"
 
-#: gconf/gconf-database.c:475
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "`%s' var olup olmadığına bakılırken hata: %s"
 
-#: gconf/gconf-database.c:499
+#: gconf/gconf-database.c:500
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "`%s' dizini silinirken hata: %s"
 
-#: gconf/gconf-database.c:526
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "`%s' içindeki tüm girdiler alınamadı: %s"
 
-#: gconf/gconf-database.c:552
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "`%s' içindeki dizinler listelenirken hata: %s"
 
-#: gconf/gconf-database.c:573
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "`%s' için şema belirtilirken hata: %s"
