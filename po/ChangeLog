@@ -1,9 +1,13 @@
+2001-01-29  Gustavo Maciel Dias Vieira  <gdvieira@zaz.com.br>
+
+	* pt_BR.po: Updated Brazilian Portuguese translation.
+
 2001-01-28  Takayuki KUSANO  <AE5T-KSN@asahi-net.or.jp>
 
 	* ja.po: Updated Japanese translation from
 	Takeshi Aihana <aihana@gnome.gr.jp>.
 
-2001-01-24  Martin Norbäck  <d95mback@dtek.chalmers.se>
+2001-01-24  Martin NorbC$ck  <d95mback@dtek.chalmers.se>
 
 	* sv.po: Updated Swedish translation.
 
@@ -287,7 +291,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norb$Bdc(Bk  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin Norb$(Bdc(Bk  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
