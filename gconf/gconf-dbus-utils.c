@@ -708,13 +708,20 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
       gchar *name;
 
       name = dbus_message_iter_get_dict_key (&dict);
+      
       if (!name)
 	return FALSE;
 	
-      if (strcmp (name, "key") == 0) 
-	*key = dbus_message_iter_get_string (&dict);
-      else if (strcmp (name, "value") == 0) 
-	*value = gconf_dbus_create_gconf_value_from_message_iter (&dict);
+      if (strcmp (name, "key") == 0)
+	{
+	  if (key)
+	    *key = dbus_message_iter_get_string (&dict);
+	}
+      else if (strcmp (name, "value") == 0)
+	{
+	  if (value)
+	    *value = gconf_dbus_create_gconf_value_from_message_iter (&dict);
+	}
       else if (strcmp (name, "is_default") == 0) 
 	{
 	  if (is_default)
@@ -732,6 +739,9 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
 	}
       else
 	g_assert_not_reached ();
+      
+      if (!dbus_message_iter_next (&dict))
+	break;
     }
 
   return TRUE;

@@ -174,6 +174,7 @@ gconf_server_broken (DBusMessage *message)
   if (!message)
     {
       /* FIXME: should listen to the signal instead, daemon_running = FALSE; */
+      d(g_print ("server broken!\n"));
       return TRUE;
     }
   
@@ -193,7 +194,7 @@ gconf_server_broken (DBusMessage *message)
     return FALSE;
 }
 
-/* Returns TRUE if there was an error and sets err. */
+/* Returns TRUE if there was an error and sets err. Also frees derr. */
 static gboolean
 gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **gerr)
 {
@@ -208,14 +209,18 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **ger
 	    {
 	      /* FIXME: what error num should we use here? and what string */
 	      
-	      *gerr = gconf_error_new (GCONF_ERROR_NO_SERVER, _("error: %s"),
+	      *gerr = gconf_error_new (GCONF_ERROR_NO_SERVER, _("D-BUS error: %s"),
 				       derr->message);
 	    }
 	}
       else 
 	{
-	  /* FIXME: set gerr here? */
+	  if (gerr)
+	    *gerr = gconf_error_new (GCONF_ERROR_FAILED, _("Unknown error"));
 	}
+
+      if (derr)
+	dbus_error_free (derr);
       
       return TRUE;
     }
@@ -242,7 +247,6 @@ gconf_handle_dbus_exception (DBusMessage *message, DBusError *derr, GError **ger
 	  GConfError en;
 	  
 	  en = dbus_error_name_to_gconf_errno (name);
-
 	  *gerr = gconf_error_new (en, error_string);
 	}
     }
@@ -391,6 +395,8 @@ gconf_engine_connect (GConfEngine *conf,
 
   if (conf->is_default)
     {
+      d(g_print ("get default db, %s\n", cs));
+      
       message = dbus_message_new_method_call (GCONF_DBUS_SERVICE,
 					      cs,
 					      GCONF_DBUS_SERVER_INTERFACE,
@@ -413,6 +419,8 @@ gconf_engine_connect (GConfEngine *conf,
       reply = dbus_connection_send_with_reply_and_block (connection, message, -1, &error);
     }
 
+  d(g_print ("got reply from get_db/get_default_db %p\n", reply));
+  
   dbus_message_unref (message);
   
   if (gconf_server_broken (reply))
@@ -442,7 +450,6 @@ gconf_engine_connect (GConfEngine *conf,
   
   d(g_print ("db = %s\n", db));
  
-  
   if (db == NULL)
     {
       if (err)
@@ -832,7 +839,7 @@ gconf_engine_get_fuller (GConfEngine *conf,
       d(g_print ("* try to get value\n"));
 
       success = gconf_dbus_get_entry_values_from_message_iter (&iter,
-							       NULL, /*key*/
+							       NULL,
 							       &val,
 							       &is_default,
 							       &is_writable,
@@ -1893,16 +1900,12 @@ gconf_activate_service (gboolean  start_if_not_found,
 
   dbus_error_init (&error);
 
-  d(g_print ("* activate_service\n"));
-  
   if (dbus_bus_service_exists (connection, GCONF_DBUS_SERVICE, &error))
     {
       d(g_print ("* activate_service, already active\n"));
       return TRUE;
     }
   
-  d(g_print ("* activate_service, activating\n"));
-
   if (dbus_error_is_set (&error))
     {
       g_set_error (err, GCONF_ERROR,
@@ -1916,6 +1919,8 @@ gconf_activate_service (gboolean  start_if_not_found,
       
   if (start_if_not_found)
     {
+      d(g_print ("* activate_service, activating\n"));
+
       message = dbus_message_new_method_call (DBUS_SERVICE_ORG_FREEDESKTOP_DBUS,
 					      DBUS_PATH_ORG_FREEDESKTOP_DBUS,
 					      DBUS_INTERFACE_ORG_FREEDESKTOP_DBUS,
@@ -1927,8 +1932,30 @@ gconf_activate_service (gboolean  start_if_not_found,
 				0);
 
       reply = dbus_connection_send_with_reply_and_block (connection,
-							 message, -1, NULL);
+							 message, -1, &error);
       dbus_message_unref (message);
+
+      if (reply == NULL)
+	{
+	  const gchar *msg;
+	  
+	  g_print ("ERROR\n");
+
+	  if (dbus_error_is_set (&error))
+	    msg = error.message;
+	  else
+	    msg = _("Unknown error");
+	  
+	  g_set_error (err, GCONF_ERROR,
+		       GCONF_ERROR_NO_SERVER,
+		       _("Failed to activate configuration server: %s\n"),
+		       msg);
+
+	  if (dbus_error_is_set (&error))
+	    dbus_error_free (&error);
+	  
+	  return FALSE;
+	}
       
       if (dbus_message_get_type (reply) == DBUS_MESSAGE_TYPE_ERROR)
 	{
@@ -1965,7 +1992,7 @@ gconf_get_config_server (gboolean start_if_not_found, GError** err)
 
   /* FIXME: check if we're connected and reconnect if not */
 
-  d(g_print ("* get_config_server\n"));
+  d(g_print ("* get_config_server %s\n", server));
   
   if (server != NULL)
     return server;
