@@ -1,5 +1,22 @@
 2001-10-12  Havoc Pennington  <hp@redhat.com>
 
+	* tests/testschemas.c (check_schema_storage): add some UTF-8
+
+	* tests/testpersistence.c: UTF-8 test
+
+	* tests/testgconf.c: add a UTF-8 test
+
+	* gconf/gconf.c: UTF-8 checks, and some indentation
+
+	* gconf/gconf-schema.c: UTF-8 checks
+
+	* gconf/gconf-internals.c (g_utf8_validate): cut-and-paste this in
+	here
+
+	* gconf/gconf-value.c: add some UTF-8 robustness
+
+2001-10-12  Havoc Pennington  <hp@redhat.com>
+
 	* backends/xml-entry.c (entry_unset_value): don't translate "%s"
 
 	* backends/xml-cache.c (cache_sync_foreach): printf string screwup
