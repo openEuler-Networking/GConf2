@@ -102,7 +102,7 @@ endif
 
 if HAVE_DBUS
 GCONFD_DBUS_SOURCE = gconfd-dbus.c gconfd-dbus.h gconf-database-dbus.c \
-	gconf-database-dbus.h
+	gconf-database-dbus.h gconf-dbus-utils.c gconf-dbus-utils.h
 else 
 GCONFD_DBUS_SOURCE = 
 endif

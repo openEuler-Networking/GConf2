@@ -21,17 +21,19 @@
 #define GCONF_GCONFD_DBUS_H
 
 #include <dbus/dbus-glib.h>
-#include "gconf-database.h"
 
 gboolean gconfd_dbus_init                     (void);
 gboolean gconfd_dbus_check_in_shutdown        (DBusConnection   *connection,
 					       DBusMessage      *message);
 guint    gconfd_dbus_client_count             (void);
-void     gconf_database_dbus_notify_listeners (GConfDatabase    *db,
-					       const gchar      *key,
-					       const GConfValue *value,
-					       gboolean          is_default,
-					       gboolean          is_writable);
 
+/* Convenience function copied from andercas old code */
+gboolean gconfd_dbus_get_message_args         (DBusConnection *connection,
+					       DBusMessage    *message,
+					       int             first_arg_type,
+					       ...);
+gboolean gconfd_dbus_set_exception            (DBusConnection  *connection,
+					       DBusMessage     *message,
+					       GError         **error);
 
 #endif

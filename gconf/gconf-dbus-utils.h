@@ -25,48 +25,44 @@
 #include <gconf/gconf.h>
 #include <gconf/gconf-value.h>
 
-#define GCONF_DBUS_CONFIG_SERVER "org.gnome.GConf.Server"
+#define GCONF_DBUS_SERVICE "org.gnome.GConf"
+
+#define GCONF_DBUS_SERVER_INTERFACE "org.gnome.GConf.Server"
+#define GCONF_DBUS_DATABASE_INTERFACE "org.gnome.GConf.Database"
+
+#define GCONF_DBUS_SERVER_GET_DEFAULT_DB "GetDefaultDatabase"
+#define GCONF_DBUS_SERVER_GET_DB "GetDatabase"
+#define GCONF_DBUS_SERVER_SHUTDOWN "Shutdown"
+
+#define GCONF_DBUS_DATABASE_LOOKUP "Lookup"
+#define GCONF_DBUS_DATABASE_LOOKUP_EXTENDED "LookupExtended" 
+#define GCONF_DBUS_DATABASE_SET "Set"
+#define GCONF_DBUS_DATABASE_UNSET "UnSet"
+#define GCONF_DBUS_DATABASE_RECURSIVE_UNSET "RecursiveUnset"
+#define GCONF_DBUS_DATABASE_DIR_EXISTS "DirExists"
+#define GCONF_DBUS_DATABASE_GET_ALL_ENTRIES "AllEntries"
+#define GCONF_DBUS_DATABASE_GET_ALL_DIRS "AllDirs"
+#define GCONF_DBUS_DATABASE_SET_SCHEMA "SetSchema"
  
-#define GCONF_DBUS_CONFIG_SERVER_SHUTDOWN "org.gnome.GConf.Server.Shutdown"
-#define GCONF_DBUS_CONFIG_SERVER_PING "org.gnome.GConf.Server.Ping"
- 
-#define GCONF_DBUS_CONFIG_DATABASE_DIR_EXISTS "org.gnome.GConf.Database.DirExists"
-#define GCONF_DBUS_CONFIG_DATABASE_ALL_DIRS "org.gnome.GConf.Database.AllDirs"
-#define GCONF_DBUS_CONFIG_DATABASE_ALL_ENTRIES "org.gnome.GConf.Database.AllEntries"
-#define GCONF_DBUS_CONFIG_DATABASE_LOOKUP "org.gnome.GConf.Database.Lookup"
-#define GCONF_DBUS_CONFIG_DATABASE_SET "org.gnome.GConf.Database.Set"
-#define GCONF_DBUS_CONFIG_DATABASE_UNSET "org.gnome.GConf.Database.Unset"
-#define GCONF_DBUS_CONFIG_DATABASE_REMOVE_DIR "org.gnome.GConf.Database.RemoveDir"
-#define GCONF_DBUS_CONFIG_DATABASE_LOOKUP_DEFAULT_VALUE "org.gnome.GConf.Database.LookupDefaultValue"
-#define GCONF_DBUS_CONFIG_DATABASE_ADD_LISTENER "org.gnome.GConf.Database.AddListener"
-#define GCONF_DBUS_CONFIG_DATABASE_REMOVE_LISTENER "org.gnome.GConf.Database.RemoveListener"
-#define GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET "org.gnome.GConf.Database.RecursiveUnset"
-#define GCONF_DBUS_CONFIG_DATABASE_SET_SCHEMA "org.gnome.GConf.Database.SetSchema"
-#define GCONF_DBUS_CONFIG_DATABASE_SYNC "org.gnome.GConf.Database.Sync"
-#define GCONF_DBUS_CONFIG_DATABASE_CLEAR_CACHE "org.gnome.GConf.Database.ClearCache"
-#define GCONF_DBUS_CONFIG_DATABASE_SYNCHRONOUS_SYNC "org.gnome.GConf.Database.Synchronous.Sync"
- 
-#define GCONF_DBUS_CONFIG_LISTENER_NOTIFY "org.gnome.GConf.Listener.Notify"
+#define GCONF_DBUS_LISTENER_NOTIFY "Notify"
  
 #define GCONF_DBUS_UNSET_INCLUDING_SCHEMA_NAMES 0x1
  
-#define GCONF_DBUS_ERROR_FAILED "org.gnome.GConf.Error.Failed"
-#define GCONF_DBUS_ERROR_NO_PERMISSION "org.gnome.GConf.Error.NoPermission"
-#define GCONF_DBUS_ERROR_BAD_ADDRESS "org.gnome.GConf.Error.BadAddress"
-#define GCONF_DBUS_ERROR_BAD_KEY "org.gnome.GConf.Error.BadKey"
-#define GCONF_DBUS_ERROR_PARSE_ERROR "org.gnome.GConf.Error.ParseError"
-#define GCONF_DBUS_ERROR_CORRUPT "org.gnome.GConf.Error.Corrupt"
-#define GCONF_DBUS_ERROR_TYPE_MISMATCH "org.gnome.GConf.Error.TypeMismatch"
-#define GCONF_DBUS_ERROR_IS_DIR "org.gnome.GConf.Error.IsDir"
-#define GCONF_DBUS_ERROR_IS_KEY "org.gnome.GConf.Error.IsKey"
-#define GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE "org.gnome.GConf.Error.NoWritableDatabase"
-#define GCONF_DBUS_ERROR_IN_SHUTDOWN "org.gnome.GConf.Error.InShutdown"
-#define GCONF_DBUS_ERROR_OVERRIDDEN "org.gnome.GConf.Error.Overriden"
-#define GCONF_DBUS_ERROR_LOCK_FAILED "org.gnome.GConf.Error.LockFailed"
-
+#define GCONF_DBUS_ERROR_FAILED "Failed"
+#define GCONF_DBUS_ERROR_NO_PERMISSION "NoPermission"
+#define GCONF_DBUS_ERROR_BAD_ADDRESS "BadAddress"
+#define GCONF_DBUS_ERROR_BAD_KEY "BadKey"
+#define GCONF_DBUS_ERROR_PARSE_ERROR "ParseError"
+#define GCONF_DBUS_ERROR_CORRUPT "Corrupt"
+#define GCONF_DBUS_ERROR_TYPE_MISMATCH "TypeMismatch"
+#define GCONF_DBUS_ERROR_IS_DIR "IsDir"
+#define GCONF_DBUS_ERROR_IS_KEY "IsKey"
+#define GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE "NoWritableDatabase"
+#define GCONF_DBUS_ERROR_IN_SHUTDOWN "InShutdown"
+#define GCONF_DBUS_ERROR_OVERRIDDEN "Overriden"
+#define GCONF_DBUS_ERROR_LOCK_FAILED "LockFailed"
 
 #if 0
-
 #define GCONF_SERVICE_NAME "org.gnome.GConf"
 #define GCONF_SERVER_INTERFACE_NAME "org.gnome.GConf.Server"
 #define GCONF_DATABASE_INTERFACE_NAME "org.gnome.GConf.Database"
@@ -96,7 +92,6 @@
 #define GCONF_DBUS_ERROR_IN_SHUTDOWN "org.gnome.GConf.Error.InShutdown"
 #define GCONF_DBUS_ERROR_OVERRIDDEN "org.gnome.GConf.Error.Overriden"
 #define GCONF_DBUS_ERROR_LOCK_FAILED "org.gnome.GConf.Error.LockFailed"
-
 #endif
 
 void         gconf_dbus_message_append_gconf_value      (DBusMessage      *message,

@@ -305,20 +305,6 @@ GConfValue * gconf_engine_get_full (GConfEngine *conf,
 
 #endif /* GCONF_ENABLE_INTERNALS */
 
-#define GCONF_DBUS_ERROR_FAILED "org.gnome.GConf.Error.Failed"
-#define GCONF_DBUS_ERROR_NO_PERMISSION "org.gnome.GConf.Error.NoPermission"
-#define GCONF_DBUS_ERROR_BAD_ADDRESS "org.gnome.GConf.Error.BadAddress"
-#define GCONF_DBUS_ERROR_BAD_KEY "org.gnome.GConf.Error.BadKey"
-#define GCONF_DBUS_ERROR_PARSE_ERROR "org.gnome.GConf.Error.ParseError"
-#define GCONF_DBUS_ERROR_CORRUPT "org.gnome.GConf.Error.Corrupt"
-#define GCONF_DBUS_ERROR_TYPE_MISMATCH "org.gnome.GConf.Error.TypeMismatch"
-#define GCONF_DBUS_ERROR_IS_DIR "org.gnome.GConf.Error.IsDir"
-#define GCONF_DBUS_ERROR_IS_KEY "org.gnome.GConf.Error.IsKey"
-#define GCONF_DBUS_ERROR_NO_WRITABLE_DATABASE "org.gnome.GConf.Error.NoWritableDatabase"
-#define GCONF_DBUS_ERROR_IN_SHUTDOWN "org.gnome.GConf.Error.InShutdown"
-#define GCONF_DBUS_ERROR_OVERRIDDEN "org.gnome.GConf.Error.Overriden"
-#define GCONF_DBUS_ERROR_LOCK_FAILED "org.gnome.GConf.Error.LockFailed"
-	
 G_END_DECLS
 
 #endif
