@@ -94,7 +94,7 @@ simple_test_LDADD = $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 gconftool_2_SOURCES = \
 	gconftool.c
 
-gconftool_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS) $(POPT_LIBS) libgconf-$(MAJOR_VERSION).la
+gconftool_2_LDADD = libgconf-$(MAJOR_VERSION).la $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS) $(POPT_LIBS) 
 
 gconf_sanity_check_2_SOURCES = \
 	gconf-sanity-check.c

@@ -396,6 +396,53 @@ static int do_associate_schema (GConfEngine *conf, const gchar **args);
 static int do_dissociate_schema (GConfEngine *conf, const gchar **args);
 static int do_get_default_source (const gchar **args);
 
+
+static const char *
+get_dbus_address (void)
+{
+  /* FIXME: Change this when we know how to find the message bus. */
+  return g_getenv ("GCONF_DBUS_ADDRESS");
+}
+
+
+static gboolean
+setup_dbus (void)
+{
+  static DBusConnection *dbus_conn = NULL;
+  const char *dbus_address;
+  DBusError error;
+  DBusResultCode result;  
+  char *name;
+  
+  dbus_address = get_dbus_address ();
+  if (!dbus_address)
+    {
+      g_printerr ("Failed to get the D-BUS bus daemon address");
+      return FALSE;
+    }
+
+  dbus_conn = dbus_connection_open (dbus_address, &result);
+  if (!dbus_conn)
+    {
+      g_printerr ("Failed to connect to the D-BUS bus daemon: %s",
+		  dbus_result_to_string (result));
+      return FALSE;
+    }
+
+  name = dbus_bus_register_client (dbus_conn, &error);
+  if (!name)
+    {
+      gconf_log (GCL_ERR, _("Failed to register client with the D-BUS bus daemon: %s"),
+		 error.message);
+      dbus_error_free (&error);
+      return FALSE;
+    }
+
+  dbus_free (name);
+  
+  return gconf_init_dbus (dbus_conn);
+}
+
 int 
 main (int argc, char** argv)
 {
@@ -579,6 +626,12 @@ main (int argc, char** argv)
       fprintf(stderr, _("Failed to init GConf: %s\n"), err->message);
       g_error_free(err);
       err = NULL;
+      return 1;
+    }
+
+  if (!setup_dbus ())
+    {
+      g_printerr ("could not initialize D-BUS");
       return 1;
     }
 

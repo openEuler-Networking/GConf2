@@ -19,6 +19,87 @@
 #include "gconf-dbus.h"
 #include "gconf-internals.h"
 
+static GConfValue *
+gconf_value_from_dict_value (DBusDict   *dict,
+			     const char *key)
+{
+  GConfValue *value;
+  
+  switch (dbus_dict_get_value_type (dict, key))
+    {
+    case DBUS_TYPE_STRING:
+      {
+	const char *str;
+	value = gconf_value_new (GCONF_VALUE_STRING);
+
+	dbus_dict_get_string (dict, key, &str);
+	gconf_value_set_string (value, str);
+
+	return value;
+      }
+    case DBUS_TYPE_INT32:
+      {
+	dbus_int32_t val;
+	
+	value = gconf_value_new (GCONF_VALUE_INT);
+
+	dbus_dict_get_int32 (dict, key, &val);
+	gconf_value_set_int (value, val);
+
+	return value;
+      }
+    case DBUS_TYPE_DOUBLE:
+      {
+	double val;
+	
+	value = gconf_value_new (GCONF_VALUE_FLOAT);
+
+	dbus_dict_get_double (dict, key, &val);
+	gconf_value_set_float (value, val);
+
+	return value;
+      }
+    case DBUS_TYPE_BOOLEAN:
+      {
+	dbus_bool_t val;
+	
+	value = gconf_value_new (GCONF_VALUE_BOOL);
+
+	dbus_dict_get_boolean (dict, key, &val);
+	gconf_value_set_bool (value, val);
+
+	return value;
+      }
+    default:
+      return NULL;
+    }
+}
+
+static void
+set_dict_value_from_gconf_value (DBusDict   *dict,
+				 const char *key,
+				 GConfValue *value)
+{
+  switch (value->type)
+    {
+    case GCONF_VALUE_STRING:
+      dbus_dict_set_string (dict, key, gconf_value_get_string (value));
+      break;
+    case GCONF_VALUE_INT:
+      dbus_dict_set_int32 (dict, key, gconf_value_get_int (value));
+      break;
+    case GCONF_VALUE_FLOAT:
+      dbus_dict_set_double (dict, key, gconf_value_get_float (value));
+      break;
+    case GCONF_VALUE_BOOL:
+      dbus_dict_set_boolean (dict, key, gconf_value_get_bool (value));
+      break;
+    default:
+      g_assert_not_reached ();
+    }
+}
+
+     
 static void
 gconf_dbus_fill_message_from_gconf_schema (DBusMessage       *message,
 					   const GConfSchema *schema)
@@ -109,7 +190,16 @@ gconf_dbus_create_gconf_value_from_dict (DBusDict *dict)
       return value;
 
     }
+  else if (dbus_dict_contains (dict, "car"))
+    {
+      value = gconf_value_new (GCONF_VALUE_PAIR);
 
+      gconf_value_set_car_nocopy (value, gconf_value_from_dict_value (dict, "car"));
+      gconf_value_set_cdr_nocopy (value, gconf_value_from_dict_value (dict, "cdr"));
+
+      return value;
+    }
+  
   return NULL;
 }
 
@@ -241,9 +331,22 @@ gconf_dbus_fill_message_from_gconf_value (DBusMessage      *message,
 	  }
 	break;	
       }
+    case GCONF_VALUE_PAIR:
+      {
+	DBusDict *dict;
+
+	dict = dbus_dict_new ();
+	set_dict_value_from_gconf_value (dict, "car", gconf_value_get_car (value));
+	set_dict_value_from_gconf_value (dict, "cdr", gconf_value_get_cdr (value));
+
+	dbus_message_append_dict (message, dict);
+	dbus_dict_unref (dict);
+	break;
+      }
     case GCONF_VALUE_SCHEMA:
       gconf_dbus_fill_message_from_gconf_schema (message, gconf_value_get_schema (value));
       break;
+
     default:
       g_error ("unsupported gconf value type %d", value->type);
     }

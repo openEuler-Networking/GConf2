@@ -1284,7 +1284,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
       return FALSE;
     }
 
-  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_SET);
+  message = dbus_message_new (GCONF_DBUS_CONFIG_SERVER, GCONF_DBUS_CONFIG_DATABASE_RECURSIVE_UNSET);
   dbus_message_append_args (message,
 			    DBUS_TYPE_UINT32, db,
 			    DBUS_TYPE_STRING, key,
@@ -1306,7 +1306,7 @@ gconf_engine_recursive_unset (GConfEngine    *conf,
   if (gconf_handle_dbus_exception(reply, err))
     {
       dbus_message_unref (reply);
-      return NULL;
+      return FALSE;
     }
 
   g_return_val_if_fail (err == NULL || *err == NULL, FALSE);

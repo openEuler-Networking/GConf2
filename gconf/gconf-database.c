@@ -22,6 +22,7 @@
 #include "gconf-sources.h"
 #include "gconf-locale.h"
 #include "gconf-database-corba.h"
+#include "gconfd-dbus.h"
 #include "gconfd.h"
 #include <string.h>
 #include <unistd.h>
@@ -419,7 +420,6 @@ gconf_database_recursive_unset (GConfDatabase      *db,
       gboolean is_default = TRUE;
       char *notify_key = tmp->data;
       
-
       locale_list[0] = locale;
       new_value = gconf_database_query_value (db,
                                               notify_key,
@@ -442,8 +442,9 @@ gconf_database_recursive_unset (GConfDatabase      *db,
 					     is_default, is_writable);
       gconf_database_dbus_notify_listeners (db, notify_key, new_value,
 					     is_default, is_writable);
-      
-      gconf_value_free (new_value);
+
+      if (new_value)
+	gconf_value_free (new_value);
       g_free (notify_key);
       
       tmp = tmp->next;

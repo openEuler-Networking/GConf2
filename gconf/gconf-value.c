@@ -799,7 +799,6 @@ gconf_value_free(GConfValue* value)
 {
   GConfRealValue *real;
 
-  g_assert (value != NULL);
   g_return_if_fail(value != NULL);
 
   real = REAL_VALUE (value);
