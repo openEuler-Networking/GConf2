@@ -298,7 +298,7 @@ msgstr ""
 
 #: gconf/gconf-database.c:521
 msgid "Received request to drop all cached data"
-msgstr ""
+msgstr "Отримано запит на скидання вс╕х кешованих даних"
 
 #: gconf/gconf-database.c:538
 msgid "Received request to sync synchronously"
@@ -306,12 +306,12 @@ msgstr ""
 
 #: gconf/gconf-database.c:605
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr ""
+msgstr "Фатальна помилка: не вдалося отримати посилання на об'╓кт для ConfigDatabase"
 
 #: gconf/gconf-database.c:764
 #, c-format
 msgid "Failed to sync one or more sources: %s"
-msgstr ""
+msgstr "Не вдалося синхрон╕зувати одне чи б╕льше джерел: %s"
 
 #. This error is not fatal; we basically ignore it.
 #. * Because it's likely the right thing for the client
@@ -328,7 +328,7 @@ msgstr ""
 #: gconf/gconf-database.c:871
 #, c-format
 msgid "Listener ID %lu doesn't exist"
-msgstr ""
+msgstr "Слухача з ╕дентиф╕катором %lu не ╕сну╓"
 
 #: gconf/gconf-database.c:880
 #, c-format
@@ -562,7 +562,7 @@ msgstr "╤нша програма заблокувала \"%s\""
 
 #: gconf/gconf-internals.c:2342
 msgid "couldn't contact ORB to ping existing gconfd"
-msgstr ""
+msgstr "не вдалося з'╓днатись з ORB, щоб прозондувати gconfd"
 
 #: gconf/gconf-internals.c:2350
 #, c-format
@@ -570,11 +570,13 @@ msgid ""
 "Removing stale lock `%s' because IOR couldn't be converted to object "
 "reference, IOR `%s'"
 msgstr ""
+"Видалення застар╕лого блокування \"%s\" тому, що IOR не вдалося перетворити "
+"в посилання на об'╓кт, IOR \"%s\""
 
 #: gconf/gconf-internals.c:2362
 #, c-format
 msgid "Removing stale lock `%s' because of error pinging server: %s"
-msgstr ""
+msgstr "Видалення застар╕лого блокування \"%s\" через помилку зондування сервера: %s"
 
 #: gconf/gconf-internals.c:2374
 #, c-format
@@ -599,12 +601,12 @@ msgstr "Неможливо записати у файл \"%s\": %s"
 #: gconf/gconf-internals.c:2502
 #, c-format
 msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
-msgstr ""
+msgstr "Неможливо в╕дкрити файл блокування \"%s\"; можливо в╕н не наш: %s"
 
 #: gconf/gconf-internals.c:2519
 #, c-format
 msgid "Corrupt lock file `%s', removing anyway"
-msgstr ""
+msgstr "З╕псований файл блокування \"%s\", видаля╓ться"
 
 #: gconf/gconf-internals.c:2529
 #, c-format
