@@ -39,7 +39,7 @@ msgstr "BDB-Backend-Modul wird initialisiert"
 #, c-format
 msgid "Couldn't find the %s root directory in the address `%s'"
 msgstr ""
-"Das %s Root-Verzeichnis konnte nicht an der Adresse `%s' gefunden werden"
+"Das %s-Wurzelverzeichnis konnte nicht an der Adresse `%s' gefunden werden"
 
 #: backends/dir-utils.c:124 backends/xml-backend.c:301 backends/xml-dir.c:1051
 #, c-format
@@ -50,7 +50,7 @@ msgstr "Verzeichnis `%s' konnte nicht erstellt werden: %s"
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr ""
-"In dem %s Wurzelverzeichnis an Adresse `%s' kann nicht gelesen oder "
+"Im %s-Wurzelverzeichnis an Adresse `%s' kann nicht gelesen oder "
 "geschrieben werden"
 
 #: backends/xml-backend.c:233
@@ -131,10 +131,8 @@ msgstr "Schreiben von `%s' fehlgeschlagen: %s"
 #: backends/xml-dir.c:359
 #, c-format
 msgid "Failed to set mode on `%s': %s"
-msgstr "Modus konnte für `%s' nicht gesetzt werden: %s"
+msgstr "Modus von `%s' konnte nicht eingestellt werden: %s"
 
-#: backends/xml-dir.c:373 backends/xml-dir.c:383
-#, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "Umbenennen von `%s' in `%s' fehlgeschlagen: %s"
 
@@ -194,7 +192,7 @@ msgstr "%s"
 #: backends/xml-entry.c:327
 #, c-format
 msgid "Ignoring schema name `%s', invalid: %s"
-msgstr "Schema mit Namen `%s' wird ignoriert, ungültig: %s"
+msgstr "Schemaname `%s' wird ignoriert, ungültig: %s"
 
 #. FIXME for nodes with no value stored, but containing a schema name,
 #. * we improperly log an error here
@@ -202,12 +200,12 @@ msgstr "Schema mit Namen `%s' wird ignoriert, ungültig: %s"
 #: backends/xml-entry.c:373
 #, c-format
 msgid "Ignoring XML node `%s', except for possible schema name: %s"
-msgstr "XML-Element `%s' wird ignoriert, ausser für möglichen Schemanamen: %s"
+msgstr "XML-Element `%s' wird ignoriert, außer möglichem Schemanamen: %s"
 
 #: backends/xml-entry.c:724
 #, c-format
 msgid "Failed reading default value for schema: %s"
-msgstr "Voreingestellten Wert für Schema `%s' konnte nicht gelesen werden"
+msgstr "Voreingestellter Wert für Schema (%s) konnte nicht gelesen werden"
 
 #: backends/xml-entry.c:938
 #, c-format
@@ -226,7 +224,7 @@ msgstr "Kein \"value\"-Attribut für Element"
 #: backends/xml-entry.c:1015 backends/xml-entry.c:1091
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
-msgstr "XML-Element <%s> in einem XML-Listenelement unbekannt"
+msgstr "XML-Element <%s> ist in einem XML-Listenelement nicht verständlich"
 
 #: backends/xml-entry.c:1049
 msgid "Invalid type (list, pair, or unknown) in a list node"
@@ -235,22 +233,22 @@ msgstr "Ungültiger Typ (Liste, Paar oder unbekannt) in einem Listenelement"
 #: backends/xml-entry.c:1072
 #, c-format
 msgid "Bad XML node: %s"
-msgstr "Unbekannter XML-Knoten: %s"
+msgstr "Ungültiges XML-Element: %s"
 
 #: backends/xml-entry.c:1080
 #, c-format
 msgid "List contains a badly-typed node (%s, should be %s)"
-msgstr "Liste beinhaltet einen ungültigen Knoten (%s, sollte %s sein)"
+msgstr "Liste enthält ein falsch typisiertes Element (%s, sollte %s sein)"
 
 #: backends/xml-entry.c:1132
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
-msgstr "Unbekanntes car aus XML-Paar wird ignoriert: %s"
+msgstr "Ungültiges car aus XML-Paar wird ignoriert: %s"
 
 #: backends/xml-entry.c:1141 backends/xml-entry.c:1164
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
 msgstr ""
-"XML-Datei wird geparst: Liste und Paare dürfen nicht in einem Paar sein"
+"XML-Datei wird geparst: ein Paar darf keine Listen und Paare enthalten"
 
 #: backends/xml-entry.c:1154
 #, c-format
@@ -260,11 +258,11 @@ msgstr "Ungültiges cdr aus XML-Paar wird ignoriert: %s"
 #: backends/xml-entry.c:1173
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML pair node"
-msgstr "XML-Element <%s> in einem XML-Paarelement unbekannt"
+msgstr "XML-Element <%s> konnte in einem XML-Paarelement nicht verstanden werden"
 
 #: backends/xml-entry.c:1191
 msgid "Didn't find car and cdr for XML pair node"
-msgstr "car und cdr für XML-Paarknoten konnten nicht gefunden werden"
+msgstr "car und cdr für XML-Paarelement wurden nicht gefunden"
 
 #: backends/xml-entry.c:1197
 msgid "Missing cdr from pair of values in XML file"
@@ -282,7 +280,7 @@ msgstr "car- und cdr-Werte fehlen beide in Paar aus XML-Datei"
 #: gconf/gconf-backend.c:167
 #, c-format
 msgid "No such file `%s'\n"
-msgstr "Keine Datei `%s'\n"
+msgstr "Datei `%s' gibt es nicht\n"
 
 #: gconf/gconf-backend.c:195
 #, c-format
@@ -315,13 +313,11 @@ msgstr "Ungültiger Wert in Einstellungsanfrage erhalten"
 #: gconf/gconf-database.c:239
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr ""
-"Unbekannter CORBA-Werte in Einstellungsanfrage für empfangenen Schlüssel "
-"`%s' "
+msgstr "Sinn des CORBA-Wertes in Einstellungsanfrage für Schlüssel `%s' konnte nicht ermittelt werden"
 
 #: gconf/gconf-database.c:517
 msgid "Received request to drop all cached data"
-msgstr "Anfrage zum Löschen aller Daten im Cache erhalten"
+msgstr "Anfrage zum Fallenlassen aller Daten im Cache eingetroffen"
 
 #: gconf/gconf-database.c:534
 msgid "Received request to sync synchronously"
@@ -329,7 +325,7 @@ msgstr "Anfrage zum synchronen Synchronisieren erhalten"
 
 #: gconf/gconf-database.c:601
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr "Schwerer Fehler: Objektreferenz für ConfigDatabase nicht erhalten"
+msgstr "Schwerer Fehler: Objektreferenz für ConfigServer konnte nicht erhalten werden"
 
 #: gconf/gconf-database.c:760
 #, c-format
@@ -364,8 +360,8 @@ msgid ""
 "result in a notification weirdly reappearing): %s"
 msgstr ""
 "Entfernen eines Zuhörers konnte nicht in Protokolldatei eingetragen werden "
-"(wahrscheinlich harmlos, könnte zu einer neu erscheinenden Benachrichtung "
-"führen): %s"
+"(wahrscheinlich harmlos, könnte zu einer gespenstischen neu erscheinenden "
+"Benachrichtung führen): %s"
 
 #: gconf/gconf-database.c:997 gconf/gconf-sources.c:1281
 #, c-format
@@ -434,7 +430,7 @@ msgstr "Adresse für Konfigurationsquelle konnte nicht aufgelöst werden"
 
 #: gconf/gconf-error.c:30
 msgid "Bad key or directory name"
-msgstr "Unbekannter Schlüssel oder Verzeichnisname"
+msgstr "Ungültiger Schlüssel- oder Verzeichnisname"
 
 #: gconf/gconf-error.c:31
 msgid "Parse error"
@@ -462,7 +458,7 @@ msgstr "Bestehender schreibgeschützter Wert kann nicht überschrieben werden"
 
 #: gconf/gconf-error.c:37
 msgid "Object Activation Framework error"
-msgstr "OAF-Fehler"
+msgstr "Fehler im Object Activation Framework"
 
 #: gconf/gconf-error.c:38
 msgid "Operation not allowed without configuration server"
@@ -474,7 +470,7 @@ msgstr "Lock nicht erhalten"
 
 #: gconf/gconf-error.c:40
 msgid "No database available to save your configuration"
-msgstr "Es wurde keine Datenbank gefunden, um die Konfiguration zu speichern."
+msgstr "Keine Datenbank verfügbar, um Ihre Konfiguration zu speichern."
 
 #: gconf/gconf-internals.c:85
 #, c-format
@@ -791,8 +787,8 @@ msgid ""
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
 "Please file an OAF bug report."
 msgstr ""
-"Fehler beim Kontaktieren des Konfigurationsservers: OAF gab NULL "
-"aufoaf_activate_from_id() zurück und hat keinen Ausnahmezustand gesetzt, der "
+"Fehler beim Kontaktieren des Konfigurationsservers: OAF gab NULL aus "
+"oaf_activate_from_id() zurück und hat keinen Ausnahmezustand gesetzt, der "
 "das Problem erklären würde. Bitte schicken Sie einen Fehlerbericht zu OAF "
 "ein."
 
@@ -1430,7 +1426,7 @@ msgstr "cdr-Typ: %s\n"
 #: gconf/gconftool.c:893
 #, c-format
 msgid "Default Value: %s\n"
-msgstr "Voreingestellter Wert: %s\n"
+msgstr "Vorgabewert: %s\n"
 
 #: gconf/gconftool.c:893 gconf/gconftool.c:895 gconf/gconftool.c:896
 #: gconf/gconftool.c:897
@@ -1610,12 +1606,12 @@ msgstr ""
 
 #: gconf/gconftool.c:1589
 msgid "WARNING: empty <applyto> node"
-msgstr "WARNUNG: Leerer <applyto>-Knoten"
+msgstr "WARNUNG: Leeres <applyto>-Element"
 
 #: gconf/gconftool.c:1592 gconf/gconftool.c:1855
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
-msgstr "WARNUNG: Knoten <%s> unter <schema> ist nicht verständlich\n"
+msgstr "WARNUNG: Element <%s> unter <schema> ist nicht verständlich\n"
 
 #: gconf/gconftool.c:1602
 msgid "WARNING: no key specified for schema\n"
@@ -1624,7 +1620,7 @@ msgstr "WARNUNG: Kein Schlüssel für Schema angegeben\n"
 #: gconf/gconftool.c:1635
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
-"WARNUNG: Knoten <locale> hat kein `name=\"locale\"'-Attribut, wird "
+"WARNUNG: Element <locale> hat kein `name=\"locale\"'-Attribut, wird "
 "ignoriert\n"
 
 #: gconf/gconftool.c:1641
@@ -1632,13 +1628,13 @@ msgstr ""
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
-"WARNUNG: Mehrere <locale>-Knoten für Locale `%s', alle hinter dem ersten "
-"werde ignoriert\n"
+"WARNUNG: Mehrere <locale>-Element für Locale `%s', alle hinter dem ersten "
+"werden ignoriert\n"
 
 #: gconf/gconftool.c:1722
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
-msgstr "WARNUNG: Ungültiger Knoten <%s> in einem <locale>-Knoten\n"
+msgstr "WARNUNG: Ungültiges Element <%s> in einem <locale>-Element\n"
 
 #: gconf/gconftool.c:1751
 #, c-format
@@ -1669,7 +1665,7 @@ msgstr "Sie müssen in einem <schema> mindestens einen <locale>-Eintrag haben\n"
 #: gconf/gconftool.c:1897
 #, c-format
 msgid "WARNING: node <%s> not understood below <schemalist>\n"
-msgstr "WARNUNG: Knoten <%s> ist unterhalb von <schemalist> unverständlich\n"
+msgstr "WARNUNG: Element <%s> ist unterhalb von <schemalist> unverständlich\n"
 
 #: gconf/gconftool.c:1919
 #, c-format
@@ -1687,19 +1683,19 @@ msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
 "<gconfschemafile>)\n"
 msgstr ""
-"Dokument `%s' hat den falschen Wurzelknoten-Typ (<%s>, sollte "
+"Dokument `%s' hat den falschen Wurzelelement-Typ (<%s>, sollte "
 "<gconfschemafile> sein)\n"
 
 #: gconf/gconftool.c:1951
 #, c-format
 msgid "Document `%s' has no top level <gconfschemafile> node\n"
-msgstr "Dokument `%s' hat keinen Knoten <gconfschemafile> in oberster Ebene\n"
+msgstr "Dokument `%s' hat kein Element <gconfschemafile> in oberster Ebene\n"
 
 #: gconf/gconftool.c:1965
 #, c-format
 msgid "WARNING: node <%s> below <gconfschemafile> not understood\n"
 msgstr ""
-"WARNUNG: Knoten <%s> ist unverständlich unterhalb von <gconfschemafile>\n"
+"WARNUNG: Element <%s> ist unverständlich unterhalb von <gconfschemafile>\n"
 
 #: gconf/gconftool.c:1976 gconf/gconftool.c:2008
 #, c-format

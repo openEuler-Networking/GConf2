@@ -1,3 +1,7 @@
+2001-03-26  Matthias Warkus  <mawarkus@gnome.org>
+
+	* de.po: Commit just to be sure.
+
 2001-03-21  Ole Laursen  <olau@hardworking.dk>
 
 	* da.po: Updated Danish translation.
@@ -48,7 +52,7 @@
 2001-03-06  Fatih Demir	<kabalak@gtranslator.org>
 
 	* tr.po: Committed updated Turkish translation by
-		Özgür Doðan.
+		Vzg|r Dopan.
 
 2001-02-21  Gustavo Maciel Dias Vieira <gdvieira@zaz.com.br>
 
@@ -387,7 +391,7 @@
 
 	* de.po: Added.
 
-2000-03-14  Martin Norb$Bdc(Bk  <d95mback@dtek.chalmers.se>
+2000-03-14  Martin Norb$(Bdc(Bk  <d95mback@dtek.chalmers.se>
 
 	* sv.po: fixed one message
 
