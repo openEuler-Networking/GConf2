@@ -1497,8 +1497,7 @@ dump_entries_in_dir(GConfEngine* conf, const gchar* dir, const gchar* base_dir)
         g_print ("      <schema_key>%s</schema_key>\n",
 		 get_key_relative(gconf_entry_get_schema_name(entry), base_dir));
 
-      /* don't print the value if its just the schema default */
-      if (entry->value && !gconf_entry_get_is_default(entry))
+      if (entry->value)
         print_value_in_xml(entry->value, 6);
 
       g_print ("    </entry>\n");
