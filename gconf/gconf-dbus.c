@@ -1467,24 +1467,24 @@ gconf_engine_all_entries (GConfEngine* conf, const gchar* dir, GError** err)
     }
   g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
 
-  dbus_message_iter_init (message, &iter);
+  dbus_message_iter_init (reply, &iter);
 
-  while (0) /* FIXME: loop through and get the key/values */
+  while (1)
     {
-      GConfEntry* entry;
+      GConfEntry *entry;
       GConfValue *value;
 
-      value = NULL; /*gconf_dbus_create_gconf_value_from_message (&iter);*/
+      if (!gconf_dbus_get_entry_values_from_message_iter (&iter,
+							  &key,
+							  &value,
+							  &is_default,
+							  &is_writable,
+							  &schema_name))
+	break;
 
-      /* FIXME: get real values */
-      key = NULL;
-      is_default = FALSE;
-      is_writable = FALSE;
-      schema_name = NULL;
-      
       entry =  gconf_entry_new_nocopy (gconf_concat_dir_and_key (dir, key),
 				       value);
-
+      
       gconf_entry_set_is_default (entry, is_default);
       gconf_entry_set_is_writable (entry, is_writable);
 
@@ -1494,10 +1494,11 @@ gconf_engine_all_entries (GConfEngine* conf, const gchar* dir, GError** err)
 
       entries = g_slist_prepend (entries, entry);
 
-      dbus_message_iter_next (&iter);
-
       dbus_free (key);
       dbus_free (schema_name);
+
+      if (!dbus_message_iter_next (&iter))
+	break;
     }
 
   dbus_message_unref (reply);

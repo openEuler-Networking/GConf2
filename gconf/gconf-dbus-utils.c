@@ -698,6 +698,9 @@ gconf_dbus_get_entry_values_from_message_iter (DBusMessageIter  *iter,
 {
   DBusMessageIter dict;
 
+  if (dbus_message_iter_get_arg_type (iter) != DBUS_TYPE_DICT)
+    return FALSE;
+  
   dbus_message_iter_init_dict_iterator (iter, &dict);
 
   while (1) 
