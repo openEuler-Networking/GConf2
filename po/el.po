@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf 0.12\n"
-"POT-Creation-Date: 2001-02-05 16:04-0500\n"
+"POT-Creation-Date: 2001-03-15 10:16+0100\n"
 "PO-Revision-Date: 2001-02-12 00:01:36+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -199,19 +199,19 @@ msgstr "Αδύνατο το κλείσιμο του αρχείου `%s': %s"
 
 # gconf/gconfd.c:1745
 #. There was an error
-#: backends/xml-entry.c:148
+#: backends/xml-entry.c:149
 #, c-format
 msgid "Ignoring XML node with name `%s': %s"
 msgstr "Αγνόηση κόμβου XML με όνομα `%s': %s"
 
 # gconf/gconf-internals.c:2120
-#: backends/xml-entry.c:199
+#: backends/xml-entry.c:200
 #, c-format
 msgid "%s"
 msgstr "%s"
 
 # gconf/gconfd.c:1745
-#: backends/xml-entry.c:326
+#: backends/xml-entry.c:327
 #, c-format
 msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Αγνόηση ονόματος σχήματος `%s', μη έγκυρο: %s"
@@ -219,85 +219,85 @@ msgstr "Αγνόηση ονόματος σχήματος `%s', μη έγκυρο: %s"
 #. FIXME for nodes with no value stored, but containing a schema name,
 #. * we improperly log an error here
 #.
-#: backends/xml-entry.c:372
+#: backends/xml-entry.c:373
 #, c-format
 msgid "Ignoring XML node `%s', except for possible schema name: %s"
 msgstr "Αγνόηση του κόμβου XML `%s', εκτός από το πιθανό όνομα σχήματος: %s"
 
 # gconf/gconftool.c:1243
-#: backends/xml-entry.c:723
+#: backends/xml-entry.c:724
 #, c-format
 msgid "Failed reading default value for schema: %s"
 msgstr "Αποτυχία στην ανάγνωση της εξ' ορισμού τιμής για το σχήμα: %s"
 
-#: backends/xml-entry.c:937
+#: backends/xml-entry.c:938
 #, c-format
 msgid "No \"type\" attribute for <%s> node"
 msgstr "Δεν υπάρχει ιδιότητα \"είδος\" για τον κόμβο <%s>"
 
 # gconf/gconftool.c:1373
-#: backends/xml-entry.c:951
+#: backends/xml-entry.c:952
 #, c-format
 msgid "A node has unknown \"type\" attribute `%s', ignoring"
 msgstr "Ένας κόμβος έχει άγνωστη ιδιότητα \"είδος\" `%s', αγνοείται"
 
-#: backends/xml-entry.c:966
+#: backends/xml-entry.c:967
 msgid "No \"value\" attribute for node"
 msgstr "Δεν υπάρχει ιδιότητα \"τιμή\" για τον κόμβο"
 
-#: backends/xml-entry.c:1014 backends/xml-entry.c:1090
+#: backends/xml-entry.c:1015 backends/xml-entry.c:1091
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
 msgstr "Δεν έγινε κατανοητός ο κόμβος XML <%s> μέσα σε μια λίστα κόμβων XML"
 
-#: backends/xml-entry.c:1048
+#: backends/xml-entry.c:1049
 msgid "Invalid type (list, pair, or unknown) in a list node"
 msgstr "Μη έγκυρο είδος (λίστα, ζεύγος ή άγνωστο) στη λίστα κόμβου"
 
-#: backends/xml-entry.c:1071
+#: backends/xml-entry.c:1072
 #, c-format
 msgid "Bad XML node: %s"
 msgstr "Εσφαλμένος κόμβος XML: %s"
 
-#: backends/xml-entry.c:1079
+#: backends/xml-entry.c:1080
 #, c-format
 msgid "List contains a badly-typed node (%s, should be %s)"
 msgstr "Η λίστα περιέχει κόμβο με εσφαλμένο είδος (%s, ενώ έπρεπε %s)"
 
-#: backends/xml-entry.c:1131
+#: backends/xml-entry.c:1132
 #, c-format
 msgid "Ignoring bad car from XML pair: %s"
 msgstr "Αγνόηση κακού car από το ζεύγος XML: %s"
 
-#: backends/xml-entry.c:1140 backends/xml-entry.c:1163
+#: backends/xml-entry.c:1141 backends/xml-entry.c:1164
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
 msgstr ""
 "ανάλυση αρχείου XML: λίστες και ζεύγη δε μπορούν να τοποθετηθούν μέσα σε "
 "ζεύγος"
 
-#: backends/xml-entry.c:1153
+#: backends/xml-entry.c:1154
 #, c-format
 msgid "Ignoring bad cdr from XML pair: %s"
 msgstr "Αγνόηση κακού cdr από το ζεύγος XML: %s"
 
-#: backends/xml-entry.c:1172
+#: backends/xml-entry.c:1173
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML pair node"
 msgstr "Δεν έγινε κατανοητό ο κόμβος XML <%s> μέσα σε ένα κόμβο ζεύγους XML"
 
-#: backends/xml-entry.c:1190
+#: backends/xml-entry.c:1191
 msgid "Didn't find car and cdr for XML pair node"
 msgstr "Δε βρέθηκαν car και cdr για τον κόμβο ζεύγους XML"
 
-#: backends/xml-entry.c:1196
+#: backends/xml-entry.c:1197
 msgid "Missing cdr from pair of values in XML file"
 msgstr "Λείπει το cdr από το ζεύγος τιμών στο αρχείο XML"
 
-#: backends/xml-entry.c:1203
+#: backends/xml-entry.c:1204
 msgid "Missing car from pair of values in XML file"
 msgstr "Λείπει το car από το ζεύγος τιμών στο αρχείο XML"
 
-#: backends/xml-entry.c:1208
+#: backends/xml-entry.c:1209
 msgid "Missing both car and cdr values from pair in XML file"
 msgstr "Λείπουν οι τιμές των car και cdr από το ζεύγος στο αρχείο XML"
 
@@ -338,12 +338,12 @@ msgid "Failed to shut down backend"
 msgstr "Αδυναμία κλεισίματος της υποστήριξης (backend)"
 
 # gconf/gconfd.c:511
-#: gconf/gconf-database.c:233
+#: gconf/gconf-database.c:231
 msgid "Received invalid value in set request"
 msgstr "Λήφθηκε άκυρη τιμή στην αίτηση καταχώρησης"
 
 # gconf/gconfd.c:519
-#: gconf/gconf-database.c:241
+#: gconf/gconf-database.c:239
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
 msgstr ""
@@ -351,23 +351,23 @@ msgstr ""
 "για το κλειδί `%s"
 
 # gconf/gconfd.c:802
-#: gconf/gconf-database.c:521
+#: gconf/gconf-database.c:517
 msgid "Received request to drop all cached data"
 msgstr "Λήφθηκε αίτηση απόρριψης όλων των ενταμιευμένων δεδομένων"
 
 # gconf/gconfd.c:822
-#: gconf/gconf-database.c:538
+#: gconf/gconf-database.c:534
 msgid "Received request to sync synchronously"
 msgstr "Λήφθηκε αίτηση για σύγχρονο συγχρονισμό"
 
 # gconf/gconfd.c:1056
-#: gconf/gconf-database.c:605
+#: gconf/gconf-database.c:601
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
 msgstr ""
 "Μοιραίο σφάλμα: αποτυχία λήψης αναφοράς αντικειμένου για το ConfigDatabase"
 
 # gconf/gconfd.c:1194
-#: gconf/gconf-database.c:764
+#: gconf/gconf-database.c:760
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Αποτυχία συγχρονισμού μίας ή περισσοτέρων πηγών: %s"
@@ -387,12 +387,12 @@ msgstr ""
 "διατηρηθεί η κατάσταση αυτού του ακροατή κατά τυχούσα επανεκκίνηση του "
 "gconfd, έχοντας ως αποτέλεσμα την αναξιόπιστη γνωστοποίηση αλλαγών ρυθμίσεων."
 
-#: gconf/gconf-database.c:871
+#: gconf/gconf-database.c:873
 #, c-format
 msgid "Listener ID %lu doesn't exist"
 msgstr "Δεν υπάρχει η ταυτότητα ακροατή %lu"
 
-#: gconf/gconf-database.c:880
+#: gconf/gconf-database.c:882
 #, c-format
 msgid ""
 "Failed to log removal of listener to logfile (most likely harmless, may "
@@ -403,55 +403,55 @@ msgstr ""
 "γνωστοποίησης): %s"
 
 # gconf/gconfd.c:1523
-#: gconf/gconf-database.c:992 gconf/gconf-sources.c:1281
+#: gconf/gconf-database.c:997 gconf/gconf-sources.c:1281
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Σφάλμα κατά τη λήψη τιμής για `%s': %s"
 
 # gconf/gconfd.c:1561
-#: gconf/gconf-database.c:1039
+#: gconf/gconf-database.c:1044
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Σφάλμα κατά την ανάθεση τιμής για `%s': %s"
 
 # gconf/gconfd.c:1593
-#: gconf/gconf-database.c:1082
+#: gconf/gconf-database.c:1087
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Σφάλμα διαγραφής `%s': %s"
 
 # gconf/gconfd.c:1614
-#: gconf/gconf-database.c:1106
+#: gconf/gconf-database.c:1111
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Σφάλμα κατά τη λήψη εξ ορισμού τιμής για `%s': %s"
 
 # gconf/gconfd.c:1652
-#: gconf/gconf-database.c:1145
+#: gconf/gconf-database.c:1151
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Σφάλμα ελέγχου ύπαρξης `%s': %s"
 
 # gconf/gconfd.c:1676
-#: gconf/gconf-database.c:1169
+#: gconf/gconf-database.c:1175
 #, c-format
 msgid "Error removing dir `%s': %s"
 msgstr "Σφάλμα αφαίρεσης καταλόγου `%s': %s"
 
 # gconf/gconfd.c:1701
-#: gconf/gconf-database.c:1195
+#: gconf/gconf-database.c:1202
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Αποτυχία λήψης όλων των εγγραφών στο `%s': %s"
 
 # gconf/gconfd.c:1725
-#: gconf/gconf-database.c:1221
+#: gconf/gconf-database.c:1228
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Σφάλμα απαρίθμησης καταλόγων στο `%s': %s"
 
 # gconf/gconfd.c:1745
-#: gconf/gconf-database.c:1242
+#: gconf/gconf-database.c:1249
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Σφάλμα ανάθεσης σχήματος για `%s': %s"
@@ -611,7 +611,7 @@ msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Το παρατιθέμενο αλφαριθμητικό δεν τελειώνει με εισαγωγικό σημείο"
 
 # gconf/gconf-internals.c:2105 gconf/gconf.c:2607
-#: gconf/gconf-internals.c:2158 gconf/gconf.c:2945
+#: gconf/gconf-internals.c:2158 gconf/gconf.c:2999
 #, c-format
 msgid "CORBA error: %s"
 msgstr "Σφάλμα CORBA: %s"
@@ -863,19 +863,19 @@ msgid "Server couldn't resolve the address `%s'"
 msgstr "Ο εξυπηρέτης δεν μπόρεσε να αναλύσει τη διεύθυνση `%s'"
 
 # gconf/gconf.c:391
-#: gconf/gconf.c:568
+#: gconf/gconf.c:571
 msgid "Can't add notifications to a local configuration source"
 msgstr "Αδύνατη η πρόσθεση ειδοποιήσεων σε ένα τοπικό πηγαίο διαμόρφωσης"
 
 # gconf/gconf.c:1449
-#: gconf/gconf.c:1724
+#: gconf/gconf.c:1778
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
 msgstr ""
 "Η προσθήκη του πελάτη στη λίστα του εξυπηρετητή απέτυχε, σφάλμα CORBA: %s"
 
 # gconf/gconf.c:1463
-#: gconf/gconf.c:1740
+#: gconf/gconf.c:1794
 msgid ""
 "Error contacting configuration server: OAF returned nil from "
 "oaf_activate_from_id() and did not set an exception explaining the problem. "
@@ -886,68 +886,68 @@ msgstr ""
 "πρόβλημα. Παρακαλώ στείλτε μια αναφορά σφάλματος OAF"
 
 # gconf-editor/gconf-editor.c:69 gconf/gconftool.c:447
-#: gconf/gconf.c:2051
+#: gconf/gconf.c:2105
 msgid "Failed to init GConf, exiting\n"
 msgstr "Αποτυχία αρχικοποίησης GConf, τερματισμός\n"
 
 # gconf/gconf.c:1689
-#: gconf/gconf.c:2088
+#: gconf/gconf.c:2142
 msgid "Must begin with a slash (/)"
 msgstr "Πρέπει να αρχίζει με μια κάθετο (/)"
 
 # gconf/gconf.c:1711
-#: gconf/gconf.c:2110
+#: gconf/gconf.c:2164
 msgid "Can't have two slashes (/) in a row"
 msgstr "Δε γίνεται να υπάρχουν δύο κάθετοι (/) στη σειρά"
 
 # gconf/gconf.c:1713
-#: gconf/gconf.c:2112
+#: gconf/gconf.c:2166
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Δε γίνεται να υπάρχει μια τελεία (.) αμέσως μετά από μία κάθετο (/)"
 
 # gconf/gconf.c:1734
-#: gconf/gconf.c:2133
+#: gconf/gconf.c:2187
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' δεν είναι έγκυρος χαρακτήρας σε ονόματα κλειδιών/καταλόγων"
 
 # gconf/gconf.c:1748
-#: gconf/gconf.c:2147
+#: gconf/gconf.c:2201
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Το κλειδί/κατάλογος δεν μπορεί να τελειώνει με κάθετο (/)"
 
 # gconf/gconf.c:2079
-#: gconf/gconf.c:2400
+#: gconf/gconf.c:2454
 #, c-format
 msgid "Failure shutting down config server: %s"
 msgstr "Αδύνατο το κλείσιμο του εξυπηρέτη διαμόρφωσης: %s"
 
 # gconf/gconf.c:2140
-#: gconf/gconf.c:2461
+#: gconf/gconf.c:2515
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Αναμενόταν αριθμός κινητής υποδιαστολής, λήφθηκε %s"
 
 # gconf/gconf.c:2175
-#: gconf/gconf.c:2496
+#: gconf/gconf.c:2550
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Αναμενόταν ακέραιος, λήφθηκε %s"
 
 # gconf/gconf.c:2210
-#: gconf/gconf.c:2531
+#: gconf/gconf.c:2585
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Αναμενόταν αλφαριθμητικό, λήφθηκε %s"
 
 # gconf/gconf.c:2247
-#: gconf/gconf.c:2568
+#: gconf/gconf.c:2622
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Αναμενόταν δυαδική τιμή, λήφθηκε %s"
 
 # gconf/gconf.c:2280
-#: gconf/gconf.c:2601
+#: gconf/gconf.c:2655
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Αναμενόταν σχήμα, λήφθηκε %s"
@@ -1032,18 +1032,13 @@ msgstr "Λήφθηκε σήμα %d, ομαλό κλείσιμο"
 # gconf/gconfd.c:1013
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:457
+#: gconf/gconfd.c:504
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "εκκινείται (έκδοση %s), ταυτ. διεργ. %u χρήστης `%s'"
 
-#: gconf/gconfd.c:461
-msgid "GConf was built with debugging features enabled"
-msgstr ""
-"Το GConf μεταγλωττίστηκε με τα χαρακτηριστικά εκσφαλμάτωσης ενεργοποιημένα"
-
 # gconf/gconfd.c:1036
-#: gconf/gconfd.c:484
+#: gconf/gconfd.c:531
 msgid ""
 "Failed to init Object Activation Framework: please mail bug report to OAF "
 "maintainers"
@@ -1052,12 +1047,12 @@ msgstr ""
 "στείλετε αναφορά προβλήματος στους συντηρητές του ΠΕΑ (OAF)"
 
 # gconf/gconfd.c:1056
-#: gconf/gconfd.c:504
+#: gconf/gconfd.c:551
 msgid "Failed to get object reference for ConfigServer"
 msgstr "Αδύνατη η λήψη αναφοράς αντικειμένου για τον Εξυπηρέτη Διαμόρφωσης"
 
 # gconf/gconfd.c:1075
-#: gconf/gconfd.c:524
+#: gconf/gconfd.c:571
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register; exiting\n"
@@ -1066,32 +1061,32 @@ msgstr ""
 "κλείσιμο\n"
 
 # gconf/gconfd.c:1079
-#: gconf/gconfd.c:528
+#: gconf/gconfd.c:575
 msgid "Another gconfd already registered with OAF; exiting\n"
 msgstr "Ένα άλλο gconfd είναι ήδη καταχωρημένο στο ΠΕΑ (OAF)· κλείσιμο\n"
 
 # gconf/gconfd.c:1084
-#: gconf/gconfd.c:533
+#: gconf/gconfd.c:580
 msgid "Unknown error registering gconfd with OAF; exiting\n"
 msgstr "Άγνωστο λάθος καταχώρησης του gconfd στο ΠΕΑ (OAF)· κλείσιμο\n"
 
 # gconf/gconfd.c:1100
-#: gconf/gconfd.c:571
+#: gconf/gconfd.c:618
 msgid "Exiting"
 msgstr "Κλείσιμο"
 
 # gconf/gconfd.c:955 gconf/gconfd.c:967
-#: gconf/gconfd.c:595
+#: gconf/gconfd.c:643
 msgid "GConf server is not in use, shutting down."
 msgstr "Ο εξυπηρετητής GConf δεν είναι σε χρήση, τερματισμός."
 
 # gconf/gconfd.c:2115
-#: gconf/gconfd.c:930
+#: gconf/gconfd.c:1002
 #, c-format
 msgid "Returning exception: %s"
 msgstr "Επιστρέφεται εξαίρεση: %s"
 
-#: gconf/gconfd.c:1018
+#: gconf/gconfd.c:1102
 #, c-format
 msgid ""
 "Failed to open gconfd logfile; won't be able to restore listeners after "
@@ -1100,7 +1095,7 @@ msgstr ""
 "Αποτυχία ανοίγματος του αρχείου καταγραφών του gconfd. Δεν θα είναι δυνατόν "
 "να αποκατασταθούν οι ακροατές μετά από επανεκκίνηση του gconfd (%s)"
 
-#: gconf/gconfd.c:1041
+#: gconf/gconfd.c:1137
 #, c-format
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
@@ -1109,14 +1104,14 @@ msgstr ""
 "πιθανό να μην έχουν αποθηκευτεί σωστά (%s)"
 
 # gconf/gconf-internals.c:789
-#: gconf/gconfd.c:1104
+#: gconf/gconfd.c:1206
 #, c-format
 msgid "Could not open saved state file '%s' for writing: %s"
 msgstr ""
 "Αδύνατο το άνοιγμα αποθηκευμένου αρχείου κατάστασης `%s' για εγγραφή: %s"
 
 # gconf/gconf-internals.c:2404
-#: gconf/gconfd.c:1118
+#: gconf/gconfd.c:1220
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr ""
@@ -1124,13 +1119,13 @@ msgstr ""
 "%s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1127
+#: gconf/gconfd.c:1229
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
 msgstr "Αποτυχία κλεισίματος νέου αποθηκευμένου αρχείου κατάστασης `%s': %s"
 
 # gconf/gconf-internals.c:789
-#: gconf/gconfd.c:1141
+#: gconf/gconfd.c:1243
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr ""
@@ -1138,12 +1133,12 @@ msgstr ""
 "`%s': %s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1151
+#: gconf/gconfd.c:1253
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr "Αδύνατη η μεταφορά νέου αποθηκευμένου αρχείου κατάστασης στη θέση: %s"
 
-#: gconf/gconfd.c:1160
+#: gconf/gconfd.c:1262
 #, c-format
 msgid ""
 "Failed to restore original saved state file that had been moved to '%s': %s"
@@ -1151,7 +1146,7 @@ msgstr ""
 "Αποτυχία αποκατάστασης του γνήσιου αποθηκευμένου αρχείου κατάστασης που "
 "μετακινήθηκε στο '%s': %s"
 
-#: gconf/gconfd.c:1633
+#: gconf/gconfd.c:1737
 #, c-format
 msgid ""
 "Unable to restore a listener on address '%s', couldn't resolve the database"
@@ -1160,18 +1155,18 @@ msgstr ""
 "της βάσης δεδομένων"
 
 # gconf/gconfd.c:1676
-#: gconf/gconfd.c:1679
+#: gconf/gconfd.c:1783
 #, c-format
 msgid "Error reading saved state file: %s"
 msgstr "Σφάλμα ανάγνωσης αποθηκευμένου αρχείου κατάστασης: %s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1732
+#: gconf/gconfd.c:1836
 #, c-format
 msgid "Unable to open saved state file '%s': %s"
 msgstr "Αδύνατο το άνοιγμα αρχείου αποθηκευμένης κατάστασης `%s': %s"
 
-#: gconf/gconfd.c:1849
+#: gconf/gconfd.c:1953
 #, c-format
 msgid ""
 "Failed to log addition of listener to gconfd logfile; won't be able to "
@@ -1181,7 +1176,7 @@ msgstr ""
 "Δε θα είναι δυνατό να επαναπροστεθεί ο ακροατής αν το gconfd τερματίσει ή "
 "τερματιστεί (%s)"
 
-#: gconf/gconfd.c:1854
+#: gconf/gconfd.c:1958
 #, c-format
 msgid ""
 "Failed to log removal of listener to gconfd logfile; might erroneously "
@@ -1192,55 +1187,55 @@ msgstr ""
 "ή τερματιστεί (%s)"
 
 # gconf/gconftool.c:881
-#: gconf/gconfd.c:1877 gconf/gconfd.c:2038
+#: gconf/gconfd.c:1981 gconf/gconfd.c:2146
 #, c-format
 msgid "Failed to get IOR for client: %s"
 msgstr "Αποτυχία λήψης IOR για το πελάτη: %s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1892
+#: gconf/gconfd.c:1996
 #, c-format
 msgid "Failed to open saved state file: %s"
 msgstr "Αποτυχία άνοιγματος αρχείου αποθηκευμένης κατάστασης: %s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1905
+#: gconf/gconfd.c:2009
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr ""
 "Αποτυχία εγγραφής προσθήκης πελάτη στο αρχείο αποθηκευμένσης κατάστασης: %s"
 
 # gconf/gconf-internals.c:2416
-#: gconf/gconfd.c:1913
+#: gconf/gconfd.c:2017
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr ""
 "Αποτυχία ολοκλήρωσης προσθήκης πελάτη στο αρχείο αποθηκευμένσης κατάστασης: "
 "%s"
 
-#: gconf/gconfd.c:1999
+#: gconf/gconfd.c:2107
 msgid ""
 "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
 "Κάποιος πελάτης διεγράφτηκε από τον εξυπηρετητή GConf ενώ δεν είχε προστεθεί."
 
 # gconf/gconftool.c:73
-#: gconf/gconftool.c:62
+#: gconf/gconftool.c:63
 msgid "Help options"
 msgstr "Επιλογές βοήθειας"
 
 # gconf/gconftool.c:82
-#: gconf/gconftool.c:71
+#: gconf/gconftool.c:72
 msgid "Set a key to a value and sync. Use with --type."
 msgstr "Ανάθεση μιας τιμής σε ένα κλειδί και συγχρονισμός. Χρήση με --type."
 
 # gconf/gconftool.c:91
-#: gconf/gconftool.c:80
+#: gconf/gconftool.c:81
 msgid "Print the value of a key to standard output."
 msgstr "Εκτύπωση της τιμής ενός κλειδιού στην κανονική  έξοδο"
 
 # gconf/gconftool.c:100
-#: gconf/gconftool.c:89
+#: gconf/gconftool.c:90
 msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
 "--type."
@@ -1249,44 +1244,44 @@ msgstr ""
 "--owner, και --type."
 
 # gconf/gconftool.c:110
-#: gconf/gconftool.c:99
+#: gconf/gconftool.c:100
 msgid "Unset the keys on the command line"
 msgstr "Αποκαταχώρηση κλειδιών στη γραμμή εντολών"
 
 # gconf/gconftool.c:119
-#: gconf/gconftool.c:108
+#: gconf/gconftool.c:109
 msgid "Print all key/value pairs in a directory."
 msgstr "Εκτύπωση όλων των ζευγών κλειδιών/τιμών σε ένα κατάλογο."
 
 # gconf/gconftool.c:128
-#: gconf/gconftool.c:117
+#: gconf/gconftool.c:118
 msgid "Print all subdirectories in a directory."
 msgstr "Εκτύπωση όλων των υποκαταλόγων κάτω από ένα κατάλογο."
 
 # gconf/gconftool.c:137
-#: gconf/gconftool.c:126
+#: gconf/gconftool.c:127
 msgid "Print all subdirectories and entries under a dir, recursively."
 msgstr ""
 "Εκτύπωση όλων των υποκαταλόγων και εγγραφών κάτω από ένα κατάλογο, "
 "αναδρομικά."
 
 # gconf/gconftool.c:146
-#: gconf/gconftool.c:135
+#: gconf/gconftool.c:136
 msgid "Return 0 if the directory exists, 2 if it does not."
 msgstr "Επιστρέφει 0 αν ο κατάλογος υπάρχει, 2 αν δεν υπάρχει."
 
 # gconf/gconftool.c:155
-#: gconf/gconftool.c:144
+#: gconf/gconftool.c:145
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
 msgstr "Κλείσιμο gconfd. ΜΗ ΧΡΗΣΙΜΟΠΟΙΕΙΤΕ ΑΥΤΗΝ ΤΗΝ ΕΠΙΛΟΓΗ ΑΣΚΟΠΑ."
 
 # gconf/gconftool.c:164
-#: gconf/gconftool.c:153
+#: gconf/gconftool.c:154
 msgid "Return 0 if gconfd is running, 2 if not."
 msgstr "Επιστρέφει 0 αν το gconfd εκτελείται, 2 αν όχι"
 
 # gconf/gconftool.c:173
-#: gconf/gconftool.c:162
+#: gconf/gconftool.c:163
 msgid ""
 "Launch the config server (gconfd). (Normally happens automatically when "
 "needed.)"
@@ -1295,7 +1290,7 @@ msgstr ""
 "αυτόματα όταν χρειάζεται)."
 
 # gconf/gconftool.c:182
-#: gconf/gconftool.c:171
+#: gconf/gconftool.c:172
 msgid ""
 "Specify the type of the value being set, or the type of the value a schema "
 "describes. Unique abbreviations OK."
@@ -1304,12 +1299,12 @@ msgstr ""
 "περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις OK."
 
 # gconf/gconftool.c:183
-#: gconf/gconftool.c:172
+#: gconf/gconftool.c:173
 msgid "int|bool|float|string|list|pair"
 msgstr "ακέραιος|δυαδικός|κινητής υποδιαστολής|αλφαριθμητικό|λίστα|ζεύγος"
 
 # gconf/gconftool.c:182
-#: gconf/gconftool.c:180
+#: gconf/gconftool.c:181
 msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1318,12 +1313,12 @@ msgstr ""
 "τιμής που περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
 
 # gconf/gconftool.c:183
-#: gconf/gconftool.c:181 gconf/gconftool.c:190 gconf/gconftool.c:199
+#: gconf/gconftool.c:182 gconf/gconftool.c:191 gconf/gconftool.c:200
 msgid "int|bool|float|string"
 msgstr "ακέραιος|δυαδικός|κινητής υποδιαστολής|αλφαριθμητικό"
 
 # gconf/gconftool.c:182
-#: gconf/gconftool.c:189
+#: gconf/gconftool.c:190
 msgid ""
 "Specify the type of the car pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1332,7 +1327,7 @@ msgstr ""
 "περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
 
 # gconf/gconftool.c:182
-#: gconf/gconftool.c:198
+#: gconf/gconftool.c:199
 msgid ""
 "Specify the type of the cdr pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1341,53 +1336,53 @@ msgstr ""
 "περιγράφει ένα σχήμα. Μονοσήμαντες συντομεύσεις είναι εντάξει."
 
 # gconf/gconftool.c:191
-#: gconf/gconftool.c:207
+#: gconf/gconftool.c:208
 msgid "Specify a short half-line description to go in a schema."
 msgstr "Καθορίστε μια μικρή περιγραφή μισής γραμμής για ένα σχήμα."
 
 # gconf/gconftool.c:192 gconf/gconftool.c:201
-#: gconf/gconftool.c:208 gconf/gconftool.c:217
+#: gconf/gconftool.c:209 gconf/gconftool.c:218
 msgid "DESCRIPTION"
 msgstr "ΠΕΡΙΓΡΑΦΗ"
 
 # gconf/gconftool.c:200
-#: gconf/gconftool.c:216
+#: gconf/gconftool.c:217
 msgid "Specify a several-line description to go in a schema."
 msgstr "Καθορίστε μια περιγραφή αρκετών γραμμών για ένα σχήμα."
 
 # gconf/gconftool.c:209
-#: gconf/gconftool.c:225
+#: gconf/gconftool.c:226
 msgid "Specify the owner of a schema"
 msgstr "Καθορίστε τον ιδιοκτήτη ενός σχήματος"
 
 # gconf/gconftool.c:210
-#: gconf/gconftool.c:226
+#: gconf/gconftool.c:227
 msgid "OWNER"
 msgstr "ΙΔΙΟΚΤΗΤΗΣ"
 
 # gconf/gconftool.c:218
-#: gconf/gconftool.c:234
+#: gconf/gconftool.c:235
 msgid "Specify a schema file to be installed"
 msgstr "Καθορίστε ένα σχήμα προς εγκατάσταση"
 
 # gconf/gconftool.c:219
-#: gconf/gconftool.c:235
+#: gconf/gconftool.c:236
 msgid "FILENAME"
 msgstr "ΟΝΟΜΑ ΑΡΧΕΙΟΥ"
 
 # gconf/gconftool.c:227
-#: gconf/gconftool.c:243
+#: gconf/gconftool.c:244
 msgid "Specify a configuration source to use rather than the default path"
 msgstr ""
 "Καθορίστε μια πηγαία διαμόρφωση προς χρήση αντί για την εξ ορισμού διαδρομή"
 
 # gconf/gconftool.c:228
-#: gconf/gconftool.c:244
+#: gconf/gconftool.c:245
 msgid "SOURCE"
 msgstr "ΠΗΓΗ"
 
 # gconf/gconftool.c:236
-#: gconf/gconftool.c:252
+#: gconf/gconftool.c:253
 msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
@@ -1396,7 +1391,7 @@ msgstr ""
 "εξυπηρέτη. Απαιτείται ότι το gconfd δεν εκτελείται."
 
 # gconf/gconftool.c:245
-#: gconf/gconftool.c:261
+#: gconf/gconftool.c:262
 msgid ""
 "Properly installs schema files on the command line into the database. "
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
@@ -1408,7 +1403,7 @@ msgstr ""
 "εξ ορισμού."
 
 # gconf/gconftool.c:254
-#: gconf/gconftool.c:270
+#: gconf/gconftool.c:271
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of values of "
 "different types for keys on the command line."
@@ -1417,7 +1412,7 @@ msgstr ""
 "διαφορετικών τύπων για κλειδιά στη γραμμή εντολών."
 
 # gconf/gconftool.c:263
-#: gconf/gconftool.c:279
+#: gconf/gconftool.c:280
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of keys inside "
 "the directories on the command line."
@@ -1426,7 +1421,7 @@ msgstr ""
 "μέσα στους καταλόγους στη γραμμή εντολών."
 
 # gconf/gconftool.c:310
-#: gconf/gconftool.c:326
+#: gconf/gconftool.c:327
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -1437,27 +1432,27 @@ msgstr ""
 "εντολών.\n"
 
 # gconf/gconftool.c:322
-#: gconf/gconftool.c:338
+#: gconf/gconftool.c:339
 msgid "Can't get and set/unset simultaneously\n"
 msgstr "Αδύνατη η ταυτόχρονη λήψη και η ανάθεση/αφαίρεση\n"
 
 # gconf/gconftool.c:329
-#: gconf/gconftool.c:345
+#: gconf/gconftool.c:346
 msgid "Can't set and get/unset simultaneously\n"
 msgstr "Αδύνατη η ταυτόχρονη ανάθεση και η λήψη/αφαίρεση\n"
 
 # gconf/gconftool.c:337
-#: gconf/gconftool.c:353
+#: gconf/gconftool.c:354
 msgid "Can't use --all-pairs with --get or --set\n"
 msgstr "Αδύνατη η χρήση της --all-pairs με τις --get ή --set\n"
 
 # gconf/gconftool.c:345
-#: gconf/gconftool.c:361
+#: gconf/gconftool.c:362
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "Αδύνατη η χρήση της --all-dirs με τις --get ή --set\n"
 
 # gconf/gconftool.c:355
-#: gconf/gconftool.c:371
+#: gconf/gconftool.c:372
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-pairs, "
 "or --all-dirs\n"
@@ -1466,7 +1461,7 @@ msgstr ""
 "--set, --unset, --all-pairs, ή --all-dirs\n"
 
 # gconf/gconftool.c:365
-#: gconf/gconftool.c:381
+#: gconf/gconftool.c:382
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-pairs, "
 "--all-dirs\n"
@@ -1475,48 +1470,48 @@ msgstr ""
 "--all-pairs, ή --all-dirs\n"
 
 # gconf/gconftool.c:371
-#: gconf/gconftool.c:387
+#: gconf/gconftool.c:388
 msgid "Value type is only relevant when setting a value\n"
 msgstr "Ο τύπος τιμής είναι σχετικός μόνο κατά την ανάθεση μιας τιμής\n"
 
 # gconf/gconftool.c:377
-#: gconf/gconftool.c:393
+#: gconf/gconftool.c:394
 msgid "Must specify a type when setting a value\n"
 msgstr "Πρέπει να καθορίζεται ένας τύπος όταν τίθεται μια τιμή\n"
 
 # gconf/gconftool.c:386
-#: gconf/gconftool.c:402
+#: gconf/gconftool.c:403
 msgid "Ping option must be used by itself.\n"
 msgstr "Η επιλογή ανίχνευσης (ping) πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:395
-#: gconf/gconftool.c:411
+#: gconf/gconftool.c:412
 msgid "--dir-exists option must be used by itself.\n"
 msgstr "Η επιλογή --dir-exists πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:404
-#: gconf/gconftool.c:420
+#: gconf/gconftool.c:421
 msgid "--install-schema-file must be used by itself.\n"
 msgstr "Η επιλογή --install-schema-file πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:414
-#: gconf/gconftool.c:430
+#: gconf/gconftool.c:431
 msgid "--makefile-install-rule must be used by itself.\n"
 msgstr ""
 "Η επιλογή --makefile-install-rule πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:424
-#: gconf/gconftool.c:440
+#: gconf/gconftool.c:441
 msgid "--break-key must be used by itself.\n"
 msgstr "Η επιλογή --break-key πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:434
-#: gconf/gconftool.c:450
+#: gconf/gconftool.c:451
 msgid "--break-directory must be used by itself.\n"
 msgstr "Η επιλογή --break-directory πρέπει να χρησιμοποιείται μόνη της.\n"
 
 # gconf/gconftool.c:441
-#: gconf/gconftool.c:457
+#: gconf/gconftool.c:458
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
@@ -1524,13 +1519,13 @@ msgstr ""
 "χρησιμοποιείτε την --direct\n"
 
 # gconf-editor/gconf-editor.c:69 gconf/gconftool.c:447
-#: gconf/gconftool.c:463
+#: gconf/gconftool.c:464
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Αποτυχία αρχικοποίησης GConf: %s\n"
 
 # gconf/gconftool.c:472
-#: gconf/gconftool.c:488
+#: gconf/gconftool.c:489
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "Πρέπει να τεθεί η μεταβλητή περιβάλλοντος GCONF_CONFIG_SOURCE\n"
 
@@ -1538,7 +1533,7 @@ msgstr "Πρέπει να τεθεί η μεταβλητή περιβάλλοντος GCONF_CONFIG_SOURCE\n"
 #. Eventually you should be able to run gconfd as long as
 #. you're installing to a different database from the one
 #. it's using, but I don't trust the locking right now.
-#: gconf/gconftool.c:503
+#: gconf/gconftool.c:504
 msgid ""
 "Shouldn't run gconfd while installing new schema files.\n"
 "Use gconftool --shutdown to shut down the daemon, most safely while no "
@@ -1552,227 +1547,227 @@ msgstr ""
 "(αν και θεωρητικά θα έπρεπε να δουλέψει αν εκτελούνται εφαρμογές).\n"
 
 # gconf/gconftool.c:510
-#: gconf/gconftool.c:525
+#: gconf/gconftool.c:526
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
 msgstr "Αποτυχία πρόσβασης στην(ις) πηγή(ές) διαμόρφωσης: %s\n"
 
 # gconf/gconftool.c:670
-#: gconf/gconftool.c:685
+#: gconf/gconftool.c:686
 #, c-format
 msgid "Shutdown error: %s\n"
 msgstr "Σφάλμα κλεισίματος: %s\n"
 
 # gconf/gconftool.c:715
-#: gconf/gconftool.c:730
+#: gconf/gconftool.c:729
 msgid "Must specify one or more dirs to recursively list.\n"
 msgstr ""
 "Πρέπει να καθοριστεί ένας ή περισσότεροι κατάλογοι για αναδρομική "
 "απαρίθμηση.\n"
 
 # gconf/gconftool.c:749
-#: gconf/gconftool.c:764
+#: gconf/gconftool.c:763
 #, c-format
 msgid "Failure listing pairs in `%s': %s"
 msgstr "Αποτυχία απαρίθμησης ζευγών στο `%s': %s"
 
 # gconf/gconftool.c:767
-#: gconf/gconftool.c:782
+#: gconf/gconftool.c:781
 msgid "(no value set)"
 msgstr "(δεν έχει τεθεί τιμή)"
 
 # gconf/gconftool.c:820
-#: gconf/gconftool.c:837
+#: gconf/gconftool.c:836
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "Αποτυχία πολλαπλασιασμού εξυπηρέτη διαμόρφωσης: %s\n"
 
 # gconf/gconftool.c:834
-#: gconf/gconftool.c:851
+#: gconf/gconftool.c:850
 msgid "Must specify a key or keys to get\n"
 msgstr "Πρέπει να καθοριστεί ένα κλειδί ή κλειδιά για λήψη\n"
 
 # gconf/gconftool.c:865
-#: gconf/gconftool.c:886
+#: gconf/gconftool.c:885
 #, c-format
 msgid "Type: %s\n"
 msgstr "Τύπος: %s\n"
 
 # gconf/gconftool.c:865
-#: gconf/gconftool.c:887
+#: gconf/gconftool.c:886
 #, c-format
 msgid "List Type: %s\n"
 msgstr "Είδος Λίστας: %s\n"
 
 # gconf/gconftool.c:865
-#: gconf/gconftool.c:888
+#: gconf/gconftool.c:887
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Είδος Car: %s\n"
 
 # gconf/gconftool.c:865
-#: gconf/gconftool.c:889
+#: gconf/gconftool.c:888
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Είδος Cdr: %s\n"
 
-#: gconf/gconftool.c:894
+#: gconf/gconftool.c:893
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "Εξ' ορισμού Τιμή: %s\n"
 
 # gconf/gconftool.c:866 gconf/gconftool.c:867 gconf/gconftool.c:868
-#: gconf/gconftool.c:894 gconf/gconftool.c:896 gconf/gconftool.c:897
-#: gconf/gconftool.c:898
+#: gconf/gconftool.c:893 gconf/gconftool.c:895 gconf/gconftool.c:896
+#: gconf/gconftool.c:897
 msgid "Unset"
 msgstr "Αφαίρεση"
 
 # gconf/gconftool.c:866
-#: gconf/gconftool.c:896
+#: gconf/gconftool.c:895
 #, c-format
 msgid "Owner: %s\n"
 msgstr "Ιδιοκτήτης: %s\n"
 
 # gconf/gconftool.c:867
-#: gconf/gconftool.c:897
+#: gconf/gconftool.c:896
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "Σύντομη Περιγραφή: %s\n"
 
 # gconf/gconftool.c:868
-#: gconf/gconftool.c:898
+#: gconf/gconftool.c:897
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "Μακρά Περιγραφή: %s\n"
 
 # gconf/gconftool.c:877
-#: gconf/gconftool.c:907
+#: gconf/gconftool.c:906
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "Δεν έχει τεθεί τιμή για `%s'\n"
 
 # gconf/gconftool.c:881
-#: gconf/gconftool.c:911
+#: gconf/gconftool.c:910
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "Αποτυχία λήψης τιμής για `%s': %s\n"
 
 # gconf/gconftool.c:940 gconf/gconftool.c:1052 gconf/gconftool.c:1056
-#: gconf/gconftool.c:954 gconf/gconftool.c:966
+#: gconf/gconftool.c:953 gconf/gconftool.c:965
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "Δεν είναι κατανοητός ο τύπος `%s'\n"
 
 # gconf/gconftool.c:900
-#: gconf/gconftool.c:978
+#: gconf/gconftool.c:977
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "Πρέπει να καθοριστούν εναλλασσόμενα κλειδιά/τιμές ως ορίσματα\n"
 
 # gconf/gconftool.c:917
-#: gconf/gconftool.c:998
+#: gconf/gconftool.c:997
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "Δεν έχει τεθεί τιμή για το κλειδί: `%s'\n"
 
-#: gconf/gconftool.c:1026
+#: gconf/gconftool.c:1025
 msgid "Cannot set schema as value\n"
 msgstr "Αδύνατος ο ορισμός σχήματος ως τιμή\n"
 
-#: gconf/gconftool.c:1036
+#: gconf/gconftool.c:1035
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Όταν ορίζετε λίστα πρέπει να καθορίζετε και το είδος της\n"
 
-#: gconf/gconftool.c:1050
+#: gconf/gconftool.c:1049
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Όταν ορίζετε ζεύγος πρέπει να καθορίζετε τα είδη των car και cdr\n"
 
 # gconf/gconftool.c:951
-#: gconf/gconftool.c:1065
+#: gconf/gconftool.c:1064
 #, c-format
 msgid "Error: %s\n"
 msgstr "Σφάλμα: %s\n"
 
 # gconf/gconftool.c:964 gconf/gconftool.c:1070
-#: gconf/gconftool.c:1078 gconf/gconftool.c:1211
+#: gconf/gconftool.c:1077 gconf/gconftool.c:1210
 #, c-format
 msgid "Error setting value: %s"
 msgstr "Σφάλμα κατά την ανάθεση τιμής: %s"
 
 # gconf/gconftool.c:982 gconf/gconftool.c:1084
-#: gconf/gconftool.c:1096 gconf/gconftool.c:1225
+#: gconf/gconftool.c:1095 gconf/gconftool.c:1224
 #, c-format
 msgid "Error syncing: %s"
 msgstr "Σφάλμα στο συγχρονισμό: %s"
 
 # gconf/gconftool.c:1000
-#: gconf/gconftool.c:1114
+#: gconf/gconftool.c:1113
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "Πρέπει να καθοριστεί κλειδί (όνομα σχήματος) ως μοναδικό όρισμα\n"
 
-#: gconf/gconftool.c:1156
+#: gconf/gconftool.c:1155
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Το είδος λίστας πρέπει να είναι πρωταρχικός τύπος δεδομένου: αλφαριθμητικό, "
 "ακέραιος, κιν. υποδιαστολής ή δυαδικός\n"
 
-#: gconf/gconftool.c:1176
+#: gconf/gconftool.c:1175
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Το είδος ζεύγους car πρέπει να είναι πρωταρχικός τύπος δεδομένου: "
 "αλφαριθμητικό, ακέραιος, κιν. υποδιαστολής ή δυαδικός\n"
 
-#: gconf/gconftool.c:1196
+#: gconf/gconftool.c:1195
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr ""
 "Το είδος ζεύγους cdr πρέπει να είναι πρωταρχικός τύπος δεδομένου: "
 "αλφαριθμητικό, ακέραιος, κιν. υποδιαστολής ή δυαδικός\n"
 
 # gconf/gconftool.c:1099
-#: gconf/gconftool.c:1240
+#: gconf/gconftool.c:1239
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
 "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι από όπου να ληφθούν τα "
 "ζεύγη κλειδιών/τιμών.\n"
 
 # gconf/gconftool.c:1113
-#: gconf/gconftool.c:1254
+#: gconf/gconftool.c:1253
 msgid "Must specify one or more keys to unset.\n"
 msgstr "Πρέπει να καθοριστούν ένα ή περισσότερα κλειδιά προς αφαίρεση.\n"
 
 # gconf/gconftool.c:1124
-#: gconf/gconftool.c:1265
+#: gconf/gconftool.c:1264
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "Σφάλμα στην αφαίρεση `%s': %s\n"
 
 # gconf/gconftool.c:1147
-#: gconf/gconftool.c:1288
+#: gconf/gconftool.c:1287
 msgid "Must specify one or more dirs to get subdirs from.\n"
 msgstr ""
 "Πρέπει να καθοριστούν ένας ή περισσότεροι κατάλογοι από όπου να ληφθούν οι "
 "υποκατάλογοι.\n"
 
 # gconf/gconftool.c:1181
-#: gconf/gconftool.c:1322
+#: gconf/gconftool.c:1321
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "Σφάλμα στην απαρίθμηση καταλόγων: %s\n"
 
 # gconf/gconftool.c:1220
-#: gconf/gconftool.c:1364
+#: gconf/gconftool.c:1363
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Άκυρος ή απών τύπος για το σχήμα (%s)\n"
 
 # gconf/gconftool.c:1220
-#: gconf/gconftool.c:1373
+#: gconf/gconftool.c:1372
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: άκυρο ή απών list_type για το σχήμα (%s)\n"
 
 # gconf/gconftool.c:1243
-#: gconf/gconftool.c:1384 gconf/gconftool.c:1414 gconf/gconftool.c:1443
+#: gconf/gconftool.c:1383 gconf/gconftool.c:1413 gconf/gconftool.c:1442
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
@@ -1780,31 +1775,31 @@ msgstr ""
 "(%s)\n"
 
 # gconf/gconftool.c:1220
-#: gconf/gconftool.c:1402
+#: gconf/gconftool.c:1401
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: άκυρο ή απών car_type ή cdr_type για το σχήμα (%s)\n"
 
 # gconf/gconftool.c:1243
-#: gconf/gconftool.c:1427
+#: gconf/gconftool.c:1426
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr ""
 "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Δεν είναι δυνατό να τεθεί εξ' ορισμού τιμή για ένα σχήμα\n"
 
 # gconf/gconftool.c:1256
-#: gconf/gconftool.c:1456
+#: gconf/gconftool.c:1455
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr ""
 "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Εσωτερικό σφάλμα του gconftool, άγνωστο GConfValueType\n"
 
 # gconf/gconftool.c:1304
-#: gconf/gconftool.c:1504 gconf/gconftool.c:1525 gconf/gconftool.c:1546
-#: gconf/gconftool.c:1567
+#: gconf/gconftool.c:1502 gconf/gconftool.c:1523 gconf/gconftool.c:1544
+#: gconf/gconftool.c:1565
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία γραμματικής ανάλυσης ονόματος τύπου `%s'\n"
 
-#: gconf/gconftool.c:1521
+#: gconf/gconftool.c:1519
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -1812,7 +1807,7 @@ msgstr ""
 "ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Το list_type μπορεί να είναι μόνο ακέραιος, κιν. "
 "υποδιαστολής, αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
 
-#: gconf/gconftool.c:1542
+#: gconf/gconftool.c:1540
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
@@ -1820,7 +1815,7 @@ msgstr ""
 "αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
 "\n"
 
-#: gconf/gconftool.c:1563
+#: gconf/gconftool.c:1561
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
@@ -1828,12 +1823,12 @@ msgstr ""
 "αλφαριθμητικό ή δυαδικός και όχι `%s'\n"
 
 # gconf/gconftool.c:1327
-#: gconf/gconftool.c:1590
+#: gconf/gconftool.c:1589
 msgid "WARNING: empty <applyto> node"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κενός κόμβος <applyto>"
 
 # gconf/gconftool.c:1330 gconf/gconftool.c:1575
-#: gconf/gconftool.c:1593 gconf/gconftool.c:1856
+#: gconf/gconftool.c:1592 gconf/gconftool.c:1855
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr ""
@@ -1841,19 +1836,19 @@ msgstr ""
 "<schema>\n"
 
 # gconf/gconftool.c:1340
-#: gconf/gconftool.c:1603
+#: gconf/gconftool.c:1602
 msgid "WARNING: no key specified for schema\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: δεν έχει καθοριστεί κλειδί για το σχήμα\n"
 
 # gconf/gconftool.c:1373
-#: gconf/gconftool.c:1636
+#: gconf/gconftool.c:1635
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Ο κόμβος <locale> δεν έχει την ιδιότητα `name=\"locale\", "
 "αγνοείται\n"
 
 # gconf/gconftool.c:1379
-#: gconf/gconftool.c:1642
+#: gconf/gconftool.c:1641
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -1862,13 +1857,13 @@ msgstr ""
 "αγνοούνται όλοι μετά τον πρώτο\n"
 
 # gconf/gconftool.c:1451
-#: gconf/gconftool.c:1723
+#: gconf/gconftool.c:1722
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Άκυρος κόμβος <%s> σε ένα κόμβο <locale>\n"
 
 # gconf/gconftool.c:1480
-#: gconf/gconftool.c:1752
+#: gconf/gconftool.c:1751
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr ""
@@ -1876,32 +1871,32 @@ msgstr ""
 "%s\n"
 
 # gconf/gconftool.c:1488
-#: gconf/gconftool.c:1760
+#: gconf/gconftool.c:1759
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Εγκατεστημένο σχήμα `%s' για την τοπική ρύθμιση `%s'\n"
 
 # gconf/gconftool.c:1510
-#: gconf/gconftool.c:1782
+#: gconf/gconftool.c:1781
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr ""
 "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αποτυχία συσχέτισης σχήματος `%s' με το κλειδί `%s': %s\n"
 
 # gconf/gconftool.c:1518
-#: gconf/gconftool.c:1790
+#: gconf/gconftool.c:1789
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Σχήμα `%s' επισυνάφτηκε στο κλειδί `%s'\n"
 
 # gconf/gconftool.c:1588
-#: gconf/gconftool.c:1869
+#: gconf/gconftool.c:1868
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr ""
 "Πρέπει να υπάρχει τουλάχιστον μία καταχώρηση <locale> σε ένα <schema>\n"
 
 # gconf/gconftool.c:1617
-#: gconf/gconftool.c:1898
+#: gconf/gconftool.c:1897
 #, c-format
 msgid "WARNING: node <%s> not understood below <schemalist>\n"
 msgstr ""
@@ -1909,19 +1904,19 @@ msgstr ""
 "<schemalist>\n"
 
 # gconf/gconftool.c:1639
-#: gconf/gconftool.c:1920
+#: gconf/gconftool.c:1919
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Αποτυχία ανοίγματος `%s': %s\n"
 
 # gconf/gconftool.c:1646
-#: gconf/gconftool.c:1927
+#: gconf/gconftool.c:1926
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Το έγγραφο `%s' είναι κενό;\n"
 
 # gconf/gconftool.c:1658
-#: gconf/gconftool.c:1939
+#: gconf/gconftool.c:1938
 #, c-format
 msgid ""
 "Document `%s' has the wrong type of root node (<%s>, should be "
@@ -1931,13 +1926,13 @@ msgstr ""
 "είναι <gconfschemafile>)\n"
 
 # gconf/gconftool.c:1671
-#: gconf/gconftool.c:1952
+#: gconf/gconftool.c:1951
 #, c-format
 msgid "Document `%s' has no top level <gconfschemafile> node\n"
 msgstr "Το έγγραφο `%s' δεν έχει κόμβο <gconfschemafile> κορυφαίου επιπέδου\n"
 
 # gconf/gconftool.c:1685
-#: gconf/gconftool.c:1966
+#: gconf/gconftool.c:1965
 #, c-format
 msgid "WARNING: node <%s> below <gconfschemafile> not understood\n"
 msgstr ""
@@ -1945,18 +1940,18 @@ msgstr ""
 "<gconfschemafile>\n"
 
 # gconf/gconftool.c:1696 gconf/gconftool.c:1728
-#: gconf/gconftool.c:1977 gconf/gconftool.c:2009
+#: gconf/gconftool.c:1976 gconf/gconftool.c:2008
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Σφάλμα στο συγχρονισμό δεδομένων διαμόρφωσης: %s"
 
 # gconf/gconftool.c:1712
-#: gconf/gconftool.c:1993
+#: gconf/gconftool.c:1992
 msgid "Must specify some schema files to install\n"
 msgstr "Πρέπει να καθοριστούν μερικά αρχεία σχήματος προς εγκατάσταση\n"
 
 # gconf/gconftool.c:1749
-#: gconf/gconftool.c:2030
+#: gconf/gconftool.c:2029
 #, c-format
 msgid ""
 "\n"
@@ -1966,18 +1961,18 @@ msgstr ""
 "%s\n"
 
 # gconf/gconftool.c:1769
-#: gconf/gconftool.c:2050
+#: gconf/gconftool.c:2049
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Αποτυχία στην αφαίρεση κλειδιού σπασίματος %s: %s\n"
 
 # gconf/gconftool.c:1895
-#: gconf/gconftool.c:2176
+#: gconf/gconftool.c:2175
 msgid "Must specify some keys to break\n"
 msgstr "Πρέπει να καθοριστούν μερικά κλειδιά για σπάσιμο\n"
 
 # gconf/gconftool.c:1901
-#: gconf/gconftool.c:2182
+#: gconf/gconftool.c:2181
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -1988,12 +1983,12 @@ msgstr ""
 "  %s\n"
 
 # gconf/gconftool.c:1919
-#: gconf/gconftool.c:2200
+#: gconf/gconftool.c:2199
 msgid "Must specify some directories to break\n"
 msgstr "Πρέπει να καθοριστούν μερικοί κατάλογοι προς σπάσιμο\n"
 
 # gconf/gconftool.c:1938
-#: gconf/gconftool.c:2219
+#: gconf/gconftool.c:2218
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -2021,3 +2016,7 @@ msgstr "Προειδοποίηση GConf: αποτυχία απαρίθμησης ζευγών στο `%s': %s"
 #, c-format
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "Αναμενόταν `%s' λήφθηκε `%s' για το κλειδί %s"
+
+#~ msgid "GConf was built with debugging features enabled"
+#~ msgstr ""
+#~ "Το GConf μεταγλωττίστηκε με τα χαρακτηριστικά εκσφαλμάτωσης ενεργοποιημένα"
