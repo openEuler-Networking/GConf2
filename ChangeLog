@@ -1,3 +1,9 @@
+2004-06-09  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* gconf/gconf-internals.c: (gconf_activate_server):
+	Merge fix for bug #143941 from HEAD. And remove a stray
+	semicolon in the process.
+
 2004-04-23  Mark McLoughlin  <mark@skynet.ie>
 
 	* gconf/gconf-sources.c: (gconf_sources_new_from_addresses): return

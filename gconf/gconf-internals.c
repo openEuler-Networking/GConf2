@@ -2839,7 +2839,6 @@ gconf_activate_server (gboolean  start_if_not_found,
                        GError  **error)
 {
   ConfigServer server = CORBA_OBJECT_NIL;
-;
   int p[2] = { -1, -1 };
   char buf[1];
   GError *tmp_err;
@@ -2892,6 +2891,7 @@ gconf_activate_server (gboolean  start_if_not_found,
       if (server != CORBA_OBJECT_NIL)
 	{
 	  g_string_free (failure_log, TRUE);
+	  g_free (gconfd_dir);
 	  return server;
 	}
     }
