@@ -92,7 +92,9 @@ database_message_func (DBusConnection  *connection,
                        GConfDatabaseDBus *db)
 {
   if (gconfd_dbus_check_in_shutdown (connection, message))
-    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    {
+      return DBUS_HANDLER_RESULT_HANDLED;
+    }
 
   if (dbus_message_is_method_call (message,
 				   GCONF_DBUS_DATABASE_INTERFACE,
@@ -508,7 +510,7 @@ gconf_database_dbus_get (DBusConnection *conn, const gchar *address,
 					  DATABASE_OBJECT_PATH, 
 					  object_nr++);
  
-  path = g_strsplit (dbus_db->object_path, "/", -1);
+  path = g_strsplit (dbus_db->object_path + 1, "/", -1);
   dbus_connection_register_object_path (conn, (const gchar**) path, 
 					&database_vtable, dbus_db);
 
@@ -525,7 +527,7 @@ database_foreach_unregister (gpointer key,
 {
   gchar **path;
 
-  path = g_strsplit (db->object_path, "/", -1);
+  path = g_strsplit (db->object_path + 1, "/", -1);
   dbus_connection_unregister_object_path (db->conn, (const gchar **)path);
   g_strfreev (path);
 
