@@ -146,7 +146,7 @@ sync_and_clear (GConfSource *source)
       
       exit (1);
     }
-  
+
   (* source->backend->vtable->clear_cache) (source);
 }
 

@@ -131,8 +131,13 @@ gconf_backend_file(const gchar* address)
     return NULL;
 
   file = g_strconcat("gconfbackend-", back, NULL);
-  
+
+#if 0
   retval = g_module_build_path(GCONF_BACKEND_DIR, file);
+#else
+  /* don't put this in CVS! */
+  retval = "nonexistent";
+#endif
 
   g_free(back);
 
