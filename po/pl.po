@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-08-19 20:58+0200\n"
-"PO-Revision-Date: 2001-09-17 11:55+0200\n"
+"POT-Creation-Date: 2001-10-14 15:52+0200\n"
+"PO-Revision-Date: 2001-10-14 15:55+0200\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -112,12 +112,12 @@ msgstr "Plik XML `%s' jest katalogiem"
 #: backends/xml-dir.c:1 backends/xml-dir.c:1
 #, c-format
 msgid "Failed to delete `%s': %s"
-msgstr "Nie mo¿na usun±æ '%s': %s"
+msgstr "Nie mo¿na usun±æ \"%s\": %s"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to write file `%s': %s"
-msgstr "Nie mo¿na zapisaæ do pliku '%s': %s"
+msgstr "Nie mo¿na zapisaæ do pliku \"%s\": %s"
 
 #: backends/xml-dir.c:1
 #, c-format
@@ -127,59 +127,55 @@ msgstr "Nie mo¿na ustawiæ uprawnieñ pliku \"%s\": %s"
 #: backends/xml-dir.c:1 backends/xml-dir.c:1
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
-msgstr "Nie mo¿na zmieniæ nazwy '%s' na '%s': %s"
+msgstr "Nie mo¿na zmieniæ nazwy \"%s\" na \"%s\": %s"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to restore `%s' from `%s': %s"
-msgstr "Nie mo¿na odtworzyæ '%s' z '%s': %s"
+msgstr "Nie mo¿na odtworzyæ \"%s\" z \"%s\": %s"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to delete old file `%s': %s"
-msgstr "Nie mo¿na usun±æ starego pliku '%s': %s"
+msgstr "Nie mo¿na usun±æ starego pliku \"%s\": %s"
 
 #. These are all fatal errors
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to stat `%s': %s"
-msgstr "Nie mo¿na czytaæ `%s' : %s"
+msgstr "Nie mo¿na uzyskaæ informacji o \"%s\" : %s"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
-msgstr "Zduplikowane wpisy `%s' w `%s, ignorowanie"
+msgstr "Zduplikowane wpisy \"%s\" w \"%s\":, ignorowanie"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
-msgstr "Wpis bez nazwy w pliku XML `%s', ignorowanie"
+msgstr "Wpis bez nazwy w pliku XML \"%s\", ignorowanie"
 
 #: backends/xml-dir.c:1
 #, c-format
-msgid "Toplevel node in XML file `%s' is not an <entry>, ignoring"
-msgstr "G³ówny wêze³ w pliku XML `%s' nie jest zapisany, ignorowanie"
+msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
+msgstr ""
+"G³ównym wêz³em w pliku XML \"%s\" jest <%s> zamiast <entry>, ignorowanie"
 
 #: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to create file `%s': %s"
 msgstr "Nie mo¿na stworzyæ pliku \"%s\": %s"
 
-#: backends/xml-dir.c:1 gconf/gconf-internals.c:1
+#: backends/xml-dir.c:1
 #, c-format
 msgid "Failed to close file `%s': %s"
-msgstr "Nie mo¿na zamkn±æ pliku '%s': %s"
+msgstr "Nie mo¿na zamkn±æ pliku \"%s\": %s"
 
 #. There was an error
 #: backends/xml-entry.c:1
 #, c-format
 msgid "Ignoring XML node with name `%s': %s"
 msgstr "Ignorowanie wêz³a XML o nazwie \"%s\": %s"
-
-#: backends/xml-entry.c:1
-#, c-format
-msgid "%s"
-msgstr "%s"
 
 #: backends/xml-entry.c:1
 #, c-format
@@ -269,12 +265,12 @@ msgstr "Brak pierwszego i drugiego elementu pary warto¶ci w XML-u"
 #: gconf/gconf-backend.c:1
 #, c-format
 msgid "No such file `%s'\n"
-msgstr "Plik '%s' nie istnieje\n"
+msgstr "Plik \"%s\" nie istnieje\n"
 
 #: gconf/gconf-backend.c:1
 #, c-format
 msgid "Bad address `%s'"
-msgstr "Niepoprawny adres '%s'"
+msgstr "Niepoprawny adres \"%s\""
 
 #: gconf/gconf-backend.c:1
 msgid "GConf won't work without dynamic module support (gmodule)"
@@ -283,7 +279,7 @@ msgstr "GConf nie mo¿e dzia³aæ bez obs³ugi dynamicznych modu³ów (gmodule)"
 #: gconf/gconf-backend.c:1
 #, c-format
 msgid "Error opening module `%s': %s\n"
-msgstr "B³±d przy otwieraniu modu³u '%s': %s\n"
+msgstr "B³±d przy otwieraniu modu³u \"%s\": %s\n"
 
 #: gconf/gconf-backend.c:1
 #, c-format
@@ -458,7 +454,12 @@ msgstr "Brak dostêpnej bazy danych do zapisu konfiguracji"
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "No '/' in key `%s'"
-msgstr "Brak znaku \"/\" w kluczu '%s'"
+msgstr "Brak znaku \"/\" w kluczu \"%s\""
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Invalid UTF-8 in string value in '%s'"
+msgstr ""
 
 #: gconf/gconf-internals.c:1
 msgid "Couldn't interpret CORBA value for list element"
@@ -478,6 +479,22 @@ msgid "Failed to convert object to IOR"
 msgstr "Nie mo¿na przekonwertowaæ obiektu na IOR"
 
 #: gconf/gconf-internals.c:1
+msgid "Invalid UTF-8 in locale for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
+msgid "Invalid UTF-8 in short description for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
+msgid "Invalid UTF-8 in long description for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
+msgid "Invalid UTF-8 in owner for schema"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr ""
@@ -485,12 +502,18 @@ msgstr ""
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Adding source `%s'\n"
-msgstr "Dodanie ¼ród³a '%s'\n"
+msgstr "Dodanie ¼ród³a \"%s\"\n"
 
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Read error on file `%s': %s\n"
-msgstr "B³±d przy odczycie pliku '%s': %s\n"
+msgstr "B³±d przy odczycie pliku \"%s\": %s\n"
+
+#: gconf/gconf-internals.c:1 gconf/gconf-internals.c:1
+#: gconf/gconf-value.c:1 gconf/gconf-value.c:1 gconf/gconf-value.c:1
+#: gconf/gconf-value.c:1
+msgid "Text contains invalid UTF-8"
+msgstr ""
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -527,6 +550,10 @@ msgstr "Zacytowany napis nie rozpoczyna siê znakiem cytowania"
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Zacytowany napis nie koñczy siê znakiem cytowania"
 
+#: gconf/gconf-internals.c:1
+msgid "Encoded value is not valid UTF-8"
+msgstr ""
+
 #: gconf/gconf-internals.c:1 gconf/gconf.c:1
 #, c-format
 msgid "CORBA error: %s"
@@ -556,38 +583,36 @@ msgstr "Nieznany b³±d OAF-a"
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "No ior file in `%s'"
-msgstr "Brak pliku ior w \"%s\""
+msgid "Could not lock temporary file '%s': %s"
+msgstr "Nie mo¿na zablokowaæ tymczasowego pliku \"%s\": %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "gconfd taking lock `%s' from some other process"
+msgid "Could not create file '%s', probably because it already exists"
+msgstr "Nie mo¿na stworzyæ pliku \"%s\", prawdopodobnie ju¿ on istnieje"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to create or open '%s'"
+msgstr "Nie mo¿na stworzyæ lub otworzyæ \"%s\""
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to lock '%s': another process has the lock (%s)"
 msgstr ""
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Another program has lock `%s'"
-msgstr "Inny program posiada blokadê \"%s\""
-
-#: gconf/gconf-internals.c:1
-msgid "couldn't contact ORB to ping existing gconfd"
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
 msgstr ""
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid ""
-"Removing stale lock `%s' because IOR couldn't be converted to object "
-"reference, IOR `%s'"
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr ""
 
 #: gconf/gconf-internals.c:1
-#, c-format
-msgid "Removing stale lock `%s' because of error pinging server: %s"
-msgstr ""
-
-#: gconf/gconf-internals.c:1
-#, c-format
-msgid "GConf configuration daemon (gconfd) has lock `%s'"
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
 msgstr ""
 
 #: gconf/gconf-internals.c:1
@@ -597,37 +622,101 @@ msgstr "Nie mo¿na stworzyæ katalogu \"%s\": %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Can't create lock `%s': %s"
-msgstr "Nie mo¿na utworzyæ blokady \"%s\": %s"
-
-#: gconf/gconf-internals.c:1
-#, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Nie mo¿na zapisaæ do pliku \"%s\": %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Can't open lock file `%s'; assuming it isn't ours: %s"
+msgid "We didn't have the lock on file `%s', but we should have"
 msgstr ""
-"Nie mo¿na otworzyæ pliku blokady \"%s\"; za³o¿enie, ¿e nale¿y on do innego "
-"procesu: %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Corrupt lock file `%s', removing anyway"
-msgstr "Uszkodzony plik blokady \"%s\". Pomimo tego usuniêty."
+msgid "Failed to link '%s' to '%s': %s"
+msgstr "Nie mo¿na dowi±zaæ \"%s\" do \"%s\": %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
+msgid "Failed to remove lock file `%s': %s"
+msgstr "Nie mo¿na usun±æ pliku blokady \"%s\": %s"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to clean up file '%s': %s"
+msgstr "Nie mo¿na wyczy¶ciæ pliku \"%s\": %s"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to remove lock directory `%s': %s"
+msgstr "Nie mo¿na usun±æ katalogu blokady \"%s\": %s"
+
+#: gconf/gconf-internals.c:1 gconf/gconfd.c:1
+#, c-format
+msgid "Failed to create %s: %s"
+msgstr "Nie mo¿na stworzyæ %s: %s"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to launch configuration server: %s\n"
+msgstr "Nie mo¿na uruchomiæ serwera konfiguracji: %s\n"
+
+#: gconf/gconf-internals.c:1
 msgid ""
-"Didn't create lock file `%s' (creator pid %u, our pid %u; assuming someone "
-"took our lock"
+"Failed to contact configuration server (a likely cause of this is that you "
+"have an existing configuration server (gconfd) running, but it isn't "
+"reachable from here - if you're logged in from two machines at once, you may "
+"need to enable TCP networking for ORBit)\n"
 msgstr ""
 
 #: gconf/gconf-internals.c:1
 #, c-format
-msgid "Failed to release lock directory `%s': %s"
-msgstr "Nie mo¿na zwolniæ katalogu blokady \"%s\": %s"
+msgid "Failed to read from child pipe (%s)"
+msgstr "Nie mo¿na odczytaæ od potomka przez potok (%s)"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to fork (%s)"
+msgstr "Nie mo¿na stworzyæ procesu (%s)"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to change to directory '%s' (%s)"
+msgstr "Nie mo¿na zmieniæ katalogu na \"%s\" (%s)"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to execute child process (%s)"
+msgstr "Nie mo¿na wykonaæ programu w procesie potomnym (%s)"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to redirect output or input of child process (%s)"
+msgstr "Nie mo¿na przekierowaæ wyj¶cia lub wej¶cia procesu potomnego (%s)"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to fork child process (%s)"
+msgstr "Nie mo¿na stworzyæ procesu potomnego (%s)"
+
+#: gconf/gconf-internals.c:1
+msgid "Unknown error executing child process"
+msgstr ""
+"Przy próbie wykonania programu w procesie potomnym wyst±pi³ nieznany b³±d"
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to read enough data from child pid pipe (%s)"
+msgstr ""
+
+#: gconf/gconf-internals.c:1
+#, c-format
+msgid "Failed to create pipe for communicating with child process (%s)"
+msgstr ""
 
 #: gconf/gconf-sources.c:1
 #, c-format
@@ -656,10 +745,12 @@ msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writeable databases. There are two common causes of this problem: 1) your "
 "configuration path file doesn't contain any databases or wasn't found or 2) "
-"OAF mistakenly created two gconfd processes. If you have two gconfd "
-"processes (or had two at the time the second was launched), then it's an OAF "
-"bug, not a GConf issue. Logging out, killing oafd and gconfd, and logging "
-"back in may help. As always, check the user.* syslog for details on problems "
+"somehow we mistakenly created two gconfd processes. If you have two gconfd "
+"processes (or had two at the time the second was launched), logging out, "
+"killing all copies of gconfd, and logging back in may help. Perhaps the "
+"problem is that you attempted to use GConf from two machines at once, and "
+"ORBit still has its default configuration that prevents remote CORBA "
+"connections? As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
 
@@ -742,7 +833,7 @@ msgstr ""
 #: gconf/gconf.c:1
 #, c-format
 msgid "`%s': %s"
-msgstr "'%s': %s"
+msgstr "\"%s\": %s"
 
 #: gconf/gconf.c:1
 #, c-format
@@ -756,16 +847,6 @@ msgstr ""
 #: gconf/gconf.c:1
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr ""
-
-#: gconf/gconf.c:1
-msgid ""
-"Error contacting configuration server: OAF returned nil from "
-"oaf_activate_from_id() and did not set an exception explaining the problem. "
-"This is a bug in the OAF package; something went wrong in OAF, and no error "
-"was reported. This is not a bug in the GConf package. Do not report a GConf "
-"bug unless you have information indicating what went wrong with OAF that was "
-"caused by GConf."
 msgstr ""
 
 #: gconf/gconf.c:1
@@ -873,7 +954,7 @@ msgstr ""
 #: gconf/gconfd.c:1
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
-msgstr ""
+msgstr "Otrzymano sygna³ %d, zapis pliku core. Zg³o¶ b³±d GConfa."
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -891,13 +972,7 @@ msgstr "Otrzymano sygna³ %d, poprawne zakoñczenie"
 #: gconf/gconfd.c:1
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid ""
-"Failed to init Object Activation Framework: please mail bug report to OAF "
-"maintainers"
-msgstr ""
+msgstr "uruchamianie (wersja %s), pid %u, u¿ytkownik \"%s\""
 
 #: gconf/gconfd.c:1
 msgid "Failed to get object reference for ConfigServer"
@@ -905,56 +980,18 @@ msgstr "Nie mo¿na uzyskaæ referencji obiektu ConfigServer"
 
 #: gconf/gconfd.c:1
 #, c-format
-msgid "Failed to create %s: %s"
-msgstr "Nie mo¿na stworzyæ %s: %s"
-
-#. Bad hack alert - register the current lockholder with oafd,
-#. * since oafd seems to have forgotten about us.
-#.
-#: gconf/gconfd.c:1
-#, c-format
-msgid "Failed to get lock for daemon: %s"
-msgstr "Nie mo¿na uzyskaæ blokady od demona: %s"
-
-#: gconf/gconfd.c:1
-msgid ""
-"Registering existing server with oafd, since OAF appears to have leaked it"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid ""
-"OAF doesn't know about our IID; indicates broken installation; can't "
-"register existing server."
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid ""
-"Another gconfd already registered with OAF, so we can't register the "
-"existing server"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid ""
-"OAF doesn't know about our IID; indicates broken installation; can't "
-"register; exiting\n"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid "Another gconfd already registered with OAF; exiting\n"
-msgstr ""
-
-#: gconf/gconfd.c:1
-msgid "Unknown error registering gconfd with OAF; exiting\n"
+msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 
 #: gconf/gconfd.c:1
 #, c-format
-msgid "Failed to release lockfile: %s"
-msgstr "Nie mo¿na zwolniæ pliku blokady: %s"
+msgid "Failed to get lock for daemon, exiting: %s"
+msgstr "Nie mo¿na uzyskaæ blokady od demona, zakoñczenie: %s"
+
+#: gconf/gconfd.c:1
+#, c-format
+msgid "Error releasing lockfile: %s"
+msgstr "B³±d przy zwalnianiu pliku blokady: %s"
 
 #: gconf/gconfd.c:1
 msgid "Exiting"
@@ -1074,11 +1111,11 @@ msgstr "Opcje pomocy"
 
 #: gconf/gconftool.c:1
 msgid "Set a key to a value and sync. Use with --type."
-msgstr ""
+msgstr "Ustawia klucz na warto¶æ i synchronizuje. U¿ywane z --type."
 
 #: gconf/gconftool.c:1
 msgid "Print the value of a key to standard output."
-msgstr ""
+msgstr "Wypisuje na standardowe wyj¶cie warto¶æ klucza."
 
 #: gconf/gconftool.c:1
 msgid ""
@@ -1088,23 +1125,25 @@ msgstr ""
 
 #: gconf/gconftool.c:1
 msgid "Unset the keys on the command line"
-msgstr ""
+msgstr "Czy¶ci klucze z wiersza poleceñ"
 
 #: gconf/gconftool.c:1
 msgid "Print all key/value pairs in a directory."
-msgstr ""
+msgstr "Wypisuje wszystkie pary klucz/warto¶æ z katalogu"
 
 #: gconf/gconftool.c:1
 msgid "Print all subdirectories in a directory."
-msgstr ""
+msgstr "Wypisuje wszystkie podkatalogi danego katalogu."
 
 #: gconf/gconftool.c:1
 msgid "Print all subdirectories and entries under a dir, recursively."
 msgstr ""
+"Wypisuje rekurencyjnie wszystkie podkatalogi i elementy spod podanego "
+"katalogu."
 
 #: gconf/gconftool.c:1
 msgid "Return 0 if the directory exists, 2 if it does not."
-msgstr ""
+msgstr "Zwraca 0, je¶li katalog istnieje, 2 - w przeciwnym wypadku"
 
 #: gconf/gconftool.c:1
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
@@ -1112,13 +1151,15 @@ msgstr ""
 
 #: gconf/gconftool.c:1
 msgid "Return 0 if gconfd is running, 2 if not."
-msgstr ""
+msgstr "Zwraca 0, je¶li gconf jest aktywny, 2 - w przeciwnym wypadku"
 
 #: gconf/gconftool.c:1
 msgid ""
 "Launch the config server (gconfd). (Normally happens automatically when "
 "needed.)"
 msgstr ""
+"Uruchamia serwer konfiguracji (gconfd). (Normalnie uruchamiany jest on "
+"automatycznie w razie potrzeby.)"
 
 #: gconf/gconftool.c:1
 msgid ""
@@ -1128,7 +1169,7 @@ msgstr ""
 
 #: gconf/gconftool.c:1
 msgid "int|bool|float|string|list|pair"
-msgstr ""
+msgstr "int|bool|float|string|list|pair"
 
 #: gconf/gconftool.c:1
 msgid ""
@@ -1138,7 +1179,7 @@ msgstr ""
 
 #: gconf/gconftool.c:1 gconf/gconftool.c:1 gconf/gconftool.c:1
 msgid "int|bool|float|string"
-msgstr ""
+msgstr "int|bool|float|string"
 
 #: gconf/gconftool.c:1
 msgid ""
@@ -1154,7 +1195,7 @@ msgstr ""
 
 #: gconf/gconftool.c:1
 msgid "Specify a short half-line description to go in a schema."
-msgstr ""
+msgstr "Okre¶la krótki, kilkudziesiêcioznakowy opis, umieszczany w schemacie."
 
 #: gconf/gconftool.c:1 gconf/gconftool.c:1
 msgid "DESCRIPTION"
@@ -1223,15 +1264,17 @@ msgstr "Pobiera d³ugi napis dokumentuj±cy powi±zany z kluczem"
 
 #: gconf/gconftool.c:1
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Pobiera nazwê schematu zastosowanego do tego klucza"
 
 #: gconf/gconftool.c:1
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
+"Okre¶la nazwê schematu z wystêpuj±c± po nim nazw± klucza, do którego "
+"powinien byæ wykorzystany"
 
 #: gconf/gconftool.c:1
 msgid "Get the name of the default source"
-msgstr ""
+msgstr "Pobiera nazwê domy¶lnego ¼ród³a"
 
 #: gconf/gconftool.c:1
 #, c-format
@@ -1323,17 +1366,6 @@ msgstr "Inicjacja GConfa nie powiod³a siê: %s\n"
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "Nale¿y ustawiæ zmienn± ¶rodowiskow± GCONF_CONFIG_SOURCE\n"
 
-#. Eventually you should be able to run gconfd as long as
-#. you're installing to a different database from the one
-#. it's using, but I don't trust the locking right now.
-#: gconf/gconftool.c:1
-msgid ""
-"Shouldn't run gconfd while installing new schema files.\n"
-"Use gconftool --shutdown to shut down the daemon, most safely while no "
-"applications are running\n"
-"(though things theoretically work if apps are running).\n"
-msgstr ""
-
 #: gconf/gconftool.c:1
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
@@ -1416,7 +1448,7 @@ msgstr "D³ugi opis: %s\n"
 #: gconf/gconftool.c:1 gconf/gconftool.c:1
 #, c-format
 msgid "No value set for `%s'\n"
-msgstr ""
+msgstr "Nie ustawiono warto¶ci dla \"%s\"\n"
 
 #: gconf/gconftool.c:1 gconf/gconftool.c:1
 #, c-format
@@ -1435,20 +1467,21 @@ msgstr ""
 #: gconf/gconftool.c:1
 #, c-format
 msgid "No value to set for key: `%s'\n"
-msgstr ""
+msgstr "Nie ustawiono warto¶ci dla klucza: \"%s\"\n"
 
 #: gconf/gconftool.c:1
 msgid "Cannot set schema as value\n"
-msgstr ""
+msgstr "Nie mo¿na ustawiæ schematu jako warto¶ci\n"
 
 #: gconf/gconftool.c:1
 msgid "When setting a list you must specify a primitive list-type\n"
-msgstr ""
+msgstr "Przy ustawianiu listy nale¿y podaæ typ podstawowy list-type\n"
 
 #: gconf/gconftool.c:1
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr ""
+"Przy ustawianiu pary nale¿y podaæ typy podstawowe car-type i cdr-type\n"
 
 #: gconf/gconftool.c:1
 #, c-format
@@ -1497,6 +1530,8 @@ msgstr "Warto¶æ pod \"%s\" nie jest schematem\n"
 #: gconf/gconftool.c:1
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr ""
+"Nale¿y podaæ nazwê schematu i wystêpuj±c± po nim nazwê klucza, do którego "
+"powinien byæ wykorzystany\n"
 
 #: gconf/gconftool.c:1
 #, c-format
@@ -1536,6 +1571,8 @@ msgstr "B³±d przy synchronizacji: %s"
 #: gconf/gconftool.c:1
 msgid "Must specify one or more dirs to get key/value pairs from.\n"
 msgstr ""
+"Nale¿y podaæ co najmniej jeden katalog, z którego powinny byæ pobrane pary "
+"klucz/warto¶æ.\n"
 
 #: gconf/gconftool.c:1
 msgid "Must specify one or more keys to unset.\n"
@@ -1549,6 +1586,8 @@ msgstr "B³±d przy czyszczeniu \"%s\": %s\n"
 #: gconf/gconftool.c:1
 msgid "Must specify one or more dirs to get subdirs from.\n"
 msgstr ""
+"Nale¿y podaæ co najmniej jeden katalog, z którego powinny byæ pobrane "
+"podkatalogi.\n"
 
 #: gconf/gconftool.c:1
 #, c-format
@@ -1558,7 +1597,7 @@ msgstr "B³±d przy wypisywaniu katalogów: %s\n"
 #: gconf/gconftool.c:1
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
-msgstr ""
+msgstr "UWAGA: Niepoprawny lub brakuj±cy typ schematu (%s)\n"
 
 #: gconf/gconftool.c:1
 #, c-format
@@ -1636,6 +1675,8 @@ msgstr ""
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
+"UWAGA: Wiele wêz³ów <locale> z warto¶ci± \"%s\", Zignorowano wszystkie, poza "
+"pierwszym.\n"
 
 #: gconf/gconftool.c:1
 #, c-format
