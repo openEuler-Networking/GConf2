@@ -1,3 +1,7 @@
+2004-04-06  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+        * configure.in: Added "gu" (Gujarati) to ALL_LINGUAS.
+
 2004-04-05  Mark McLoughlin  <mark@skynet.ie>
 
 	Revert the --dump behaviour change (not dumping schema defaults).
