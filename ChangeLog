@@ -1,3 +1,37 @@
+2001-10-12  Havoc Pennington  <hp@redhat.com>
+
+	* backends/xml-entry.c (entry_unset_value): don't translate "%s"
+
+	* backends/xml-cache.c (cache_sync_foreach): printf string screwup
+
+	* backends/xml-backend.c (query_value): fix printf string derived
+	from untrusted data
+	(query_value): ditto
+
+	* configure.in: ensure we find the right bdb headers, if we find
+	the library, error if not. Reported by Samuel Stringham
+
+	* backends/xml-entry.c, * backends/xml-backend.c, etc.: fix libxml
+	headers, should now work with libxml in a funny prefix, reported
+	by Tim Mooney
+
+	* gconf/gconftool.c: fix libxml headers
+
+	* backends/bdb.h, backends/bdb.c: s/uint32_t/guint32/ for
+	portability, reported by several people
+
+	* gconf/gconf-internals.c (gconf_double_to_string): use g_snprintf
+	not plain snprintf for Solaris 2.5.1 friendliness
+
+	* doc/gconf/tmpl/gconf-value.sgml: fix docs to mention that pairs
+	contain only primitive types; pointed out by Gregory Merchan
+
+	* configure.in (BDB_CFLAGS): patch from Nils Philippsen to detect
+	DB 3.1 if available.
+
+	Check for popt before OAF, because OAF requires popt; 
+	reported by Drazen Kacar
+
 2001-10-04  Havoc Pennington  <hp@redhat.com>
 
 	* gconf/gconf-internals.c (gconf_release_lock): do wack-ass juju

@@ -20,7 +20,7 @@
 #include "xml-dir.h"
 #include "xml-entry.h"
 
-#include <gnome-xml/parser.h>
+#include <libxml/parser.h>
 
 #include <stdio.h>
 #include <time.h>
