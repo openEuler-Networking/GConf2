@@ -1,3 +1,9 @@
+2001-10-07  Christian Rose  <menthos@menthos.com>
+
+	* sv.po: Fixed some things. Thanks to
+	Göran Uddeborg <goeran@uddeborg.pp.se>
+	for his review.
+
 2001-10-07  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian (bokmål) translation.
