@@ -396,12 +396,15 @@ database_handle_unset (DBusConnection *conn,
   dbus_free (key);
   dbus_free (locale);
   
+  gconf_database_sync (db->db, NULL);
+  
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
  
   reply = dbus_message_new_method_return (message);
   dbus_connection_send (conn, reply, NULL);
   dbus_message_unref (reply);
+
 }
                                                                                
 static void
@@ -431,6 +434,8 @@ database_handle_recursive_unset  (DBusConnection *conn,
   gconf_database_recursive_unset (db->db, key, locale, unset_flags, &gerror);
   dbus_free (key);
   dbus_free (locale);
+  
+  gconf_database_sync (db->db, NULL);
   
   if (gconfd_dbus_set_exception (conn, message, &gerror))
     return;
@@ -765,8 +770,6 @@ database_foreach_unregister (gpointer key,
 			     GConfDatabaseDBus *db,
 			     gpointer user_data)
 {
-  gchar **path;
-
   dbus_connection_unregister_object_path (db->conn, db->object_path);
 
   return TRUE;

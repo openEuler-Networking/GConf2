@@ -187,7 +187,7 @@ fi
 AC_ARG_WITH(ipc, [  --with-ipc=[orbit/dbus/both]   choose ipc mechanism to use in the daemon, [default=dbus]], with_ipc="$withval", with_ipc=dbus)
 
 if test x$with_ipc = xorbit -o x$with_ipc = xboth; then
-  PKG_CHECK_MODULES(GCONF_ORBIT, ORBit-2.0 >= 2.4.0 linc >= 0.5.0, have_orbit=yes, have_orbit=no)
+  PKG_CHECK_MODULES(GCONF_ORBIT, ORBit-2.0 >= 2.6.0, have_orbit=yes, have_orbit=no)
   if test x$have_orbit = xno ; then
     AC_MSG_WARN([ORBit development libraries not found])
     have_orbit=no

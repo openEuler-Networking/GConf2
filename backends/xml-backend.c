@@ -325,7 +325,7 @@ resolve_address (const gchar* address, GError** err)
   if (root_dir == NULL)
     return NULL;
 
-  if (mkdir(root_dir, dir_mode) < 0)
+  if (stat (root_dir, &statbuf) == 0)
     {
       /* Already exists, base our dir_mode on it */
       dir_mode = _gconf_mode_t_to_mode (statbuf.st_mode);
