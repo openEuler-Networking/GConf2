@@ -179,6 +179,7 @@ AC_ARG_ENABLE(gtk, [  --enable-gtk          Enable GTK+ support (for gconf-sanit
 
 AC_ARG_ENABLE(system-bus, [  --enable-system-bus Use the system bus instead of session bus], enable_system_bus="$enableval", enable_system_bus=no)
 
+AM_CONDITIONAL(USE_SYSTEM_BUS, test x$enable_system_bus = xyes)
 if test x$enable_system_bus = xyes; then
   AC_DEFINE(USE_SYSTEM_BUS, 1, Use the system bus)
 fi

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-25 22:27+0100\n"
+"POT-Creation-Date: 2004-09-19 15:28+0200\n"
 "PO-Revision-Date: 2004-04-27 13:14+0200\n"
 "Last-Translator: Gisela Carbonell <gcarbonell@arrakis.es>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -364,114 +364,62 @@ msgstr "Advertiment del GConf: Fallada en llistar parelles a '%s': %s"
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "S'esperava '%s' i s'ha obtingut '%s' per a la clau %s"
 
-#: gconf/gconf-database.c:211
-msgid "Received invalid value in set request"
-msgstr "S'ha rebut un valor no vàlid en definir el requeriment"
-
-#: gconf/gconf-database.c:219
-#, c-format
-msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr ""
-"No s'ha pogut tenir en compte el valor CORBA rebut en definir el requeriment "
-"per a la clau '%s'"
-
-#: gconf/gconf-database.c:502
-msgid "Received request to drop all cached data"
-msgstr "S'ha rebut un requeriment per deixar anar totes les dades recollides"
-
-#: gconf/gconf-database.c:519
-msgid "Received request to sync synchronously"
-msgstr "S'ha rebut un requeriment per a sincronitzar sincrònicament"
-
-#
-#: gconf/gconf-database.c:804
-msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr ""
-"Error fatal: no s'ha pogut obtenir la referència d'objecte per al "
-"ConfigDatabase"
-
-#: gconf/gconf-database.c:966
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "No s'ha pogut sincronitzar una o més fonts: %s"
 
-#: gconf/gconf-database.c:1058
-#, c-format
-msgid ""
-"Failed to log addition of listener %s (%s);will not be able to restore this "
-"listener on gconfd restart, resulting in unreliable notification of "
-"configuration changes."
-msgstr ""
-"No s'ha pogut registrar una addició de l'oient %s (%s); no serà possible "
-"restaurar aquest oient en el reinici del gconfd, fet que resultarà en una "
-"notificació de poca confiança dels canvis de configuració."
-
-#: gconf/gconf-database.c:1092
-#, c-format
-msgid "Listener ID %lu doesn't exist"
-msgstr "L'ID d'oient %lu no existeix"
-
-#: gconf/gconf-database.c:1106
-#, c-format
-msgid ""
-"Failed to log removal of listener to logfile (most likely harmless, may "
-"result in a notification weirdly reappearing): %s"
-msgstr ""
-"No s'ha pogut registrar la supressió d'oient al fitxer de registre (el més "
-"probablement inofensiu, pot resultar en una notificació d'estranya "
-"reaparició): %s"
-
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "S'ha produït un error en obtenir valor per a '%s': %s"
 
-#: gconf/gconf-database.c:1271
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "S'ha produït un error en assignar valor per a '%s': %s"
 
-#: gconf/gconf-database.c:1314
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "S'ha produït un error en esborrar el valor de '%s': %s"
 
-#: gconf/gconf-database.c:1343
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "S'ha produït un error en obtenir el valor per defecte per a '%s': %s"
 
-#: gconf/gconf-database.c:1394
+#: gconf/gconf-database.c:398
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "S'ha produït un error en esborrar el valor de \"%s\": %s"
 
-#: gconf/gconf-database.c:1426
+#: gconf/gconf-database.c:430
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "S'ha produït un error en obtenir un valor nou per a \"%s\": %s"
 
-#: gconf/gconf-database.c:1474
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "S'ha produït un error en comprovar l'existència de '%s': %s"
 
-#: gconf/gconf-database.c:1498
+#: gconf/gconf-database.c:500
 #, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "S'ha produït un error en eliminar el directori «%s»: %s"
 
-#: gconf/gconf-database.c:1525
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "No s'ha pogut obtenir totes les entrades a '%s': %s"
 
-#: gconf/gconf-database.c:1551
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "S'ha produït un error en llistar directoris a «%s»: %s"
 
-#: gconf/gconf-database.c:1572
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Error en definir l'esquema per a '%s': %s"
@@ -544,127 +492,112 @@ msgid "No database available to save your configuration"
 msgstr ""
 "No hi ha cap base de dades disponible per a desar la vostra configuració"
 
-#: gconf/gconf-internals.c:86
+#: gconf/gconf-internals.c:71
 #, c-format
 msgid "No '/' in key \"%s\""
 msgstr "No hi ha cap '/' a la clau \"%s\""
 
-#: gconf/gconf-internals.c:199
-#, c-format
-msgid "Invalid UTF-8 in string value in '%s'"
-msgstr "L'UTF-8 no és vàlid al valor de cadena a '%s'"
-
-#: gconf/gconf-internals.c:258
-msgid "Couldn't interpret CORBA value for list element"
-msgstr "No s'ha pogut interpretar el valor CORBA per a l'element de la llista"
-
-#: gconf/gconf-internals.c:260
-#, c-format
-msgid "Incorrect type for list element in %s"
-msgstr "Tipus incorrecte per a l'element de la llista a %s"
-
-#: gconf/gconf-internals.c:273
-msgid "Received list from gconfd with a bad list type"
-msgstr "S'ha rebut la llista de gconfd amb un tipus de llista incorrecte"
-
-#
-#: gconf/gconf-internals.c:454
-msgid "Failed to convert object to IOR"
-msgstr "No s'ha pogut convertir l'objecte a IOR"
-
-#: gconf/gconf-internals.c:591
-msgid "Invalid UTF-8 in locale for schema"
-msgstr "L'UTF-8 no és vàlid al local per a l'esquema"
-
-#: gconf/gconf-internals.c:599
-msgid "Invalid UTF-8 in short description for schema"
-msgstr "L'UTF-8 no és vàlid a la descripció curta per a l'esquema"
-
-#: gconf/gconf-internals.c:607
-msgid "Invalid UTF-8 in long description for schema"
-msgstr "L'UTF-8 no és vàlid a la descripció llarga per a l'esquema"
-
-#: gconf/gconf-internals.c:615
-msgid "Invalid UTF-8 in owner for schema"
-msgstr "L'UTF-8 no és vàlid al propietari per a l'esquema"
-
-#: gconf/gconf-internals.c:838
+#: gconf/gconf-internals.c:341
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "No s'ha pogut obrir el fitxer de camins '%s': %s\n"
 
-#: gconf/gconf-internals.c:887
+#: gconf/gconf-internals.c:390
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "S'està afegint la font '%s'\n"
 
-#: gconf/gconf-internals.c:899
+#: gconf/gconf-internals.c:402
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "S'ha produït un error de lectura al fitxer '%s': %s\n"
 
-#: gconf/gconf-internals.c:1203 gconf/gconf-internals.c:1269
+#: gconf/gconf-internals.c:706 gconf/gconf-internals.c:772
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "El text conté un UTF-8 no vàlid"
 
-#: gconf/gconf-internals.c:1354
+#: gconf/gconf-internals.c:857
 #, c-format
 msgid "Expected list, got %s"
 msgstr "S'esperava una llista i s'ha obtingut %s"
 
-#: gconf/gconf-internals.c:1364
+#: gconf/gconf-internals.c:867
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "S'esperava una llista de %s i s'ha obtingut una llista de %s"
 
-#: gconf/gconf-internals.c:1492
+#: gconf/gconf-internals.c:995
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "S'esperava una parella i s'ha obtingut %s"
 
-#: gconf/gconf-internals.c:1506
+#: gconf/gconf-internals.c:1009
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "S'esperava una parella (%s,%s) i s'ha obtingut una parella amb un valor o "
 "ambdós perduts"
 
-#: gconf/gconf-internals.c:1522
+#: gconf/gconf-internals.c:1025
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr ""
 "S'esperava una parella del tipus (%s,%s) i se n'ha obtingut del tipus (%s,%s)"
 
-#: gconf/gconf-internals.c:1638
+#: gconf/gconf-internals.c:1141
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "La cadena de citació no comença amb una marca de citació"
 
-#: gconf/gconf-internals.c:1700
+#: gconf/gconf-internals.c:1203
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "La cadena de citació no acaba amb una marca de citació"
 
-#: gconf/gconf-internals.c:1836
+#: gconf/gconf-internals.c:1339
 msgid "Encoded value is not valid UTF-8"
 msgstr "El valor codificat no és un UTF-8 vàlid"
 
-#: gconf/gconf-internals.c:2295
+#: gconf/gconf-internals.c:1841
+#, c-format
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr ""
+"El fitxer IOR '%s' no s'ha obert amb èxit, no s'ha ubicat cap gconfd: %s"
+
+#: gconf/gconf-internals.c:1871
+#, c-format
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr ""
+"El gconftool o un altre procés que no és gconfd té el fitxer de blocatge '%s'"
+
+#
+#: gconf/gconf-internals.c:1888
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr ""
+"no s'ha pogut contactar amb l'ORB per a resoldre la referència d'objecte "
+"gconfd existent"
+
+#: gconf/gconf-internals.c:1898
+#, c-format
+msgid "Failed to convert IOR '%s' to an object reference"
+msgstr "No s'ha pogut convertir l'IOR '%s' a una referència d'objecte"
+
+#: gconf/gconf-internals.c:1953
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "No s'ha pogut blocar el fitxer temporal '%s': %s"
 
-#: gconf/gconf-internals.c:2322
+#: gconf/gconf-internals.c:1980
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "No s'ha pogut crear el fitxer '%s', probablement perquè ja existeix"
 
-#: gconf/gconf-internals.c:2368
+#: gconf/gconf-internals.c:2027
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "No s'ha pogut crear o obrir '%s'"
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2037
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -673,114 +606,51 @@ msgstr ""
 "No s'ha pogut blocar '%s': probablement un altre procés té el blocatge, o el "
 "vostre sistema operatiu té mal configurat el blocatge de fitxers NFS (%s)"
 
-#: gconf/gconf-internals.c:2408
-#, c-format
-msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr ""
-"El fitxer IOR '%s' no s'ha obert amb èxit, no s'ha ubicat cap gconfd: %s"
-
-#: gconf/gconf-internals.c:2438
-#, c-format
-msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr ""
-"El gconftool o un altre procés que no és gconfd té el fitxer de blocatge '%s'"
-
-#
-#: gconf/gconf-internals.c:2455
-msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr ""
-"no s'ha pogut contactar amb l'ORB per a resoldre la referència d'objecte "
-"gconfd existent"
-
-#: gconf/gconf-internals.c:2465
-#, c-format
-msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "No s'ha pogut convertir l'IOR '%s' a una referència d'objecte"
-
-#: gconf/gconf-internals.c:2515
-#, c-format
-msgid "couldn't create directory `%s': %s"
-msgstr "no s'ha pogut crear el directori '%s': %s"
-
-#: gconf/gconf-internals.c:2574
-#, c-format
-msgid "Can't write to file `%s': %s"
-msgstr "No es pot escriure al fitxer '%s': %s"
-
-#: gconf/gconf-internals.c:2615
+#: gconf/gconf-internals.c:2121
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "No teníem el blocatge del fitxer '%s', però l'hauríem de tenir"
 
-#: gconf/gconf-internals.c:2636
+#: gconf/gconf-internals.c:2142
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "No s'ha pogut enllaçar «%s» amb «%s»: %s"
 
-#: gconf/gconf-internals.c:2648
+#: gconf/gconf-internals.c:2154
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "No s'ha pogut eliminar el fitxer de blocatge «%s»: %s"
 
-#: gconf/gconf-internals.c:2667
+#: gconf/gconf-internals.c:2173
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "No s'ha pogut netejar el fitxer «%s»: %s"
 
-#: gconf/gconf-internals.c:2681
+#: gconf/gconf-internals.c:2187
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "No s'ha pogut eliminar el directori de blocatge «%s»: %s"
 
-#: gconf/gconf-internals.c:2723
+#: gconf/gconf-internals.c:2224
+#, c-format
+msgid "couldn't create directory `%s': %s"
+msgstr "no s'ha pogut crear el directori '%s': %s"
+
+#: gconf/gconf-internals.c:2283
+#, c-format
+msgid "Can't write to file `%s': %s"
+msgstr "No es pot escriure al fitxer '%s': %s"
+
+#: gconf/gconf-internals.c:2327
 #, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "No s'ha pogut desenllaçar el fitxer de blocatge %s: %s\n"
 
-#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
-#, c-format
-msgid "Failed to stat %s: %s"
-msgstr "No s'ha pogut fer «stat» sobre %s: %s"
-
-#: gconf/gconf-internals.c:2884
-#, c-format
-msgid "Server ping error: %s"
-msgstr "Error de ping del servidor: %s"
-
-#: gconf/gconf-internals.c:2909
-#, c-format
-msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-msgstr ""
-"No s'ha pogut crear un conducte per a comunicar-se amb el dimoni del gconf "
-"engendrat: %s\n"
-
-#: gconf/gconf-internals.c:2933
-#, c-format
-msgid "Failed to launch configuration server: %s\n"
-msgstr "No s'ha pogut executar el servidor de configuració: %s\n"
-
-#: gconf/gconf-internals.c:2958
-#, c-format
-msgid ""
-"Failed to contact configuration server; some possible causes are that you "
-"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
-"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
-"(Details - %s)"
-msgstr ""
-"No s'ha pogut contactar el servidor de configuració; algunes causes "
-"possibles són que necessiteu habilitar el gestor de xarxes TCP/IP per a "
-"ORBit, o teniu blocatges NFS expirats degut a una fallada del sistema. A "
-"http://www.gnome.org/projects/gconf/ hi trobareu informació. (Detalls: %s)"
-
-#: gconf/gconf-internals.c:2959
-msgid "none"
-msgstr "cap"
-
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:86
+#: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:86
 msgid "Help options"
 msgstr "Opcions d'ajuda"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:508
+#: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:508
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -790,7 +660,7 @@ msgstr ""
 "Executeu '%s --help' per veure una llista completa d'opcions disponibles "
 "d'ordres de línia.\n"
 
-#: gconf/gconf-sanity-check.c:141 gconf/gconf-sanity-check.c:166
+#: gconf/gconf-sanity-check.c:144 gconf/gconf-sanity-check.c:169
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -804,7 +674,7 @@ msgstr ""
 "un problema amb la vostra configuració, doncs molts programes necessitaran "
 "crear fitxers al directori d'usuari. L'error ha estat \"%s\" (errno = %d)."
 
-#: gconf/gconf-sanity-check.c:180
+#: gconf/gconf-sanity-check.c:183
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -824,12 +694,12 @@ msgstr ""
 "lockd. Una causa comú d'aquest error és que el servei \"nfslock\" ha estat "
 "inhabilitat. L'error ha estat \"%s\" (errno = %d)."
 
-#: gconf/gconf-sanity-check.c:197
+#: gconf/gconf-sanity-check.c:200
 #, c-format
 msgid "Can't remove file %s: %s\n"
 msgstr "No s'ha pogut eliminar el fitxer %s: %s\n"
 
-#: gconf/gconf-sanity-check.c:233
+#: gconf/gconf-sanity-check.c:236
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -842,11 +712,11 @@ msgstr ""
 "dir que no es poden desar les preferències i altres paràmetres. %s%s"
 
 #
-#: gconf/gconf-sanity-check.c:236
+#: gconf/gconf-sanity-check.c:239
 msgid "Error reading the file: "
 msgstr "S'ha produït un error en llegir el fitxer: "
 
-#: gconf/gconf-sanity-check.c:259
+#: gconf/gconf-sanity-check.c:262
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -856,7 +726,7 @@ msgstr ""
 "el problema següent:\n"
 "No s'ha pogut resoldre l'adreça \"%s\" al fitxer de configuració \"%s\": %s"
 
-#: gconf/gconf-sanity-check.c:320
+#: gconf/gconf-sanity-check.c:323
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
@@ -881,15 +751,15 @@ msgstr ""
 "\n"
 "Voleu continuar?"
 
-#: gconf/gconf-sanity-check.c:341
+#: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
 msgstr "_Surt"
 
-#: gconf/gconf-sanity-check.c:343
+#: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
 msgstr "_Continua"
 
-#: gconf/gconf-sanity-check.c:356
+#: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
 msgstr "%s Voleu continuar (s/n)?"
@@ -1087,98 +957,68 @@ msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr ""
 "No s'ha comprès '%s' (s'ha trobat un ')' addicional dins de la parella)"
 
-#: gconf/gconf.c:55
+#: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
 msgstr "La clau \"%s\" és NULL"
 
-#: gconf/gconf.c:62
+#: gconf/gconf.c:51
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
 
-#: gconf/gconf.c:345
-#, c-format
-msgid "Server couldn't resolve the address `%s'"
-msgstr "El servidor no ha pogut resoldre l'adreça '%s'"
-
-#: gconf/gconf.c:634
-msgid "Can't add notifications to a local configuration source"
-msgstr "No es poden afegir notificacions a una font de configuració local"
-
-#: gconf/gconf.c:2097
-#, c-format
-msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr ""
-"L'afegiment d'un client a la llista de servidors ha fallat, error de CORBA: %"
-"s"
-
-#: gconf/gconf.c:2452
+#: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
 msgstr "Cal que comenci amb una barra inclinada (/)"
 
-#: gconf/gconf.c:2474
+#: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
 msgstr "No poden haver-hi dues barres inclinades (/) en una línia"
 
-#: gconf/gconf.c:2476
+#: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "No pot haver-hi un punt (.) just després d'una barra inclinada (/)"
 
-#: gconf/gconf.c:2495
+#: gconf/gconf.c:159
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr "'%c' no és un caràcter ASCII, per tant no és permès en noms de clau"
 
-#: gconf/gconf.c:2505
+#: gconf/gconf.c:169
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "'%c' no és un caràcter vàlid en noms de clau o directori"
 
-#: gconf/gconf.c:2519
+#: gconf/gconf.c:183
 msgid "Key/directory may not end with a slash (/)"
 msgstr "La clau o el directori pot no acabar amb una barra inclinada (/)"
 
-#: gconf/gconf.c:2888
-#, c-format
-msgid "Failure shutting down config server: %s"
-msgstr "S'ha produït una fallada en tancar el servidor de configuració: %s"
-
-#: gconf/gconf.c:2949
+#: gconf/gconf.c:408
 #, c-format
 msgid "Expected float, got %s"
 msgstr "S'esperava coma flotant i s'ha obtingut %s"
 
-#: gconf/gconf.c:2984
+#: gconf/gconf.c:443
 #, c-format
 msgid "Expected int, got %s"
 msgstr "S'esperava un enter i s'ha obtingut %s"
 
-#: gconf/gconf.c:3019
+#: gconf/gconf.c:478
 #, c-format
 msgid "Expected string, got %s"
 msgstr "S'esperava una cadena i s'ha obtingut %s"
 
-#: gconf/gconf.c:3053
+#: gconf/gconf.c:512
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "S'esperava un boleà i s'ha obtingut %s"
 
-#: gconf/gconf.c:3086
+#: gconf/gconf.c:545
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "S'esperava un esquema i s'ha obtingut %s"
 
-#: gconf/gconf.c:3443
-#, c-format
-msgid "CORBA error: %s"
-msgstr "Error del CORBA: %s"
-
-#: gconf/gconfd.c:250
-msgid "Shutdown request received"
-msgstr "S'ha rebut un requeriment d'apagar"
-
-#: gconf/gconfd.c:282
+#: gconf/gconfd.c:148
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -1186,7 +1026,7 @@ msgstr ""
 "El gconfd ha compilat amb depuració; s'està intentant carregar gconf.path "
 "des del directori font"
 
-#: gconf/gconfd.c:296
+#: gconf/gconfd.c:162
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -1197,7 +1037,7 @@ msgstr ""
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:304
+#: gconf/gconfd.c:170
 #, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
@@ -1206,12 +1046,12 @@ msgstr ""
 "No existeixen fonts de configuració al camí de fonts, la configuració no "
 "serà desada; editeu %s"
 
-#: gconf/gconfd.c:317
+#: gconf/gconfd.c:183
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "S'ha produït un error en carregar algunes fonts de configuració: %s"
 
-#: gconf/gconfd.c:329
+#: gconf/gconfd.c:195
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -1220,7 +1060,7 @@ msgstr ""
 "es poden carregar ni desar dades de configuració"
 
 #
-#: gconf/gconfd.c:346
+#: gconf/gconfd.c:212
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1228,14 +1068,14 @@ msgstr ""
 "No s'ha pogut resoldre satisfactòriament cap font de configuració "
 "d'escriptura, alguns canvis de configuració potser no es podran desar"
 
-#: gconf/gconfd.c:372
+#: gconf/gconfd.c:238
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr ""
 "S'ha rebut el senyal %d, en abocar el nucli. Siusplau informeu un error del "
 "GConf"
 
-#: gconf/gconfd.c:390
+#: gconf/gconfd.c:256
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
@@ -1243,193 +1083,73 @@ msgstr ""
 "S'ha rebut el senyal %d, s'està tancant de manera anormal. Siusplau arxiveu "
 "un informe d'error del GConf"
 
-#: gconf/gconfd.c:407
+#: gconf/gconfd.c:273
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "S'ha rebut el senyal %d, s'està tancant netament."
 
-#: gconf/gconfd.c:480
+#: gconf/gconfd.c:342
 #, c-format
 msgid "Failed to open %s: %s"
 msgstr "No s'ha pogut obrir %s: %s"
 
-#: gconf/gconfd.c:496
+#: gconf/gconfd.c:349
+#, c-format
+msgid "Failed to stat %s: %s"
+msgstr "No s'ha pogut fer «stat» sobre %s: %s"
+
+#: gconf/gconfd.c:358
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr "El propietari de %s no és l'usuari actual"
 
-#: gconf/gconfd.c:504
+#: gconf/gconfd.c:366
 #, c-format
 msgid "Bad permissions %lo on directory %s"
 msgstr "Els permissos %lo són erronis al directori %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:586
+#: gconf/gconfd.c:446
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "s'està iniciant (versió %s), pid %u usuari '%s'"
 
-#: gconf/gconfd.c:626
-msgid "Failed to get object reference for ConfigServer"
-msgstr "No s'ha pogut obtenir la referència d'objecte per al ConfigServer"
-
-#: gconf/gconfd.c:639
+#: gconf/gconfd.c:485
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "No s'ha pogut crear %s: %s"
 
-#: gconf/gconfd.c:646
+#: gconf/gconfd.c:493
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr "El directori %s té un problema, gconfd no pot utilitzar-lo"
 
-#: gconf/gconfd.c:675
+#: gconf/gconfd.c:529
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 "No s'ha pogut escriure el byte al conducte fd %d per tant el programa client "
 "pot penjar: %s"
 
-#: gconf/gconfd.c:685
+#: gconf/gconfd.c:543
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "No s'ha pogut obtenir el blocatge per al dimoni, s'està sortint: %s"
 
-#: gconf/gconfd.c:723
+#: gconf/gconfd.c:585
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "S'ha produït un error en alliberar el fitxer de blocatge: %s"
 
-#: gconf/gconfd.c:731
+#: gconf/gconfd.c:593
 msgid "Exiting"
 msgstr "S'està sortint"
 
 #
-#: gconf/gconfd.c:757
+#: gconf/gconfd.c:636
 msgid "GConf server is not in use, shutting down."
 msgstr "El servidor GConf no està sent utilitzat, s'està tancant."
-
-#: gconf/gconfd.c:1123
-#, c-format
-msgid "Returning exception: %s"
-msgstr "S'està retornant l'excepció: %s"
-
-#: gconf/gconfd.c:1223
-#, c-format
-msgid ""
-"Failed to open gconfd logfile; won't be able to restore listeners after "
-"gconfd shutdown (%s)"
-msgstr ""
-"No s'ha pogut obrir el fitxer de registre del gconfd; no serà possible "
-"restaurar els oients després d'aturar el gconfd (%s)"
-
-#: gconf/gconfd.c:1258
-#, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
-msgstr ""
-"No s'ha pogut tancar el fitxer de registre del gconfd; les dades poden no "
-"haver estat desades correctament (%s)"
-
-#: gconf/gconfd.c:1327
-#, c-format
-msgid "Could not open saved state file '%s' for writing: %s"
-msgstr "No s'ha pogut obrir el fitxer d'estat desat '%s' per escriure: %s"
-
-#: gconf/gconfd.c:1341
-#, c-format
-msgid "Could not write saved state file '%s' fd: %d: %s"
-msgstr "No s'ha pogut escriure el fitxer d'estat desat '%s' fd: %d: %s"
-
-#: gconf/gconfd.c:1350
-#, c-format
-msgid "Failed to close new saved state file '%s': %s"
-msgstr "No s'ha pogut tancar el fitxer d'estat desat nou «%s»: %s"
-
-#: gconf/gconfd.c:1364
-#, c-format
-msgid "Could not move aside old saved state file '%s': %s"
-msgstr "No s'ha pogut moure a part el fitxer d'estat desat antic '%s': %s"
-
-#: gconf/gconfd.c:1374
-#, c-format
-msgid "Failed to move new save state file into place: %s"
-msgstr "No s'ha pogut moure el fitxer d'estat desat nou a l'emplaçament: %s"
-
-#: gconf/gconfd.c:1383
-#, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr ""
-"No s'ha pogut restaurar el fitxer d'estat desat original que havia estat "
-"mogut a '%s': %s"
-
-#: gconf/gconfd.c:1854
-#, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
-msgstr ""
-"No s'ha pogut restaurar un oient a l'adreça «%s», no s'ha pogut resoldre la "
-"base de dades"
-
-#: gconf/gconfd.c:1900
-#, c-format
-msgid "Error reading saved state file: %s"
-msgstr "S'ha produït un error en llegir el fitxer d'estat desat: %s"
-
-#: gconf/gconfd.c:1954
-#, c-format
-msgid "Unable to open saved state file '%s': %s"
-msgstr "No s'ha pogut obrir el fitxer d'estat desat '%s': %s"
-
-#: gconf/gconfd.c:2073
-#, c-format
-msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"No s'ha pogut registrar l'addició d'oient al fitxer de registre del gconfd; "
-"no serà possible tornar a afegir l'oient si el gconfd surt o es tanca (%s)"
-
-#: gconf/gconfd.c:2078
-#, c-format
-msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"No s'ha pogut registrar la supressió de l'oient al fitxer de registre del "
-"gconfd; l'orient potser es torni a afegir per error si el gconfd surt o es "
-"tanca (%s)"
-
-#: gconf/gconfd.c:2101 gconf/gconfd.c:2275
-#, c-format
-msgid "Failed to get IOR for client: %s"
-msgstr "No s'ha pogut obtenir l'IOR per al client: %s"
-
-#: gconf/gconfd.c:2116
-#, c-format
-msgid "Failed to open saved state file: %s"
-msgstr "No s'ha pogut obrir el fitxer d'estat desat: %s"
-
-#: gconf/gconfd.c:2129
-#, c-format
-msgid "Failed to write client add to saved state file: %s"
-msgstr ""
-"No s'ha pogut escriure l'afegiment del client al fitxer d'estat desat: %s"
-
-#: gconf/gconfd.c:2137
-#, c-format
-msgid "Failed to flush client add to saved state file: %s"
-msgstr ""
-"No s'ha pogut buidar l'afegiment del client al fitxer d'estat desat: %s"
-
-#: gconf/gconfd.c:2236
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
-msgstr ""
-"Algun client s'ha suprimit a si mateix del servidor Gconf i no hi havia "
-"estat afegit."
 
 #: gconf/gconftool.c:95
 msgid "Set a key to a value and sync. Use with --type."
@@ -1900,7 +1620,7 @@ msgstr ""
 msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
-#: gconf/gconftool.c:1786 gconf/gconftool.c:2816
+#: gconf/gconftool.c:1786 gconf/gconftool.c:2815
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Error en definir un valor: %s\n"
@@ -2099,29 +1819,29 @@ msgstr "AVÍS: no es pot processar el valor cadena «%s»\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "AVÍS: no es pot processar el valor booleà «%s»\n"
 
-#: gconf/gconftool.c:2797 gconf/gconftool.c:3341
+#: gconf/gconftool.c:2797 gconf/gconftool.c:3340
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "AVÍS: no s'ha pogut associar l'esquema «%s» amb la clau «%s»: %s\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2909
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "AVÍS: el tipus d'esquema no és vàlid o manca (%s)\n"
 
-#: gconf/gconftool.c:2919
+#: gconf/gconftool.c:2918
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "AVÍS: el tipus de llista per a l'esquema no és vàlid o manca (%s)\n"
 
-#: gconf/gconftool.c:2930 gconf/gconftool.c:2960 gconf/gconftool.c:2989
+#: gconf/gconftool.c:2929 gconf/gconftool.c:2959 gconf/gconftool.c:2988
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "AVÍS: No s'ha pogut processar el valor per defecte «%s» per a l'esquema (%"
 "s)\n"
 
-#: gconf/gconftool.c:2948
+#: gconf/gconftool.c:2947
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
@@ -2129,21 +1849,21 @@ msgstr ""
 "(%s)\n"
 
 #
-#: gconf/gconftool.c:2973
+#: gconf/gconftool.c:2972
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "AVÍS: No podeu definir un valor per defecte per a un esquema\n"
 
-#: gconf/gconftool.c:3002
+#: gconf/gconftool.c:3001
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "AVÍS: error intern del gconftool, el GconfValueType és desconegut\n"
 
-#: gconf/gconftool.c:3050 gconf/gconftool.c:3071 gconf/gconftool.c:3092
-#: gconf/gconftool.c:3113
+#: gconf/gconftool.c:3049 gconf/gconftool.c:3070 gconf/gconftool.c:3091
+#: gconf/gconftool.c:3112
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "AVÍS: no s'ha pogut processar el nom del tipus «%s»\n"
 
-#: gconf/gconftool.c:3067
+#: gconf/gconftool.c:3066
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2151,49 +1871,49 @@ msgstr ""
 "AVÍS: el tipus de llista (list_type) només pot ser enter, coma flotant, "
 "cadena o boleà i no pas '%s'\n"
 
-#: gconf/gconftool.c:3088
+#: gconf/gconftool.c:3087
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "AVÍS: el tipus de car (car_type) només pot ser enter, coma flotant, cadena o "
 "boleà, i no pas '%s'\n"
 
-#: gconf/gconftool.c:3109
+#: gconf/gconftool.c:3108
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "AVÍS: el tipus de cdr (cdr_type) només pot ser enter, coma flotant, cadena o "
 "boleà, i no pas '%s'\n"
 
-#: gconf/gconftool.c:3149
+#: gconf/gconftool.c:3148
 msgid "WARNING: empty <applyto> node"
 msgstr "AVÍS: node <applyto> buit"
 
-#: gconf/gconftool.c:3152 gconf/gconftool.c:3414
+#: gconf/gconftool.c:3151 gconf/gconftool.c:3413
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "AVÍS: no es comprèn el node <%s> sota <schema>\n"
 
-#: gconf/gconftool.c:3163
+#: gconf/gconftool.c:3162
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr ""
 "AVÍS: no s'ha especificat un <list_type> per a l'esquema de tipus list\n"
 
-#: gconf/gconftool.c:3169
+#: gconf/gconftool.c:3168
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr ""
 "AVÍS: no s'ha especificat un <car_type> per a l'esquema de tipus parella\n"
 
-#: gconf/gconftool.c:3175
+#: gconf/gconftool.c:3174
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr ""
 "AVÍS: no s'ha especificat un <cdr_type> per a l'esquema de tipus parella\n"
 
-#: gconf/gconftool.c:3204
+#: gconf/gconftool.c:3203
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr "AVÍS: el node <locale> no té l'atribut «name=\"locale\"», s'ignorarà\n"
 
-#: gconf/gconftool.c:3210
+#: gconf/gconftool.c:3209
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -2201,90 +1921,90 @@ msgstr ""
 "AVÍS: Hi ha múltiples nodes <locale> per a «%s» local, s'ignoran tots els "
 "següents al primer\n"
 
-#: gconf/gconftool.c:3308
+#: gconf/gconftool.c:3307
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "AVÍS: Node <%s> no vàlid en un node <locale>\n"
 
-#: gconf/gconftool.c:3349
+#: gconf/gconftool.c:3348
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "S'ha adjuntat l'esquema «%s» a la clau «%s»\n"
 
-#: gconf/gconftool.c:3423
+#: gconf/gconftool.c:3422
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Heu de tenir com a mínim una entrada <locale> a un <schema>\n"
 
-#: gconf/gconftool.c:3455
+#: gconf/gconftool.c:3454
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "AVÍS: no s'ha pogut instal·lar l'esquema «%s» locale «%s»: %s\n"
 
-#: gconf/gconftool.c:3463
+#: gconf/gconftool.c:3462
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "S'ha instal·lat l'esquema «%s» per al locale «%s»\n"
 
-#: gconf/gconftool.c:3487
+#: gconf/gconftool.c:3486
 #, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "AVÍS: no es pot desinstal·lar l'esquema «%s» locale «%s»: %s\n"
 
-#: gconf/gconftool.c:3495
+#: gconf/gconftool.c:3494
 #, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "S'ha desinstal·lat l'esquema «%s» per al locale «%s»\n"
 
-#: gconf/gconftool.c:3533
+#: gconf/gconftool.c:3532
 msgid "WARNING: no key specified for schema\n"
 msgstr "AVÍS: no s'ha especificat cap clau per a l'esquema\n"
 
-#: gconf/gconftool.c:3574
+#: gconf/gconftool.c:3573
 #, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "AVÍS: no es comprèn el node <%s> sota <%s>\n"
 
-#: gconf/gconftool.c:3605
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "No s'ha pogut obrir «%s»: %s\n"
 
-#: gconf/gconftool.c:3612
+#: gconf/gconftool.c:3611
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "El document «%s» està buit?\n"
 
-#: gconf/gconftool.c:3624
+#: gconf/gconftool.c:3623
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "El document «%s» té un tipus incorrecte de node arrel (<%s>, hauria de ser <%"
 "s>)\n"
 
-#: gconf/gconftool.c:3637
+#: gconf/gconftool.c:3636
 #, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "El document «%s» no té node <%s> de nivell superior\n"
 
-#: gconf/gconftool.c:3651
+#: gconf/gconftool.c:3650
 #, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "AVÍS: el node <%s> sota <%s> no es comprèn\n"
 
-#: gconf/gconftool.c:3662 gconf/gconftool.c:3697 gconf/gconftool.c:3729
+#: gconf/gconftool.c:3661 gconf/gconftool.c:3696 gconf/gconftool.c:3728
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "S'ha produït un error en sincronitzar dades de configuració: %s"
 
-#: gconf/gconftool.c:3681
+#: gconf/gconftool.c:3680
 msgid "Must specify some schema files to install\n"
 msgstr "Cal especificar alguns fitxers d'esquema per instal·lar\n"
 
-#: gconf/gconftool.c:3713
+#: gconf/gconftool.c:3712
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Cal especificar alguns fitxers d'esquema per desinstal·lar\n"
 
-#: gconf/gconftool.c:3750
+#: gconf/gconftool.c:3749
 #, c-format
 msgid ""
 "\n"
@@ -2293,16 +2013,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3770
+#: gconf/gconftool.c:3769
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "No s'ha pogut esborrar el valor de la clau de trencament %s: %s\n"
 
-#: gconf/gconftool.c:3896
+#: gconf/gconftool.c:3895
 msgid "Must specify some keys to break\n"
 msgstr "Cal especificar algunes claus per trencar\n"
 
-#: gconf/gconftool.c:3902
+#: gconf/gconftool.c:3901
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2312,11 +2032,11 @@ msgstr ""
 "a la clau:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3920
+#: gconf/gconftool.c:3919
 msgid "Must specify some directories to break\n"
 msgstr "Cal especificar alguns directoris per trencar\n"
 
-#: gconf/gconftool.c:3939
+#: gconf/gconftool.c:3938
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -2326,6 +2046,214 @@ msgstr ""
 "S'està intentant trencar la vostra aplicació definint valors incorrectes per "
 "a claus al directori:\n"
 "  %s\n"
+
+#~ msgid "Received invalid value in set request"
+#~ msgstr "S'ha rebut un valor no vàlid en definir el requeriment"
+
+#~ msgid ""
+#~ "Couldn't make sense of CORBA value received in set request for key `%s'"
+#~ msgstr ""
+#~ "No s'ha pogut tenir en compte el valor CORBA rebut en definir el "
+#~ "requeriment per a la clau '%s'"
+
+#~ msgid "Received request to drop all cached data"
+#~ msgstr ""
+#~ "S'ha rebut un requeriment per deixar anar totes les dades recollides"
+
+#~ msgid "Received request to sync synchronously"
+#~ msgstr "S'ha rebut un requeriment per a sincronitzar sincrònicament"
+
+#
+#~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
+#~ msgstr ""
+#~ "Error fatal: no s'ha pogut obtenir la referència d'objecte per al "
+#~ "ConfigDatabase"
+
+#~ msgid ""
+#~ "Failed to log addition of listener %s (%s);will not be able to restore "
+#~ "this listener on gconfd restart, resulting in unreliable notification of "
+#~ "configuration changes."
+#~ msgstr ""
+#~ "No s'ha pogut registrar una addició de l'oient %s (%s); no serà possible "
+#~ "restaurar aquest oient en el reinici del gconfd, fet que resultarà en una "
+#~ "notificació de poca confiança dels canvis de configuració."
+
+#~ msgid "Listener ID %lu doesn't exist"
+#~ msgstr "L'ID d'oient %lu no existeix"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to logfile (most likely harmless, may "
+#~ "result in a notification weirdly reappearing): %s"
+#~ msgstr ""
+#~ "No s'ha pogut registrar la supressió d'oient al fitxer de registre (el "
+#~ "més probablement inofensiu, pot resultar en una notificació d'estranya "
+#~ "reaparició): %s"
+
+#~ msgid "Invalid UTF-8 in string value in '%s'"
+#~ msgstr "L'UTF-8 no és vàlid al valor de cadena a '%s'"
+
+#~ msgid "Couldn't interpret CORBA value for list element"
+#~ msgstr ""
+#~ "No s'ha pogut interpretar el valor CORBA per a l'element de la llista"
+
+#~ msgid "Incorrect type for list element in %s"
+#~ msgstr "Tipus incorrecte per a l'element de la llista a %s"
+
+#~ msgid "Received list from gconfd with a bad list type"
+#~ msgstr "S'ha rebut la llista de gconfd amb un tipus de llista incorrecte"
+
+#
+#~ msgid "Failed to convert object to IOR"
+#~ msgstr "No s'ha pogut convertir l'objecte a IOR"
+
+#~ msgid "Invalid UTF-8 in locale for schema"
+#~ msgstr "L'UTF-8 no és vàlid al local per a l'esquema"
+
+#~ msgid "Invalid UTF-8 in short description for schema"
+#~ msgstr "L'UTF-8 no és vàlid a la descripció curta per a l'esquema"
+
+#~ msgid "Invalid UTF-8 in long description for schema"
+#~ msgstr "L'UTF-8 no és vàlid a la descripció llarga per a l'esquema"
+
+#~ msgid "Invalid UTF-8 in owner for schema"
+#~ msgstr "L'UTF-8 no és vàlid al propietari per a l'esquema"
+
+#~ msgid "Server ping error: %s"
+#~ msgstr "Error de ping del servidor: %s"
+
+#~ msgid ""
+#~ "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+#~ msgstr ""
+#~ "No s'ha pogut crear un conducte per a comunicar-se amb el dimoni del "
+#~ "gconf engendrat: %s\n"
+
+#~ msgid "Failed to launch configuration server: %s\n"
+#~ msgstr "No s'ha pogut executar el servidor de configuració: %s\n"
+
+#~ msgid ""
+#~ "Failed to contact configuration server; some possible causes are that you "
+#~ "need to enable TCP/IP networking for ORBit, or you have stale NFS locks "
+#~ "due to a system crash. See http://www.gnome.org/projects/gconf/ for "
+#~ "information. (Details - %s)"
+#~ msgstr ""
+#~ "No s'ha pogut contactar el servidor de configuració; algunes causes "
+#~ "possibles són que necessiteu habilitar el gestor de xarxes TCP/IP per a "
+#~ "ORBit, o teniu blocatges NFS expirats degut a una fallada del sistema. A "
+#~ "http://www.gnome.org/projects/gconf/ hi trobareu informació. (Detalls: %s)"
+
+#~ msgid "none"
+#~ msgstr "cap"
+
+#~ msgid "Server couldn't resolve the address `%s'"
+#~ msgstr "El servidor no ha pogut resoldre l'adreça '%s'"
+
+#~ msgid "Can't add notifications to a local configuration source"
+#~ msgstr "No es poden afegir notificacions a una font de configuració local"
+
+#~ msgid "Adding client to server's list failed, CORBA error: %s"
+#~ msgstr ""
+#~ "L'afegiment d'un client a la llista de servidors ha fallat, error de "
+#~ "CORBA: %s"
+
+#~ msgid "Failure shutting down config server: %s"
+#~ msgstr "S'ha produït una fallada en tancar el servidor de configuració: %s"
+
+#~ msgid "CORBA error: %s"
+#~ msgstr "Error del CORBA: %s"
+
+#~ msgid "Shutdown request received"
+#~ msgstr "S'ha rebut un requeriment d'apagar"
+
+#~ msgid "Failed to get object reference for ConfigServer"
+#~ msgstr "No s'ha pogut obtenir la referència d'objecte per al ConfigServer"
+
+#~ msgid "Returning exception: %s"
+#~ msgstr "S'està retornant l'excepció: %s"
+
+#~ msgid ""
+#~ "Failed to open gconfd logfile; won't be able to restore listeners after "
+#~ "gconfd shutdown (%s)"
+#~ msgstr ""
+#~ "No s'ha pogut obrir el fitxer de registre del gconfd; no serà possible "
+#~ "restaurar els oients després d'aturar el gconfd (%s)"
+
+#~ msgid ""
+#~ "Failed to close gconfd logfile; data may not have been properly saved (%s)"
+#~ msgstr ""
+#~ "No s'ha pogut tancar el fitxer de registre del gconfd; les dades poden no "
+#~ "haver estat desades correctament (%s)"
+
+#~ msgid "Could not open saved state file '%s' for writing: %s"
+#~ msgstr "No s'ha pogut obrir el fitxer d'estat desat '%s' per escriure: %s"
+
+#~ msgid "Could not write saved state file '%s' fd: %d: %s"
+#~ msgstr "No s'ha pogut escriure el fitxer d'estat desat '%s' fd: %d: %s"
+
+#~ msgid "Failed to close new saved state file '%s': %s"
+#~ msgstr "No s'ha pogut tancar el fitxer d'estat desat nou «%s»: %s"
+
+#~ msgid "Could not move aside old saved state file '%s': %s"
+#~ msgstr "No s'ha pogut moure a part el fitxer d'estat desat antic '%s': %s"
+
+#~ msgid "Failed to move new save state file into place: %s"
+#~ msgstr "No s'ha pogut moure el fitxer d'estat desat nou a l'emplaçament: %s"
+
+#~ msgid ""
+#~ "Failed to restore original saved state file that had been moved to '%s': %"
+#~ "s"
+#~ msgstr ""
+#~ "No s'ha pogut restaurar el fitxer d'estat desat original que havia estat "
+#~ "mogut a '%s': %s"
+
+#~ msgid ""
+#~ "Unable to restore a listener on address '%s', couldn't resolve the "
+#~ "database"
+#~ msgstr ""
+#~ "No s'ha pogut restaurar un oient a l'adreça «%s», no s'ha pogut resoldre "
+#~ "la base de dades"
+
+#~ msgid "Error reading saved state file: %s"
+#~ msgstr "S'ha produït un error en llegir el fitxer d'estat desat: %s"
+
+#~ msgid "Unable to open saved state file '%s': %s"
+#~ msgstr "No s'ha pogut obrir el fitxer d'estat desat '%s': %s"
+
+#~ msgid ""
+#~ "Failed to log addition of listener to gconfd logfile; won't be able to re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "No s'ha pogut registrar l'addició d'oient al fitxer de registre del "
+#~ "gconfd; no serà possible tornar a afegir l'oient si el gconfd surt o es "
+#~ "tanca (%s)"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to gconfd logfile; might erroneously re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "No s'ha pogut registrar la supressió de l'oient al fitxer de registre del "
+#~ "gconfd; l'orient potser es torni a afegir per error si el gconfd surt o "
+#~ "es tanca (%s)"
+
+#~ msgid "Failed to get IOR for client: %s"
+#~ msgstr "No s'ha pogut obtenir l'IOR per al client: %s"
+
+#~ msgid "Failed to open saved state file: %s"
+#~ msgstr "No s'ha pogut obrir el fitxer d'estat desat: %s"
+
+#~ msgid "Failed to write client add to saved state file: %s"
+#~ msgstr ""
+#~ "No s'ha pogut escriure l'afegiment del client al fitxer d'estat desat: %s"
+
+#~ msgid "Failed to flush client add to saved state file: %s"
+#~ msgstr ""
+#~ "No s'ha pogut buidar l'afegiment del client al fitxer d'estat desat: %s"
+
+#~ msgid ""
+#~ "Some client removed itself from the GConf server when it hadn't been "
+#~ "added."
+#~ msgstr ""
+#~ "Algun client s'ha suprimit a si mateix del servidor Gconf i no hi havia "
+#~ "estat afegit."
 
 #~ msgid ""
 #~ "%u items remain in the cache after cleaning already-synced items older "

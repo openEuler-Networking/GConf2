@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf-1-0 1.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-25 22:27+0100\n"
+"POT-Creation-Date: 2004-09-19 15:28+0200\n"
 "PO-Revision-Date: 2001-05-25 13:35+0200\n"
 "Last-Translator: Unmantained\n"
 "Language-Team: Euskara\n"
@@ -344,110 +344,62 @@ msgstr "Gconf-en abisua: huts egin du `%s'(e)n bikoteak zerrendatzean: %s "
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "`%s' espero nuen, `%s' lortu dut %s gakoarentzat"
 
-#: gconf/gconf-database.c:211
-msgid "Received invalid value in set request"
-msgstr "Eskaera egiterakoan balio okerra jaso dut"
-
-#: gconf/gconf-database.c:219
-#, c-format
-msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr "Ez dut ulertu `%s' gakoaren eskaera egiterakoan jasotako CORBA balioa"
-
-#: gconf/gconf-database.c:502
-msgid "Received request to drop all cached data"
-msgstr "Cacheko datu guztiak ezabatzeko eskaera jaso dut"
-
-#: gconf/gconf-database.c:519
-msgid "Received request to sync synchronously"
-msgstr "Modu sinkronikoz sinkronizatzeko eskaera jaso dut"
-
-#: gconf/gconf-database.c:804
-msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr ""
-"Ezinbesteko errorea:  huts egin du ConfigDatabase-ren objektuaren "
-"erreferentzia lortzean"
-
-#: gconf/gconf-database.c:966
+#: gconf/gconf-database.c:153
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Huts egin du iturburu bat edo gehiago sinkronizatzean: %s "
 
-#: gconf/gconf-database.c:1058
-#, fuzzy, c-format
-msgid ""
-"Failed to log addition of listener %s (%s);will not be able to restore this "
-"listener on gconfd restart, resulting in unreliable notification of "
-"configuration changes."
-msgstr ""
-"Huts egin du (%s) entzungailua gehitzean; ezingo du entzungailu hori "
-"leheneratu gconfd berriro hasieratutakoan eta, ondorioz, konfigurazio-"
-"aldaketen  jakinarazpena ez da fidagarria izango."
-
-#: gconf/gconf-database.c:1092
-#, c-format
-msgid "Listener ID %lu doesn't exist"
-msgstr "ID %lu entzungailua ez da existitzen"
-
-#: gconf/gconf-database.c:1106
-#, c-format
-msgid ""
-"Failed to log removal of listener to logfile (most likely harmless, may "
-"result in a notification weirdly reappearing): %s"
-msgstr ""
-"Huts egin du entzungailua egunkari-fitxategira aldatu dela erregistratzean "
-"(ez du kalterik eragingo, baina jakinarazpenetan okerrak egon daitezke): %s"
-
-#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Errorea `%s'(r)en balioa lortzean: %s "
 
-#: gconf/gconf-database.c:1271
+#: gconf/gconf-database.c:267
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Errorea `%s'(r)en balioa ezartzean: %s "
 
-#: gconf/gconf-database.c:1314
+#: gconf/gconf-database.c:322
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Errorea `%s' ezabatzean: %s "
 
-#: gconf/gconf-database.c:1343
+#: gconf/gconf-database.c:351
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Errorea `%s'(r)en balio lehenetsia lortzean: %s "
 
-#: gconf/gconf-database.c:1394
+#: gconf/gconf-database.c:398
 #, fuzzy, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Errorea `%s' ezabatzean: %s "
 
-#: gconf/gconf-database.c:1426
+#: gconf/gconf-database.c:430
 #, fuzzy, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Errorea `%s'(r)en balioa lortzean: %s "
 
-#: gconf/gconf-database.c:1474
+#: gconf/gconf-database.c:476
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Errorea `%s' ba ote dagoen aztertzean: %s "
 
-#: gconf/gconf-database.c:1498
+#: gconf/gconf-database.c:500
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Errorea `%s' direktorioa ezabatzean: %s "
 
-#: gconf/gconf-database.c:1525
+#: gconf/gconf-database.c:527
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Huts egin du `%s'(e)ko sarrera guztiak eskuratzean: %s "
 
-#: gconf/gconf-database.c:1551
+#: gconf/gconf-database.c:553
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Errorea `%s'(e)ko direktorioak zerrendatzean: %s "
 
-#: gconf/gconf-database.c:1572
+#: gconf/gconf-database.c:574
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Errorea `%s'(r)en eskema ezartzean: %s "
@@ -516,124 +468,109 @@ msgstr "Huts egin du blokeoa lortzean"
 msgid "No database available to save your configuration"
 msgstr "Ez dago datu-base erabilgarririk zure konfigurazioa gordetzeko"
 
-#: gconf/gconf-internals.c:86
+#: gconf/gconf-internals.c:71
 #, fuzzy, c-format
 msgid "No '/' in key \"%s\""
 msgstr "`%s' gakoak ez du '/' "
 
-#: gconf/gconf-internals.c:199
-#, c-format
-msgid "Invalid UTF-8 in string value in '%s'"
-msgstr "Baliogabeko UTF-8 '%s'(r)en kate-balioan"
-
-#: gconf/gconf-internals.c:258
-msgid "Couldn't interpret CORBA value for list element"
-msgstr "Ezin izan dut zerrenda-elementu horren CORBA balioa interpretatu"
-
-#: gconf/gconf-internals.c:260
-#, c-format
-msgid "Incorrect type for list element in %s"
-msgstr "Zerrenda-elementuaren okerreko mota %s(e)n"
-
-#: gconf/gconf-internals.c:273
-msgid "Received list from gconfd with a bad list type"
-msgstr "Gconfd-etik jasotako zerrendak okerreko zerrenda-mota bat du"
-
-#: gconf/gconf-internals.c:454
-msgid "Failed to convert object to IOR"
-msgstr "Huts egin du objektua IOR bihurtzean"
-
-#: gconf/gconf-internals.c:591
-msgid "Invalid UTF-8 in locale for schema"
-msgstr "Baliogabeko UTF-8 eskemaren lokalean"
-
-#: gconf/gconf-internals.c:599
-msgid "Invalid UTF-8 in short description for schema"
-msgstr "Baliogabeko UTF-8 eskemaren azalpen laburrean "
-
-#: gconf/gconf-internals.c:607
-msgid "Invalid UTF-8 in long description for schema"
-msgstr "Baliogabeko UTF-8 eskemaren azalpen luzean "
-
-#: gconf/gconf-internals.c:615
-msgid "Invalid UTF-8 in owner for schema"
-msgstr "Baliogabeko UTF-8 eskemaren jabean "
-
-#: gconf/gconf-internals.c:838
+#: gconf/gconf-internals.c:341
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Ezin izan dut `%s' fitxategiaren bide-izena ireki: %s\n"
 
-#: gconf/gconf-internals.c:887
+#: gconf/gconf-internals.c:390
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "`%s' iturburua gehitzen\n"
 
-#: gconf/gconf-internals.c:899
+#: gconf/gconf-internals.c:402
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Irakurketa-errorea `%s' fitxategian: %s\n"
 
-#: gconf/gconf-internals.c:1203 gconf/gconf-internals.c:1269
+#: gconf/gconf-internals.c:706 gconf/gconf-internals.c:772
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "Testuak baliogabeko UTF-8 du"
 
-#: gconf/gconf-internals.c:1354
+#: gconf/gconf-internals.c:857
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Zerrenda espero nuen, %s dut"
 
-#: gconf/gconf-internals.c:1364
+#: gconf/gconf-internals.c:867
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "%s(r)en zerrenda espero nuen, %s(r)ena dut"
 
-#: gconf/gconf-internals.c:1492
+#: gconf/gconf-internals.c:995
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Bikotea espero nuen, %s dut"
 
-#: gconf/gconf-internals.c:1506
+#: gconf/gconf-internals.c:1009
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr ""
 "(%s,%s) bikotea espero nuen, lortu dudanari balio bat edo biak falta zaizkio"
 
-#: gconf/gconf-internals.c:1522
+#: gconf/gconf-internals.c:1025
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "(%s,%s) bikote-mota espero nuen, (%s,%s) motakoa dut"
 
-#: gconf/gconf-internals.c:1638
+#: gconf/gconf-internals.c:1141
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Komatxo arteko esaldia ez da komatxoekin hasten"
 
-#: gconf/gconf-internals.c:1700
+#: gconf/gconf-internals.c:1203
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Komatxo arteko esaldia ez da komatxoekin bukatzen"
 
-#: gconf/gconf-internals.c:1836
+#: gconf/gconf-internals.c:1339
 msgid "Encoded value is not valid UTF-8"
 msgstr "Kodetutako balioa ez da baliozko UTF-8"
 
-#: gconf/gconf-internals.c:2295
+#: gconf/gconf-internals.c:1841
+#, c-format
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr "IOR file '%s' not opened successfully, no gconfd located: %s"
+
+#: gconf/gconf-internals.c:1871
+#, c-format
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr ""
+"gconftool-ek edo gconfd prozesua ez den beste batek edukiko du '%s' blokeo-"
+"fitxategia"
+
+#: gconf/gconf-internals.c:1888
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr ""
+"ezin izan da ORBrekin kontaktatu lehendik dagoen gconfd objektuaren "
+"erreferentzia konpontzeko "
+
+#: gconf/gconf-internals.c:1898
+#, fuzzy, c-format
+msgid "Failed to convert IOR '%s' to an object reference"
+msgstr "Huts egin du objektua IOR bihurtzean"
+
+#: gconf/gconf-internals.c:1953
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Ezin izan da '%s' aldi baterako fitxategia blokeatu: %s"
 
-#: gconf/gconf-internals.c:2322
+#: gconf/gconf-internals.c:1980
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Ezin izan da '%s' fitxategia sortu, seguru asko lehendik egongo da"
 
-#: gconf/gconf-internals.c:2368
+#: gconf/gconf-internals.c:2027
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Huts egin du '%s' sortzean edo irekitzean"
 
-#: gconf/gconf-internals.c:2378
+#: gconf/gconf-internals.c:2037
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -643,110 +580,52 @@ msgstr ""
 "sistema eragileak fitxategiak blokeatzeko NFS gaizki konfiguratuta izango du "
 "(%s)"
 
-#: gconf/gconf-internals.c:2408
-#, c-format
-msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr "IOR file '%s' not opened successfully, no gconfd located: %s"
-
-#: gconf/gconf-internals.c:2438
-#, c-format
-msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr ""
-"gconftool-ek edo gconfd prozesua ez den beste batek edukiko du '%s' blokeo-"
-"fitxategia"
-
-#: gconf/gconf-internals.c:2455
-msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr ""
-"ezin izan da ORBrekin kontaktatu lehendik dagoen gconfd objektuaren "
-"erreferentzia konpontzeko "
-
-#: gconf/gconf-internals.c:2465
-#, fuzzy, c-format
-msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "Huts egin du objektua IOR bihurtzean"
-
-#: gconf/gconf-internals.c:2515
-#, c-format
-msgid "couldn't create directory `%s': %s"
-msgstr "ezin izan du `%s' direktorioa sortu: %s "
-
-#: gconf/gconf-internals.c:2574
-#, c-format
-msgid "Can't write to file `%s': %s"
-msgstr "Ezin da `%s' fitxategian idatzi: %s "
-
-#: gconf/gconf-internals.c:2615
+#: gconf/gconf-internals.c:2121
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr ""
 "Blokeatzeko prozesua ez dugu `%s' fitxategian, baina eduki behar genuke"
 
-#: gconf/gconf-internals.c:2636
+#: gconf/gconf-internals.c:2142
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Huts egin du '%s' '%s'(r)i estekatzean: %s"
 
-#: gconf/gconf-internals.c:2648
+#: gconf/gconf-internals.c:2154
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Huts egin du `%s' blokeo-fitxategia kentzean: %s"
 
-#: gconf/gconf-internals.c:2667
+#: gconf/gconf-internals.c:2173
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Huts egin du '%s' fitxategia garbitzean: %s"
 
-#: gconf/gconf-internals.c:2681
+#: gconf/gconf-internals.c:2187
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Huts egin du `%s' blokeo-direktorioa kentzean: %s "
 
-#: gconf/gconf-internals.c:2723
+#: gconf/gconf-internals.c:2224
+#, c-format
+msgid "couldn't create directory `%s': %s"
+msgstr "ezin izan du `%s' direktorioa sortu: %s "
+
+#: gconf/gconf-internals.c:2283
+#, c-format
+msgid "Can't write to file `%s': %s"
+msgstr "Ezin da `%s' fitxategian idatzi: %s "
+
+#: gconf/gconf-internals.c:2327
 #, fuzzy, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Huts egin du `%s' blokeo-fitxategia kentzean: %s"
 
-#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
-#, fuzzy, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Huts egin du `%s'(e)tik datuak lortzean: %s "
-
-#: gconf/gconf-internals.c:2884
-#, fuzzy, c-format
-msgid "Server ping error: %s"
-msgstr "Errorea ixtean: %s\n"
-
-#: gconf/gconf-internals.c:2909
-#, c-format
-msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-msgstr ""
-"Huts egin du abiarazitako gconf daemon-arekin komunikatzeko kanalizazioa "
-"sortzean: %s\n"
-
-#: gconf/gconf-internals.c:2933
-#, c-format
-msgid "Failed to launch configuration server: %s\n"
-msgstr "Huts egin du konfigurazio-zerbitzaria abiaraztean: %s\n"
-
-#: gconf/gconf-internals.c:2958
-#, c-format
-msgid ""
-"Failed to contact configuration server; some possible causes are that you "
-"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
-"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
-"(Details - %s)"
-msgstr ""
-
-#: gconf/gconf-internals.c:2959
-msgid "none"
-msgstr ""
-
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:86
+#: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:86
 msgid "Help options"
 msgstr "Laguntza-aukerak"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:508
+#: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:508
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -755,7 +634,7 @@ msgstr ""
 "Errorea %s aukeran: %s.\n"
 "Exekutatu '%s --help' erabilgarri dauden komando-lerroko aukerak ikusteko.\n"
 
-#: gconf/gconf-sanity-check.c:141 gconf/gconf-sanity-check.c:166
+#: gconf/gconf-sanity-check.c:144 gconf/gconf-sanity-check.c:169
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -764,7 +643,7 @@ msgid ""
 "in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:180
+#: gconf/gconf-sanity-check.c:183
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -776,12 +655,12 @@ msgid ""
 "%d)."
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:197
+#: gconf/gconf-sanity-check.c:200
 #, fuzzy, c-format
 msgid "Can't remove file %s: %s\n"
 msgstr "Ezin da `%s' fitxategian idatzi: %s "
 
-#: gconf/gconf-sanity-check.c:233
+#: gconf/gconf-sanity-check.c:236
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -789,19 +668,19 @@ msgid ""
 "preferences and other settings can't be saved. %s%s"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:236
+#: gconf/gconf-sanity-check.c:239
 #, fuzzy
 msgid "Error reading the file: "
 msgstr "Errorea gordetako egoera-fitxategia irakurtzean: %s "
 
-#: gconf/gconf-sanity-check.c:259
+#: gconf/gconf-sanity-check.c:262
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:320
+#: gconf/gconf-sanity-check.c:323
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
@@ -814,15 +693,15 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:341
+#: gconf/gconf-sanity-check.c:344
 msgid "_Log Out"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:343
+#: gconf/gconf-sanity-check.c:346
 msgid "_Continue"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:356
+#: gconf/gconf-sanity-check.c:359
 #, c-format
 msgid "%s Continue (y/n)?"
 msgstr ""
@@ -996,97 +875,68 @@ msgstr "Ez dut `%s' ulertu (elementu-kopuru okerra)"
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "Ez dut `%s' ulertu (bikote barruan ')' bat gehiago dago)"
 
-#: gconf/gconf.c:55
+#: gconf/gconf.c:44
 #, c-format
 msgid "Key \"%s\" is NULL"
 msgstr ""
 
-#: gconf/gconf.c:62
+#: gconf/gconf.c:51
 #, fuzzy, c-format
 msgid "\"%s\": %s"
 msgstr "`%s': %s "
 
-#: gconf/gconf.c:345
-#, c-format
-msgid "Server couldn't resolve the address `%s'"
-msgstr "Zerbitzariak ezin izan du `%s' helbidea ebatzi"
-
-#: gconf/gconf.c:634
-msgid "Can't add notifications to a local configuration source"
-msgstr "Konfigurazio-iturburu lokalean ezin da jakinarazpenik gehitu"
-
-#: gconf/gconf.c:2097
-#, c-format
-msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr ""
-"Huts egin du zerbitzari-zerrendan bezeroa gehitzean: CORBA errorea: %s "
-
-#: gconf/gconf.c:2452
+#: gconf/gconf.c:116
 msgid "Must begin with a slash (/)"
 msgstr "Slash (/) batez hasi behar da"
 
-#: gconf/gconf.c:2474
+#: gconf/gconf.c:138
 msgid "Can't have two slashes (/) in a row"
 msgstr "Ezin du lerro berean bi slash (/) izan"
 
-#: gconf/gconf.c:2476
+#: gconf/gconf.c:140
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Ezin du punturik (.) izan justu slash-aren (/) ondoren"
 
-#: gconf/gconf.c:2495
+#: gconf/gconf.c:159
 #, fuzzy, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr "`%c' balio gabeko karakterea da gako/direktorio-izenetan"
 
-#: gconf/gconf.c:2505
+#: gconf/gconf.c:169
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' balio gabeko karakterea da gako/direktorio-izenetan"
 
-#: gconf/gconf.c:2519
+#: gconf/gconf.c:183
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Gakoa/direktorioa ezin da slash (/) batez bukatu"
 
-#: gconf/gconf.c:2888
-#, c-format
-msgid "Failure shutting down config server: %s"
-msgstr "Huts egin du konfigurazio-zerbitzaria ixtean: %s "
-
-#: gconf/gconf.c:2949
+#: gconf/gconf.c:408
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Float espero nuen, %s eskuratu dut"
 
-#: gconf/gconf.c:2984
+#: gconf/gconf.c:443
 #, c-format
 msgid "Expected int, got %s"
 msgstr "Osoa espero nuen, %s eskuratu du"
 
-#: gconf/gconf.c:3019
+#: gconf/gconf.c:478
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Katea espero nuen, %s eskuratu dut"
 
-#: gconf/gconf.c:3053
+#: gconf/gconf.c:512
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "Boolearra espero nuen, %s eskuratu dut"
 
-#: gconf/gconf.c:3086
+#: gconf/gconf.c:545
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Eskema espero nuen, %s eskuratu dut"
 
-#: gconf/gconf.c:3443
-#, c-format
-msgid "CORBA error: %s"
-msgstr "CORBA errorea: %s "
-
-#: gconf/gconfd.c:250
-msgid "Shutdown request received"
-msgstr "Ixteko eskaera jaso dut"
-
-#: gconf/gconfd.c:282
+#: gconf/gconfd.c:148
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -1094,7 +944,7 @@ msgstr ""
 "gconfd akatsak garbitzeko aukerarekin konpilatuta; gconf.path iturburu- "
 "direktoriotik kargatzen"
 
-#: gconf/gconfd.c:296
+#: gconf/gconfd.c:162
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -1105,7 +955,7 @@ msgstr ""
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:304
+#: gconf/gconfd.c:170
 #, fuzzy, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
@@ -1114,12 +964,12 @@ msgstr ""
 "Iturburuko bide-izenak ez du konfigurazio-iturbururik eta konfigurazioa ez "
 "da gordeko; editatu "
 
-#: gconf/gconfd.c:317
+#: gconf/gconfd.c:183
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "Errorea konfigurazio-iturburu batzuk kargatzean: %s "
 
-#: gconf/gconfd.c:329
+#: gconf/gconfd.c:195
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -1127,7 +977,7 @@ msgstr ""
 "Konfigurazio-iturburuko helbideak ez dira ondo ebatzi eta ezingo du "
 "konfigurazio-daturik kargatu edo gorde "
 
-#: gconf/gconfd.c:346
+#: gconf/gconfd.c:212
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1135,12 +985,12 @@ msgstr ""
 "Idazteko aukera duten konfigurazio-iturburuak ez dira ondo ebatzi eta ezingo "
 "dira konfigurazio-aldaketa batzuk gorde"
 
-#: gconf/gconfd.c:372
+#: gconf/gconfd.c:238
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "%d seinalea jaso dut, core iraultzean. Gconf-i akatsaren berri eman."
 
-#: gconf/gconfd.c:390
+#: gconf/gconfd.c:256
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
@@ -1148,193 +998,72 @@ msgstr ""
 "%d seinalea jaso dut behar ez den moduan ixtean. Gconf-i akatsaren berri "
 "eman."
 
-#: gconf/gconfd.c:407
+#: gconf/gconfd.c:273
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "%d seinalea jaso dut modu garbian ixtean"
 
-#: gconf/gconfd.c:480
+#: gconf/gconfd.c:342
 #, fuzzy, c-format
 msgid "Failed to open %s: %s"
 msgstr "Huts egin du `%s' irekitzean: %s\n"
 
-#: gconf/gconfd.c:496
+#: gconf/gconfd.c:349
+#, fuzzy, c-format
+msgid "Failed to stat %s: %s"
+msgstr "Huts egin du `%s'(e)tik datuak lortzean: %s "
+
+#: gconf/gconfd.c:358
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr ""
 
-#: gconf/gconfd.c:504
+#: gconf/gconfd.c:366
 #, fuzzy, c-format
 msgid "Bad permissions %lo on directory %s"
 msgstr "Gako-eragiketa direktorioan"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:586
+#: gconf/gconfd.c:446
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "hasieratzen (%s bertsioa), %u erabiltzailearen pid-a '%s'"
 
-#: gconf/gconfd.c:626
-msgid "Failed to get object reference for ConfigServer"
-msgstr "Huts egin du ConfigServer-ren objektuaren erreferentzia lortzean"
-
-#: gconf/gconfd.c:639
+#: gconf/gconfd.c:485
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "Huts egin du %s sortzean: %s "
 
-#: gconf/gconfd.c:646
+#: gconf/gconfd.c:493
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr ""
 
-#: gconf/gconfd.c:675
+#: gconf/gconfd.c:529
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 "Huts egin du byte fd %d kanalizazioan idaztean, beraz programa bezeroa eseki "
 "daiteke: %s"
 
-#: gconf/gconfd.c:685
+#: gconf/gconfd.c:543
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "Huts egin du daemon-en blokeoa lortzean; irteten: %s "
 
-#: gconf/gconfd.c:723
+#: gconf/gconfd.c:585
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "Errorea blokeo-fitxategi hau askatzean: %s "
 
-#: gconf/gconfd.c:731
+#: gconf/gconfd.c:593
 msgid "Exiting"
 msgstr "Irteten"
 
-#: gconf/gconfd.c:757
+#: gconf/gconfd.c:636
 msgid "GConf server is not in use, shutting down."
 msgstr "GConf zerbitzaria ez dago martxan, ixten."
-
-#: gconf/gconfd.c:1123
-#, c-format
-msgid "Returning exception: %s"
-msgstr "Salbuespena itzultzen: %s "
-
-#: gconf/gconfd.c:1223
-#, c-format
-msgid ""
-"Failed to open gconfd logfile; won't be able to restore listeners after "
-"gconfd shutdown (%s)"
-msgstr ""
-"Huts egin du gconfd egunkari-fitxategia irekitzean; ezingo dira "
-"entzungailuak leheneratu gconfd itxi ondoren (%s)"
-
-#: gconf/gconfd.c:1258
-#, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
-msgstr ""
-"Huts egin du gconfd egunkari-fitxategia ixtean; datuak ez ziren ondo gordeko "
-"(%s)"
-
-#: gconf/gconfd.c:1327
-#, c-format
-msgid "Could not open saved state file '%s' for writing: %s"
-msgstr "Ezin izan da gordetako '%s' egoera-fitxategia idazteko ireki: %s "
-
-#: gconf/gconfd.c:1341
-#, c-format
-msgid "Could not write saved state file '%s' fd: %d: %s"
-msgstr "Ezin izan da gordetako '%s' fd egoera-fitxategian idatzi: %d: %s "
-
-#: gconf/gconfd.c:1350
-#, c-format
-msgid "Failed to close new saved state file '%s': %s"
-msgstr "Huts egin du gordetako `%s' egoera-fitxategi berria ixtean: %s "
-
-#: gconf/gconfd.c:1364
-#, c-format
-msgid "Could not move aside old saved state file '%s': %s"
-msgstr "Ezin izan da gordetako '%s' egoera-fitxategi zaharra lekuz aldatu: %s "
-
-#: gconf/gconfd.c:1374
-#, c-format
-msgid "Failed to move new save state file into place: %s"
-msgstr "Huts egin du gordetako egoera-fitxategi berria hona mugitzean: %s "
-
-#: gconf/gconfd.c:1383
-#, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr ""
-"Huts egin du '%s'(e)ra mugitu den jatorrizko egoera-fitxategia   "
-"berreskuratzean: %s"
-
-#: gconf/gconfd.c:1854
-#, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
-msgstr ""
-"Ezin du entzungailua '%s' helbidean leheneratu, ezin izan du datu-basea "
-"ebatzi"
-
-#: gconf/gconfd.c:1900
-#, c-format
-msgid "Error reading saved state file: %s"
-msgstr "Errorea gordetako egoera-fitxategia irakurtzean: %s "
-
-#: gconf/gconfd.c:1954
-#, c-format
-msgid "Unable to open saved state file '%s': %s"
-msgstr "Ezin izan du gordetako '%s' egoera-fitxategia ireki: %s "
-
-#: gconf/gconfd.c:2073
-#, c-format
-msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"Huts egin du entzungailua gconfd egunkari-fitxategira gehitu izana "
-"erregistratzean; ezingo du entzungailua berriro gehitu gconfd existitzen "
-"bada edo ixten bada (%s)"
-
-#: gconf/gconfd.c:2078
-#, c-format
-msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"Huts egin du entzungailua gconfd egunkari-fitxategira mugitu izana "
-"erregistratzean; entzungailua gaizki gehituko da gconfd existitzen bada edo "
-"ixten bada (%s)"
-
-#: gconf/gconfd.c:2101 gconf/gconfd.c:2275
-#, c-format
-msgid "Failed to get IOR for client: %s"
-msgstr "Huts egin du bezeroaren IOR lortzean: %s "
-
-#: gconf/gconfd.c:2116
-#, c-format
-msgid "Failed to open saved state file: %s"
-msgstr "Huts egin du gordetako egoera-fitxategia irekitzean: %s "
-
-#: gconf/gconfd.c:2129
-#, c-format
-msgid "Failed to write client add to saved state file: %s"
-msgstr ""
-"Huts egin du gehitutako bezeroa gordetako egoera-fitxategian idaztean: %s "
-
-#: gconf/gconfd.c:2137
-#, c-format
-msgid "Failed to flush client add to saved state file: %s"
-msgstr ""
-"Huts egin du gehitutako bezeroa gordetako egoera-fitxategira iraultzean: %s "
-
-#: gconf/gconfd.c:2236
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
-msgstr ""
-"Bezero batzuek euren burua kendu dute GConf zerbitzaritik, baina gehitu gabe "
-"zeuden."
 
 #: gconf/gconftool.c:95
 msgid "Set a key to a value and sync. Use with --type."
@@ -1791,7 +1520,7 @@ msgstr ""
 msgid "Error: %s\n"
 msgstr "Errorea: %s\n"
 
-#: gconf/gconftool.c:1786 gconf/gconftool.c:2816
+#: gconf/gconftool.c:1786 gconf/gconftool.c:2815
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Errorea balioa ezartzean: %s\n"
@@ -1990,47 +1719,47 @@ msgstr "ABISUA: huts egin du `%s' mota-izena analizatzean\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "ABISUA: huts egin du `%s' mota-izena analizatzean\n"
 
-#: gconf/gconftool.c:2797 gconf/gconftool.c:3341
+#: gconf/gconftool.c:2797 gconf/gconftool.c:3340
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "ABISUA: huts egin du `%s' eskema `%s' gakoarekin elkartzean: %s\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2909
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "ABISUA: eskemaren mota okerra da edo falta da (%s)\n"
 
-#: gconf/gconftool.c:2919
+#: gconf/gconftool.c:2918
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "ABISUA: eskemaren zerrenda-mota okerra da edo falta da (%s)\n"
 
-#: gconf/gconftool.c:2930 gconf/gconftool.c:2960 gconf/gconftool.c:2989
+#: gconf/gconftool.c:2929 gconf/gconftool.c:2959 gconf/gconftool.c:2988
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "ABISUA: Huts egin du eskemaren `%s' balio lehenetsia analizatzean (%s)\n"
 
-#: gconf/gconftool.c:2948
+#: gconf/gconftool.c:2947
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr "ABISUA: eskemaren car-mota edo cdr-mota okerra da edo falta da (%s)\n"
 
-#: gconf/gconftool.c:2973
+#: gconf/gconftool.c:2972
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "ABISUA: Ezin duzu eskemaren balio lehenetsia ezarri\n"
 
-#: gconf/gconftool.c:3002
+#: gconf/gconftool.c:3001
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "ABISUA: gconftool-en barne errorea, GconfValueType ezezaguna\n"
 
-#: gconf/gconftool.c:3050 gconf/gconftool.c:3071 gconf/gconftool.c:3092
-#: gconf/gconftool.c:3113
+#: gconf/gconftool.c:3049 gconf/gconftool.c:3070 gconf/gconftool.c:3091
+#: gconf/gconftool.c:3112
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "ABISUA: huts egin du `%s' mota-izena analizatzean\n"
 
-#: gconf/gconftool.c:3067
+#: gconf/gconftool.c:3066
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -2038,50 +1767,50 @@ msgstr ""
 "ABISUA: zerrenda-mota hauek egon daitezke bakarrik: int, float, string edo "
 "bool eta ez `%s'\n"
 
-#: gconf/gconftool.c:3088
+#: gconf/gconftool.c:3087
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ABISUA: car-mota hauek egon daitezke bakarrik: int, float, string edo bool "
 "eta ez `%s'\n"
 
-#: gconf/gconftool.c:3109
+#: gconf/gconftool.c:3108
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "ABISUA: cdr-mota hauek egon daitezke bakarrik: int, float, string edo bool "
 "eta ez `%s'\n"
 
-#: gconf/gconftool.c:3149
+#: gconf/gconftool.c:3148
 msgid "WARNING: empty <applyto> node"
 msgstr "ABISUA: <applyto> nodoa hutsik"
 
-#: gconf/gconftool.c:3152 gconf/gconftool.c:3414
+#: gconf/gconftool.c:3151 gconf/gconftool.c:3413
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "ABISUA: <%s> nodoa ulertezina <schema>ren barruan\n"
 
-#: gconf/gconftool.c:3163
+#: gconf/gconftool.c:3162
 #, fuzzy
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr "ABISUA: eskemak ez du gakoa zehaztuta\n"
 
-#: gconf/gconftool.c:3169
+#: gconf/gconftool.c:3168
 #, fuzzy
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr "ABISUA: eskemak ez du gakoa zehaztuta\n"
 
-#: gconf/gconftool.c:3175
+#: gconf/gconftool.c:3174
 #, fuzzy
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr "ABISUA: eskemak ez du gakoa zehaztuta\n"
 
-#: gconf/gconftool.c:3204
+#: gconf/gconftool.c:3203
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "ABISUA: <locale> nodoak ez du `name=\"locale\"' atributua; jaramonik ez\n"
 
-#: gconf/gconftool.c:3210
+#: gconf/gconftool.c:3209
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
@@ -2089,91 +1818,91 @@ msgstr ""
 "ABISUA: <locale> nodo bat baino gehiago `%s' locale-n; lehena ez beste "
 "guztiei ez ikusia egin\n"
 
-#: gconf/gconftool.c:3308
+#: gconf/gconftool.c:3307
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "ABISUA: <%s> nodo baliogabea <locale> nodoan\n"
 
-#: gconf/gconftool.c:3349
+#: gconf/gconftool.c:3348
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "`%s' eskema `%s' gakorako erantsita\n"
 
-#: gconf/gconftool.c:3423
+#: gconf/gconftool.c:3422
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Gutxienez <locale> sarrera bat egon behar da <schema>n\n"
 
-#: gconf/gconftool.c:3455
+#: gconf/gconftool.c:3454
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "ABISUA: huts egin du `%s' eskema `%s' lokalean instalatzean: %s\n"
 
-#: gconf/gconftool.c:3463
+#: gconf/gconftool.c:3462
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "`%s' eskema `%s' localean instalatuta\n"
 
-#: gconf/gconftool.c:3487
+#: gconf/gconftool.c:3486
 #, fuzzy, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "ABISUA: huts egin du `%s' eskema `%s' lokalean instalatzean: %s\n"
 
-#: gconf/gconftool.c:3495
+#: gconf/gconftool.c:3494
 #, fuzzy, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "`%s' eskema `%s' localean instalatuta\n"
 
-#: gconf/gconftool.c:3533
+#: gconf/gconftool.c:3532
 msgid "WARNING: no key specified for schema\n"
 msgstr "ABISUA: eskemak ez du gakoa zehaztuta\n"
 
-#: gconf/gconftool.c:3574
+#: gconf/gconftool.c:3573
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "ABISUA: <%s> nodoa ulertezina <schema>ren barruan\n"
 
-#: gconf/gconftool.c:3605
+#: gconf/gconftool.c:3604
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Huts egin du `%s' irekitzean: %s\n"
 
-#: gconf/gconftool.c:3612
+#: gconf/gconftool.c:3611
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "`%s' dokumentua hutsik dago?\n"
 
-#: gconf/gconftool.c:3624
+#: gconf/gconftool.c:3623
 #, fuzzy, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "`%s' dokumentuak erroko nodoaren mota okerra du (<%s> <gconfschemafile>izan "
 "beharko litzateke)\n"
 
-#: gconf/gconftool.c:3637
+#: gconf/gconftool.c:3636
 #, fuzzy, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "`%s' dokumentuak ez du goi-mailako <gconfschemafile> nodoa\n"
 
-#: gconf/gconftool.c:3651
+#: gconf/gconftool.c:3650
 #, fuzzy, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "ABISUA: <%s> nodoa ulertezina <gconfschemafile>ren barruan\n"
 
-#: gconf/gconftool.c:3662 gconf/gconftool.c:3697 gconf/gconftool.c:3729
+#: gconf/gconftool.c:3661 gconf/gconftool.c:3696 gconf/gconftool.c:3728
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Errorea konfigurazio-datuak sinkronizatzean: %s "
 
-#: gconf/gconftool.c:3681
+#: gconf/gconftool.c:3680
 msgid "Must specify some schema files to install\n"
 msgstr "Instalatu beharreko eskema-fitxategiak zehaztu\n"
 
-#: gconf/gconftool.c:3713
+#: gconf/gconftool.c:3712
 #, fuzzy
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Instalatu beharreko eskema-fitxategiak zehaztu\n"
 
-#: gconf/gconftool.c:3750
+#: gconf/gconftool.c:3749
 #, c-format
 msgid ""
 "\n"
@@ -2182,16 +1911,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3770
+#: gconf/gconftool.c:3769
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Huts egin du apurketa-gakoa %s ezabatzean: %s\n"
 
-#: gconf/gconftool.c:3896
+#: gconf/gconftool.c:3895
 msgid "Must specify some keys to break\n"
 msgstr "Apurtzeko gakoak zehaztu behar dira\n"
 
-#: gconf/gconftool.c:3902
+#: gconf/gconftool.c:3901
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -2200,11 +1929,11 @@ msgstr ""
 "Zure aplikazioa apurtzen saiatzen, ondoko gakoan balio okerrak ezarriz:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3920
+#: gconf/gconftool.c:3919
 msgid "Must specify some directories to break\n"
 msgstr "Apurtzeko direktorioak zehaztu behar dira\n"
 
-#: gconf/gconftool.c:3939
+#: gconf/gconftool.c:3938
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -2214,6 +1943,198 @@ msgstr ""
 "Zure aplikazioa apurtzen saiatzen, ondoko direktorioko gakoetan balio "
 "okerrak ezarriz:\n"
 "  %s\n"
+
+#~ msgid "Received invalid value in set request"
+#~ msgstr "Eskaera egiterakoan balio okerra jaso dut"
+
+#~ msgid ""
+#~ "Couldn't make sense of CORBA value received in set request for key `%s'"
+#~ msgstr ""
+#~ "Ez dut ulertu `%s' gakoaren eskaera egiterakoan jasotako CORBA balioa"
+
+#~ msgid "Received request to drop all cached data"
+#~ msgstr "Cacheko datu guztiak ezabatzeko eskaera jaso dut"
+
+#~ msgid "Received request to sync synchronously"
+#~ msgstr "Modu sinkronikoz sinkronizatzeko eskaera jaso dut"
+
+#~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
+#~ msgstr ""
+#~ "Ezinbesteko errorea:  huts egin du ConfigDatabase-ren objektuaren "
+#~ "erreferentzia lortzean"
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to log addition of listener %s (%s);will not be able to restore "
+#~ "this listener on gconfd restart, resulting in unreliable notification of "
+#~ "configuration changes."
+#~ msgstr ""
+#~ "Huts egin du (%s) entzungailua gehitzean; ezingo du entzungailu hori "
+#~ "leheneratu gconfd berriro hasieratutakoan eta, ondorioz, konfigurazio-"
+#~ "aldaketen  jakinarazpena ez da fidagarria izango."
+
+#~ msgid "Listener ID %lu doesn't exist"
+#~ msgstr "ID %lu entzungailua ez da existitzen"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to logfile (most likely harmless, may "
+#~ "result in a notification weirdly reappearing): %s"
+#~ msgstr ""
+#~ "Huts egin du entzungailua egunkari-fitxategira aldatu dela "
+#~ "erregistratzean (ez du kalterik eragingo, baina jakinarazpenetan okerrak "
+#~ "egon daitezke): %s"
+
+#~ msgid "Invalid UTF-8 in string value in '%s'"
+#~ msgstr "Baliogabeko UTF-8 '%s'(r)en kate-balioan"
+
+#~ msgid "Couldn't interpret CORBA value for list element"
+#~ msgstr "Ezin izan dut zerrenda-elementu horren CORBA balioa interpretatu"
+
+#~ msgid "Incorrect type for list element in %s"
+#~ msgstr "Zerrenda-elementuaren okerreko mota %s(e)n"
+
+#~ msgid "Received list from gconfd with a bad list type"
+#~ msgstr "Gconfd-etik jasotako zerrendak okerreko zerrenda-mota bat du"
+
+#~ msgid "Failed to convert object to IOR"
+#~ msgstr "Huts egin du objektua IOR bihurtzean"
+
+#~ msgid "Invalid UTF-8 in locale for schema"
+#~ msgstr "Baliogabeko UTF-8 eskemaren lokalean"
+
+#~ msgid "Invalid UTF-8 in short description for schema"
+#~ msgstr "Baliogabeko UTF-8 eskemaren azalpen laburrean "
+
+#~ msgid "Invalid UTF-8 in long description for schema"
+#~ msgstr "Baliogabeko UTF-8 eskemaren azalpen luzean "
+
+#~ msgid "Invalid UTF-8 in owner for schema"
+#~ msgstr "Baliogabeko UTF-8 eskemaren jabean "
+
+#, fuzzy
+#~ msgid "Server ping error: %s"
+#~ msgstr "Errorea ixtean: %s\n"
+
+#~ msgid ""
+#~ "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+#~ msgstr ""
+#~ "Huts egin du abiarazitako gconf daemon-arekin komunikatzeko kanalizazioa "
+#~ "sortzean: %s\n"
+
+#~ msgid "Failed to launch configuration server: %s\n"
+#~ msgstr "Huts egin du konfigurazio-zerbitzaria abiaraztean: %s\n"
+
+#~ msgid "Server couldn't resolve the address `%s'"
+#~ msgstr "Zerbitzariak ezin izan du `%s' helbidea ebatzi"
+
+#~ msgid "Can't add notifications to a local configuration source"
+#~ msgstr "Konfigurazio-iturburu lokalean ezin da jakinarazpenik gehitu"
+
+#~ msgid "Adding client to server's list failed, CORBA error: %s"
+#~ msgstr ""
+#~ "Huts egin du zerbitzari-zerrendan bezeroa gehitzean: CORBA errorea: %s "
+
+#~ msgid "Failure shutting down config server: %s"
+#~ msgstr "Huts egin du konfigurazio-zerbitzaria ixtean: %s "
+
+#~ msgid "CORBA error: %s"
+#~ msgstr "CORBA errorea: %s "
+
+#~ msgid "Shutdown request received"
+#~ msgstr "Ixteko eskaera jaso dut"
+
+#~ msgid "Failed to get object reference for ConfigServer"
+#~ msgstr "Huts egin du ConfigServer-ren objektuaren erreferentzia lortzean"
+
+#~ msgid "Returning exception: %s"
+#~ msgstr "Salbuespena itzultzen: %s "
+
+#~ msgid ""
+#~ "Failed to open gconfd logfile; won't be able to restore listeners after "
+#~ "gconfd shutdown (%s)"
+#~ msgstr ""
+#~ "Huts egin du gconfd egunkari-fitxategia irekitzean; ezingo dira "
+#~ "entzungailuak leheneratu gconfd itxi ondoren (%s)"
+
+#~ msgid ""
+#~ "Failed to close gconfd logfile; data may not have been properly saved (%s)"
+#~ msgstr ""
+#~ "Huts egin du gconfd egunkari-fitxategia ixtean; datuak ez ziren ondo "
+#~ "gordeko (%s)"
+
+#~ msgid "Could not open saved state file '%s' for writing: %s"
+#~ msgstr "Ezin izan da gordetako '%s' egoera-fitxategia idazteko ireki: %s "
+
+#~ msgid "Could not write saved state file '%s' fd: %d: %s"
+#~ msgstr "Ezin izan da gordetako '%s' fd egoera-fitxategian idatzi: %d: %s "
+
+#~ msgid "Failed to close new saved state file '%s': %s"
+#~ msgstr "Huts egin du gordetako `%s' egoera-fitxategi berria ixtean: %s "
+
+#~ msgid "Could not move aside old saved state file '%s': %s"
+#~ msgstr ""
+#~ "Ezin izan da gordetako '%s' egoera-fitxategi zaharra lekuz aldatu: %s "
+
+#~ msgid "Failed to move new save state file into place: %s"
+#~ msgstr "Huts egin du gordetako egoera-fitxategi berria hona mugitzean: %s "
+
+#~ msgid ""
+#~ "Failed to restore original saved state file that had been moved to '%s': %"
+#~ "s"
+#~ msgstr ""
+#~ "Huts egin du '%s'(e)ra mugitu den jatorrizko egoera-fitxategia   "
+#~ "berreskuratzean: %s"
+
+#~ msgid ""
+#~ "Unable to restore a listener on address '%s', couldn't resolve the "
+#~ "database"
+#~ msgstr ""
+#~ "Ezin du entzungailua '%s' helbidean leheneratu, ezin izan du datu-basea "
+#~ "ebatzi"
+
+#~ msgid "Error reading saved state file: %s"
+#~ msgstr "Errorea gordetako egoera-fitxategia irakurtzean: %s "
+
+#~ msgid "Unable to open saved state file '%s': %s"
+#~ msgstr "Ezin izan du gordetako '%s' egoera-fitxategia ireki: %s "
+
+#~ msgid ""
+#~ "Failed to log addition of listener to gconfd logfile; won't be able to re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "Huts egin du entzungailua gconfd egunkari-fitxategira gehitu izana "
+#~ "erregistratzean; ezingo du entzungailua berriro gehitu gconfd existitzen "
+#~ "bada edo ixten bada (%s)"
+
+#~ msgid ""
+#~ "Failed to log removal of listener to gconfd logfile; might erroneously re-"
+#~ "add the listener if gconfd exits or shuts down (%s)"
+#~ msgstr ""
+#~ "Huts egin du entzungailua gconfd egunkari-fitxategira mugitu izana "
+#~ "erregistratzean; entzungailua gaizki gehituko da gconfd existitzen bada "
+#~ "edo ixten bada (%s)"
+
+#~ msgid "Failed to get IOR for client: %s"
+#~ msgstr "Huts egin du bezeroaren IOR lortzean: %s "
+
+#~ msgid "Failed to open saved state file: %s"
+#~ msgstr "Huts egin du gordetako egoera-fitxategia irekitzean: %s "
+
+#~ msgid "Failed to write client add to saved state file: %s"
+#~ msgstr ""
+#~ "Huts egin du gehitutako bezeroa gordetako egoera-fitxategian idaztean: %s "
+
+#~ msgid "Failed to flush client add to saved state file: %s"
+#~ msgstr ""
+#~ "Huts egin du gehitutako bezeroa gordetako egoera-fitxategira iraultzean: %"
+#~ "s "
+
+#~ msgid ""
+#~ "Some client removed itself from the GConf server when it hadn't been "
+#~ "added."
+#~ msgstr ""
+#~ "Bezero batzuek euren burua kendu dute GConf zerbitzaritik, baina gehitu "
+#~ "gabe zeuden."
 
 #~ msgid ""
 #~ "%u items remain in the cache after cleaning already-synced items older "
