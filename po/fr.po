@@ -41,7 +41,7 @@ msgstr "Ne peut créer le répertoire « %s » : %s"
 #, c-format
 msgid "Can't read from or write to the %s root directory in the address `%s'"
 msgstr ""
-"Ne peut lire ou écrire vers le répertoire racine XML à l'adresse « %s »"
+"Ne peut lire ou écrire vers le répertoire racine %s à l'adresse « %s »"
 
 #: backends/xml-backend.c:233
 msgid "Unloading XML backend module."
