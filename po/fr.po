@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GConf 1.0.0\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
-"PO-Revision-Date: 2001-03-09 19:35+0100\n"
+"Project-Id-Version: GConf 1.0.4\n"
+"POT-Creation-Date: 2001-08-30 09:50+0200\n"
+"PO-Revision-Date: 2001-08-30 09:49+0200\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -186,9 +186,9 @@ msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Ignore le nom de schema « %s », invalide : %s"
 
 #: backends/xml-entry.c:375
-#, fuzzy, c-format
+#, c-format
 msgid "Ignoring XML node `%s': %s"
-msgstr "Ignore le noeud XML nommé « %s » : %s"
+msgstr "Ignore le noeud XML « %s » : %s"
 
 #: backends/xml-entry.c:726
 #, c-format
@@ -683,6 +683,15 @@ msgid ""
 "back in may help. As always, check the user.* syslog for details on problems "
 "gconfd encountered."
 msgstr ""
+"Incapable de stocker une valeur à la clé « %s », car le serveur de "
+"configuration n'a pas de base de données accessible en écriture. Il y a deux "
+"causes courantes à ce problème : 1) votre fichier de configuration de chemin "
+"ne contient aucune base de donnée ou n'a pas été trouvé. Ou 2) OAF a créé 2 "
+"processus gconfd. Si vous avez 2 processus gconfd (ou 2 au moment ou le "
+"second a été lancé), alors c'est un bogue d'OAF et non de GConf. Vous "
+"déconnecter, tuer oafd et gconfd et vous reconnecter peut vous aider. Comme "
+"toujours, vérifiez le journal user.* pour les détails sur les problèmes que "
+"gconfd a rencontrés."
 
 #: gconf/gconf-sources.c:1164
 #, c-format
@@ -698,8 +707,8 @@ msgstr "Erreur durant l'obtention de la metainfo : %s"
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
-"Clé « %s » listé comme schema pour la clé « %s » est actuellement de type « %"
-"s »"
+"La clé « %s » listé comme schema pour la clé « %s » est actuellement de type "
+"« %s »"
 
 #: gconf/gconf-value.c:82
 #, c-format
@@ -796,6 +805,12 @@ msgid ""
 "bug unless you have information indicating what went wrong with OAF that was "
 "caused by GConf."
 msgstr ""
+"Erreur de contact du serveur de configuration : OAF a retourné nil depuis "
+"oaf_activate_from_id() et n'a pas défini une exception expliquant le "
+"problème. C'est un bogue dans le paquet OAF; quelque chose ne va pas dans "
+"OAF et aucune erreur n'est rapportée. Ce n'est pas un bogue dans la paquet "
+"GConf. Ne prapportez pas un bogue de GConf a moins que vous n'ayez des "
+"informatiosn indiquant ce qui ne va pas avec OAF qui a été causé par GConf."
 
 #: gconf/gconf.c:2198
 msgid "Failed to init GConf, exiting\n"
@@ -882,7 +897,7 @@ msgstr ""
 
 #: gconf/gconfd.c:307
 msgid "/path"
-msgstr ""
+msgstr "/chemin"
 
 #: gconf/gconfd.c:321
 #, c-format
@@ -946,44 +961,44 @@ msgid "Failed to get object reference for ConfigServer"
 msgstr "Impossible d'obtenir la référence de l'objet pour ConfigServer"
 
 #: gconf/gconfd.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create %s: %s"
-msgstr "Impossible de créer le fichier « %s » : %s"
+msgstr "Impossible de créer %s : %s"
 
 #. Bad hack alert - register the current lockholder with oafd,
 #. * since oafd seems to have forgotten about us.
 #.
 #: gconf/gconfd.c:588
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get lock for daemon: %s"
-msgstr "Impossible d'obtenir l'IOR pour le client : %s"
+msgstr "Impossible d'obtenir le verrou pour le démon : %s"
 
 #: gconf/gconfd.c:594
 msgid ""
 "Registering existing server with oafd, since OAF appears to have leaked it"
 msgstr ""
+"Enregistrement du serveur existant avec oafd, puisque OAF semble l'avoir "
+"laisser s'échapper"
 
 #: gconf/gconfd.c:603
-#, fuzzy
 msgid ""
 "OAF doesn't know about our IID; indicates broken installation; can't "
 "register existing server."
 msgstr ""
 "OAF ne connait rien de votre IID ; sûrement une mauvaise installation; "
-"impossible de s'enregistrer ; quitte\n"
+"impossible d'enregistrer le serveur existant"
 
 #: gconf/gconfd.c:607
-#, fuzzy
 msgid ""
 "Another gconfd already registered with OAF, so we can't register the "
 "existing server"
-msgstr "Un autre gconfd est déjà enregistré auprés de OAF ; quitte\n"
+msgstr ""
+"Un autre gconfd est déjà enregistré auprés de OAF ; nous ne pouvons "
+"enregistrer le serveur existant"
 
 #: gconf/gconfd.c:612
-#, fuzzy
 msgid "Unknown error registering existing gconfd with OAF; exiting"
-msgstr ""
-"Erreur inconnu durant l'enregistrement de gconfd auprés de OAF ; quitte\n"
+msgstr "Erreur inconnu durant l'enregistrement de gconfd avec OAF ; quitte"
 
 #: gconf/gconfd.c:639
 msgid ""
@@ -1003,9 +1018,9 @@ msgstr ""
 "Erreur inconnu durant l'enregistrement de gconfd auprés de OAF ; quitte\n"
 
 #: gconf/gconfd.c:692
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to release lockfile: %s"
-msgstr "Impossible de libérer le verrou de répertoire « %s » : %s"
+msgstr "Impossible de libérer le verrou de fichier : %s"
 
 #: gconf/gconfd.c:700
 msgid "Exiting"
@@ -1310,23 +1325,24 @@ msgstr ""
 
 #: gconf/gconftool.c:294
 msgid "Get the short doc string for a key"
-msgstr ""
+msgstr "Obtient la courte chaîne de documentation pour une clé"
 
 #: gconf/gconftool.c:303
 msgid "Get the long doc string for a key"
-msgstr ""
+msgstr "Obtient la longue chaîne de documentation pour une clé"
 
 #: gconf/gconftool.c:312
 msgid "Get the name of the schema applied to this key"
-msgstr ""
+msgstr "Obtient le nom du schéma appliqué à cette clé"
 
 #: gconf/gconftool.c:321
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr ""
+"Spécifier le nom du schéma suivi par la clé pour y appliquer le nom du schéma"
 
 #: gconf/gconftool.c:330
 msgid "Get the name of the default source"
-msgstr ""
+msgstr "Obtient le nom de la source par défaut"
 
 #: gconf/gconftool.c:382
 #, c-format
@@ -1347,31 +1363,28 @@ msgid "Can't set and get/unset simultaneously\n"
 msgstr "Impossible de définir ou d'obtenir/annuler simultanément\n"
 
 #: gconf/gconftool.c:409
-#, fuzzy
 msgid "Can't use --all-entries with --get or --set\n"
-msgstr "Impossible d'utiliser --all-dirs avec --get ou --set\n"
+msgstr "Impossible d'utiliser --all-entries avec --get ou --set\n"
 
 #: gconf/gconftool.c:417
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "Impossible d'utiliser --all-dirs avec --get ou --set\n"
 
 #: gconf/gconftool.c:427
-#, fuzzy
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
 msgstr ""
 "--recursive-list ne devrait pas être utilisé avec --get, --set, --unset, --"
-"all-pairs, ou --all-dirs\n"
+"all-entries, ou --all-dirs\n"
 
 #: gconf/gconftool.c:437
-#, fuzzy
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
 msgstr ""
 "--set_schema ne devrait pas être utilisé avec --get, --set, --unset, --all-"
-"pairs, et --all-dirs\n"
+"entries, et --all-dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
@@ -1454,9 +1467,9 @@ msgstr ""
 "Vous devez spécifier un ou plusieurs répertoires à lister récursivement.\n"
 
 #: gconf/gconftool.c:875
-#, fuzzy, c-format
+#, c-format
 msgid "Failure listing entries in `%s': %s\n"
-msgstr "Échec lors du listage des paires dans « %s » : %s"
+msgstr "Échec lors du listage des entrées dans « %s » : %s\n"
 
 #: gconf/gconftool.c:893
 msgid "(no value set)"
@@ -1563,55 +1576,53 @@ msgid "Error: %s\n"
 msgstr "Erreur : %s\n"
 
 #: gconf/gconftool.c:1189
-#, fuzzy, c-format
+#, c-format
 msgid "Error setting value: %s\n"
-msgstr "Erreur à l'attribution de la valeur : %s"
+msgstr "Erreur à l'attribution de la valeur : %s\n"
 
 #: gconf/gconftool.c:1207
-#, fuzzy, c-format
+#, c-format
 msgid "Error syncing: %s\n"
-msgstr "Erreur de synchronisation : %s"
+msgstr "Erreur de synchronisation : %s\n"
 
 #: gconf/gconftool.c:1230
-#, fuzzy
 msgid "Must specify a key or keys on the command line\n"
-msgstr "Vous devez spécifier une ou plusieurs clés à définir\n"
+msgstr "Vous devez spécifier une ou plusieurs clés à la ligne de commande\n"
 
 #: gconf/gconftool.c:1250
-#, fuzzy, c-format
+#, c-format
 msgid "No schema known for `%s'\n"
-msgstr "Aucun fichier « %s »\n"
+msgstr "Aucun schéma connu pour « %s »\n"
 
 #: gconf/gconftool.c:1283
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
-msgstr ""
+msgstr "Aucune chaîne de documentation stockée dans le schéma à « %s »\n"
 
 #: gconf/gconftool.c:1288
-#, fuzzy, c-format
+#, c-format
 msgid "Error getting schema at '%s': %s\n"
-msgstr "Erreur durant la definition du schema pour « %s » : %s"
+msgstr "Erreur durant l'obtention du schema à « %s » : %s\n"
 
 #: gconf/gconftool.c:1295
-#, fuzzy, c-format
+#, c-format
 msgid "No schema stored at '%s'\n"
-msgstr "Aucun fichier « %s »\n"
+msgstr "Aucun schéma stocké à « %s »\n"
 
 #: gconf/gconftool.c:1298
 #, c-format
 msgid "Value at '%s' is not a schema\n"
-msgstr ""
+msgstr "La valeur à « %s » n'est pas un schema\n"
 
 #: gconf/gconftool.c:1354
-#, fuzzy
 msgid "Must specify a schema name followed by the key name to apply it to\n"
-msgstr "Vous devez spécifier un clé (nom du schema) comme seul paramètre\n"
+msgstr ""
+"Vous devez spécifier un nom de schéma suivi du nom de la clé à appliquer\n"
 
 #: gconf/gconftool.c:1361
-#, fuzzy, c-format
+#, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
-msgstr ""
-"ATTENTION : impossible d'associer le schéma « %s » avec la clé « %s » : %s\n"
+msgstr "Erreur d'association du nom de schéma « %s » avec la clé « %s » : %s\n"
 
 #: gconf/gconftool.c:1381
 msgid "Must specify key (schema name) as the only argument\n"
