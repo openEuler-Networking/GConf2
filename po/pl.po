@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gconf\n"
-"POT-Creation-Date: 2001-10-14 15:52+0200\n"
-"PO-Revision-Date: 2001-10-14 15:55+0200\n"
+"POT-Creation-Date: 2001-10-22 12:12+0200\n"
+"PO-Revision-Date: 2001-10-22 19:44+0200\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -209,7 +209,7 @@ msgstr "Brak atrybutu \"value\" dla wêz³a"
 #: backends/xml-entry.c:1 backends/xml-entry.c:1
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
-msgstr "Nie rozumiem wêz³a XML <%s> wewn±trz listy wêz³ów XML"
+msgstr "Niezrozumia³y wêze³ XML-a <%s> wewn±trz wêz³a listy"
 
 #: backends/xml-entry.c:1
 msgid "Invalid type (list, pair, or unknown) in a list node"
@@ -218,7 +218,7 @@ msgstr "Niew³a¶ciwy typ (lista, para, lub co¶ innego) w li¶cie wêz³ów"
 #: backends/xml-entry.c:1
 #, c-format
 msgid "Bad XML node: %s"
-msgstr "Niepoprawny wêze³ XML: %s"
+msgstr "Niepoprawny wêze³ XML-a: %s"
 
 #: backends/xml-entry.c:1
 #, c-format
@@ -307,7 +307,7 @@ msgstr "Otrzymano ¿±danie aby odrzuciæ wszystkie cache'owane dane"
 
 #: gconf/gconf-database.c:1
 msgid "Received request to sync synchronously"
-msgstr ""
+msgstr "Otrzymano ¿±danie synchronicznej synchronizacji"
 
 #: gconf/gconf-database.c:1
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
@@ -437,7 +437,7 @@ msgstr "Nie mo¿na nadpisaæ istniej±cej warto¶ci przeznaczonej tylko do odczytu"
 
 #: gconf/gconf-error.c:1
 msgid "Object Activation Framework error"
-msgstr ""
+msgstr "B³±d systemu aktywacji objektów (OAF)"
 
 #: gconf/gconf-error.c:1
 msgid "Operation not allowed without configuration server"
@@ -459,7 +459,7 @@ msgstr "Brak znaku \"/\" w kluczu \"%s\""
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Invalid UTF-8 in string value in '%s'"
-msgstr ""
+msgstr "Niepoprawny UTF-8 w warto¶ci napisu w \"%s\""
 
 #: gconf/gconf-internals.c:1
 msgid "Couldn't interpret CORBA value for list element"
@@ -484,20 +484,20 @@ msgstr ""
 
 #: gconf/gconf-internals.c:1
 msgid "Invalid UTF-8 in short description for schema"
-msgstr ""
+msgstr "Niepoprawny UTF-8 w krótkim opisie schematu"
 
 #: gconf/gconf-internals.c:1
 msgid "Invalid UTF-8 in long description for schema"
-msgstr ""
+msgstr "Niepoprawny UTF-8 w d³ugim opisie schematu"
 
 #: gconf/gconf-internals.c:1
 msgid "Invalid UTF-8 in owner for schema"
-msgstr ""
+msgstr "Niepoprawny UTF-8 w nazwie w³a¶ciciela schematu"
 
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
-msgstr ""
+msgstr "Nie mo¿na otworzyæ pliku \"%s\": %s\n"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -513,7 +513,7 @@ msgstr "B³±d przy odczycie pliku \"%s\": %s\n"
 #: gconf/gconf-value.c:1 gconf/gconf-value.c:1 gconf/gconf-value.c:1
 #: gconf/gconf-value.c:1
 msgid "Text contains invalid UTF-8"
-msgstr ""
+msgstr "Tekst zawiera niepoprawn± sekwencjê UTF-8"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -552,7 +552,7 @@ msgstr "Zacytowany napis nie koñczy siê znakiem cytowania"
 
 #: gconf/gconf-internals.c:1
 msgid "Encoded value is not valid UTF-8"
-msgstr ""
+msgstr "Zakodowana warto¶æ nie jest poprawnym napisem UTF-8"
 
 #: gconf/gconf-internals.c:1 gconf/gconf.c:1
 #, c-format
@@ -562,15 +562,15 @@ msgstr "B³±d Corby: %s"
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "OAF problem description: '%s'"
-msgstr ""
+msgstr "Opis b³êdu otrzymany od OAF-a: \"%s\""
 
 #: gconf/gconf-internals.c:1
 msgid "attempt to remove not-listed OAF object directory"
-msgstr ""
+msgstr "próba usuniêcia katalogu obiektów OAF-a, którego nie ma na li¶cie"
 
 #: gconf/gconf-internals.c:1
 msgid "attempt to add already-listed OAF directory"
-msgstr ""
+msgstr "próba dodania katalogu obiektów OAF-a, bêd±cego ju¿ na li¶cie"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -599,21 +599,23 @@ msgstr "Nie mo¿na stworzyæ lub otworzyæ \"%s\""
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Failed to lock '%s': another process has the lock (%s)"
-msgstr ""
+msgstr "Nie mo¿na zablokowaæ \"%s\": blokadê przetrzymuje inny proces (%s)"
 
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr ""
+msgstr "nie uda³o siê otworzyæ pliku \"%s\" z IOR, nie odnaleziono gconfd: %s"
 
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
 msgstr ""
+"plik blokady \"%s\" jest przetrzymywany przez gconftol lub inny proces (nie "
+"gconfd)"
 
 #: gconf/gconf-internals.c:1
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr ""
+msgstr "nie mo¿na uzyskaæ od ORB-a odwo³ania do istniej±cego obiektu gconfd"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -659,6 +661,7 @@ msgstr "Nie mo¿na stworzyæ %s: %s"
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
+"Nie mo¿na stworzyæ potoku do komunikacji z uruchomionym demonem gconf: %s\n"
 
 #: gconf/gconf-internals.c:1
 #, c-format
@@ -712,11 +715,12 @@ msgstr ""
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
 msgstr ""
+"Nie mo¿na odczytaæ wystarczaj±co danych przez potok od procesu potomnego (%s)"
 
 #: gconf/gconf-internals.c:1
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
-msgstr ""
+msgstr "Nie mo¿na stworzyæ potoku do komunikacji z procesem potomnym (%s)"
 
 #: gconf/gconf-sources.c:1
 #, c-format
@@ -768,6 +772,8 @@ msgstr "B³±d przy pobieraniu metainformacji: %s"
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr ""
+"Klucz \"%s\" okre¶liny jako schemat dla klucza \"%s\" przechowuje warto¶æ "
+"typu \"%s\""
 
 #: gconf/gconf-value.c:1
 #, c-format
@@ -803,12 +809,12 @@ msgstr "Niezrozumia³a warto¶æ \"%s\" (lista musi siê koñczyæ znakiem \"]\")"
 #: gconf/gconf-value.c:1
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
-msgstr ""
+msgstr "Niezrozumia³a warto¶æ \"%s\" (dodatkowy znak \"%]\" wewn±trz listy)"
 
 #: gconf/gconf-value.c:1 gconf/gconf-value.c:1
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
-msgstr ""
+msgstr "Nie zrozumiano \"%s\" (dodatkowe znaki na koñcu)"
 
 #: gconf/gconf-value.c:1
 #, c-format
@@ -828,7 +834,7 @@ msgstr "Niezrozumia³a warto¶æ \"%s\" (niew³a¶ciwa liczba elementó³)"
 #: gconf/gconf-value.c:1
 #, c-format
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
-msgstr ""
+msgstr "Nie zrozumiano \"%s\" (dodatkowy \")\" wewn±trz pary)"
 
 #: gconf/gconf.c:1
 #, c-format
@@ -842,12 +848,12 @@ msgstr ""
 
 #: gconf/gconf.c:1
 msgid "Can't add notifications to a local configuration source"
-msgstr ""
+msgstr "Nie mo¿na dodaæ powiadomieñ do lokalnego ¼ród³a konfiguracji"
 
 #: gconf/gconf.c:1
 #, c-format
 msgid "Adding client to server's list failed, CORBA error: %s"
-msgstr ""
+msgstr "Nie mo¿na dodaæ klienta do listy na serwerze. B³±d Corby: %s"
 
 #: gconf/gconf.c:1
 msgid "Failed to init GConf, exiting\n"
@@ -855,7 +861,7 @@ msgstr "Nie mo¿na zainicjowaæ GConfa, zakoñczenie\n"
 
 #: gconf/gconf.c:1
 msgid "Must begin with a slash (/)"
-msgstr ""
+msgstr "Musi siê rozpoczynaæ uko¶nikiem (/)"
 
 #: gconf/gconf.c:1
 msgid "Can't have two slashes (/) in a row"
@@ -913,6 +919,8 @@ msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
 msgstr ""
+"Demon gconfd zosta³ skompilowany z obs³ug± debugowania; próba odczytu "
+"gconf.path z katalogu ¼ród³owego"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -944,12 +952,16 @@ msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
 msgstr ""
+"Nie uzyskano ¿adnego ¼ród³a konfiguracji, nie mo¿na wiêc odczytaæ ani "
+"zapisaæ danych konfiguracyjnych"
 
 #: gconf/gconfd.c:1
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
 msgstr ""
+"Nie uzyskano ¿adnego zapisywalnego ¼ród³a konfiguracji, zapis zmian w "
+"konfiguracji mo¿e wiêc nie byæ mo¿liwy"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1018,6 +1030,8 @@ msgstr ""
 msgid ""
 "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
+"Nie mo¿na zamkn±æ pliku dziennika gconfd, dane mog³y nie zostaæ poprawnie "
+"zapisane (%s)"
 
 #: gconf/gconfd.c:1
 #, c-format
@@ -1122,6 +1136,8 @@ msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and "
 "--type."
 msgstr ""
+"Ustawia schemat i synchronizuje. U¿ywane z --short-desc, --long-desc, "
+"--owner oraz --type."
 
 #: gconf/gconftool.c:1
 msgid "Unset the keys on the command line"
@@ -1148,6 +1164,7 @@ msgstr "Zwraca 0, je¶li katalog istnieje, 2 - w przeciwnym wypadku"
 #: gconf/gconftool.c:1
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
 msgstr ""
+"Koñczy dzia³anie gconfd. NIE U¯YWAJ TEJ OPCJI BEZ NAPRAWDÊ WA¯NEGO POWODU."
 
 #: gconf/gconftool.c:1
 msgid "Return 0 if gconfd is running, 2 if not."
@@ -1166,6 +1183,8 @@ msgid ""
 "Specify the type of the value being set, or the type of the value a schema "
 "describes. Unique abbreviations OK."
 msgstr ""
+"Okre¶la typ ustawianej warto¶ci lub warto¶ci opisywanej przez schemat. "
+"Dopuszczalne s± jednoznaczne skróty."
 
 #: gconf/gconftool.c:1
 msgid "int|bool|float|string|list|pair"
@@ -1176,6 +1195,8 @@ msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Okre¶la typ elementu ustawianej warto¶ci listy lub warto¶ci opisywanej przez "
+"schemat. Dopuszczalne s± jednoznaczne skróty."
 
 #: gconf/gconftool.c:1 gconf/gconftool.c:1 gconf/gconftool.c:1
 msgid "int|bool|float|string"
@@ -1186,12 +1207,16 @@ msgid ""
 "Specify the type of the car pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Okre¶la typ pierwszego elementu ustawianej warto¶ci pary lub warto¶ci "
+"opisywanej przez schemat. Dopuszczalne s± jednoznaczne skróty."
 
 #: gconf/gconftool.c:1
 msgid ""
 "Specify the type of the cdr pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
 msgstr ""
+"Okre¶la typ drugiego elementu ustawianej warto¶ci pary lub warto¶ci "
+"opisywanej przez schemat. Dopuszczalne s± jednoznaczne skróty."
 
 #: gconf/gconftool.c:1
 msgid "Specify a short half-line description to go in a schema."
@@ -1234,6 +1259,8 @@ msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
 msgstr ""
+"Powoduje bezpo¶rednie odwo³ywanie siê do bazy danych konfiguracji, z "
+"pominiêciem serwera. Opcja wymaga, aby nie by³ uruchomiony gconfd."
 
 #: gconf/gconftool.c:1
 msgid ""
