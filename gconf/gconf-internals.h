@@ -202,6 +202,8 @@ char*     gconf_get_daemon_dir (void);
 
 gboolean gconf_schema_validate (GConfSchema *sc,
                                 GError     **err);
+gboolean gconf_value_validate  (GConfValue *value,
+                                GError    **err);
 
 gboolean g_utf8_validate (const gchar  *str,
                           gssize        max_len,    
