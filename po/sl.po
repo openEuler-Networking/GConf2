@@ -453,7 +453,7 @@ msgstr "Ni znaka '/' v kljuèu `%s'"
 #: gconf/gconf-internals.c:227
 #, c-format
 msgid "Invalid UTF-8 in string value in '%s'"
-msgstr ""
+msgstr "Neveljavna vrednost niza UTF-8 v '%s'"
 
 #: gconf/gconf-internals.c:286
 msgid "Couldn't interpret CORBA value for list element"
@@ -474,19 +474,19 @@ msgstr "Nisem uspel preoblikovati predmeta v IOR"
 
 #: gconf/gconf-internals.c:619
 msgid "Invalid UTF-8 in locale for schema"
-msgstr ""
+msgstr "Neveljaven UTF-8 v localeu za shemo"
 
 #: gconf/gconf-internals.c:627
 msgid "Invalid UTF-8 in short description for schema"
-msgstr ""
+msgstr "Neveljaven UTF-8 v kratkem opisu za shemo"
 
 #: gconf/gconf-internals.c:635
 msgid "Invalid UTF-8 in long description for schema"
-msgstr ""
+msgstr "Neveljaven UTF-8 v dolgem opisu za shemo"
 
 #: gconf/gconf-internals.c:643
 msgid "Invalid UTF-8 in owner for schema"
-msgstr ""
+msgstr "Neveljaven UTF-8 v lastniku za shemo"
 
 #: gconf/gconf-internals.c:868
 #, c-format
@@ -507,7 +507,7 @@ msgstr "Napaka ob branju datoteke `%s': %s\n"
 #: gconf/gconf-value.c:125 gconf/gconf-value.c:224 gconf/gconf-value.c:366
 #: gconf/gconf-value.c:1084
 msgid "Text contains invalid UTF-8"
-msgstr ""
+msgstr "Besedilo vsebuje neveljaven UTF-8"
 
 #: gconf/gconf-internals.c:1422
 #, c-format
@@ -546,7 +546,7 @@ msgstr "Citiran niz se ne konèa z narekovajem"
 
 #: gconf/gconf-internals.c:1915
 msgid "Encoded value is not valid UTF-8"
-msgstr ""
+msgstr "Vrednost ni veljavna UTF-8"
 
 #: gconf/gconf-internals.c:2265 gconf/gconf.c:3082
 #, c-format
@@ -659,50 +659,49 @@ msgid ""
 "reachable from here - if you're logged in from two machines at once, you may "
 "need to enable TCP networking for ORBit)\n"
 msgstr ""
+"Nisem se uspel povezati s stre¾nikom nastavitev (mo¾en vzrok je, da "
+"nastavitveni stre¾nik ¾e teèe (gconfd), a od tu ni dostopen - "
+"èe ste prijavljeni iz dveh raèunalnikov hkrati, morate vkljuèiti "
+"mre¾o TCP za ORBit)\n"
 
 #: gconf/gconf-internals.c:3720
-#, fuzzy, c-format
 msgid "Failed to read from child pipe (%s)"
-msgstr "Nisem uspel sprostiti kljuèavniène datoteke: %s"
+msgstr "Nisem uspel brati iz cevi otroka (%s)"
 
 #: gconf/gconf-internals.c:3785
-#, fuzzy, c-format
 msgid "Failed to fork (%s)"
-msgstr "Nisem uspel ustvariti datoteke `%s': %s"
+msgstr "Nisem se uspel razvejiti (%s)"
 
 #: gconf/gconf-internals.c:3925
-#, fuzzy, c-format
 msgid "Failed to change to directory '%s' (%s)"
-msgstr "Nisem uspel sprostiti kljuèavniènega imenika `%s': %s"
+msgstr "Nisem uspel spremeniti imenika v '%s' (%s)"
 
 #: gconf/gconf-internals.c:3935
-#, fuzzy, c-format
 msgid "Failed to execute child process (%s)"
-msgstr "Nisem uspel zbrisati stare datoteke `%s': %s"
+msgstr "Nisem uspel izvr¹iti procesa otroka (%s)"
 
 #: gconf/gconf-internals.c:3944
 #, c-format
 msgid "Failed to redirect output or input of child process (%s)"
-msgstr ""
+msgstr "Nisem uspel preusmeriti izhoda ali vhoda otro¹kovega procesa (%s)"
 
 #: gconf/gconf-internals.c:3953
-#, fuzzy, c-format
 msgid "Failed to fork child process (%s)"
-msgstr "Nisem uspel nalo¾iti vira `%s': %s"
+msgstr "Nisem uspel razvejiti procesa otroka (%s)"
 
 #: gconf/gconf-internals.c:3961
 msgid "Unknown error executing child process"
-msgstr ""
+msgstr "Neznana napaka ob izvajanju procesa otroka"
 
 #: gconf/gconf-internals.c:3982
 #, c-format
 msgid "Failed to read enough data from child pid pipe (%s)"
-msgstr ""
+msgstr "Nisem uspel prebrati dovolj podatkov iz cevi otroka (%s)"
 
 #: gconf/gconf-internals.c:4032
 #, c-format
 msgid "Failed to create pipe for communicating with child process (%s)"
-msgstr ""
+msgstr "Nisem uspel ustvariti cevi za komunikacijo z procesom otroka (%s)"
 
 #: gconf/gconf-sources.c:320
 #, c-format
@@ -728,7 +727,6 @@ msgstr ""
 "nastavitvene poti. "
 
 #: gconf/gconf-sources.c:608
-#, fuzzy, c-format
 msgid ""
 "Unable to store a value at key '%s', as the configuration server has no "
 "writeable databases. There are two common causes of this problem: 1) your "
@@ -743,11 +741,13 @@ msgid ""
 msgstr ""
 "Nisem mogel shraniti vrednosti pri kljuèu '%s', saj stre¾nik nastavitev nima "
 "nobene pisljive zbirke podatkov. Ta problem ima dva pogosta vzroka: 1) va¹a "
-"pot nastavitev ne vsebuje nobene zbirke podatkov ali ni bila najdena ali 2) "
+"pot nastavitev ne vsebuje nobene zbirke podatkov ali ni ta bila najdena ali 2) "
 "OAF je pomotoma ustvaril dva procesa gconfd. Èe imate dva procesa gconfd "
-"(ali ste imeli dva, ko se je pognal drugi), potem je hro¹è v OAF-u in ne v "
-"GConf. Èe se odjavite, ubijete oafd in gconfd in ponovno prijavite, lahko "
-"problem izgine. Kot vedno, preverite user.* sistemski dnevnik za podrobnosti "
+"(ali ste imeli dva, ko se je pognal drugi), potem se odjavite, ubijete oafd "
+"in gconfd in se znova prijavite. Tako lahko "
+"problem izgine. Morda je problem v poskusu uporabe gconf-a iz dveh "
+"raèunalnikov hkrati, medtem ko ORBit zaradi privzetih nastavitev ne dovoli "
+"oddaljenih povezav CORBA. Kot vedno, preverite user.* sistemski dnevnik za podrobnosti "
 "o problemu na katerega je naletel gconfd."
 
 #: gconf/gconf-sources.c:1164
@@ -985,15 +985,13 @@ msgstr "Nisem uspel dobiti sklica predmeta za ConfigDatabase"
 #: gconf/gconfd.c:605
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
-msgstr ""
+msgstr "Nisem uspel vpisati bajta v pipo fd %d, morda se je odjemalski program obesil: %s"
 
 #: gconf/gconfd.c:615
-#, fuzzy, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
-msgstr "Nisem uspel dobiti kljuèavnice za daemona: %s"
+msgstr "Nisem uspel dobiti kljuèavnice za daemona, konèujem: %s"
 
 #: gconf/gconfd.c:657
-#, fuzzy, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "Nisem uspel sprostiti kljuèavniène datoteke: %s"
 
