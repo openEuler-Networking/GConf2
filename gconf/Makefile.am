@@ -79,7 +79,9 @@ gconfd_2_SOURCES = \
 	gconfd.h		\
 	gconfd.c		\
 	gconfd-corba.h		\
-	gconfd-corba.c
+	gconfd-corba.c		\
+	gconfd-dbus.h		\
+	gconfd-dbus.c
 
 gconfd_2_LDADD = $(EFENCE) $(INTLLIBS) $(DEPENDENT_LIBS) libgconf-$(MAJOR_VERSION).la
 

@@ -39,6 +39,8 @@
 #include "gconfd-corba.h"
 #include "gconf-database-corba.h"
 
+#include "gconfd-dbus.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -418,7 +420,10 @@ main(int argc, char** argv)
 
   if (!gconfd_corba_init ())
     return 1;
-      
+
+  if (!gconfd_dbus_init ())
+    return 1;
+  
   gconfd_dir = gconf_get_daemon_dir ();
   lock_dir = gconf_get_lock_dir ();
   
