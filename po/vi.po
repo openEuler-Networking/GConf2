@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-24 15:38+0200\n"
+"POT-Creation-Date: 2004-08-25 22:27+0100\n"
 "PO-Revision-Date: 2002-09-20 19:45+0700\n"
 "Last-Translator: Trinh Minh Thanh <tmthanh@linuxmail.org>\n"
 "Language-Team: Gnome-Vi Team <Gnomevi-list@lists.sourceforge.net>\n"
@@ -346,62 +346,111 @@ msgstr "Cảnh báo GConf: liệt kê không được các cặp đôi trong `%s
 msgid "Expected `%s' got `%s' for key %s"
 msgstr "`%s' mong muốn đã có `%s' cho key %s"
 
-#: gconf/gconf-database.c:153
+#: gconf/gconf-database.c:211
+msgid "Received invalid value in set request"
+msgstr "Đã nhận giá trị không hợp lệ trong thiết lập yêu cầu"
+
+#: gconf/gconf-database.c:219
+#, c-format
+msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
+msgstr ""
+"Không thể tạo nghĩa của giá trị CORBA đã nhận trong thiết lập yêu cầu cho "
+"key `%s'"
+
+#: gconf/gconf-database.c:502
+msgid "Received request to drop all cached data"
+msgstr "Đã nhận yêu cầu để thả toàn bộ dữ liệu trong cache"
+
+#: gconf/gconf-database.c:519
+msgid "Received request to sync synchronously"
+msgstr "Đã nhận yêu cầu để đồng bộ hóa"
+
+#: gconf/gconf-database.c:804
+msgid "Fatal error: failed to get object reference for ConfigDatabase"
+msgstr ""
+"Lỗi trầm trọng: không nhận được tham chiếu cho Cơ Sở Dữ Liệu về Cấu hình"
+
+#: gconf/gconf-database.c:966
 #, c-format
 msgid "Failed to sync one or more sources: %s"
 msgstr "Không đồng bộ được một hay nhiều nguồn: %s"
 
-#: gconf/gconf-database.c:221 gconf/gconf-sources.c:1563
+#: gconf/gconf-database.c:1058
+#, c-format
+msgid ""
+"Failed to log addition of listener %s (%s);will not be able to restore this "
+"listener on gconfd restart, resulting in unreliable notification of "
+"configuration changes."
+msgstr ""
+"Không tạo bản ghi thêm cho người nghe %s (%s); sẽ không thể khôi phục người "
+"nghe này khi khởi động lại gconfd, dẫn đến thông báo sai về các thay đổi cấu "
+"hình."
+
+#: gconf/gconf-database.c:1092
+#, c-format
+msgid "Listener ID %lu doesn't exist"
+msgstr "Định danh người nghe %lu không tồn tại"
+
+#: gconf/gconf-database.c:1106
+#, c-format
+msgid ""
+"Failed to log removal of listener to logfile (most likely harmless, may "
+"result in a notification weirdly reappearing): %s"
+msgstr ""
+"Không ghi được việc gỡ bỏ người nghe vào logfile (chắc là bị hỏng, có thể "
+"gây ra sự xuất hiện thông báo bất thường): %s"
+
+#: gconf/gconf-database.c:1224 gconf/gconf-sources.c:1563
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "Lỗi khi nhận giá trị cho `%s': %s"
 
-#: gconf/gconf-database.c:267
+#: gconf/gconf-database.c:1271
 #, c-format
 msgid "Error setting value for `%s': %s"
 msgstr "Lỗi đặt giá trị cho `%s': %s"
 
-#: gconf/gconf-database.c:322
+#: gconf/gconf-database.c:1314
 #, c-format
 msgid "Error unsetting `%s': %s"
 msgstr "Lỗi không đặt `%s': %s"
 
-#: gconf/gconf-database.c:351
+#: gconf/gconf-database.c:1343
 #, c-format
 msgid "Error getting default value for `%s': %s"
 msgstr "Lỗi khi nhận giá trị mặc định cho `%s': %s"
 
-#: gconf/gconf-database.c:398
+#: gconf/gconf-database.c:1394
 #, c-format
 msgid "Error unsetting \"%s\": %s"
 msgstr "Lỗi không đặt \"%s\": %s"
 
-#: gconf/gconf-database.c:430
+#: gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting new value for \"%s\": %s"
 msgstr "Lỗi khi nhận giá trị mới cho \"%s\": %s"
 
-#: gconf/gconf-database.c:476
+#: gconf/gconf-database.c:1474
 #, c-format
 msgid "Error checking existence of `%s': %s"
 msgstr "Lỗi khi kiểm tra sự tồn tại của `%s': %s"
 
-#: gconf/gconf-database.c:500
+#: gconf/gconf-database.c:1498
 #, fuzzy, c-format
 msgid "Error removing directory \"%s\": %s"
 msgstr "Lỗi khi gỡ bỏ thư mục `%s': %s"
 
-#: gconf/gconf-database.c:527
+#: gconf/gconf-database.c:1525
 #, c-format
 msgid "Failed to get all entries in `%s': %s"
 msgstr "Không nhận được toàn bộ mục nhập trong `%s': %s"
 
-#: gconf/gconf-database.c:553
+#: gconf/gconf-database.c:1551
 #, c-format
 msgid "Error listing dirs in `%s': %s"
 msgstr "Lỗi khi liệt kê các thư mục trong `%s': %s"
 
-#: gconf/gconf-database.c:574
+#: gconf/gconf-database.c:1572
 #, c-format
 msgid "Error setting schema for `%s': %s"
 msgstr "Lỗi khi đặt giản đồ cho `%s': %s"
@@ -470,105 +519,123 @@ msgstr "Không nhận được khóa"
 msgid "No database available to save your configuration"
 msgstr "Không có sẵn cơ sở dữ liệu để lưu cấu hình của bạn"
 
-#: gconf/gconf-internals.c:71
+#: gconf/gconf-internals.c:86
 #, c-format
 msgid "No '/' in key \"%s\""
 msgstr "Không có '/' trong key \"%s\""
 
-#: gconf/gconf-internals.c:341
+#: gconf/gconf-internals.c:199
+#, c-format
+msgid "Invalid UTF-8 in string value in '%s'"
+msgstr "Mã utf-8 không hợp lệ trong chuỗi giá trị ở `%s'"
+
+#: gconf/gconf-internals.c:258
+msgid "Couldn't interpret CORBA value for list element"
+msgstr "Không thể thông dịch giá trị CORBA cho thành phần của danh sách"
+
+#: gconf/gconf-internals.c:260
+#, c-format
+msgid "Incorrect type for list element in %s"
+msgstr "Loi không chnh xác cho thành phần của danh sách ở %s"
+
+#: gconf/gconf-internals.c:273
+msgid "Received list from gconfd with a bad list type"
+msgstr "Nhận được danh sách từ gconfd với loại danh sách sai"
+
+#: gconf/gconf-internals.c:454
+msgid "Failed to convert object to IOR"
+msgstr "Không chuyển đổi được đối tượng thành IOR"
+
+#: gconf/gconf-internals.c:591
+msgid "Invalid UTF-8 in locale for schema"
+msgstr "UTF-8 không hợp lệ trong locale cho giản đồ"
+
+#: gconf/gconf-internals.c:599
+msgid "Invalid UTF-8 in short description for schema"
+msgstr "UTF-8 không hợp lệ trong đoạn mô tả ngắn cho giản đồ"
+
+#: gconf/gconf-internals.c:607
+msgid "Invalid UTF-8 in long description for schema"
+msgstr "UTF-8 không hợp lệ trong đoạn mô tả dài cho giản đồ"
+
+#: gconf/gconf-internals.c:615
+msgid "Invalid UTF-8 in owner for schema"
+msgstr "UTF-8 không hợp lệ trong người sở hữu cho giản đồ"
+
+#: gconf/gconf-internals.c:838
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
 msgstr "Không thể mở tập tin đường dẫn `%s': %s\n"
 
-#: gconf/gconf-internals.c:390
+#: gconf/gconf-internals.c:887
 #, c-format
 msgid "Adding source `%s'\n"
 msgstr "Thêm nguồn `%s'\n"
 
-#: gconf/gconf-internals.c:402
+#: gconf/gconf-internals.c:899
 #, c-format
 msgid "Read error on file `%s': %s\n"
 msgstr "Lỗi khi đọc trên tập tin `%s': %s\n"
 
-#: gconf/gconf-internals.c:706 gconf/gconf-internals.c:772
+#: gconf/gconf-internals.c:1203 gconf/gconf-internals.c:1269
 #: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1681
 msgid "Text contains invalid UTF-8"
 msgstr "Văn bản chứa UTF-8 không hợp lệ"
 
-#: gconf/gconf-internals.c:857
+#: gconf/gconf-internals.c:1354
 #, c-format
 msgid "Expected list, got %s"
 msgstr "Danh sách mong muốn, có %s"
 
-#: gconf/gconf-internals.c:867
+#: gconf/gconf-internals.c:1364
 #, c-format
 msgid "Expected list of %s, got list of %s"
 msgstr "Danh sách mong muốn của %s, có danh sách của %s"
 
-#: gconf/gconf-internals.c:995
+#: gconf/gconf-internals.c:1492
 #, c-format
 msgid "Expected pair, got %s"
 msgstr "Cặp đôi mong muốn, có %s"
 
-#: gconf/gconf-internals.c:1009
+#: gconf/gconf-internals.c:1506
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
 msgstr "Cặp đôi (%s,%s) mong muốn, có một cặp đôi thiếu một hay cả hai giá trị"
 
-#: gconf/gconf-internals.c:1025
+#: gconf/gconf-internals.c:1522
 #, c-format
 msgid "Expected pair of type (%s,%s) got type (%s,%s)"
 msgstr "Cặp đôi mong muốn của loại (%s,%s) có loại (%s,%s)"
 
-#: gconf/gconf-internals.c:1141
+#: gconf/gconf-internals.c:1638
 msgid "Quoted string doesn't begin with a quotation mark"
 msgstr "Chuỗi trích dẫn không bắt đầu bằng một ghi dấu trích dẫn"
 
-#: gconf/gconf-internals.c:1203
+#: gconf/gconf-internals.c:1700
 msgid "Quoted string doesn't end with a quotation mark"
 msgstr "Chuỗi trích dẫn không kết thúc bằng một ghi dấu trích dẫn"
 
-#: gconf/gconf-internals.c:1339
+#: gconf/gconf-internals.c:1836
 msgid "Encoded value is not valid UTF-8"
 msgstr "Giá trị mã hóa không phải là UTF-8 hợp lệ"
 
-#: gconf/gconf-internals.c:1841
-#, c-format
-msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
-msgstr "Không mở nổi tập tin IRO '%s', không có gconfd được định vị: %s"
-
-#: gconf/gconf-internals.c:1871
-#, c-format
-msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr "gconftool hay một tiến trình khác có tập tin khóa '%s'"
-
-#: gconf/gconf-internals.c:1888
-msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr ""
-"không thể liên hệ ORB để giải quyết tham chiếu đối tượng gconfd hiện có"
-
-#: gconf/gconf-internals.c:1898
-#, c-format
-msgid "Failed to convert IOR '%s' to an object reference"
-msgstr "Không chuyển đổi IOR '%s' tới tham chiếu đối tượng"
-
-#: gconf/gconf-internals.c:1953
+#: gconf/gconf-internals.c:2295
 #, c-format
 msgid "Could not lock temporary file '%s': %s"
 msgstr "Không thể khóa tập tin tạm thời `%s': %s"
 
-#: gconf/gconf-internals.c:1980
+#: gconf/gconf-internals.c:2322
 #, c-format
 msgid "Could not create file '%s', probably because it already exists"
 msgstr "Không thể tạo tập tin `%s', có lẽ do nó đã tồn tại"
 
-#: gconf/gconf-internals.c:2027
+#: gconf/gconf-internals.c:2368
 #, c-format
 msgid "Failed to create or open '%s'"
 msgstr "Không tạo hoặc mở được `%s'"
 
-#: gconf/gconf-internals.c:2037
+#: gconf/gconf-internals.c:2378
 #, c-format
 msgid ""
 "Failed to lock '%s': probably another process has the lock, or your "
@@ -577,51 +644,109 @@ msgstr ""
 "Không khóa được '%s': có lẽ vì tiến trình khác đã có khóa, hoặc hệ điều hành "
 "có sự khóa tập tin NFS không được cấu hình (%s)"
 
-#: gconf/gconf-internals.c:2121
+#: gconf/gconf-internals.c:2408
 #, c-format
-msgid "We didn't have the lock on file `%s', but we should have"
-msgstr "Đã không có khóa trên tập tin `%s', nên có nó."
+msgid "IOR file '%s' not opened successfully, no gconfd located: %s"
+msgstr "Không mở nổi tập tin IRO '%s', không có gconfd được định vị: %s"
 
-#: gconf/gconf-internals.c:2142
+#: gconf/gconf-internals.c:2438
 #, c-format
-msgid "Failed to link '%s' to '%s': %s"
-msgstr "không liên kết được '%s' tới '%s': %s"
+msgid "gconftool or other non-gconfd process has the lock file '%s'"
+msgstr "gconftool hay một tiến trình khác có tập tin khóa '%s'"
 
-#: gconf/gconf-internals.c:2154
+#: gconf/gconf-internals.c:2455
+msgid "couldn't contact ORB to resolve existing gconfd object reference"
+msgstr ""
+"không thể liên hệ ORB để giải quyết tham chiếu đối tượng gconfd hiện có"
+
+#: gconf/gconf-internals.c:2465
 #, c-format
-msgid "Failed to remove lock file `%s': %s"
-msgstr "không gỡ bỏ được tập tin khóa `%s': %s"
+msgid "Failed to convert IOR '%s' to an object reference"
+msgstr "Không chuyển đổi IOR '%s' tới tham chiếu đối tượng"
 
-#: gconf/gconf-internals.c:2173
-#, c-format
-msgid "Failed to clean up file '%s': %s"
-msgstr "không xóa sạch được tập tin '%s': %s"
-
-#: gconf/gconf-internals.c:2187
-#, c-format
-msgid "Failed to remove lock directory `%s': %s"
-msgstr "không gỡ bỏ được thư mục khóa `%s': %s"
-
-#: gconf/gconf-internals.c:2224
+#: gconf/gconf-internals.c:2515
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "không thể tạo thư mục `%s': %s"
 
-#: gconf/gconf-internals.c:2283
+#: gconf/gconf-internals.c:2574
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "Không thể ghi vào tập tin `%s': %s"
 
-#: gconf/gconf-internals.c:2327
+#: gconf/gconf-internals.c:2615
+#, c-format
+msgid "We didn't have the lock on file `%s', but we should have"
+msgstr "Đã không có khóa trên tập tin `%s', nên có nó."
+
+#: gconf/gconf-internals.c:2636
+#, c-format
+msgid "Failed to link '%s' to '%s': %s"
+msgstr "không liên kết được '%s' tới '%s': %s"
+
+#: gconf/gconf-internals.c:2648
+#, c-format
+msgid "Failed to remove lock file `%s': %s"
+msgstr "không gỡ bỏ được tập tin khóa `%s': %s"
+
+#: gconf/gconf-internals.c:2667
+#, c-format
+msgid "Failed to clean up file '%s': %s"
+msgstr "không xóa sạch được tập tin '%s': %s"
+
+#: gconf/gconf-internals.c:2681
+#, c-format
+msgid "Failed to remove lock directory `%s': %s"
+msgstr "không gỡ bỏ được thư mục khóa `%s': %s"
+
+#: gconf/gconf-internals.c:2723
 #, fuzzy, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "không gỡ bỏ được tập tin khóa `%s': %s"
 
-#: gconf/gconf-sanity-check.c:43 gconf/gconftool.c:84
+#: gconf/gconf-internals.c:2862 gconf/gconfd.c:487
+#, fuzzy, c-format
+msgid "Failed to stat %s: %s"
+msgstr "Không định rõ được `%s': %s"
+
+#: gconf/gconf-internals.c:2884
+#, c-format
+msgid "Server ping error: %s"
+msgstr "Lỗi ping máy chủ: %s"
+
+#: gconf/gconf-internals.c:2909
+#, c-format
+msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
+msgstr ""
+"không tạo được pipe để liên lạc với deamon được sinh ra của gconf: %s\n"
+
+#: gconf/gconf-internals.c:2933
+#, c-format
+msgid "Failed to launch configuration server: %s\n"
+msgstr "không chạy được máy chủ cấu hình: %s\n"
+
+#: gconf/gconf-internals.c:2958
+#, c-format
+msgid ""
+"Failed to contact configuration server; some possible causes are that you "
+"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
+"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
+"(Details - %s)"
+msgstr ""
+"Không liên lạc được với máy chủ cấu hình, vài nguyên nhân có thể do bạn cần "
+"chạy TCP/IP networking cho ORBit, hoặc bạn cần khoá NFS hỏng do hệ thống sụp "
+"đổ. Hãy xem thông tin tại http://www.gnome.org/projects/gconf/ . (Chi tiết - "
+"%s)"
+
+#: gconf/gconf-internals.c:2959
+msgid "none"
+msgstr "không"
+
+#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:86
 msgid "Help options"
 msgstr "Tùy chọn trợ giúp"
 
-#: gconf/gconf-sanity-check.c:79 gconf/gconftool.c:506
+#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:508
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -630,7 +755,7 @@ msgstr ""
 "Lỗi với tùy chọn %s: %s.\n"
 "Hãy chạy '%s --help' để xem danh sách đầy đủ các tùy chọn dòng lệnh sẵn có.\n"
 
-#: gconf/gconf-sanity-check.c:144 gconf/gconf-sanity-check.c:169
+#: gconf/gconf-sanity-check.c:141 gconf/gconf-sanity-check.c:166
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -643,7 +768,7 @@ msgstr ""
 "hình của bạn, khi rất nhiều chương trình cần tạo các tập tin trong thư mục "
 "home của bạn. Lỗi đó là \"%s\" (số hiệu lỗi = %d)."
 
-#: gconf/gconf-sanity-check.c:183
+#: gconf/gconf-sanity-check.c:180
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -661,12 +786,12 @@ msgstr ""
 "statd và rpc.lockd. Một nguyên nhân thông thường của lỗi này là dịch vụ "
 "\"nfslock\" không được phép chạy. Lỗi đó là \"%s\" (số hiệu lỗi = %d)."
 
-#: gconf/gconf-sanity-check.c:200
+#: gconf/gconf-sanity-check.c:197
 #, c-format
 msgid "Can't remove file %s: %s\n"
 msgstr "Không thể gỡ bỏ tập tin %s: %s\n"
 
-#: gconf/gconf-sanity-check.c:236
+#: gconf/gconf-sanity-check.c:233
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -677,11 +802,11 @@ msgstr ""
 "Không có các nguồn cấu hình trong tập tin cấu hình \"%s\"; điều này có nghĩa "
 "là không thể lưu các tùy thích và các thiết lập khác. %s%s"
 
-#: gconf/gconf-sanity-check.c:239
+#: gconf/gconf-sanity-check.c:236
 msgid "Error reading the file: "
 msgstr "Lỗi khi đọc tập tin: "
 
-#: gconf/gconf-sanity-check.c:262
+#: gconf/gconf-sanity-check.c:259
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -690,7 +815,7 @@ msgstr ""
 "Hãy liên lạc với người quản trị hệ thống để giải quyết vấn đề sau:\n"
 "Không thể giải quyết địa chỉ \"%s\" trong tập tin cấu hình \"%s\": %s"
 
-#: gconf/gconf-sanity-check.c:323
+#: gconf/gconf-sanity-check.c:320
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
@@ -703,15 +828,15 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:344
+#: gconf/gconf-sanity-check.c:341
 msgid "_Log Out"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:346
+#: gconf/gconf-sanity-check.c:343
 msgid "_Continue"
 msgstr ""
 
-#: gconf/gconf-sanity-check.c:359
+#: gconf/gconf-sanity-check.c:356
 #, c-format
 msgid "%s Continue (y/n)?"
 msgstr ""
@@ -897,70 +1022,98 @@ msgstr "Không hiểu `%s' (sai số của các thành phần)"
 msgid "Didn't understand `%s' (extra unescaped ')' found inside pair)"
 msgstr "Đã không hiểu `%s' (extra unescaped ')' tìm thấy trong cặp đôi)"
 
-#: gconf/gconf.c:44
+#: gconf/gconf.c:55
 #, c-format
 msgid "Key \"%s\" is NULL"
 msgstr "Key \"%s\" là NULL"
 
-#: gconf/gconf.c:51
+#: gconf/gconf.c:62
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
 
-#: gconf/gconf.c:116
+#: gconf/gconf.c:345
+#, c-format
+msgid "Server couldn't resolve the address `%s'"
+msgstr "Máy chủ không thể giải quyết được địa chỉ `%s'"
+
+#: gconf/gconf.c:634
+msgid "Can't add notifications to a local configuration source"
+msgstr "Không thể thêm các thông báo vào nguồn cấu hình cục bộ"
+
+#: gconf/gconf.c:2097
+#, c-format
+msgid "Adding client to server's list failed, CORBA error: %s"
+msgstr "Không thêm được máy khách vào danh sách của máy chủ, lỗi CORBA: %s"
+
+#: gconf/gconf.c:2452
 msgid "Must begin with a slash (/)"
 msgstr "Phải bắt đầu với một gạch chéo (/)"
 
-#: gconf/gconf.c:138
+#: gconf/gconf.c:2474
 msgid "Can't have two slashes (/) in a row"
 msgstr "Không thể có 2 gạch chéo (/) trong một hàng"
 
-#: gconf/gconf.c:140
+#: gconf/gconf.c:2476
 msgid "Can't have a period (.) right after a slash (/)"
 msgstr "Không thể có dấu chấm câu (.) ở ngay sau một gạch chéo (/)"
 
-#: gconf/gconf.c:159
+#: gconf/gconf.c:2495
 #, c-format
 msgid "'%c' is not an ASCII character, so isn't allowed in key names"
 msgstr ""
 "'%c' không phải một ký tự ASCII, do đó nó không được phép nằm trong các tên "
 "key"
 
-#: gconf/gconf.c:169
+#: gconf/gconf.c:2505
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
 msgstr "`%c' là một ký tự không hợp lệ trong các tên key/thư mục"
 
-#: gconf/gconf.c:183
+#: gconf/gconf.c:2519
 msgid "Key/directory may not end with a slash (/)"
 msgstr "Key/thư mục có thể không kết thúc bằng gạch chéo (/)"
 
-#: gconf/gconf.c:408
+#: gconf/gconf.c:2888
+#, c-format
+msgid "Failure shutting down config server: %s"
+msgstr "Không tắt được máy chủ config: %s"
+
+#: gconf/gconf.c:2949
 #, c-format
 msgid "Expected float, got %s"
 msgstr "Dấu phẩy động mong muốn, có %s"
 
-#: gconf/gconf.c:443
+#: gconf/gconf.c:2984
 #, c-format
 msgid "Expected int, got %s"
 msgstr "int mong muốn, có %s"
 
-#: gconf/gconf.c:478
+#: gconf/gconf.c:3019
 #, c-format
 msgid "Expected string, got %s"
 msgstr "Chuỗi mong muốn, có %s"
 
-#: gconf/gconf.c:512
+#: gconf/gconf.c:3053
 #, c-format
 msgid "Expected bool, got %s"
 msgstr "bool mong muốn, có %s"
 
-#: gconf/gconf.c:545
+#: gconf/gconf.c:3086
 #, c-format
 msgid "Expected schema, got %s"
 msgstr "Giản đồ mong muốn, có %s"
 
-#: gconf/gconfd.c:148
+#: gconf/gconf.c:3443
+#, c-format
+msgid "CORBA error: %s"
+msgstr "Lỗi CORBA: %s"
+
+#: gconf/gconfd.c:250
+msgid "Shutdown request received"
+msgstr "Tắt yêu cầu đã nhận"
+
+#: gconf/gconfd.c:282
 msgid ""
 "gconfd compiled with debugging; trying to load gconf.path from the source "
 "directory"
@@ -968,7 +1121,7 @@ msgstr ""
 "GConfd được biên dịch với việc gỡ rối, đang cố nạp gconf.path từ thư mục "
 "nguồn"
 
-#: gconf/gconfd.c:162
+#: gconf/gconfd.c:296
 #, c-format
 msgid ""
 "No configuration files found, trying to use the default config source `%s'"
@@ -979,7 +1132,7 @@ msgstr ""
 #. We want to stay alive but do nothing, because otherwise every
 #. request would result in another failed gconfd being spawned.
 #.
-#: gconf/gconfd.c:170
+#: gconf/gconfd.c:304
 #, fuzzy, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
@@ -988,12 +1141,12 @@ msgstr ""
 "Không có các nguồn cấu hình trong đường dẫn nguồn, sẽ không lưu cấu hình; "
 "biên soạn"
 
-#: gconf/gconfd.c:183
+#: gconf/gconfd.c:317
 #, c-format
 msgid "Error loading some config sources: %s"
 msgstr "Lỗi khi nạp một số nguồn cấu hình: %s"
 
-#: gconf/gconfd.c:195
+#: gconf/gconfd.c:329
 msgid ""
 "No config source addresses successfully resolved, can't load or store config "
 "data"
@@ -1001,7 +1154,7 @@ msgstr ""
 "Không giải quyết thành công địa chỉ nguồn cấu hình, không thể nạp hay cất dữ "
 "liệu về cấu hình"
 
-#: gconf/gconfd.c:212
+#: gconf/gconfd.c:346
 msgid ""
 "No writable config sources successfully resolved, may not be able to save "
 "some configuration changes"
@@ -1009,93 +1162,210 @@ msgstr ""
 "Không giải quyết thành công nguồn cấu hình có thể ghi, có lẽ là không thể "
 "lưu một số thay đổi cấu hình"
 
-#: gconf/gconfd.c:238
+#: gconf/gconfd.c:372
 #, c-format
 msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "Nhận tín hiệu %d, xổ lõi. Hãy thực hiện báo cáo GConfbug."
 
-#: gconf/gconfd.c:256
+#: gconf/gconfd.c:390
 #, c-format
 msgid ""
 "Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr "Nhận tín hiệu %d, tắt một cách bất thường. Hãy điền báo cáo GConfbug."
 
-#: gconf/gconfd.c:273
+#: gconf/gconfd.c:407
 #, c-format
 msgid "Received signal %d, shutting down cleanly"
 msgstr "Nhận tín hiệu %d, tắt hết"
 
-#: gconf/gconfd.c:342
+#: gconf/gconfd.c:480
 #, fuzzy, c-format
 msgid "Failed to open %s: %s"
 msgstr "Không mở được `%s': %s\n"
 
-#: gconf/gconfd.c:349
-#, fuzzy, c-format
-msgid "Failed to stat %s: %s"
-msgstr "Không định rõ được `%s': %s"
-
-#: gconf/gconfd.c:358
+#: gconf/gconfd.c:496
 #, c-format
 msgid "Owner of %s is not the current user"
 msgstr ""
 
-#: gconf/gconfd.c:366
+#: gconf/gconfd.c:504
 #, fuzzy, c-format
 msgid "Bad permissions %lo on directory %s"
 msgstr "Chức năng key trên thư mục"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
-#: gconf/gconfd.c:446
+#: gconf/gconfd.c:586
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
 msgstr "khởi chạy (phiên bản %s), pid %u người dùng '%s'"
 
-#: gconf/gconfd.c:485
+#: gconf/gconfd.c:626
+msgid "Failed to get object reference for ConfigServer"
+msgstr "Không lấy được tham chiếu đối tượng cho ConfigServer"
+
+#: gconf/gconfd.c:639
 #, c-format
 msgid "Failed to create %s: %s"
 msgstr "không tạo được %s: %s"
 
-#: gconf/gconfd.c:493
+#: gconf/gconfd.c:646
 #, c-format
 msgid "Directory %s has a problem, gconfd can't use it"
 msgstr ""
 
-#: gconf/gconfd.c:529
+#: gconf/gconfd.c:675
 #, c-format
 msgid "Failed to write byte to pipe fd %d so client program may hang: %s"
 msgstr ""
 "Không ghi được byte vào pipe fd %d cho nên chương trình máy khách có thể "
 "treo: %s"
 
-#: gconf/gconfd.c:543
+#: gconf/gconfd.c:685
 #, c-format
 msgid "Failed to get lock for daemon, exiting: %s"
 msgstr "Không nhận được khóa cho daemon, tồn tại: %s"
 
-#: gconf/gconfd.c:585
+#: gconf/gconfd.c:723
 #, c-format
 msgid "Error releasing lockfile: %s"
 msgstr "Lỗi khi phát hành lockfile: %s"
 
-#: gconf/gconfd.c:593
+#: gconf/gconfd.c:731
 msgid "Exiting"
 msgstr "Tồn tại"
 
-#: gconf/gconfd.c:636
+#: gconf/gconfd.c:757
 msgid "GConf server is not in use, shutting down."
 msgstr "Máy chủ GConf không làm gì, đang tắt."
 
-#: gconf/gconftool.c:93
+#: gconf/gconfd.c:1123
+#, c-format
+msgid "Returning exception: %s"
+msgstr "Trở lại ngoại lệ: %s"
+
+#: gconf/gconfd.c:1223
+#, c-format
+msgid ""
+"Failed to open gconfd logfile; won't be able to restore listeners after "
+"gconfd shutdown (%s)"
+msgstr ""
+"Không mở được logfile của gconfd; sẽ không thể khôi phục người nghe sau khi "
+"tắt gconfd (%s)"
+
+#: gconf/gconfd.c:1258
+#, c-format
+msgid ""
+"Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgstr ""
+"Không đóng được logfile của gconfd; có thể đã không lưu dữ liệu đúng cách (%"
+"s)"
+
+#: gconf/gconfd.c:1327
+#, c-format
+msgid "Could not open saved state file '%s' for writing: %s"
+msgstr "Không thể mở tập tin trạng thái đã lưu '%s' để ghi: %s"
+
+#: gconf/gconfd.c:1341
+#, c-format
+msgid "Could not write saved state file '%s' fd: %d: %s"
+msgstr "Không thể ghi tập tin trạng thái đã lưu '%s' fd: %d: %s"
+
+#: gconf/gconfd.c:1350
+#, c-format
+msgid "Failed to close new saved state file '%s': %s"
+msgstr "Không đóng được tập tin trạng thái mới đã lưu '%s': %s"
+
+#: gconf/gconfd.c:1364
+#, c-format
+msgid "Could not move aside old saved state file '%s': %s"
+msgstr "Không thể chuyển theo thứ tự tập tin trạng thái cũ đã lưu '%s': %s"
+
+#: gconf/gconfd.c:1374
+#, c-format
+msgid "Failed to move new save state file into place: %s"
+msgstr "Không chuyển được tập tin trạng thái mới đã lưu vào vị trí: %s"
+
+#: gconf/gconfd.c:1383
+#, c-format
+msgid ""
+"Failed to restore original saved state file that had been moved to '%s': %s"
+msgstr ""
+"Không khôi phục tập tin trạng thái đã lưu nguyên gốc đã được chuyển tới '%"
+"s': %s"
+
+#: gconf/gconfd.c:1854
+#, c-format
+msgid ""
+"Unable to restore a listener on address '%s', couldn't resolve the database"
+msgstr ""
+"Không thể khôi phục người nghe trên địa chỉ '%s', không thể giải quyết cơ sở "
+"dữ liệu"
+
+#: gconf/gconfd.c:1900
+#, c-format
+msgid "Error reading saved state file: %s"
+msgstr "Lỗi khi đọc tập tin trạng thái đã lưu: %s"
+
+#: gconf/gconfd.c:1954
+#, c-format
+msgid "Unable to open saved state file '%s': %s"
+msgstr "Không thể mở tập tin trạng thái đã lưu '%s': %s"
+
+#: gconf/gconfd.c:2073
+#, c-format
+msgid ""
+"Failed to log addition of listener to gconfd logfile; won't be able to re-"
+"add the listener if gconfd exits or shuts down (%s)"
+msgstr ""
+"Không ghi được việc bổ sung người nghe vào logfile của gconfd, sẽ không thể "
+"thêm lại người nghe nếu như gconfd tồn tại hay đã tắt (%s)"
+
+#: gconf/gconfd.c:2078
+#, c-format
+msgid ""
+"Failed to log removal of listener to gconfd logfile; might erroneously re-"
+"add the listener if gconfd exits or shuts down (%s)"
+msgstr ""
+"Không ghi được việc xóa bỏ người nghe vào logfile của gconfd, có lẽ do lỗi "
+"khi bổ sung lại người nghe nếu gconfd tồn tại hay tắt (%s)"
+
+#: gconf/gconfd.c:2101 gconf/gconfd.c:2275
+#, c-format
+msgid "Failed to get IOR for client: %s"
+msgstr "Không lấy được IOR cho máy khách: %s"
+
+#: gconf/gconfd.c:2116
+#, c-format
+msgid "Failed to open saved state file: %s"
+msgstr "Không mở được tập tin trạng thái đã lưu: %s"
+
+#: gconf/gconfd.c:2129
+#, c-format
+msgid "Failed to write client add to saved state file: %s"
+msgstr "Không ghi được việc thêm máy khách vào tập tin trạng thái đã lưu: %s"
+
+#: gconf/gconfd.c:2137
+#, c-format
+msgid "Failed to flush client add to saved state file: %s"
+msgstr "Không xóa được bổ sung máy khách vào tập tin trạng thái đã lưu: %s"
+
+#: gconf/gconfd.c:2236
+msgid ""
+"Some client removed itself from the GConf server when it hadn't been added."
+msgstr ""
+"Một số máy khách đã tự xóa bỏ chúng khỏi máy chủ GConf khi chúng đã không "
+"được thêm vào."
+
+#: gconf/gconftool.c:95
 msgid "Set a key to a value and sync. Use with --type."
 msgstr "đặt một key cho một giá trị và đồng bộ. Dùng với --type."
 
-#: gconf/gconftool.c:102
+#: gconf/gconftool.c:104
 msgid "Print the value of a key to standard output."
 msgstr "In giá trị của một key tới đầu ra chuẩn."
 
-#: gconf/gconftool.c:111
+#: gconf/gconftool.c:113
 msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
 "type."
@@ -1103,11 +1373,11 @@ msgstr ""
 "đặt một giản đồ và đồng bộ. Dùng với --short-desc, --long-desc, --owner, và "
 "--type."
 
-#: gconf/gconftool.c:121
+#: gconf/gconftool.c:123
 msgid "Unset the keys on the command line"
 msgstr "Thôi đặt các key lên dòng lệnh"
 
-#: gconf/gconftool.c:130
+#: gconf/gconftool.c:132
 msgid ""
 "Recursively unset all keys at or below the key/directory names on the "
 "command line"
@@ -1115,15 +1385,15 @@ msgstr ""
 "Bỏ đặt theo kiểu gọi lại toàn bộ các khóa nằm tại hay dưới các tên key/thư "
 "mục trên dòng lệnh"
 
-#: gconf/gconftool.c:139
+#: gconf/gconftool.c:141
 msgid "Print all key/value pairs in a directory."
 msgstr "In toàn bộ các cặp đôi giá trị/key ở trong một thư mục."
 
-#: gconf/gconftool.c:148
+#: gconf/gconftool.c:150
 msgid "Print all subdirectories in a directory."
 msgstr "In toàn bộ các thư mục con trong một thư mục."
 
-#: gconf/gconftool.c:157
+#: gconf/gconftool.c:159
 #, fuzzy
 msgid ""
 "Dump to standard out an XML description of all entries under a dir, "
@@ -1132,37 +1402,37 @@ msgstr ""
 "In toàn bộ các thư mục con và các mục nhập nằm trong một thư mục theo kiểu "
 "gọi lại."
 
-#: gconf/gconftool.c:166
+#: gconf/gconftool.c:168
 msgid ""
 "Load from the specified file an XML description of values and set them "
 "relative to a dir."
 msgstr ""
 
-#: gconf/gconftool.c:175
+#: gconf/gconftool.c:177
 msgid "Print all subdirectories and entries under a dir, recursively."
 msgstr ""
 "In toàn bộ các thư mục con và các mục nhập nằm trong một thư mục theo kiểu "
 "gọi lại."
 
-#: gconf/gconftool.c:184
+#: gconf/gconftool.c:186
 msgid "Return 0 if the directory exists, 2 if it does not."
 msgstr "Trở về 0 nếu thư mục tồn tại, về 2 nếu không tồn tại."
 
-#: gconf/gconftool.c:193
+#: gconf/gconftool.c:195
 msgid "Shut down gconfd. DON'T USE THIS OPTION WITHOUT GOOD REASON."
 msgstr "Tắt gconfd. KHÔNG DÙNG TÙY CHỌN NÀY KHI KHÔNG CÓ LÝ DO XÁC ĐÁNG."
 
-#: gconf/gconftool.c:202
+#: gconf/gconftool.c:204
 msgid "Return 0 if gconfd is running, 2 if not."
 msgstr "Trở về 0 nếu gconfd đang chạy, về 2 nếu không chạy."
 
-#: gconf/gconftool.c:211
+#: gconf/gconftool.c:213
 msgid ""
 "Launch the config server (gconfd). (Normally happens automatically when "
 "needed.)"
 msgstr "Chạy máy chủ cấu hình (gconfd). (Thường diễn ra tự động khi cần)."
 
-#: gconf/gconftool.c:220
+#: gconf/gconftool.c:222
 msgid ""
 "Specify the type of the value being set, or the type of the value a schema "
 "describes. Unique abbreviations OK."
@@ -1170,25 +1440,25 @@ msgstr ""
 "Chỉ định kiểu giá trị đang được đặt, hay kiểu giá trị mà giản đồ mô tả. Các "
 "chữ viết tắt độc nhất OK."
 
-#: gconf/gconftool.c:221
+#: gconf/gconftool.c:223
 msgid "int|bool|float|string|list|pair"
 msgstr "int|bool|float|string|list|pair"
 
-#: gconf/gconftool.c:229
+#: gconf/gconftool.c:231
 #, fuzzy
 msgid "Print the data type of a key to standard output."
 msgstr "In giá trị của một key tới đầu ra chuẩn."
 
-#: gconf/gconftool.c:238
+#: gconf/gconftool.c:240
 #, fuzzy
 msgid "Get the number of elements in a list key."
 msgstr "Lấy tên của giản đồ được áp dụng vào key này"
 
-#: gconf/gconftool.c:247
+#: gconf/gconftool.c:249
 msgid "Get a specific element from a list key, numerically indexed."
 msgstr ""
 
-#: gconf/gconftool.c:256
+#: gconf/gconftool.c:258
 msgid ""
 "Specify the type of the list value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1196,11 +1466,11 @@ msgstr ""
 "Chỉ định kiểu danh sách giá trị đang được đặt, hoặc kiểu giá trị mà giản đồ "
 "mô tả. Các chữ viết tắt độc nhất OK."
 
-#: gconf/gconftool.c:257 gconf/gconftool.c:266 gconf/gconftool.c:275
+#: gconf/gconftool.c:259 gconf/gconftool.c:268 gconf/gconftool.c:277
 msgid "int|bool|float|string"
 msgstr "int|bool|float|string"
 
-#: gconf/gconftool.c:265
+#: gconf/gconftool.c:267
 msgid ""
 "Specify the type of the car pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1208,7 +1478,7 @@ msgstr ""
 "Chỉ định kiểu giá trị cặp đôi car đang được đặt, hay kiểu giá trị mà một "
 "giản đồ mô tả. Các ước lược duy nhất OK."
 
-#: gconf/gconftool.c:274
+#: gconf/gconftool.c:276
 msgid ""
 "Specify the type of the cdr pair value being set, or the type of the value a "
 "schema describes. Unique abbreviations OK."
@@ -1216,43 +1486,43 @@ msgstr ""
 "Chỉ định kiểu giá trị cặp đôi cdr đang được đặt, hay kiểu giá trị mà một "
 "giản đồ mô tả. Các ước lược duy nhất OK."
 
-#: gconf/gconftool.c:283
+#: gconf/gconftool.c:285
 msgid "Specify a short half-line description to go in a schema."
 msgstr "Chỉ định một mô tả ngắn bán dòng vào trong giản đồ."
 
-#: gconf/gconftool.c:284 gconf/gconftool.c:293
+#: gconf/gconftool.c:286 gconf/gconftool.c:295
 msgid "DESCRIPTION"
 msgstr "MÔ TẢ"
 
-#: gconf/gconftool.c:292
+#: gconf/gconftool.c:294
 msgid "Specify a several-line description to go in a schema."
 msgstr "Chỉ định một mô tả trong vài dòng vào giản đồ."
 
-#: gconf/gconftool.c:301
+#: gconf/gconftool.c:303
 msgid "Specify the owner of a schema"
 msgstr "Chỉ định người làm chủ giản đồ"
 
-#: gconf/gconftool.c:302
+#: gconf/gconftool.c:304
 msgid "OWNER"
 msgstr "NGƯỜI LÀM CHỦ"
 
-#: gconf/gconftool.c:310
+#: gconf/gconftool.c:312
 msgid "Specify a schema file to be installed"
 msgstr "Chỉ định một tập tin giản đồ để cài đặt"
 
-#: gconf/gconftool.c:311
+#: gconf/gconftool.c:313
 msgid "FILENAME"
 msgstr "TÊN TẬP TIN"
 
-#: gconf/gconftool.c:319
+#: gconf/gconftool.c:321
 msgid "Specify a configuration source to use rather than the default path"
 msgstr "Chỉ định nguồn cấu hình để dùng hơn là một đường dẫn mặc định"
 
-#: gconf/gconftool.c:320
+#: gconf/gconftool.c:322
 msgid "SOURCE"
 msgstr "NGUỒN"
 
-#: gconf/gconftool.c:328
+#: gconf/gconftool.c:330
 msgid ""
 "Access the config database directly, bypassing server. Requires that gconfd "
 "is not running."
@@ -1260,7 +1530,7 @@ msgstr ""
 "Truy cập trực tiếp cơ sở dữ liệu cấu hình, đi tắt qua máy chủ. Yêu cầu là "
 "gconfd không chạy."
 
-#: gconf/gconftool.c:337
+#: gconf/gconftool.c:339
 msgid ""
 "Properly installs schema files on the command line into the database. "
 "GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
@@ -1270,7 +1540,7 @@ msgstr ""
 "môi trường GCONF_CONFIG_SOURCE nên được đặt vào nguồn cấu hình không mặc "
 "định hay thiết đặt vào chuỗi trống để dùng làm mặc định."
 
-#: gconf/gconftool.c:346
+#: gconf/gconftool.c:348
 #, fuzzy
 msgid ""
 "Properly uninstalls schema files on the command line from the database. "
@@ -1281,7 +1551,7 @@ msgstr ""
 "môi trường GCONF_CONFIG_SOURCE nên được đặt vào nguồn cấu hình không mặc "
 "định hay thiết đặt vào chuỗi trống để dùng làm mặc định."
 
-#: gconf/gconftool.c:355
+#: gconf/gconftool.c:357
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of values of "
 "different types for keys on the command line."
@@ -1289,7 +1559,7 @@ msgstr ""
 "Kiểm tra một ứng dụng bằng cách đặt và không đặt một chùm các giá trị của "
 "các loại khác nhau cho các key trong dòng lệnh."
 
-#: gconf/gconftool.c:364
+#: gconf/gconftool.c:366
 msgid ""
 "Torture-test an application by setting and unsetting a bunch of keys inside "
 "the directories on the command line."
@@ -1297,56 +1567,56 @@ msgstr ""
 "Kiểm tra một ứng dụng bằng cách đặt và không đặt một chùm các key bên trong "
 "các thư mục trong dòng lệnh."
 
-#: gconf/gconftool.c:373
+#: gconf/gconftool.c:375
 msgid "Get the short doc string for a key"
 msgstr "Lấy chuỗi doc ngắn cho một key"
 
-#: gconf/gconftool.c:382
+#: gconf/gconftool.c:384
 msgid "Get the long doc string for a key"
 msgstr "Lấy một chuỗi doc dài cho một key"
 
-#: gconf/gconftool.c:391
+#: gconf/gconftool.c:393
 msgid "Get the name of the schema applied to this key"
 msgstr "Lấy tên của giản đồ được áp dụng vào key này"
 
-#: gconf/gconftool.c:400
+#: gconf/gconftool.c:402
 msgid "Specify the schema name followed by the key to apply the schema name to"
 msgstr "Chỉ định tên giản đồ đi theo key để áp dụng tên giản đồ vào"
 
-#: gconf/gconftool.c:409
+#: gconf/gconftool.c:411
 msgid "Remove any schema name applied to the given keys"
 msgstr "Bỏ bất kỳ tên giản đồ đã áp dụng vào các key được lấy"
 
-#: gconf/gconftool.c:418
+#: gconf/gconftool.c:420
 msgid "Get the name of the default source"
 msgstr "Lấy tên của nguồn mặc định"
 
-#: gconf/gconftool.c:427
+#: gconf/gconftool.c:429
 msgid "Print version"
 msgstr "Hiển thị phiên bản"
 
-#: gconf/gconftool.c:524
+#: gconf/gconftool.c:526
 msgid "Can't get and set/unset simultaneously\n"
 msgstr "Không thể đồng thời lấy và đặt/không đặt\n"
 
-#: gconf/gconftool.c:534
+#: gconf/gconftool.c:536
 msgid "Can't set and get/unset simultaneously\n"
 msgstr "Không thể đồng thời đặt và lấy/không đặt\n"
 
-#: gconf/gconftool.c:541
+#: gconf/gconftool.c:543
 #, fuzzy
 msgid "Can't get type and set/unset simultaneously\n"
 msgstr "Không thể đồng thời lấy và đặt/không đặt\n"
 
-#: gconf/gconftool.c:552
+#: gconf/gconftool.c:554
 msgid "Can't use --all-entries with --get or --set\n"
 msgstr "Không thể dùng --all-entries với --get hoặc --set\n"
 
-#: gconf/gconftool.c:563
+#: gconf/gconftool.c:565
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "Không thể dùng --all-dirs với --get hoặc --set\n"
 
-#: gconf/gconftool.c:576
+#: gconf/gconftool.c:578
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
@@ -1354,7 +1624,7 @@ msgstr ""
 "--recursive-list không nên dùng với --get, --set, --unset, --all-entries, "
 "hoặc --all-dirs\n"
 
-#: gconf/gconftool.c:589
+#: gconf/gconftool.c:591
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
@@ -1362,43 +1632,43 @@ msgstr ""
 "--set_schema không nên dùng với --get, --set, --unset, --all-entries, --all-"
 "dirs\n"
 
-#: gconf/gconftool.c:595
+#: gconf/gconftool.c:597
 msgid "Value type is only relevant when setting a value\n"
 msgstr "Kiểu giá trị chỉ thích hợp khi đặt một giá trị\n"
 
-#: gconf/gconftool.c:601
+#: gconf/gconftool.c:603
 msgid "Must specify a type when setting a value\n"
 msgstr "Phải định một kiểu khi đặt một giá trị\n"
 
-#: gconf/gconftool.c:613 gconf/gconftool.c:626 gconf/gconftool.c:639
-#: gconf/gconftool.c:653 gconf/gconftool.c:666 gconf/gconftool.c:679
-#: gconf/gconftool.c:693
+#: gconf/gconftool.c:615 gconf/gconftool.c:628 gconf/gconftool.c:641
+#: gconf/gconftool.c:655 gconf/gconftool.c:668 gconf/gconftool.c:681
+#: gconf/gconftool.c:695
 #, fuzzy, c-format
 msgid "%s option must be used by itself.\n"
 msgstr "Tùy chọn ping phải được dùng bởi chính nó.\n"
 
-#: gconf/gconftool.c:702
+#: gconf/gconftool.c:704
 msgid ""
 "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
 "Cần phải chỉ định một nguồn cấu hình với --config-source khi dùng --direct\n"
 
-#: gconf/gconftool.c:708
+#: gconf/gconftool.c:710
 msgid "You should use --direct when using a non-default configuration source\n"
 msgstr "Nên dùng --direct khi sử dụng một nguồn cấu hình không mặc định\n"
 
-#: gconf/gconftool.c:714
+#: gconf/gconftool.c:716
 #, c-format
 msgid "Failed to init GConf: %s\n"
 msgstr "Không sơ khởi được GConf: %s\n"
 
-#: gconf/gconftool.c:743
+#: gconf/gconftool.c:745
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
 msgstr ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL là thiết lập, không phải giản đồ cài "
 "đặt\n"
 
-#: gconf/gconftool.c:750
+#: gconf/gconftool.c:752
 #, fuzzy
 msgid ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
@@ -1406,368 +1676,368 @@ msgstr ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL là thiết lập, không phải giản đồ cài "
 "đặt\n"
 
-#: gconf/gconftool.c:763
+#: gconf/gconftool.c:765
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 msgstr "Phải đặt môi trường GCONF_CONFIG_SOURCE khả biến\n"
 
-#: gconf/gconftool.c:792
+#: gconf/gconftool.c:794
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
 msgstr "Không truy cập được nguồn cấu hình: %s\n"
 
-#: gconf/gconftool.c:1077
+#: gconf/gconftool.c:1085
 #, c-format
 msgid "Shutdown error: %s\n"
 msgstr "Lỗi khi tắt: %s\n"
 
-#: gconf/gconftool.c:1120
+#: gconf/gconftool.c:1128
 #, fuzzy
 msgid "Must specify one or more directories to recursively list.\n"
 msgstr "Phải chỉ định một hay nhiều thư mục để liệt kê.\n"
 
-#: gconf/gconftool.c:1172
+#: gconf/gconftool.c:1180
 #, fuzzy
 msgid "Must specify one or more directories to dump.\n"
 msgstr "Phải chỉ định một hay nhiều key để không đặt.\n"
 
-#: gconf/gconftool.c:1214 gconf/gconftool.c:1479
+#: gconf/gconftool.c:1222 gconf/gconftool.c:1487
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "Không liệt kê được các mục nhập trong `%s': %s\n"
 
-#: gconf/gconftool.c:1232
+#: gconf/gconftool.c:1240
 msgid "(no value set)"
 msgstr "(chưa có giá trị được đặt)"
 
-#: gconf/gconftool.c:1537
+#: gconf/gconftool.c:1545
 #, c-format
 msgid "Failed to spawn the config server (gconfd): %s\n"
 msgstr "Không tạo được máy chủ cấu hình (gconfd): %s\n"
 
-#: gconf/gconftool.c:1551
+#: gconf/gconftool.c:1559
 msgid "Must specify a key or keys to get\n"
 msgstr "Phải chỉ định một hay nhiều khóa để nhận\n"
 
-#: gconf/gconftool.c:1586
+#: gconf/gconftool.c:1594
 #, c-format
 msgid "Type: %s\n"
 msgstr "Loại: %s\n"
 
-#: gconf/gconftool.c:1587
+#: gconf/gconftool.c:1595
 #, c-format
 msgid "List Type: %s\n"
 msgstr "Loại danh sách: %s\n"
 
-#: gconf/gconftool.c:1588
+#: gconf/gconftool.c:1596
 #, c-format
 msgid "Car Type: %s\n"
 msgstr "Kiểu car: %s\n"
 
-#: gconf/gconftool.c:1589
+#: gconf/gconftool.c:1597
 #, c-format
 msgid "Cdr Type: %s\n"
 msgstr "Kiểu cdr: %s\n"
 
-#: gconf/gconftool.c:1594
+#: gconf/gconftool.c:1602
 #, c-format
 msgid "Default Value: %s\n"
 msgstr "Giá trị mặc định: %s\n"
 
-#: gconf/gconftool.c:1594 gconf/gconftool.c:1596 gconf/gconftool.c:1597
-#: gconf/gconftool.c:1598
+#: gconf/gconftool.c:1602 gconf/gconftool.c:1604 gconf/gconftool.c:1605
+#: gconf/gconftool.c:1606
 msgid "Unset"
 msgstr "Không đặt"
 
-#: gconf/gconftool.c:1596
+#: gconf/gconftool.c:1604
 #, c-format
 msgid "Owner: %s\n"
 msgstr "Sở hữu: %s\n"
 
-#: gconf/gconftool.c:1597
+#: gconf/gconftool.c:1605
 #, c-format
 msgid "Short Desc: %s\n"
 msgstr "Mô tả ngắn: %s\n"
 
-#: gconf/gconftool.c:1598
+#: gconf/gconftool.c:1606
 #, c-format
 msgid "Long Desc: %s\n"
 msgstr "Mô tả dài: %s\n"
 
-#: gconf/gconftool.c:1607 gconf/gconftool.c:1831 gconf/gconftool.c:1865
-#: gconf/gconftool.c:1910 gconf/gconftool.c:2055
+#: gconf/gconftool.c:1615 gconf/gconftool.c:1839 gconf/gconftool.c:1873
+#: gconf/gconftool.c:1918 gconf/gconftool.c:2063
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "Không có giá trị được đặt cho `%s'\n"
 
-#: gconf/gconftool.c:1611 gconf/gconftool.c:1835 gconf/gconftool.c:1869
-#: gconf/gconftool.c:1914 gconf/gconftool.c:2059
+#: gconf/gconftool.c:1619 gconf/gconftool.c:1843 gconf/gconftool.c:1877
+#: gconf/gconftool.c:1922 gconf/gconftool.c:2067
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "Không nhận được giá trị cho `%s': %s\n"
 
-#: gconf/gconftool.c:1654 gconf/gconftool.c:1666
+#: gconf/gconftool.c:1662 gconf/gconftool.c:1674
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "Không hiểu loại `%s'\n"
 
-#: gconf/gconftool.c:1678
+#: gconf/gconftool.c:1686
 msgid "Must specify alternating keys/values as arguments\n"
 msgstr "Phải chỉ định các khóa/giá trị như là các đối số\n"
 
-#: gconf/gconftool.c:1698
+#: gconf/gconftool.c:1706
 #, c-format
 msgid "No value to set for key: `%s'\n"
 msgstr "Không có giá trị để đặt cho khóa: `%s'\n"
 
-#: gconf/gconftool.c:1726
+#: gconf/gconftool.c:1734
 msgid "Cannot set schema as value\n"
 msgstr "Không thể đặt giản đồ như một giá trị\n"
 
-#: gconf/gconftool.c:1736
+#: gconf/gconftool.c:1744
 msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Phải chỉ định một kiểu danh sách gốc khi đặt một danh sách\n"
 
-#: gconf/gconftool.c:1750
+#: gconf/gconftool.c:1758
 msgid ""
 "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Phải chỉ định kiểu car hay cdr gốc khi đặt một pair\n"
 
-#: gconf/gconftool.c:1765
+#: gconf/gconftool.c:1773
 #, c-format
 msgid "Error: %s\n"
 msgstr "Lỗi: %s\n"
 
-#: gconf/gconftool.c:1778 gconf/gconftool.c:2807
+#: gconf/gconftool.c:1786 gconf/gconftool.c:2816
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "Lỗi khi đặt giá trị: %s\n"
 
-#: gconf/gconftool.c:1796
+#: gconf/gconftool.c:1804
 #, c-format
 msgid "Error syncing: %s\n"
 msgstr "Lỗi đồng bộ: %s\n"
 
-#: gconf/gconftool.c:1811
+#: gconf/gconftool.c:1819
 #, fuzzy
 msgid "Must specify a key or keys to get type\n"
 msgstr "Phải chỉ định một hay nhiều khóa để nhận\n"
 
-#: gconf/gconftool.c:1855
+#: gconf/gconftool.c:1863
 #, fuzzy
 msgid "Must specify a key to lookup size of.\n"
 msgstr "Phải chỉ định một hay nhiều khóa để nhận\n"
 
-#: gconf/gconftool.c:1880 gconf/gconftool.c:1925
+#: gconf/gconftool.c:1888 gconf/gconftool.c:1933
 #, fuzzy, c-format
 msgid "Key %s is not a list.\n"
 msgstr "Giá trị tại '%s' không phải là giản đồ\n"
 
-#: gconf/gconftool.c:1900
+#: gconf/gconftool.c:1908
 #, fuzzy
 msgid "Must specify a key from which to get list element.\n"
 msgstr "Phải chỉ định một hay nhiều khóa để nhận\n"
 
-#: gconf/gconftool.c:1931
+#: gconf/gconftool.c:1939
 #, fuzzy
 msgid "Must specify list index.\n"
 msgstr "Phải chỉ định một số key để break\n"
 
-#: gconf/gconftool.c:1938
+#: gconf/gconftool.c:1946
 msgid "List index must be non-negative.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1947
+#: gconf/gconftool.c:1955
 msgid "List index is out of bounds.\n"
 msgstr ""
 
-#: gconf/gconftool.c:1973
+#: gconf/gconftool.c:1981
 msgid "Must specify a key or keys on the command line\n"
 msgstr "Phải chỉ định một hay nhiều key vào dòng lệnh\n"
 
-#: gconf/gconftool.c:1993
+#: gconf/gconftool.c:2001
 #, c-format
 msgid "No schema known for `%s'\n"
 msgstr "Không có giản đồ được biết cho `%s'\n"
 
-#: gconf/gconftool.c:2026
+#: gconf/gconftool.c:2034
 #, c-format
 msgid "No doc string stored in schema at '%s'\n"
 msgstr "Không có chuỗi doc chứa trong giản đồ tại '%s'\n"
 
-#: gconf/gconftool.c:2031
+#: gconf/gconftool.c:2039
 #, c-format
 msgid "Error getting schema at '%s': %s\n"
 msgstr "Lỗi khi lấy giản đồ tại '%s': %s\n"
 
-#: gconf/gconftool.c:2038
+#: gconf/gconftool.c:2046
 #, c-format
 msgid "No schema stored at '%s'\n"
 msgstr "Không có giản đồ được lưu tại '%s'\n"
 
-#: gconf/gconftool.c:2041
+#: gconf/gconftool.c:2049
 #, c-format
 msgid "Value at '%s' is not a schema\n"
 msgstr "Giá trị tại '%s' không phải là giản đồ\n"
 
-#: gconf/gconftool.c:2097
+#: gconf/gconftool.c:2105
 msgid "Must specify a schema name followed by the key name to apply it to\n"
 msgstr "Phải chỉ định một tên giản đồ đi theo tên key để áp dụng nó vào\n"
 
-#: gconf/gconftool.c:2104
+#: gconf/gconftool.c:2112
 #, c-format
 msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "Lỗi liên quan tới tên giản đồ '%s' với tên khóa '%s': %s\n"
 
-#: gconf/gconftool.c:2122
+#: gconf/gconftool.c:2130
 #, fuzzy
 msgid "Must specify keys to unapply schema from\n"
 msgstr "Phải chỉ định một hay nhiều khóa để nhận\n"
 
-#: gconf/gconftool.c:2132
+#: gconf/gconftool.c:2140
 #, c-format
 msgid "Error removing schema name from '%s': %s\n"
 msgstr "Lỗi khi bỏ tên giản đồ ra khỏi '%s': %s\n"
 
-#: gconf/gconftool.c:2157
+#: gconf/gconftool.c:2165
 msgid "Must specify key (schema name) as the only argument\n"
 msgstr "Phải chỉ định key (tên giản đồ) chỉ là đối số\n"
 
-#: gconf/gconftool.c:2199
+#: gconf/gconftool.c:2207
 msgid "List type must be a primitive type: string, int, float or bool\n"
 msgstr "Kiểu danh sách phải là một kiểu gốc: string, int, float hay bool\n"
 
-#: gconf/gconftool.c:2219
+#: gconf/gconftool.c:2227
 msgid "Pair car type must be a primitive type: string, int, float or bool\n"
 msgstr "Kiểu cặp đôi car phải là kiểu gốc: string, int, float hay bool\n"
 
-#: gconf/gconftool.c:2239
+#: gconf/gconftool.c:2247
 msgid "Pair cdr type must be a primitive type: string, int, float or bool\n"
 msgstr "Kiểu cặp đôi cdr phải là kiểu gốc: string, int, float hay bool\n"
 
-#: gconf/gconftool.c:2254
+#: gconf/gconftool.c:2262
 #, c-format
 msgid "Error setting value: %s"
 msgstr "Lỗi khi đặt giá trị: %s"
 
-#: gconf/gconftool.c:2268
+#: gconf/gconftool.c:2276
 #, c-format
 msgid "Error syncing: %s"
 msgstr "Lỗi khi đồng bộ: %s"
 
-#: gconf/gconftool.c:2283
+#: gconf/gconftool.c:2291
 #, fuzzy
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
 "Phải chỉ định một hay nhiều thư mục để nhận các cặp key/giá trị từ đó.\n"
 
-#: gconf/gconftool.c:2297
+#: gconf/gconftool.c:2305
 msgid "Must specify one or more keys to unset.\n"
 msgstr "Phải chỉ định một hay nhiều key để không đặt.\n"
 
-#: gconf/gconftool.c:2308
+#: gconf/gconftool.c:2316
 #, c-format
 msgid "Error unsetting `%s': %s\n"
 msgstr "Lỗi khi bỏ đặt `%s': %s\n"
 
-#: gconf/gconftool.c:2328
+#: gconf/gconftool.c:2336
 msgid "Must specify one or more keys to recursively unset.\n"
 msgstr "Phải chỉ định một hay nhiều key để không đặt.\n"
 
-#: gconf/gconftool.c:2342
+#: gconf/gconftool.c:2350
 #, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
 msgstr "Thất bại trong lúc bỏ đặt \"%s\": %s\n"
 
-#: gconf/gconftool.c:2362
+#: gconf/gconftool.c:2370
 #, fuzzy
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr "Phải chỉ định một hay nhiều thư mục để nhận các thư mục con từ đó.\n"
 
-#: gconf/gconftool.c:2396
+#: gconf/gconftool.c:2404
 #, c-format
 msgid "Error listing dirs: %s\n"
 msgstr "Lỗi liệt kê thư mục: %s\n"
 
-#: gconf/gconftool.c:2532
+#: gconf/gconftool.c:2540
 msgid "WARNING: must specify both a <car> and a <cdr> in a <pair>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2559
+#: gconf/gconftool.c:2567
 #, fuzzy, c-format
 msgid "WARNING: key specified (%s) for schema under a <value> - ignoring\n"
 msgstr "CẢNH BÁO: chưa chỉ định key cho giản đồ\n"
 
-#: gconf/gconftool.c:2592
+#: gconf/gconftool.c:2600
 msgid "WARNING: must have a child node under <value>\n"
 msgstr ""
 
-#: gconf/gconftool.c:2598
+#: gconf/gconftool.c:2606
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood\n"
 msgstr "CẢNH BÁO: nút <%s> đã không hiểu <schema> bên dưới\n"
 
-#: gconf/gconftool.c:2616
+#: gconf/gconftool.c:2624
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse int value `%s'\n"
 msgstr "CẢNH BÁO: không phân tích được tên kiểu `%s'\n"
 
-#: gconf/gconftool.c:2637
+#: gconf/gconftool.c:2645
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse float value `%s'\n"
 msgstr "CẢNH BÁO: không phân tích được tên kiểu `%s'\n"
 
-#: gconf/gconftool.c:2659
+#: gconf/gconftool.c:2667
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse string value `%s'\n"
 msgstr "CẢNH BÁO: không phân tích được tên kiểu `%s'\n"
 
-#: gconf/gconftool.c:2680
+#: gconf/gconftool.c:2688
 #, fuzzy, c-format
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "CẢNH BÁO: không phân tích được tên kiểu `%s'\n"
 
-#: gconf/gconftool.c:2789 gconf/gconftool.c:3332
+#: gconf/gconftool.c:2797 gconf/gconftool.c:3341
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "CẢNH BÁO: không liên kết được giản đồ `%s' với key `%s': %s\n"
 
-#: gconf/gconftool.c:2901
+#: gconf/gconftool.c:2910
 #, c-format
 msgid "WARNING: invalid or missing type for schema (%s)\n"
 msgstr "CẢNH BÁO: thiếu kiểu hay kiểu không hợp lệ cho giản đồ (%s)\n"
 
-#: gconf/gconftool.c:2910
+#: gconf/gconftool.c:2919
 #, c-format
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "CẢNH BÁO: thiếu hay list_type không hợp lệ cho giản đồ (%s)\n"
 
-#: gconf/gconftool.c:2921 gconf/gconftool.c:2951 gconf/gconftool.c:2980
+#: gconf/gconftool.c:2930 gconf/gconftool.c:2960 gconf/gconftool.c:2989
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr ""
 "CẢNH BÁO: không phân tích được giá trị mặc định `%s' cho giản đồ (%s)\n"
 
-#: gconf/gconftool.c:2939
+#: gconf/gconftool.c:2948
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
 msgstr ""
 "CẢNH BÁO: car_type hoặc cdr_type thiếu hay không hợp lệ cho giản đồ (%s)\n"
 
-#: gconf/gconftool.c:2964
+#: gconf/gconftool.c:2973
 msgid "WARNING: You cannot set a default value for a schema\n"
 msgstr "CẢNH BÁO: không thể đặt giá trị mặc định cho giản đồ\n"
 
-#: gconf/gconftool.c:2993
+#: gconf/gconftool.c:3002
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "CẢNH BÁO: lỗi bên trong Gconftool, GConfValueType không xác định\n"
 
-#: gconf/gconftool.c:3041 gconf/gconftool.c:3062 gconf/gconftool.c:3083
-#: gconf/gconftool.c:3104
+#: gconf/gconftool.c:3050 gconf/gconftool.c:3071 gconf/gconftool.c:3092
+#: gconf/gconftool.c:3113
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
 msgstr "CẢNH BÁO: không phân tích được tên kiểu `%s'\n"
 
-#: gconf/gconftool.c:3058
+#: gconf/gconftool.c:3067
 #, c-format
 msgid ""
 "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
@@ -1775,140 +2045,140 @@ msgstr ""
 "CẢNH BÁO: list_type chỉ có thể là int, float, string hoặc bool mà không phải "
 "là `%s'\n"
 
-#: gconf/gconftool.c:3079
+#: gconf/gconftool.c:3088
 #, c-format
 msgid "WARNING: car_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "CẢNH BÁO: car_type chỉ có thể là int, float, string hoặc bool mà không phải "
 "là `%s'\n"
 
-#: gconf/gconftool.c:3100
+#: gconf/gconftool.c:3109
 #, c-format
 msgid "WARNING: cdr_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "CẢNH BÁO: cdr_type chỉ có thể là int, float, string hoặc bool và không phải "
 "là `%s'\n"
 
-#: gconf/gconftool.c:3140
+#: gconf/gconftool.c:3149
 msgid "WARNING: empty <applyto> node"
 msgstr "CẢNH BÁO: nút <applyto> trống"
 
-#: gconf/gconftool.c:3143 gconf/gconftool.c:3405
+#: gconf/gconftool.c:3152 gconf/gconftool.c:3414
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "CẢNH BÁO: nút <%s> đã không hiểu <schema> bên dưới\n"
 
-#: gconf/gconftool.c:3154
+#: gconf/gconftool.c:3163
 msgid "WARNING: no <list_type> specified for schema of type list\n"
 msgstr ""
 "CẢNH BÁO: không có <list_type> được chỉ định cho giản đồ của type list\n"
 
-#: gconf/gconftool.c:3160
+#: gconf/gconftool.c:3169
 msgid "WARNING: no <car_type> specified for schema of type pair\n"
 msgstr ""
 "CẢNH BÁO: không có <car_type> được chỉ định cho giản đồ của type pair\n"
 
-#: gconf/gconftool.c:3166
+#: gconf/gconftool.c:3175
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
 msgstr ""
 "CẢNH BÁO: không có <cdr_type> được chỉ định cho giản đồ của type pair\n"
 
-#: gconf/gconftool.c:3195
+#: gconf/gconftool.c:3204
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
 msgstr ""
 "CẢNH BÁO: nút <locale> không có thuộc tính `name=\"locale\"' , bỏ qua\n"
 
-#: gconf/gconftool.c:3201
+#: gconf/gconftool.c:3210
 #, c-format
 msgid ""
 "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 "CẢNH BÁO: đa nút <locale> cho locale `%s', bỏ qua toàn bộ past đầu tiên\n"
 
-#: gconf/gconftool.c:3299
+#: gconf/gconftool.c:3308
 #, c-format
 msgid "WARNING: Invalid node <%s> in a <locale> node\n"
 msgstr "CẢNH BÁO: nút <%s> không hợp lệ trong một nút <locale>\n"
 
-#: gconf/gconftool.c:3340
+#: gconf/gconftool.c:3349
 #, c-format
 msgid "Attached schema `%s' to key `%s'\n"
 msgstr "Đã đính kèm giản đồ `%s' với key `%s'\n"
 
-#: gconf/gconftool.c:3414
+#: gconf/gconftool.c:3423
 msgid "You must have at least one <locale> entry in a <schema>\n"
 msgstr "Phải có ít nhất một mục nhập <locale> trong một <schema>\n"
 
-#: gconf/gconftool.c:3446
+#: gconf/gconftool.c:3455
 #, c-format
 msgid "WARNING: failed to install schema `%s' locale `%s': %s\n"
 msgstr "CẢNH BÁO: không cài đặt được giản đồ `%s' locale `%s': %s\n"
 
-#: gconf/gconftool.c:3454
+#: gconf/gconftool.c:3463
 #, c-format
 msgid "Installed schema `%s' for locale `%s'\n"
 msgstr "Đã cài đặt giản đồ `%s' cho locale `%s'\n"
 
-#: gconf/gconftool.c:3478
+#: gconf/gconftool.c:3487
 #, fuzzy, c-format
 msgid "WARNING: failed to uninstall schema `%s' locale `%s': %s\n"
 msgstr "CẢNH BÁO: không cài đặt được giản đồ `%s' locale `%s': %s\n"
 
-#: gconf/gconftool.c:3486
+#: gconf/gconftool.c:3495
 #, fuzzy, c-format
 msgid "Uninstalled schema `%s' from locale `%s'\n"
 msgstr "Đã cài đặt giản đồ `%s' cho locale `%s'\n"
 
-#: gconf/gconftool.c:3524
+#: gconf/gconftool.c:3533
 msgid "WARNING: no key specified for schema\n"
 msgstr "CẢNH BÁO: chưa chỉ định key cho giản đồ\n"
 
-#: gconf/gconftool.c:3565
+#: gconf/gconftool.c:3574
 #, fuzzy, c-format
 msgid "WARNING: node <%s> not understood below <%s>\n"
 msgstr "CẢNH BÁO: nút <%s> đã không hiểu <schema> bên dưới\n"
 
-#: gconf/gconftool.c:3596
+#: gconf/gconftool.c:3605
 #, c-format
 msgid "Failed to open `%s': %s\n"
 msgstr "Không mở được `%s': %s\n"
 
-#: gconf/gconftool.c:3603
+#: gconf/gconftool.c:3612
 #, c-format
 msgid "Document `%s' is empty?\n"
 msgstr "Có ohải tài liệu `%s' trống?\n"
 
-#: gconf/gconftool.c:3615
+#: gconf/gconftool.c:3624
 #, fuzzy, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
 msgstr ""
 "Tài liệu `%s' có kiểu sai của nút root (<%s>, nên là <gconfschemafile>)\n"
 
-#: gconf/gconftool.c:3628
+#: gconf/gconftool.c:3637
 #, fuzzy, c-format
 msgid "Document `%s' has no top level <%s> node\n"
 msgstr "Tài liệu `%s' không có nút <gconfschemafile> mức cao nhất\n"
 
-#: gconf/gconftool.c:3642
+#: gconf/gconftool.c:3651
 #, fuzzy, c-format
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "CẢNH BÁO: nút <%s> đã không hiểu <gconfschemafile> bên dưới\n"
 
-#: gconf/gconftool.c:3653 gconf/gconftool.c:3688 gconf/gconftool.c:3720
+#: gconf/gconftool.c:3662 gconf/gconftool.c:3697 gconf/gconftool.c:3729
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "Lỗi đồng bộ dữ liệu cấu hình: %s"
 
-#: gconf/gconftool.c:3672
+#: gconf/gconftool.c:3681
 msgid "Must specify some schema files to install\n"
 msgstr "Phải chỉ định một số tập tin giản đồ để cài đặt\n"
 
-#: gconf/gconftool.c:3704
+#: gconf/gconftool.c:3713
 #, fuzzy
 msgid "Must specify some schema files to uninstall\n"
 msgstr "Phải chỉ định một số tập tin giản đồ để cài đặt\n"
 
-#: gconf/gconftool.c:3741
+#: gconf/gconftool.c:3750
 #, c-format
 msgid ""
 "\n"
@@ -1917,16 +2187,16 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: gconf/gconftool.c:3761
+#: gconf/gconftool.c:3770
 #, c-format
 msgid "Failed to unset breakage key %s: %s\n"
 msgstr "Không bỏ đặt được breakage key %s: %s\n"
 
-#: gconf/gconftool.c:3887
+#: gconf/gconftool.c:3896
 msgid "Must specify some keys to break\n"
 msgstr "Phải chỉ định một số key để break\n"
 
-#: gconf/gconftool.c:3893
+#: gconf/gconftool.c:3902
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for key:\n"
@@ -1935,11 +2205,11 @@ msgstr ""
 "Đang cố gắng break ứng dụng của bạn bằng việc đặt các giá trị sai cho key:\n"
 "  %s\n"
 
-#: gconf/gconftool.c:3911
+#: gconf/gconftool.c:3920
 msgid "Must specify some directories to break\n"
 msgstr "Phải chỉ định một số thư mục để break\n"
 
-#: gconf/gconftool.c:3930
+#: gconf/gconftool.c:3939
 #, c-format
 msgid ""
 "Trying to break your application by setting bad values for keys in "
@@ -1949,202 +2219,6 @@ msgstr ""
 "Đang cố gắng break ứng dụng của bạn bằng việc đặt các giá trị sai cho key "
 "trong thư mục:\n"
 "  %s\n"
-
-#~ msgid "Received invalid value in set request"
-#~ msgstr "Đã nhận giá trị không hợp lệ trong thiết lập yêu cầu"
-
-#~ msgid ""
-#~ "Couldn't make sense of CORBA value received in set request for key `%s'"
-#~ msgstr ""
-#~ "Không thể tạo nghĩa của giá trị CORBA đã nhận trong thiết lập yêu cầu cho "
-#~ "key `%s'"
-
-#~ msgid "Received request to drop all cached data"
-#~ msgstr "Đã nhận yêu cầu để thả toàn bộ dữ liệu trong cache"
-
-#~ msgid "Received request to sync synchronously"
-#~ msgstr "Đã nhận yêu cầu để đồng bộ hóa"
-
-#~ msgid "Fatal error: failed to get object reference for ConfigDatabase"
-#~ msgstr ""
-#~ "Lỗi trầm trọng: không nhận được tham chiếu cho Cơ Sở Dữ Liệu về Cấu hình"
-
-#~ msgid ""
-#~ "Failed to log addition of listener %s (%s);will not be able to restore "
-#~ "this listener on gconfd restart, resulting in unreliable notification of "
-#~ "configuration changes."
-#~ msgstr ""
-#~ "Không tạo bản ghi thêm cho người nghe %s (%s); sẽ không thể khôi phục "
-#~ "người nghe này khi khởi động lại gconfd, dẫn đến thông báo sai về các "
-#~ "thay đổi cấu hình."
-
-#~ msgid "Listener ID %lu doesn't exist"
-#~ msgstr "Định danh người nghe %lu không tồn tại"
-
-#~ msgid ""
-#~ "Failed to log removal of listener to logfile (most likely harmless, may "
-#~ "result in a notification weirdly reappearing): %s"
-#~ msgstr ""
-#~ "Không ghi được việc gỡ bỏ người nghe vào logfile (chắc là bị hỏng, có thể "
-#~ "gây ra sự xuất hiện thông báo bất thường): %s"
-
-#~ msgid "Invalid UTF-8 in string value in '%s'"
-#~ msgstr "Mã utf-8 không hợp lệ trong chuỗi giá trị ở `%s'"
-
-#~ msgid "Couldn't interpret CORBA value for list element"
-#~ msgstr "Không thể thông dịch giá trị CORBA cho thành phần của danh sách"
-
-#~ msgid "Incorrect type for list element in %s"
-#~ msgstr "Loi không chnh xác cho thành phần của danh sách ở %s"
-
-#~ msgid "Received list from gconfd with a bad list type"
-#~ msgstr "Nhận được danh sách từ gconfd với loại danh sách sai"
-
-#~ msgid "Failed to convert object to IOR"
-#~ msgstr "Không chuyển đổi được đối tượng thành IOR"
-
-#~ msgid "Invalid UTF-8 in locale for schema"
-#~ msgstr "UTF-8 không hợp lệ trong locale cho giản đồ"
-
-#~ msgid "Invalid UTF-8 in short description for schema"
-#~ msgstr "UTF-8 không hợp lệ trong đoạn mô tả ngắn cho giản đồ"
-
-#~ msgid "Invalid UTF-8 in long description for schema"
-#~ msgstr "UTF-8 không hợp lệ trong đoạn mô tả dài cho giản đồ"
-
-#~ msgid "Invalid UTF-8 in owner for schema"
-#~ msgstr "UTF-8 không hợp lệ trong người sở hữu cho giản đồ"
-
-#~ msgid "Server ping error: %s"
-#~ msgstr "Lỗi ping máy chủ: %s"
-
-#~ msgid ""
-#~ "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
-#~ msgstr ""
-#~ "không tạo được pipe để liên lạc với deamon được sinh ra của gconf: %s\n"
-
-#~ msgid "Failed to launch configuration server: %s\n"
-#~ msgstr "không chạy được máy chủ cấu hình: %s\n"
-
-#~ msgid ""
-#~ "Failed to contact configuration server; some possible causes are that you "
-#~ "need to enable TCP/IP networking for ORBit, or you have stale NFS locks "
-#~ "due to a system crash. See http://www.gnome.org/projects/gconf/ for "
-#~ "information. (Details - %s)"
-#~ msgstr ""
-#~ "Không liên lạc được với máy chủ cấu hình, vài nguyên nhân có thể do bạn "
-#~ "cần chạy TCP/IP networking cho ORBit, hoặc bạn cần khoá NFS hỏng do hệ "
-#~ "thống sụp đổ. Hãy xem thông tin tại http://www.gnome.org/projects/"
-#~ "gconf/ . (Chi tiết - %s)"
-
-#~ msgid "none"
-#~ msgstr "không"
-
-#~ msgid "Server couldn't resolve the address `%s'"
-#~ msgstr "Máy chủ không thể giải quyết được địa chỉ `%s'"
-
-#~ msgid "Can't add notifications to a local configuration source"
-#~ msgstr "Không thể thêm các thông báo vào nguồn cấu hình cục bộ"
-
-#~ msgid "Adding client to server's list failed, CORBA error: %s"
-#~ msgstr "Không thêm được máy khách vào danh sách của máy chủ, lỗi CORBA: %s"
-
-#~ msgid "Failure shutting down config server: %s"
-#~ msgstr "Không tắt được máy chủ config: %s"
-
-#~ msgid "CORBA error: %s"
-#~ msgstr "Lỗi CORBA: %s"
-
-#~ msgid "Shutdown request received"
-#~ msgstr "Tắt yêu cầu đã nhận"
-
-#~ msgid "Failed to get object reference for ConfigServer"
-#~ msgstr "Không lấy được tham chiếu đối tượng cho ConfigServer"
-
-#~ msgid "Returning exception: %s"
-#~ msgstr "Trở lại ngoại lệ: %s"
-
-#~ msgid ""
-#~ "Failed to open gconfd logfile; won't be able to restore listeners after "
-#~ "gconfd shutdown (%s)"
-#~ msgstr ""
-#~ "Không mở được logfile của gconfd; sẽ không thể khôi phục người nghe sau "
-#~ "khi tắt gconfd (%s)"
-
-#~ msgid ""
-#~ "Failed to close gconfd logfile; data may not have been properly saved (%s)"
-#~ msgstr ""
-#~ "Không đóng được logfile của gconfd; có thể đã không lưu dữ liệu đúng cách "
-#~ "(%s)"
-
-#~ msgid "Could not open saved state file '%s' for writing: %s"
-#~ msgstr "Không thể mở tập tin trạng thái đã lưu '%s' để ghi: %s"
-
-#~ msgid "Could not write saved state file '%s' fd: %d: %s"
-#~ msgstr "Không thể ghi tập tin trạng thái đã lưu '%s' fd: %d: %s"
-
-#~ msgid "Failed to close new saved state file '%s': %s"
-#~ msgstr "Không đóng được tập tin trạng thái mới đã lưu '%s': %s"
-
-#~ msgid "Could not move aside old saved state file '%s': %s"
-#~ msgstr "Không thể chuyển theo thứ tự tập tin trạng thái cũ đã lưu '%s': %s"
-
-#~ msgid "Failed to move new save state file into place: %s"
-#~ msgstr "Không chuyển được tập tin trạng thái mới đã lưu vào vị trí: %s"
-
-#~ msgid ""
-#~ "Failed to restore original saved state file that had been moved to '%s': %"
-#~ "s"
-#~ msgstr ""
-#~ "Không khôi phục tập tin trạng thái đã lưu nguyên gốc đã được chuyển tới '%"
-#~ "s': %s"
-
-#~ msgid ""
-#~ "Unable to restore a listener on address '%s', couldn't resolve the "
-#~ "database"
-#~ msgstr ""
-#~ "Không thể khôi phục người nghe trên địa chỉ '%s', không thể giải quyết cơ "
-#~ "sở dữ liệu"
-
-#~ msgid "Error reading saved state file: %s"
-#~ msgstr "Lỗi khi đọc tập tin trạng thái đã lưu: %s"
-
-#~ msgid "Unable to open saved state file '%s': %s"
-#~ msgstr "Không thể mở tập tin trạng thái đã lưu '%s': %s"
-
-#~ msgid ""
-#~ "Failed to log addition of listener to gconfd logfile; won't be able to re-"
-#~ "add the listener if gconfd exits or shuts down (%s)"
-#~ msgstr ""
-#~ "Không ghi được việc bổ sung người nghe vào logfile của gconfd, sẽ không "
-#~ "thể thêm lại người nghe nếu như gconfd tồn tại hay đã tắt (%s)"
-
-#~ msgid ""
-#~ "Failed to log removal of listener to gconfd logfile; might erroneously re-"
-#~ "add the listener if gconfd exits or shuts down (%s)"
-#~ msgstr ""
-#~ "Không ghi được việc xóa bỏ người nghe vào logfile của gconfd, có lẽ do "
-#~ "lỗi khi bổ sung lại người nghe nếu gconfd tồn tại hay tắt (%s)"
-
-#~ msgid "Failed to get IOR for client: %s"
-#~ msgstr "Không lấy được IOR cho máy khách: %s"
-
-#~ msgid "Failed to open saved state file: %s"
-#~ msgstr "Không mở được tập tin trạng thái đã lưu: %s"
-
-#~ msgid "Failed to write client add to saved state file: %s"
-#~ msgstr ""
-#~ "Không ghi được việc thêm máy khách vào tập tin trạng thái đã lưu: %s"
-
-#~ msgid "Failed to flush client add to saved state file: %s"
-#~ msgstr "Không xóa được bổ sung máy khách vào tập tin trạng thái đã lưu: %s"
-
-#~ msgid ""
-#~ "Some client removed itself from the GConf server when it hadn't been "
-#~ "added."
-#~ msgstr ""
-#~ "Một số máy khách đã tự xóa bỏ chúng khỏi máy chủ GConf khi chúng đã không "
-#~ "được thêm vào."
 
 #~ msgid ""
 #~ "%u items remain in the cache after cleaning already-synced items older "

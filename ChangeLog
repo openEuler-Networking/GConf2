@@ -1,3 +1,68 @@
+2004-08-25  Mark McLoughlin  <mark@skynet.ie>
+
+	* configure.in: Version 2.6.4.
+
+2004-08-25  Mark McLoughlin  <mark@skynet.ie>
+
+	* backends/markup-tree.c: (markup_entry_get_value): don't
+	abort if we find no local schema to match any locales - there
+	may not be a "C" local schema at all. See bug #147522 for a
+	test case from Caio Begotti <caio1982@gmail.com >
+
+2004-08-19  J.H.M. Dassen (Ray) <jdassen@debian.org>
+
+	Backport from HEAD:
+	* doc/Makefile.am: Add FAQ and DTD to distribution.
+
+2004-08-10  Mark McLoughlin  <mark@skynet.ie>
+
+	* gconf/gconftool.c: (main): set the umask for
+	--makefile-install-mode	so we always install the
+	schemas with the correct permissions. bug #145041.
+
+2004-07-09  Mark McLoughlin  <mark@skynet.ie>
+
+	Patch from Kai Willadsen <kaiw@itee.uq.edu.au> in
+	bug #120349.
+
+	* doc/gconf/gconf.sgml,
+	  doc/gconf/tmpl/gconf-client.sgml,
+	  doc/gconf/tmpl/gconf.sgml,
+	  doc/intro-article.sgml,
+	  gconf/gconf-client.h,
+	  gconf/gconf-listeners.h: bring the docs up to
+	date with the patch that we're using GObject instead
+	of GtkObject.
+
+2004-07-07  Fernando Herrera  <fherrera@onirica.com>
+
+	* gconf/default.path.in: Removed outdated comment.
+
+2004-07-02  Mark McLoughlin  <mark@skynet.ie>
+
+	Fixup some bugs with the merge files support which was
+	causing unset entries not to be completely wiped out.
+
+	* backends/markup-tree.c:
+	(clean_old_local_schemas): rename.
+	(clean_old_local_schemas_recurse): if we're saving as a subtree,
+	recurse down the tree.
+	(delete_useless_subdirs): ignore the some_subdir_needs_sync and
+	entries_need_save flags on the subdir - they're irrelevant if
+	there's no entries or subdirs. Also, check whether the subdir
+	is in a subtree file rather than current dir.
+	(delete_useless_subdirs_recurse): correctly recurse over subdirs.
+	(delete_useless_entries_recurse): implement recursively deleting
+	entries too.
+	(markup_dir_sync): recusively clean schemas and delete entries
+	if we're saving as a subtree.
+
+2004-07-02  Mark McLoughlin  <mark@skynet.ie>
+
+	* configure.in: post release bump to 2.6.4.
+
+==================== 2.6.3 ====================
+
 2004-07-02  Mark McLoughlin  <mark@skynet.ie>
 
 	* configure.in: Version 2.6.3.

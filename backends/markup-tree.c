@@ -696,11 +696,10 @@ markup_dir_set_entries_need_save (MarkupDir *dir)
     }
 }
 
+/* Get rid of any local_schema that no longer apply */
 static void
-markup_entry_clean_old_local_schemas (MarkupEntry *entry)
+clean_old_local_schemas (MarkupEntry *entry)
 {
-
-  /* Get rid of any local_schema that no longer apply */
   GSList *tmp;
   GSList *kept_schemas;
 
@@ -743,6 +742,36 @@ markup_entry_clean_old_local_schemas (MarkupEntry *entry)
   entry->local_schemas = g_slist_reverse (kept_schemas);
 }
 
+static void
+clean_old_local_schemas_recurse (MarkupDir *dir,
+				 gboolean   recurse)
+{
+  GSList *tmp;
+
+  if (recurse)
+    {
+      tmp = dir->subdirs;
+      while (tmp)
+        {
+          MarkupDir *subdir = tmp->data;
+
+          clean_old_local_schemas_recurse (subdir, TRUE);
+
+          tmp = tmp->next;
+        }
+    }
+
+  tmp = dir->entries;
+  while (tmp != NULL)
+    {
+      MarkupEntry *entry = tmp->data;
+
+      clean_old_local_schemas (entry);
+
+      tmp = tmp->next;
+    }
+}
+
 static gboolean
 create_filesystem_dir (const char *name,
                        guint       dir_mode)
@@ -777,21 +806,16 @@ delete_useless_subdirs (MarkupDir *dir)
     {
       MarkupDir *subdir = tmp->data;
       
-      if (subdir->entries_loaded &&
-          subdir->subdirs_loaded &&
-          !subdir->some_subdir_needs_sync &&
-          !subdir->entries_need_save &&
-          subdir->entries == NULL &&
-          subdir->subdirs == NULL)
+      if (subdir->entries_loaded && subdir->entries == NULL &&
+          subdir->subdirs_loaded && subdir->subdirs == NULL)
         {
-
-	  if (!dir->not_in_filesystem)
+	  if (!subdir->not_in_filesystem)
 	    {
 	      char *fs_dirname;
 	      char *fs_filename;
           
 	      fs_dirname = markup_dir_build_path (subdir, FALSE, FALSE);
-	      fs_filename = markup_dir_build_path (subdir, TRUE, dir->save_as_subtree);
+	      fs_filename = markup_dir_build_path (subdir, TRUE, subdir->save_as_subtree);
 
 	      if (unlink (fs_filename) < 0)
 		{
@@ -840,7 +864,7 @@ delete_useless_subdirs_recurse (MarkupDir *dir)
     {
       MarkupDir *subdir = tmp->data;
 
-      if (delete_useless_subdirs (subdir))
+      if (delete_useless_subdirs_recurse (subdir))
 	retval = TRUE;
 
       tmp = tmp->next;
@@ -892,12 +916,34 @@ delete_useless_entries (MarkupDir *dir)
 }
 
 static gboolean
+delete_useless_entries_recurse (MarkupDir *dir)
+{
+  GSList *tmp;
+  gboolean retval = FALSE;
+
+  tmp = dir->subdirs;
+  while (tmp)
+    {
+      MarkupDir *subdir = tmp->data;
+
+      if (delete_useless_entries_recurse (subdir))
+        retval = TRUE;
+
+      tmp = tmp->next;
+    }
+
+  if (delete_useless_entries (dir))
+    retval = TRUE;
+
+  return retval;
+}
+
+static gboolean
 markup_dir_sync (MarkupDir *dir)
 {
   char *fs_dirname;
   char *fs_filename;
   char *fs_subtree;
-  GSList *tmp;
   gboolean some_useless_entries;
   gboolean some_useless_subdirs;
 
@@ -913,15 +959,7 @@ markup_dir_sync (MarkupDir *dir)
     return TRUE;
 
   /* Sanitize the entries */
-  tmp = dir->entries;
-  while (tmp != NULL)
-    {
-      MarkupEntry *entry = tmp->data;
-      
-      markup_entry_clean_old_local_schemas (entry);
-      
-      tmp = tmp->next;
-    }
+  clean_old_local_schemas_recurse (dir, dir->save_as_subtree);
   
   fs_dirname = markup_dir_build_path (dir, FALSE, FALSE);
   fs_filename = markup_dir_build_path (dir, TRUE, FALSE);
@@ -940,8 +978,16 @@ markup_dir_sync (MarkupDir *dir)
       
       g_return_val_if_fail (dir->entries_loaded, FALSE);
 
-      if (delete_useless_entries (dir))
-        some_useless_entries = TRUE;
+      if (!dir->save_as_subtree)
+	{
+	  if (delete_useless_entries (dir))
+	    some_useless_entries = TRUE;
+	}
+      else
+	{
+	  if (delete_useless_entries_recurse (dir))
+	    some_useless_entries = TRUE;
+	}
       
       /* Be sure the directory exists */
       if (!dir->filesystem_dir_probably_exists)
@@ -1454,24 +1500,22 @@ markup_entry_get_value (MarkupEntry *entry,
        * fall back to C locale if we can
        */
 
-      g_assert (best != NULL);
-
-      if (best->locale)
+      if (best && best->locale)
 	gconf_schema_set_locale (schema, best->locale);
       else
 	gconf_schema_set_locale (schema, "C");
 
-      if (best->default_value)
+      if (best && best->default_value)
         gconf_schema_set_default_value (schema, best->default_value);
       else if (c_local_schema && c_local_schema->default_value)
         gconf_schema_set_default_value (schema, c_local_schema->default_value);
 
-      if (best->short_desc)
+      if (best && best->short_desc)
         gconf_schema_set_short_desc (schema, best->short_desc);
       else if (c_local_schema && c_local_schema->short_desc)
         gconf_schema_set_short_desc (schema, c_local_schema->short_desc);
 
-      if (best->long_desc)
+      if (best && best->long_desc)
         gconf_schema_set_long_desc (schema, best->long_desc);
       else if (c_local_schema && c_local_schema->long_desc)
         gconf_schema_set_long_desc (schema, c_local_schema->long_desc);

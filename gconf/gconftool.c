@@ -29,6 +29,8 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <locale.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 typedef enum {
   LOAD_SCHEMA_FILE,
@@ -848,7 +850,10 @@ main (int argc, char** argv)
   if (makefile_install_mode)
     {
       const gchar** args = poptGetArgs(ctx);
-      gint retval = do_makefile_install (conf, args);
+      gint retval;
+
+      umask (022);
+      retval = do_makefile_install (conf, args);
       
       gconf_engine_unref (conf);
 
@@ -858,7 +863,10 @@ main (int argc, char** argv)
   if (makefile_uninstall_mode)
     {
       const gchar** args = poptGetArgs(ctx);
-      gint retval = do_makefile_uninstall (conf, args);
+      gint retval;
+
+      umask (022);
+      retval = do_makefile_uninstall (conf, args);
       
       gconf_engine_unref (conf);
 
