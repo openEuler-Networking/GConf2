@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GConf 1.0\n"
-"POT-Creation-Date: 2001-08-15 18:01-0400\n"
-"PO-Revision-Date: 2001-07-24 23:27+0200\n"
+"POT-Creation-Date: 2001-08-19 22:08+0200\n"
+"PO-Revision-Date: 2001-08-19 22:10+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -179,9 +179,9 @@ msgid "Ignoring schema name `%s', invalid: %s"
 msgstr "Ignorerer schema-navn `%s', ugyldig: %s"
 
 #: backends/xml-entry.c:375
-#, fuzzy, c-format
+#, c-format
 msgid "Ignoring XML node `%s': %s"
-msgstr "Ignorerer XML-node med navn `%s': %s"
+msgstr "Ignorerer XML-node `%s': %s"
 
 #: backends/xml-entry.c:726
 #, c-format
@@ -1299,9 +1299,8 @@ msgstr ""
 "Spesifiser schema-navn fulgt av nøkkelen som schema-navnet skal påføres"
 
 #: gconf/gconftool.c:330
-#, fuzzy
 msgid "Get the name of the default source"
-msgstr "Hent navn på schema som er påført denne nøkkelen"
+msgstr "Hent navn på forvalgt kilde"
 
 #: gconf/gconftool.c:382
 #, c-format
@@ -1322,31 +1321,24 @@ msgid "Can't set and get/unset simultaneously\n"
 msgstr "Kan ikke sette og hente/nullstille samtidig\n"
 
 #: gconf/gconftool.c:409
-#, fuzzy
 msgid "Can't use --all-entries with --get or --set\n"
-msgstr "Kan ikke bruke --all-dirs sammen med --get eller --set\n"
+msgstr "Kan ikke bruke --all-entries sammen med --get eller --set\n"
 
 #: gconf/gconftool.c:417
 msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "Kan ikke bruke --all-dirs sammen med --get eller --set\n"
 
 #: gconf/gconftool.c:427
-#, fuzzy
 msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
-msgstr ""
-"--recursive-list bør ikke brukes sammen med --get, --set, --unset, --all-"
-"pairs, eller --all-dirs\n"
+msgstr "--recursive-list bør ikke brukes sammen med --get, --set, --unset, --all-entries, eller --all-dirs\n"
 
 #: gconf/gconftool.c:437
-#, fuzzy
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
-msgstr ""
-"--set-schema bør ikke brukes sammen med --get, --set, --unset, --all-pairs, "
-"eller --all-dirs\n"
+msgstr "--set-schema bør ikke brukes sammen med --get, --set, --unset, --all-entries, eller --all-dirs\n"
 
 #: gconf/gconftool.c:443
 msgid "Value type is only relevant when setting a value\n"
