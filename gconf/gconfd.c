@@ -1151,6 +1151,7 @@ gconfd_notify_other_listeners (GConfDatabase *modified_db,
 		  if (value != NULL)
 		    {
 		      cvalue = gconf_corba_value_from_gconf_value (value);
+		      gconf_value_free (value);
 		    }
 		  else
 		    {
@@ -1165,7 +1166,6 @@ gconfd_notify_other_listeners (GConfDatabase *modified_db,
 						   is_writable,
 						   FALSE);
 		  CORBA_free (cvalue);
-		  gconf_value_free (value);
 		}
 
 	      tmp2 = tmp2->next;
