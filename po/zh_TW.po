@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gconf 2.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-07 17:19+0000\n"
-"PO-Revision-Date: 2004-09-18 00:49+0800\n"
-"Last-Translator: Li-Jen Hsin <hsin@med.cgu.edu.tw>\n"
+"POT-Creation-Date: 2005-06-19 14:30+0800\n"
+"PO-Revision-Date: 2005-06-19 15:51+0800\n"
+"Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,39 +52,43 @@ msgstr ""
 msgid "Unloading text markup backend module."
 msgstr "卸載標記語言 (XML) 後端模組。"
 
-#: backends/markup-backend.c:226 backends/xml-backend.c:289
+#: backends/markup-backend.c:226
+#: backends/xml-backend.c:289
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
 msgstr "無法找到在‘%s’位址的 XML 根目錄"
 
-#: backends/markup-backend.c:282 backends/xml-backend.c:344
+#: backends/markup-backend.c:282
+#: backends/xml-backend.c:344
 #, c-format
 msgid "Could not make directory `%s': %s"
 msgstr "無法建立目錄‘%s’：%s"
 
-#: backends/markup-backend.c:384 backends/xml-backend.c:443
+#: backends/markup-backend.c:384
+#: backends/xml-backend.c:443
 #, c-format
-msgid ""
-"Can't read from or write to the XML root directory in the address \"%s\""
+msgid "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "無法讀取或寫入‘%s’位址的 XML 根目錄"
 
-#: backends/markup-backend.c:395 backends/xml-backend.c:453
+#: backends/markup-backend.c:395
+#: backends/xml-backend.c:453
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr "在 %s 的 XML 原始檔之 目錄/檔案 權限設定為：%o/%o"
 
-#: backends/markup-backend.c:734 backends/xml-backend.c:684
-msgid ""
-"Remove directory operation is no longer supported, just remove all the "
-"values in the directory"
+#: backends/markup-backend.c:734
+#: backends/xml-backend.c:684
+msgid "Remove directory operation is no longer supported, just remove all the values in the directory"
 msgstr "現在已不再支援移除目錄的操作，只能移除目錄中的所有設定值"
 
-#: backends/markup-backend.c:820 backends/xml-backend.c:770
+#: backends/markup-backend.c:820
+#: backends/xml-backend.c:770
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr "無法為 %s 開啟已上鎖的目錄：%s\n"
 
-#: backends/markup-backend.c:838 backends/xml-backend.c:788
+#: backends/markup-backend.c:838
+#: backends/xml-backend.c:788
 #, c-format
 msgid "Could not remove file %s: %s\n"
 msgstr "無法移除檔案 %s：%s\n"
@@ -93,7 +97,8 @@ msgstr "無法移除檔案 %s：%s\n"
 msgid "Initializing Markup backend module"
 msgstr "初始化(XML)標記後端模組"
 
-#: backends/markup-backend.c:933 backends/xml-backend.c:877
+#: backends/markup-backend.c:933
+#: backends/xml-backend.c:877
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
 msgstr "無法結束鎖定 XML 目錄“%s”：%s"
@@ -102,12 +107,14 @@ msgstr "無法結束鎖定 XML 目錄“%s”：%s"
 msgid "Failed to write some configuration data to disk\n"
 msgstr "無法將某些設定資料寫入磁碟\n"
 
-#: backends/markup-tree.c:800 backends/xml-dir.c:1255
+#: backends/markup-tree.c:800
+#: backends/xml-dir.c:1255
 #, c-format
 msgid "Could not make directory \"%s\": %s"
 msgstr "無法建立目錄“%s”：%s"
 
-#: backends/markup-tree.c:838 backends/markup-tree.c:845
+#: backends/markup-tree.c:838
+#: backends/markup-tree.c:845
 #, c-format
 msgid "Could not remove \"%s\": %s\n"
 msgstr "無法移除“%s”：%s\n"
@@ -127,36 +134,46 @@ msgstr "第 %d 行第 %d 字：%s"
 msgid "Attribute \"%s\" repeated twice on the same <%s> element"
 msgstr "在單元 <%2$s> 內重複出現屬性“%1$s”"
 
-#: backends/markup-tree.c:1933 backends/markup-tree.c:1957
+#: backends/markup-tree.c:1933
+#: backends/markup-tree.c:1957
 #, c-format
 msgid "Attribute \"%s\" is invalid on <%s> element in this context"
 msgstr "在單元 <%2$s> 的範圍內屬性“%1$s”是無效的"
 
-#: backends/markup-tree.c:1982 gconf/gconf-value.c:110
+#: backends/markup-tree.c:1982
+#: gconf/gconf-value.c:110
 #, c-format
 msgid "Didn't understand `%s' (expected integer)"
 msgstr "無法了解‘%s’(預期是整數)"
 
-#: backends/markup-tree.c:1989 gconf/gconf-value.c:120
+#: backends/markup-tree.c:1989
+#: gconf/gconf-value.c:120
 #, c-format
 msgid "Integer `%s' is too large or small"
 msgstr "整數‘%s’太大或太小"
 
-#: backends/markup-tree.c:2021 gconf/gconf-value.c:185
+#: backends/markup-tree.c:2021
+#: gconf/gconf-value.c:185
 #, c-format
 msgid "Didn't understand `%s' (expected true or false)"
 msgstr "無法了解‘%s’(預期是 true 或 false)"
 
-#: backends/markup-tree.c:2045 gconf/gconf-value.c:141
+#: backends/markup-tree.c:2045
+#: gconf/gconf-value.c:141
 #, c-format
 msgid "Didn't understand `%s' (expected real number)"
 msgstr "無法了解‘%s’(預期是實數)"
 
-#: backends/markup-tree.c:2115 backends/markup-tree.c:2144
-#: backends/markup-tree.c:2184 backends/markup-tree.c:2208
-#: backends/markup-tree.c:2216 backends/markup-tree.c:2271
-#: backends/markup-tree.c:2336 backends/markup-tree.c:2444
-#: backends/markup-tree.c:2523 backends/markup-tree.c:2635
+#: backends/markup-tree.c:2115
+#: backends/markup-tree.c:2144
+#: backends/markup-tree.c:2184
+#: backends/markup-tree.c:2208
+#: backends/markup-tree.c:2216
+#: backends/markup-tree.c:2271
+#: backends/markup-tree.c:2336
+#: backends/markup-tree.c:2444
+#: backends/markup-tree.c:2523
+#: backends/markup-tree.c:2635
 #, c-format
 msgid "No \"%s\" attribute on element <%s>"
 msgstr "<%2$s> 單元中缺少了“%1$s”屬性"
@@ -199,8 +216,10 @@ msgstr "一個 <local_schema> 中含有兩個 <longdesc> 單元"
 msgid "Element <%s> is not allowed below <%s>"
 msgstr "<%2$s> 之下不允許出現 <%1$s> 單元"
 
-#: backends/markup-tree.c:2615 backends/markup-tree.c:2707
-#: backends/markup-tree.c:2761 backends/markup-tree.c:2809
+#: backends/markup-tree.c:2615
+#: backends/markup-tree.c:2707
+#: backends/markup-tree.c:2761
+#: backends/markup-tree.c:2809
 #, c-format
 msgid "<%s> provided but current element does not have type %s"
 msgstr "已存在 <%s> 但目前單元並不含有類型 %s"
@@ -223,8 +242,10 @@ msgstr "<li> 含有錯誤的類型 %s"
 msgid "<%s> provided but parent <entry> does not have a value"
 msgstr "已存在 <%s> 但母單元 <entry> 並沒有給定值"
 
-#: backends/markup-tree.c:2822 backends/markup-tree.c:2844
-#: backends/markup-tree.c:2866 backends/markup-tree.c:2883
+#: backends/markup-tree.c:2822
+#: backends/markup-tree.c:2844
+#: backends/markup-tree.c:2866
+#: backends/markup-tree.c:2883
 #, c-format
 msgid "Element <%s> is not allowed inside current element"
 msgstr "目前的單元中不允許有單元 <%s>"
@@ -234,7 +255,8 @@ msgstr "目前的單元中不允許有單元 <%s>"
 msgid "Outermost element in menu file must be <gconf> not <%s>"
 msgstr "選單檔的最外層單元必為 <gconf> 而非 <%s>"
 
-#: backends/markup-tree.c:2935 backends/markup-tree.c:2957
+#: backends/markup-tree.c:2935
+#: backends/markup-tree.c:2957
 #: backends/markup-tree.c:2962
 #, c-format
 msgid "Element <%s> is not allowed inside a <%s> element"
@@ -245,7 +267,8 @@ msgstr "單元 <%s> 不可以置於 <%s> 中"
 msgid "No text is allowed inside element <%s>"
 msgstr "不允許任何文字出現於單元 <%s> 中"
 
-#: backends/markup-tree.c:3720 backends/markup-tree.c:3734
+#: backends/markup-tree.c:3720
+#: backends/markup-tree.c:3734
 #, c-format
 msgid "Failed to open \"%s\": %s\n"
 msgstr "無法開啟“%s”：%s\n"
@@ -279,9 +302,7 @@ msgstr "無法將 XML 快取內容同步到磁碟中"
 
 #: backends/xml-cache.c:316
 #, c-format
-msgid ""
-"Unable to remove directory `%s' from the XML backend cache, because it has "
-"not been successfully synced to disk"
+msgid "Unable to remove directory `%s' from the XML backend cache, because it has not been successfully synced to disk"
 msgstr "無法從 XML 的後端快取移除‘%s’目錄， 因為它沒有成功的被同步到磁碟中"
 
 #: backends/xml-dir.c:171
@@ -294,7 +315,8 @@ msgstr "無法 stat‘%s’：%s"
 msgid "XML filename `%s' is a directory"
 msgstr "XML 檔名‘%s’是一個目錄"
 
-#: backends/xml-dir.c:416 backends/xml-dir.c:425
+#: backends/xml-dir.c:416
+#: backends/xml-dir.c:425
 #, c-format
 msgid "Failed to delete \"%s\": %s"
 msgstr "無法刪除“%s”：%s"
@@ -315,12 +337,14 @@ msgstr "無法設定‘%s’的權限：%s"
 msgid "Failed to write XML data to `%s': %s"
 msgstr "無法將 XML 資料寫入‘%s’：%s"
 
-#: backends/xml-dir.c:504 backends/xml-dir.c:1279
+#: backends/xml-dir.c:504
+#: backends/xml-dir.c:1279
 #, c-format
 msgid "Failed to close file `%s': %s"
 msgstr "無法關閉檔案‘%s’：%s"
 
-#: backends/xml-dir.c:520 backends/xml-dir.c:530
+#: backends/xml-dir.c:520
+#: backends/xml-dir.c:530
 #, c-format
 msgid "Failed to rename `%s' to `%s': %s"
 msgstr "無法重新命名‘%s’為‘%s’：%s"
@@ -402,13 +426,13 @@ msgstr "一個節點有不明的“type”屬性‘%s’，略過"
 msgid "No \"value\" attribute for node"
 msgstr "節點沒有“value”屬性"
 
-#: backends/xml-entry.c:1029 backends/xml-entry.c:1105
+#: backends/xml-entry.c:1029
+#: backends/xml-entry.c:1105
 #, c-format
 msgid "Didn't understand XML node <%s> inside an XML list node"
 msgstr "不了解 XML 清單節點中的 XML 節點 <%s>"
 
 #: backends/xml-entry.c:1063
-#, fuzzy
 msgid "Invalid type (list, pair, or unknown) in a list node"
 msgstr "一個清單節點中出現無效的類型 (清單, 配對或未知)"
 
@@ -427,7 +451,8 @@ msgstr "清單中含有一個錯誤類型的節點 (%s，應為 %s)"
 msgid "Ignoring bad car from XML pair: %s"
 msgstr "略過 XML 配對中(pair)不當的 car：%s"
 
-#: backends/xml-entry.c:1155 backends/xml-entry.c:1178
+#: backends/xml-entry.c:1155
+#: backends/xml-entry.c:1178
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
 msgstr "分析 XML 檔案：清單與配對(pair)不可以放在同一配對(pair)中"
 
@@ -511,7 +536,8 @@ msgstr "找不到‘%s’的後端模組"
 msgid "Failed to shut down backend"
 msgstr "關閉後端失敗"
 
-#: gconf/gconf-client.c:344 gconf/gconf-client.c:362
+#: gconf/gconf-client.c:344
+#: gconf/gconf-client.c:362
 #, c-format
 msgid "GConf Error: %s\n"
 msgstr "GConf 發生錯誤：%s\n"
@@ -554,20 +580,13 @@ msgstr "無法同步化一個或更多的資料來源：%s"
 
 #: gconf/gconf-database.c:1046
 #, c-format
-msgid ""
-"Error obtaining new value for `%s' after change notification from backend `%"
-"s': %s"
+msgid "Error obtaining new value for `%s' after change notification from backend `%s': %s"
 msgstr "在後端模組‘%s’發出設定變更的通知之後，擷取‘%s’的新設定值時發生錯誤：%s"
 
 #: gconf/gconf-database.c:1119
 #, c-format
-msgid ""
-"Failed to log addition of listener %s (%s);will not be able to restore this "
-"listener on gconfd restart, resulting in unreliable notification of "
-"configuration changes."
-msgstr ""
-"紀錄 listener %s (%s) 的增加失敗; 這將導致無法在 gconfd 重新啟動後回復這個"
-"listener，以及導致不可靠的(多半是不會再有)組態設定變更通知。"
+msgid "Failed to log addition of listener %s (%s);will not be able to restore this listener on gconfd restart, resulting in unreliable notification of configuration changes."
+msgstr "紀錄 listener %s (%s) 的增加失敗; 這將導致無法在 gconfd 重新啟動後回復這個listener，以及導致不可靠的(多半是不會再有)組態設定變更通知。"
 
 #: gconf/gconf-database.c:1153
 #, c-format
@@ -576,14 +595,11 @@ msgstr "Listener ID %lu 不存在"
 
 #: gconf/gconf-database.c:1167
 #, c-format
-msgid ""
-"Failed to log removal of listener to logfile (most likely harmless, may "
-"result in a notification weirdly reappearing): %s"
-msgstr ""
-"移除 listener 紀錄至紀錄檔失敗 (這是無害的，但也許會導致奇怪的通知再度出現)："
-"%s"
+msgid "Failed to log removal of listener to logfile (most likely harmless, may result in a notification weirdly reappearing): %s"
+msgstr "移除 listener 紀錄至紀錄檔失敗 (這是無害的，但也許會導致奇怪的通知再度出現)：%s"
 
-#: gconf/gconf-database.c:1299 gconf/gconf-sources.c:1694
+#: gconf/gconf-database.c:1299
+#: gconf/gconf-sources.c:1697
 #, c-format
 msgid "Error getting value for `%s': %s"
 msgstr "取得‘%s’的設定值發生錯誤：%s"
@@ -715,9 +731,8 @@ msgid "Invalid UTF-8 in string value in '%s'"
 msgstr "‘%s’字串中有無效的 UTF-8"
 
 #: gconf/gconf-internals.c:258
-#, fuzzy
 msgid "Couldn't interpret CORBA value for list element"
-msgstr "無法為列表單元解讀 CORBA 設定值"
+msgstr "無法為清單元件解讀 CORBA 設定值"
 
 #: gconf/gconf-internals.c:260
 #, c-format
@@ -763,8 +778,11 @@ msgstr "新增來源‘%s’\n"
 msgid "Read error on file `%s': %s\n"
 msgstr "讀取‘%s’檔案發生錯誤：%s\n"
 
-#: gconf/gconf-internals.c:1228 gconf/gconf-internals.c:1294
-#: gconf/gconf-value.c:154 gconf/gconf-value.c:253 gconf/gconf-value.c:395
+#: gconf/gconf-internals.c:1228
+#: gconf/gconf-internals.c:1294
+#: gconf/gconf-value.c:154
+#: gconf/gconf-value.c:253
+#: gconf/gconf-value.c:395
 #: gconf/gconf-value.c:1683
 msgid "Text contains invalid UTF-8"
 msgstr "文字包含無效的 UTF-8 字串"
@@ -787,8 +805,7 @@ msgstr "預期中應該是配對 (pair)，但實際上是 %s"
 #: gconf/gconf-internals.c:1531
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
-msgstr ""
-"預期中應該是 (%s,%s) 配對 (pair)，但實際上配對中的一個或兩個設定值都遺失了"
+msgstr "預期中應該是 (%s,%s) 配對 (pair)，但實際上配對中的一個或兩個設定值都遺失了"
 
 #: gconf/gconf-internals.c:1547
 #, c-format
@@ -824,12 +841,8 @@ msgstr "無法建立或開啟‘%s’"
 
 #: gconf/gconf-internals.c:2403
 #, c-format
-msgid ""
-"Failed to lock '%s': probably another process has the lock, or your "
-"operating system has NFS file locking misconfigured (%s)"
-msgstr ""
-"無法鎖定‘%s’：也許另一個程序已經鎖定了它，或作業系統的 NFS 檔案鎖定功能設定錯"
-"誤 (%s)"
+msgid "Failed to lock '%s': probably another process has the lock, or your operating system has NFS file locking misconfigured (%s)"
+msgstr "無法鎖定‘%s’：也許另一個程序已經鎖定了它，或作業系統的 NFS 檔案鎖定功能設定錯誤 (%s)"
 
 #: gconf/gconf-internals.c:2433
 #, c-format
@@ -890,7 +903,8 @@ msgstr "移除鎖定目錄‘%s’失敗：%s"
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "unlink 鎖定檔‘%s’失敗：%s\n"
 
-#: gconf/gconf-internals.c:2887 gconf/gconfd.c:541
+#: gconf/gconf-internals.c:2887
+#: gconf/gconfd.c:541
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "無法 stat %s：%s"
@@ -912,25 +926,20 @@ msgstr "無法啟動組態設定伺服程式：%s\n"
 
 #: gconf/gconf-internals.c:2983
 #, c-format
-msgid ""
-"Failed to contact configuration server; some possible causes are that you "
-"need to enable TCP/IP networking for ORBit, or you have stale NFS locks due "
-"to a system crash. See http://www.gnome.org/projects/gconf/ for information. "
-"(Details - %s)"
-msgstr ""
-"無法聯繫組態設定伺服程式；可能是您需要啟用 ORBit 的 TCP/IP 網路連線，或由於上"
-"次系統當機導致有殘留的 NFS 鎖定檔。 請參考 http://www.gnome.org/projects/"
-"gconf/ 以取得更多資訊。 (詳情 - %s)"
+msgid "Failed to contact configuration server; some possible causes are that you need to enable TCP/IP networking for ORBit, or you have stale NFS locks due to a system crash. See http://www.gnome.org/projects/gconf/ for information. (Details - %s)"
+msgstr "無法聯繫組態設定伺服程式；可能是您需要啟用 ORBit 的 TCP/IP 網路連線，或由於上次系統當機導致有殘留的 NFS 鎖定檔。 請參考 http://www.gnome.org/projects/gconf/ 以取得更多資訊。 (詳情 - %s)"
 
 #: gconf/gconf-internals.c:2984
 msgid "none"
 msgstr "沒有"
 
-#: gconf/gconf-sanity-check.c:40 gconf/gconftool.c:88
+#: gconf/gconf-sanity-check.c:40
+#: gconf/gconftool.c:88
 msgid "Help options"
 msgstr "求助選項"
 
-#: gconf/gconf-sanity-check.c:76 gconf/gconftool.c:527
+#: gconf/gconf-sanity-check.c:76
+#: gconf/gconftool.c:527
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -939,33 +948,24 @@ msgstr ""
 "選項 %s 有錯誤發生：%s。\n"
 "執行 '%s' --help 可看到完整的命令列選項。\n"
 
-#: gconf/gconf-sanity-check.c:142 gconf/gconf-sanity-check.c:167
+#: gconf/gconf-sanity-check.c:142
+#: gconf/gconf-sanity-check.c:167
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
-"Could not open or create the file \"%s\"; this indicates that there may be a "
-"problem with your configuration, as many programs will need to create files "
-"in your home directory. The error was \"%s\" (errno = %d)."
+"Could not open or create the file \"%s\"; this indicates that there may be a problem with your configuration, as many programs will need to create files in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
 "請聯繫系統管理員以解決下列的問題：\n"
-"無法開啟或建立檔案“%s”；這表示您的組態有問題，因為許多程式都需要在您的個人目"
-"錄建立檔案。這個錯誤是“%s”(errno = %d)。"
+"無法開啟或建立檔案“%s”；這表示您的組態有問題，因為許多程式都需要在您的個人目錄建立檔案。這個錯誤是“%s”(errno = %d)。"
 
 #: gconf/gconf-sanity-check.c:181
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
-"Could not lock the file \"%s\"; this indicates that there may be a problem "
-"with your operating system configuration. If you have an NFS-mounted home "
-"directory, either the client or the server may be set up incorrectly. See "
-"the rpc.statd and rpc.lockd documentation. A common cause of this error is "
-"that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = "
-"%d)."
+"Could not lock the file \"%s\"; this indicates that there may be a problem with your operating system configuration. If you have an NFS-mounted home directory, either the client or the server may be set up incorrectly. See the rpc.statd and rpc.lockd documentation. A common cause of this error is that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = %d)."
 msgstr ""
 "請聯繫系統管理員以解決下列的問題：\n"
-"無法鎖定檔案“%s”；這表示作業系統設定可能有問題。假如您有一個經 NFS 掛載的個人"
-"目錄，則是用戶端或伺服端的設定不正確。 請參考 rpc.statd 與 rpc.lockd 的說明文"
-"件。停用“nfslock”服務是導致這個錯誤的常見原因。這個錯誤是 “%s” (errno = %d)。"
+"無法鎖定檔案“%s”；這表示作業系統設定可能有問題。假如您有一個經 NFS 掛載的個人目錄，則是用戶端或伺服端的設定不正確。 請參考 rpc.statd 與 rpc.lockd 的說明文件。停用“nfslock”服務是導致這個錯誤的常見原因。這個錯誤是 “%s” (errno = %d)。"
 
 #: gconf/gconf-sanity-check.c:198
 #, c-format
@@ -976,8 +976,7 @@ msgstr "無法移除檔案 %s：%s\n"
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
-"No configuration sources in the configuration file \"%s\"; this means that "
-"preferences and other settings can't be saved. %s%s"
+"No configuration sources in the configuration file \"%s\"; this means that preferences and other settings can't be saved. %s%s"
 msgstr ""
 "請聯繫系統管理員以解決下列的問題：\n"
 "在組態設定檔“%s”中沒有指定組態來源；這表示無法儲存選項與其它設定。%s%s"
@@ -999,21 +998,17 @@ msgstr ""
 msgid ""
 "The files that contain your preference settings are currently in use.\n"
 "\n"
-"You might be logged in to a session from another computer, and the other "
-"login session is using your preference settings files.\n"
+"You might be logged in to a session from another computer, and the other login session is using your preference settings files.\n"
 "\n"
-"You can continue to use the current session, but this might cause temporary "
-"problems with the preference settings in the other session.\n"
+"You can continue to use the current session, but this might cause temporary problems with the preference settings in the other session.\n"
 "\n"
 "Do you want to continue?"
 msgstr ""
 "載有目前的偏好設定的檔案正在使用中。\n"
 "\n"
-"您也許是自其他主機登入 session，而其他的登入 session 正在使用您的偏好設定"
-"檔。\n"
+"您也許是自其他主機登入 session，而其他的登入 session 正在使用您的偏好設定檔。\n"
 "\n"
-"您可以繼續使用目前 session，但這樣可能暫時導致其他 session 的偏好設定發生問"
-"題\n"
+"您可以繼續使用目前 session，但這樣可能暫時導致其他 session 的偏好設定發生問題\n"
 "\n"
 "您是否要繼續？"
 
@@ -1030,113 +1025,84 @@ msgstr "繼續(_C)"
 msgid "%s Continue (y/n)?"
 msgstr "%s 繼續(y/n)？"
 
-#: gconf/gconf-schema.c:221 gconf/gconf-schema.c:229 gconf/gconf-schema.c:237
+#: gconf/gconf-schema.c:221
+#: gconf/gconf-schema.c:229
+#: gconf/gconf-schema.c:237
 #: gconf/gconf-schema.c:245
 msgid "Schema contains invalid UTF-8"
 msgstr "概要 (schema) 包含無效的 UTF-8 字串"
 
 #: gconf/gconf-schema.c:254
-msgid ""
-"Schema specifies type list but doesn't specify the type of the list elements"
+msgid "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr "概要 (schema) 指定了類型為列表但未指定列表單元的類型"
 
 #: gconf/gconf-schema.c:264
-msgid ""
-"Schema specifies type pair but doesn't specify the type of the car/cdr "
-"elements"
+msgid "Schema specifies type pair but doesn't specify the type of the car/cdr elements"
 msgstr "概要(schema)指定了類型為配對但未指定 car/cdr 單元的類型"
 
-#: gconf/gconf-sources.c:368
+#: gconf/gconf-sources.c:371
 #, c-format
 msgid "Failed to load source \"%s\": %s"
 msgstr "無法載入來源“%s”：%s"
 
-#: gconf/gconf-sources.c:408
+#: gconf/gconf-sources.c:411
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a writable configuration source at position %d"
+msgid "Resolved address \"%s\" to a writable configuration source at position %d"
 msgstr "第 %2$d 個位置的位址“%1$s”已解析為一個可寫入的設定來源"
 
-#: gconf/gconf-sources.c:414
+#: gconf/gconf-sources.c:417
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a read-only configuration source at position %d"
+msgid "Resolved address \"%s\" to a read-only configuration source at position %d"
 msgstr "第 %2$d 個位置的位址“%1$s”已解析為一個唯讀的設定來源"
 
-#: gconf/gconf-sources.c:421
+#: gconf/gconf-sources.c:424
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a partially writable config source at position %d"
+msgid "Resolved address \"%s\" to a partially writable config source at position %d"
 msgstr "第 %2$d 個位置的位址“%1$s”已解析為一個可寫入部份資料的設定來源"
 
-#: gconf/gconf-sources.c:430
-msgid ""
-"None of the resolved addresses are writable; saving configuration settings "
-"will not be possible"
+#: gconf/gconf-sources.c:433
+msgid "None of the resolved addresses are writable; saving configuration settings will not be possible"
 msgstr "所有已解析的位址都無法寫入；將無法儲存組態設定"
 
-#: gconf/gconf-sources.c:647
+#: gconf/gconf-sources.c:650
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
 msgstr "‘%s’所指定的概要(schema)‘%s’儲存了一個非概要的值"
 
-#: gconf/gconf-sources.c:709
+#: gconf/gconf-sources.c:712
 msgid "The '/' name can only be a directory, not a key"
 msgstr "‘/’名稱只可能是一個目錄而不是一個設定鍵"
 
-#: gconf/gconf-sources.c:751
+#: gconf/gconf-sources.c:754
 #, c-format
-msgid ""
-"Value for `%s' set in a read-only source at the front of your configuration "
-"path"
+msgid "Value for `%s' set in a read-only source at the front of your configuration path"
 msgstr "組態設定路徑中最前的一個唯讀組態來源已經定義了‘%s’的值"
 
-#: gconf/gconf-sources.c:763
+#: gconf/gconf-sources.c:766
 #, c-format
-msgid ""
-"Unable to store a value at key '%s', as the configuration server has no "
-"writable databases. There are some common causes of this problem: 1) your "
-"configuration path file %s/path doesn't contain any databases or wasn't "
-"found 2) somehow we mistakenly created two gconfd processes 3) your "
-"operating system is misconfigured so NFS file locking doesn't work in your "
-"home directory or 4) your NFS client machine crashed and didn't properly "
-"notify the server on reboot that file locks should be dropped. If you have "
-"two gconfd processes (or had two at the time the second was launched), "
-"logging out, killing all copies of gconfd, and logging back in may help. If "
-"you have stale locks, remove ~/.gconf*/*lock. Perhaps the problem is that "
-"you attempted to use GConf from two machines at once, and ORBit still has "
-"its default configuration that prevents remote CORBA connections - put "
-"\"ORBIIOPIPv4=1\" in /etc/orbitrc. As always, check the user.* syslog for "
-"details on problems gconfd encountered. There can only be one gconfd per "
-"home directory, and it must own a lockfile in ~/.gconfd and also lockfiles "
-"in individual storage locations such as ~/.gconf"
+msgid "Unable to store a value at key '%s', as the configuration server has no writable databases. There are some common causes of this problem: 1) your configuration path file %s/path doesn't contain any databases or wasn't found 2) somehow we mistakenly created two gconfd processes 3) your operating system is misconfigured so NFS file locking doesn't work in your home directory or 4) your NFS client machine crashed and didn't properly notify the server on reboot that file locks should be dropped. If you have two gconfd processes (or had two at the time the second was launched), logging out, killing all copies of gconfd, and logging back in may help. If you have stale locks, remove ~/.gconf*/*lock. Perhaps the problem is that you attempted to use GConf from two machines at once, and ORBit still has its default configuration that prevents remote CORBA connections - put \"ORBIIOPIPv4=1\" in /etc/orbitrc. As always, check the user.* syslog for details on problems gconfd encountered. There can only be one gconfd per home directory, and it must own a lockfile in ~/.gconfd and also lockfiles in individual storage locations such as ~/.gconf"
 msgstr ""
-"無法儲存設定鍵‘%s’的某個值，因為組態伺服程式沒有可寫入的資料庫。這個問題的起"
-"因有幾種：\n"
+"無法儲存設定鍵‘%s’的某個值，因為組態伺服程式沒有可寫入的資料庫。這個問題的起因有幾種：\n"
 "1) 組態設定路徑檔案 %s/path 沒有包含任何的資料庫或根本找不到\n"
 "2) 因某種因素不小心啟動了兩個 gconfd 程序\n"
 "3) 作業系統組態設定錯誤，導致 NFS 檔案鎖定功能無法在您的個人目錄使用，或\n"
 "4) NFS 用戶端機器已當機，而且並沒有在重新開機後通知伺服器應該停止檔案鎖定。\n"
-"假如有兩個 gconfd 程序 (或在第二個啟動後有兩個)，請登出後，終止所有的 gconfd "
-"程序並重新登入。\n"
+"假如有兩個 gconfd 程序 (或在第二個啟動後有兩個)，請登出後，終止所有的 gconfd 程序並重新登入。\n"
 "假如有殘餘的鎖定檔，請移除 ~/.gconf*/*lock。或許問題是由於您想在兩部機器上\n"
-"同時使用 GConf， 而 ORBit 仍使用預設的組態設定以防止遠端的 CORBA 連線；請在 /"
-"etc/orbitrc 檔案中加入 \"ORBIIOPIPv4=1\"。\n"
-"在 gconfd 發生問題時，通常都應該檢查 user.* syslog 的詳細情況。每一個個人目錄"
-"只能有一個 gconfd，而且它必須擁有一個鎖定檔在 ~/.gconfd，以及在每一個存放設定"
-"的位置 (例如 ~/.gconf) 都有鎖定檔"
+"同時使用 GConf， 而 ORBit 仍使用預設的組態設定以防止遠端的 CORBA 連線；請在 /etc/orbitrc 檔案中加入 \"ORBIIOPIPv4=1\"。\n"
+"在 gconfd 發生問題時，通常都應該檢查 user.* syslog 的詳細情況。每一個個人目錄只能有一個 gconfd，而且它必須擁有一個鎖定檔在 ~/.gconfd，以及在每一個存放設定的位置 (例如 ~/.gconf) 都有鎖定檔"
 
-#: gconf/gconf-sources.c:1567
+#: gconf/gconf-sources.c:1570
 #, c-format
 msgid "Error finding metainfo: %s"
 msgstr "尋找 metainfo 發生錯誤：%s"
 
-#: gconf/gconf-sources.c:1636
+#: gconf/gconf-sources.c:1639
 #, c-format
 msgid "Error getting metainfo: %s"
 msgstr "取得 metainfo 發生錯誤：%s"
 
-#: gconf/gconf-sources.c:1660
+#: gconf/gconf-sources.c:1663
 #, c-format
 msgid "Key `%s' listed as schema for key `%s' actually stores type `%s'"
 msgstr "‘%s’設定鍵列出為‘%s’設定鍵的概要(schema)，實際上儲存‘%s’類型的設定"
@@ -1156,7 +1122,8 @@ msgstr "無法了解‘%s’(清單應該以‘]’為結尾)"
 msgid "Didn't understand `%s' (extra unescaped ']' found inside list)"
 msgstr "無法了解‘%s’(在清單中發現多餘的 ']')"
 
-#: gconf/gconf-value.c:356 gconf/gconf-value.c:517
+#: gconf/gconf-value.c:356
+#: gconf/gconf-value.c:517
 #, c-format
 msgid "Didn't understand `%s' (extra trailing characters)"
 msgstr "無法了解‘%s’(結束部份出現多餘的字元)"
@@ -1171,7 +1138,8 @@ msgstr "無法了解‘%s’(配對(pair)應該以‘(’為首)"
 msgid "Didn't understand `%s' (pair must end with a ')')"
 msgstr "無法了解‘%s’(配對(pair)應該以‘)’結尾)"
 
-#: gconf/gconf-value.c:446 gconf/gconf-value.c:532
+#: gconf/gconf-value.c:446
+#: gconf/gconf-value.c:532
 #, c-format
 msgid "Didn't understand `%s' (wrong number of elements)"
 msgstr "無法了解‘%s’(單元數量錯誤)"
@@ -1271,25 +1239,18 @@ msgid "Shutdown request received"
 msgstr "接收到關閉請求"
 
 #: gconf/gconfd.c:330
-msgid ""
-"gconfd compiled with debugging; trying to load gconf.path from the source "
-"directory"
+msgid "gconfd compiled with debugging; trying to load gconf.path from the source directory"
 msgstr "以除錯模式編譯 gconfd; 嘗試從來源目錄中載入 gconf.path"
 
 #: gconf/gconfd.c:344
 #, c-format
-msgid ""
-"No configuration files found, trying to use the default config source `%s'"
+msgid "No configuration files found, trying to use the default config source `%s'"
 msgstr "找不到組態設定檔，嘗試使用預設的設定來源‘%s’"
 
 #. We want to stay alive but do nothing, because otherwise every
-#. request would result in another failed gconfd being spawned.
-#.
 #: gconf/gconfd.c:352
 #, c-format
-msgid ""
-"No configuration sources in the source path, configuration won't be saved; "
-"edit %s"
+msgid "No configuration sources in the source path, configuration won't be saved; edit %s"
 msgstr "在來源路徑中沒有指定組態設定來源，不會儲存設定值；請編輯 %s"
 
 #: gconf/gconfd.c:365
@@ -1298,15 +1259,11 @@ msgid "Error loading some config sources: %s"
 msgstr "載入一部份設定來源時發生錯誤：%s"
 
 #: gconf/gconfd.c:377
-msgid ""
-"No config source addresses successfully resolved, can't load or store config "
-"data"
+msgid "No config source addresses successfully resolved, can't load or store config data"
 msgstr "沒有成功地辨析設定來源的位址，無法載入或儲存設定資料"
 
 #: gconf/gconfd.c:394
-msgid ""
-"No writable config sources successfully resolved, may not be able to save "
-"some configuration changes"
+msgid "No writable config sources successfully resolved, may not be able to save some configuration changes"
 msgstr "沒有成功地辨析可寫入的設定來源， 也許無法儲存一部份設定"
 
 #: gconf/gconfd.c:420
@@ -1316,8 +1273,7 @@ msgstr "接收到訊號 %d，產生 core dump。請匯報 GConf 的程式錯誤�
 
 #: gconf/gconfd.c:438
 #, c-format
-msgid ""
-"Received signal %d, shutting down abnormally. Please file a GConf bug report."
+msgid "Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr "接收到訊號 %d，不正常關閉。請匯報 GConf 的程式錯誤。"
 
 #: gconf/gconfd.c:454
@@ -1341,7 +1297,6 @@ msgid "Bad permissions %lo on directory %s"
 msgstr "目錄 %2$s 出現錯誤的權限 %1$lo"
 
 #. openlog() does not copy logname - what total brokenness.
-#. So we free it at the end of main()
 #: gconf/gconfd.c:640
 #, c-format
 msgid "starting (version %s), pid %u user '%s'"
@@ -1363,9 +1318,7 @@ msgstr "目錄 %s 發生問題， gconfd 無法使用它"
 
 #: gconf/gconfd.c:732
 #, c-format
-msgid ""
-"Failed to write byte to pipe file descriptor %d so client program may hang: %"
-"s"
+msgid "Failed to write byte to pipe file descriptor %d so client program may hang: %s"
 msgstr "無法寫入位元組到 pipe fd %d，所以客戶端程式也許會當掉：%s"
 
 #: gconf/gconfd.c:742
@@ -1390,117 +1343,104 @@ msgstr "收到 SIGHUP，重新載入所有的資料庫"
 msgid "GConf server is not in use, shutting down."
 msgstr "GConf 伺服器未有使用，關閉中。"
 
-#: gconf/gconfd.c:1145
+#: gconf/gconfd.c:1152
 #, c-format
 msgid "Error obtaining new value for `%s': %s"
 msgstr "取得“%s”的新設定值時發生錯誤：%s"
 
-#: gconf/gconfd.c:1265
+#: gconf/gconfd.c:1280
 #, c-format
 msgid "Returning exception: %s"
 msgstr "傳回 exception：%s"
 
-#: gconf/gconfd.c:1365
+#: gconf/gconfd.c:1380
 #, c-format
-msgid ""
-"Failed to open gconfd logfile; won't be able to restore listeners after "
-"gconfd shutdown (%s)"
+msgid "Failed to open gconfd logfile; won't be able to restore listeners after gconfd shutdown (%s)"
 msgstr "無法開啟 gconfd 紀錄檔; 在 gconfd 關閉後，將無法回復 listeners (%s)"
 
-#: gconf/gconfd.c:1400
+#: gconf/gconfd.c:1415
 #, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgid "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr "無法關閉 gconfd 紀錄檔; 資料也許沒有適當地儲存 (%s)"
 
-#: gconf/gconfd.c:1462
+#: gconf/gconfd.c:1477
 #, c-format
 msgid "Could not open saved state file '%s' for writing: %s"
 msgstr "無法開啟已儲存的狀態檔‘%s’用來寫入：%s"
 
-#: gconf/gconfd.c:1476
+#: gconf/gconfd.c:1491
 #, c-format
 msgid "Could not write saved state file '%s' fd: %d: %s"
 msgstr "無法寫入已儲存的狀態檔‘%s’fd：%d：%s"
 
-#: gconf/gconfd.c:1485
+#: gconf/gconfd.c:1500
 #, c-format
 msgid "Failed to close new saved state file '%s': %s"
 msgstr "無法關閉新儲存的狀態檔‘%s’：%s"
 
-#: gconf/gconfd.c:1499
+#: gconf/gconfd.c:1514
 #, c-format
 msgid "Could not move aside old saved state file '%s': %s"
 msgstr "無法移開之前儲存的狀態檔‘%s’：%s"
 
-#: gconf/gconfd.c:1509
+#: gconf/gconfd.c:1524
 #, c-format
 msgid "Failed to move new save state file into place: %s"
 msgstr "無法移動新儲存的狀態檔到指定地方：%s"
 
-#: gconf/gconfd.c:1518
+#: gconf/gconfd.c:1533
 #, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
+msgid "Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr "無法回復原先儲存的狀態檔，該檔已被移至‘%s’：%s"
 
-#: gconf/gconfd.c:1997
+#: gconf/gconfd.c:2012
 #, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
+msgid "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr "無法回復在‘%s’位址上的 listener，無法辨析資料庫"
 
-#: gconf/gconfd.c:2043
+#: gconf/gconfd.c:2058
 #, c-format
 msgid "Error reading saved state file: %s"
 msgstr "讀取已儲存的狀態檔發生錯誤：%s"
 
-#: gconf/gconfd.c:2097
+#: gconf/gconfd.c:2112
 #, c-format
 msgid "Unable to open saved state file '%s': %s"
 msgstr "無法開啟已儲存的狀態檔‘%s’：%s"
 
-#: gconf/gconfd.c:2216
+#: gconf/gconfd.c:2231
 #, c-format
-msgid ""
-"Failed to log addition of listener to gconfd logfile; won't be able to re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"無法紀錄 listener 的增加至 gconfd 紀錄檔；如果 gconfd 離開或關閉，將無法重新"
-"加入此 listener (%s)"
+msgid "Failed to log addition of listener to gconfd logfile; won't be able to re-add the listener if gconfd exits or shuts down (%s)"
+msgstr "無法紀錄 listener 的增加至 gconfd 紀錄檔；如果 gconfd 離開或關閉，將無法重新加入此 listener (%s)"
 
-#: gconf/gconfd.c:2221
+#: gconf/gconfd.c:2236
 #, c-format
-msgid ""
-"Failed to log removal of listener to gconfd logfile; might erroneously re-"
-"add the listener if gconfd exits or shuts down (%s)"
-msgstr ""
-"無法紀錄 listener 的移除至 gconfd 紀錄檔；當 gconfd 離開或關閉時，也許會錯誤"
-"地重新加入此 listener (%s)"
+msgid "Failed to log removal of listener to gconfd logfile; might erroneously re-add the listener if gconfd exits or shuts down (%s)"
+msgstr "無法紀錄 listener 的移除至 gconfd 紀錄檔；當 gconfd 離開或關閉時，也許會錯誤地重新加入此 listener (%s)"
 
-#: gconf/gconfd.c:2244 gconf/gconfd.c:2418
+#: gconf/gconfd.c:2259
+#: gconf/gconfd.c:2433
 #, c-format
 msgid "Failed to get IOR for client: %s"
 msgstr "無法取得 IOR 給客戶端：%s"
 
-#: gconf/gconfd.c:2259
+#: gconf/gconfd.c:2274
 #, c-format
 msgid "Failed to open saved state file: %s"
 msgstr "無法開啟已儲存的狀態檔：%s"
 
-#: gconf/gconfd.c:2272
+#: gconf/gconfd.c:2287
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
 msgstr "無法將客戶端的增加記錄至已儲存的狀態檔：%s"
 
-#: gconf/gconfd.c:2280
-#, fuzzy, c-format
+#: gconf/gconfd.c:2295
+#, c-format
 msgid "Failed to flush client add to saved state file: %s"
 msgstr "無法清除客戶端的增加至已儲存的狀態檔：%s"
 
-#: gconf/gconfd.c:2379
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
+#: gconf/gconfd.c:2394
+msgid "Some client removed itself from the GConf server when it hadn't been added."
 msgstr "有些客戶端在還沒有被加入前，便已將自己從 GConf 伺服器移除。"
 
 #: gconf/gconftool.c:97
@@ -1512,12 +1452,8 @@ msgid "Print the value of a key to standard output."
 msgstr "印出這個設定鍵的值至標準輸出。"
 
 #: gconf/gconftool.c:115
-msgid ""
-"Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
-"type."
-msgstr ""
-"設定一個概要(schema)然後同步化。和 --short-desc、--long-desc、--owner 與 --"
-"type 一起使用。"
+msgid "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --type."
+msgstr "設定一個概要(schema)然後同步化。和 --short-desc、--long-desc、--owner 與 --type 一起使用。"
 
 # basically unset = delete -- Abel
 #: gconf/gconftool.c:125
@@ -1525,9 +1461,7 @@ msgid "Unset the keys on the command line"
 msgstr "在命令列刪除這個設定鍵"
 
 #: gconf/gconftool.c:134
-msgid ""
-"Recursively unset all keys at or below the key/directory names on the "
-"command line"
+msgid "Recursively unset all keys at or below the key/directory names on the command line"
 msgstr "在命令列刪除設定鍵，同時刪除在該設定鍵/目錄名稱下的所有設定鍵"
 
 #: gconf/gconftool.c:143
@@ -1539,15 +1473,11 @@ msgid "Print all subdirectories in a directory."
 msgstr "列出在這個目錄下的所有子目錄。"
 
 #: gconf/gconftool.c:161
-msgid ""
-"Dump to standard output an XML description of all entries under a directory, "
-"recursively."
+msgid "Dump to standard output an XML description of all entries under a directory, recursively."
 msgstr "將一個目錄，包括以下所有的子目錄和設定，以 XML 的形式傾印至標準輸出。"
 
 #: gconf/gconftool.c:170
-msgid ""
-"Load from the specified file an XML description of values and set them "
-"relative to a directory."
+msgid "Load from the specified file an XML description of values and set them relative to a directory."
 msgstr "自指定的 XML 檔案讀取設定，並將它們加入至某個目錄之下。"
 
 #: gconf/gconftool.c:179
@@ -1571,17 +1501,12 @@ msgid "Return 0 if gconfd is running, 2 if not."
 msgstr "如果 gconfd 正在執行，傳回 0; 如果沒有，傳回 2。"
 
 #: gconf/gconftool.c:224
-msgid ""
-"Launch the config server (gconfd). (Normally happens automatically when "
-"needed.)"
+msgid "Launch the config server (gconfd). (Normally happens automatically when needed.)"
 msgstr "啟動組態伺服器 (gconfd)。 (通常在需要時會自動啟動。)"
 
 #: gconf/gconftool.c:233
-msgid ""
-"Specify the type of the value being set, or the type of the value a schema "
-"describes. Unique abbreviations OK."
-msgstr ""
-"指定設定值的類型，或概要(schema)所描述的設定值類型。使用能夠辨認的縮寫即可。"
+msgid "Specify the type of the value being set, or the type of the value a schema describes. Unique abbreviations OK."
+msgstr "指定設定值的類型，或概要(schema)所描述的設定值類型。使用能夠辨認的縮寫即可。"
 
 #: gconf/gconftool.c:234
 msgid "int|bool|float|string|list|pair"
@@ -1600,40 +1525,29 @@ msgid "Get a specific element from a list key, numerically indexed."
 msgstr "自設定鍵列表中取得一個特定單元 (以數字為索引)。"
 
 #: gconf/gconftool.c:269
-msgid ""
-"Specify the type of the list value being set, or the type of the value a "
-"schema describes. Unique abbreviations OK."
-msgstr ""
-"指定要設定的列表類型，或概要(schema)所描述的設定值類型。使用能夠辨認的縮寫即"
-"可。"
+msgid "Specify the type of the list value being set, or the type of the value a schema describes. Unique abbreviations OK."
+msgstr "指定要設定的列表類型，或概要(schema)所描述的設定值類型。使用能夠辨認的縮寫即可。"
 
-#: gconf/gconftool.c:270 gconf/gconftool.c:279 gconf/gconftool.c:288
+#: gconf/gconftool.c:270
+#: gconf/gconftool.c:279
+#: gconf/gconftool.c:288
 msgid "int|bool|float|string"
 msgstr "int|bool|float|string"
 
 #: gconf/gconftool.c:278
-#, fuzzy
-msgid ""
-"Specify the type of the car pair value being set, or the type of the value a "
-"schema describes. Unique abbreviations OK."
-msgstr ""
-"指定要設定的 car pair 的數值類型，或概要(schema)所描述的數值類型。使用能夠辨"
-"認的縮寫即可。"
+msgid "Specify the type of the car pair value being set, or the type of the value a schema describes. Unique abbreviations OK."
+msgstr "指定要設定的 car pair 的數值類型，或概要(schema)所描述的數值類型。亦可使用能夠辨認的縮寫。"
 
 #: gconf/gconftool.c:287
-#, fuzzy
-msgid ""
-"Specify the type of the cdr pair value being set, or the type of the value a "
-"schema describes. Unique abbreviations OK."
-msgstr ""
-"指定已設定的 cdr pair 的數值類型，或概要(schema)所描述的數值類型。使用能夠辨"
-"認的縮寫即可。"
+msgid "Specify the type of the cdr pair value being set, or the type of the value a schema describes. Unique abbreviations OK."
+msgstr "指定已設定的 cdr pair 的數值類型，或概要(schema)所描述的數值類型。亦可使用能夠辨認的縮寫。"
 
 #: gconf/gconftool.c:296
 msgid "Specify a short half-line description to go in a schema."
 msgstr "指定準備加入概要(schema)的簡要描述。"
 
-#: gconf/gconftool.c:297 gconf/gconftool.c:306
+#: gconf/gconftool.c:297
+#: gconf/gconftool.c:306
 msgid "DESCRIPTION"
 msgstr "描述"
 
@@ -1666,46 +1580,26 @@ msgid "SOURCE"
 msgstr "來源"
 
 #: gconf/gconftool.c:341
-msgid ""
-"Access the config database directly, bypassing server. Requires that gconfd "
-"is not running."
+msgid "Access the config database directly, bypassing server. Requires that gconfd is not running."
 msgstr "跳過伺服器直接存取 config 資料庫。gconfd 必須沒有執行。"
 
 #: gconf/gconftool.c:350
-msgid ""
-"Properly installs schema files on the command line into the database. "
-"GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
-"config source or set to the empty string to use the default."
-msgstr ""
-"適當地安裝命令列中指定的概要(schema)檔到資料庫中。環境變數 "
-"GCONF_CONFIG_SOURCE 必須設定為非預設的組態來源，或設定為空白字串表示預設值。"
+msgid "Properly installs schema files on the command line into the database. GCONF_CONFIG_SOURCE environment variable should be set to a non-default config source or set to the empty string to use the default."
+msgstr "適當地安裝命令列中指定的概要(schema)檔到資料庫中。環境變數 GCONF_CONFIG_SOURCE 必須設定為非預設的組態來源，或設定為空白字串表示預設值。"
 
 #: gconf/gconftool.c:359
-msgid ""
-"Properly uninstalls schema files on the command line from the database. "
-"GCONF_CONFIG_SOURCE environment variable should be set to a non-default "
-"config source or set to the empty string to use the default."
-msgstr ""
-"適當地從資料庫解除安裝命令列中指定的概要(schema)檔。環境變數 "
-"GCONF_CONFIG_SOURCE 必須設定為非預設的組態來源，或設定為空白字串表示預設值。"
+msgid "Properly uninstalls schema files on the command line from the database. GCONF_CONFIG_SOURCE environment variable should be set to a non-default config source or set to the empty string to use the default."
+msgstr "適當地從資料庫解除安裝命令列中指定的概要(schema)檔。環境變數 GCONF_CONFIG_SOURCE 必須設定為非預設的組態來源，或設定為空白字串表示預設值。"
 
 # seems the torture test is for breaking gconf itself, not for breaking
 # other applications?  -- Abel
 #: gconf/gconftool.c:368
-msgid ""
-"Torture-test an application by setting and unsetting a bunch of values of "
-"different types for keys on the command line."
-msgstr ""
-"為命令列中指定的設定鍵進行消耗測試(Torture-test)，寫入和刪除不同類型的設定"
-"值。"
+msgid "Torture-test an application by setting and unsetting a bunch of values of different types for keys on the command line."
+msgstr "為命令列中指定的設定鍵進行消耗測試(Torture-test)，寫入和刪除不同類型的設定值。"
 
 #: gconf/gconftool.c:377
-msgid ""
-"Torture-test an application by setting and unsetting a bunch of keys inside "
-"the directories on the command line."
-msgstr ""
-"在命令列指定的目錄中進行消耗測試(Torture-test)，在其中寫入和刪除不同類型的設"
-"定鍵。"
+msgid "Torture-test an application by setting and unsetting a bunch of keys inside the directories on the command line."
+msgstr "在命令列指定的目錄中進行消耗測試(Torture-test)，在其中寫入和刪除不同類型的設定鍵。"
 
 #: gconf/gconftool.c:386
 msgid "Get the short doc string for a key"
@@ -1764,20 +1658,12 @@ msgid "Can't use --all-dirs with --get or --set\n"
 msgstr "無法在使用 --all-dirs 時加上 --get 或 --set\n"
 
 #: gconf/gconftool.c:597
-msgid ""
-"--recursive-list should not be used with --get, --set, --unset, --all-"
-"entries, or --all-dirs\n"
-msgstr ""
-"--recursive-list 不能與 --get, --set, --unset, --all-entries 或 --all-dirs 一"
-"起使用\n"
+msgid "--recursive-list should not be used with --get, --set, --unset, --all-entries, or --all-dirs\n"
+msgstr "--recursive-list 不能與 --get, --set, --unset, --all-entries 或 --all-dirs 一起使用\n"
 
 #: gconf/gconftool.c:610
-msgid ""
-"--set_schema should not be used with --get, --set, --unset, --all-entries, --"
-"all-dirs\n"
-msgstr ""
-"--set_schema 不能與 --get, --set, --unset, --all-entries, --all-dirs 一起使"
-"用\n"
+msgid "--set_schema should not be used with --get, --set, --unset, --all-entries, --all-dirs\n"
+msgstr "--set_schema 不能與 --get, --set, --unset, --all-entries, --all-dirs 一起使用\n"
 
 #: gconf/gconftool.c:616
 msgid "Value type is only relevant when setting a value\n"
@@ -1788,24 +1674,23 @@ msgid "Must specify a type when setting a value\n"
 msgstr "寫入設定值時必須指定類型\n"
 
 #: gconf/gconftool.c:630
-msgid ""
-"--ignore-schema-defaults is only relevant with --get, --all-entries, --dump, "
-"--recursive-list, --get-list-size or --get-list-element\n"
-msgstr ""
-"使用 --ignore-schema-defaults 時必須配合 --get, --all-entries, --dump, --"
-"recursive-list, --get-list-size 或 --get-list-element 一起使用才有意義\n"
+msgid "--ignore-schema-defaults is only relevant with --get, --all-entries, --dump, --recursive-list, --get-list-size or --get-list-element\n"
+msgstr "使用 --ignore-schema-defaults 時必須配合 --get, --all-entries, --dump, --recursive-list, --get-list-size 或 --get-list-element 一起使用才有意義\n"
 
 # used by itself = can't be used with any other option -- Abel
-#: gconf/gconftool.c:642 gconf/gconftool.c:655 gconf/gconftool.c:668
-#: gconf/gconftool.c:682 gconf/gconftool.c:695 gconf/gconftool.c:708
+#: gconf/gconftool.c:642
+#: gconf/gconftool.c:655
+#: gconf/gconftool.c:668
+#: gconf/gconftool.c:682
+#: gconf/gconftool.c:695
+#: gconf/gconftool.c:708
 #: gconf/gconftool.c:722
 #, c-format
 msgid "%s option must be used by itself.\n"
 msgstr "%s 選項必須單獨使用。\n"
 
 #: gconf/gconftool.c:731
-msgid ""
-"You must specify a config source with --config-source when using --direct\n"
+msgid "You must specify a config source with --config-source when using --direct\n"
 msgstr "當您使用 --direct 時，您必須用 --config-source 選項指定一個組態來源\n"
 
 #: gconf/gconftool.c:737
@@ -1818,10 +1703,8 @@ msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
 msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL 已設定，不安裝概要(schema)\n"
 
 #: gconf/gconftool.c:773
-msgid ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
-msgstr ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL 已設定，不解除安裝概要(schema)\n"
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
+msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL 已設定，不解除安裝概要(schema)\n"
 
 #: gconf/gconftool.c:786
 msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
@@ -1845,7 +1728,8 @@ msgstr "必須指定一個或多個目錄才能遞迴列出。\n"
 msgid "Must specify one or more directories to dump.\n"
 msgstr "必須指定一個或多個目錄才能 dump。\n"
 
-#: gconf/gconftool.c:1261 gconf/gconftool.c:1527
+#: gconf/gconftool.c:1261
+#: gconf/gconftool.c:1527
 #, c-format
 msgid "Failure listing entries in `%s': %s\n"
 msgstr "無法列出在‘%s’中的組態：%s\n"
@@ -1888,7 +1772,9 @@ msgstr "Cdr 類型：%s\n"
 msgid "Default Value: %s\n"
 msgstr "預設值：%s\n"
 
-#: gconf/gconftool.c:1658 gconf/gconftool.c:1660 gconf/gconftool.c:1661
+#: gconf/gconftool.c:1658
+#: gconf/gconftool.c:1660
+#: gconf/gconftool.c:1661
 #: gconf/gconftool.c:1662
 msgid "Unset"
 msgstr "不設定"
@@ -1908,19 +1794,26 @@ msgstr "簡短說明：%s\n"
 msgid "Long Desc: %s\n"
 msgstr "詳細說明：%s\n"
 
-#: gconf/gconftool.c:1671 gconf/gconftool.c:1895 gconf/gconftool.c:1929
-#: gconf/gconftool.c:1974 gconf/gconftool.c:2119
+#: gconf/gconftool.c:1671
+#: gconf/gconftool.c:1895
+#: gconf/gconftool.c:1929
+#: gconf/gconftool.c:1974
+#: gconf/gconftool.c:2119
 #, c-format
 msgid "No value set for `%s'\n"
 msgstr "沒有設定值給‘%s’\n"
 
-#: gconf/gconftool.c:1675 gconf/gconftool.c:1899 gconf/gconftool.c:1933
-#: gconf/gconftool.c:1978 gconf/gconftool.c:2123
+#: gconf/gconftool.c:1675
+#: gconf/gconftool.c:1899
+#: gconf/gconftool.c:1933
+#: gconf/gconftool.c:1978
+#: gconf/gconftool.c:2123
 #, c-format
 msgid "Failed to get value for `%s': %s\n"
 msgstr "無法取得‘%s’的值：%s\n"
 
-#: gconf/gconftool.c:1718 gconf/gconftool.c:1730
+#: gconf/gconftool.c:1718
+#: gconf/gconftool.c:1730
 #, c-format
 msgid "Don't understand type `%s'\n"
 msgstr "不了解類型‘%s’\n"
@@ -1943,8 +1836,7 @@ msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "當設定列表時，您必須指定一個初始的列表類型\n"
 
 #: gconf/gconftool.c:1814
-msgid ""
-"When setting a pair you must specify a primitive car-type and cdr-type\n"
+msgid "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "當設定配對 (pair) 時，您必須指定一個初始的 car-type 與 cdr-type\n"
 
 #: gconf/gconftool.c:1829
@@ -1952,7 +1844,8 @@ msgstr "當設定配對 (pair) 時，您必須指定一個初始的 car-type 與
 msgid "Error: %s\n"
 msgstr "錯誤：%s\n"
 
-#: gconf/gconftool.c:1842 gconf/gconftool.c:2874
+#: gconf/gconftool.c:1842
+#: gconf/gconftool.c:2874
 #, c-format
 msgid "Error setting value: %s\n"
 msgstr "寫入設定值發生錯誤：%s\n"
@@ -1970,7 +1863,8 @@ msgstr "必須至少指定一個設定鍵以取得類型\n"
 msgid "Must specify a key to lookup size of.\n"
 msgstr "必須指定要檢視大小的設定鍵。\n"
 
-#: gconf/gconftool.c:1944 gconf/gconftool.c:1989
+#: gconf/gconftool.c:1944
+#: gconf/gconftool.c:1989
 #, c-format
 msgid "Key %s is not a list.\n"
 msgstr "設定鍵 %s 不是一個列表。\n"
@@ -2030,7 +1924,6 @@ msgid "Error associating schema name '%s' with key name '%s': %s\n"
 msgstr "令概要(schema)名稱‘%s’與設定鍵名稱‘%s’產生關聯時發生錯誤：%s\n"
 
 #: gconf/gconftool.c:2186
-#, fuzzy
 msgid "Must specify keys to unapply schema from\n"
 msgstr "必須指定要取消套用概要(schema)的設定鍵\n"
 
@@ -2079,14 +1972,13 @@ msgid "Error unsetting `%s': %s\n"
 msgstr "刪除設定時發生錯誤‘%s’：%s\n"
 
 #: gconf/gconftool.c:2392
-#, fuzzy
 msgid "Must specify one or more keys to recursively unset.\n"
 msgstr "必須指定一個或多個設定鍵以遞迴地取消設定。\n"
 
 #: gconf/gconftool.c:2406
-#, fuzzy, c-format
+#, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
-msgstr "遞迴地取消設定”%s”時失敗：%s\n"
+msgstr "遞迴地取消設定“%s”時失敗：%s\n"
 
 #: gconf/gconftool.c:2426
 msgid "Must specify one or more directories to get subdirs from.\n"
@@ -2102,7 +1994,7 @@ msgid "WARNING: must specify both a <car> and a <cdr> in a <pair>\n"
 msgstr "警告：在 <pair> 中必須要指定一個 <car> 以及 <cdr>\n"
 
 #: gconf/gconftool.c:2623
-#, fuzzy, c-format
+#, c-format
 msgid "WARNING: key specified (%s) for schema under a <value> - ignoring\n"
 msgstr "警告：在 <value> 中指定給概要(schema)的設定鍵(%s) - 略過\n"
 
@@ -2135,7 +2027,8 @@ msgstr "警告：無法解析字串值‘%s’\n"
 msgid "WARNING: Failed to parse boolean value `%s'\n"
 msgstr "警告：無法解析布林值‘%s’\n"
 
-#: gconf/gconftool.c:2853 gconf/gconftool.c:3395
+#: gconf/gconftool.c:2853
+#: gconf/gconftool.c:3395
 #, c-format
 msgid "WARNING: failed to associate schema `%s' with key `%s': %s\n"
 msgstr "警告：無法使概要(schema)‘%s’與設定鍵‘%s’產生關聯：%s\n"
@@ -2150,7 +2043,9 @@ msgstr "警告：概要(schema) (%s) 有無效或遺失的類型\n"
 msgid "WARNING: invalid or missing list_type for schema (%s)\n"
 msgstr "警告：概要(schema) (%s) 有無效或遺失的 list_type\n"
 
-#: gconf/gconftool.c:2988 gconf/gconftool.c:3018 gconf/gconftool.c:3047
+#: gconf/gconftool.c:2988
+#: gconf/gconftool.c:3018
+#: gconf/gconftool.c:3047
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
 msgstr "警告：無法解析概要(schema) (%2$s) 的預設值‘%1$s’\n"
@@ -2168,7 +2063,9 @@ msgstr "警告：您不能更改概要(schema)的預設值\n"
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
 msgstr "警告：gconftool 內部錯誤，有未知的 GConfValueType\n"
 
-#: gconf/gconftool.c:3108 gconf/gconftool.c:3129 gconf/gconftool.c:3150
+#: gconf/gconftool.c:3108
+#: gconf/gconftool.c:3129
+#: gconf/gconftool.c:3150
 #: gconf/gconftool.c:3171
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
@@ -2176,8 +2073,7 @@ msgstr "警告：無法解析類型名稱‘%s’\n"
 
 #: gconf/gconftool.c:3125
 #, c-format
-msgid ""
-"WARNING: list_type can only be int, float, string or bool and not `%s'\n"
+msgid "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr "警告：list_type 只能是 int, float, string 或 bool 而不是‘%s’\n"
 
 #: gconf/gconftool.c:3146
@@ -2194,7 +2090,8 @@ msgstr "警告：cdr_type 只能是 int, float, string 或 bool 而不是‘%s�
 msgid "WARNING: empty <applyto> node"
 msgstr "警告：空白的 <applyto> 節點"
 
-#: gconf/gconftool.c:3210 gconf/gconftool.c:3468
+#: gconf/gconftool.c:3210
+#: gconf/gconftool.c:3468
 #, c-format
 msgid "WARNING: node <%s> not understood below <schema>\n"
 msgstr "警告：節點 <%s> 在 <schema> 以下無法理解\n"
@@ -2218,8 +2115,7 @@ msgstr "警告：<locale> 節點沒有‘name=\"locale\"’屬性，略過\n"
 
 #: gconf/gconftool.c:3268
 #, c-format
-msgid ""
-"WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
+msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr "警告：語言‘%s’出現多次 <locale> 節點，略過第一個以後的所有節點\n"
 
 #: gconf/gconftool.c:3366
@@ -2290,7 +2186,8 @@ msgstr "文件‘%s’沒有最高層級的 <%s> 節點\n"
 msgid "WARNING: node <%s> below <%s> not understood\n"
 msgstr "警告：不了解在 <%2$s> 以下的節點 <%1$s>\n"
 
-#: gconf/gconftool.c:3705 gconf/gconftool.c:3740
+#: gconf/gconftool.c:3705
+#: gconf/gconftool.c:3740
 #, c-format
 msgid "Error syncing config data: %s"
 msgstr "同步化組態資料時發生錯誤：%s"
@@ -2335,9 +2232,9 @@ msgstr "必須指定一些目錄作為測試使用\n"
 #: gconf/gconftool.c:3950
 #, c-format
 msgid ""
-"Trying to break your application by setting bad values for keys in "
-"directory:\n"
+"Trying to break your application by setting bad values for keys in directory:\n"
 "  %s\n"
 msgstr ""
 "嘗試在一個目錄內寫入不當的設定值來測試應用程式：\n"
 "  %s\n"
+
