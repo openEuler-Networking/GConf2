@@ -1,3 +1,8 @@
+2005-06-18  Aivars Kalvans <aivars.kalvans@inbox.lv>
+
+	* gconf/gconf-sources.c (gconf_source_free): free ->address
+	Fixes bug #307887
+
 2005-06-13  Mark McLoughlin  <mark@skynet.ie>
 
 	Fixes bug #306937 - gconfd-2 not shutting down when its
