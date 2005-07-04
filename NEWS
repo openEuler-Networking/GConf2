@@ -1,3 +1,22 @@
+2.10.1
+======
+
+ Fixes
+
+  - Fix some leaks (Aivars Kalvans)
+  - Fix the daemon not shutting down properly (Mark)
+  - Fix a crash in the daemon (Josselin Mouette, Mark)
+
+ Translators
+  - Adam Weinberger (en_CA)
+  - Ankit Patel (gu)
+  - Chao-Hsiung Liao (zh_TW)
+  - Gabor Kelemen (hu)
+  - Hizkuntza Politikarako Sailburuordetza (eu)
+  - Ivar Smolin (et)
+  - Elnaz Sarbar (fa)
+  - Steve Murphy (rw)
+
 2.10.0
 ======
 
