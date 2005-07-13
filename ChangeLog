@@ -1,3 +1,8 @@
+2005-07-13  Aivars Kalvans <aivars.kalvans@inbox.lv>
+	
+	* gconf/gconf-client.c (gconf_client_notify): unref GConfEntry
+	after notifying client. Fixes bug #158756
+
 2005-06-18  Aivars Kalvans <aivars.kalvans@inbox.lv>
 
 	* gconf/gconf-sources.c (gconf_source_free): free ->address
