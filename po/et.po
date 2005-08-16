@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Gconf 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-21 12:46+0000\n"
-"PO-Revision-Date: 2005-03-08 17:56+0200\n"
+"PO-Revision-Date: 2005-08-10 18:37+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -342,12 +342,12 @@ msgstr "Tõrge `%s' kohta teabe hankimisel: %s"
 #: ../backends/xml-dir.c:1152
 #, c-format
 msgid "Duplicate entry `%s' in `%s', ignoring"
-msgstr ""
+msgstr "Korduv kanne `%s' `%s' sees, seda eiratakse"
 
 #: ../backends/xml-dir.c:1174
 #, c-format
 msgid "Entry with no name in XML file `%s', ignoring"
-msgstr ""
+msgstr "Nimetu kanne XML failie `%s', seda eiratakse"
 
 #: ../backends/xml-dir.c:1182
 #, c-format
@@ -588,17 +588,17 @@ msgstr "Viga väärtuse `%s' seadmisel: %s"
 #: ../gconf/gconf-database.c:1397
 #, c-format
 msgid "Error unsetting `%s': %s"
-msgstr ""
+msgstr "Viga `%s' väärtuse eemaldamisel: %s"
 
 #: ../gconf/gconf-database.c:1426
 #, c-format
 msgid "Error getting default value for `%s': %s"
-msgstr ""
+msgstr "Viga `%s' vaikeväärtuse hankimisel: %s"
 
 #: ../gconf/gconf-database.c:1484
 #, c-format
 msgid "Error unsetting \"%s\": %s"
-msgstr ""
+msgstr "Viga \"%s\" väärtuse eemaldamisel: %s"
 
 #: ../gconf/gconf-database.c:1515
 #, c-format
@@ -1696,12 +1696,16 @@ msgid ""
 "--recursive-list should not be used with --get, --set, --unset, --all-"
 "entries, or --all-dirs\n"
 msgstr ""
+"Võtit --recursive-list ei tohiks kasutada koos võtmetega --get, --set, --"
+"unset, --all-entries, või --all-dirs\n"
 
 #: ../gconf/gconftool.c:610
 msgid ""
 "--set_schema should not be used with --get, --set, --unset, --all-entries, --"
 "all-dirs\n"
 msgstr ""
+"Võtit --set_schema ei tohiks kasutada koos võtmetega --get, --set, --unset, "
+"--all-entries, --all-dirs\n"
 
 #: ../gconf/gconftool.c:616
 msgid "Value type is only relevant when setting a value\n"
@@ -1997,7 +2001,7 @@ msgstr ""
 #: ../gconf/gconftool.c:2372
 #, c-format
 msgid "Error unsetting `%s': %s\n"
-msgstr "Viga `%s' kustutamisel: %s\n"
+msgstr "Viga `%s' väärtusel eemaldamisel: %s\n"
 
 #: ../gconf/gconftool.c:2392
 msgid "Must specify one or more keys to recursively unset.\n"
@@ -2006,7 +2010,7 @@ msgstr ""
 #: ../gconf/gconftool.c:2406
 #, c-format
 msgid "Failure during recursive unset of \"%s\": %s\n"
-msgstr ""
+msgstr "Tõrge \"%s\" väärtuse rekursiivsel eemaldamisel: %s\n"
 
 #: ../gconf/gconftool.c:2426
 msgid "Must specify one or more directories to get subdirs from.\n"
@@ -2154,7 +2158,7 @@ msgstr ""
 
 #: ../gconf/gconftool.c:3477
 msgid "You must have at least one <locale> entry in a <schema>\n"
-msgstr ""
+msgstr "Sul peab <schema> sees olema vähemalt üks <locale> kanne\n"
 
 #: ../gconf/gconftool.c:3512
 #, c-format
