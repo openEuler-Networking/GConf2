@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Gconf 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-21 12:46+0000\n"
-"PO-Revision-Date: 2005-08-10 18:37+0300\n"
+"PO-Revision-Date: 2005-08-21 18:13+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -1461,7 +1461,7 @@ msgstr ""
 
 #: ../gconf/gconftool.c:106
 msgid "Print the value of a key to standard output."
-msgstr ""
+msgstr "Võtme väärtuse printimine standardväljundisse."
 
 #: ../gconf/gconftool.c:115
 msgid ""
@@ -1471,7 +1471,7 @@ msgstr ""
 
 #: ../gconf/gconftool.c:125
 msgid "Unset the keys on the command line"
-msgstr ""
+msgstr "Võtmete väärtuste eemaldamine käsurealt"
 
 #: ../gconf/gconftool.c:134
 msgid ""
@@ -1481,11 +1481,11 @@ msgstr ""
 
 #: ../gconf/gconftool.c:143
 msgid "Print all key/value pairs in a directory."
-msgstr "Prindi kõik võti/väärtus paarid kataloogis."
+msgstr "Kataloogi kõigi võti/väärtus paaride printimine."
 
 #: ../gconf/gconftool.c:152
 msgid "Print all subdirectories in a directory."
-msgstr "Prindi kataloogi kõik alamkataloogid."
+msgstr "Kataloogi kõigi alamkataloogide printimine."
 
 #: ../gconf/gconftool.c:161
 msgid ""
@@ -1539,7 +1539,7 @@ msgstr "täisarv|tõeväärtus|ujukomaarv|string|nimekiri|paar"
 
 #: ../gconf/gconftool.c:242
 msgid "Print the data type of a key to standard output."
-msgstr ""
+msgstr "Võtme andmetüübi printimine standardväljundisse."
 
 #: ../gconf/gconftool.c:251
 msgid "Get the number of elements in a list key."
@@ -1669,7 +1669,7 @@ msgstr "Vaikimisi allika nime hankimine"
 
 #: ../gconf/gconftool.c:449
 msgid "Print version"
-msgstr "Printimis versioon"
+msgstr "Versiooni printimine"
 
 #: ../gconf/gconftool.c:545
 msgid "Can't get and set/unset simultaneously\n"
@@ -1996,7 +1996,7 @@ msgstr ""
 
 #: ../gconf/gconftool.c:2361
 msgid "Must specify one or more keys to unset.\n"
-msgstr ""
+msgstr "Vähemalt üks võti tuleb määrata väärtuste eemaldamiseks.\n"
 
 #: ../gconf/gconftool.c:2372
 #, c-format
@@ -2005,7 +2005,7 @@ msgstr "Viga `%s' väärtusel eemaldamisel: %s\n"
 
 #: ../gconf/gconftool.c:2392
 msgid "Must specify one or more keys to recursively unset.\n"
-msgstr ""
+msgstr "Vähemalt üks võti tuleb määrata väärtuste rekursiivseks eemaldamiseks.\n"
 
 #: ../gconf/gconftool.c:2406
 #, c-format
