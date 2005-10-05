@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Gconf 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-21 12:46+0000\n"
-"PO-Revision-Date: 2005-08-21 18:13+0300\n"
+"PO-Revision-Date: 2005-10-04 10:12+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -2057,7 +2057,7 @@ msgstr "HOIATUS: Tõrge stringiväärtuse `%s' parsimisel\n"
 #: ../gconf/gconftool.c:2744
 #, c-format
 msgid "WARNING: Failed to parse boolean value `%s'\n"
-msgstr ""
+msgstr "HOIATUS: Tõge tõeväärtuse '%s' parsimisel\n"
 
 #: ../gconf/gconftool.c:2853 ../gconf/gconftool.c:3395
 #, c-format
@@ -2091,13 +2091,13 @@ msgstr ""
 
 #: ../gconf/gconftool.c:3060
 msgid "WARNING: gconftool internal error, unknown GConfValueType\n"
-msgstr ""
+msgstr "HOIATUS: gconftool' sisemine viga, tundmatu GConfValueType\n"
 
 #: ../gconf/gconftool.c:3108 ../gconf/gconftool.c:3129
 #: ../gconf/gconftool.c:3150 ../gconf/gconftool.c:3171
 #, c-format
 msgid "WARNING: failed to parse type name `%s'\n"
-msgstr ""
+msgstr "HOIATUS: tõrge tüübimine `%s' parsimisel\n"
 
 #: ../gconf/gconftool.c:3125
 #, c-format
