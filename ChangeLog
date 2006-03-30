@@ -1,3 +1,7 @@
+2006-03-30  Guntupalli Karunakar  <karunakar@indlinux.org>
+
+	* configure.in: Added "dz" (Dzongkha) to ALL_LINGUAS.
+
 2006-01-06  Vincent Untz  <vuntz@gnome.org>
 
 	* gconf/gconf-client.c: (clear_dir_cache_foreach): new, clears a cache
