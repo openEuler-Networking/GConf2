@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf CVS HEAD\n"
+"Project-Id-Version: gconf CVS gnome-2-14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-21 16:54+0300\n"
-"PO-Revision-Date: 2006-04-21 16:53+0300\n"
+"POT-Creation-Date: 2006-05-08 20:38+0300\n"
+"PO-Revision-Date: 2006-05-08 20:38+0300\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -953,69 +953,69 @@ msgstr ""
 msgid "Failed to convert IOR '%s' to an object reference"
 msgstr "Неуспех при превръщането на IOR „%s“ към указател към обект"
 
-#: ../gconf/gconf-internals.c:2621
+#: ../gconf/gconf-internals.c:2624
 #, c-format
 msgid "couldn't create directory `%s': %s"
 msgstr "Неуспех при създаването на папка „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2678
+#: ../gconf/gconf-internals.c:2681
 #, c-format
 msgid "Can't write to file `%s': %s"
 msgstr "На може да се пише във файла „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2719
+#: ../gconf/gconf-internals.c:2722
 #, c-format
 msgid "We didn't have the lock on file `%s', but we should have"
 msgstr "Не притежавате заключването на файл „%s“, а трябва"
 
-#: ../gconf/gconf-internals.c:2742
+#: ../gconf/gconf-internals.c:2745
 #, c-format
 msgid "Failed to link '%s' to '%s': %s"
 msgstr "Неуспех при свързването на „%s“ с „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2754
+#: ../gconf/gconf-internals.c:2757
 #, c-format
 msgid "Failed to remove lock file `%s': %s"
 msgstr "Неуспех при премахването на файл-ключалка „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2777
+#: ../gconf/gconf-internals.c:2780
 #, c-format
 msgid "Failed to clean up file '%s': %s"
 msgstr "Неуспех при изчистването на файл „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2793
+#: ../gconf/gconf-internals.c:2796
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
 msgstr "Неуспех при премахването на папка-ключалка „%s“: %s"
 
-#: ../gconf/gconf-internals.c:2835
+#: ../gconf/gconf-internals.c:2838
 #, c-format
 msgid "Failed to unlink lock file %s: %s\n"
 msgstr "Неуспех при махане на заключващ файл %s: %s\n"
 
-#: ../gconf/gconf-internals.c:2989 ../gconf/gconfd.c:570
+#: ../gconf/gconf-internals.c:2992 ../gconf/gconfd.c:570
 #, c-format
 msgid "Failed to stat %s: %s"
 msgstr "Неуспех при изпълнение на stat върху %s: %s"
 
-#: ../gconf/gconf-internals.c:3011
+#: ../gconf/gconf-internals.c:3014
 #, c-format
 msgid "Server ping error: %s"
 msgstr "Грешка при ping на сървър: %s"
 
-#: ../gconf/gconf-internals.c:3036
+#: ../gconf/gconf-internals.c:3039
 #, c-format
 msgid "Failed to create pipe for communicating with spawned gconf daemon: %s\n"
 msgstr ""
 "Неуспех при създаването на канал за комуникация с породените демони gconf: %"
 "s\n"
 
-#: ../gconf/gconf-internals.c:3060
+#: ../gconf/gconf-internals.c:3063
 #, c-format
 msgid "Failed to launch configuration server: %s\n"
 msgstr "Неуспех при стартирането на сървъра за настройки: %s\n"
 
-#: ../gconf/gconf-internals.c:3085
+#: ../gconf/gconf-internals.c:3088
 #, c-format
 msgid ""
 "Failed to contact configuration server; some possible causes are that you "
@@ -1028,7 +1028,7 @@ msgstr ""
 "За повече информация: http://www.gnome.org/projects/gconf/. (Подробности - %"
 "s)"
 
-#: ../gconf/gconf-internals.c:3086
+#: ../gconf/gconf-internals.c:3089
 msgid "none"
 msgstr "няма"
 
@@ -1929,7 +1929,7 @@ msgstr ""
 #: ../gconf/gconftool.c:555
 msgid "Can't get type and set/unset simultaneously\n"
 msgstr ""
-"Не може едновременно да се получава и да се задава/премахва информация\n"
+"Не може едновременно да се получава вида и да се задава/премахва информация\n"
 
 #: ../gconf/gconftool.c:566
 msgid "Can't use --all-entries with --get or --set\n"
