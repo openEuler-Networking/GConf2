@@ -9,7 +9,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gconf HEAD\n"
+"Project-Id-Version: Gconf 2.14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 07:10+0100\n"
 "PO-Revision-Date: 2006-04-16 13:31+0300\n"
@@ -1543,7 +1543,6 @@ msgstr "Tõrge salvestatud olekufaili avamisel: %s"
 msgid "Failed to write client add to saved state file: %s"
 msgstr "Tõrge kliendi lisamise kirjutamisel olekufaili: %s"
 
-# peale kliendi lisamist fflush() funktsiooni tõrge
 #: ../gconf/gconfd.c:2347
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
