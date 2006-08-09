@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Gconf 2.14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 07:10+0100\n"
-"PO-Revision-Date: 2006-04-16 13:31+0300\n"
+"PO-Revision-Date: 2006-08-06 13:27+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -418,7 +418,7 @@ msgstr "Tõrge vana faili `%s' kustutamisel: %s "
 #: ../backends/xml-dir.c:996
 #, c-format
 msgid "Failed to stat `%s': %s"
-msgstr "Tõrge `%s' kohta teabe hankimisel: %s"
+msgstr "Tõrge `%s' kohta andmete hankimisel: %s"
 
 #: ../backends/xml-dir.c:1170
 #, c-format
@@ -582,11 +582,11 @@ msgstr "Viga mooduli `%s' initialiseerimisel: %s\n"
 #: ../gconf/gconf-backend.c:388
 #, c-format
 msgid "Couldn't locate backend module for `%s'"
-msgstr ""
+msgstr "Taustaprogrammi moodulit pole `%s' jaoks võimalik laadida"
 
 #: ../gconf/gconf-backend.c:425
 msgid "Failed to shut down backend"
-msgstr ""
+msgstr "Tõrge taustaprogrammi seiskamisel"
 
 #: ../gconf/gconf-client.c:344 ../gconf/gconf-client.c:362
 #, c-format
@@ -963,12 +963,12 @@ msgstr "Tõrge lukukataloogi `%s' eemaldamisel: %s"
 #: ../gconf/gconf-internals.c:2835
 #, c-format
 msgid "Failed to unlink lock file %s: %s\n"
-msgstr ""
+msgstr "Tõrge lukufaili %s lahtiühendamisel: %s\n"
 
 #: ../gconf/gconf-internals.c:2989 ../gconf/gconfd.c:570
 #, c-format
 msgid "Failed to stat %s: %s"
-msgstr "Tõrge %s kohta teabe hankimisel: %s"
+msgstr "Tõrge %s kohta andmete hankimisel: %s"
 
 #: ../gconf/gconf-internals.c:3011
 #, c-format
@@ -1013,6 +1013,10 @@ msgid ""
 "problem with your configuration, as many programs will need to create files "
 "in your home directory. The error was \"%s\" (errno = %d)."
 msgstr ""
+"Palun võta järgneva probleemi lahendamiseks ühendust oma süsteemiülemaga:\n"
+"Faili \"%s\" pole võimalik avada või luua. See näitab, et viga võib olla "
+"Sinule kuuluvates seadistustes - paljud programmid tahavad Sinu "
+"kodukataloogi faile kirjutada. Viga oli \"%s\" (veanr = %d)."
 
 #: ../gconf/gconf-sanity-check.c:182
 #, c-format
@@ -1025,6 +1029,13 @@ msgid ""
 "that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = "
 "%d)."
 msgstr ""
+"Palun võta järgneva probleemi lahendamiseks ühendust oma süsteemiülemaga:\n"
+"Faili \"%s\" pole võimalik lukustada. See näitab, et viga võib olla Sinu "
+"operatsioonisüsteemi seadistustes. Kui su kodukataloog on külge haagitud "
+"NFS-kataloogina, siis võivad vea põhjustada nii kliendi kui serveri "
+"seadistused. Vaata rpc.statd ja rpc.lockd dokumentatsiooni. Üldjuhul "
+"põhjustab vea asjaolu, et \"nfslock\" teenus on keelatud. kodukataloogi "
+"faile kirjutada. Viga oli \"%s\" (veanr = %d)."
 
 #: ../gconf/gconf-sanity-check.c:199
 #, c-format
@@ -1049,6 +1060,8 @@ msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "Could not resolve the address \"%s\" in the configuration file \"%s\": %s"
 msgstr ""
+"Palun võta järgneva probleemi lahendamiseks ühendust oma süsteemiülemaga:\n"
+"Aadressi \"%s\" pole võimalik seadistusfailis \"%s\" lahendada: %s"
 
 #: ../gconf/gconf-sanity-check.c:322
 msgid ""
@@ -1390,7 +1403,7 @@ msgstr "%s omanik pole praegune kasutaja"
 #: ../gconf/gconfd.c:587
 #, c-format
 msgid "Bad permissions %lo on directory %s"
-msgstr ""
+msgstr "Vigased pääsuõigused %lo kataloogil %s"
 
 #. openlog() does not copy logname - what total brokenness.
 #. So we free it at the end of main()
@@ -1401,7 +1414,7 @@ msgstr "käivitamine (versioon %s), pid %u kasutaja '%s'"
 
 #: ../gconf/gconfd.c:736
 msgid "Failed to get object reference for ConfigServer"
-msgstr ""
+msgstr "Tõrge ConfigServer'i jaoks objektiviite hankimisel"
 
 #: ../gconf/gconfd.c:749
 #, c-format
@@ -1567,8 +1580,8 @@ msgid ""
 "Set a schema and sync. Use with --short-desc, --long-desc, --owner, and --"
 "type."
 msgstr ""
-"Skeemi määramine ja sünkroniseerimine. Kasutatakse võtmetega --short-desc, "
-"--long-desc, --owner, ja --type."
+"Skeemi määramine ja sünkroniseerimine. Kasutatakse võtmetega --short-desc, --"
+"long-desc, --owner, ja --type."
 
 #: ../gconf/gconftool.c:117
 msgid "Unset the keys on the command line"
