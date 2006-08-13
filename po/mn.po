@@ -3,87 +3,87 @@
 # translation of gconf.HEAD.mn.po to Mongolian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2003
-# Sanlig Badral <badral@openmn.org>, 2003.
+# Sanlig Badral <badral@openmn.org>, 2003, 2006.
 # Sanlig Badral <Badral@openmn.org>, 2004.
 # Sanlig Badral <badral@users.sourceforge.net>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf.HEAD.mn\n"
+"Project-Id-Version: mn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-18 12:08-0300\n"
-"PO-Revision-Date: 2004-08-09 00:14+0200\n"
-"Last-Translator: Sanlig Badral <badral@users.sourceforge.net>\n"
+"PO-Revision-Date: 2006-08-13 23:46+0200\n"
+"Last-Translator: Badral <badral@openmn.org>\n"
 "Language-Team: Mongolian <openmn-translation@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.10.2\n"
 
 #: backends/evoldap-backend.c:158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get configuration file path from '%s'"
-msgstr "Зарим тохиргооны өгөгдлийг диск рүү бичиж болохгүй байна\n"
+msgstr "Тохиргооны файлын замыг '%s'-ээс авах боломжгүй байна"
 
 #: backends/evoldap-backend.c:169
 #, c-format
 msgid "Created Evolution/LDAP source using configuration file '%s'"
-msgstr ""
+msgstr "Эволюц/LDAP эх '%s' тохиргооны файл хэрэглэн үүсгэгдлээ"
 
 #: backends/evoldap-backend.c:444
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to parse XML file '%s'"
-msgstr "»%s« XML-файлыг задлан шинжлэх бүтсэнгүй"
+msgstr "»%s« XML-файлыг задлан шинжлэх боломжгүй"
 
 #: backends/evoldap-backend.c:453
-#, fuzzy, c-format
+#, c-format
 msgid "Config file '%s' is empty"
-msgstr "»%s« баримт хоосон юм уу?\n"
+msgstr "Тохиргооны файл »%s« хоосон"
 
 #: backends/evoldap-backend.c:464
 #, c-format
 msgid "Root node of '%s' must be <evoldap>, not <%s>"
-msgstr ""
+msgstr "'%s'-н ззэн зангилаа (root node) <evoldap> байх ёстой, <%s> биш!"
 
 #: backends/evoldap-backend.c:502
 #, c-format
 msgid "No <template> specified in '%s'"
-msgstr ""
+msgstr "'%s дотор тодохойлсон <template> алга"
 
 #: backends/evoldap-backend.c:509
-#, fuzzy, c-format
+#, c-format
 msgid "No \"filter\" attribute specified on <template> in '%s'"
-msgstr "<%s> элементэд \"%s\" аттрибут алга"
+msgstr "'%s' доторхи <template> -д \"filter\"  аттрибут алга"
 
 #: backends/evoldap-backend.c:570
 #, c-format
 msgid "No LDAP server or base DN specified in '%s'"
-msgstr ""
+msgstr "'%s' дотор тодорхойлсон LDAP сервэр эсвэл үндсэн DN алга"
 
 #: backends/evoldap-backend.c:576
 #, c-format
 msgid "Contacting LDAP server: host '%s', port '%d', base DN '%s'"
-msgstr ""
+msgstr "LDAP сервэр лүү холбогдож байна: хост '%s', порт '%d', Үндсэн DN '%s'"
 
 #: backends/evoldap-backend.c:582
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to contact LDAP server: %s"
-msgstr "»%s« stat() шинжлэгдэж чадахгүй: %s"
+msgstr "LDAP сервэр рүү холбогдох боломжгүй: %s"
 
 #: backends/evoldap-backend.c:669
 #, c-format
 msgid "Searching for entries using filter: %s"
-msgstr ""
+msgstr "Бичлэг хайхад хэрэглэх шүүлтүүр : %s"
 
 #: backends/evoldap-backend.c:682
-#, fuzzy, c-format
+#, c-format
 msgid "Error querying LDAP server: %s"
-msgstr "Утга олгож байхад алдаа: %s"
+msgstr "LDAP сервэрээс хүсэлтийн алдаа ирэв: %s"
 
 #: backends/evoldap-backend.c:692
 #, c-format
 msgid "Got %d entries using filter: %s"
-msgstr ""
+msgstr "Шүүлтүүр хэрэглэн %d бичлэг авлаа: %s"
 
 #: backends/gconf-merge-tree.c:59
 #, c-format
@@ -135,8 +135,7 @@ msgstr "»%s« лавлах үүсгэгдсэнгүй: %s"
 
 #: backends/markup-backend.c:391 backends/xml-backend.c:442
 #, c-format
-msgid ""
-"Can't read from or write to the XML root directory in the address \"%s\""
+msgid "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "»%s« хаяг дахь XML-Лавлах руу уншиж бичиж болохгүй байна"
 
 #: backends/markup-backend.c:402 backends/xml-backend.c:452
@@ -193,9 +192,9 @@ msgid "Failed to write \"%s\": %s\n"
 msgstr "»%s« руу бичиж болсонгүй: %s\n"
 
 #: backends/markup-tree.c:1376
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to load file \"%s\": %s"
-msgstr "»%s« эхийг ачаалахад алдаа: %s"
+msgstr "»%s« файлыг ачаалахад алдаа: %s"
 
 #: backends/markup-tree.c:1968
 #, c-format
@@ -333,9 +332,9 @@ msgid "Failed to open \"%s\": %s\n"
 msgstr "»%s« нээгдсэнгүй: %s \n"
 
 #: backends/markup-tree.c:3628
-#, fuzzy, c-format
+#, c-format
 msgid "Error reading \"%s\": %s\n"
-msgstr "»%s« -г суллаж байхад алдаа: %s"
+msgstr "»%s« -г уншиж байхад алдаа: %s\n"
 
 #: backends/markup-tree.c:4482
 #, c-format
@@ -442,8 +441,7 @@ msgstr "%s XML-файл доторхи нэргүй бичлэгийг хэрэ�
 #: backends/xml-dir.c:1200
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
-msgstr ""
-"»%s« XML-файл доторхи хамгийн дээд элемент <%s> <entry> биш бол хэрэгсэхгүй"
+msgstr "»%s« XML-файл доторхи хамгийн дээд элемент <%s> <entry> биш бол хэрэгсэхгүй"
 
 #: backends/xml-dir.c:1289
 #, c-format
@@ -497,8 +495,7 @@ msgstr "XML жагсаалт элементүүдийн <%s> XML-Элемент 
 
 #: backends/xml-entry.c:1063
 msgid "Invalid type (list, pair, or unknown) in a list node"
-msgstr ""
-"Хүчингүй төрлийг (Жагсаалт, Хос эсвэл тодорхойгүй) нэгэн жагсаалтын элементэд"
+msgstr "Хүчингүй төрлийг (Жагсаалт, Хос эсвэл тодорхойгүй) нэгэн жагсаалтын элементэд"
 
 #: backends/xml-entry.c:1086
 #, c-format
@@ -517,8 +514,7 @@ msgstr "XML-хосын хүчингүй car -г үл хэрэгсэх: %s"
 
 #: backends/xml-entry.c:1155 backends/xml-entry.c:1178
 msgid "parsing XML file: lists and pairs may not be placed inside a pair"
-msgstr ""
-"XML-файл задлан ялгал: Жагсаалт ба хосууд нэг хос дотор байрлаж болохгүй"
+msgstr "XML-файл задлан ялгал: Жагсаалт ба хосууд нэг хос дотор байрлаж болохгүй"
 
 #: backends/xml-entry.c:1168
 #, c-format
@@ -622,8 +618,7 @@ msgstr "Холбоотой хүсэлтэд хүчингүй утга хүлээ
 #: gconf/gconf-database.c:219
 #, c-format
 msgid "Couldn't make sense of CORBA value received in set request for key `%s'"
-msgstr ""
-"»%s« түлхүүрт холбоотой хүсэлтэд хүлээн авсан CORBA-утгын утга задарсангүй"
+msgstr "»%s« түлхүүрт холбоотой хүсэлтэд хүлээн авсан CORBA-утгын утга задарсангүй"
 
 #: gconf/gconf-database.c:502
 msgid "Received request to drop all cached data"
@@ -924,9 +919,9 @@ msgstr ""
 "үйлдлийн систем алдаатай NFS-тохируулгатай (%s) байна."
 
 #: gconf/gconf-internals.c:2491
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to remove '%s': %s"
-msgstr "%s-г үүсгэх бүтсэнгүй: %s"
+msgstr "%s-г устгаж чадсангүй: %s"
 
 #: gconf/gconf-internals.c:2515
 #, c-format
@@ -936,14 +931,12 @@ msgstr "»%s« IOR-файл амжилттай нээгдсэнгүй, gconfd о
 #: gconf/gconf-internals.c:2545
 #, c-format
 msgid "gconftool or other non-gconfd process has the lock file '%s'"
-msgstr ""
-"gconftool эсвэл өөр нэгэн non-gconfd процесс »%s« түлхүүр файл үүсгэлээ."
+msgstr "gconftool эсвэл өөр нэгэн non-gconfd процесс »%s« түлхүүр файл үүсгэлээ."
 
 #: gconf/gconf-internals.c:2562
 #, c-format
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
-msgstr ""
-"Оршин буй »gconfd« объект хамааралын задаргаа руу ORB холболт хийж чадсангүй"
+msgstr "Оршин буй »gconfd« объект хамааралын задаргаа руу ORB холболт хийж чадсангүй"
 
 #: gconf/gconf-internals.c:2572
 #, c-format
@@ -1138,8 +1131,7 @@ msgstr "Схем хүчингүй UTF-8 агуулж байна"
 
 #: gconf/gconf-schema.c:250
 #, c-format
-msgid ""
-"Schema specifies type list but doesn't specify the type of the list elements"
+msgid "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
 "Схем жагсаалт төрөл гэж тодорхойлсон боловч жагсаалт элементийн төрлийг "
 "өгсөнгүй."
@@ -1149,8 +1141,7 @@ msgstr ""
 msgid ""
 "Schema specifies type pair but doesn't specify the type of the car/cdr "
 "elements"
-msgstr ""
-"Схем хос төрөл гэж тодорхойлсон боловч car/cdr элементийн төрлийг өгсөнгүй."
+msgstr "Схем хос төрөл гэж тодорхойлсон боловч car/cdr элементийн төрлийг өгсөнгүй."
 
 #: gconf/gconf-sources.c:371
 #, c-format
@@ -1159,22 +1150,18 @@ msgstr "»%s« эхийг ачаалахад алдаа: %s"
 
 #: gconf/gconf-sources.c:411
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a writable configuration source at position %d"
+msgid "Resolved address \"%s\" to a writable configuration source at position %d"
 msgstr "»%s« хаяг бичих боломжит тохируулгын эх дэх %d байрлалд гаргагдлаа"
 
 #: gconf/gconf-sources.c:417
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a read-only configuration source at position %d"
+msgid "Resolved address \"%s\" to a read-only configuration source at position %d"
 msgstr "»%s« хаяг зөвхөн уншигдах тохируулгын эх дэх %d байрлалд гаргагдлаа"
 
 #: gconf/gconf-sources.c:424
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a partially writable config source at position %d"
-msgstr ""
-"»%s« хаяг %d байрлал дахь хагас бичих боломжтой тохируулгын эх рүү холбоно"
+msgid "Resolved address \"%s\" to a partially writable config source at position %d"
+msgstr "»%s« хаяг %d байрлал дахь хагас бичих боломжтой тохируулгын эх рүү холбоно"
 
 #: gconf/gconf-sources.c:433
 msgid ""
@@ -1196,8 +1183,7 @@ msgstr "»/« нэр түлхүүр биш зөвхөн лавлах байх б
 msgid ""
 "Value for `%s' set in a read-only source at the front of your configuration "
 "path"
-msgstr ""
-"»%s« -н утга таны тохируулгын замын өмнөх зөвхөн уншигдах эхэд тогтоогдсон."
+msgstr "»%s« -н утга таны тохируулгын замын өмнөх зөвхөн уншигдах эхэд тогтоогдсон."
 
 #: gconf/gconf-sources.c:766
 #, c-format
@@ -1393,8 +1379,7 @@ msgstr ""
 
 #: gconf/gconfd.c:354
 #, c-format
-msgid ""
-"No configuration files found, trying to use the default config source `%s'"
+msgid "No configuration files found, trying to use the default config source `%s'"
 msgstr ""
 "Тохируулгын файлууд олдсонгүй, стандарт тохируулг эх »%s« -г хэрэглэхийг "
 "оролдож байна"
@@ -1403,12 +1388,12 @@ msgstr ""
 #. request would result in another failed gconfd being spawned.
 #.
 #: gconf/gconfd.c:362
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "No configuration sources in the source path, configuration won't be saved; "
 "edit %s%s"
 msgstr ""
-"Эхийн замд тохируулгын эх алга, тохируулга хадгалагдахгүй; Та %s-г "
+"Эхийн замд тохируулга алга, тохируулга хадгалагдахгүй; Та %s%s-г "
 "засварлана уу"
 
 #: gconf/gconfd.c:375
@@ -1438,14 +1423,13 @@ msgid "Received signal %d, dumping core. Please report a GConf bug."
 msgstr "%d сигнал хүлээн авлаа, Гацаа. Та GConf-Bug -т мэдэгдэнэ үү."
 
 #: gconf/gconfd.c:439
-#, fuzzy, c-format
+#, c-format
 msgid "Received signal %d. Please report a GConf bug."
-msgstr "%d сигнал хүлээн авлаа, Гацаа. Та GConf-Bug -т мэдэгдэнэ үү."
+msgstr "%d сигнал хүлээн авлаа, Та GConf-Bug -т мэдэгдэнэ үү."
 
 #: gconf/gconfd.c:459
 #, c-format
-msgid ""
-"Received signal %d, shutting down abnormally. Please file a GConf bug report."
+msgid "Received signal %d, shutting down abnormally. Please file a GConf bug report."
 msgstr ""
 "%d сигнал хүлээн авлаа, Төлөвлөсөнөөр бус унтарлаа. Та GConf-Bug -т "
 "мэдэгдэнэ үү."
@@ -1543,8 +1527,7 @@ msgstr ""
 
 #: gconf/gconfd.c:1481
 #, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgid "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
 "gconfd-протоколл файл хаагдсангүй; Өгөгдөл ном ёсоороо хадгалагдаагүй байж "
 "болно (%s)"
@@ -1576,15 +1559,12 @@ msgstr "Шинэ төлөв хадгалагч файл зөв байрлал р
 
 #: gconf/gconfd.c:1599
 #, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
-msgstr ""
-"»%s« рүү зөөгдсөн жинхэнэ төлөв хадгалагч файл эргэж сэргээгдсэнгүй: %s"
+msgid "Failed to restore original saved state file that had been moved to '%s': %s"
+msgstr "»%s« рүү зөөгдсөн жинхэнэ төлөв хадгалагч файл эргэж сэргээгдсэнгүй: %s"
 
 #: gconf/gconfd.c:2078
 #, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
+msgid "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr "»%s« хаяг дахь сонсогч сэргээгдсэнгүй, өгөгдлийн бааз тайлж чадсангүй"
 
 #: gconf/gconfd.c:2114
@@ -1636,8 +1616,7 @@ msgid "Failed to flush client add to saved state file: %s"
 msgstr "Клиентийн устгалыг төлөв хагалагч файл руу бичих бүтсэнгүй: %s"
 
 #: gconf/gconfd.c:2446
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
+msgid "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
 "Хэд хэдэн клиент өөрсдөө GConf-серверээс устлаа хэдийгээр тэд нэмэгдээгүй "
 "байсан ч."
@@ -1959,8 +1938,7 @@ msgstr "%s тохируулга дангаараа хэрэглэгдэх ёст
 
 #: gconf/gconftool.c:724
 #, c-format
-msgid ""
-"You must specify a config source with --config-source when using --direct\n"
+msgid "You must specify a config source with --config-source when using --direct\n"
 msgstr ""
 "Хэрвээ та --direct хэрэглэх бол тохируулгын эхийг --config-source -той өгөх "
 "ёстой\n"
@@ -1973,15 +1951,12 @@ msgstr "GConf инициацлагдсангүй: %s\n"
 #: gconf/gconftool.c:759
 #, c-format
 msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-msgstr ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL тогтоогдсон. Схемүүд суугаагүй байна\n"
+msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL тогтоогдсон. Схемүүд суугаагүй байна\n"
 
 #: gconf/gconftool.c:766
 #, c-format
-msgid ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
-msgstr ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL тогтоогдсон. Схемүүд устгагдахгүй\n"
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
+msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL тогтоогдсон. Схемүүд устгагдахгүй\n"
 
 #: gconf/gconftool.c:779
 #, c-format
@@ -2001,8 +1976,7 @@ msgstr "Унтрааж байхад алдаа: %s\n"
 #: gconf/gconftool.c:1166
 #, c-format
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr ""
-"Рекурсээр жагсаахдаа та нэг эсвэл хэд хэдэн лавлах тодорхойлох ёстой.\n"
+msgstr "Рекурсээр жагсаахдаа та нэг эсвэл хэд хэдэн лавлах тодорхойлох ёстой.\n"
 
 #: gconf/gconftool.c:1218
 #, c-format
@@ -2112,8 +2086,7 @@ msgstr "Жагсаалтад утга олгох үед та энгийн жаг
 
 #: gconf/gconftool.c:1813
 #, c-format
-msgid ""
-"When setting a pair you must specify a primitive car-type and cdr-type\n"
+msgid "When setting a pair you must specify a primitive car-type and cdr-type\n"
 msgstr "Хосод утга олгох үед та car төрөл ба cdr төрөл өгөх ёстой\n"
 
 #: gconf/gconftool.c:1828
@@ -2149,8 +2122,7 @@ msgstr "»%s« түлхүүр жагсаалт биш.\n"
 #: gconf/gconftool.c:1963
 #, c-format
 msgid "Must specify a key from which to get list element.\n"
-msgstr ""
-"Та жагсаалтын элементүүдээс авахдаа нэг эсвэл хэд хэдэн түлхүүр өгөх ёстой\n"
+msgstr "Та жагсаалтын элементүүдээс авахдаа нэг эсвэл хэд хэдэн түлхүүр өгөх ёстой\n"
 
 #: gconf/gconftool.c:1994
 #, c-format
@@ -2227,8 +2199,7 @@ msgstr "Та түлхүүрийг (Схем нэр) зөвхөн аргумен�
 #: gconf/gconftool.c:2262
 #, c-format
 msgid "List type must be a primitive type: string, int, float or bool\n"
-msgstr ""
-"Жагсаалтын төрөл энгийн төрөл байх ёстой: string, int, float эсвэл bool\n"
+msgstr "Жагсаалтын төрөл энгийн төрөл байх ёстой: string, int, float эсвэл bool\n"
 
 #: gconf/gconftool.c:2282
 #, c-format
@@ -2348,14 +2319,12 @@ msgstr "САНУУЛГА: (%s) схемийн хувьд хүчингүй эсв
 #: gconf/gconftool.c:2987 gconf/gconftool.c:3017 gconf/gconftool.c:3046
 #, c-format
 msgid "WARNING: Failed to parse default value `%s' for schema (%s)\n"
-msgstr ""
-"САНУУЛГА: (%s) схемийн »%s« стандарт төрөлд задлан ялгал хийгдэхгүй байна\n"
+msgstr "САНУУЛГА: (%s) схемийн »%s« стандарт төрөлд задлан ялгал хийгдэхгүй байна\n"
 
 #: gconf/gconftool.c:3005
 #, c-format
 msgid "WARNING: invalid or missing car_type or cdr_type for schema (%s)\n"
-msgstr ""
-"САНУУЛГА: (%s) схемийн хувьд хүчингүй эсвэл байхгүй car_type эсвэл cdr_type\n"
+msgstr "САНУУЛГА: (%s) схемийн хувьд хүчингүй эсвэл байхгүй car_type эсвэл cdr_type\n"
 
 #: gconf/gconftool.c:3030
 #, c-format
@@ -2375,8 +2344,7 @@ msgstr "САНУУЛГА: »%s« төрлийн нэр задлан ялгагд
 
 #: gconf/gconftool.c:3124
 #, c-format
-msgid ""
-"WARNING: list_type can only be int, float, string or bool and not `%s'\n"
+msgid "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "САНУУЛГА: list_type зөвхөн int, float, string эсвэл bool байж болно. Харин »%"
 "s« байж болохгүй\n"
@@ -2408,8 +2376,7 @@ msgstr "САНУУЛГА: <schema> доторхи <%s> зангилаа ойлг
 #: gconf/gconftool.c:3220
 #, c-format
 msgid "WARNING: no <list_type> specified for schema of type list\n"
-msgstr ""
-"САНУУЛГА: Жагсаалт төрлийн схемд <list_type> түлхүүр өгөгдөөгүй байна\n"
+msgstr "САНУУЛГА: Жагсаалт төрлийн схемд <list_type> түлхүүр өгөгдөөгүй байна\n"
 
 #: gconf/gconftool.c:3226
 #, c-format
@@ -2424,13 +2391,11 @@ msgstr "САНУУЛГА: Хос төрлийн схемд <cdr_type> түлхү
 #: gconf/gconftool.c:3261
 #, c-format
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
-msgstr ""
-"САНУУЛГА: <locale> зангилаанд »name='locale'« аттрибут алга, үл хэрэгсэх\n"
+msgstr "САНУУЛГА: <locale> зангилаанд »name='locale'« аттрибут алга, үл хэрэгсэх\n"
 
 #: gconf/gconftool.c:3267
 #, c-format
-msgid ""
-"WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
+msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 "САНУУЛГА: »%s« локалын хувьд олон <locale> зангилаа байна. Эхнийхээс хойшхи "
 "бүгдийг үл хэрэгсэх\n"
@@ -2493,8 +2458,7 @@ msgstr "»%s« баримт хоосон юм уу?\n"
 #: gconf/gconftool.c:3667
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
-msgstr ""
-"»%s« баримтад үндсэн зангилааны буруу төрөл байна (<%s>, <%s> байхсан)\n"
+msgstr "»%s« баримтад үндсэн зангилааны буруу төрөл байна (<%s>, <%s> байхсан)\n"
 
 #: gconf/gconftool.c:3680
 #, c-format
@@ -2559,3 +2523,4 @@ msgstr ""
 "Таны х.программ эвдрэхдээ лавлах доторхи түлхүүрт буруу утга олгохыг оролдож "
 "байна:\n"
 "  %s\n"
+
