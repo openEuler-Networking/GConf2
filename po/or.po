@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gconf.gnome-2-18.or\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-04-18 03:25+0100\n"
-"PO-Revision-Date: 2007-05-08 18:13+0530\n"
+"PO-Revision-Date: 2007-05-09 12:47+0530\n"
 "Last-Translator: Subhransu Behera <arya_subhransu@yahoo.co.in>\n"
 "Language-Team: Oriya <oriya-group@lists.sarovar.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
 "\n"
 "\n"
 
@@ -1821,7 +1822,7 @@ msgstr ""
 #: ../gconf/gconftool.c:582
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
+msgstr "ଉପଲବ୍ଧ ପାଠ୍ଯ ନିର୍ଦ୍ଦେଶ ବିକଳ୍ପର ସମ୍ପୂର୍ଣ୍ଣ ତାଲିକା ପାଇଁ '%s --help' ଚଳାନ୍ତୁ।\n"
 
 #: ../gconf/gconftool.c:610
 msgid "Can't get and set/unset simultaneously\n"
@@ -1900,7 +1901,7 @@ msgstr ""
 #: ../gconf/gconftool.c:885
 #, c-format
 msgid "Failed to access configuration source(s): %s\n"
-msgstr ""
+msgstr "ବିନ୍ଯାସ ଉତ୍ସକୁ(ମାନଙ୍କୁ) ଅଭିଗମ କରିବାରେ ବିଫଳ: %s\n"
 
 #: ../gconf/gconftool.c:1163
 #, c-format
@@ -2278,16 +2279,16 @@ msgstr ""
 
 #: ../gconf/gconftool.c:3272
 msgid "WARNING: no <cdr_type> specified for schema of type pair\n"
-msgstr ""
+msgstr "ଚେତାବନୀ: ଯୋଡି ପ୍ରକାରର ବିବରଣୀକା ପାଇଁ କୌଣସି <cdr_type> ଉଲ୍ଲେଖ କରାଯାଇ ନାହିଁ\n"
 
 #: ../gconf/gconftool.c:3301
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
-msgstr ""
+msgstr "ଚେତାବନୀ: <locale> ନୋଡର କୌଣସି `name=\"locale\"' ବିଶେଷ ସୂଚକ ନାହିଁ, ଆଗ୍ରହ୍ଯ କରୁଅଛି\n"
 
 #: ../gconf/gconftool.c:3307
 #, c-format
 msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
-msgstr ""
+msgstr "ଚେତାବନୀ: %s ଲୋକେଲ ପାଇଁ ଏକାଧିକ <locale> ନୋଡ, ସମସ୍ତ ପୂର୍ବବର୍ତ୍ତୀ ନୋଡ ମାନଙ୍କୁ ପ୍ରଥମେ ଆଗ୍ରହ୍ଯ କରୁଅଛି\n"
 
 #: ../gconf/gconftool.c:3405
 #, c-format
