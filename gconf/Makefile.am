@@ -73,6 +73,7 @@ gconfd_2_SOURCES = \
 	gconf-sources.h		\
 	gconfd.h		\
 	gconfd.c
+
 if OS_WIN32
 gconfd_2_LDFLAGS = -mwindows
 endif
