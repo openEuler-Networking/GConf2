@@ -1,5 +1,23 @@
 2009-01-27  Tor Lillqvist  <tml@novell.com>
 
+	Merge changes from my build scripts.
+
+	* gconf/gconf-internals.c (create_new_locked_file): Drop the Win9x
+	code path. There is no Win9x support any more lower in the stack
+	anyway.
+
+	* gconf/gconf-internals.c: Rework locking on Windows.
+
+	(create_new_locked_file): Don't attempt to use shared open with
+	deny modes on Windows, that never worked correctly here.
+
+	(gconf_release_lock): Truncate the file to zero size before
+	closing. This is to avoid race conditions, as we don't want the
+	file to exist but with seemingly valid contents between closing
+	and unlinking.
+
+2009-01-27  Tor Lillqvist  <tml@novell.com>
+
 	Merge from trunk:
 
 	* gconf/dllmain.c (setup): Drop the Win9x code path. There is no
