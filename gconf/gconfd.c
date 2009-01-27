@@ -625,11 +625,7 @@ main(int argc, char** argv)
       if (fileno (stdout) != -1 &&
 	  _get_osfhandle (fileno (stdout)) != -1)
 	{
-	  /* stdout is fine, presumably redirected to a file or pipe.
-	   * Make sure stdout goes somewhere, too.
-	   */
-	  if (_get_osfhandle (fileno (stderr)) == -1)
-	    dup2 (fileno (stdout), fileno (stderr));
+	  /* stdout is fine, presumably redirected to a file or pipe */
 	}
       else
 	{
