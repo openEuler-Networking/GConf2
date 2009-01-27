@@ -1,5 +1,11 @@
 2009-01-27  Tor Lillqvist  <tml@novell.com>
 
+	* gconf/gconfd.c (main): Call g_thread_init(NULL) here as
+	libORBit-2 would anyway, and it is best to call g_thread_init() as
+	early as possible if it will be called at all.
+
+2009-01-27  Tor Lillqvist  <tml@novell.com>
+
 	Merge changes from my build scripts.
 
 	* gconf/gconf-internals.c (create_new_locked_file): Drop the Win9x

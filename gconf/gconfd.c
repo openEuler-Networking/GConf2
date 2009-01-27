@@ -588,6 +588,8 @@ main(int argc, char** argv)
   int dev_null_fd;
   int write_byte_fd;
 
+  g_thread_init (NULL);
+
   _gconf_init_i18n ();
   setlocale (LC_ALL, "");
   textdomain (GETTEXT_PACKAGE);
