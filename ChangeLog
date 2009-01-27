@@ -1,5 +1,12 @@
 2009-01-27  Tor Lillqvist  <tml@novell.com>
 
+	Merge from trunk:
+
+	* gconf/dllmain.c (setup): Drop the Win9x code path. There is no
+	Win9x support any more lower in the stack anyway.
+
+2009-01-27  Tor Lillqvist  <tml@novell.com>
+
 	Committing this here in the gnome-2-22 branch because this is what
 	is still used on Windows without dbus.
 	
