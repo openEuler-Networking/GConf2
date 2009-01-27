@@ -55,7 +55,12 @@
 #endif
 #include <locale.h>
 
-#include <dbus/dbus-glib-lowlevel.h>
+#ifdef G_OS_WIN32
+#include <io.h>
+#include <conio.h>
+#define _WIN32_WINNT 0x0500 
+#include <windows.h>
+#endif
 
 /* This makes hash table safer when debugging */
 #ifndef GCONF_ENABLE_DEBUG
@@ -499,123 +504,71 @@ gconf_get_poa (void)
   return the_poa;
 }
 
-static const char *
-get_introspection_xml (void)
+/* From ORBit2 */
+/* There is a DOS attack if another user creates
+ * the given directory and keeps us from creating
+ * it
+ */
+static gboolean
+test_safe_tmp_dir (const char *dirname)
 {
-  return "<!DOCTYPE node PUBLIC \"-//freedesktop//DTD D-BUS Object Introspection 1.0//EN\"\n"
-         "\"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd\">\n"
-         "<node>\n"
-         "  <interface name=\"org.freedesktop.DBus.Introspectable\">\n"
-         "    <method name=\"Introspect\">\n"
-         "      <arg name=\"introspection_xml\" direction=\"out\" type=\"s\"/>\n"
-         "    </method>\n"
-         "  </interface>\n"
-         "  <interface name=\"org.gnome.GConf\">\n"
-         "    <method name=\"GetIOR\">\n"
-         "      <arg name=\"ior\" direction=\"out\" type=\"s\"/>\n"
-         "    </method>\n"
-         "  </interface>\n"
-         "</node>\n";
+#ifndef G_OS_WIN32
+  struct stat statbuf;
+  int fd;
+
+  fd = open (dirname, O_RDONLY);  
+  if (fd < 0)
+    {
+      gconf_log (GCL_WARNING, _("Failed to open %s: %s"),
+                 dirname, g_strerror (errno));
+      return FALSE;
+    }
+  
+  if (fstat (fd, &statbuf) != 0)
+    {
+      gconf_log (GCL_WARNING, _("Failed to stat %s: %s"),
+                 dirname, g_strerror (errno));
+      close (fd);
+      return FALSE;
+    }
+  close (fd);
+
+  if (statbuf.st_uid != getuid ())
+    {
+      gconf_log (GCL_WARNING, _("Owner of %s is not the current user"),
+                 dirname);
+      return FALSE;
+    }
+
+  if ((statbuf.st_mode & (S_IRWXG|S_IRWXO)) ||
+      !S_ISDIR (statbuf.st_mode))
+    {
+      gconf_log (GCL_WARNING, _("Bad permissions %lo on directory %s"),
+                 (unsigned long) statbuf.st_mode & 07777, dirname);
+      return FALSE;
+    }
+#else
+  /* FIXME: We can't get any useful information about the actual
+   * protection for the directory using stat(). We must use the Win32
+   * API to check the owner and permissions (ACL). Later.
+   */
+#endif
+  
+  return TRUE;
 }
 
-static DBusHandlerResult
-bus_message_handler (DBusConnection *connection,
-                     DBusMessage    *message,
-                     GMainLoop      *loop)
+#ifdef G_OS_WIN32
+
+static void
+wait_console_window (void)
 {
-  DBusMessage *reply;
-
-  reply = NULL;
-
-  if (dbus_message_is_signal (message,
-                              DBUS_INTERFACE_LOCAL,
-                              "Disconnected"))
-    {
-      gconf_main_quit ();
-      return DBUS_HANDLER_RESULT_HANDLED;
-    }
-  else if (dbus_message_is_method_call (message,
-                                        "org.freedesktop.DBus.Introspectable",
-                                        "Introspect"))
-    {
-      const char *introspection_xml;
-
-      introspection_xml = get_introspection_xml ();
-
-      reply = dbus_message_new_method_return (message);
-      dbus_message_append_args (reply, DBUS_TYPE_STRING, &introspection_xml,
-                                DBUS_TYPE_INVALID);
-
-    }
-  else if (dbus_message_is_method_call (message,
-                                        "org.gnome.GConf",
-                                        "GetIOR"))
-    {
-      const char *ior;
-
-      ior = gconf_get_daemon_ior ();
-
-      reply = dbus_message_new_method_return (message);
-      dbus_message_append_args (reply, DBUS_TYPE_STRING, &ior, DBUS_TYPE_INVALID);
-    }
-
-  if (reply != NULL)
-    {
-      dbus_connection_send (connection, reply, NULL);
-      dbus_message_unref (reply);
-      return DBUS_HANDLER_RESULT_HANDLED;
-    }
-
-  return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+  SetConsoleTitle ("GConf daemon exiting. Type any character to close this window.");
+  printf ("\n"
+	  "(GConf daemon exiting. Type any character to close this window)\n");
+  _getch ();
 }
 
-static DBusConnection *
-get_on_d_bus (void)
-{
-  DBusConnection *connection;
-  DBusError bus_error;
-  int result;
-
-  dbus_error_init (&bus_error);
-  connection = dbus_bus_get (DBUS_BUS_SESSION, &bus_error);
-
-  if (dbus_error_is_set (&bus_error))
-    {
-      gconf_log (GCL_ERR, _("Could not connect to session bus: %s"), bus_error.message);
-      dbus_error_free (&bus_error);
-      return NULL;
-    }
-
-  dbus_connection_setup_with_g_main (connection, NULL);
-
-  if (!dbus_connection_add_filter (connection, (DBusHandleMessageFunction)
-                                  bus_message_handler, NULL, NULL))
-    {
-      dbus_connection_unref (connection);
-      return NULL;
-    }
-
-  dbus_connection_set_exit_on_disconnect (connection, FALSE);
-
-  result = dbus_bus_request_name (connection, "org.gnome.GConf",
-                                  0, &bus_error);
-
-  if (dbus_error_is_set (&bus_error))
-    {
-      gconf_log (GCL_WARNING,
-                 _("Failed to get bus name for daemon, exiting: %s"),
-                 bus_error.message);
-      dbus_error_free (&bus_error);
-    }
-
-  if (result != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER)
-    {
-      dbus_connection_unref (connection);
-      return NULL;
-    }
-
-  return connection;
-}
+#endif
 
 int 
 main(int argc, char** argv)
@@ -630,9 +583,10 @@ main(int argc, char** argv)
   gchar* ior;
   int exit_code = 0;
   GError *err;
+  char *lock_dir;
+  char *gconfd_dir;
   int dev_null_fd;
   int write_byte_fd;
-  DBusConnection *connection;
 
   _gconf_init_i18n ();
   setlocale (LC_ALL, "");
@@ -667,6 +621,49 @@ main(int argc, char** argv)
   else
     {
       gconf_log_debug_messages = TRUE;
+#ifdef G_OS_WIN32
+      if (fileno (stdout) != -1 &&
+	  _get_osfhandle (fileno (stdout)) != -1)
+	{
+	  /* stdout is fine, presumably redirected to a file or pipe.
+	   * Make sure stdout goes somewhere, too.
+	   */
+	  if (_get_osfhandle (fileno (stderr)) == -1)
+	    dup2 (fileno (stdout), fileno (stderr));
+	}
+      else
+	{
+	  int allocated_new_console = FALSE;
+
+	  typedef BOOL (* WINAPI AttachConsole_t) (DWORD);
+
+	  AttachConsole_t p_AttachConsole =
+	    (AttachConsole_t) GetProcAddress (GetModuleHandle ("kernel32.dll"), "AttachConsole");
+
+	  if (p_AttachConsole != NULL)
+	    {
+	      if (!AttachConsole (ATTACH_PARENT_PROCESS))
+		{
+		  if (AllocConsole ())
+		    allocated_new_console = TRUE;
+		}
+
+	      freopen ("CONOUT$", "w", stdout);
+	      dup2 (fileno (stdout), 1);
+	      freopen ("CONOUT$", "w", stderr);
+	      dup2 (fileno (stderr), 2);
+
+	      if (allocated_new_console)
+		{
+		  SetConsoleTitle ("GConf daemon debugging output. You can minimize this window, but don't close it.");
+		  printf ("You asked for debugging output by setting the GCONF_DEBUG_OUTPUT\n"
+			  "environment variable, so here it is.\n"
+			  "\n");
+		  atexit (wait_console_window);
+		}
+	    }
+	}
+#endif
     }
   
   umask (022);
@@ -742,9 +739,32 @@ main(int argc, char** argv)
   gconf_set_daemon_ior (ior);
   CORBA_free (ior);
 
-  connection = get_on_d_bus ();
+  gconfd_dir = gconf_get_daemon_dir ();
+  lock_dir = gconf_get_lock_dir ();
+  
+  if (g_mkdir (gconfd_dir, 0700) < 0 && errno != EEXIST)
+    gconf_log (GCL_WARNING, _("Failed to create %s: %s"),
+               gconfd_dir, g_strerror (errno));
+  
+  if (!test_safe_tmp_dir (gconfd_dir))
+    {
+      err = g_error_new (GCONF_ERROR,
+                         GCONF_ERROR_LOCK_FAILED,
+                         _("Directory %s has a problem, gconfd can't use it"),
+                         gconfd_dir);
+      daemon_lock = NULL;
+    }
+  else
+    {
+      err = NULL;
+      
+      daemon_lock = gconf_get_lock (lock_dir, &err);
+    }
 
-  if (connection != NULL)
+  g_free (gconfd_dir);
+  g_free (lock_dir);
+
+  if (daemon_lock != NULL)
     {
       /* This loads backends and so on. It needs to be done before
        * we can handle any requests, so before we hit the
@@ -768,8 +788,14 @@ main(int argc, char** argv)
       close (write_byte_fd);
     }
   
-  if (connection == NULL)
+  if (daemon_lock == NULL)
     {
+      g_assert (err);
+
+      gconf_log (GCL_WARNING, _("Failed to get lock for daemon, exiting: %s"),
+                 err->message);
+      g_error_free (err);
+
       enter_shutdown ();
       shutdown_databases ();
       

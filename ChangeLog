@@ -1,3 +1,18 @@
+2009-01-27  Tor Lillqvist  <tml@novell.com>
+
+	Committing this here in the gnome-2-22 branch because this is what
+	is still used on Windows without dbus.
+	
+	* gconf/Makefile.am (gconfd_2_LDFLAGS): Use the -mwindows flag
+	when linking on Windows, so that we build a "GUI" executable.
+
+	* gconf/gconfd.c (main): On Windows, with GCONF_DEBUG_OUTPUT set,
+	make sure stdout and stderr go somewhere. Use the parent's console
+	window if possible, otherwise open an own console window. If we
+	had to open an own console window, give the user a chance to read
+	the output when exiting. Same idea that has been successfully used
+	in GIMP for a while.
+
 2008-05-14  Ray Strode  <rstrode@redhat.com>
 
 	* configure.in: bump glib require to 2.14
