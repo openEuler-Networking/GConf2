@@ -1,3 +1,9 @@
+2.26.2
+======
+
+  Fixes
+   - Avoid assertion failures in gconf_client_lookup callers (Matthias Clasen)
+
 2.26.1
 ======
 
