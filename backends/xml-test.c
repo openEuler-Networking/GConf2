@@ -18,15 +18,11 @@
  */
 
 #include <config.h>
-#include "xml-entry.h"
-#include "xml-dir.h"
-#include "xml-cache.h"
+#include "markup-tree.h"
 #include "gconf/gconf-internals.h"
 #include "gconf/gconf-backend.h"
 #include <stdlib.h>
 #include <string.h>
-#include <libxml/entities.h>
-#include <libxml/globals.h>
 
 GConfBackendVTable* gconf_backend_get_vtable (void);
 
@@ -36,10 +32,9 @@ main (int argc, char **argv)
   GConfBackendVTable *vtable;
 
   vtable = gconf_backend_get_vtable ();
-  
-  xml_test_entry ();
-  xml_test_dir ();
-  xml_test_cache ();
+
+  if (!markup_test_tree ())
+    return 1;
   
   return 0;
 }

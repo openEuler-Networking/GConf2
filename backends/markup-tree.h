@@ -75,9 +75,12 @@ void        markup_entry_unset_value     (MarkupEntry       *entry,
                                           const char        *locale);
 void        markup_entry_set_schema_name (MarkupEntry       *entry,
                                           const char        *schema_name);
+char*       markup_entry_get_schema_name (MarkupEntry       *entry);
 const char* markup_entry_get_name        (MarkupEntry       *entry);
-const char* markup_entry_get_schema_name (MarkupEntry       *entry);
 const char* markup_entry_get_mod_user    (MarkupEntry       *entry);
 GTime       markup_entry_get_mod_time    (MarkupEntry       *entry);
+
+/* testing hook */
+gboolean    markup_tree_test             (void);
 
 #endif

@@ -489,7 +489,7 @@ query_value (GConfSource *source,
     {
       retval = markup_entry_get_value (entry, locales);
       if (schema_name)
-        *schema_name = g_strdup (markup_entry_get_schema_name (entry));
+        *schema_name = markup_entry_get_schema_name (entry);
     }
   else
     {
@@ -521,7 +521,7 @@ query_metainfo (GConfSource *source,
   if (entry != NULL)
     {
       GConfMetaInfo* gcmi;
-      const char *schema_name;
+      char *schema_name;
       GTime mtime;
       const char *mod_user;
       
@@ -533,6 +533,8 @@ query_metainfo (GConfSource *source,
       
       if (schema_name)
         gconf_meta_info_set_schema (gcmi, schema_name);
+
+      g_free (schema_name);
       
       gconf_meta_info_set_mod_time (gcmi, mtime);
       
@@ -579,7 +581,7 @@ gconf_entry_from_markup_entry (MarkupEntry *entry,
                                const char **locales)
 {
   GConfValue *value;
-  const char *schema_name;
+   char *schema_name;
   GConfEntry *gconf_entry;
 
   value = markup_entry_get_value (entry, locales);
@@ -591,6 +593,8 @@ gconf_entry_from_markup_entry (MarkupEntry *entry,
   gconf_entry = gconf_entry_new_nocopy (g_strdup (markup_entry_get_name (entry)),
                                         value);
   gconf_entry_set_schema_name (gconf_entry, schema_name);
+
+  g_free (schema_name);
 
   return gconf_entry;
 }

@@ -49,7 +49,7 @@ struct _MarkupEntry
   GConfValue *value;
   /* list of LocalSchemaInfo */
   GSList     *local_schemas;
-  char       *schema_name;
+  char       *schema_name; /* potentially compressed name */
   char       *mod_user;
   GTime       mod_time;
 };
@@ -74,6 +74,8 @@ static void       markup_dir_setup_as_subtree_root (MarkupDir  *dir);
 static MarkupEntry* markup_entry_new  (MarkupDir   *dir,
 				       const char  *name);
 static void         markup_entry_free (MarkupEntry *entry);
+static void         markup_entry_set_mod_time (MarkupEntry *entry,
+					       GTime        mtime);
 
 static void parse_tree (MarkupDir   *root,
 			gboolean     parse_subtree,
@@ -96,9 +98,22 @@ struct _MarkupTree
   guint refcount;
 
   guint merged : 1;
+  guint inherited : 1;
 };
 
 static GHashTable *trees_by_root_dir = NULL;
+
+/*
+ * To improve interoperability with previous versions of 
+ * the XML schema when eg. sharing NFS home directories, we
+ * only use the new compacted / inherited form for
+ * /etc/gconf/... (for now).
+ */
+static gboolean
+enable_inheritance (MarkupTree *tree)
+{
+  return !strncmp (tree->dirname, GCONF_ETCDIR, strlen (GCONF_ETCDIR));
+}
 
 MarkupTree*
 markup_tree_get (const char *root_dir,
@@ -127,6 +142,7 @@ markup_tree_get (const char *root_dir,
   tree->dir_mode = dir_mode;
   tree->file_mode = file_mode;
   tree->merged = merged != FALSE;
+  tree->inherited = enable_inheritance (tree);
 
   tree->root = markup_dir_new (tree, NULL, "/");  
 
@@ -179,6 +195,7 @@ struct _MarkupDir
   MarkupDir *parent;
   MarkupDir *subtree_root;
   char *name;
+  GTime mod_time;
 
   GSList *entries;
   GSList *subdirs;
@@ -230,6 +247,7 @@ markup_dir_new (MarkupTree *tree,
   dir->name = g_strdup (name);
   dir->tree = tree;
   dir->parent = parent;
+  dir->mod_time = parent ? parent->mod_time : 0;
 
   if (parent)
     {
@@ -242,6 +260,17 @@ markup_dir_new (MarkupTree *tree,
     }
 
   return dir;
+}
+
+static void
+markup_dir_set_mod_time (MarkupDir *dir, GTime mtime)
+{
+  /* set only if newer for import */
+  while (dir != NULL && dir->mod_time < mtime)
+    {
+      dir->mod_time = mtime;
+      dir = dir->parent;
+    }
 }
 
 static void
@@ -512,6 +541,7 @@ load_subtree (MarkupDir *dir)
   markup_dir_list_available_local_descs (dir);
 
   parse_tree (dir, TRUE, NULL, &tmp_err);
+
   if (tmp_err)
     {
       /* note that tmp_err may be a G_MARKUP_ERROR while only
@@ -1335,9 +1365,10 @@ markup_entry_new (MarkupDir  *dir,
 
   entry = g_new0 (MarkupEntry, 1);
 
-  entry->name = g_strdup (name);
-
   entry->dir = dir;
+  entry->name = g_strdup (name);
+  entry->mod_time = dir->mod_time;
+
   dir->entries = g_slist_prepend (dir->entries, entry);
 
   return entry;
@@ -1596,7 +1627,7 @@ markup_entry_set_value (MarkupEntry       *entry,
     }
 
   /* Update mod time */
-  entry->mod_time = time (NULL);
+  markup_entry_set_mod_time (entry, time (NULL));
 
   /* Need to save to disk */
   markup_dir_set_entries_need_save (entry->dir);
@@ -1670,11 +1701,139 @@ markup_entry_unset_value (MarkupEntry *entry,
     }
 
   /* Update mod time */
-  entry->mod_time = time (NULL);
+  markup_entry_set_mod_time (entry, time (NULL));
 
   /* Need to save to disk */
   markup_dir_set_entries_need_save (entry->dir);
   markup_dir_queue_sync (entry->dir);
+}
+
+#define VERBOSE_SCHEMA_PREFIX "/schemas"
+#define COMPRESS_CHAR '~'
+
+/*
+ * Sets schema string, and if in inherited mode compresses
+ * it thus, to either "~" (which means the schema is
+ * /schemas + the node path), or to ~/foo (which means 
+ * /schemas + the parent path + foo).
+ */
+void
+markup_entry_set_verbose_schema_name (MarkupEntry *entry,
+				      const char *verbose)
+{
+  int len;
+  char *cname;
+  const char *elem;
+  GSList *names, *l;
+  MarkupDir *dir;
+
+  g_return_if_fail (entry->dir != NULL);
+
+  /* if we have a ~ - we're perfectly stemmed already... */
+  if (!entry->dir->tree->inherited || !verbose || verbose[0] == '~' ||
+      strncmp (verbose, VERBOSE_SCHEMA_PREFIX,
+	       sizeof (VERBOSE_SCHEMA_PREFIX) - 1))
+    {
+      entry->schema_name = g_strdup (verbose);
+      return;
+    }
+
+  /* Not the common case ... compress the schema path */
+
+  /* build list of path elements names */
+  names = g_slist_prepend (NULL, entry->name);
+  for (dir = entry->dir; dir != NULL; dir = dir->parent)
+    names = g_slist_prepend (names, dir->name);
+  /* remove root with name '/' */
+  names = g_slist_delete_link (names, names); 
+
+  elem = verbose + sizeof (VERBOSE_SCHEMA_PREFIX);
+  for (l = names; *elem && l != NULL; l = l->next) {
+    const char *frag = l->data;
+    len = strlen (frag);
+    if (strncmp (frag, elem, len) != 0)
+      break;
+
+    if (G_LIKELY (elem[len] == '/')) {
+      elem += len + 1;
+    } else { /* special case "~" means exact path */
+      if (elem[len] == '\0')
+	elem += len;
+      else
+	break;
+    }
+  }
+
+  if (!l) {
+    g_assert (*elem == '\0');
+    cname = g_strdup ("~");
+  } else if (l->next == NULL) { /* just replace the last elem */
+    len = strlen (elem);
+    cname = g_malloc (len + 3);
+    cname[0] = '~';
+    cname[1] = '\0';
+    strcpy (cname + 1, elem - 1);
+  } else {
+    cname = g_strdup (verbose);
+  }
+  g_slist_free (names);
+
+  entry->schema_name = cname;
+}
+
+char*
+markup_entry_get_schema_name (MarkupEntry *entry)
+{
+  int len;
+  char *schema;
+  GSList *names, *l;
+  MarkupDir *dir;
+
+  g_return_val_if_fail (entry->dir != NULL, NULL);
+  g_return_val_if_fail (entry->dir->entries_loaded, NULL);
+
+  /* if we have no ~ - we're not stemmed... */
+  if (!entry->dir->tree->inherited ||
+      entry->schema_name == NULL ||
+      entry->schema_name[0] == '\0' ||
+      entry->schema_name[0] != '~') {
+    return g_strdup (entry->schema_name);
+  }
+  
+  /* expand the leading '~' */
+
+  len = sizeof (VERBOSE_SCHEMA_PREFIX) - 1;
+  if (entry->schema_name[1] == '/')
+    {
+      names = g_slist_prepend (NULL, entry->schema_name + 2);
+    }
+  else
+    { /* just ~ special case */
+      g_assert (entry->schema_name[1] == '\0');
+      names = g_slist_prepend (NULL, entry->name);
+    }
+  len += strlen (names->data) + 1;
+
+  /* build list of path elements names */
+  for (dir = entry->dir; dir != NULL; dir = dir->parent) 
+    {
+      len += 1 + strlen (dir->name);
+      names = g_slist_prepend (names, dir->name);
+    }
+  /* remove root with name '/' */
+  names = g_slist_delete_link (names, names);
+  len -= 2;
+
+  schema = g_new (char, len + 1);
+  strcpy (schema, VERBOSE_SCHEMA_PREFIX);
+  for (l = names; l != NULL; l = l->next)
+    {
+      strcat (schema, "/");
+      strcat (schema, l->data);
+    }
+  g_assert (strlen (schema) == len);
+
+  return schema;
 }
 
 void
@@ -1691,10 +1850,10 @@ markup_entry_set_schema_name (MarkupEntry *entry,
   /* schema_name may be NULL to unset it */
   
   g_free (entry->schema_name);
-  entry->schema_name = g_strdup (schema_name);
+  markup_entry_set_verbose_schema_name (entry, schema_name);
   
   /* Update mod time */
-  entry->mod_time = time (NULL);
+  markup_entry_set_mod_time (entry, time (NULL));
 
   /* Need to save to disk */
   markup_dir_set_entries_need_save (entry->dir);
@@ -1819,15 +1978,6 @@ markup_entry_get_name (MarkupEntry *entry)
 }
 
 const char*
-markup_entry_get_schema_name (MarkupEntry  *entry)
-{
-  g_return_val_if_fail (entry->dir != NULL, NULL);
-  g_return_val_if_fail (entry->dir->entries_loaded, NULL);
-
-  return entry->schema_name;
-}
-
-const char*
 markup_entry_get_mod_user (MarkupEntry *entry)
 {
   g_return_val_if_fail (entry->dir != NULL, NULL);
@@ -1860,7 +2010,10 @@ static void
 markup_entry_set_mod_time (MarkupEntry *entry,
                            GTime        mtime)
 {
+  g_return_if_fail (entry->dir != NULL);
+
   entry->mod_time = mtime;
+  markup_dir_set_mod_time (entry->dir, mtime);
 }
 
 /*
@@ -2756,7 +2909,7 @@ parse_entry_element (GMarkupParseContext  *context,
        * mess up the modtime
        */
       if (schema)
-        entry->schema_name = g_strdup (schema);
+	markup_entry_set_verbose_schema_name (entry, schema);
     }
   else
     {
@@ -2815,18 +2968,21 @@ parse_dir_element (GMarkupParseContext  *context,
 {
   MarkupDir  *parent;
   MarkupDir  *dir;
+  const char *mtime;
   const char *name;
-  
+
   g_return_if_fail (peek_state (info) == STATE_GCONF || peek_state (info) == STATE_DIR);
   g_return_if_fail (ELEMENT_IS ("dir"));
 
   push_state (info, STATE_DIR);
 
   name = NULL;
+  mtime = NULL;
 
   if (!locate_attributes (context, element_name, attribute_names, attribute_values,
                           error,
                           "name", &name,
+			  "mtime", &mtime,
                           NULL))
     return;
 
@@ -2869,6 +3025,9 @@ parse_dir_element (GMarkupParseContext  *context,
       if (dir == NULL)
         {
           dir = markup_dir_new (info->root->tree, parent, name);
+
+	  if (mtime != NULL)
+	    markup_dir_set_mod_time (dir, gconf_string_to_gulong (mtime));
 
           /* This is a dummy directory which will be deleted when
            * we've finised parsing the contents of this element.
@@ -4159,8 +4318,9 @@ write_entry (MarkupEntry *entry,
 
   if (local_schema_info == NULL)
     {
-      if (fprintf (f, " mtime=\"%lu\"", (unsigned long) entry->mod_time) < 0)
-	goto out;
+      if (!entry->dir->tree->inherited || entry->dir->mod_time != entry->mod_time)
+	if (fprintf (f, " mtime=\"%lu\"", (unsigned long) entry->mod_time) < 0)
+	  goto out;
   
       if (entry->schema_name)
 	{
@@ -4231,8 +4391,16 @@ write_dir (MarkupDir  *dir,
 
   g_assert (dir->name != NULL);
   
-  if (fprintf (f, "%s<dir name=\"%s\">\n",
+  if (fprintf (f, "%s<dir name=\"%s\"",
 	       make_whitespace (indent), dir->name) < 0)
+    goto out;
+  if (dir->tree->inherited &&
+      (dir->parent == dir->tree->root ||
+       dir->parent->mod_time != dir->mod_time))
+    if (fprintf (f, " mtime=\"%lu\"",
+		 (unsigned long)dir->mod_time) < 0)
+      goto out;
+  if (fprintf (f, ">\n") < 0)
     goto out;
 
   tmp = dir->entries;
@@ -4633,4 +4801,144 @@ local_schema_info_free (LocalSchemaInfo *info)
   if (info->default_value)
     gconf_value_free (info->default_value);
   g_free (info);
+}
+
+#ifndef GCONF_DISABLE_TESTS
+static gboolean
+test_tree (MarkupTree *tree)
+{
+  int i;
+  MarkupDir *dir;
+  MarkupEntry *entry;
+  GError *error = NULL;
+  
+  dir = markup_tree_lookup_dir (tree, "/system/smb", &error);
+  if (dir == NULL)
+    g_error ("Failed to lookup directory");
+  
+  entry = markup_dir_lookup_entry (dir, "workgroup", &error);
+  if (entry == NULL)
+    g_error ("Failed to lookup entry");
+  
+  /* test schema name mangling */
+  struct {
+    char *entry;
+    char *schema_name;
+    char *uncompressed;
+  } tests[] = {
+    { "workgroup", "~", "/schemas/system/smb/workgroup" },
+    { "workgroup_lastelem", "~/workgroup", "/schemas/system/smb/workgroup" },
+    { "workgroup_random", "/schemas/random", "/schemas/random" },
+    { "workgroup_noschema", NULL, NULL },
+    { "workgroup_oddpath", "/foo/system/smb/workgroup", "/foo/system/smb/workgroup" }
+  };
+  for (i = 0; i < G_N_ELEMENTS (tests); i++)
+    {
+      MarkupEntry *entry;
+      entry = markup_dir_lookup_entry (dir, tests[i].entry, &error);
+      if (entry == NULL)
+	g_error ("Failed to lookup '%s'", tests[i].entry);
+      if (!tests[i].schema_name) {
+	if (entry->schema_name)
+	  g_error ("expected NULL schema name on '%s'", tests[i].entry);
+      } else {
+	char *name;
+
+	if (!entry->schema_name)
+	  g_error ("unexpected NULL schema name on '%s'", tests[i].entry);
+	if (strcmp (tests[i].schema_name, entry->schema_name)) {
+	  g_error ("mis-matching compressed schema name '%s' vs. '%s' on key '%s'",
+		   entry->schema_name, tests[i].schema_name, tests[i].entry);
+	}
+	name = markup_entry_get_schema_name (entry);
+	if (strcmp (tests[i].uncompressed, name)) {
+	  g_error ("mis-matching uncompressed schema name '%s' vs. '%s' on key '%s'",
+		   tests[i].uncompressed, name, tests[i].entry);
+	}
+	g_free (name);
+      }
+    }
+  return TRUE;
+}
+#endif
+
+gboolean
+markup_test_tree (void)
+{
+#ifndef GCONF_DISABLE_TESTS
+  const char *xml =
+"<?xml version=\"1.0\"?>\n"
+"<gconf>\n"
+"	<dir name=\"system\">\n"
+"		<dir name=\"smb\">\n"
+"			<entry name=\"workgroup\" mtime=\"1234375446\" schema=\"/schemas/system/smb/workgroup\"/>\n"
+"			<entry name=\"workgroup_lastelem\" mtime=\"1234375446\" schema=\"/schemas/system/smb/workgroup\"/>\n"
+"			<entry name=\"workgroup_random\" mtime=\"1234375446\" schema=\"/schemas/random\"/>\n"
+"			<entry name=\"workgroup_noschema\" mtime=\"1234375446\"/>\n"
+"			<entry name=\"workgroup_oddpath\" mtime=\"1234375446\" schema=\"/foo/system/smb/workgroup\"/>\n"
+"		</dir>\n"
+"	</dir>\n"
+"	<dir name=\"schemas\">\n"
+"		<dir name=\"system\">\n"
+"			<dir name=\"smb\">\n"
+"				<entry name=\"workgroup\" mtime=\"1234375446\" type=\"schema\" stype=\"string\" owner=\"gnome-vfs\">\n"
+"					<local_schema locale=\"C\" short_desc=\"SMB workgroup\">\n"
+"						<default type=\"string\">\n"
+"							<stringvalue>WORKGROUP</stringvalue>\n"
+"						</default>\n"
+"						<longdesc>A Long Desc</longdesc>\n"
+"					</local_schema>\n"
+"				</entry>\n"
+"			</dir>\n"
+"		<entry name=\"random\" mtime=\"1234375446\" type=\"schema\" stype=\"string\" owner=\"gnome-vfs\">\n"
+"			<local_schema locale=\"C\" short_desc=\"other schema\">\n"
+"				<default type=\"string\">\n"
+"					<stringvalue>Random</stringvalue>\n"
+"				</default>\n"
+"				<longdesc>Random Desc</longdesc>\n"
+"			</local_schema>\n"
+"		</entry>\n"
+"		</dir>\n"
+"	</dir>\n"
+"</gconf>";
+
+  GMarkupParseContext *context = NULL;
+  GError *error = NULL;
+  ParseInfo info;
+  MarkupTree *tree;
+
+  tree = markup_tree_get ("/home/baa/.gconf/foo.xml", 0, 0, TRUE);
+  g_assert (tree->inherited == FALSE);
+  markup_tree_unref (tree);
+
+  tree = markup_tree_get (GCONF_ETCDIR "/foo.xml", 0, 0, TRUE);
+  g_assert (tree->inherited == TRUE);
+
+  parse_info_init (&info, tree->root, TRUE, NULL);
+
+  /* analog of load_subtree */
+  tree->root->subdirs_loaded = TRUE;
+  tree->root->entries_loaded = TRUE;
+  tree->root->save_as_subtree = TRUE;
+  markup_dir_setup_as_subtree_root (tree->root);
+  markup_dir_list_available_local_descs (tree->root);
+
+  context = g_markup_parse_context_new (&gconf_parser,
+                                        0, &info, NULL);
+  if (!g_markup_parse_context_parse (context, xml, strlen (xml), &error))
+    g_error ("Failed to parse gconf xml '%s'", error->message);
+
+  if (!g_markup_parse_context_end_parse (context, &error))
+    g_error ("Failed to end the parsing");
+
+  g_markup_parse_context_free (context);
+
+  parse_info_free (&info);
+
+  test_tree (tree);
+
+  markup_tree_unref (tree);
+  g_message ("All tests passed successfully\n");
+#endif
+  return TRUE;
 }
