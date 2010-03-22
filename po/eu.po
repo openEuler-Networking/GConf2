@@ -1,15 +1,15 @@
-# translation of gconf.HEAD.po to Basque
-# Copyright (C) 2001, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# translation of eu.po to Basque
+# Copyright (C) 2001, 2004, 2005, 2006, 2007, 2008, 2010 Free Software Foundation, Inc.
 #
 # Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>, 2005.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2008.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2008, 2010.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: gconf.HEAD\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-15 17:14+0100\n"
-"PO-Revision-Date: 2008-01-15 17:13+0100\n"
+"PO-Revision-Date: 2010-03-22 12:20+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,8 +27,7 @@ msgstr "Huts egin du '%s'(e)tik konfigurazio-fitxategiaren bide-izena lortzean"
 #: ../backends/evoldap-backend.c:170
 #, c-format
 msgid "Created Evolution/LDAP source using configuration file '%s'"
-msgstr ""
-"Evolution/LDAP iturburua sortuta, '%s' konfigurazio-fitxategia erabiliz"
+msgstr "Evolution/LDAP iturburua sortuta, '%s' konfigurazio-fitxategia erabiliz"
 
 #: ../backends/evoldap-backend.c:444
 #, c-format
@@ -63,8 +62,7 @@ msgstr "Ez da LDAP zerbitzaria edo DN oinarria zehaztu '%s'(e)n"
 #: ../backends/evoldap-backend.c:576
 #, c-format
 msgid "Contacting LDAP server: host '%s', port '%d', base DN '%s'"
-msgstr ""
-"LDAP zerbitzarira konektatzen: '%s' ostalaria, '%d' ataka, '%s' DN oinarria"
+msgstr "LDAP zerbitzarira konektatzen: '%s' ostalaria, '%d' ataka, '%s' DN oinarria"
 
 #: ../backends/evoldap-backend.c:582
 #, c-format
@@ -136,8 +134,7 @@ msgstr "Ezin izan da '%s' direktorioa egin: %s"
 
 #: ../backends/markup-backend.c:391 ../backends/xml-backend.c:442
 #, c-format
-msgid ""
-"Can't read from or write to the XML root directory in the address \"%s\""
+msgid "Can't read from or write to the XML root directory in the address \"%s\""
 msgstr "Ezin da \"%s\" helbideko XML erro-direktorioan idatzi edo irakurri"
 
 #: ../backends/markup-backend.c:402 ../backends/xml-backend.c:452
@@ -256,7 +253,7 @@ msgstr "\"%s\" mota baliogabea <%s>(e)n"
 #: ../backends/markup-tree.c:2509
 #, c-format
 msgid "Invalid first-element type \"%s\" on <%s>"
-msgstr "\"%s\" lehen elemenu mota baliogabea <%s>(e)n"
+msgstr "\"%s\" lehen elementu mota baliogabea <%s>(e)n"
 
 #: ../backends/markup-tree.c:2523
 #, c-format
@@ -447,8 +444,7 @@ msgstr "Izenik gabeko sarrera '%s' XML fitxategian; jaramonik ez"
 #: ../backends/xml-dir.c:1194
 #, c-format
 msgid "A toplevel node in XML file `%s' is <%s> rather than <entry>, ignoring"
-msgstr ""
-"Goi-mailako nodoa '%s' XML fitxategian <%s> da eta ez <entry>; jaramonik ez"
+msgstr "Goi-mailako nodoa '%s' XML fitxategian <%s> da eta ez <entry>; jaramonik ez"
 
 #: ../backends/xml-dir.c:1282
 #, c-format
@@ -639,8 +635,7 @@ msgstr "Modu sinkronoan sinkronizatzeko eskaera jaso da"
 
 #: ../gconf/gconf-database.c:807
 msgid "Fatal error: failed to get object reference for ConfigDatabase"
-msgstr ""
-"Errore larria: huts egin du ConfigDatabase-ren objektu-erreferentzia lortzean"
+msgstr "Errore larria: huts egin du ConfigDatabase-ren objektu-erreferentzia lortzean"
 
 #: ../gconf/gconf-database.c:973
 #, c-format
@@ -882,8 +877,7 @@ msgstr "Bikotea espero zen, baina %s eskuratu da"
 #: ../gconf/gconf-internals.c:1547
 #, c-format
 msgid "Expected (%s,%s) pair, got a pair with one or both values missing"
-msgstr ""
-"(%s,%s) bikotea espero zen, eskuratutakoak balio bat edo biak falta ditu"
+msgstr "(%s,%s) bikotea espero zen, eskuratutakoak balio bat edo biak falta ditu"
 
 #: ../gconf/gconf-internals.c:1563
 #, c-format
@@ -1073,7 +1067,7 @@ msgid ""
 "that the \"nfslock\" service has been disabled.The error was \"%s\" (errno = "
 "%d)."
 msgstr ""
-"Jarri harremanetan sistemako adiministratzailearekin ondoko arazo hau \n"
+"Jarri harremanetan sistemako administratzailearekin ondoko arazo hau \n"
 "konpontzeko: ezin izan da \"%s\" fitxategia blokeatu; horrek esan nahi du "
 "zure sistema eragilearen konfigurazioarekin arazoren bat egon daitekeela. "
 "NFSen muntatutako etxeko direktorioa baduzu, bezeroa edo zerbitzaria gaizki "
@@ -1156,8 +1150,7 @@ msgid "Schema contains invalid UTF-8"
 msgstr "Eskemak UTF-8 baliogabea du"
 
 #: ../gconf/gconf-schema.c:243
-msgid ""
-"Schema specifies type list but doesn't specify the type of the list elements"
+msgid "Schema specifies type list but doesn't specify the type of the list elements"
 msgstr ""
 "Eskemak mota-zerrenda zehazten du, baina ez du zerrendako elementuen mota "
 "zehazten"
@@ -1177,16 +1170,14 @@ msgstr "Huts egin du \"%s\" iturburua kargatzean: %s"
 
 #: ../gconf/gconf-sources.c:411
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a writable configuration source at position %d"
+msgid "Resolved address \"%s\" to a writable configuration source at position %d"
 msgstr ""
 "\"%s\" helbidea idazteko aukera ematen duen konfigurazio-iturburuan ebatzi "
 "da, %d kokalekuan"
 
 #: ../gconf/gconf-sources.c:417
 #, c-format
-msgid ""
-"Resolved address \"%s\" to a read-only configuration source at position %d"
+msgid "Resolved address \"%s\" to a read-only configuration source at position %d"
 msgstr ""
 "\"%s\" helbidea irakurtzeko soilik den konfigurazio-iturburuan ebatzi da, %d "
 "kokalekuan"
@@ -1211,8 +1202,7 @@ msgstr ""
 #: ../gconf/gconf-sources.c:649
 #, c-format
 msgid "Schema `%s' specified for `%s' stores a non-schema value"
-msgstr ""
-"'%2$s'(r)entzat zehaztutako '%1$s' eskemak eskemakoa ez den balio bat dauka"
+msgstr "'%2$s'(r)entzat zehaztutako '%1$s' eskemak eskemakoa ez den balio bat dauka"
 
 #: ../gconf/gconf-sources.c:711
 msgid "The '/' name can only be a directory, not a key"
@@ -1255,7 +1245,7 @@ msgstr ""
 "eta NFS fitxategi-blokeoak ez du zure etxeko direktorioan funtzionatzen 4) "
 "zure NFS bezeroaren makinak huts egin du eta ez dio behar bezala jakinarazi "
 "berrabiarazitako zerbitzariari fitxategi-blokeoak jaregin egin behar direla. "
-"Bi gconfd prozesu badituzu (edo bigarrena abiaraztekoan bi bazenituen), "
+"Bi gconfd prozesu badituzu (edo bigarrena abiaraztean bi bazenituen), "
 "saiotik atera, gconfd-en kopia guztiak desaktibatu, eta atzera saiora "
 "itzuli; lagungarria izango zaizu. Blokeo zaharkituak badituzu, kendu ~/."
 "gconf*/*blokeoa. Baliteke arazoa hau izatea: GConf bi makinatan aldi berean "
@@ -1549,8 +1539,7 @@ msgstr ""
 
 #: ../gconf/gconfd.c:1471
 #, c-format
-msgid ""
-"Failed to close gconfd logfile; data may not have been properly saved (%s)"
+msgid "Failed to close gconfd logfile; data may not have been properly saved (%s)"
 msgstr ""
 "Ezin izan da gconfd egunkari-fitxategia itxi; datuak ez ziren ondo gordeko (%"
 "s)"
@@ -1582,16 +1571,14 @@ msgstr "Huts egin du gordetako egoera-fitxategi berria hona mugitzean: %s"
 
 #: ../gconf/gconfd.c:1589
 #, c-format
-msgid ""
-"Failed to restore original saved state file that had been moved to '%s': %s"
+msgid "Failed to restore original saved state file that had been moved to '%s': %s"
 msgstr ""
 "Ezin izan da '%s'(e)ra eramandako jatorrizko egoera-fitxategia berreskuratu: "
 "%s"
 
 #: ../gconf/gconfd.c:2068
 #, c-format
-msgid ""
-"Unable to restore a listener on address '%s', couldn't resolve the database"
+msgid "Unable to restore a listener on address '%s', couldn't resolve the database"
 msgstr ""
 "Ezin da '%s' helbideko entzungailu bat leheneratu, ezin izan da datu-basea "
 "ebatzi"
@@ -1639,18 +1626,15 @@ msgstr "Huts egin du gordetako egoera-fitxategia irekitzean: %s"
 #: ../gconf/gconfd.c:2329
 #, c-format
 msgid "Failed to write client add to saved state file: %s"
-msgstr ""
-"Huts egin du gehitutako bezeroa gordetako egoera-fitxategian idaztean: %s"
+msgstr "Huts egin du gehitutako bezeroa gordetako egoera-fitxategian idaztean: %s"
 
 #: ../gconf/gconfd.c:2337
 #, c-format
 msgid "Failed to flush client add to saved state file: %s"
-msgstr ""
-"Huts egin du gehitutako bezeroa gordetako egoera-fitxategian iraultzean: %s"
+msgstr "Huts egin du gehitutako bezeroa gordetako egoera-fitxategian iraultzean: %s"
 
 #: ../gconf/gconfd.c:2436
-msgid ""
-"Some client removed itself from the GConf server when it hadn't been added."
+msgid "Some client removed itself from the GConf server when it hadn't been added."
 msgstr ""
 "Bezero batzuek beren burua kendu dute GConf zerbitzaritik, baina gehitu gabe "
 "zeuden."
@@ -1832,7 +1816,7 @@ msgid ""
 "Bypass server, and access the configuration database directly. Requires that "
 "gconfd is not running."
 msgstr ""
-"Sartu konfigurazioko datu-basean zuzenan, zerbitzaritik pasa gabe. "
+"Sartu konfigurazioko datu-basean zuzenean, zerbitzaritik pasa gabe. "
 "Horretarako, gconfd-ek ezin du martxan egon."
 
 #: ../gconf/gconftool.c:376
@@ -1873,7 +1857,7 @@ msgid ""
 "the directories on the command line."
 msgstr ""
 "Aplikazioaren proba sakona egiten du komando-lerroko direktorioen "
-"barruangakoak ezarriz eta aldatuz."
+"barruan gakoak ezarriz eta aldatuz."
 
 #: ../gconf/gconftool.c:424
 msgid ""
@@ -2073,8 +2057,7 @@ msgstr ""
 "instalatuko\n"
 
 #: ../gconf/gconftool.c:863
-msgid ""
-"GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL is set, not uninstalling schemas\n"
 msgstr ""
 "GCONF_DISABLE_MAKEFILE_SCHEMA_UNINSTALL ezarri da, ez du eskemarik "
 "desinstalatuko\n"
@@ -2095,8 +2078,7 @@ msgstr "Errorea gertatu da ixtean: %s\n"
 
 #: ../gconf/gconftool.c:1241
 msgid "Must specify one or more directories to recursively list.\n"
-msgstr ""
-"Direktorio bat edo gehiago zehaztu behar dira errekurtsiboki zerrendatzeko.\n"
+msgstr "Direktorio bat edo gehiago zehaztu behar dira errekurtsiboki zerrendatzeko.\n"
 
 #: ../gconf/gconftool.c:1272 ../gconf/gconftool.c:1433
 #: ../gconf/gconftool.c:1699
@@ -2209,10 +2191,8 @@ msgid "When setting a list you must specify a primitive list-type\n"
 msgstr "Zerrenda ezartzean jatorrizko zerrenda-mota zehaztu behar da\n"
 
 #: ../gconf/gconftool.c:1986
-msgid ""
-"When setting a pair you must specify a primitive car-type and cdr-type\n"
-msgstr ""
-"Bikotea ezartzean jatorrizko car-type eta cdr-type zehaztu behar dira\n"
+msgid "When setting a pair you must specify a primitive car-type and cdr-type\n"
+msgstr "Bikotea ezartzean jatorrizko car-type eta cdr-type zehaztu behar dira\n"
 
 #: ../gconf/gconftool.c:2001
 #, c-format
@@ -2247,8 +2227,7 @@ msgstr "%s gakoa ez da zerrenda.\n"
 #
 #: ../gconf/gconftool.c:2136
 msgid "Must specify a key from which to get list element.\n"
-msgstr ""
-"Elementu-zerrenda zein gakotatik eskuratu behar den zehaztu behar da.\n"
+msgstr "Elementu-zerrenda zein gakotatik eskuratu behar den zehaztu behar da.\n"
 
 #
 #: ../gconf/gconftool.c:2167
@@ -2457,8 +2436,7 @@ msgstr "KONTUZ: huts egin du '%s' mota-izena analizatzean\n"
 
 #: ../gconf/gconftool.c:3297
 #, c-format
-msgid ""
-"WARNING: list_type can only be int, float, string or bool and not `%s'\n"
+msgid "WARNING: list_type can only be int, float, string or bool and not `%s'\n"
 msgstr ""
 "KONTUZ: list_type hauek egon daitezke bakarrik: int, float, string edo bool "
 "eta ez '%s'\n"
@@ -2503,13 +2481,11 @@ msgstr "KONTUZ: ez dago <cdr_type>rik zehaztuta bikote-motako eskeman\n"
 
 #: ../gconf/gconftool.c:3434
 msgid "WARNING: <locale> node has no `name=\"locale\"' attribute, ignoring\n"
-msgstr ""
-"KONTUZ: <locale> nodoak ez du 'izena=\"locale\"' atributua, jaramonik ez\n"
+msgstr "KONTUZ: <locale> nodoak ez du 'izena=\"locale\"' atributua, jaramonik ez\n"
 
 #: ../gconf/gconftool.c:3440
 #, c-format
-msgid ""
-"WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
+msgid "WARNING: multiple <locale> nodes for locale `%s', ignoring all past first\n"
 msgstr ""
 "KONTUZ: <locale> nodo bat baino gehiago daude '%s' locale-rako; lehena ez "
 "beste guztiei ez ikusia egin\n"
@@ -2570,8 +2546,7 @@ msgstr "'%s' dokumentua hutsik dago?\n"
 #: ../gconf/gconftool.c:3840
 #, c-format
 msgid "Document `%s' has the wrong type of root node (<%s>, should be <%s>)\n"
-msgstr ""
-"'%s' dokumentuak mota okerreko erro-nodoa du (<%s> <%s> izan beharko luke)\n"
+msgstr "'%s' dokumentuak mota okerreko erro-nodoa du (<%s> <%s> izan beharko luke)\n"
 
 #: ../gconf/gconftool.c:3853
 #, c-format
@@ -2634,3 +2609,4 @@ msgstr ""
 "Zure aplikazioa apurtzen saiatzen ari da, ondoko direktorioan gakoen balio "
 "okerrak ezarriz:\n"
 " %s\n"
+
