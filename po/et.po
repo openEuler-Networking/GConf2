@@ -9,10 +9,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gconf HEAD\n"
+"Project-Id-Version: Gconf 2.32\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gconf&component=general\n"
-"POT-Creation-Date: 2009-05-06 03:42+0000\n"
+"POT-Creation-Date: 2010-10-05 16:15+0000\n"
 "PO-Revision-Date: 2010-09-27 22:53+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -751,12 +751,8 @@ msgid "Failed to get connection to session: %s"
 msgstr "Tõrge seansiga ühenduse saamisel: %s"
 
 #, c-format
-msgid "Could not send message to GConf daemon: %s"
-msgstr "GConf-deemonile pole võimalik sõnumit saata: %s"
-
-#, c-format
-msgid "daemon gave erroneous reply: %s"
-msgstr "deemonilt saabus vigane vastus: %s"
+msgid "GetIOR failed: %s"
+msgstr ""
 
 #, c-format
 msgid "couldn't contact ORB to resolve existing gconfd object reference"
@@ -2054,37 +2050,3 @@ msgid ""
 "directory:\n"
 "  %s\n"
 msgstr ""
-
-#~ msgid "Attribute \"%s\" repeated twice on the same <%s> element"
-#~ msgstr "Atribuuti \"%s\" on kasutatud kaks korda sama elemendi <%s> korral"
-
-#~ msgid "gconftool or other non-gconfd process has the lock file '%s'"
-#~ msgstr ""
-#~ "gconftool või mõni muu mitte-gconfd protsess on faili '%s' lukustanud"
-
-#~ msgid "Failed to unlink lock file %s: %s\n"
-#~ msgstr "Tõrge lukufaili %s lahtiühendamisel: %s\n"
-
-#~ msgid "Failed to stat %s: %s"
-#~ msgstr "Tõrge %s kohta andmete hankimisel: %s"
-
-#~ msgid "Failed to launch configuration server: %s\n"
-#~ msgstr "Tõrge seadistusserveri startimisel: %s\n"
-
-#~ msgid "Failed to open %s: %s"
-#~ msgstr "Tõrge %s avamisel: %s"
-
-#~ msgid "Owner of %s is not the current user"
-#~ msgstr "%s omanik pole praegune kasutaja"
-
-#~ msgid "Bad permissions %lo on directory %s"
-#~ msgstr "Vigased pääsuõigused %lo kataloogil %s"
-
-#~ msgid "Failed to create %s: %s"
-#~ msgstr "Tõrge %s loomisel: %s"
-
-#~ msgid "Directory %s has a problem, gconfd can't use it"
-#~ msgstr "Kataloogiga %s on probleem, gconfd ei saa seda kasutada"
-
-#~ msgid "Received signal %d. Please report a GConf bug."
-#~ msgstr "Võeti vastu signaal %d. Palun teavita arendajaid GConf'i veast."
