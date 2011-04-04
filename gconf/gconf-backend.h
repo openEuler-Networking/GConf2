@@ -131,7 +131,7 @@ struct _GConfBackendVTable {
   /* This is basically used by the test suite */
   void                (* clear_cache)     (GConfSource* source);
 
-  /* used by gconf-sanity-check */
+  /* was used by gconf-sanity-check */
   void                (* blow_away_locks) (const char *address);
 
   void                (* set_notify_func) (GConfSource           *source,

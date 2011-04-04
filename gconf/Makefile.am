@@ -25,16 +25,10 @@ INCLUDES=								\
 
 EFENCE=
 
-if GTK
-SANITY_CHECK=gconf-sanity-check-2
-else
-SANITY_CHECK=
-endif
-
 lib_LTLIBRARIES = libgconf-2.la
 
 bin_PROGRAMS = gconftool-2 
-libexec_PROGRAMS = gconfd-2 $(SANITY_CHECK)
+libexec_PROGRAMS = gconfd-2
 
 CORBA_SOURCECODE = GConfX-common.c GConfX-skels.c GConfX-stubs.c GConfX.h
 
@@ -99,11 +93,6 @@ gconftool_2_SOURCES = \
 	gconftool.c
 
 gconftool_2_LDADD = libgconf-$(MAJOR_VERSION).la $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_LIBS)
-
-gconf_sanity_check_2_SOURCES = \
-	gconf-sanity-check.c
-
-gconf_sanity_check_2_LDADD = libgconf-$(MAJOR_VERSION).la $(EFENCE) $(INTLLIBS) $(DEPENDENT_WITH_XML_AND_GTK_LIBS)
 
 $(CORBA_SOURCECODE): $(srcdir)/GConfX.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $(srcdir)/GConfX.idl
