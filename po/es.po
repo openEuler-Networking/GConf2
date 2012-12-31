@@ -12,10 +12,11 @@ msgstr ""
 "Project-Id-Version: gconf.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gconf&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-05-31 11:18+0000\n"
-"PO-Revision-Date: 2012-09-16 12:32+0200\n"
+"POT-Creation-Date: 2012-09-16 11:18+0000\n"
+"PO-Revision-Date: 2012-12-31 11:57+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -93,7 +94,7 @@ msgstr "Se obtuvieron %d entradas usando el filtro: %s"
 #: ../backends/gconf-merge-tree.c:59
 #, c-format
 msgid "Cannot find directory %s\n"
-msgstr "No se pudo encontrar el directorio %s \n"
+msgstr "No se pudo encontrar la carpeta %s \n"
 
 #: ../backends/gconf-merge-tree.c:75
 #, c-format
@@ -132,26 +133,24 @@ msgstr "Descargando el backend del módulo de marcado de texto."
 #: ../backends/markup-backend.c:226 ../backends/xml-backend.c:288
 #, c-format
 msgid "Couldn't find the XML root directory in the address `%s'"
-msgstr "No se pudo encontrar el directorio raíz XML en la dirección «%s»"
+msgstr "No se pudo encontrar la carpeta raíz XML en la dirección «%s»"
 
 #: ../backends/markup-backend.c:283 ../backends/xml-backend.c:343
 #, c-format
 msgid "Could not make directory `%s': %s"
-msgstr "No se pudo crear el directorio «%s»: %s"
+msgstr "No se pudo crear la carpeta «%s»: %s"
 
 #: ../backends/markup-backend.c:392 ../backends/xml-backend.c:444
 #, c-format
 msgid ""
 "Can't read from or write to the XML root directory in the address \"%s\""
-msgstr ""
-"No se puede leer ni escribir el directorio raíz XML en la dirección «%s»"
+msgstr "No se puede leer ni escribir la carpeta raíz XML en la dirección «%s»"
 
 #: ../backends/markup-backend.c:403 ../backends/xml-backend.c:454
 #, c-format
 msgid "Directory/file permissions for XML source at root %s are: %o/%o"
 msgstr ""
-"Los permisos del archivo/directorio para la fuente XML en la raíz %s son: %o/"
-"%o"
+"Los permisos del archivo/carpeta para la fuente XML en la raíz %s son: %o/%o"
 
 #: ../backends/markup-backend.c:742 ../backends/xml-backend.c:685
 #, c-format
@@ -159,14 +158,14 @@ msgid ""
 "Remove directory operation is no longer supported, just remove all the "
 "values in the directory"
 msgstr ""
-"La operación de eliminar directorio ya no está admitida, elimine todos los "
-"valores en el directorio"
+"La operación de eliminar carpeta ya no está admitida, elimine todos los "
+"valores en la carpeta"
 
 #: ../backends/markup-backend.c:828 ../backends/xml-backend.c:771
 #, c-format
 msgid "Could not open lock directory for %s to remove locks: %s\n"
 msgstr ""
-"No se pudo abrir el bloqueo del directorio para %s para quitar los bloqueos: "
+"No se pudo abrir la carpeta de bloqueos para %s para quitar los bloqueos: "
 "%s\n"
 
 #: ../backends/markup-backend.c:841 ../backends/xml-backend.c:784
@@ -181,7 +180,7 @@ msgstr "Inicializando el backend del módulo de marcado de texto"
 #: ../backends/markup-backend.c:923 ../backends/xml-backend.c:885
 #, c-format
 msgid "Failed to give up lock on XML directory \"%s\": %s"
-msgstr "Falló al liberar el bloqueo en el directorio XML «%s»: %s"
+msgstr "Falló al liberar el bloqueo en la carpeta XML «%s»: %s"
 
 #: ../backends/markup-tree.c:437
 #, c-format
@@ -191,7 +190,7 @@ msgstr "Falló al escribir algunos datos de configuración al disco\n"
 #: ../backends/markup-tree.c:960 ../backends/xml-dir.c:1267
 #, c-format
 msgid "Could not make directory \"%s\": %s"
-msgstr "No se pudo crear el directorio «%s»: %s"
+msgstr "No se pudo crear la carpeta «%s»: %s"
 
 #: ../backends/markup-tree.c:1000 ../backends/markup-tree.c:1007
 #, c-format
@@ -364,7 +363,7 @@ msgstr "Descargando el módulo de backend de XML."
 #: ../backends/xml-backend.c:620
 #, c-format
 msgid "Error syncing the XML backend directory cache: %s"
-msgstr "Falló al sincronizar el backend del caché del directorio en XML: %s"
+msgstr "Falló al sincronizar el backend de la caché de la carpeta en XML: %s"
 
 #: ../backends/xml-backend.c:811
 msgid "Initializing XML backend module"
@@ -380,8 +379,8 @@ msgid ""
 "Unable to remove directory `%s' from the XML backend cache, because it has "
 "not been successfully synced to disk"
 msgstr ""
-"No se puede eliminar el directorio «%s» de la caché del backend XML, porque "
-"no ha sido sincronizado con la información del disco"
+"No se puede eliminar la carpeta «%s» de la caché del backend XML, porque no "
+"se ha sincronizado con la información del disco"
 
 #: ../backends/xml-dir.c:170
 #, c-format
@@ -391,7 +390,7 @@ msgstr "No se puede obtener datos de «%s»: %s"
 #: ../backends/xml-dir.c:180
 #, c-format
 msgid "XML filename `%s' is a directory"
-msgstr "El archivo XML «%s» es un directorio"
+msgstr "El archivo XML «%s» es una carpeta"
 
 #: ../backends/xml-dir.c:417 ../backends/xml-dir.c:426
 #, c-format
@@ -748,7 +747,7 @@ msgstr "Falló al comprobar la existencia de «%s»: %s"
 #: ../gconf/gconf-database.c:1706
 #, c-format
 msgid "Error removing directory \"%s\": %s"
-msgstr "Falló al eliminar el directorio «%s»: %s"
+msgstr "Falló al eliminar la carpeta «%s»: %s"
 
 #: ../gconf/gconf-database.c:1733
 #, c-format
@@ -758,7 +757,7 @@ msgstr "Falló al establecer todos los registros en «%s»: %s"
 #: ../gconf/gconf-database.c:1759
 #, c-format
 msgid "Error listing dirs in `%s': %s"
-msgstr "Falló al listar directorios en «%s»: %s"
+msgstr "Falló al listar carpetas en «%s»: %s"
 
 #: ../gconf/gconf-database.c:1780
 #, c-format
@@ -830,7 +829,7 @@ msgstr "No se puede resolver la dirección para la fuente de configuración"
 
 #: ../gconf/gconf-error.c:31
 msgid "Bad key or directory name"
-msgstr "Clave o nombre de directorio erróneo"
+msgstr "Clave o nombre de carpeta erróneo"
 
 #: ../gconf/gconf-error.c:32
 msgid "Parse error"
@@ -846,15 +845,15 @@ msgstr "Tipos incompatibles"
 
 #: ../gconf/gconf-error.c:35
 msgid "Key operation on directory"
-msgstr "Operación de clave sobre directorio"
+msgstr "Operación de clave sobre carpeta"
 
 #: ../gconf/gconf-error.c:36
 msgid "Directory operation on key"
-msgstr "Operación de directorio sobre clave"
+msgstr "Operación de carpeta sobre clave"
 
 #: ../gconf/gconf-error.c:37
 msgid "Can't overwrite existing read-only value"
-msgstr "No se puede sobreescribir un valor de solo lectura"
+msgstr "No se puede sobrescribir un valor de solo lectura"
 
 #: ../gconf/gconf-error.c:38
 msgid "Object Activation Framework error"
@@ -918,7 +917,7 @@ msgstr "UTF-8 no es válido para el esquema pera en el propietario"
 #: ../gconf/gconf-internals.c:885
 #, c-format
 msgid "Couldn't open path file `%s': %s\n"
-msgstr "No se pudo abrir el directorio del archivo «%s»: %s\n"
+msgstr "No se pudo abrir la carpeta del archivo «%s»: %s\n"
 
 #: ../gconf/gconf-internals.c:941
 #, c-format
@@ -1036,7 +1035,7 @@ msgstr "Falló al convertir IOR «%s» a una referencia a un objeto"
 #: ../gconf/gconf-internals.c:2591
 #, c-format
 msgid "couldn't create directory `%s': %s"
-msgstr "no se puede crear el directorio «%s»: %s"
+msgstr "no se puede crear la carpeta «%s»: %s"
 
 #: ../gconf/gconf-internals.c:2648
 #, c-format
@@ -1067,7 +1066,7 @@ msgstr "Falló al quitar el archivo «%s»: %s"
 #: ../gconf/gconf-internals.c:2763
 #, c-format
 msgid "Failed to remove lock directory `%s': %s"
-msgstr "Falló el eliminar el bloqueo al directorio «%s»: %s"
+msgstr "Falló el eliminar el bloqueo de la carpeta «%s»: %s"
 
 #: ../gconf/gconf-internals.c:2893
 #, c-format
@@ -1115,7 +1114,7 @@ msgstr ""
 "problemas:\n"
 "No se puede abrir o crear el archivo «%s». Esto indica que existe un "
 "problema con su configuración, dado que muchos programas necesitarán crear "
-"archivos en su directorio. El error es «%s» (errno = %d)."
+"archivos en su carpeta. El error es «%s» (errno = %d)."
 
 #: ../gconf/gconf-sanity-check.c:182
 #, c-format
@@ -1131,10 +1130,10 @@ msgstr ""
 "Contacte a su administrador de sistemas para resolver los siguientes "
 "problemas:\n"
 "No se puede crear un bloqueo del archivo «%s». Esto indica que existe un "
-"problema con la configuración de su sistema operativo. Si su directorio está "
-"montado por NFS, el cliente o el servidor deben estar mal configurados. Vea "
+"problema con la configuración de su sistema operativo. Si su carpeta está "
+"montada por NFS, el cliente o el servidor deben estar mal configurados. Vea "
 "la documentación de rpc.statd y rpc.lockd. Una causa bastante común de este "
-"error es que el servicio \"nfslock\" ha sido desactivado. El error es "
+"error es que el servicio \"nfslock\" se ha desactivado. El error es "
 "«%s» (errno = %d)."
 
 #: ../gconf/gconf-sanity-check.c:199
@@ -1264,7 +1263,7 @@ msgstr "Esquema «%s» especificado por «%s» guarda un valor no esquemático"
 
 #: ../gconf/gconf-sources.c:745
 msgid "The '/' name can only be a directory, not a key"
-msgstr "El nombre '/' solo puede ser un directorio, no una clave"
+msgstr "El nombre '/' solo puede ser una carpeta, no una clave"
 
 #: ../gconf/gconf-sources.c:787
 #, c-format
@@ -1300,8 +1299,8 @@ msgstr ""
 "causas comunes para este problema: 1) su ruta de configuración %s/path no "
 "contiene ninguna base de datos o no ha sido encontrada; ó 2) de alguna "
 "manera se han creado erróneamente dos procesos gconfd; ó 3) el sistema está "
-"mal configurado y el bloqueo de NFS no funciona en su directorio raíz; ó 4) "
-"la máquina NFS cliente dejó de funcionar y no notificó correctamente al "
+"mal configurado y el bloqueo de NFS no funciona en su carpeta raíz; ó 4) la "
+"máquina NFS cliente dejó de funcionar y no notificó correctamente al "
 "servidor al reiniciarse que se deberían eliminar los bloqueos de archivo. Si "
 "tiene dos procesos gconfd (o tenía dos en el momento en el que el segundo "
 "fue lanzado), cierre, termine todas las copias de gconfd, y vuelva a "
@@ -1311,7 +1310,7 @@ msgstr ""
 "predeterminada que previene las conexiones remotas de CORBA - defina "
 "\"ORBIIOPIPv4=1\" en /etc/orbitrc. Como siempre, compruebe las bitácoras "
 "user.* para obtener más detalles sobre los problemas encontrados por gconfd. "
-"Solo puede haber un gconfd por directorio raíz, y debe tener un archivo de "
+"Solo puede haber un gconfd por carpeta raíz, y debe tener un archivo de "
 "bloqueo en ~/.gconfd y también archivos de bloqueo en los sitios de "
 "almacenamiento locales como ~/.gconf"
 
@@ -1405,11 +1404,11 @@ msgstr "«\\%o» no es un carácter ASCII, no está permitido en nombres de clav
 #: ../gconf/gconf.c:2765
 #, c-format
 msgid "`%c' is an invalid character in key/directory names"
-msgstr "`%c' no es un carácter válido en los nombres de claves/directorios"
+msgstr "`%c' no es un carácter válido en los nombres de claves/carpetas"
 
 #: ../gconf/gconf.c:2779
 msgid "Key/directory may not end with a slash '/'"
-msgstr "Las claves/directorios no pueden terminar con una barra «/»"
+msgstr "Las claves/carpetas no pueden terminar con una barra «/»"
 
 #: ../gconf/gconf.c:3151
 #, c-format
@@ -1456,7 +1455,7 @@ msgid ""
 "directory"
 msgstr ""
 "gconfd ha sido compilado con opciones de depuración: tratando de cargar "
-"gconf.path desde el directorio de fuente"
+"gconf.path desde la carpeta fuente"
 
 #: ../gconf/gconfd.c:405
 #, c-format
@@ -1726,7 +1725,7 @@ msgid ""
 "Recursively unset all keys at or below the key/directory names on the "
 "command line"
 msgstr ""
-"Eliminar las asignaciones de todas las claves en o bajo el directorio de "
+"Eliminar las asignaciones de todas las claves en o bajo la carpeta de "
 "nombres en la línea de comandos"
 
 #: ../gconf/gconftool.c:130
@@ -1735,17 +1734,16 @@ msgstr "Conmuta una clave booleana."
 
 #: ../gconf/gconftool.c:139
 msgid "Print all key/value pairs in a directory."
-msgstr "Imprime todos los pares clave/valor en un directorio."
+msgstr "Imprime todos los pares clave/valor en un carpeta."
 
 #: ../gconf/gconftool.c:148
 msgid "Print all subdirectories in a directory."
-msgstr "Imprime todos los subdirectorios de un directorio."
+msgstr "Imprime todos las subcarpetas de una carpeta."
 
 #: ../gconf/gconftool.c:157
 msgid "Print all subdirectories and entries under a directory, recursively."
 msgstr ""
-"Imprime todos los subdirectorios y entradas bajo  un directorio, "
-"recursivamente."
+"Imprime todos las subcarpetas y entradas bajo una carpeta, recursivamente."
 
 #: ../gconf/gconftool.c:166 ../gconf/gconftool.c:175
 msgid "Search for a key, recursively."
@@ -1761,7 +1759,7 @@ msgstr "Obtener la cadena doc larga para una clave"
 
 #: ../gconf/gconftool.c:202
 msgid "Return 0 if the directory exists, 2 if it does not."
-msgstr "Devuelve 0 si el directorio existe, 2 si no existe."
+msgstr "Devuelve 0 si la carpeta existe, 2 si no existe."
 
 #: ../gconf/gconftool.c:211
 msgid "Ignore schema defaults when reading values."
@@ -1773,7 +1771,7 @@ msgid ""
 "recursively."
 msgstr ""
 "Volcar a la salida estándar una descripción XML de todas las entradas bajo "
-"un directorio, recursivamente."
+"una carpeta, recursivamente."
 
 #: ../gconf/gconftool.c:235
 msgid ""
@@ -1781,7 +1779,7 @@ msgid ""
 "relative to a directory."
 msgstr ""
 "Cargar desde el archivo especificado una descripción XML de valores y "
-"establecerlos relativos a un directorio."
+"establecerlos relativos a una carpeta."
 
 #: ../gconf/gconftool.c:244
 msgid "Unload a set of values described in an XML file."
@@ -1916,7 +1914,8 @@ msgid ""
 "different types for keys on the command line."
 msgstr ""
 "Realiza un test exhaustivo de una aplicación mediante la asignación y la "
-"desasignación de valores de distintos tipos para claves de la línea de comandos."
+"desasignación de valores de distintos tipos para claves de la línea de "
+"comandos."
 
 #: ../gconf/gconftool.c:430
 msgid ""
@@ -2195,7 +2194,7 @@ msgstr "Error al compilar la expresión regular: %s\n"
 #: ../gconf/gconftool.c:1507
 #, c-format
 msgid "Must specify one or more directories to dump.\n"
-msgstr "Debe especificar uno o más directorios para volcar.\n"
+msgstr "Debe especificar una o más carpetas para volcar.\n"
 
 #: ../gconf/gconftool.c:1874
 #, c-format
@@ -2451,7 +2450,7 @@ msgstr "Error al sincronizar: %s"
 #, c-format
 msgid "Must specify one or more directories to get key/value pairs from.\n"
 msgstr ""
-"Debe especificar uno o más directorios donde obtener los pares clave/valor.\n"
+"Debe especificar una o más carpetas donde obtener los pares clave/valor.\n"
 
 #: ../gconf/gconftool.c:2702
 #, c-format
@@ -2479,13 +2478,12 @@ msgstr "Error al eliminar la asignación recursivamente «%s»: %s\n"
 #, c-format
 msgid "Must specify one or more directories to get subdirs from.\n"
 msgstr ""
-"Debe especificar uno o más directorios de los cuales obtener "
-"subdirectorios.\n"
+"Debe especificar una o más carpetas de los cuales obtener subcarpetas.\n"
 
 #: ../gconf/gconftool.c:2801
 #, c-format
 msgid "Error listing dirs: %s\n"
-msgstr "Falló al listar los directorios: %s\n"
+msgstr "Falló al listar las carpetas: %s\n"
 
 #: ../gconf/gconftool.c:2937
 #, c-format
@@ -2762,7 +2760,7 @@ msgstr ""
 #: ../gconf/gconftool.c:4271
 #, c-format
 msgid "Must specify some directories to break\n"
-msgstr "Debe especificar algunos directorios a romper\n"
+msgstr "Debe especificar algunas carpetas que romper\n"
 
 #: ../gconf/gconftool.c:4290
 #, c-format
@@ -2772,7 +2770,7 @@ msgid ""
 "  %s\n"
 msgstr ""
 "Tratando de romper su aplicación asignando valores erróneos a las claves en "
-"el directorio:\n"
+"la carpeta:\n"
 "  %s\n"
 
 #: ../gsettings/gsettings-data-convert.desktop.in.h:1
