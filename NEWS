@@ -1,3 +1,28 @@
+3.2.6
+=====
+
+    * gsettings-schema-convert: Fix conversion of empty lists
+
+    * 671490 - Fix shutdown of gconfd
+
+    * 646663 - Removed unused gconf_get_lock_dir function
+
+    * 674803 - Use XDG config dir for settings storage
+
+    * 685509 - Fix early bailout on OS X
+
+    * 667167 - Fix a user-after-free
+
+    * 682963 - Remove obsolete debian/ dir
+
+    * 686634 - Fix a typo
+
+    * 653809 - Add Unity to OnlyShowIn
+
+    * 646674 - Remove gconf-sanity-check
+
+    * Translation updates
+
 3.2.5
 =====
 
