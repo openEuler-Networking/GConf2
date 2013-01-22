@@ -17,7 +17,6 @@ gconf/gconf-database-dbus.c
 gconf/gconf-dbus.c
 gconf/gconf-error.c
 gconf/gconf-internals.c
-gconf/gconf-sanity-check.c
 gconf/gconf-schema.c
 gconf/gconf-sources.c
 gconf/gconf-value.c
