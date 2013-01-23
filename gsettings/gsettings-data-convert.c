@@ -22,6 +22,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
 
@@ -90,6 +91,10 @@ get_writable_client (void)
   GSList *addresses;
 
   addresses = get_writable_source_path ();
+  if (!addresses) {
+    g_printf("No writable gconf locations found\n");
+    exit (1);
+  }
   engine = gconf_engine_get_local_for_addresses (addresses, NULL);
   gconf_address_list_free (addresses);
 
@@ -155,7 +160,7 @@ handle_file (const gchar *filename)
 
       schema_path = g_strsplit (groups[i], ":", 2);
 
-      schema = g_settings_schema_source_lookup (source, schema_path[0], FALSE);
+      schema = g_settings_schema_source_lookup (source, schema_path[0], TRUE);
       if (schema == NULL)
         {
           if (verbose)
