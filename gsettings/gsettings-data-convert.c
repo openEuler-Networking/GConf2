@@ -182,7 +182,23 @@ handle_file (const gchar *filename)
         }
 
       if (schema_path[1] != NULL)
-        settings = g_settings_new_with_path (schema_path[0], schema_path[1]);
+	{
+	  char *compat_path_alloced = NULL; 
+	  char *compat_path;
+	  /* Work around broken .convert files:
+	     https://bugzilla.gnome.org/show_bug.cgi?id=704802
+	  */
+	  if (!g_str_has_suffix (schema_path[1], "/"))
+	    {
+	      g_warning ("Schema file '%s' has missing trailing / in '%s'",
+			 filename, schema_path[1]);
+	      compat_path = compat_path_alloced = g_strconcat (schema_path[1], "/", NULL);
+	    }
+	  else
+	    compat_path = schema_path[1];
+	  settings = g_settings_new_with_path (schema_path[0], compat_path);
+	  g_free (compat_path_alloced);
+	}
       else
         settings = g_settings_new (schema_path[0]);
 
