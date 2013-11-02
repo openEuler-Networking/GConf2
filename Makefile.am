@@ -25,6 +25,8 @@ DISTCLEANFILES =          \
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection --enable-defaults-service --enable-gsettings-backend --disable-orbit
 
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+
 install-data-local:
 	-mkdir -p $(DESTDIR)$(sysgconfdir)/gconf.xml.defaults
 	-chmod 755 $(DESTDIR)$(sysgconfdir)/gconf.xml.defaults

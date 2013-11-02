@@ -1,4 +1,5 @@
 AC_PREREQ(2.60)
+AC_CONFIG_MACRO_DIR([m4])
 AC_INIT([GConf],
   [3.2.6],
   [http://bugzilla.gnome.org/enter_bug.cgi?product=GConf],
