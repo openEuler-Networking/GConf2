@@ -2483,8 +2483,6 @@ get_ior (gboolean start_if_not_found,
                 return NULL;
         }
 
-        g_type_init ();
-
         connection = g_bus_get_sync (G_BUS_TYPE_SESSION, NULL, &error);
         if (connection == NULL) {
                 if (failure_log)

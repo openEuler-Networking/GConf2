@@ -131,7 +131,7 @@ entry_attached_to(GConfClient* client, const gchar* key)
                    G_CALLBACK(entry_destroyed_callback),
                    client);
   
-  hbox = gtk_hbox_new(FALSE, 10);
+  hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
 
   label = gtk_label_new(key);
 
@@ -268,7 +268,7 @@ create_controls(GConfClient* client)
   g_signal_connect(G_OBJECT(win), "destroy",
                    G_CALLBACK(destroy_callback), client);
 
-  vbox = gtk_vbox_new(FALSE, 10);
+  vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
 
   gtk_container_add(GTK_CONTAINER(win), vbox);
 

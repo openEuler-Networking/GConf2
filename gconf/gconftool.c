@@ -578,8 +578,6 @@ main (int argc, char** argv)
   bindtextdomain (GETTEXT_PACKAGE,GCONF_LOCALE_DIR);
   textdomain (GETTEXT_PACKAGE);
 
-  g_thread_init (NULL);
-
   _gconf_init_i18n ();
   
   context = g_option_context_new (N_("- Tool to manipulate a GConf configuration"));

@@ -442,8 +442,6 @@ notify_from_server_callback (GConfEngine* conf, guint cnxn_id,
  * #GConfClient, this function returns the same one they're using, but
  * with the reference count incremented. So you have to unref either way.
  *
- * It's important to call g_type_init() before using this GObject, to initialize the type system.
- *
  * Return value: (transfer full): a new #GConfClient. g_object_unref() when you're done.
  */
 GConfClient*

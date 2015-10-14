@@ -33,9 +33,7 @@ GConfBackendVTable* gconf_backend_get_vtable (void);
 int
 main (int argc, char **argv)
 {
-  GConfBackendVTable *vtable;
-
-  vtable = gconf_backend_get_vtable ();
+  gconf_backend_get_vtable ();
   
   xml_test_entry ();
   xml_test_dir ();

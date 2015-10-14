@@ -3116,11 +3116,10 @@ parse_li_element (GMarkupParseContext  *context,
                   ParseInfo            *info,
                   GError              **error)
 {
-  ParseState current_state;
   GConfValue *value;
   GConfValue *list;
 
-  current_state = peek_state (info);
+  peek_state (info);
 
   push_state (info, STATE_LI);
   

@@ -156,9 +156,6 @@ gconf_defaults_constructor (GType                  type,
                             GObjectConstructParam *construct_properties)
 {
         GConfDefaults      *mechanism;
-        GConfDefaultsClass *klass;
-
-        klass = GCONF_DEFAULTS_CLASS (g_type_class_peek (GCONF_TYPE_DEFAULTS));
 
         mechanism = GCONF_DEFAULTS (G_OBJECT_CLASS (gconf_defaults_parent_class)->constructor (
                                                 type,
@@ -228,7 +225,7 @@ register_mechanism (GConfDefaults *mechanism)
 {
         GError *error = NULL;
 
-        mechanism->priv->auth = polkit_authority_get ();
+        mechanism->priv->auth = polkit_authority_get_sync (NULL, NULL);
 
         error = NULL;
         mechanism->priv->system_bus_connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);

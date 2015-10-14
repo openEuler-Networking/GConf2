@@ -682,10 +682,6 @@ system_bus_message_handler (DBusConnection *connection,
 			    DBusMessage    *message,
 			    void           *user_data)
 {
-  DBusMessage *reply;
-
-  reply = NULL;
-
   if (dbus_message_is_signal (message,
 			      "org.gnome.GConf.Defaults",
                               "SystemSet"))

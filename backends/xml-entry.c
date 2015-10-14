@@ -498,10 +498,8 @@ node_set_schema_value(xmlNodePtr node,
   
   if (gconf_schema_get_long_desc (sc))
     {
-      xmlNodePtr ld_node;
-      
-      ld_node = xmlNewChild(found, NULL, (xmlChar *)"longdesc", 
-                            (xmlChar *)gconf_schema_get_long_desc (sc));
+      xmlNewChild(found, NULL, (xmlChar *)"longdesc",
+                  (xmlChar *)gconf_schema_get_long_desc (sc));
     }
 }
 
@@ -536,7 +534,6 @@ node_set_value(xmlNodePtr node, GConfValue* value)
       break;
     case GCONF_VALUE_STRING:
       {
-        xmlNodePtr child;
         xmlChar* encoded;
         
         free_childs(node);
@@ -544,8 +541,8 @@ node_set_value(xmlNodePtr node, GConfValue* value)
         encoded = xmlEncodeEntitiesReentrant(node->doc,
                                              (xmlChar *)gconf_value_get_string(value));
         
-        child = xmlNewChild(node, NULL, (xmlChar *)"stringvalue",
-                            encoded);
+        xmlNewChild(node, NULL, (xmlChar *)"stringvalue",
+                    encoded);
         xmlFree(encoded);
       }
       break;      

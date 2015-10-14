@@ -107,7 +107,6 @@ get_system_bus (void)
 {
         GError          *error;
         DBusGConnection *bus;
-        DBusConnection  *connection;
 
         error = NULL;
         bus = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
@@ -117,7 +116,7 @@ get_system_bus (void)
                 goto out;
         }
 
-        connection = dbus_g_connection_get_connection (bus);
+        dbus_g_connection_get_connection (bus);
  out:
         return bus;
 }
@@ -162,7 +161,6 @@ main (int argc, char **argv)
                 g_thread_init (NULL);
         }
         dbus_g_thread_init ();
-        g_type_init ();
 
 	options = g_option_context_new (NULL);
 	g_option_context_add_main_entries (options, entries, NULL);

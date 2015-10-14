@@ -246,7 +246,7 @@ create_main_window(GConfClient* client)
   
   w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-  vbox = gtk_vbox_new(FALSE, 10);
+  vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
 
   gtk_container_add(GTK_CONTAINER(w), vbox);
   
@@ -620,9 +620,9 @@ create_prefs_dialog(GtkWidget* parent, GConfClient* client)
   
   bbox = gtk_hbutton_box_new();
 
-  vbox_outer = gtk_vbox_new(FALSE, 10);
+  vbox_outer = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
 
-  vbox_inner = gtk_vbox_new(FALSE, 10);
+  vbox_inner = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
   
   gtk_container_add(GTK_CONTAINER(dialog), vbox_outer);
 
