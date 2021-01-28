@@ -914,8 +914,8 @@ main (int argc, char** argv)
 
       use_local_source = TRUE;
 
-      /* shut down daemon, this is a race condition, but will usually work. */
-      gconf_shutdown_daemon (NULL);
+      g_spawn_command_line_sync ("/usr/bin/pkill -HUP -f /usr/libexec/gconfd-2",
+                                 NULL, NULL, NULL, NULL);
     }
 
   if (config_source == NULL)

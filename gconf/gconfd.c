@@ -1072,17 +1072,6 @@ periodic_cleanup_timeout(gpointer data)
 #endif
   drop_old_databases ();
 
-#ifdef HAVE_DBUS
-  if (no_databases_in_use () && gconfd_dbus_client_count () == 0)
-#else
-  if (no_databases_in_use () && client_count () == 0)
-#endif
-    {
-      gconf_log (GCL_INFO, _("GConf server is not in use, shutting down."));
-      gconfd_main_quit ();
-      return FALSE;
-    }
-  
   /* expire old locale cache entries */
   gconfd_locale_cache_expire ();
 
@@ -1101,7 +1090,6 @@ periodic_cleanup_timeout(gpointer data)
   
   return TRUE;
 }
-
 void
 gconfd_need_log_cleanup (void)
 {
@@ -1127,14 +1115,14 @@ gconf_main(void)
     }
   
   main_loops = g_slist_prepend(main_loops, loop);
+  main_loops = g_slist_prepend(main_loops, loop);
 
   g_main_loop_run (loop);
 
   main_loops = g_slist_remove(main_loops, loop);
 
-  if (main_loops == NULL)
+  if (main_loops == NULL && timeout_id != 0)
     {
-      g_assert(timeout_id != 0);
       g_source_remove(timeout_id);
       timeout_id = 0;
     }
